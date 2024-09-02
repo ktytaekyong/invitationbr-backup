@@ -1,0 +1,13 @@
+.container {
+  width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  border: 1px solid var(--border-color--default);
+}
+
+/* * > div.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
