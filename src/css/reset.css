@@ -24,6 +24,7 @@ ul, ol, li {
 }
 
 a {
+  display: inline-block;
   color: var(--text-color--default);
   text-decoration: none;
 }
