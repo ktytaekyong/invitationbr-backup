@@ -1,36 +1,42 @@
 /* Import */
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/ProduceItem.module.css";
 
 const ProduceItem = (props) => {
-  // const Section = document.querySelector(".Section");
-  // const Title = document.querySelector(".Title");
-  // const Content = document.querySelector(".Content");
-
   const [isActive, setIsActive] = useState(false);
+  const [isLoad, setIsLoad] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
-    console.log(isActive);
   };
+  
+  const contentRef = useRef(null);
+  const itemRef = useRef(null);
 
-  // Title.addEventListener("click", function(){
-  //   if(Section.classList.contains("CLASSNAME")) {
-  //     Section.classList.remove("CLASSNAME");
-  //     Section.style.height = 0 + "px";
-  //   } else {
-  //     Section.classList.add("CLASSNAME");
-  //     Content.style.height = Content.scrollHeight + "px";
-  //   }
-  // });
+  useEffect(() => {
+    if(itemRef.current.id === "produceItem0") {
+      setTimeout(() => {
+        setIsActive(true);
+      }, 300);
+    }
+  }, []);
+
+  useEffect(() => {
+    if(isActive === true) {
+      contentRef.current.style.height = contentRef.current.scrollHeight + "px";
+    } else {
+      contentRef.current.style.height = 0 + "px";
+      setIsLoad(false);
+    }
+  }, [isActive, isLoad, contentRef]);
 
   return (
-    <li className={styles.produce__item}>
+    <li className={`${styles.produce__item} ${isActive ? styles["active"] : ""}`} ref={itemRef} id={props.id}>
       <div className={styles.produce__title} onClick={activeToggleHandler}>
         <p>{props.itemTitle}</p>
         <img src="" alt="" className={styles.arrow_img} />
       </div>
-      <div className={styles.produce__content}>
+      <div className={styles.produce__content} ref={contentRef}>
         {props.itemContent}
       </div>
     </li>
