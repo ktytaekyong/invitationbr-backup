@@ -1,9 +1,11 @@
 /* Component */
 import OptionTabFixItem from "../common/OptionTabFixItem";
+/* CSS Module */
+import styles from "../../css/module/common/OptionTabFixList.module.css";
 
 const OptionTabFixList = () => {
   return (
-    <ul className="option__list">
+    <ul className={styles.option__list}>
       <OptionTabFixItem id={`tabOption${1}`} optionTitle="모시는 글" />
       <OptionTabFixItem id={`tabOption${2}`} optionTitle="예식 일시" />
     </ul>

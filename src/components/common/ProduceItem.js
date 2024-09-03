@@ -5,7 +5,6 @@ import styles from "../../css/module/common/ProduceItem.module.css";
 
 const ProduceItem = (props) => {
   const [isActive, setIsActive] = useState(false);
-  const [isLoad, setIsLoad] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
   };
@@ -23,12 +22,11 @@ const ProduceItem = (props) => {
 
   useEffect(() => {
     if(isActive === true) {
-      contentRef.current.style.height = contentRef.current.scrollHeight + "px";
+      // contentRef.current.style.height = contentRef.current.scrollHeight + "px";
     } else {
-      contentRef.current.style.height = 0 + "px";
-      setIsLoad(false);
+      // contentRef.current.style.height = 0 + "px";
     }
-  }, [isActive, isLoad, contentRef]);
+  }, [isActive, contentRef]);
 
   return (
     <li className={`${styles.produce__item} ${isActive ? styles["active"] : ""}`} ref={itemRef} id={props.id}>
@@ -37,7 +35,9 @@ const ProduceItem = (props) => {
         <img src="" alt="" className={styles.arrow_img} />
       </div>
       <div className={styles.produce__content} ref={contentRef}>
-        {props.itemContent}
+        <div className={styles.content}>
+          {props.itemContent}
+        </div>
       </div>
     </li>
   )
