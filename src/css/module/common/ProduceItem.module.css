@@ -1,0 +1,18 @@
+.produce__item {
+  width: 100%;
+}
+/* .produce__item:not(:last-child) {
+  margin-bottom: 10px;
+} */
+.produce__title {
+  padding: 14px;
+  border: 1px solid var(--border-color--default);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.arrow_img {
+}
+.produce__content {
+  padding: 14px;
+  border: 1px solid var(--border-color--default);
+}

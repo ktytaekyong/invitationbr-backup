@@ -6,12 +6,10 @@
   padding: 10px 12px;
   border: none;
 }
-
 .default {
   background-color: var(--button-color--default);
   color: #FFF;
 }
-
 .primary {
   background-color: var(--button-color--template);
   color: #FFF;

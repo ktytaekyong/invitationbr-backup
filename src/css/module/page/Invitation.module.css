@@ -1,0 +1,7 @@
+.invitation {
+  background-color: #EEE;
+  width: 35%;
+}
+.invitation > div {
+  padding: 0;
+}

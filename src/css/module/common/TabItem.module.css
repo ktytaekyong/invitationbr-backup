@@ -1,0 +1,12 @@
+.tab__Item {
+  width: 25%;
+  border: 1px solid #000;
+}
+.tab__Item > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 5px;
+  font-size: var(--font-size--ssm);
+  background-color: #fff;
+}

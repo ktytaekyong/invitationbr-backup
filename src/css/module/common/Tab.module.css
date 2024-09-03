@@ -1,0 +1,6 @@
+.tab {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
+}

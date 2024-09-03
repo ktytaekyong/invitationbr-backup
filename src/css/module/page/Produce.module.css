@@ -1,0 +1,6 @@
+.produce {
+  width: 65%;
+}
+.produce > div {
+  padding: 0;
+}
