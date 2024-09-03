@@ -3,6 +3,7 @@ import React from "react";
 /* Component */
 import ProduceItem from "../common/ProduceItem";
 import OptionTabFix from "../common/OptionTabFix";
+import OptionBackground from "../common/OptionBackground";
 
 const itemList = [
   {
@@ -11,7 +12,7 @@ const itemList = [
   }, 
   {
     itemTitle: "배경",
-    itemContent: <OptionTabFix />,
+    itemContent: <OptionBackground />,
   }
 ]
 

@@ -1,3 +1,5 @@
 .option__list {
   display: flex;
+  column-gap: 5px;
+  row-gap: 3px;
 }
