@@ -1,7 +1,7 @@
 /* Import */
 import React from "react";
 /* Component */
-import OptionTabFixList from "../common/OptionTabFixList";
+import OptionTabFixList from "./OptionTabFixList";
 
 const OptionTabFix = () => {
   return (

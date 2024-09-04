@@ -1,0 +1,12 @@
+.bg__selector {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 5px;
+}
+.bg__item {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+}

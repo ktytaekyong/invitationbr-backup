@@ -1,0 +1,8 @@
+.option__item {
+  display: flex;
+  padding: 8px;
+  column-gap: 10px;
+}
+.option__title {
+  min-width: 55px;
+}
