@@ -3,6 +3,7 @@ import OptionCommonItem from "./OptionCommonItem.js";
 import OptionListWrapper from "./OptionListWrapper.js";
 import OptionSelector from "./OptionSelector.js";
 import OptionBackgroundSelector from "./OptionBackgroundSelector.js";
+import OptionEffectSelector from "./OptionEffectSelector.js";
 /* CSS Module */
 
 const themeList = [
@@ -16,6 +17,28 @@ const themeList = [
   },
 ]
 
+const fontList = [
+  {
+    name: "맑은 고딕",
+    value: "font1"
+  },
+  {
+    name: "돋움체",
+    value: "font2"
+  },
+]
+
+const fontWeightList = [
+  {
+    name: "보통",
+    value: "400"
+  },
+  {
+    name: "볼드",
+    value: "600"
+  },
+]
+
 const OptionBackgroundList = () => {
   return (
     <ul className="option__list">
@@ -25,15 +48,20 @@ const OptionBackgroundList = () => {
         </OptionListWrapper>
         <OptionBackgroundSelector />
       </OptionCommonItem>
+
       <OptionCommonItem>
         <OptionListWrapper title="폰트">
-          <OptionSelector listTitle={themeList} />
+          <OptionSelector listTitle={fontList} />
+          <OptionSelector listTitle={fontWeightList} />
         </OptionListWrapper>
       </OptionCommonItem>
+
       <OptionCommonItem>
         <OptionListWrapper title="효과">
+          <OptionEffectSelector />
         </OptionListWrapper>
       </OptionCommonItem>
+      
       <OptionCommonItem>
         <OptionListWrapper title="옵션">
         </OptionListWrapper>

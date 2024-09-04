@@ -1,17 +1,34 @@
 /* Import */
-import React from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 /* Component */
-import TabItem from "./TabItem";
 /* CSS Module */
 import styles from "../../css/module/common/Tab.module.css";
 
+const tabList = ["모시는 글", "예식 일시", "오시는 길", "갤러리"];
+
 const Tab = () => {
+  const [isActive, setIsActive] = useState(false);
+  const setActiveHandler = (idx) => {
+    setIsActive(idx);
+  }
+  
+  useEffect(() => {
+    setIsActive(0);
+  }, []);
+  
   return (
     <ul className={styles.tab}>
-      <TabItem content="모시는 글" />
-      <TabItem content="예식 일시" />
-      <TabItem content="오시는 길" />
-      <TabItem content="갤러리" />
+      {tabList.map((item, idx) => (
+        <li 
+          key={"tab" + idx}
+          id={"tab" + idx} 
+          className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
+          onClick={() => setActiveHandler(idx)}
+        >
+          <Link to="/">{item}</Link>
+        </li>
+      ))}
     </ul>
   )
 }

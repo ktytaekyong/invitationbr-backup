@@ -8,7 +8,6 @@ const ProduceItem = (props) => {
   const activeToggleHandler = () => {
     setIsActive(!isActive);
   };
-  
   const itemRef = useRef(null);
 
   useEffect(() => {

@@ -4,3 +4,18 @@
   align-items: center;
   background-color: #fff;
 }
+.tab__item {
+  width: 25%;
+  border: 1px solid #000;
+}
+.tab__item > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 5px;
+  font-size: var(--font-size--ssm);
+  background-color: #fff;
+}
+.tab__item.active > a {
+  background-color: #EEE;
+}
