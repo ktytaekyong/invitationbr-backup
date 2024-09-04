@@ -9,7 +9,6 @@ const ProduceItem = (props) => {
     setIsActive(!isActive);
   };
   
-  const contentRef = useRef(null);
   const itemRef = useRef(null);
 
   useEffect(() => {
@@ -20,21 +19,13 @@ const ProduceItem = (props) => {
     }
   }, []);
 
-  // useEffect(() => {
-  //   if(isActive === true) {
-  //     // contentRef.current.style.height = contentRef.current.scrollHeight + "px";
-  //   } else {
-  //     // contentRef.current.style.height = 0 + "px";
-  //   }
-  // }, [isActive, contentRef]);
-
   return (
     <li className={`${styles.produce__item} ${isActive ? styles["active"] : ""}`} ref={itemRef} id={props.id}>
       <div className={styles.produce__title} onClick={activeToggleHandler}>
         <p>{props.itemTitle}</p>
         <img src="" alt="" className={styles.arrow_img} />
       </div>
-      <div className={styles.produce__content} ref={contentRef}>
+      <div className={styles.produce__content}>
         <div className={styles.content}>
           {props.itemContent}
         </div>

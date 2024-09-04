@@ -10,3 +10,6 @@
   border-radius: 50%;
   cursor: pointer;
 }
+.bg__item.active {
+  border: 2px solid red;
+}
