@@ -28,7 +28,6 @@ const OptionEffectSelector = () => {
     } else {
       setRadioActive(true);
     }
-    console.log(radioActive);
   }
 
   useEffect(() => {

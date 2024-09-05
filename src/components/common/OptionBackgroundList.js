@@ -4,6 +4,7 @@ import OptionListWrapper from "./OptionListWrapper.js";
 import OptionSelector from "./OptionSelector.js";
 import OptionBackgroundSelector from "./OptionBackgroundSelector.js";
 import OptionEffectSelector from "./OptionEffectSelector.js";
+import OptionCheckList from "./OptionCheckList.js";
 /* CSS Module */
 
 const themeList = [
@@ -61,9 +62,10 @@ const OptionBackgroundList = () => {
           <OptionEffectSelector />
         </OptionListWrapper>
       </OptionCommonItem>
-      
+
       <OptionCommonItem>
         <OptionListWrapper title="옵션">
+          <OptionCheckList></OptionCheckList>
         </OptionListWrapper>
       </OptionCommonItem>
     </ul>

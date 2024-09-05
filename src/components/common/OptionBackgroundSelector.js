@@ -16,9 +16,12 @@ const OptionBackgroundSelector = () => {
   return (
     <ul className={styles.bg__selector}>
       {colorList.map((item, idx) => (
-        <li className={`${styles.bg__item} ${isActive === idx ? styles["active"] : ""}`} 
-        style={{backgroundColor: item}} 
-        key={item + idx} id={"color" + idx} onClick={() => setActiveHandler(idx)} 
+        <li 
+          className={`${styles.bg__item} ${isActive === idx ? styles["active"] : ""}`} 
+          style={{backgroundColor: item}} 
+          key={item + idx} 
+          id={"color" + idx}
+          onClick={() => setActiveHandler(idx)} 
         ></li>
       ))}
     </ul>

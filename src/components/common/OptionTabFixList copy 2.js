@@ -67,8 +67,41 @@ const basicTablList = [
     isView: false
   }
 ];
+// const basicTablList = [
+//   "모시는 글",
+//   "예식 일시",
+//   "오시는 길",
+//   "교통수단",
+//   "갤러리",
+//   "동영상",
+//   "마음 전하기",
+//   "안내사항 (탭형)",
+//   "안내사항 (분리형)",
+//   "방명록",
+//   "참석의사",
+// ];
+
+// const selectTablList = [
+
+// ];
 
 const OptionTabFixList = () => {
+  // const [isChecked, setIsChecked] = useState(Array(basicTablList.length).fill(false));
+  const [tabList, setTabList] = useState(basicTablList);
+
+  useEffect(() => {
+    
+  }, []);
+
+  useEffect(() => {
+
+  }, []);
+
+  const setCheckedHandler = (idx) => {
+    // setIsChecked((prev) =>
+    //   prev.map((item, index) => (index === idx ? !item : item))
+    // );
+  }
 
   return (
     <ul className={styles.option__list}>
@@ -77,7 +110,8 @@ const OptionTabFixList = () => {
           key={`tabOption${idx}`} 
           id={item.id} 
           optionTitle={item.content} 
-          onChange={() => console.log(1)}
+          checked={item.isView}
+          onChange={() => setCheckedHandler(idx)}
         />
       ))}
     </ul>

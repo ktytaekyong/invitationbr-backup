@@ -36,7 +36,7 @@ select {
   color: var(--text-color--default);
 }
 /* SAFARI MOBILE BUTTON APPEARANCE */
-input,
+/* input, */
 textarea,
 button {
   appearance: none;
