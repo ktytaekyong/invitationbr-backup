@@ -4,6 +4,7 @@ import React from "react";
 import ProduceItem from "../common/ProduceItem";
 import OptionTabFix from "../common/OptionTabFix";
 import OptionBackground from "../common/OptionBackground";
+import OptionIntroList from "./OptionIntroList";
 
 const itemList = [
   {
@@ -16,7 +17,7 @@ const itemList = [
   }, 
   {
     itemTitle: "인트로 화면",
-    itemContent: <OptionBackground />,
+    itemContent: <OptionIntroList />,
   }, 
   {
     itemTitle: "인트로 사진",
