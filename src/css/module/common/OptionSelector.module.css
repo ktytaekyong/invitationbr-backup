@@ -1,0 +1,11 @@
+.photo__selector {
+
+}
+.photo__list {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+.photo__item {
+  /* width: ; */
+}

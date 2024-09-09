@@ -5,6 +5,7 @@ import ProduceItem from "../common/ProduceItem";
 import OptionTabFix from "../common/OptionTabFix";
 import OptionBackground from "../common/OptionBackground";
 import OptionIntroList from "./OptionIntroList";
+import OptionIntroPhotoList from "./OptionIntroPhotoList";
 
 const itemList = [
   {
@@ -21,7 +22,7 @@ const itemList = [
   }, 
   {
     itemTitle: "인트로 사진",
-    itemContent: <OptionBackground />,
+    itemContent: <OptionIntroPhotoList />,
   }, 
   {
     itemTitle: "신랑/신부측 정보",
