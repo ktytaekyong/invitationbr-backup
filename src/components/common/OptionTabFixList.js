@@ -11,43 +11,30 @@ import { TabContext } from "../../store/option-tab-context.js";
 const OptionTabFixList = () => {
   const TabCtx = useContext(TabContext);
   const [basicTabList, setBasicTabList] = useState(TabCtx.basicTabList);
-  const changeTabFixHandler = (idx) => {
-    // setBasicTabList(prevList => 
-    //   prevList.map((item, index) => 
-    //     index === idx ? { ...item, isView: !item.isView } : item
-    //   )
-    // );
-    // console.log(basicTabList);
-    // const limitCount = basicTabList.filter(item => item.isView);
-    // if(limitCount.length == 4 ){
-    //   alert(limitCount);
-    // }
-  }
+  const changeTabFixHandler = (target, idx) => {
 
-  // useEffect(() => {
-  //   if(basicTabList.length !== TabCtx.basicTabList.length) {
-  //     const limitCount = basicTabList.filter(item => item.isView);
-  //     if(limitCount.length === 4) {
-  //       alert("You have selected 4 items");
-  //       setBasicTabList(prevList => 
-  //         prevList.map((item, index) => 
-  //           {}
-  //         )
-  //       )
-  //     }
-  //   }
-  // }, [basicTabList, TabCtx.basicTabList]); 
- 
+    console.log(idx);
+    setBasicTabList(prevList => {
+      const updatedList = prevList.map((item, index) => 
+        index === idx ? { ...item, isView: !item.isView } : item
+      );
+      return updatedList;
+    });
+
+  }
+  {
+    console.log(basicTabList);
+
+  }
   return (
     <ul className={styles.option__list}>
-      {TabCtx.basicTabList.map((item, idx) => (
+      {basicTabList.map((item, idx) => (
         <OptionTabFixItem 
           key={`tabOption${idx}`} 
           id={item.id} 
           optionTitle={item.content} 
-          // checked={item.isView}
-          onChange={() => {changeTabFixHandler(idx)}}
-          // onChange={() => {}}
+          checked={item.isView}
+          onChange={(e) => {changeTabFixHandler(e.target, idx)}}
         />
       ))}
     </ul>
