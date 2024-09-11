@@ -7,14 +7,25 @@ import PhotoSelector from "./PhotoSelector.js";
 /* CSS Module */
 import styles from "../../css/module/common/OptionIntroPhotoList.module.css";
 
-const photoList = [
-  {
-    src: "",
-    alt: "",
-  },
-]
-
 const OptionIntroPhotoList = () => {
+  const [photoList, setPhotoList] = useState([]);
+  const fileAddHandler = (e) => {
+    const file = e.target.files[0];
+    
+    if(file) {
+      const fileList = new FileReader();
+      fileList.onload = (e) => {
+        setPhotoList([
+          {
+            src: e.target.result,
+            alt: e.target.result,
+          },
+        ]);
+      };
+      fileList.readAsDataURL(file);
+      console.log(photoList);
+    }
+  }
   const [isActive, setIsActive] = useState(0);
   const [isActiveTab, setIsActiveTab] = useState(0);
   const setActiveHandler = (idx) => {
@@ -29,7 +40,7 @@ const OptionIntroPhotoList = () => {
       <ul className={styles.option__list}>
         <OptionCommonItem>
           <OptionListWrapper title="사진">
-            <PhotoSelector listTitle={photoList} />
+            <PhotoSelector listTitle={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList}/>
           </OptionListWrapper>
         </OptionCommonItem>
 

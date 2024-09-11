@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 /* Component */
 import OptionCommonItem from "./OptionCommonItem.js";
 /* CSS Module */
@@ -48,10 +48,16 @@ const fillIntroList = [
 ]
 
 const OptionIntroList = () => {
-  const [isActive, setIsActive] = useState(0);
+  const [isBasicActive, setIsBasicActive] = useState(0);
+  const [isFillActive, setIsFillActive] = useState(null);
   const [isActiveTab, setIsActiveTab] = useState(0);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
+  const setBasicActiveHandler = (idx) => {
+    setIsBasicActive(idx);
+    setIsFillActive(null);
+  }
+  const setFillActiveHandler = (idx) => {
+    setIsFillActive(idx);
+    setIsBasicActive(null);
   }
   const setActiveTabHandler = (idx) => {
     setIsActiveTab(idx);
@@ -67,14 +73,14 @@ const OptionIntroList = () => {
         <OptionCommonItem>
           <ul className={`${styles.intro__selector} ${isActiveTab === 0 ? styles.active : ''}`} id="introBasic">
             {basicIntroList.map((item, idx) => (
-              <li className={`${styles.intro__item} ${isActive === idx ? styles["active"] : ""}`} onClick={() => setActiveHandler(idx)}>
+              <li className={`${styles.intro__item} ${isBasicActive === idx ? styles["active"] : ""}`} key={`${item.imgSrc} ${idx}`} onClick={() => setBasicActiveHandler(idx)}>
                 <img src={item.imgSrc} alt={item.altVal} />
               </li>
             ))}
           </ul>
           <ul className={`${styles.intro__selector} ${isActiveTab === 1 ? styles.active : ''}`} id="introFill">
             {fillIntroList.map((item, idx) => (
-              <li className={`${styles.intro__item} ${isActive === idx ? styles["active"] : ""}`} onClick={() => setActiveHandler(idx)}>
+              <li className={`${styles.intro__item} ${isFillActive === idx ? styles["active"] : ""}`} key={`${item.imgSrc} ${idx}`} onClick={() => setFillActiveHandler(idx)}>
                 <img src={item.imgSrc} alt={item.altVal} />
               </li>
             ))}
