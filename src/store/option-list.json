@@ -1,0 +1,61 @@
+{
+  "tabList": [
+    "모시는 글", "예식 일시", "오시는 길", "갤러리"
+  ],
+  "backgroundList": {
+    "color": "#ffffff"
+  },
+  "basicTabList": [
+    {
+      "id": "tabLetter",
+      "content": "모시는 글",
+      "isView": true
+    },
+    {
+      "id": "tabDate",
+      "content": "예식 일시",
+      "isView": true
+    },
+    {
+      "id": "tabDirection",
+      "content": "오시는 길",
+      "isView": true
+    },
+    {
+      "id": "tabGallery",
+      "content": "갤러리",
+      "isView": false
+    },
+    {
+      "id": "tabMovie",
+      "content": "동영상",
+      "isView": false
+    },
+    {
+      "id": "tabGift",
+      "content": "마음 전하기",
+      "isView": false
+    },
+    {
+      "id": "tabNoticeT",
+      "content": "안내사항 (탭형)",
+      "isView": false
+    },
+    {
+      "id": "tabNoticeS",
+      "content": "안내사항 (분리형)",
+      "isView": false
+    },
+    {
+      "id": "tabGuestbook",
+      "content": "방명록",
+      "isView": true
+    },
+    {
+      "id": "tabAttend",
+      "content": "참석의사",
+      "isView": false
+    }
+  ]
+}
+

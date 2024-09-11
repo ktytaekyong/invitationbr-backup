@@ -1,14 +1,16 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Tab.module.css";
+/* Context */
+import { TabContext } from "../../store/option-tab-context.js";
 
-const tabList = ["모시는 글", "예식 일시", "오시는 길", "갤러리"];
 // const tabList = [ /* 기본 리스트 */];
-
 const Tab = () => {
+  const TabCtx = useContext(TabContext);
+  console.log("TabCtx:" + TabCtx.tabList);
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -20,7 +22,7 @@ const Tab = () => {
   
   return (
     <ul className={styles.tab}>
-      {tabList.map((item, idx) => (
+      {TabCtx.tabList.map((item, idx) => (
         <li key={"tab" + idx}
           id={"tab" + idx} 
           className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
