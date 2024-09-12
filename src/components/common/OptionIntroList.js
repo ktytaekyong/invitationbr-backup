@@ -22,10 +22,6 @@ const basicIntroList = [
     imgSrc: "",
     altVal: "",
   },
-  {
-    imgSrc: "",
-    altVal: "",
-  },
 ]
 
 const fillIntroList = [

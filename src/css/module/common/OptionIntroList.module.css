@@ -34,7 +34,7 @@
   display: flex;
 }
 .intro__item {
-  width: calc((100% - 20px) / 5);
+  width: calc((100% - 15px) / 4);
   height: 200px;
   display: flex;
   justify-content: flex-start;

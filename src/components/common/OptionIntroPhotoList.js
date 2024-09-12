@@ -46,7 +46,7 @@ const OptionIntroPhotoList = () => {
 
         <OptionCommonItem>
           <OptionListWrapper title="문구 및 색상 편집">
-
+            <></>
           </OptionListWrapper>
         </OptionCommonItem>
       </ul>

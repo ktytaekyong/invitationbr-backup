@@ -1,6 +1,25 @@
 {
-  "tabList": [
-    "모시는 글", "예식 일시", "오시는 길", "갤러리"
+  "selectTabList": [
+    {
+      "id": "tabLetter",
+      "content": "모시는 글",
+      "isView": true
+    },
+    {
+      "id": "tabGallery",
+      "content": "갤러리",
+      "isView": true
+    },
+    {
+      "id": "tabDirection",
+      "content": "오시는 길",
+      "isView": true
+    },
+    {
+      "id": "tabGuestbook",
+      "content": "방명록",
+      "isView": true
+    }
   ],
   "backgroundList": {
     "color": "#ffffff"
@@ -14,7 +33,7 @@
     {
       "id": "tabDate",
       "content": "예식 일시",
-      "isView": true
+      "isView": false
     },
     {
       "id": "tabDirection",
@@ -24,7 +43,7 @@
     {
       "id": "tabGallery",
       "content": "갤러리",
-      "isView": false
+      "isView": true
     },
     {
       "id": "tabMovie",

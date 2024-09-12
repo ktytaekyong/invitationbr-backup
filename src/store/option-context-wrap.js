@@ -1,19 +1,17 @@
 /* Context */
-import { TabContext } from "./option-tab-context.js";
 import { BackgroundContext } from "./option-background-context.js";
 import initList from "./option-list.json";
+/* Context Component */
+import TabProvider from "./option-tab-provider.js"
 
 const ContextWrap = ({ children }) => {
   return (
     <>
-      <TabContext.Provider value={{ 
-        tabList: initList.tabList,
-        basicTabList: initList.basicTabList,
-        }}>
+      <TabProvider>
         <BackgroundContext.Provider value={{ backgroundList: initList.backgroundList }}>
           {children}
         </BackgroundContext.Provider>
-      </TabContext.Provider>
+      </TabProvider>
     </>
   )
 }
