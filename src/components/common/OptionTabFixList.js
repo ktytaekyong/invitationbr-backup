@@ -7,11 +7,8 @@ import styles from "../../css/module/common/OptionTabFixList.module.css";
 /* Context */
 import { TabContext } from "../../store/option-tab-context.js";
 
-// 내가 봤을 땐 이거.. 1. 객체로 만든다 2. 선택한 목록을 새 배열에 넣는다 3. 꺼내 쓴다
 const OptionTabFixList = () => {
   const { basicTabList, setBasicTabList, selectTabList, setSelectTabList } = useContext(TabContext);
-  // const [basicTabList, setBasicTabList] = useState(TabCtx.basicTabList);
-  // const [selectTabList, setSelectTabList] = useState(TabCtx.selectTabList);
   const [initialRender, setInitialRender] = useState(true); 
 
   const changeTabFixHandler = (idx) => {
@@ -50,13 +47,6 @@ const OptionTabFixList = () => {
   useEffect(() => {
     setInitialRender(false);
   }, [selectTabList]);
-
-  // {
-  //   console.log("basicTabList"+basicTabList.length);
-  //   console.log("basicTabList"+JSON.stringify(basicTabList));
-  //   console.log("selectTabList"+selectTabList.length);
-  //   console.table("selectTabList"+JSON.stringify(selectTabList));
-  // }
 
   return (
     <ul className={styles.option__list}>

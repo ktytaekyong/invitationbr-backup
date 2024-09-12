@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import OptionCommonItem from "./OptionCommonItem.js";
 import OptionListWrapper from "./OptionListWrapper.js";
 import PhotoSelector from "./PhotoSelector.js";
+import IntroTextSelector from "./IntroTextSelector.js";
+import Button from "../layout/Button.js"
 /* CSS Module */
 import styles from "../../css/module/common/OptionIntroPhotoList.module.css";
 
@@ -40,13 +42,15 @@ const OptionIntroPhotoList = () => {
       <ul className={styles.option__list}>
         <OptionCommonItem>
           <OptionListWrapper title="사진">
-            <PhotoSelector listTitle={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList}/>
+            <PhotoSelector listTitle={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
           </OptionListWrapper>
         </OptionCommonItem>
 
         <OptionCommonItem>
           <OptionListWrapper title="문구 및 색상 편집">
-            <></>
+            <Button></Button>
+
+            <IntroTextSelector listTitle={photoList}></IntroTextSelector>
           </OptionListWrapper>
         </OptionCommonItem>
       </ul>

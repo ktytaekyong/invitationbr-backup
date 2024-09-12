@@ -1,7 +1,18 @@
 .invitation {
   background-color: #EEE;
   width: 35%;
+  height: 90vh;
+  position: sticky;
+  left: 0;
+  top: 70px;
 }
 .invitation > div {
+  position: relative;
   padding: 0;
+  overflow-y: scroll;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+.invitation > div::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera*/
 }

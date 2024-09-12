@@ -1,7 +1,7 @@
 /* Component */
 import Button from "../layout/Button";
 /* CSS Module */
-import styles from "../../css/module/common/OptionSelector.module.css";
+import styles from "../../css/module/common/PhotoSelector.module.css";
 
 
 const PhotoSelector = (props) => {
@@ -12,8 +12,8 @@ const PhotoSelector = (props) => {
   }
   return (
     <div className={styles.photo__selector}>
-      <ul className={styles.photo__list}>
-        <li className={styles.photo__item}>
+      <ul className={styles.option__list}>
+        <li className={styles.option__item}>
           <input type="file" name="" id="introFile" onChange={props.onChange} />
           <label htmlFor="introFile"></label>
         </li>
@@ -24,7 +24,7 @@ const PhotoSelector = (props) => {
           </li>
         } */}
         {props.listTitle.map((item, idx) => (
-          <li className={styles.photo__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
+          <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
             <Button type="button" styleType="close" content="X" onClick={() => {introDeleteHandler(item)}} />
           </li>
         ))}
