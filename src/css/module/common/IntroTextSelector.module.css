@@ -1,7 +1,40 @@
-.txt__selector__wrapper {
-  
-}
-.txt__selector {
-  width: 100%;
+button {
   margin-top: 10px;
+}
+.option__list {
+  width: 100%;
+  margin-top: 5px;
+  display: none;
+}
+.option__list.active {
+  display: block;
+}
+.option__item {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 5px;
+}
+
+
+.txt__picker {
+  width: 70px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color--default);
+}
+.txt__wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 5px;
+}
+.txt__wrapper input {
+  width: calc(100% / 3);
+  max-width: 120px;
+}
+.option__item.style__day .txt__wrapper input,
+.option__item.style__txtarea .txt__wrapper textarea {
+  width: 370px;
+  max-width: 370px;
 }
