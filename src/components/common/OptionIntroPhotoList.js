@@ -25,7 +25,7 @@ const OptionIntroPhotoList = () => {
         ]);
       };
       fileList.readAsDataURL(file);
-      console.log(photoList);
+      // console.log(photoList);
     }
   }
   const [isActive, setIsActive] = useState(0);

@@ -19,9 +19,9 @@ const Tab = () => {
   useEffect(() => {
     setIsActive(0);
   }, []);
-{
-  console.log(TabCtx.selectTabList);
-}
+// {
+//   console.log(TabCtx.selectTabList);
+// }
   return (
     <ul className={styles.tab}>
       {TabCtx.selectTabList
