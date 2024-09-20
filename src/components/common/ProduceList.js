@@ -6,6 +6,7 @@ import OptionTabFix from "../common/OptionTabFix";
 import OptionBackground from "../common/OptionBackground";
 import OptionIntroList from "./OptionIntroList";
 import OptionIntroPhotoList from "./OptionIntroPhotoList";
+import CoupleInfomation from "./CoupleInfomation";
 
 const itemList = [
   {
@@ -26,7 +27,7 @@ const itemList = [
   }, 
   {
     itemTitle: "신랑/신부측 정보",
-    itemContent: <OptionBackground />,
+    itemContent: <CoupleInfomation />,
   }, 
   {
     itemTitle: "모시는 글",

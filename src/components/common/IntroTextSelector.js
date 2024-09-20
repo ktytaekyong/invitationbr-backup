@@ -134,60 +134,6 @@ const IntroTextSelector = () => {
             )
           })
         }
-
-        {/* <li className={`${styles.option__item} ${styles.style__day}`}>
-          <div ref={el => (pickerRef.current[1] = el)} className={styles.txt__picker} style={{backgroundColor: color[1]}} onClick={() => pickerOpen(1)}>1</div>
-          {
-            pickerActive[1] ?
-            <div className={styles.picker__active}>
-              <HexColorPicker color={color[1]} onChange={(newColor) => {
-                setColor((prevList) => {
-                  return prevList.map((item, idx) => {
-                    return idx === 1 ? newColor : item;
-                  });
-                });
-              }} />
-            </div>
-            : null
-          }
-          <div className={styles.txt__wrapper}>
-            <input type="text" />
-          </div>
-        </li> */}
-        {/* <li className={`${styles.option__item} ${styles.style__name}`}>
-          <div ref={el => (pickerRef.current[2] = el)} className={styles.txt__picker} style={{backgroundColor: color[2]}} onClick={() => pickerOpen(2)}>2</div>
-          {
-            pickerActive[2] ?
-            <div className={styles.picker__active}>
-              <HexColorPicker color={color[2]} onChange={(newColor) => {
-                setColor((prevList) => {
-                  return prevList.map((item, idx) => {
-                    return idx === 2 ? newColor : item;
-                  });
-                });
-              }} />
-            </div>
-            : null
-          }
-          <div className={styles.txt__wrapper}>
-            <input type="text" />
-            <input type="text" />
-            <input type="text" />
-          </div>
-        </li> */}
-        {/* <li className={`${styles.option__item} ${styles.style__txtarea}`}>
-          <div ref={el => (pickerRef.current[3] = el)} className={styles.txt__picker} style={{backgroundColor: color[3]}} onClick={() => pickerOpen(3)}>3</div>
-          {
-            pickerActive[3] ?
-            <div className={styles.picker__active}>
-              <input type="color" name="" id="" />
-            </div>
-            : null
-          }
-          <div className={styles.txt__wrapper}>
-            <textarea name="" id=""></textarea>
-          </div>
-        </li> */}
       </ul>
     </>
 
