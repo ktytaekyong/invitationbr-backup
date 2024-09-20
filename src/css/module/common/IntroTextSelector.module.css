@@ -1,4 +1,4 @@
-button {
+.add_btn {
   margin-top: 10px;
 }
 .option__list {
@@ -31,6 +31,18 @@ button {
   left: 70px;
   z-index: 99;
   cursor: default;
+}
+.picker__input {
+  display: block;
+}
+.picker__preset {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+.preset__item {
+  padding: 10px;
+  border: none;
+  box-shadow: none;
 }
 .txt__wrapper {
   display: flex;

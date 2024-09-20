@@ -88,7 +88,7 @@ const itemList = [
 
 const ProduceList = () => {
   return (
-    <ul className="produce__list">
+    <ul className="produce__list" style={{overflow: "hidden"}}>
       {itemList.map((item, index) => (
         <ProduceItem itemTitle={item.itemTitle} itemContent={item.itemContent} id={`produceItem${index}`} key={index} />
       ))}
