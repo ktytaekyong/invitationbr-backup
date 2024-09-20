@@ -54,8 +54,8 @@
   width: calc(100% / 3);
   max-width: 120px;
 }
-.option__item.style__day .txt__wrapper input,
-.option__item.style__txtarea .txt__wrapper textarea {
+.txt__wrapper.style__day input,
+.txt__wrapper.style__txtarea textarea {
   width: 370px;
   max-width: 370px;
 }

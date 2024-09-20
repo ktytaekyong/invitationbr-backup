@@ -99,42 +99,37 @@ const IntroTextSelector = () => {
                   : null
                 }
                 {
-                  themeType.map((item, idx) => {
-                    if(themeType[idx] === 1) {
-                      return (
-                        <div className={styles.txt__wrapper}>
-                          <input type="text" />
-                          <input type="text" />
-                          <input type="text" />
-                        </div>
-                      )
-                    } else if(themeType[idx] === 2) {
-                      return (
-                        <div className={styles.txt__wrapper}>
-                          <input type="text" />
-                        </div>
-                      )
-                    } else if(themeType[idx] === 3) {
-                      return (
-                        <div className={styles.txt__wrapper}>
-                          <input type="text" />
-                          <input type="text" />
-                          <input type="text" />
-                        </div>
-                      )
-                    } else if(themeType[idx] === 4) {
-                      return (
-                        <div className={styles.txt__wrapper}>
-                          <textarea name="" id=""></textarea>
-                        </div>
-                      )
-                    } else {
-                      return null;
-                    }
-                  })
-                  
+                  themeType[repeatidx] === 1 ?
+                  <div className={`${styles.txt__wrapper} ${styles.style__date}`}>
+                    <input type="text" />
+                    <input type="text" />
+                    <input type="text" />
+                  </div>
+                  : null
                 }
-                
+                {
+                  themeType[repeatidx] === 2 ?
+                  <div className={`${styles.txt__wrapper} ${styles.style__day}`}>
+                    <input type="text" />
+                  </div>
+                  : null
+                }
+                {
+                  themeType[repeatidx] === 3 ?
+                  <div className={`${styles.txt__wrapper} ${styles.style__name}`}>
+                    <input type="text" />
+                    <input type="text" />
+                    <input type="text" />
+                  </div>
+                  : null
+                }
+                {
+                  themeType[repeatidx] === 4 ?
+                  <div className={`${styles.txt__wrapper} ${styles.style__txtarea}`}>
+                    <textarea name="" id=""></textarea>
+                  </div>
+                  : null
+                }
               </li>
             )
           })
