@@ -3,70 +3,39 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
 import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import CheckList from "./CheckList.js";
+import Button from "../layout/Button.js";
 /* CSS Module */
 
-const themeList = [
-  {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
-  },
-  {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
-  },
-]
+const dateHourDistList = ["오전", "오후"];
+const dateHourList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+const dateMinuteList = [0, 10, 20, 30, 40, 50];
 
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
-  },
-  {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
-  },
-]
-
-const BackgroundSetting = () => {
+const DateSetting = () => {
   return (
     <div className="content__wrapper">
       <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
+          <CommonItemContent title="예식일">
+            <input type="date" name="" id="" />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
+          <CommonItemContent title="예식시간">
+            <OptionSelector selectID="DateHourSelect" listName={dateHourList} type="hour" hour={dateHourDistList}></OptionSelector>
+            <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} type="minute"></OptionSelector>
+          </CommonItemContent>
+        </CommonItemWrapper>
+
+        <CommonItemWrapper>
+          <CommonItemContent title="이미지">
+            <Button type="button" content={`더 보기 (변수(${0}))`}></Button>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
-            <CheckList></CheckList>
+
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>
@@ -74,4 +43,4 @@ const BackgroundSetting = () => {
   )
 }
 
-export default BackgroundSetting;
+export default DateSetting;

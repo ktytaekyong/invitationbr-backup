@@ -4,7 +4,7 @@ import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
 import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
 import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import CheckList from "./CheckList.js";
+import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 /* CSS Module */
 
 const themeList = [
@@ -66,7 +66,7 @@ const TrafficSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
-            <CheckList></CheckList>
+            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

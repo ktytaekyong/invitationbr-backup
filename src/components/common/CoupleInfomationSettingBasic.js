@@ -60,7 +60,7 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey }) => {
       <div className={styles.couple__info}>
         <input type="text" id={`${coupleKey}Name`} placeholder={`${couple} 이름`} />
         <input type="number" id={`${coupleKey}Number`} placeholder="전화 번호" />
-        <OptionSelector selectID={`${coupleKey}rel`} listName={relList} />
+        <OptionSelector selectID={`${coupleKey}RelSelect`} listName={relList} />
       </div>
       <div className={styles.couple__info}>
         {parents.map((parent) => (

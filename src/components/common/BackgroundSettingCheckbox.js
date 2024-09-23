@@ -1,9 +1,9 @@
 /* Component */
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/CheckList.module.css";
+import styles from "../../css/module/common/BackgroundSettingCheckbox.module.css";
 
-const CheckList = () => {
+const BackgroundSettingCheckbox = () => {
   return (
     <div className={styles.check__wrapper}>
       <CheckItem content="청첩장 확대 방지" id="zoomOption" />
@@ -15,4 +15,4 @@ const CheckList = () => {
   )
 }
 
-export default CheckList;
+export default BackgroundSettingCheckbox;
