@@ -9,34 +9,34 @@ import CheckList from "./CheckList.js";
 
 const themeList = [
   {
-    name: "[베이직] 모던 1",
-    value: "modern1"
+    itemName: "[베이직] 모던 1",
+    itemKey: "modern1"
   },
   {
-    name: "[베이직] 모던 2",
-    value: "modern2"
+    itemName: "[베이직] 모던 2",
+    itemKey: "modern2"
   },
 ]
 
 const fontList = [
   {
-    name: "맑은 고딕",
-    value: "font1"
+    itemName: "맑은 고딕",
+    itemKey: "font1"
   },
   {
-    name: "돋움체",
-    value: "font2"
+    itemName: "돋움체",
+    itemKey: "font2"
   },
 ]
 
 const fontWeightList = [
   {
-    name: "보통",
-    value: "400"
+    itemName: "보통",
+    itemKey: "400"
   },
   {
-    name: "볼드",
-    value: "600"
+    itemName: "볼드",
+    itemKey: "600"
   },
 ]
 
@@ -46,15 +46,15 @@ const AttendSetting = () => {
       <ul className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="테마">
-            <OptionSelector listTitle={themeList} />
+            <OptionSelector listName={themeList} />
           </CommonItemContent>
           <BackgroundSettingTheme />
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="폰트">
-            <OptionSelector listTitle={fontList} />
-            <OptionSelector listTitle={fontWeightList} />
+            <OptionSelector listName={fontList} />
+            <OptionSelector listName={fontWeightList} />
           </CommonItemContent>
         </CommonItemWrapper>
 

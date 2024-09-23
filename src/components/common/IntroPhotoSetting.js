@@ -42,13 +42,13 @@ const IntroPhotoSetting = () => {
       <ul className={styles.option__list}>
         <CommonItemWrapper>
           <CommonItemContent title="사진">
-            <PhotoSelector listTitle={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
+            <PhotoSelector listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="문구 및 색상 편집">
-            <IntroPhotoSettingTextColor listTitle={photoList}></IntroPhotoSettingTextColor>
+            <IntroPhotoSettingTextColor listName={photoList}></IntroPhotoSettingTextColor>
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

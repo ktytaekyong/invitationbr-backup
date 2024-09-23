@@ -74,7 +74,7 @@ const IntroPhotoSettingTextColor = () => {
         {
           repeatCount.map((_, repeatidx) => {
             return (
-              <li className={`${styles.option__item} ${styles.style__date}`}>
+              <li key={`textInput${repeatidx}`} className={`${styles.option__item} ${styles.style__date}`}>
                 <div ref={el => (pickerRef.current[repeatidx] = el)} className={styles.txt__picker} style={{backgroundColor: color[repeatidx]}} onClick={() => pickerOpen(repeatidx)}>
                   {repeatidx}
                 </div>

@@ -6,7 +6,7 @@ import styles from "../../css/module/common/PhotoSelector.module.css";
 
 const PhotoSelector = (props) => {
   const introDeleteHandler = (item) => {
-    let list = [...props.listTitle];
+    let list = [...props.listName];
     list = list.filter((e) => e !== item);
     props.deleteFunction(list);
   }
@@ -17,13 +17,13 @@ const PhotoSelector = (props) => {
           <input type="file" name="" id="introFile" onChange={props.onChange} />
           <label htmlFor="introFile"></label>
         </li>
-        <span>{props.listTitle.src}</span>
+        <span>{props.listName.src}</span>
         {/* {
-          <li className={styles.photo__item} key={props.listTitle.alt} style={{backgroundImage: `url(${props.listTitle.src})`}}>
+          <li className={styles.photo__item} key={props.listName.alt} style={{backgroundImage: `url(${props.listName.src})`}}>
             <Button type="button" styleType="close" content="X" />
           </li>
         } */}
-        {props.listTitle.map((item, idx) => (
+        {props.listName.map((item, idx) => (
           <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
             <Button type="button" styleType="close" content="X" onClick={() => {introDeleteHandler(item)}} />
           </li>
