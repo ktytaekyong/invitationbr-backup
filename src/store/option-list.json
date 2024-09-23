@@ -11,7 +11,7 @@
       "isView": true
     },
     {
-      "id": "tabDirection",
+      "id": "tabLocation",
       "content": "오시는 길",
       "isView": true
     },
@@ -36,7 +36,7 @@
       "isView": false
     },
     {
-      "id": "tabDirection",
+      "id": "tabLocation",
       "content": "오시는 길",
       "isView": true
     },
@@ -61,7 +61,7 @@
       "isView": false
     },
     {
-      "id": "tabNoticeS",
+      "id": "tabNoticeD",
       "content": "안내사항 (분리형)",
       "isView": false
     },

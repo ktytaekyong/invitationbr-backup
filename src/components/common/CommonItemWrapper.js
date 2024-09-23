@@ -1,6 +1,6 @@
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/OptionCommonItem.module.css";
+import styles from "../../css/module/common/CommonItemWrapper.module.css";
 
 const OptionCommonItem = (props) => {
   return (

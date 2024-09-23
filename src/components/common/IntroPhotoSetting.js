@@ -1,15 +1,15 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
-import OptionCommonItem from "./OptionCommonItem.js";
-import OptionListWrapper from "./OptionListWrapper.js";
+import CommonItemWrapper from "./CommonItemWrapper.js";
+import CommonItemContent from "./CommonItemContent.js";
 import PhotoSelector from "./PhotoSelector.js";
-import IntroTextSelector from "./IntroTextSelector.js";
+import IntroPhotoSettingTextColor from "./IntroPhotoSettingTextColor.js";
 import Button from "../layout/Button.js"
 /* CSS Module */
-import styles from "../../css/module/common/OptionIntroPhotoList.module.css";
+import styles from "../../css/module/common/IntroPhotoSetting.module.css";
 
-const OptionIntroPhotoList = () => {
+const IntroPhotoSetting = () => {
   const [photoList, setPhotoList] = useState([]);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
@@ -40,20 +40,20 @@ const OptionIntroPhotoList = () => {
   return (
     <div className="content__wrapper">
       <ul className={styles.option__list}>
-        <OptionCommonItem>
-          <OptionListWrapper title="사진">
+        <CommonItemWrapper>
+          <CommonItemContent title="사진">
             <PhotoSelector listTitle={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
-          </OptionListWrapper>
-        </OptionCommonItem>
+          </CommonItemContent>
+        </CommonItemWrapper>
 
-        <OptionCommonItem>
-          <OptionListWrapper title="문구 및 색상 편집">
-            <IntroTextSelector listTitle={photoList}></IntroTextSelector>
-          </OptionListWrapper>
-        </OptionCommonItem>
+        <CommonItemWrapper>
+          <CommonItemContent title="문구 및 색상 편집">
+            <IntroPhotoSettingTextColor listTitle={photoList}></IntroPhotoSettingTextColor>
+          </CommonItemContent>
+        </CommonItemWrapper>
       </ul>
     </div>
   )
 }
 
-export default OptionIntroPhotoList;
+export default IntroPhotoSetting;

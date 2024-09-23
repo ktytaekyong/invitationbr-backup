@@ -1,9 +1,9 @@
 /* Import */
 import { useState, useRef, useEffect } from "react";
 /* CSS Module */
-import styles from "../../css/module/common/ProduceItem.module.css";
+import styles from "../../css/module/common/SettingItem.module.css";
 
-const ProduceItem = (props) => {
+const SettingItem = (props) => {
   const [isActive, setIsActive] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
@@ -11,7 +11,7 @@ const ProduceItem = (props) => {
   const itemRef = useRef(null);
 
   useEffect(() => {
-    if(itemRef.current.id === "produceItem0") {
+    if(itemRef.current.id === "SettingItem0") {
       setTimeout(() => {
         setIsActive(true);
       }, 300);
@@ -19,12 +19,12 @@ const ProduceItem = (props) => {
   }, []);
 
   return (
-    <li className={`${styles.produce__item} ${isActive ? styles["active"] : ""}`} ref={itemRef} id={props.id}>
-      <div className={styles.produce__title} onClick={activeToggleHandler}>
+    <li className={`${styles.setting__item} ${isActive ? styles["active"] : ""}`} ref={itemRef} id={props.id}>
+      <div className={styles.setting__title} onClick={activeToggleHandler}>
         <p>{props.itemTitle}</p>
         <img src="" alt="" className={styles.arrow_img} />
       </div>
-      <div className={styles.produce__content}>
+      <div className={styles.setting__content}>
         <div className={styles.content}>
           {props.itemContent}
         </div>
@@ -33,4 +33,4 @@ const ProduceItem = (props) => {
   )
 }
 
-export default ProduceItem;
+export default SettingItem;

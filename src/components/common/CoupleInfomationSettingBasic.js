@@ -2,9 +2,9 @@
 import { useState, useEffect } from "react";
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/OptionIntroPhotoList.module.css";
+import styles from "../../css/module/common/IntroPhotoSetting.module.css";
 
-const CoupleInfomationSelector = ({ couple, coupleKey }) => {
+const CoupleInfomationSettingBasic = ({ couple, coupleKey }) => {
   const [depActive, setDepActive] = useState(false);
   const [relList, setRelList] = useState([]);
   const parents = [
@@ -54,4 +54,4 @@ const CoupleInfomationSelector = ({ couple, coupleKey }) => {
   )
 }
 
-export default CoupleInfomationSelector;
+export default CoupleInfomationSettingBasic;

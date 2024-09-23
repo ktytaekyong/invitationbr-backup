@@ -1,13 +1,13 @@
 /* Import */
 import { useEffect, useState, useContext } from "react";
 /* Component */
-import OptionTabFixItem from "../common/OptionTabFixItem";
+import FixedTabSettingItem from "../common/FixedTabSettingItem";
 /* CSS Module */
-import styles from "../../css/module/common/OptionTabFixList.module.css";
+import styles from "../../css/module/common/FixedTabSettingList.module.css";
 /* Context */
 import { TabContext } from "../../store/option-tab-context.js";
 
-const OptionTabFixList = () => {
+const FixedTabSettingList = () => {
   const { basicTabList, setBasicTabList, selectTabList, setSelectTabList } = useContext(TabContext);
   const [initialRender, setInitialRender] = useState(true); 
 
@@ -51,7 +51,7 @@ const OptionTabFixList = () => {
   return (
     <ul className={styles.option__list}>
       {basicTabList.map((item, idx) => (
-        <OptionTabFixItem 
+        <FixedTabSettingItem 
           key={`tabOption${idx}`} 
           id={item.id} 
           optionTitle={item.content} 
@@ -63,4 +63,4 @@ const OptionTabFixList = () => {
   )
 }
 
-export default OptionTabFixList;
+export default FixedTabSettingList;

@@ -1,10 +1,10 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* CSS Module */
-import styles from "../../css/module/common/OptionBackgroundSelector.module.css";
+import styles from "../../css/module/common/BackgroundSettingTheme.module.css";
 
 const colorList = ["#000", "#EEE"];
-const OptionBackgroundSelector = () => {
+const BackgroundSettingTheme = () => {
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -28,4 +28,4 @@ const OptionBackgroundSelector = () => {
   )
 }
 
-export default OptionBackgroundSelector;
+export default BackgroundSettingTheme;

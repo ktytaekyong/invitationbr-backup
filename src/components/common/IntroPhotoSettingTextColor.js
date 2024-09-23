@@ -2,10 +2,10 @@
 import { useState, useEffect, useRef } from "react";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 /* CSS Module */
-import styles from "../../css/module/common/IntroTextSelector.module.css";
+import styles from "../../css/module/common/IntroPhotoSettingTextColor.module.css";
 import Button from "../layout/Button";
 
-const IntroTextSelector = () => {
+const IntroPhotoSettingTextColor = () => {
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = () => {
     setIsActive(!isActive);
@@ -140,4 +140,4 @@ const IntroTextSelector = () => {
   )
 }
 
-export default IntroTextSelector;
+export default IntroPhotoSettingTextColor;

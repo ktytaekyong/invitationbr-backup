@@ -1,7 +1,7 @@
 /* CSS Module */
-import styles from "../../css/module/common/OptionListWrapper.module.css";
+import styles from "../../css/module/common/CommonItemContent.module.css";
 
-const OptionListWrapper = (props) => {
+const CommonItemContent = (props) => {
   return (
     <div className={styles.option__item}>
       <p className={styles.option__title}>{props.title}</p>
@@ -12,4 +12,4 @@ const OptionListWrapper = (props) => {
   )
 }
 
-export default OptionListWrapper;
+export default CommonItemContent;

@@ -1,9 +1,9 @@
 /* Component */
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/OptionCheckList.module.css";
+import styles from "../../css/module/common/CheckList.module.css";
 
-const OptionCheckList = () => {
+const CheckList = () => {
   return (
     <div className={styles.check__wrapper}>
       <CheckItem content="청첩장 확대 방지" id="zoomOption" />
@@ -15,4 +15,4 @@ const OptionCheckList = () => {
   )
 }
 
-export default OptionCheckList;
+export default CheckList;

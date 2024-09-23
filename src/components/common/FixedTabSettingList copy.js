@@ -1,7 +1,7 @@
 /* Component */
-import OptionTabFixItem from "../common/OptionTabFixItem";
+import FixedTabSettingItem from "../common/FixedTabSettingItem";
 /* CSS Module */
-import styles from "../../css/module/common/OptionTabFixList.module.css";
+import styles from "../../css/module/common/FixedTabSettingList.module.css";
 import { useEffect, useState } from "react";
 
 
@@ -23,7 +23,7 @@ const selectTablList = [
 
 ];
 
-const OptionTabFixList = () => {
+const FixedTabSettingList = () => {
   const [isChecked, setIsChecked] = useState(Array(basicTablList.length).fill(false));
   const [selectTablList, setSelectTablList] = useState([]);
 
@@ -51,7 +51,7 @@ const OptionTabFixList = () => {
   return (
     <ul className={styles.option__list}>
       {basicTablList.map((item, idx) => (
-        <OptionTabFixItem 
+        <FixedTabSettingItem 
           key={`tabOption${idx}`} 
           id={`tabOption${idx}`} 
           optionTitle={item} 
@@ -63,4 +63,4 @@ const OptionTabFixList = () => {
   )
 }
 
-export default OptionTabFixList;
+export default FixedTabSettingList;

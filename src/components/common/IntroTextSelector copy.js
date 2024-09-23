@@ -71,7 +71,6 @@ const IntroTextSelector = () => {
                     return idx === 0 ? newColor : item;
                   });
                 });
-                console.log(321);
               }} />
               <HexColorInput className={styles.picker__input} color={color[0]} onChange={(newColor) => {
                 setColor((prevList) => {

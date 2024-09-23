@@ -1,7 +1,7 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* CSS Module */
-import styles from "../../css/module/common/OptionEffectSelector.module.css";
+import styles from "../../css/module/common/BackgroundSettingEffect.module.css";
 
 const effectList = [
   {
@@ -18,7 +18,7 @@ const effectList = [
   }, 
 ]; 
 
-const OptionEffectSelector = () => {
+const BackgroundSettingEffect = () => {
   const [isActive, setIsActive] = useState(false);
   const [radioActive, setRadioActive] = useState(false);
   const setActiveHandler = (idx) => {
@@ -58,4 +58,4 @@ const OptionEffectSelector = () => {
   )
 }
 
-export default OptionEffectSelector;
+export default BackgroundSettingEffect;

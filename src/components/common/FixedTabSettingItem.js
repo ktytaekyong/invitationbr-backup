@@ -1,7 +1,7 @@
 /* CSS Module */
-import styles from "../../css/module/common/OptionTabFixItem.module.css";
+import styles from "../../css/module/common/FixedTabSettingItem.module.css";
 
-const OptionTabFixItem = (props) => {
+const FixedTabSettingItem = (props) => {
   return (
     <li className={styles.option__item}>
       <input type="checkbox" id={props.id} checked={props.checked} onChange={props.onChange}/>
@@ -10,4 +10,4 @@ const OptionTabFixItem = (props) => {
   )
 }
 
-export default OptionTabFixItem;
+export default FixedTabSettingItem;

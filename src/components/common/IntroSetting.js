@@ -1,9 +1,9 @@
 /* Import */
 import { useState } from "react";
 /* Component */
-import OptionCommonItem from "./OptionCommonItem.js";
+import CommonItemWrapper from "./CommonItemWrapper.js";
 /* CSS Module */
-import styles from "../../css/module/common/OptionIntroList.module.css";
+import styles from "../../css/module/common/IntroSetting.module.css";
 
 const basicIntroList = [
   {
@@ -43,7 +43,7 @@ const fillIntroList = [
   },
 ]
 
-const OptionIntroList = () => {
+const IntroSetting = () => {
   const [isBasicActive, setIsBasicActive] = useState(0);
   const [isFillActive, setIsFillActive] = useState(null);
   const [isActiveTab, setIsActiveTab] = useState(0);
@@ -66,7 +66,7 @@ const OptionIntroList = () => {
         <li className={`${styles.tab__item} ${isActiveTab === 1 ? styles.active : ''}`} onClick={() => setActiveTabHandler(1)}>채우기</li>
       </ul>
       <ul className={styles.option__list}>
-        <OptionCommonItem>
+        <CommonItemWrapper>
           <ul className={`${styles.intro__selector} ${isActiveTab === 0 ? styles.active : ''}`} id="introBasic">
             {basicIntroList.map((item, idx) => (
               <li className={`${styles.intro__item} ${isBasicActive === idx ? styles["active"] : ""}`} key={`${item.imgSrc} ${idx}`} onClick={() => setBasicActiveHandler(idx)}>
@@ -81,10 +81,10 @@ const OptionIntroList = () => {
               </li>
             ))}
           </ul>
-        </OptionCommonItem>
+        </CommonItemWrapper>
       </ul>
     </div>
   )
 }
 
-export default OptionIntroList;
+export default IntroSetting;

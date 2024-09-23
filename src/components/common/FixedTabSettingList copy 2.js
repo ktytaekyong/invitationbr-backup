@@ -1,7 +1,7 @@
 /* Component */
-import OptionTabFixItem from "../common/OptionTabFixItem";
+import FixedTabSettingItem from "../common/FixedTabSettingItem";
 /* CSS Module */
-import styles from "../../css/module/common/OptionTabFixList.module.css";
+import styles from "../../css/module/common/FixedTabSettingList.module.css";
 import { useEffect, useState } from "react";
 
 // 내가 봤을 땐 이거.. 1. 객체로 만든다 2. 선택한 목록을 새 배열에 넣는다 3. 꺼내 쓴다
@@ -17,7 +17,7 @@ const basicTablList = [
     isView: true
   },
   {
-    id: "tabDirection",
+    id: "tabLocation",
     content: "오시는 길",
     isView: true
   },
@@ -52,7 +52,7 @@ const basicTablList = [
     isView: false
   },
   {
-    id: "tabNoticeS",
+    id: "tabNoticeD",
     content: "안내사항 (분리형)",
     isView: false
   },
@@ -85,7 +85,7 @@ const basicTablList = [
 
 // ];
 
-const OptionTabFixList = () => {
+const FixedTabSettingList = () => {
   // const [isChecked, setIsChecked] = useState(Array(basicTablList.length).fill(false));
   const [tabList, setTabList] = useState(basicTablList);
 
@@ -106,7 +106,7 @@ const OptionTabFixList = () => {
   return (
     <ul className={styles.option__list}>
       {basicTablList.map((item, idx) => (
-        <OptionTabFixItem 
+        <FixedTabSettingItem 
           key={`tabOption${idx}`} 
           id={item.id} 
           optionTitle={item.content} 
@@ -118,4 +118,4 @@ const OptionTabFixList = () => {
   )
 }
 
-export default OptionTabFixList;
+export default FixedTabSettingList;

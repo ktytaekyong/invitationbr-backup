@@ -1,12 +1,12 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
-import OptionCommonItem from "./OptionCommonItem.js";
-import OptionListWrapper from "./OptionListWrapper.js";
-import CoupleInfomationSelector from "./CoupleInfomationSelector.js";
+import CommonItemWrapper from "./CommonItemWrapper.js";
+import CommonItemContent from "./CommonItemContent.js";
+import CoupleInfomationSettingBasic from "./CoupleInfomationSettingBasic.js";
 import Button from "../layout/Button.js"
 /* CSS Module */
-import styles from "../../css/module/common/OptionIntroPhotoList.module.css";
+import styles from "../../css/module/common/IntroPhotoSetting.module.css";
 
 const CoupleInfomation = () => {
   const [photoList, setPhotoList] = useState([]);
@@ -23,26 +23,26 @@ const CoupleInfomation = () => {
   return (
     <div className="content__wrapper">
       <ul className={styles.option__list}>
-        <OptionCommonItem>
-          <OptionListWrapper title="신랑 측">
-            <CoupleInfomationSelector couple="신랑" coupleKey="M"></CoupleInfomationSelector>
-          </OptionListWrapper>
-        </OptionCommonItem>
+        <CommonItemWrapper>
+          <CommonItemContent title="신랑 측">
+            <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
+          </CommonItemContent>
+        </CommonItemWrapper>
 
-        <OptionCommonItem>
-          <OptionListWrapper title="신부 측">
-            <CoupleInfomationSelector couple="신부" coupleKey="F"></CoupleInfomationSelector>
-          </OptionListWrapper>
-        </OptionCommonItem>
+        <CommonItemWrapper>
+          <CommonItemContent title="신부 측">
+            <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
+          </CommonItemContent>
+        </CommonItemWrapper>
 
-        <OptionCommonItem>
-          <OptionListWrapper title="고인 표기">
+        <CommonItemWrapper>
+          <CommonItemContent title="고인 표기">
             <div className={styles.check__wrapper}>
               <input type="checkbox" name="depF" id="depF" disabled />
               <label htmlFor="depF">국화꽃으로 표기</label>
             </div>
-          </OptionListWrapper>
-        </OptionCommonItem>
+          </CommonItemContent>
+        </CommonItemWrapper>
             
         <small>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</small>
         {/* Notice로 */}
