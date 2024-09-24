@@ -20,7 +20,8 @@ import BgMusicSetting from "./BgMusicSetting";
 import GuestbookSetting from "./GuestbookSetting";
 import AttendSetting from "./AttendSetting";
 import OutroSetting from "./OutroSetting";
-import ThumbnailSetting from "./ThumbnailSetting";
+import ThumbnailSettingK from "./ThumbnailSettingK";
+import ThumbnailSettingU from "./ThumbnailSettingU";
 import OrderSetting from "./OrderSetting";
 
 const itemList = [
@@ -98,7 +99,11 @@ const itemList = [
   }, 
   {
     itemTitle: "카카오톡 공유 썸네일",
-    itemContent: <ThumbnailSetting />,
+    itemContent: <ThumbnailSettingK />,
+  }, 
+  {
+    itemTitle: "URL 공유 썸네일",
+    itemContent: <ThumbnailSettingU />,
   }, 
   {
     itemTitle: "메뉴 순서 변경",

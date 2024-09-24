@@ -1,9 +1,9 @@
 .option__item {
   display: flex;
-  padding: 8px;
+  padding: 8px 0;
   column-gap: 10px;
   flex-wrap: wrap;
 }
 .option__title {
-  min-width: 55px;
+  min-width: 70px;
 }

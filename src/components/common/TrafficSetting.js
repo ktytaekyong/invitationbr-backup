@@ -1,75 +1,48 @@
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
+import Button from "../layout/Button.js";
 /* CSS Module */
+import styles from "../../css/module/common/TrafficSetting.module.css";
 
-const themeList = [
+const trafficList = [
   {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
+    traffic: "",
+    content: ""
   },
   {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
-  },
-]
-
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
+    traffic: "",
+    content: ""
   },
   {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
-  },
+    traffic: "",
+    content: ""
+  }
 ]
 
 const TrafficSetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
-        <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
+      <ul className={styles.option__list}>
+        {
+          trafficList.map((item, idx) => (
+            <CommonItemWrapper key={`${item}${idx}`}>
+              <CommonItemContent title="교통수단">
+                <input type="text" />
+              </CommonItemContent>
 
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
-          </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
-          </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
-          </CommonItemContent>
-        </CommonItemWrapper>
+              <CommonItemContent title="내용">
+                <input type="text" />
+              </CommonItemContent>
+            </CommonItemWrapper>
+          ))
+        }
       </ul>
+        <CommonItemContent>
+          <Button type="button" content="+ 추가"></Button>
+          <Button type="button" content="- 삭제"></Button>
+        </CommonItemContent>
+
     </div>
   )
 }

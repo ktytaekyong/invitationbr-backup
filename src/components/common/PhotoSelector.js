@@ -14,8 +14,8 @@ const PhotoSelector = (props) => {
     <div className={styles.photo__selector}>
       <ul className={styles.option__list}>
         <li className={styles.option__item}>
-          <input type="file" name="" id="introFile" onChange={props.onChange} />
-          <label htmlFor="introFile"></label>
+          <input type="file" name="" id={`${props.id}File`} onChange={props.onChange} />
+          <label htmlFor={`${props.id}File`}></label>
         </li>
         <span>{props.listName.src}</span>
         {/* {

@@ -1,72 +1,59 @@
+/* Import */
+import { useState, useEffect } from "react";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
+import TabSelector from "./TabSelector.js"
+import PhotoSelector from "./PhotoSelector.js";
+import ButtonWrapper from "../layout/ButtonWrapper.js";
+import Button from "../layout/Button.js";
 /* CSS Module */
-
-const themeList = [
-  {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
-  },
-  {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
-  },
-]
-
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
-  },
-  {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
-  },
-]
+import styles from "../../css/module/common/NoticeSettingT.module.css";
 
 const OutroSetting = () => {
+  const [radioActive, setRadioActive] = useState(false);
+  const [videoList, setVideoList] = useState([]);
+  const fileAddHandler = (e) => {
+    const file = e.target.files[0];
+    if(file) {
+      const fileList = new FileReader();
+      fileList.onload = (e) => {
+        setVideoList([
+          {
+            src: e.target.result,
+            alt: e.target.result,
+          },
+        ]);
+      };
+      fileList.readAsDataURL(file);
+    }
+  }
   return (
     <div className="content__wrapper">
       <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
+          <CommonItemContent title="내용">
+            <textarea name="" id=""></textarea>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
+          <CommonItemContent title="사진">
+            <PhotoSelector id="photoList" listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList} />
+            <div className={styles.notice__wrap}>
+              <small>사진 첨부는 선택사항입니다.</small>
+            </div>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
+          <CommonItemContent title="사진 위치">
+            <ButtonWrapper>
+              <Button content="배경"></Button>
+              <Button content="위"></Button>
+              <Button content="아래"></Button>
+            </ButtonWrapper>
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

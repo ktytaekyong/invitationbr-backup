@@ -3,13 +3,13 @@ import CheckItem from "./CheckItem.js";
 /* CSS Module */
 import styles from "../../css/module/common/BackgroundSettingCheckbox.module.css";
 
-const DateSettingCheckbox = () => {
+const LocationSettingCheckbox = () => {
   return (
     <div className={styles.check__wrapper}>
-      <CheckItem content="D-Day" id="dateDdayOption" />
-      <CheckItem content="카운트다운" id="dateCountdownOption" />
+      <CheckItem content="지도 표기" id="locationMapOption" />
+      <CheckItem content="약도 첨부" id="locationImageOption" />
     </div>
   )
 }
 
-export default DateSettingCheckbox;
+export default LocationSettingCheckbox;

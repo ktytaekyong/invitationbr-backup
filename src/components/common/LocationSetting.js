@@ -3,70 +3,38 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
 import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
+import Button from "../layout/Button.js";
+import LocationSettingCheckbox from "./LocationSettingCheckbox.js";
 /* CSS Module */
-
-const themeList = [
-  {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
-  },
-  {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
-  },
-]
-
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
-  },
-  {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
-  },
-]
 
 const LocationSetting = () => {
   return (
     <div className="content__wrapper">
       <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
+          <CommonItemContent title="예식장 명">
+            <input type="text" />
           </CommonItemContent>
           <BackgroundSettingTheme />
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
+          <CommonItemContent title="층과 홀">
+            <input type="text" />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
+          <CommonItemContent title="주소">
+            <input type="text" />
+            <Button content="검색"></Button>
+            <div className="map"></div>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
+            <LocationSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

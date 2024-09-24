@@ -6,6 +6,7 @@ import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
 import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
 import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 /* CSS Module */
+import styles from "../../css/module/common/GallerySettingType.module.css";
 
 const themeList = [
   {

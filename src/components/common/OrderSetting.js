@@ -1,3 +1,5 @@
+/* Import */
+import { useState, useEffect, useRef } from "react";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
@@ -6,68 +8,62 @@ import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
 import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
 import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 /* CSS Module */
+import styles from "../../css/module/common/OrderSetting.module.css";
 
-const themeList = [
+const orderList = [
   {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
+    title: "asdf",
+    order: "fixed"
   },
   {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
-  },
-]
-
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
+    title: "asdf",
+    order: "fixed"
   },
   {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
+    title: "asdf",
   },
   {
-    itemName: "볼드",
-    itemKey: "600"
+    title: "asdf",
   },
+  {
+    title: "asdf",
+  },
+  {
+    title: "asdf",
+  },  
+  {
+    title: "asdf",
+  },
+  {
+    title: "asdf",
+  },
+  {
+    title: "asdf",
+  }
 ]
 
 const OrderSetting = () => {
+
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <ul className={styles.option__list}>
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
-          </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
-          </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
-          </CommonItemContent>
+          <p>항목을 드래그..</p>
+          <p>고정 탭 설정..</p>
+          <ul className={styles.order__list}>
+            {
+              orderList.map((item, idx) => (
+                <li 
+                  id={`${item.title}${idx}`} 
+                  key={`${item.title}${idx}`} 
+                  className={`${styles.order__item} ${item.order === "fixed" ? styles.fixed : null}`}
+                >
+                  {item.title}
+                  {idx}
+                </li>
+              ))
+            }
+          </ul>
         </CommonItemWrapper>
       </ul>
     </div>

@@ -1,0 +1,6 @@
+.radio__wrap {
+  display: none;
+}
+.radio__wrap.active {
+  display: flex;
+}

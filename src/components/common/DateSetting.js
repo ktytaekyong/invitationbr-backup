@@ -2,7 +2,7 @@
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
+import DateSettingCheckbox from "./DateSettingCheckbox.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
 
@@ -35,7 +35,7 @@ const DateSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
-
+            <DateSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

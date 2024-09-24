@@ -1,49 +1,41 @@
 /* Import */
 import { useState, useEffect } from "react";
+/* Component */
+import TabSelector from "./TabSelector"
 /* CSS Module */
 import styles from "../../css/module/common/BackgroundSettingEffect.module.css";
 
 const effectList = [
   {
-    title: "없음"
+    title: "없음",
+    id: "bgEffectNoSelect"
   }, 
   {
-    title: "벚꽃잎"
+    title: "벚꽃잎",
+    id: "bgEffectBlossoms"
   }, 
   {
-    title: "하트"
+    title: "하트",
+    id: "bgEffectHeart"
   }, 
   {
-    title: "눈송이"
+    title: "눈송이",
+    id: "bgEffectSnowflake"
   }, 
 ]; 
 
 const BackgroundSettingEffect = () => {
-  const [isActive, setIsActive] = useState(false);
   const [radioActive, setRadioActive] = useState(false);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
-    if(idx === 0) {
-      setRadioActive(false);
-    } else {
-      setRadioActive(true);
-    }
-  }
-
-  useEffect(() => {
-    // 초기(저장)값으로 변경(현재 무조건 첫 번째 항목_240904)
-    setIsActive(0);
-  }, []);
-
   return (
     <>
-      <ul className={styles.effect__selector}>
+      {/* <ul className={styles.effect__selector}>
         {effectList.map((item, idx) => (
           <li className={`${styles.effect__item} ${isActive === idx ? styles["active"] : ""}`} 
           key={item + idx} id={"effect" + idx} onClick={() => setActiveHandler(idx)} 
           >{item.title}</li>
         ))}
-      </ul>
+      </ul> */}
+      <TabSelector listName={effectList} onChange={setRadioActive} />
       <div className={`${styles.radio__wrap} ${radioActive ? styles["active"] : ""}`}>
         <div>
           <input type="radio" name="effectSection" id="effectIntro" defaultChecked />

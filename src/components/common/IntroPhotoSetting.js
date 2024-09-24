@@ -42,7 +42,7 @@ const IntroPhotoSetting = () => {
       <ul className={styles.option__list}>
         <CommonItemWrapper>
           <CommonItemContent title="사진">
-            <PhotoSelector listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
+            <PhotoSelector id="photoList" listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
           </CommonItemContent>
         </CommonItemWrapper>
 

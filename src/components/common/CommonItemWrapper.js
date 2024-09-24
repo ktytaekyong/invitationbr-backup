@@ -2,7 +2,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/CommonItemWrapper.module.css";
 
-const OptionCommonItem = (props) => {
+const CommonItemWrapper = (props) => {
   return (
     <li className={styles.option__item}>
       {props.children}
@@ -10,4 +10,4 @@ const OptionCommonItem = (props) => {
   )
 }
 
-export default OptionCommonItem;
+export default CommonItemWrapper;

@@ -1,0 +1,16 @@
+.option__list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.option__list > li {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* .option__item {
+  display: none;
+}
+.option__item.active {
+  display: block;
+} */

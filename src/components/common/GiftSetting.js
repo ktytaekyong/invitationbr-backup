@@ -2,73 +2,96 @@
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
+import Button from "../layout/Button.js";
 /* CSS Module */
+import styles from "../../css/module/common/TrafficSetting.module.css";
 
-const themeList = [
+const bankList = [
   {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
+    itemName: "우리은행",
+    itemKey: "woori"
   },
   {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
+    itemName: "국민은행",
+    itemKey: "kb"
+  },
+]
+const MGiftList = [
+  {
+    traffic: "",
+    content: ""
+  },
+  {
+    traffic: "",
+    content: ""
   },
 ]
 
-const fontList = [
+const FGiftList = [
   {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
+    traffic: "",
+    content: ""
   },
   {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
+    traffic: "",
+    content: ""
   },
 ]
 
 const GiftSetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
-        <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
-          </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
-          </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
-          </CommonItemContent>
-        </CommonItemWrapper>
+      <CommonItemContent title="그룹명">
+        <input type="text" placeholder="신랑측 계좌번호"/>
+        <Button type="button" content="+"></Button>
+      </CommonItemContent>
+      <ul className={styles.option__list}>
+        {
+          
+          MGiftList.map((item, idx) => (
+            <CommonItemWrapper key={`${item}${idx}`}>
+              <CommonItemContent title="계좌번호">
+                <OptionSelector listName={bankList} />
+                <input type="text" placeholder="계좌번호 입력" />
+              </CommonItemContent>
+              <CommonItemContent title="예금주">
+                <input type="text" placeholder="예금주 입력" />
+              </CommonItemContent>
+              <CommonItemContent title="간편송금">
+                <input type="checkbox" />
+              </CommonItemContent>
+              <CommonItemContent title="펼쳐두기">
+                <input type="checkbox" />
+              </CommonItemContent>
+            </CommonItemWrapper>
+          ))
+        }
+      </ul>
+      <hr></hr>
+      <CommonItemContent title="그룹명">
+        <input type="text" placeholder="신부측 계좌번호"/>
+        <Button type="button" content="+"></Button>
+      </CommonItemContent>
+      <ul className={styles.option__list}>
+        {
+          FGiftList.map((item, idx) => (
+            <CommonItemWrapper key={`${item}${idx}`}>
+              <CommonItemContent title="계좌번호">
+                <OptionSelector listName={bankList} />
+                <input type="text" placeholder="계좌번호 입력" />
+              </CommonItemContent>
+              <CommonItemContent title="예금주">
+                <input type="text" placeholder="예금주 입력" />
+              </CommonItemContent>
+              <CommonItemContent title="간편송금">
+                <input type="checkbox" />
+              </CommonItemContent>
+              <CommonItemContent title="펼쳐두기">
+                <input type="checkbox" />
+              </CommonItemContent>
+            </CommonItemWrapper>
+          ))
+        }
       </ul>
     </div>
   )
