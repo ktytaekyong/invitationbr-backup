@@ -1,4 +1,4 @@
-/* .option__list > li {
+.option__list > li {
   flex-direction: column;
   align-items: flex-start;
 }
@@ -15,4 +15,4 @@
 }
 .order__item.fixed {
   background-color: var(--text-color--disable);
-} */
+}
