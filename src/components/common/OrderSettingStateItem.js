@@ -4,20 +4,13 @@ import { useDrag, useDrop } from 'react-dnd'
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 /* CSS Module */
-import styles from "../../css/module/common/OrderSettingState.module.css";
-const style = {
-  border: '1px dashed gray',
-  padding: '0.5rem 1rem',
-  marginBottom: '.5rem',
-  backgroundColor: 'white',
-  cursor: 'move',
-}
+import styles from "../../css/module/common/OrderSettingStateItem.module.css";
 
 const ItemTypes = {
   ORDER: "order",
 }
 
-const OrderSettingStateItem = ({ children, id, index, moveItemHandler }) => {
+const OrderSettingStateItem = ({ children, id, index, moveItemHandler, className }) => {
   const orderItemRef = useRef(null);
   const [{ handlerId }, drop] = useDrop({
     accept: ItemTypes.ORDER,
@@ -77,9 +70,9 @@ const OrderSettingStateItem = ({ children, id, index, moveItemHandler }) => {
   const opacity = isDragging ? 0 : 1
   drag(drop(orderItemRef));
   return (
-    <div ref={orderItemRef} style={{ ...style, opacity }} data-handler-id={handlerId}>
+    <li ref={orderItemRef} className={className} style={{ opacity }}data-handler-id={handlerId}>
       {children}
-    </div>
+    </li>
   )
 }
 

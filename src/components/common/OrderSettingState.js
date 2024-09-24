@@ -83,6 +83,7 @@ const OrderSettingState = () => {
         index={index}
         id={`${item.title}${index}`} 
         moveItemHandler={moveItemHandler}
+        className={`${styles.order__item} ${item.order === "fixed" ? styles.fixed : null}`} 
       >
         {item.title}
         {index}
