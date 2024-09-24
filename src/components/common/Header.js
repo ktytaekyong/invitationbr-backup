@@ -15,9 +15,13 @@ const Header = () => {
         <Link to="/" className={styles.header__logo}>
           <h1>LOGO</h1>
         </Link>
+        <div className={styles.header__title}>
+          <h2>청첩장 만들기</h2>
+          <p>선택 항목은 메뉴명 앞에 체크박스 표시가 있습니다.</p>
+        </div>
         <ButtonWrapper>
-          <Button type="button" styleType="default" content="저장" />
-          <Button type="button" styleType="primary" content="안 저장" />
+          <Button type="button" styleType="default" content="미리보기" />
+          <Button type="button" styleType="primary" content="저장" />
         </ButtonWrapper>
       </Container>
     </header>

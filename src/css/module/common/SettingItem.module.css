@@ -3,15 +3,23 @@
   /* overflow: hidden; */
   border-radius: 8px;
   border: 1px solid var(--border-color--default);
+  background-color: var(--bg-color--setting);
 }
 /* .setting__item:not(:last-child) {
   margin-bottom: 10px;
 } */
 .setting__title {
-  padding: 14px;
+  width: 100%;
+  padding: 20px 24px;
+  background-color: #FFF;
+  border-radius: 8px;
 }
 .setting__item.active .setting__title {
   border-bottom: 1px solid var(--border-color--default);
+  border-radius: 8px 8px 0px 0px;
+}
+.setting__title > p {
+  font-weight: 600;
 }
 /* .arrow_img {
 } */
