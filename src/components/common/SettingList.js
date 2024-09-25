@@ -23,6 +23,8 @@ import OutroSetting from "./OutroSetting";
 import ThumbnailSettingK from "./ThumbnailSettingK";
 import ThumbnailSettingU from "./ThumbnailSettingU";
 import OrderSetting from "./OrderSetting";
+/* CSS Module */
+import styles from "../../css/module/common/SettingList.module.css";
 
 const itemList = [
   {
@@ -113,7 +115,7 @@ const itemList = [
 
 const SettingList = () => {
   return (
-    <ul className="setting__list" style={{overflow: "hidden"}}>
+    <ul className={styles.setting__list}>
       {itemList.map((item, index) => (
         <SettingItem itemTitle={item.itemTitle} itemContent={item.itemContent} id={`SettingItem${index}`} key={index} />
       ))}

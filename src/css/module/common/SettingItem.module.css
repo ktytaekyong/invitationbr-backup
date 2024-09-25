@@ -1,6 +1,6 @@
 .setting__item {
   width: 100%;
-  max-width: 560px;
+  max-width: 540px;
   /* overflow: hidden; */
   border-radius: 8px;
   border: 1px solid var(--border-color--default);
@@ -29,9 +29,10 @@
   width: 32px;
   height: 32px;
   transition: var(--transition--fast);
+  transform: rotateX(180deg);
 }
 .setting__item.active .setting_arrow_img {
-  transform: rotateX(180deg);
+  transform: rotateX(0);
 }
 .setting__content {
   /* height: 0px; */

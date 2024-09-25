@@ -1,10 +1,10 @@
 @charset "utf-8";
 :root {
   /* COLOR */
-  --text-color--default: #191F28;
-  --text-color--gray: #5B6470;
+  --text-color--default: #191F28; /* */
+  --text-color--gray: #5B6470; /* */
+  --text-color--disable: #7A7A7A; /* */
   
-  --text-color--disable: #7A7A7A;
   --text-color--pink: #FBCBCF;
   --text-color--temp: #484848;
   --text-color--temp-gray: #939393;
@@ -64,7 +64,8 @@
   --transition--template: .42s ease all;
 
   /* BORDER-RADIUS */
-  --radius--default: 8px;
+  --radius--default: 8px; /* */
+  --radius--button-list: 999px; /* */
 }
 
 /* device == "pc" */
@@ -79,35 +80,4 @@
 
 /* device == "tablet" */
 /* clamp 35%, 90% */
-@media screen and (max-width: 1199px) {
-  :root {
-    --font-size--section-title: clamp(28px, calc(50 / var(--width-tablet) * 100vw), 45px);
-    --font-size--xl: clamp(16px, calc(24 / var(--width-tablet) * 100vw), 19px);
-    --font-size--lg: clamp(15.5px, calc(20 / var(--width-tablet) * 100vw), 18px);
-    --font-size--sl: clamp(14px, calc(18 / var(--width-tablet) * 100vw), 17px);
-    --font-size--default: clamp(13.5px, calc(16 / var(--width-tablet) * 100vw), 16px);
-    --font-size--ssm: clamp(13px, calc(15 / var(--width-tablet) * 100vw), 15px);
-    --font-size--sm: clamp(12px, calc(14 / var(--width-tablet) * 100vw), 14px);
-    --font-size--xsm: clamp(11px, calc(12 / var(--width-tablet) * 100vw), 12px);
-  }
-  /* @content; */
-}
 
-/* device == "mobile" */
-@media screen and (max-width: 599px) {
-  /* @content; */
-  :root {
-    --font-size--section-title: 24px;
-    --font-size--xl: 17px;
-    --font-size--lg: 15px;
-    --font-size--sl: 14px;
-    --font-size--default: 14.6px;
-    --font-size--ssm: 14px;
-    --font-size--sm: 14px;
-    --font-size--xsm: 12px;
-    --font-size--xxsm: 10px;
-
-    /* PADDING */
-    --padding--default: 0 23px;
-  }
-}

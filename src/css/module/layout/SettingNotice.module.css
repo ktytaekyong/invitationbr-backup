@@ -1,0 +1,10 @@
+.setting__notice {
+  display: flex;
+  column-gap: 4px;
+  font-size: var(--font-size--sm);
+}
+.setting__notice span {
+  color: var(--text-color--gray);
+  font-weight: 300;
+  word-break: keep-all;
+}

@@ -1,5 +1,19 @@
-.option__item {
-  padding: 8px;
-  border-radius: 8px;
-  border: 1px solid var(--border-color--second);
+.option__item input[type="checkbox"] {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  display: none;
+}
+.option__item label {
+  color: var(--text-color--disable);
+  padding: 14px 20px;
+  border-radius: var(--radius--button-list);
+  border: 1px solid var(--border-color--default);
+  background-color: #fff;
+  font-size: var(--font-size--xsm);
+  display: flex;
+}
+.option__item input[type="checkbox"]:checked + label {
+  color: #FFF;
+  background-color: var(--button-color--default);
 }

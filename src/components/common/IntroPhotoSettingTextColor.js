@@ -69,7 +69,6 @@ const IntroPhotoSettingTextColor = () => {
   return (
     <>
       <Button type="button" content="+" className={styles.add_btn} onClick={setActiveHandler} />
-
       <ul className={`${styles.option__list} ${isActive ? styles["active"] : ""}`}>
         {
           repeatCount.map((_, repeatidx) => {

@@ -41,6 +41,7 @@
 }
 .header__title h2 {
   font-size: var(--font-size--temp-lg);
+  font-weight: 600;
 }
 .header__title p {
   font-size: var(--font-size--temp-ssm);
