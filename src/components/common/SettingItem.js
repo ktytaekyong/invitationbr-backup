@@ -2,6 +2,8 @@
 import { useState, useRef, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/SettingItem.module.css";
+/* Image */
+import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
 
 const SettingItem = (props) => {
   const [isActive, setIsActive] = useState(false);
@@ -22,7 +24,7 @@ const SettingItem = (props) => {
     <li className={`${styles.setting__item} ${isActive ? styles["active"] : ""}`} ref={itemRef} id={props.id}>
       <div className={styles.setting__title} onClick={activeToggleHandler}>
         <p>{props.itemTitle}</p>
-        <img src="" alt="" className={styles.arrow_img} />
+        <img src={iconSettingItemArrowImg} alt="" className={styles.setting_arrow_img} />
       </div>
       <div className={styles.setting__content}>
         <div className={styles.content}>

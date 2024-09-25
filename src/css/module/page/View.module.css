@@ -5,6 +5,7 @@
   align-items: center;
   flex-wrap: wrap;
   position: relative;
+  background-color: var(--bg-color--default);
 }
 .view > div {
   display: flex;

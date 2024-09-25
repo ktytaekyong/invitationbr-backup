@@ -7,13 +7,17 @@ import ButtonWrapper from "../layout/ButtonWrapper";
 import Button from "../layout/Button";
 /* CSS Module */
 import styles from "../../css/module/common/Header.module.css";
+/* Image */
+import iconHomeArrowImg from "../../img/icon/icon_header_home_arrow.svg"
+import iconHomeImg from "../../img/icon/icon_header_home.svg"
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <Container>
-        <Link to="/" className={styles.header__logo}>
-          <h1>LOGO</h1>
+        <Link to="/" className={styles.header__home}>
+          <img src={iconHomeArrowImg} alt="" />
+          <img src={iconHomeImg} alt="" />
         </Link>
         <div className={styles.header__title}>
           <h2>청첩장 만들기</h2>
