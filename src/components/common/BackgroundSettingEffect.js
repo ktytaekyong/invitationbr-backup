@@ -37,6 +37,7 @@ const BackgroundSettingEffect = () => {
       </ul> */}
       <TabSelector listName={effectList} onChange={setRadioActive} />
       <div className={`${styles.radio__wrap} ${radioActive ? styles["active"] : ""}`}>
+        <p>효과 범위</p>
         <div>
           <input type="radio" name="effectSection" id="effectIntro" defaultChecked />
           <label htmlFor="effectIntro">인트로 화면</label>

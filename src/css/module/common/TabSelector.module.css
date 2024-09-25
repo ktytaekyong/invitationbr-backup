@@ -10,25 +10,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4px 8px;
-  min-width: 65px;
+  padding: 10px 20px;
   font-size: var(--font-size--sm);
-  background-color: var(--bg-color--second);
+  background-color: #FFF;
   border: 1px solid var(--bg-color--second);
-  border-radius: 8px;
+  border-radius: var(--radius--button-list);
+  color: var(--text-color--disable-input);
+  cursor: pointer;
 }
 .selector__item.active {
-  background-color: #FFF;
-  border: 1px solid #EEE;
-}
-.radio__wrap {
-  display: none;
-}
-.radio__wrap.active {
-  display: block;
-}
-.radio__wrap input[type=radio] {
-  appearance: radio;
-  -moz-appearance: radio;
-  -webkit-appearance: radio;
+  background-color: var(--button-color--default);
+  color: #FFF;
 }

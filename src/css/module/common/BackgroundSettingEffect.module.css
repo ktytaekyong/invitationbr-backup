@@ -1,34 +1,46 @@
-.effect__selector {
+.radio__wrap {
+  display: none;
+  margin-top: 16px;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  column-gap: 12px;
+}
+.radio__wrap.active {
+  display: flex;
+}
+.radio__wrap p {
+  width: 100%;
+  font-size: var(--font-size--temp-sm);
+  font-weight: var(--font-weight--Regular);
+  margin-bottom: 8px;
+  padding-left: 3px;
+}
+.radio__wrap input[type=radio] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background-image: url(../../../img/state/radiobox_disabled.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.radio__wrap > div {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 5px;
-  row-gap: 3px;
-  flex-wrap: wrap;
+  column-gap: 3px;
 }
-.effect__item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4px 8px;
-  min-width: 65px;
+.radio__wrap label {
   font-size: var(--font-size--sm);
-  background-color: var(--bg-color--second);
-  border: 1px solid var(--bg-color--second);
-  border-radius: 8px;
+  font-weight: var(--font-weight--Regular);
+  color: var(--text-color--disable-input);
 }
-.effect__item.active {
-  background-color: #FFF;
-  border: 1px solid #EEE;
+.radio__wrap input[type=radio]:checked {
+  background-image: url(../../../img/state/radiobox_selected.svg);
 }
-.radio__wrap {
-  display: none;
-}
-.radio__wrap.active {
-  display: block;
-}
-.radio__wrap input[type=radio] {
-  appearance: radio;
-  -moz-appearance: radio;
-  -webkit-appearance: radio;
+.radio__wrap input[type=radio]:checked + label {
+  color: var(--text-color--default);
 }

@@ -63,13 +63,14 @@ const BackgroundSetting = () => {
             <BackgroundSettingEffect />
           </CommonItemContent>
         </CommonItemWrapper>
-
+      </ul>
+      <div>
         <CommonItemWrapper>
           <CommonItemContent title="옵션" multi={true}>
             <BackgroundSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }

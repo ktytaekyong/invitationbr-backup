@@ -22,17 +22,19 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   padding: 0;
-  content: "x";
-  border: 1px solid var(--border-color--default);
+  content: "";
   display: flex;
   justify-content: center;
   align-items: center;
   line-height: 1em;
   color: var(--button-color--default);
-  background: url() no-repeat center contain;
-  background-color: #fff;
-  border-radius: 0;
+  background-image: url(../../../img/icon/icon_close.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 999px;
 }

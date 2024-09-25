@@ -1,17 +1,18 @@
 .photo__selector {
-
 }
 .option__list {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  column-gap: 5px;
-  row-gap: 5px;
+  column-gap: 8px;
+  row-gap: 8px;
 }
 .option__item {
-  width: 120px;
-  height: 80px;
+  width: 133px;
+  height: 130px;
   border: 1px solid var(--border-color--default);
+  border-radius: var(--radius--default);
+  background-color: #FFF;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -25,8 +26,9 @@ input[type="file"] {
   height: inherit;
   display: block;
   position: relative;
+  cursor: pointer;
 }
-.option__item label::after {
+/* .option__item label::after {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,4 +44,4 @@ input[type="file"] {
   line-height: 1em;
   color: var(--border-color--default);
   background: url() no-repeat center contain;
-}
+} */

@@ -1,7 +1,6 @@
 .option__item {
   display: flex;
   column-gap: 12px;
-  /* flex-wrap: wrap; */
   width: 100%;
 }
 .option__title {
@@ -11,7 +10,7 @@
   min-width: 70px;
   font-size: var(--font-size--ssm);
 }
-.option__title.multiLine {
+.option__item.multiLine .option__title {
   align-items: flex-start;
   padding-top: 5px;
 }
@@ -19,6 +18,9 @@
   width: 100%;
   display: flex;
   column-gap: var(--col-gap--setting-basic);
+}
+.option__item.multiLine .option__content {
+  flex-direction: column;
 }
 .essential {
   color: var(--text-color--essntial);

@@ -2,44 +2,47 @@
 import { useState } from "react";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
+import TabSelector from "./TabSelector.js";
 /* CSS Module */
 import styles from "../../css/module/common/IntroSetting.module.css";
+/* IMAGE */
+import templateImage1 from "../../img/intro/intro_photo_temp1.png";
 
 const basicIntroList = [
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "basicTemplate1",
   },
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "basicTemplate2",
   },
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "basicTemplate3",
   },
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "basicTemplate4",
   },
 ]
 
 const fillIntroList = [
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "fillTemplate1",
   },
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "fillTemplate2",
   },
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "fillTemplate3",
   },
   {
-    imgSrc: "",
-    altVal: "",
+    imgSrc: templateImage1,
+    altVal: "fillTemplate4",
   },
 ]
 

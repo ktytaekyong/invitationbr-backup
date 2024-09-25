@@ -12,7 +12,6 @@ const BackgroundSettingTheme = () => {
   useEffect(() => {
     setIsActive(0);
   }, []);
-
   return (
     <ul className={styles.bg__selector}>
       {colorList.map((item, idx) => (

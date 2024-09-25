@@ -13,7 +13,6 @@ const IntroPhotoSetting = () => {
   const [photoList, setPhotoList] = useState([]);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
-    
     if(file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
@@ -39,15 +38,15 @@ const IntroPhotoSetting = () => {
 
   return (
     <div className="content__wrapper">
-      <ul className={styles.option__list}>
+      <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="사진">
+          <CommonItemContent title="사진" multi={true}>
             <PhotoSelector id="photoList" listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="문구 및 색상 편집">
+          <CommonItemContent title="편집">
             <IntroPhotoSettingTextColor listName={photoList}></IntroPhotoSettingTextColor>
           </CommonItemContent>
         </CommonItemWrapper>

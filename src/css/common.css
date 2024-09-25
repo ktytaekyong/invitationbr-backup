@@ -38,6 +38,9 @@
 .option__list:last-child {
   border-bottom: none;
 }
+.option__list + div {
+  margin-top: 24px;
+}
 /* STYLE */
 /* .setting_input__style_default */
 .option__list input {
@@ -62,5 +65,4 @@
   display: flex;
   flex-direction: column;
   row-gap: 6px;
-  margin-top: 24px;
 }
