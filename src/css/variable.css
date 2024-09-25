@@ -4,10 +4,10 @@
   --text-color--default: #191F28; /* */
   --text-color--gray: #5B6470; /* */
   --text-color--disable: #7A7A7A; /* */
-  
-  --text-color--pink: #FBCBCF;
+  --text-color--essntial: #FF6550; /* */
+  --text-color--placeholder: #B9C0C7; /* */
+
   --text-color--temp: #484848;
-  --text-color--temp-gray: #939393;
 
   --point-color--default: #FFF;
   --point-color--second: #EDEDED;

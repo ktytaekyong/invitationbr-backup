@@ -1,0 +1,10 @@
+.option__input {
+  display: flex;
+  column-gap: 8px;
+}
+.option__input input:first-child {
+  max-width: 100px;
+}
+.option__input input:last-child {
+  max-width: 140px;
+}

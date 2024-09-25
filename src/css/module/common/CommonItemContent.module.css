@@ -1,9 +1,21 @@
 .option__item {
   display: flex;
-  padding: 8px 0;
-  column-gap: 10px;
-  flex-wrap: wrap;
+  column-gap: 12px;
+  /* flex-wrap: wrap; */
+  width: 100%;
 }
 .option__title {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   min-width: 70px;
+  font-size: var(--font-size--ssm);
+}
+.option__content {
+  width: 100%;
+}
+.essential {
+  color: var(--text-color--essntial);
+  display: inline-block;
+  margin-left: 4px;
 }

@@ -4,6 +4,7 @@ import React from "react";
 import SettingItem from "./SettingItem";
 import FixedTabSetting from "./FixedTabSetting";
 import BackgroundSetting from "./BackgroundSetting";
+import BasicInfomationSetting from "./BasicInfomationSetting";
 import IntroSetting from "./IntroSetting";
 import IntroPhotoSetting from "./IntroPhotoSetting";
 import CoupleInfomationSetting from "./CoupleInfomationSetting";
@@ -31,6 +32,10 @@ const itemList = [
     itemTitle: "고정 탭 설정",
     itemContent: <FixedTabSetting />,
   }, 
+  {
+    itemTitle: "기본 정보",
+    itemContent: <BasicInfomationSetting />,
+  },
   {
     itemTitle: "배경",
     itemContent: <BackgroundSetting />,

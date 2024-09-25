@@ -5,9 +5,9 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import CoupleInfomationSettingBasic from "./CoupleInfomationSettingBasic.js";
 import Button from "../layout/Button.js"
+import CheckItem from "./CheckItem.js";
 /* CSS Module */
 import styles from "../../css/module/common/IntroPhotoSetting.module.css";
-import CheckItem from "./CheckItem.js";
 
 const CoupleInfomation = () => {
   const [photoList, setPhotoList] = useState([]);
