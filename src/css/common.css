@@ -1,7 +1,7 @@
         
 *::placeholder {
   color: var(--text-color--placeholder);
-  font-weight: 300;
+  font-weight: var(--font-weight--Regular);
 }
 .view {
   width: 100%;
@@ -23,11 +23,11 @@
   /* padding: 14px;
   border: 1px solid var(--border-color--default); */
 }
+
 .option__list {
   display: flex;
   flex-direction: column;
   row-gap: 12px;
-
   border-bottom: 1px solid var(--border-color--default);
   padding-top: 24px;
   padding-bottom: 24px;
@@ -37,9 +37,7 @@
 }
 .option__list:last-child {
   border-bottom: none;
-
 }
-
 /* STYLE */
 /* .setting_input__style_default */
 .option__list input {
@@ -57,6 +55,9 @@
   padding: 10px;
   height: 40px;
 }
+
+
+
 .notice__wrapper {
   display: flex;
   flex-direction: column;

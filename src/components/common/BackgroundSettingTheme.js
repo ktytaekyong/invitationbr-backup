@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/BackgroundSettingTheme.module.css";
 
-const colorList = ["#000", "#EEE"];
+const colorList = ["#FFF", "#E8E9EC", "#FFF3F3", "#FDFBF5"];
 const BackgroundSettingTheme = () => {
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {

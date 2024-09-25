@@ -4,7 +4,7 @@ import styles from "../../css/module/common/CommonItemContent.module.css";
 const CommonItemContent = (props) => {
   return (
     <div className={styles.option__item}>
-      <p className={styles.option__title}>
+      <p className={`${styles.option__title} ${props.multi ? styles.multiLine : null}`}>
         {props.title}
         {
           props.essential === true ? 

@@ -20,7 +20,6 @@ const TabSelector = ({ listName, onChange }) => {
       return;
     }
   }
-
   useEffect(() => {
     // 초기(저장)값으로 변경(현재 무조건 첫 번째 항목_240904)
     setIsActive(0);

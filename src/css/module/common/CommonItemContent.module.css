@@ -11,8 +11,14 @@
   min-width: 70px;
   font-size: var(--font-size--ssm);
 }
+.option__title.multiLine {
+  align-items: flex-start;
+  padding-top: 5px;
+}
 .option__content {
   width: 100%;
+  display: flex;
+  column-gap: var(--col-gap--setting-basic);
 }
 .essential {
   color: var(--text-color--essntial);

@@ -20,7 +20,6 @@ const BasicInfomationSettingDate = ({ data }) => {
     setIsActiveTab(idx);
   }
   return (
-    
     <div className={styles.option__input}>
       {
         data === "date" ?

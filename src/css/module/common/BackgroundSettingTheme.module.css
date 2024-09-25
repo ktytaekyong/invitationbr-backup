@@ -2,14 +2,25 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 8px;
 }
 .bg__item {
-  width: 20px;
-  height: 20px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   cursor: pointer;
+  position: relative;
+  border: 1px solid var(--border-color--default);
 }
-.bg__item.active {
-  border: 2px solid red;
+.bg__item.active::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  background-color: #fff;
+  border: 1px solid var(--border-color--default);
+  border-radius: 50%;
 }

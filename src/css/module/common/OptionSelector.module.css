@@ -1,3 +1,5 @@
 .option__selector {
-  
+  width: 100%;
+  max-width: var(--width-input-setting);
+  font-weight: var(--font-weight--Regular);
 }

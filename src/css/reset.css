@@ -7,7 +7,7 @@
   box-sizing: border-box;
   letter-spacing: -0.02em;
   line-height: 1.2em;
-  font-weight: 400;
+  font-weight: var(--font-weight--Medium);
   color: var(--text-color--default);
 }
 body {

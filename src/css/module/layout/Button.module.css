@@ -5,7 +5,7 @@
   padding: 12px 24px;
   border: none;
   font-size: var(--font-size--sm);
-  font-weight: 600;
+  font-weight: var(--font-weight--SemiBold);
 }
 .default {
   background-color: #FFF;

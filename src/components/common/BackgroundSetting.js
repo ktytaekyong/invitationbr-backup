@@ -47,8 +47,8 @@ const BackgroundSetting = () => {
         <CommonItemWrapper>
           <CommonItemContent title="테마">
             <OptionSelector listName={themeList} />
+            <BackgroundSettingTheme />
           </CommonItemContent>
-          <BackgroundSettingTheme />
         </CommonItemWrapper>
 
         <CommonItemWrapper>
@@ -59,14 +59,14 @@ const BackgroundSetting = () => {
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="효과">
+          <CommonItemContent title="효과" multi={true}>
             <BackgroundSettingEffect />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
+          <CommonItemContent title="옵션" multi={true}>
+            <BackgroundSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>
