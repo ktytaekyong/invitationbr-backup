@@ -5,7 +5,7 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import TabSelector from "./TabSelector.js";
 /* CSS Module */
 import styles from "../../css/module/common/IntroSetting.module.css";
-/* IMAGE */
+/* Image */
 import templateImage1 from "../../img/intro/intro_photo_temp1.png";
 
 const basicIntroList = [

@@ -38,3 +38,15 @@
   background-color: transparent;
   border-radius: 999px;
 }
+
+.modify {
+  padding: 5px 0;
+  font-weight: var(--font-weight--Regular);
+  position: relative;
+  padding-right: 28px;
+  background-color: transparent;
+  background-image: url(../../../img/icon/icon_textmodify_arrow.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 24px;
+}

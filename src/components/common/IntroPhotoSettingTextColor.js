@@ -4,20 +4,14 @@ import { HexColorPicker, HexColorInput } from "react-colorful";
 /* CSS Module */
 import styles from "../../css/module/common/IntroPhotoSettingTextColor.module.css";
 import Button from "../layout/Button";
+/* Image */
+import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_picker.svg";
 
-const IntroPhotoSettingTextColor = () => {
-  const [isActive, setIsActive] = useState(false);
-  const setActiveHandler = () => {
-    setIsActive(!isActive);
-  }
-  useEffect(() => {
-    setIsActive(0);
-  }, []);
-
-  const [color, setColor] = useState(["#000", "#000", "#000", "#000"]);
-  const [pickerActive, setPickerActive] = useState([false, false, false, false]);
+const IntroPhotoSettingTextColor = (isActive) => {
+  const [color, setColor] = useState(["", "", "", "", ""]);
+  const [pickerActive, setPickerActive] = useState([false, false, false, false, false]);
+  const [themeType, setThemeType] = useState([1, 2, 3, 4, 5]);
   const presetColors = ["#cd9323", "#1a53d8", "#9a2151", "#0d6416"];
-  const [themeType, setThemeType] = useState([1, 2, 3, 4]);
   const pickerOpen = (clickIdx) => {
     setPickerActive((prevList) => {
       return prevList.map((item, idx) => (
@@ -39,11 +33,8 @@ const IntroPhotoSettingTextColor = () => {
   const handleClick = (e) => {
     if (pickerRef.current.includes(e.target)) {
       pickerOpen(pickerRef.current.indexOf(e.target)); 
-      console.log(32425);
     } else if (
-      e.target.classList.contains("react-colorful__interactive") || 
-      e.target.classList.contains(styles.picker__input) || 
-      e.target.classList.contains(styles.preset__item)
+      e.target.closest(`.${styles.picker__active}`)
     ) {
       return;
     } else {
@@ -57,7 +48,7 @@ const IntroPhotoSettingTextColor = () => {
     };
   }, []);
 
-  const repeatCount = [null, null, null, null];
+  const repeatCount = [null, null, null, null, null];
   const changeColorList = (repeatidx, color) => {
     setColor((prevList) => {
       return prevList.map((item, idx) => {
@@ -68,14 +59,22 @@ const IntroPhotoSettingTextColor = () => {
 
   return (
     <>
-      <Button type="button" content="+" className={styles.add_btn} onClick={setActiveHandler} />
       <ul className={`${styles.option__list} ${isActive ? styles["active"] : ""}`}>
         {
           repeatCount.map((_, repeatidx) => {
             return (
-              <li key={`textInput${repeatidx}`} className={`${styles.option__item} ${styles.style__date}`}>
-                <div ref={el => (pickerRef.current[repeatidx] = el)} className={styles.txt__picker} style={{backgroundColor: color[repeatidx]}} onClick={() => pickerOpen(repeatidx)}>
-                  {repeatidx}
+              <li key={`textInput${repeatidx}`} className={`${styles.option__item}`}>
+                <div 
+                  ref={el => (pickerRef.current[repeatidx] = el)} 
+                  className={styles.txt__picker} 
+                  // style={{backgroundColor: color[repeatidx]}} 
+                  onClick={() => pickerOpen(repeatidx)}
+                >
+                  {color[repeatidx] !== "" ?
+                    <IconColorPickerImg fill={color[repeatidx]} />
+                    :
+                    "색상"
+                  }
                 </div>
                 {
                   pickerActive[repeatidx] ?
@@ -97,38 +96,9 @@ const IntroPhotoSettingTextColor = () => {
                   </div>
                   : null
                 }
-                {
-                  themeType[repeatidx] === 1 ?
-                  <div className={`${styles.txt__wrapper} ${styles.style__date}`}>
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                  </div>
-                  : null
-                }
-                {
-                  themeType[repeatidx] === 2 ?
-                  <div className={`${styles.txt__wrapper} ${styles.style__day}`}>
-                    <input type="text" />
-                  </div>
-                  : null
-                }
-                {
-                  themeType[repeatidx] === 3 ?
-                  <div className={`${styles.txt__wrapper} ${styles.style__name}`}>
-                    <input type="text" />
-                    <input type="text" />
-                    <input type="text" />
-                  </div>
-                  : null
-                }
-                {
-                  themeType[repeatidx] === 4 ?
-                  <div className={`${styles.txt__wrapper} ${styles.style__txtarea}`}>
-                    <textarea name="" id=""></textarea>
-                  </div>
-                  : null
-                }
+                <div className={`${styles.txt__wrapper}`}>
+                  <input type="text" id={`settingTxt${repeatidx + 1}`} defaultValue="예시" style={{color: color[repeatidx]}}/>
+                </div>
               </li>
             )
           })

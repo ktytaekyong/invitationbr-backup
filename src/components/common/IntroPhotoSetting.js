@@ -5,6 +5,7 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import PhotoSelector from "./PhotoSelector.js";
 import IntroPhotoSettingTextColor from "./IntroPhotoSettingTextColor.js";
+import ButtonWrapper from "../layout/ButtonWrapper.js"
 import Button from "../layout/Button.js"
 /* CSS Module */
 import styles from "../../css/module/common/IntroPhotoSetting.module.css";
@@ -24,16 +25,12 @@ const IntroPhotoSetting = () => {
         ]);
       };
       fileList.readAsDataURL(file);
-      // console.log(photoList);
     }
   }
-  const [isActive, setIsActive] = useState(0);
-  const [isActiveTab, setIsActiveTab] = useState(0);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
-  }
-  const setActiveTabHandler = (idx) => {
-    setIsActiveTab(idx);
+  const [isActive, setIsActive] = useState(false);
+  const setActiveHandler = () => {
+    setIsActive(!isActive);
+    console.log(isActive);
   }
 
   return (
@@ -46,8 +43,15 @@ const IntroPhotoSetting = () => {
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="편집">
-            <IntroPhotoSettingTextColor listName={photoList}></IntroPhotoSettingTextColor>
+          <CommonItemContent title="편집" multi={true}>
+            <ButtonWrapper>
+              <Button type="button" content={"문구 및 색상 편집"} styleType="modify" onClick={setActiveHandler} />
+            </ButtonWrapper>
+            {isActive ? 
+              <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
+              :
+              null
+            }
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>
