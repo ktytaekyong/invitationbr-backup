@@ -67,12 +67,10 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       // setLastIdx(pickerRef.current.indexOf(e.target));
     } else if (e.target.closest(`.${styles.picker__active}`)) {
       return;
-    } else if (e.target) {
-      console.log(e.target);
-      lastIdx.current = null;
-    }
+    } 
     // if (pickerOpen(pickerRef.current.indexOf(e.target))) {}
     // if (e.target.closest(`.${styles.picker__active}`)) return;
+    // 적용을 누르고 나면 안 바뀌게
     else {
       if(lastIdx.current !== null) {
         pickerCancel(lastIdx.current);
