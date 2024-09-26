@@ -30,7 +30,6 @@ const IntroPhotoSetting = () => {
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = () => {
     setIsActive(!isActive);
-    console.log(isActive);
   }
 
   return (
@@ -47,11 +46,7 @@ const IntroPhotoSetting = () => {
             <ButtonWrapper>
               <Button type="button" content={"문구 및 색상 편집"} styleType="modify" onClick={setActiveHandler} />
             </ButtonWrapper>
-            {isActive ? 
-              <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
-              :
-              null
-            }
+            <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

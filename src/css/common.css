@@ -60,14 +60,11 @@
   height: 40px;
 }
 
-
-
 .notice__wrapper {
   display: flex;
   flex-direction: column;
   row-gap: 6px;
 }
-
 
 /* PICKER */
 .react-colorful {
@@ -75,4 +72,21 @@
 }
 .react-colorful__saturation {
   height: 92px;
+}
+.react-colorful__hue {
+  width: 176px;
+  height: 8px !important;
+  border-radius: 999px !important;
+  margin-top: 19px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.react-colorful__pointer {
+  width: 14px !important;
+  height: 14px !important;
+  border: 1px solid var(--border-color--gray) !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+}
+.react-colorful__pointer-fill {
+  background-color: rgba(255, 255, 255, 0.7) !important;
 }

@@ -10,7 +10,7 @@
 
   --text-color--temp: #484848;
 
-  --point-color--default: #FFF;
+  --point-color--default: #FF6550; /* */
   --point-color--second: #EDEDED;
 
   --bg-color--default: #F6F7F8; /* */
@@ -20,8 +20,10 @@
   --bg-color--setting: #F9FAFB; /* */
 
   --border-color--default: #E5E8EB; /* */
+  --border-color--gray: #5B6470; /* */
 
   --button-color--default: #182D4B; /* */
+  --button-color--cancel: #F2F4F6; /* */
 
   /* FONT */
   --font-family--default: "Pretendard";
