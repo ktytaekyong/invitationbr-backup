@@ -21,7 +21,7 @@ const LetterSetting = () => {
 
   return (
     <div className="content__wrapper">
-      <ul className={styles.option__list}>
+      <ul className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="제목">
             <LetterSettingTitle />
@@ -29,9 +29,8 @@ const LetterSetting = () => {
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="내용">
+          <CommonItemContent title="내용" multi={true}>
             <LetterSettingContent />
-            <Button type="button" content="샘플 문구 보기"></Button>
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

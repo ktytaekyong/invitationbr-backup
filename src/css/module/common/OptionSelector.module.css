@@ -24,3 +24,11 @@
 .option__selector:focus {
   outline: none;
 }
+
+/* CUSTOM */
+.info__firstname_selector {
+  max-width: 100px;
+}
+.minute__selector {
+  max-width: 100px;
+}

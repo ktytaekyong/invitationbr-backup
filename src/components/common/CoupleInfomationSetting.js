@@ -4,14 +4,23 @@ import { useState, useEffect } from "react";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import CoupleInfomationSettingBasic from "./CoupleInfomationSettingBasic.js";
+import CoupleInfomationSettingParents from "./CoupleInfomationSettingParents.js";
+import SettingNotice from "../layout/SettingNotice.js"
 import Button from "../layout/Button.js"
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/IntroPhotoSetting.module.css";
-
+// const parents = ["아버지", "어머니"];
+const parents = [
+  {
+    itemName: "아버지",
+    itemKey: "Father"
+  },
+  {
+    itemName: "어머니",
+    itemKey: "Mother"
+  }
+];
 const CoupleInfomation = () => {
-  const [photoList, setPhotoList] = useState([]);
-  
   const [isActive, setIsActive] = useState(0);
   const [isActiveTab, setIsActiveTab] = useState(0);
   const setActiveHandler = (idx) => {
@@ -23,26 +32,46 @@ const CoupleInfomation = () => {
 
   return (
     <div className="content__wrapper">
-      <ul className={styles.option__list}>
+      <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="신랑 측">
+          <CommonItemContent title="신랑">
             <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
           </CommonItemContent>
         </CommonItemWrapper>
-
+        {parents.map((parent) => (
+          <CommonItemWrapper>
+            <CommonItemContent title={parent.itemName}>
+              <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="M"></CoupleInfomationSettingParents>
+            </CommonItemContent>
+          </CommonItemWrapper>
+        ))}
+      </ul>
+      <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="신부 측">
+          <CommonItemContent title="신부">
             <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
           </CommonItemContent>
         </CommonItemWrapper>
-
+        {parents.map((parent) => (
+          <CommonItemWrapper>
+            <CommonItemContent title={parent.itemName}>
+              <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="F"></CoupleInfomationSettingParents>
+            </CommonItemContent>
+          </CommonItemWrapper>
+        ))}
+      </ul>
+      <ul className="option__list">
         <CommonItemWrapper>
-          <CommonItemContent title="고인 표기">
-            <CheckItem id="depF" content="국화꽃으로 표기" disabled={true} />
+          <CommonItemContent title="故人 표기" multi={true}>
+            <CheckItem id="depF" content="국화꽃으로 표기" />
+            <div className="notice__wrapper">
+              <SettingNotice>
+                <span>※</span>
+                <span>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</span>
+              </SettingNotice>
+            </div>
           </CommonItemContent>
         </CommonItemWrapper>
-            
-        <small>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</small>
         {/* Notice로 */}
         {/* 국화꽃 표기 방법 생각 */}
         {/* 아마 context 하면 되지 않을까 */}

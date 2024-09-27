@@ -1,0 +1,22 @@
+.couple__info {
+  width: 100%;
+  display: flex;
+  column-gap: 8px;
+}
+/* input:first-child,
+input:nth-child(2) {
+  width: 60px;
+}
+input:nth-child(3) {
+  width: 150px;
+}
+.couple__info > div {
+  width: 100px;
+} */
+.info__firstname,
+.info__name {
+  max-width: 60px;
+}
+.info__number {
+  max-width: 150px;
+}

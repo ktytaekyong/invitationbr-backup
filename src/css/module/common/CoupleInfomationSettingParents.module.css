@@ -1,0 +1,11 @@
+.couple__info {
+  width: 100%;
+  display: flex;
+  column-gap: 8px;
+}
+.info__parentname {
+  max-width: 100px;
+}
+.info__parentnumber {
+  max-width: 150px;
+}

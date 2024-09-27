@@ -27,7 +27,7 @@ const BasicInfomationSettingDate = ({ data }) => {
         :
         <>
           <OptionSelector selectID="DateHourSelect" listName={dateHourList} type="hour" hour={dateHourDistList}></OptionSelector>
-          <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} type="minute"></OptionSelector>
+          <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} type="minute" styleType="minute__selector"></OptionSelector>
         </>
       }
     </div>

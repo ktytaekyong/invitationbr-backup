@@ -2,6 +2,7 @@
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
+import DateSettingImage from "./DateSettingImage.js";
 import DateSettingCheckbox from "./DateSettingCheckbox.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
@@ -23,16 +24,18 @@ const DateSetting = () => {
         <CommonItemWrapper>
           <CommonItemContent title="예식시간">
             <OptionSelector selectID="DateHourSelect" listName={dateHourList} type="hour" hour={dateHourDistList}></OptionSelector>
-            <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} type="minute"></OptionSelector>
+            <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} styleType="minute__selector" type="minute"></OptionSelector>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="이미지">
-            <Button type="button" content={`더 보기 (변수(${0}))`}></Button>
+          <CommonItemContent title="이미지" multi={true}>
+            <DateSettingImage />
           </CommonItemContent>
         </CommonItemWrapper>
+      </ul>
 
+      <ul className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
             <DateSettingCheckbox />

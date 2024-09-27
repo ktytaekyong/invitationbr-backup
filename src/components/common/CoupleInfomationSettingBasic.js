@@ -2,23 +2,14 @@
 import { useState, useEffect } from "react";
 /* Component */
 import OptionSelector from "./OptionSelector"
-/* CSS Module */
-import styles from "../../css/module/common/IntroPhotoSetting.module.css";
 import CheckItem from "./CheckItem";
+/* CSS Module */
+import styles from "../../css/module/common/CoupleInfomationSettingBasic.module.css";
 
 const CoupleInfomationSettingBasic = ({ couple, coupleKey }) => {
   const [depActive, setDepActive] = useState(false);
   const [relList, setRelList] = useState([]);
-  const parents = [
-    {
-      itemName: "아버지",
-      itemKey: "Father"
-    },
-    {
-      itemName: "어머니",
-      itemKey: "Mother"
-    }
-  ];
+  
   const MRelList = [
     {
       itemName: "아들",
@@ -56,22 +47,12 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey }) => {
   }, [coupleKey])
 
   return (
-    <>
-      <div className={styles.couple__info}>
-        <input type="text" id={`${coupleKey}Name`} placeholder={`${couple} 이름`} />
-        <input type="number" id={`${coupleKey}Number`} placeholder="전화 번호" />
-        <OptionSelector selectID={`${coupleKey}RelSelect`} listName={relList} />
-      </div>
-      <div className={styles.couple__info}>
-        {parents.map((parent) => (
-          <div key={`${parent.itemKey}info`}>
-            <input type="text" id={`${coupleKey}${parent.itemKey}Name`} placeholder={`${parent.itemName} 성함`} />
-            <input type="number" id={`${coupleKey}${parent.itemKey}Number`} placeholder="전화 번호" />
-            <CheckItem name={`${coupleKey}${parent.itemKey}Dep`} id={`${coupleKey}${parent.itemKey}Dep`} content={"故"} />
-          </div>
-        ))}
-      </div>
-    </>
+    <div className={styles.couple__info}>
+      <input type="text" id={`${coupleKey}FirstName`} className={styles.info__firstname} placeholder={`성`} />
+      <input type="text" id={`${coupleKey}Name`} className={styles.info__name} placeholder={`이름`} />
+      <input type="number" id={`${coupleKey}Number`} className={styles.info__number} placeholder="전화 번호" />
+      <OptionSelector selectID={`${coupleKey}RelSelect`} className={styles.info__firstname_selector} listName={relList} />
+    </div>
   )
 }
 

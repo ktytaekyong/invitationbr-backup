@@ -1,9 +1,9 @@
 /* CSS Module */
 import styles from "../../css/module/common/OptionSelector.module.css";
 
-const OptionSelector = ({ selectID, listName, type, hour }) => {
+const OptionSelector = ({ selectID, listName, type, styleType }) => {
   return (
-    <div className={styles.option__selector_wrapper}>
+    <div className={`${styles.option__selector_wrapper} ${styleType ? styles[styleType] : ""}`}>
       <select id={selectID} className={styles.option__selector}>
         {
           // type === "hour" ?

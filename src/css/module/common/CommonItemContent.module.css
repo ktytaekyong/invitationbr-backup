@@ -21,6 +21,7 @@
 }
 .option__item.multiLine .option__content {
   flex-direction: column;
+  row-gap: 8px;
 }
 .essential {
   color: var(--text-color--essntial);

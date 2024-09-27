@@ -3,6 +3,9 @@
   color: var(--text-color--placeholder);
   font-weight: var(--font-weight--Regular);
 }
+*:focus {
+  outline: none;
+}
 .view {
   width: 100%;
   display: flex;
@@ -58,6 +61,10 @@
   border-radius: var(--radius--default);
   padding: 10px;
   height: 40px;
+}
+.option__list input[type="date"] {
+  width: 100%;
+  max-width: 160px;
 }
 
 .notice__wrapper {
