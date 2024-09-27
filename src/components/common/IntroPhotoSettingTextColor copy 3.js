@@ -19,26 +19,28 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   const lastIdx = useRef(null);
   // const [lastIdx, setLastIdx] = useState(null);
   const handleClick = (e) => {
-    if (pickerRef.current.includes(e.target)) { 
+    if (pickerRef.current.includes(e.target)) { // 클릭한 곳이 pickerRef 배열에 포함되면
       lastIdx.current = pickerRef.current.indexOf(e.target);
     } else if (e.target.closest(`.${styles.picker__active}`)) { 
       return; 
     } 
-    else { 
-      pickerClose(); // 현재 취소 안됨(적용)
+    else { // 나머지는 닫아라
+      if(lastIdx.current !== -1) {
+        pickerCancel(lastIdx.current);
+      } else {
+        pickerClose();
+      }
     }
   };
-
-  // useEffect(() => {
-  //   {
-  //     console.log("color:"+color);
-  //     console.log("prevColor:"+prevColor);
-  //   }
-  // }, [color, prevColor]);
-  
+  {
+    // 이전컬러로돌아가야하는데 초기화가된다는것은 라스트인덱스가 먼저 null로 변경되어서인거같다
+    console.log(lastIdx.current);
+    console.log("color:"+color);
+    console.log("prevColor:"+prevColor);
+  }
+ 
   const presetColors = ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"];
   const pickerOpen = (clickIdx) => {
-    setPrevColor(color);
     setPickerActive((prevList) => {
       return prevList.map((_, idx) => (
         clickIdx === idx ? true : false
@@ -52,6 +54,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
         item ? false : false
       ))
     });
+    lastIdx.current = null;
   }
   // 확인
   const pickerAccept = (repeatidx) => {
@@ -60,20 +63,21 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
         return idx === repeatidx ? color[idx] : item;
       });
     });
-    lastIdx.current = null;
     pickerClose();
   }
   // 취소
   const pickerCancel = (repeatidx) => {
-    // if(color !== prevColor) {
+    if(color.filter((item, index) => item !== prevColor[index]).length > 0) {
       setColor((prevList) => {
         return prevList.map((item, idx) => {
           return idx === repeatidx ? prevColor[idx] : item;
         });
       });
-    // }
-    lastIdx.current = null;
+      console.log("color.filter((item, index) => item !== prevColor[index])" + color.filter((item, index) => item !== prevColor[index]));
+      console.log("니네가안다르다고말하굇는거냐지금?")
+    }
     pickerClose();
+    // lastIdx.current = null;
   }
   const changeColorList = (repeatidx, color) => {
     setColor((prevList) => {

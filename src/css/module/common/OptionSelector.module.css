@@ -1,5 +1,26 @@
-.option__selector {
+.option__selector_wrapper {
   width: 100%;
   max-width: var(--width-input-setting);
   font-weight: var(--font-weight--Regular);
+  position: relative;
+}
+.option__selector {
+  width: 100%;
+}
+.option__selector_wrapper::after {
+  content: "";
+  position: absolute;
+  width: 38px;
+  height: 100%;
+  border-left: 1px solid var(--border-color--default);
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background-image: url(../../../img/icon/icon_seletor_arrow.png);
+  background-position: center;
+  background-size: 32px;
+  pointer-events: none;
+}
+.option__selector:focus {
+  outline: none;
 }

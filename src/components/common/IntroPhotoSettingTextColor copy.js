@@ -19,26 +19,21 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   const lastIdx = useRef(null);
   // const [lastIdx, setLastIdx] = useState(null);
   const handleClick = (e) => {
-    if (pickerRef.current.includes(e.target)) { 
+    if (pickerRef.current.includes(e.target)) {
       lastIdx.current = pickerRef.current.indexOf(e.target);
-    } else if (e.target.closest(`.${styles.picker__active}`)) { 
-      return; 
-    } 
-    else { 
-      pickerClose(); // 현재 취소 안됨(적용)
+    } else if (e.target.closest(`.${styles.picker__active}`)) {
+      return;
+    } else {
+      // 피커 바깥 클릭 시
+      if (color.some((item, index) => item !== prevColor[index])) {
+        setColor(prevColor); // 현재 색상 배열을 이전 색상 배열로 덮어씀
+      }
+      pickerClose();
     }
   };
-
-  // useEffect(() => {
-  //   {
-  //     console.log("color:"+color);
-  //     console.log("prevColor:"+prevColor);
-  //   }
-  // }, [color, prevColor]);
-  
+ 
   const presetColors = ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"];
   const pickerOpen = (clickIdx) => {
-    setPrevColor(color);
     setPickerActive((prevList) => {
       return prevList.map((_, idx) => (
         clickIdx === idx ? true : false
@@ -47,34 +42,27 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   }
   // 닫기
   const pickerClose = () => {
-    setPickerActive((prevList) => {
-      return prevList.map((item) => (
-        item ? false : false
-      ))
-    });
-  }
+    setPickerActive([false, false, false, false, false]);
+    lastIdx.current = null;
+  };
   // 확인
-  const pickerAccept = (repeatidx) => {
-    setPrevColor((prevList) => {
-      return prevList.map((item, idx) => {
-        return idx === repeatidx ? color[idx] : item;
-      });
-    });
-    lastIdx.current = null;
+  const pickerAccept = () => {
+    setPrevColor(color); // 이전 색상 배열을 현재 색상 배열로 덮어씀
     pickerClose();
-  }
+  };
   // 취소
-  const pickerCancel = (repeatidx) => {
-    // if(color !== prevColor) {
-      setColor((prevList) => {
-        return prevList.map((item, idx) => {
-          return idx === repeatidx ? prevColor[idx] : item;
-        });
-      });
-    // }
-    lastIdx.current = null;
+  const pickerCancel = () => {
+    setColor(prevColor); // 현재 색상 배열을 이전 색상 배열로 덮어씀
     pickerClose();
-  }
+  };
+
+  useEffect(() => {
+    // 초기 상태를 설정하고 싶다면 여기서 설정
+    const initialColors = ["#e62323", "", "", "", ""]; // 예시 초기 색상
+    setColor(initialColors);
+    setPrevColor(initialColors); // 시작할 때 현재 색상과 이전 색상을 동일하게 설정
+  }, []);
+
   const changeColorList = (repeatidx, color) => {
     setColor((prevList) => {
       return prevList.map((item, idx) => {
@@ -136,8 +124,8 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                     </div>
                     <div className={styles.picker__button_wrapper}>
                       <ButtonWrapper>
-                        <Button content="취소" styleType="picker" onClick={() => pickerCancel(repeatidx)}></Button>
-                        <Button content="적용" styleType="picker" onClick={() => pickerAccept(repeatidx)}></Button>
+                        <Button content="취소" styleType="picker" onClick={pickerCancel}></Button>
+                        <Button content="적용" styleType="picker" onClick={pickerAccept}></Button>
                       </ButtonWrapper>
                     </div>
                   </div>
