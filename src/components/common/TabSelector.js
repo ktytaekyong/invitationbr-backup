@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import OptionSelector from "./OptionSelector"
 /* CSS Module */
 import styles from "../../css/module/common/TabSelector.module.css";
-import CheckItem from "./CheckItem";
 
 const TabSelector = ({ listName, onChange }) => {
   const [isActive, setIsActive] = useState(false);
