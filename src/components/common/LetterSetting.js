@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import LetterSettingTitle from "./LetterSettingTitle.js";
-import LetterSettingContent from "./LetterSettingContent.js";
+import TextEditor from "./TextEditor.js";
 import Button from "../layout/Button.js"
 /* CSS Module */
 import styles from "../../css/module/common/IntroPhotoSetting.module.css";
@@ -30,7 +30,7 @@ const LetterSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="내용" multi={true}>
-            <LetterSettingContent />
+            <TextEditor type="letter" />
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

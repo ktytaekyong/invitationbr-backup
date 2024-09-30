@@ -9,6 +9,12 @@
   align-items: center;
   column-gap: 8px;
 }
+.file__name_wrap {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
 .file__wrap p {
   width: 100%;
   height: 40px;
@@ -17,9 +23,25 @@
   background-color: #fff;
   border-radius: var(--radius--default);
   font-size: var(--font-size--sm);
+  font-weight: var(--font-weight--Regular);
+  color: var(--text-color--placeholder);
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+.file__wrap .file__name_wrap.add p {
+  width: unset;
+  border: none;  
+  color: var(--text-color--default);
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 4px;
+}
+.file__wrap p + button {
+  display: none;
+}
+.file__wrap .add p + button {
+  display: block;
 }
 .file__wrap label {
   display: inline-flex;

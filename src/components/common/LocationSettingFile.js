@@ -14,33 +14,38 @@ const LocationSettingFile = () => {
       fileList.onload = (e) => {
         setLocationFileList([
           {
+            fileName: file.name,
             src: e.target.result,
             alt: e.target.result,
           },
         ]);
       };
       fileList.readAsDataURL(file);
+      console.log(file);
     }
+    console.log(e.target.files);
   }
   const fileDeleteHandler = (item) => {
     let list = [...locationFileList];
     list = list.filter((e) => e !== item);
     setLocationFileList(list);
   }
+  useEffect(() => {
+
+  }, [locationFileList])
   return (
     <div className={styles.file__selector}>
       <div className={styles.file__wrap}>
-        <p>
-          {locationFileList ? "약도 첨부" : locationFileList[0]}
-        </p>
-        <label htmlFor="LocationFile">파일</label>
+        <div className={`${styles.file__name_wrap} ${locationFileList.length > 0 ? styles["add"] : null}`}>
+          <p>
+            {locationFileList.length > 0 ? locationFileList[0].fileName : "약도 첨부"}
+          </p>
+          <Button styleType="file__delete" onClick={() => {fileDeleteHandler(locationFileList[0])}}></Button>
+        </div>
+        {locationFileList.length > 0 ? null : <label htmlFor="LocationFile">파일</label>}
       </div>
       <input type="file" name="LocationFile" id="LocationFile" onChange={fileAddHandler} />
-      {locationFileList.map((item, idx) => (
-        <div className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
-          <Button type="button" styleType="close" onClick={() => {fileDeleteHandler(item)}} />
-        </div>
-      ))}
+
     </div>
   )
 }

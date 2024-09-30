@@ -7,6 +7,7 @@ import OptionSelector from "./OptionSelector.js";
 import LocationSettingAddress from "./LocationSettingAddress.js";
 import LocationSettingName from "./LocationSettingName.js";
 import LocationSettingFile from "./LocationSettingFile.js";
+import TrafficSetting from "./TrafficSetting.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/BasicInfomationSettingDate.module.css";
@@ -39,6 +40,10 @@ const LocationSetting = () => {
             <LocationSettingFile></LocationSettingFile>
           </CommonItemContent>
         </CommonItemWrapper>
+      </ul>
+
+      <ul className="option__list">
+        <TrafficSetting />
       </ul>
     </div>
   )
