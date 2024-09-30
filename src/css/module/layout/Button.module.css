@@ -58,7 +58,7 @@
   background-size: 24px;
 }
 .picker {
-  width: 50%;
+  width: calc((100% - 8px) / 2);
   border-radius: var(--radius--default);
   font-weight: var(--font-weight--Medium);
   font-size: var(--font-size--xsm);
@@ -97,7 +97,7 @@
   background-position: left;
   background-size: 24px;
 }
-.traffic__delete {
+.remove {
   max-width: 105px;
   padding: 0 0 0 28px;
   margin-top: 12px;

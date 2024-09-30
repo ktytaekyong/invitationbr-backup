@@ -28,7 +28,7 @@ const TrafficSetting = () => {
               <CommonItemContent title="교통수단" multi={true}>
                 <input type="text" />
                 <TextEditor></TextEditor>
-                  <Button type="button" content="교통수단 삭제" styleType="traffic__delete"></Button>
+                  <Button type="button" content="교통수단 삭제" styleType="remove"></Button>
               </CommonItemContent>
             </CommonItemWrapper>
           ))

@@ -135,7 +135,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                       })}
                     </div>
                     <div className={styles.picker__button_wrapper}>
-                      <ButtonWrapper>
+                      <ButtonWrapper styleType="center">
                         <Button content="취소" styleType="picker" onClick={() => pickerCancel(repeatidx)}></Button>
                         <Button content="적용" styleType="picker" onClick={() => pickerAccept(repeatidx)}></Button>
                       </ButtonWrapper>
