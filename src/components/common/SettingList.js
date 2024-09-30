@@ -64,10 +64,10 @@ const itemList = [
     itemTitle: "오시는 길",
     itemContent: <LocationSetting />,
   }, 
-  {
-    itemTitle: "교통수단",
-    itemContent: <TrafficSetting />,
-  }, 
+  // {
+  //   itemTitle: "교통수단",
+  //   itemContent: <TrafficSetting />,
+  // }, 
   {
     itemTitle: "갤러리",
     itemContent: <GallerySetting />,

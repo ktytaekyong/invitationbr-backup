@@ -6,6 +6,7 @@
   border: none;
   font-size: var(--font-size--sm);
   font-weight: var(--font-weight--SemiBold);
+  flex-shrink: 0;
 }
 .default {
   background-color: #FFF;
@@ -17,6 +18,12 @@
   background-color: var(--button-color--default);
   color: #FFF;
   border-radius: var(--radius--default);
+}
+.point {
+  background-color: var(--point-color--default);
+  color: #FFF;
+  border-radius: var(--radius--default);
+  font-weight: var(--font-weight--Medium);
 }
 .close {
   position: absolute;

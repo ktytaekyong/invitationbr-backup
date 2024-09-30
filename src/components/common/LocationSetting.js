@@ -1,11 +1,15 @@
+/* Import */
+import { useRef } from "react";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
+import LocationSettingAddress from "./LocationSettingAddress.js";
+import LocationSettingName from "./LocationSettingName.js";
+import LocationSettingFile from "./LocationSettingFile.js";
 import Button from "../layout/Button.js";
-import LocationSettingCheckbox from "./LocationSettingCheckbox.js";
 /* CSS Module */
+import styles from "../../css/module/common/BasicInfomationSettingDate.module.css";
 
 const LocationSetting = () => {
   return (
@@ -13,28 +17,26 @@ const LocationSetting = () => {
       <ul className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="예식장 명">
-            <input type="text" />
+            <LocationSettingName data="name" />
           </CommonItemContent>
-          <BackgroundSettingTheme />
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="층과 홀">
-            <input type="text" />
+            <LocationSettingName data="place" />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="주소">
-            <input type="text" />
-            <Button content="검색"></Button>
-            <div className="map"></div>
+          {/* 멀티 구분도 필요 */}
+          <CommonItemContent title="주소" multi={true}>
+            <LocationSettingAddress />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <LocationSettingCheckbox />
+          <CommonItemContent title="약도 첨부">
+            <LocationSettingFile></LocationSettingFile>
           </CommonItemContent>
         </CommonItemWrapper>
       </ul>

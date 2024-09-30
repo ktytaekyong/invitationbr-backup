@@ -22,7 +22,7 @@ const trafficList = [
 
 const TrafficSetting = () => {
   return (
-    <div className="content__wrapper">
+    <>
       <ul className={styles.option__list}>
         {
           trafficList.map((item, idx) => (
@@ -38,12 +38,11 @@ const TrafficSetting = () => {
           ))
         }
       </ul>
-        <CommonItemContent>
-          <Button type="button" content="+ 추가"></Button>
-          <Button type="button" content="- 삭제"></Button>
-        </CommonItemContent>
-
-    </div>
+      <CommonItemContent>
+        <Button type="button" content="+ 추가"></Button>
+        <Button type="button" content="- 삭제"></Button>
+      </CommonItemContent>
+    </>
   )
 }
 
