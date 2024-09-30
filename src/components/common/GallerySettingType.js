@@ -38,12 +38,7 @@ const GallerySettingType = () => {
         ))}
       </ul> */}
       <TabSelector listName={typeList} onChange={setRadioActive} />
-      <div className={`${styles.radio__wrap} ${radioActive ? styles["active"] : ""}`}>
-        <div>
-          <input type="radio" name="galleryTypeOption" id="galleryTypeOption" defaultChecked />
-          <label htmlFor="galleryTypeOption">사진이 3줄이</label>
-        </div>
-      </div>
+
     </>
   )
 }

@@ -1,9 +1,14 @@
-.option__list {
-  display: flex;
-  flex-direction: column;
-  row-gap: 15px;
+.traffic__wrap {
+  width: 100%;
 }
-.option__list > li {
-  flex-direction: column;
-  align-items: flex-start;
+.traffic {
+  row-gap: 24px !important;
+}
+.traffic li {
+  border-bottom: 1px dashed var(--border-color--default);
+  padding-bottom: 24px;
+}
+.traffic li:last-of-type {
+  border-bottom: none;
+  padding-bottom: 0;
 }

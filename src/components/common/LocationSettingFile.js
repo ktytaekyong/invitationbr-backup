@@ -45,7 +45,6 @@ const LocationSettingFile = () => {
         {locationFileList.length > 0 ? null : <label htmlFor="LocationFile">파일</label>}
       </div>
       <input type="file" name="LocationFile" id="LocationFile" onChange={fileAddHandler} />
-
     </div>
   )
 }

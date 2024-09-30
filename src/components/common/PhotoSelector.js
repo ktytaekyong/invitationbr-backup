@@ -12,7 +12,7 @@ const PhotoSelector = (props) => {
     props.deleteFunction(list);
   }
   return (
-    <div className={styles.photo__selector}>
+    <div className={`${styles.photo__selector} ${props.id === "galleryPhotoList" ? styles["gallery"] : null}`}>
       <ul className={styles.option__list}>
         <li className={styles.option__item} style={{backgroundImage: `url(${photoAddImg})`}}>
           <input type="file" name="" id={`${props.id}File`} onChange={props.onChange} />

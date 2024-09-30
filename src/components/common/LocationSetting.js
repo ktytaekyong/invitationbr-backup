@@ -42,9 +42,7 @@ const LocationSetting = () => {
         </CommonItemWrapper>
       </ul>
 
-      <ul className="option__list">
-        <TrafficSetting />
-      </ul>
+      <TrafficSetting />
     </div>
   )
 }

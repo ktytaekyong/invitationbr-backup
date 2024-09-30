@@ -1,0 +1,55 @@
+.photo__wrap {
+  width: 100%;
+  border: 1px solid var(--border-color--default);
+  background-color: #fff;
+  border-radius: var(--radius--default);
+  margin-bottom: 16px;
+}
+.photo__content {
+  padding: 24px 16px 16px;
+}
+.photo__input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-top: 1px solid var(--border-color--default);
+}
+.photo__input_wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 8px;
+}
+.photo__input_wrap label {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border: none;
+  font-size: var(--font-size--xsm);
+  font-weight: var(--font-weight--Medium);
+  flex-shrink: 0;
+  background-color: var(--point-color--default);
+  color: #FFF;
+  border-radius: var(--radius--default);
+}
+.photo__input_wrap p {
+  font-size: var(--font-size--sm);
+  font-weight: var(--font-weight--Regular);
+}
+.photo__input_total p {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 4px;
+}
+.photo__input_total span {
+  font-size: var(--font-size--xsm);
+  font-weight: var(--font-weight--Regular);
+  color: var(--text-color--disable-input);
+}
+.photo__input_total span:first-child {
+  color: var(--text-color--default);
+  font-weight: var(--font-weight--Bold);
+}

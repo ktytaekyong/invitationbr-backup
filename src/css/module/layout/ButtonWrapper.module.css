@@ -5,3 +5,8 @@
   align-items: center;
   column-gap: 8px;
 }
+.button__wrapper.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
