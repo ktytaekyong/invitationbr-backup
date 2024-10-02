@@ -7,6 +7,8 @@ import OrderSettingState from "./OrderSettingState.js";
 /* CSS Module */
 import styles from "../../css/module/common/OrderSetting.module.css";
 import CommonOptionContent from "./CommonOptionContent.js";
+import SettingNotice from "../layout/SettingNotice.js";
+import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 
 // const orderList = [
 //   {
@@ -28,7 +30,7 @@ import CommonOptionContent from "./CommonOptionContent.js";
 //   },
 //   {
 //     title: "asdf",
-//   },  
+//   },
 //   {
 //     title: "asdf",
 //   },
@@ -43,15 +45,17 @@ import CommonOptionContent from "./CommonOptionContent.js";
 const OrderSetting = () => {
   return (
     <CommonOptionWrapper>
-        <CommonOptionContent>
-          <CommonItemWrapper>
-            <p>항목을 드래그..</p>
-            <p>고정 탭 설정..</p>
-            <OrderSettingState></OrderSettingState>
-          </CommonItemWrapper>
-        </CommonOptionContent>
+      <CommonOptionContent>
+        <CommonItemWrapper>
+          <SettingNotice>
+            <SettingNoticeContent>항목을 드래그하여 순서를 변경해주세요.</SettingNoticeContent>
+            <SettingNoticeContent>고정 탭 설정, 기본 정보, 배경, 인트로 화면과 사진, 신랑/신부측 정보는 순서 변경할 수 없습니다.</SettingNoticeContent>
+          </SettingNotice>
+          <OrderSettingState></OrderSettingState>
+        </CommonItemWrapper>
+      </CommonOptionContent>
     </CommonOptionWrapper>
-  )
-}
+  );
+};
 
 export default OrderSetting;
