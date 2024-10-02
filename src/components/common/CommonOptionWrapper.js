@@ -1,5 +1,5 @@
 /* CSS Module */
-import styles from "../../css/module/common/CommonOptionContent.module.css";
+import styles from "../../css/module/common/CommonOptionWrapper.module.css";
 
 const CommonOptionWrapper = ({ children }) => {
   return (

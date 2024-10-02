@@ -6,6 +6,7 @@
 *:focus {
   outline: none;
 }
+
 .view {
   width: 100%;
   display: flex;
@@ -21,47 +22,49 @@
   margin: 0 auto;
   padding: 30px 20px;
 }
-.content__wrapper {
-  width: 100%;
-  /* padding: 14px;
-  border: 1px solid var(--border-color--default); */
-}
 
-.option__content_wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 12px;
-  border-bottom: 1px solid var(--border-color--default);
-  padding-top: 24px;
-  padding-bottom: 24px;
-}
-.option__content_wrapper:first-child {
-  padding-top: 0;
-}
-.option__content_wrapper:last-of-type {
-  border-bottom: none;
-  padding-bottom: 0;
-}
 /* STYLE */
 /* .setting_input__style_default */
-.option__content_wrapper input {
+input {
   font-size: var(--font-size--sm);
 }
 /* .option__content_wrapper input:focus {
   border: none;
 } */
-.option__content_wrapper input[type="text"],
-.option__content_wrapper input[type="number"],
-.option__content_wrapper input[type="date"],
-.option__content_wrapper select {
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
   border: 1px solid var(--border-color--default);
   border-radius: var(--radius--default);
   padding: 10px;
   height: 40px;
 }
-.option__content_wrapper input[type="date"] {
+input[type="date"] {
   width: 100%;
   max-width: 160px;
+}
+input[type="radio"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  background-image: url(../img/state/radiobox_disabled.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+input[type="radio"] + label {
+  font-size: var(--font-size--sm);
+  font-weight: var(--font-weight--Regular);
+  color: var(--text-color--disable-input);
+}
+input[type="radio"]:checked {
+  background-image: url(../img/state/radiobox_selected.svg);
+}
+input[type="radio"]:checked + label {
+  color: var(--text-color--default);
 }
 
 /* PICKER */

@@ -2,8 +2,9 @@
 import { useState } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
-import TabSelector from "./TabSelector.js";
+import CommonItemContent from "./CommonItemContent.js";
 /* CSS Module */
 import styles from "../../css/module/common/IntroSetting.module.css";
 /* Image */
@@ -65,12 +66,12 @@ const IntroSetting = () => {
 
   return (
     <CommonOptionWrapper>
-      <ul className={styles.tab__list}>
-        <li className={`${styles.tab__item} ${isActiveTab === 0 ? styles.active : ''}`} onClick={() => setActiveTabHandler(0)}>기본</li>
-        <li className={`${styles.tab__item} ${isActiveTab === 1 ? styles.active : ''}`} onClick={() => setActiveTabHandler(1)}>채우기</li>
-      </ul>
-      <ul className={styles.option__list}>
+      <CommonOptionContent>
         <CommonItemWrapper>
+          <ul className={styles.tab__list}>
+            <li className={`${styles.tab__item} ${isActiveTab === 0 ? styles.active : ''}`} onClick={() => setActiveTabHandler(0)}>기본</li>
+            <li className={`${styles.tab__item} ${isActiveTab === 1 ? styles.active : ''}`} onClick={() => setActiveTabHandler(1)}>채우기</li>
+          </ul>
           <ul className={`${styles.intro__selector} ${isActiveTab === 0 ? styles.active : ''}`} id="introBasic">
             {basicIntroList.map((item, idx) => (
               <li className={`${styles.intro__item} ${isBasicActive === idx ? styles["active"] : ""}`} key={`${item.imgSrc} ${idx}`} onClick={() => setBasicActiveHandler(idx)}>
@@ -86,7 +87,7 @@ const IntroSetting = () => {
             ))}
           </ul>
         </CommonItemWrapper>
-      </ul>
+      </CommonOptionContent>
     </CommonOptionWrapper>
   )
 }

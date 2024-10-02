@@ -25,6 +25,7 @@ const BasicInfomationSetting = () => {
   }
   return (
     <CommonOptionWrapper>
+
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="신랑" essential={true}>
@@ -69,6 +70,7 @@ const BasicInfomationSetting = () => {
         <SettingNoticeContent>신랑/신부 이름은 필수 정보이며 미 입력 시 저장되지 않습니다.</SettingNoticeContent>
         <SettingNoticeContent>인트로 화면의 문구를 변경하시려면 기본 정보 입력칸이 아닌 인트로 사진 항목의 문구 입력칸에서 변경해 주세요.</SettingNoticeContent>
       </SettingNotice>
+      
     </CommonOptionWrapper>
   )
 }

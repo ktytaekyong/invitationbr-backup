@@ -1,5 +1,5 @@
-.option__content_wrapper {
+.check__wrapper {
   display: flex;
   flex-direction: column;
-  row-gap: 24px;
+  row-gap: 4px;
 }

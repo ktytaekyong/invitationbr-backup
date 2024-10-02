@@ -1,6 +1,6 @@
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
-import CommonOptionContent from "./CommonItemWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
@@ -11,14 +11,30 @@ import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 
 const themeList = [
   {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
+    itemName: "[베이직] 모던",
+    itemKey: "themeModernBasic"
   },
   {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
+    itemName: "[베이직] 클래식",
+    itemKey: "themeClassicBasic"
   },
-]
+  {
+    itemName: "[일러스트] 모던",
+    itemKey: "themeModernIllust"
+  },
+  {
+    itemName: "[일러스트] 클래식",
+    itemKey: "themeClassicIllust"
+  },
+  {
+    itemName: "심플",
+    itemKey: "themeSimple"
+  },
+  {
+    itemName: "플라워",
+    itemKey: "themeFlower"
+  },
+];
 
 const fontList = [
   {
@@ -44,31 +60,40 @@ const fontWeightList = [
 
 const BackgroundSetting = () => {
   return (
+    // 전체
     <CommonOptionWrapper>
+      {/* 섹션 */}
       <CommonOptionContent>
+        {/* 섹션 아이템 */}
         <CommonItemWrapper>
           <CommonItemContent title="테마">
             <OptionSelector listName={themeList} />
             <BackgroundSettingTheme />
           </CommonItemContent>
         </CommonItemWrapper>
+
         <CommonItemWrapper>
           <CommonItemContent title="폰트">
             <OptionSelector listName={fontList} />
             <OptionSelector listName={fontWeightList} />
           </CommonItemContent>
         </CommonItemWrapper>
+
         <CommonItemWrapper>
           <CommonItemContent title="효과" multi={true}>
             <BackgroundSettingEffect />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>
+
       <CommonOptionContent>
-        <CommonItemContent title="옵션" multi={true}>
-          <BackgroundSettingCheckbox />
-        </CommonItemContent>
+        <CommonItemWrapper>
+          <CommonItemContent title="옵션" multi={true}>
+            <BackgroundSettingCheckbox />
+          </CommonItemContent>
+        </CommonItemWrapper>
       </CommonOptionContent>
+
     </CommonOptionWrapper>
   )
 }

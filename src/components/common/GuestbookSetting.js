@@ -11,14 +11,30 @@ import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 
 const themeList = [
   {
-    itemName: "[베이직] 모던 1",
-    itemKey: "modern1"
+    itemName: "[베이직] 모던",
+    itemKey: "themeModernBasic"
   },
   {
-    itemName: "[베이직] 모던 2",
-    itemKey: "modern2"
+    itemName: "[베이직] 클래식",
+    itemKey: "themeClassicBasic"
   },
-]
+  {
+    itemName: "[일러스트] 모던",
+    itemKey: "themeModernIllust"
+  },
+  {
+    itemName: "[일러스트] 클래식",
+    itemKey: "themeClassicIllust"
+  },
+  {
+    itemName: "심플",
+    itemKey: "themeSimple"
+  },
+  {
+    itemName: "플라워",
+    itemKey: "themeFlower"
+  },
+];
 
 const fontList = [
   {
@@ -68,7 +84,7 @@ const GuestbookSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
+            <BackgroundSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>
