@@ -82,7 +82,7 @@
   position: relative;
   padding-left: 28px;
   background-color: transparent;
-  background-image: url(../../../img/icon/icon_textmodify_arrow.png);
+  background-image: url(../../../img/icon/icon_add.png);
   background-repeat: no-repeat;
   background-position: left;
   background-size: 24px;
@@ -100,7 +100,7 @@
 .remove {
   max-width: 105px;
   padding: 0 0 0 28px;
-  margin-top: 12px;
+  margin-top: 4px;
   background-color: transparent;
   background-image: url(../../../img/icon/icon_remove.png);
   background-repeat: no-repeat;

@@ -1,0 +1,16 @@
+.item__content_wrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  row-gap: 24px;
+}
+.item__content_wrapper > div {
+  border-bottom: 1px dashed var(--border-color--default);
+  padding-bottom: 24px;
+}
+.item__content_wrapper > div:last-of-type {
+  border-bottom: 1px solid var(--border-color--default);
+  margin-bottom: 12px;
+}

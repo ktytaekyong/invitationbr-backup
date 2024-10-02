@@ -6,7 +6,11 @@ import styles from "../../css/module/common/LetterSettingTitle.module.css";
 
 const LetterSettingTitle = () => {
   return (
-    <input type="text" id="letterSettingTitle" className={styles.input__letter_title} />
+    <input type="text" 
+      id="letterSettingTitle" 
+      className={styles.input__letter_title} 
+      placeholder="제목을 입력하세요."
+    />
   )
 }
 

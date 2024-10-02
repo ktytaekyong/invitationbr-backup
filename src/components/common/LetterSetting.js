@@ -24,6 +24,7 @@ const LetterSetting = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
+
         <CommonItemWrapper>
           <CommonItemContent title="제목">
             <LetterSettingTitle />
@@ -35,6 +36,7 @@ const LetterSetting = () => {
             <TextEditor type="letter" />
           </CommonItemContent>
         </CommonItemWrapper>
+        
       </CommonOptionContent>
     </CommonOptionWrapper>
   )

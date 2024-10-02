@@ -37,6 +37,7 @@ const IntroPhotoSetting = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
+
         <CommonItemWrapper>
           <CommonItemContent title="사진" multi={true}>
             <PhotoSelector id="photoList" listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
@@ -51,6 +52,7 @@ const IntroPhotoSetting = () => {
             <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
           </CommonItemContent>
         </CommonItemWrapper>
+        
       </CommonOptionContent>
     </CommonOptionWrapper>
   )

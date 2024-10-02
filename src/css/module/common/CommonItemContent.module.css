@@ -1,4 +1,4 @@
-.option__content_item {
+.item__content {
   display: flex;
   column-gap: 12px;
   width: 100%;
@@ -10,7 +10,7 @@
   min-width: 70px;
   font-size: var(--font-size--ssm);
 }
-.option__content_item.multiLine .option__title {
+.item__content.multiLine .option__title {
   align-items: flex-start;
   padding-top: 5px;
 }
@@ -19,9 +19,9 @@
   display: flex;
   column-gap: var(--col-gap--setting-basic);
 }
-.option__content_item.multiLine .option__content {
+.item__content.multiLine .option__content {
   flex-direction: column;
-  row-gap: 8px;
+  row-gap: 12px;
 }
 .essential {
   color: var(--text-color--essntial);

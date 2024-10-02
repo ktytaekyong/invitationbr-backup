@@ -16,6 +16,7 @@ const DateSetting = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
+
         <CommonItemWrapper>
           <CommonItemContent title="예식일">
             <input type="date" name="" id="" />

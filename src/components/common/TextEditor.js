@@ -39,7 +39,7 @@ const TextEditor = ({ type }) => {
           </button>
         </ul>
       </div>
-      <textarea name="" id="" className={styles.editor__content}></textarea>
+      <textarea name="" id="" className={styles.editor__content} placeholder="내용을 입력하세요."></textarea>
       {
         type === "letter" ?
         <Button type="button" content="샘플 문구 보기" styleType="sample__view"></Button>

@@ -43,6 +43,7 @@ const LocationSetting = () => {
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>
+
       <TrafficSetting />
     </CommonOptionWrapper>
   )

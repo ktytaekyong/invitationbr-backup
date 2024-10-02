@@ -1,5 +1,6 @@
 /* Component */
-import CommonItemWrapper from "./CommonItemWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
+import ListItemWrapper from "./ListItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
@@ -20,25 +21,24 @@ const trafficList = [
 
 const TrafficSetting = () => {
   return (
-    <div className={styles.traffic__wrap}>
-      <div className={`option__list ${styles.traffic}`}>
-        {
-          trafficList.map((item, idx) => (
-            <CommonItemWrapper key={`${item}${idx}`}>
-              <CommonItemContent title="교통수단" multi={true}>
-                <input type="text" />
-                <TextEditor></TextEditor>
-                <Button type="button" content="교통수단 삭제" styleType="remove"></Button>
-              </CommonItemContent>
-            </CommonItemWrapper>
-          ))
-        }
-      </div>
+    <CommonOptionContent>
+      <ListItemWrapper>
+      {
+        trafficList.map((item, idx) => (
+          <CommonItemContent key={`${item}${idx}`} title="교통수단" multi={true}>
+            <input type="text" />
+            <TextEditor></TextEditor>
+            <Button type="button" content="교통수단 삭제" styleType="remove"></Button>
+          </CommonItemContent>
+        ))
+      }
+      </ListItemWrapper>
+
       <ButtonWrapper styleType="center">
         <Button type="button" content="교통수단 추가" styleType="point"></Button>
       </ButtonWrapper>
-    </div>
-    
+    </CommonOptionContent>
+
   )
 }
 

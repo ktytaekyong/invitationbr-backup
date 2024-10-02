@@ -49,7 +49,7 @@ const itemList = [
     itemContent: <IntroPhotoSetting />,
   }, 
   {
-    itemTitle: "신랑/신부측 정보",
+    itemTitle: "신랑/신부 정보",
     itemContent: <CoupleInfomationSetting />,
   }, 
   {

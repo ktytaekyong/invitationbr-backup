@@ -4,7 +4,7 @@ import styles from "../../css/module/common/CommonItemWrapper.module.css";
 
 const CommonItemWrapper = (props) => {
   return (
-    <div className={styles.option__content}>
+    <div className={styles.item__content_wrapper}>
       {props.children}
     </div>
   )
