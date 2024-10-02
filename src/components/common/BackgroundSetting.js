@@ -43,7 +43,7 @@ const fontWeightList = [
 const BackgroundSetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="테마">
             <OptionSelector listName={themeList} />
@@ -63,8 +63,8 @@ const BackgroundSetting = () => {
             <BackgroundSettingEffect />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
-      <div>
+      </div>
+      <div className="option__list">
         <CommonItemContent title="옵션" multi={true}>
           <BackgroundSettingCheckbox />
         </CommonItemContent>

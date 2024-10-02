@@ -13,7 +13,7 @@ import styles from "../../css/module/common/CoupleInfomationSettingParents.modul
 const GallerySetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="타입">
             <GallerySettingType />
@@ -31,7 +31,7 @@ const GallerySetting = () => {
         <CommonItemWrapper>
           <GallerySettingPhoto />
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }

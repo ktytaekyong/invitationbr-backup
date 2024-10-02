@@ -15,7 +15,7 @@ import styles from "../../css/module/common/BasicInfomationSettingDate.module.cs
 const LocationSetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="예식장 명">
             <LocationSettingName data="name" />
@@ -40,7 +40,7 @@ const LocationSetting = () => {
             <LocationSettingFile></LocationSettingFile>
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
 
       <TrafficSetting />
     </div>

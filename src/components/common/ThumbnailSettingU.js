@@ -30,7 +30,7 @@ const ThumbnailSettingU = () => {
   }
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="사진">
             <PhotoSelector id="photoList" listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList} />
@@ -48,7 +48,7 @@ const ThumbnailSettingU = () => {
             <input type="text" />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
       <p>가로 사진 사용 권장..</p>
     </div>
   )

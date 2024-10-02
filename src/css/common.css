@@ -38,12 +38,9 @@
 .option__list:first-child {
   padding-top: 0;
 }
-.option__list:last-child {
+.option__list:last-of-type {
   border-bottom: none;
   padding-bottom: 0;
-}
-.option__list + div {
-  margin-top: 24px;
 }
 /* STYLE */
 /* .setting_input__style_default */
@@ -72,7 +69,9 @@
   flex-direction: column;
   row-gap: 6px;
 }
-
+.notice__wrapper.mt {
+  margin-top: 24px;
+}
 /* PICKER */
 .react-colorful {
   height: unset !important;

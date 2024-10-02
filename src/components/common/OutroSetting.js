@@ -31,7 +31,7 @@ const OutroSetting = () => {
   }
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="내용">
             <textarea name="" id=""></textarea>
@@ -56,7 +56,7 @@ const OutroSetting = () => {
             </ButtonWrapper>
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }

@@ -14,7 +14,7 @@ const dateMinuteList = [0, 10, 20, 30, 40, 50];
 const DateSetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="예식일">
             <input type="date" name="" id="" />
@@ -33,15 +33,15 @@ const DateSetting = () => {
             <DateSettingImage />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
 
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
             <DateSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }

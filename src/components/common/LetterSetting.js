@@ -21,7 +21,7 @@ const LetterSetting = () => {
 
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="제목">
             <LetterSettingTitle />
@@ -33,7 +33,7 @@ const LetterSetting = () => {
             <TextEditor type="letter" />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }

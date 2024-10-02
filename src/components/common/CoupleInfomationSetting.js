@@ -32,7 +32,7 @@ const CoupleInfomation = () => {
 
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="신랑">
             <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
@@ -45,8 +45,8 @@ const CoupleInfomation = () => {
             </CommonItemContent>
           </CommonItemWrapper>
         ))}
-      </ul>
-      <ul className="option__list">
+      </div>
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="신부">
             <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
@@ -59,8 +59,8 @@ const CoupleInfomation = () => {
             </CommonItemContent>
           </CommonItemWrapper>
         ))}
-      </ul>
-      <ul className="option__list">
+      </div>
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="故人 표기" multi={true}>
             <CheckItem id="depF" content="국화꽃으로 표기" />
@@ -75,7 +75,7 @@ const CoupleInfomation = () => {
         {/* Notice로 */}
         {/* 국화꽃 표기 방법 생각 */}
         {/* 아마 context 하면 되지 않을까 */}
-      </ul>
+      </div>
     </div>
   )
 }

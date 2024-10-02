@@ -43,7 +43,7 @@ const fontWeightList = [
 const GuestbookSetting = () => {
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="테마">
             <OptionSelector listName={themeList} />
@@ -69,7 +69,7 @@ const GuestbookSetting = () => {
             <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }

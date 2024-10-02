@@ -22,7 +22,7 @@ const BasicInfomationSetting = () => {
   }
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="신랑" essential={true}>
             <BasicInfomationSettingName></BasicInfomationSettingName>
@@ -34,9 +34,9 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingName></BasicInfomationSettingName>
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
 
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="예식일">
             <BasicInfomationSettingDate data="date"></BasicInfomationSettingDate>
@@ -48,9 +48,9 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingDate data="time"></BasicInfomationSettingDate>
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
 
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="예식장 명">
             <BasicInfomationSettingPlace data="name"></BasicInfomationSettingPlace>
@@ -62,9 +62,9 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingPlace data="place"></BasicInfomationSettingPlace>
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
 
-      <div className="notice__wrapper">
+      <div className="notice__wrapper mt">
         <SettingNotice>
           <span>※</span>
           <span>신랑/신부 이름은 필수 정보이며 미 입력 시 저장되지 않습니다.</span>

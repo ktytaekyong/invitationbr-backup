@@ -21,19 +21,19 @@ const trafficList = [
 const TrafficSetting = () => {
   return (
     <div className={styles.traffic__wrap}>
-      <ul className={`option__list ${styles.traffic}`}>
+      <div className={`option__list ${styles.traffic}`}>
         {
           trafficList.map((item, idx) => (
             <CommonItemWrapper key={`${item}${idx}`}>
               <CommonItemContent title="교통수단" multi={true}>
                 <input type="text" />
                 <TextEditor></TextEditor>
-                  <Button type="button" content="교통수단 삭제" styleType="remove"></Button>
+                <Button type="button" content="교통수단 삭제" styleType="remove"></Button>
               </CommonItemContent>
             </CommonItemWrapper>
           ))
         }
-      </ul>
+      </div>
       <ButtonWrapper styleType="center">
         <Button type="button" content="교통수단 추가" styleType="point"></Button>
       </ButtonWrapper>

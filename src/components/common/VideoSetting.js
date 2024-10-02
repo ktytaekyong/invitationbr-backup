@@ -23,7 +23,7 @@ const VideoSetting = () => {
 
   return (
     <div className="content__wrapper">
-      <ul className="option__list">
+      <div className="option__list">
         <CommonItemWrapper>
           <CommonItemContent title="등록방법" multi={true}>
             {/* 탭 활성화 필요 */}
@@ -31,7 +31,7 @@ const VideoSetting = () => {
             <VideoSettingOption active={active} />
           </CommonItemContent>
         </CommonItemWrapper>
-      </ul>
+      </div>
     </div>
   )
 }
