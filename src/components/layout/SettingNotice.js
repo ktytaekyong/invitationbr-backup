@@ -10,7 +10,3 @@ const SettingNotice = ({ children }) => {
 }
 
 export default SettingNotice;
-CommonOptionContent
-import CommonOptionContent from "./CommonOptionContent.js";
-CommonOptionWrapper
-import CommonOptionWrapper from "./CommonOptionWrapper.js";
