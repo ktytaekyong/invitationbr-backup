@@ -15,7 +15,7 @@ const LocationSettingAddress = () => {
   return (
     <>
       <div className={styles.option__input}>
-        <input type="text" placeholder="주소 입력" onChange=""/>
+        <input type="text" placeholder="주소 입력" />
         <Button content="검색" styleType="point"></Button>
       </div>
       {/* work: onChange -> map__wrap(active) */}

@@ -1,0 +1,18 @@
+.kakao__desc {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 16px;
+  column-gap: 8px;
+}
+.kakao__desc img {
+  width: 18px;
+  height: 18px;
+}
+.kakao__desc p {
+  font-size: var(--font-size--sm);
+  font-weight: var(--font-weight--Regular);
+  text-decoration: underline;
+  cursor: pointer;
+}

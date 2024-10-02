@@ -21,16 +21,12 @@ const DateSetting = () => {
           <CommonItemContent title="예식일">
             <input type="date" name="" id="" />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="예식시간">
             <OptionSelector selectID="DateHourSelect" listName={dateHourList} type="hour" hour={dateHourDistList}></OptionSelector>
             <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} styleType="minute__selector" type="minute"></OptionSelector>
           </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
+          
           <CommonItemContent title="이미지" multi={true}>
             <DateSettingImage />
           </CommonItemContent>

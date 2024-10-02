@@ -17,6 +17,10 @@
   background-position: center;
 }
 .check label {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 4px;
   font-size: var(--font-size--sm);
   font-weight: var(--font-weight--Regular);
   color: var(--text-color--disable-input);
@@ -26,4 +30,8 @@
 }
 .check input:checked + label {
   color: var(--text-color--default);
+}
+.check label img {
+  width: 18px;
+  height: 18px;
 }

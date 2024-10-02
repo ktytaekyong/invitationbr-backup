@@ -3,6 +3,7 @@ import React from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
+import CommonItemWrapper from "./CommonItemWrapper.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 import FixedTabSettingList from "./FixedTabSettingList";
@@ -16,7 +17,9 @@ const FixedTabSetting = () => {
       </SettingNotice>
 
       <CommonOptionContent>
-        <FixedTabSettingList />
+        <CommonItemWrapper>
+          <FixedTabSettingList />
+        </CommonItemWrapper>
       </CommonOptionContent>
       
     </CommonOptionWrapper>

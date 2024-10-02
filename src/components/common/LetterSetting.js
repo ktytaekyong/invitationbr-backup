@@ -29,14 +29,12 @@ const LetterSetting = () => {
           <CommonItemContent title="제목">
             <LetterSettingTitle />
           </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
+          
           <CommonItemContent title="내용" multi={true}>
             <TextEditor type="letter" />
           </CommonItemContent>
         </CommonItemWrapper>
-        
+
       </CommonOptionContent>
     </CommonOptionWrapper>
   )

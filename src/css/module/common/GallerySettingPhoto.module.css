@@ -3,7 +3,6 @@
   border: 1px solid var(--border-color--default);
   background-color: #fff;
   border-radius: var(--radius--default);
-  margin-bottom: 16px;
 }
 .photo__content {
   padding: 24px 16px 16px;
@@ -12,7 +11,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px;
+  padding: 12px 16px;
   border-top: 1px solid var(--border-color--default);
 }
 .photo__input_wrap {
@@ -25,7 +24,7 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
+  padding: 8.5px 20px;
   border: none;
   font-size: var(--font-size--xsm);
   font-weight: var(--font-weight--Medium);

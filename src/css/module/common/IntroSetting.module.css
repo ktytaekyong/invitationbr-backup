@@ -11,8 +11,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 10px 20px;
-  font-size: var(--font-size--sm);
+  padding: 8px 20px;
+  font-size: var(--font-size--xsm);
   background-color: #FFF;
   border: 1px solid var(--bg-color--second);
   border-radius: var(--radius--button-list);

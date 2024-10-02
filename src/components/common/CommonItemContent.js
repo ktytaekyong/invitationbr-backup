@@ -3,7 +3,7 @@ import styles from "../../css/module/common/CommonItemContent.module.css";
 
 const CommonItemContent = ({ title, multi, essential, children }) => {
   return (
-    <div className={`${styles.item__content} ${multi ? styles.multiLine : null}`}>
+    <div className={`${styles.item__content} ${multi ? styles.multiLine : null} ${multi === "check" ? styles.multiCheck : null}`}>
       <p className={styles.option__title}>
         {title}
         {

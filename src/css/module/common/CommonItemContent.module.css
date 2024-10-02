@@ -1,6 +1,7 @@
 .item__content {
   display: flex;
   column-gap: 12px;
+  row-gap: 8px;
   width: 100%;
 }
 .option__title {
@@ -18,10 +19,13 @@
   width: 100%;
   display: flex;
   column-gap: var(--col-gap--setting-basic);
+  row-gap: 12px;
 }
 .item__content.multiLine .option__content {
   flex-direction: column;
-  row-gap: 12px;
+}
+.item__content.multiLine.multiCheck .option__content {
+  row-gap: 8px; 
 }
 .essential {
   color: var(--text-color--essntial);

@@ -42,9 +42,7 @@ const IntroPhotoSetting = () => {
           <CommonItemContent title="사진" multi={true}>
             <PhotoSelector id="photoList" listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="편집" multi={true}>
             <ButtonWrapper>
               <Button type="button" content={"문구 및 색상 편집"} styleType="modify" onClick={setActiveHandler} />
@@ -52,7 +50,7 @@ const IntroPhotoSetting = () => {
             <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
           </CommonItemContent>
         </CommonItemWrapper>
-        
+
       </CommonOptionContent>
     </CommonOptionWrapper>
   )

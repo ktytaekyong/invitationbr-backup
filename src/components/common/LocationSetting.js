@@ -22,26 +22,32 @@ const LocationSetting = () => {
           <CommonItemContent title="예식장 명">
             <LocationSettingName data="name" />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="층과 홀">
             <LocationSettingName data="place" />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
-          {/* 멀티 구분도 필요 */}
           <CommonItemContent title="주소" multi={true}>
             <LocationSettingAddress />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="약도 첨부">
             <LocationSettingFile></LocationSettingFile>
           </CommonItemContent>
         </CommonItemWrapper>
+
+        {/* <CommonItemWrapper>
+          
+        </CommonItemWrapper> */}
+
+        {/* <CommonItemWrapper> */}
+          {/* 멀티 구분도 필요 */}
+          
+        {/* </CommonItemWrapper> */}
+
+        {/* <CommonItemWrapper>
+          
+        </CommonItemWrapper> */}
       </CommonOptionContent>
 
       <TrafficSetting />

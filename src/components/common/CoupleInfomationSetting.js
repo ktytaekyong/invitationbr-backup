@@ -36,36 +36,36 @@ const CoupleInfomation = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
+
         <CommonItemWrapper>
           <CommonItemContent title="신랑">
             <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
           </CommonItemContent>
-        </CommonItemWrapper>
-        {parents.map((parent) => (
-          <CommonItemWrapper>
+          {parents.map((parent) => (
             <CommonItemContent title={parent.itemName}>
               <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="M"></CoupleInfomationSettingParents>
             </CommonItemContent>
-          </CommonItemWrapper>
-        ))}
+          ))}
+        </CommonItemWrapper>
       </CommonOptionContent>
+
       <CommonOptionContent>
+
         <CommonItemWrapper>
           <CommonItemContent title="신부">
             <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
           </CommonItemContent>
-        </CommonItemWrapper>
-        {parents.map((parent) => (
-          <CommonItemWrapper>
+          {parents.map((parent) => (
             <CommonItemContent title={parent.itemName}>
               <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="F"></CoupleInfomationSettingParents>
             </CommonItemContent>
-          </CommonItemWrapper>
-        ))}
+          ))}
+        </CommonItemWrapper>
       </CommonOptionContent>
+
       <CommonOptionContent>
         <CommonItemWrapper>
-          <CommonItemContent title="故人 표기" multi={true}>
+          <CommonItemContent title="故人 표기" multi="check">
             <CheckItem id="depF" content="국화꽃으로 표기" />
             <SettingNotice>
               <SettingNoticeContent>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</SettingNoticeContent>

@@ -70,20 +70,25 @@ const BackgroundSetting = () => {
             <OptionSelector listName={themeList} />
             <BackgroundSettingTheme />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="폰트">
             <OptionSelector listName={fontList} />
             <OptionSelector listName={fontWeightList} />
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="효과" multi={true}>
             <BackgroundSettingEffect />
           </CommonItemContent>
         </CommonItemWrapper>
+
+        {/* <CommonItemWrapper>
+          
+        </CommonItemWrapper> */}
+
+        {/* <CommonItemWrapper>
+          
+        </CommonItemWrapper> */}
+          
       </CommonOptionContent>
 
       <CommonOptionContent>

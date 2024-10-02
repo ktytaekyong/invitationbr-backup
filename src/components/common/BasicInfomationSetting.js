@@ -42,9 +42,7 @@ const BasicInfomationSetting = () => {
           <CommonItemContent title="예식일">
             <BasicInfomationSettingDate data="date"></BasicInfomationSettingDate>
           </CommonItemContent>
-        </CommonItemWrapper>
 
-        <CommonItemWrapper>
           <CommonItemContent title="예식시간">
             <BasicInfomationSettingDate data="time"></BasicInfomationSettingDate>
           </CommonItemContent>
@@ -56,9 +54,7 @@ const BasicInfomationSetting = () => {
           <CommonItemContent title="예식장 명">
             <BasicInfomationSettingPlace data="name"></BasicInfomationSettingPlace>
           </CommonItemContent>
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
+          
           <CommonItemContent title="층과 홀">
             <BasicInfomationSettingPlace data="place"></BasicInfomationSettingPlace>
           </CommonItemContent>

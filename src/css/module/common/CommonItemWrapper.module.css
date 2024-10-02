@@ -1,8 +1,9 @@
 .item__content_wrapper {
+  width: 100%;
+  min-height: 24px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
-  width: 100%;
   row-gap: 12px;
 }
