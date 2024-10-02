@@ -87,6 +87,18 @@
   background-position: left;
   background-size: 24px;
 }
+.add {
+  max-width: 108px;
+  padding: 0;
+  font-weight: var(--font-weight--Regular);
+  position: relative;
+  padding-left: 28px;
+  background-color: transparent;
+  background-image: url(../../../img/icon/icon_add.png);
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: 24px;
+}
 .file__delete {
   width: 24px;
   height: 24px;

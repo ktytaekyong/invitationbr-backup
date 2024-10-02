@@ -2,6 +2,8 @@
 import { useState, useEffect } from "react";
 /* Component */
 import TabSelector from "./TabSelector"
+import RadioList from "./RadioList";
+import RadioItem from "./RadioItem";
 /* CSS Module */
 import styles from "../../css/module/common/BackgroundSettingEffect.module.css";
 
@@ -36,17 +38,15 @@ const BackgroundSettingEffect = () => {
         ))}
       </ul> */}
       <TabSelector listName={effectList} onChange={setRadioActive} />
-      <div className={`${styles.radio__wrap} ${radioActive ? styles["active"] : ""}`}>
-        <p>효과 범위</p>
-        <div>
-          <input type="radio" name="effectSection" id="effectIntro" defaultChecked />
-          <label htmlFor="effectIntro">인트로 화면</label>
-        </div>
-        <div>
-          <input type="radio" name="effectSection" id="effectAll" />
-          <label htmlFor="effectAll">전체 화면</label>
-        </div>
-      </div>
+      {
+        radioActive ? 
+        <RadioList>
+          <RadioItem radioName="effectSection" id="effectIntro" content="인트로 화면"></RadioItem>
+          <RadioItem radioName="effectSection" id="effectAll" content="전체 화면"></RadioItem>
+        </RadioList>
+        :
+        null
+      }
     </>
   )
 }

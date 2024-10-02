@@ -24,9 +24,7 @@ const GallerySetting = () => {
           </CommonItemContent>
 
           <CommonItemContent title="더보기">
-            <div className={`${styles.radio__wrap}`}>
-              <CheckItem id="galleryMoreOption" content="사진이 3줄 이상일 경우 ‘더보기’ 버튼 생성"></CheckItem>
-            </div>
+            <CheckItem id="galleryMoreOption" content="사진이 3줄 이상일 경우 ‘더보기’ 버튼 생성"></CheckItem>
           </CommonItemContent>
 
           <GallerySettingPhoto />
