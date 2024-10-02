@@ -1,6 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import TabSelector from "./TabSelector.js";
@@ -22,8 +24,8 @@ const VideoSetting = () => {
   const [active, setActive] = useState(false);
 
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="등록방법" multi={true}>
             {/* 탭 활성화 필요 */}
@@ -31,8 +33,8 @@ const VideoSetting = () => {
             <VideoSettingOption active={active} />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

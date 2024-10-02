@@ -27,9 +27,9 @@ const SettingItem = (props) => {
         <img src={iconSettingItemArrowImg} alt="" className={styles.setting_arrow_img} />
       </div>
       <div className={styles.setting__content}>
-        <div className={styles.content}>
+        {/* <div className={styles.content__wrap}> */}
           {props.itemContent}
-        </div>
+        {/* </div> */}
       </div>
     </li>
   )

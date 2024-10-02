@@ -1,6 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import LetterSettingTitle from "./LetterSettingTitle.js";
@@ -20,8 +22,8 @@ const LetterSetting = () => {
   }
 
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="제목">
             <LetterSettingTitle />
@@ -33,8 +35,8 @@ const LetterSetting = () => {
             <TextEditor type="letter" />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

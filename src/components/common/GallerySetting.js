@@ -1,19 +1,20 @@
 /* Import */
 import { useEffect, useState, useContext } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import GallerySettingType from "./GallerySettingType.js";
 import GallerySettingPhoto from "./GallerySettingPhoto.js";
-import PhotoSelector from "./PhotoSelector.js";
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
 import styles from "../../css/module/common/CoupleInfomationSettingParents.module.css";
 
 const GallerySetting = () => {
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="타입">
             <GallerySettingType />
@@ -31,8 +32,8 @@ const GallerySetting = () => {
         <CommonItemWrapper>
           <GallerySettingPhoto />
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

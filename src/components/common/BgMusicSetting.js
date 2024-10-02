@@ -1,4 +1,6 @@
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
@@ -43,8 +45,8 @@ const fontWeightList = [
 
 const BgMusicSetting = () => {
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="테마">
             <OptionSelector listName={themeList} />
@@ -70,8 +72,8 @@ const BgMusicSetting = () => {
             <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

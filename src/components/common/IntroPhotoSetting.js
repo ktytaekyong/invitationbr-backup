@@ -1,6 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import PhotoSelector from "./PhotoSelector.js";
@@ -33,8 +35,8 @@ const IntroPhotoSetting = () => {
   }
 
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="사진" multi={true}>
             <PhotoSelector id="photoList" listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
@@ -49,8 +51,8 @@ const IntroPhotoSetting = () => {
             <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

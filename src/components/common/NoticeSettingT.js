@@ -1,6 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
@@ -43,10 +45,17 @@ const NoticeSettingT = () => {
     }
   }
   return (
-    <div className="content__wrapper">
-      <CommonItemContent title="탭 순서">
-        <TabSelector listName={noticeTList} onChange={setRadioActive} />
-      </CommonItemContent>
+    <CommonOptionWrapper>
+      <CommonOptionContent>
+        <CommonItemWrapper>
+          <CommonItemContent title="탭 순서">
+            <TabSelector listName={noticeTList} onChange={setRadioActive} />
+          </CommonItemContent>
+        </CommonItemWrapper>
+        
+
+      </CommonOptionContent>
+      
       <ul className={styles.option__list}>
         {noticeTList.map((item, idx) => (
           <CommonItemWrapper key={`${item.title}${idx}`}>
@@ -76,7 +85,7 @@ const NoticeSettingT = () => {
         ))}
         
       </ul>
-    </div>
+    </CommonOptionWrapper>
   )
 }
 

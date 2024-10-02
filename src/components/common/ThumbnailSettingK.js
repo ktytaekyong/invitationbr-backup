@@ -1,6 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
@@ -29,8 +31,8 @@ const ThumbnailSettingK = () => {
     }
   }
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="사진">
             <PhotoSelector id="photoList" listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList} />
@@ -48,10 +50,10 @@ const ThumbnailSettingK = () => {
             <input type="text" />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
+      </CommonOptionContent>
       <p>청첩장 하단 [카카오톡으로 공유하기]...</p>
       <p>가로 사진 사용 권장..</p>
-    </div>
+    </CommonOptionWrapper>
   )
 }
 

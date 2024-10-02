@@ -1,6 +1,8 @@
 /* Import */
 import { useRef } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
@@ -14,8 +16,8 @@ import styles from "../../css/module/common/BasicInfomationSettingDate.module.cs
 
 const LocationSetting = () => {
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="예식장 명">
             <LocationSettingName data="name" />
@@ -40,10 +42,9 @@ const LocationSetting = () => {
             <LocationSettingFile></LocationSettingFile>
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-
+      </CommonOptionContent>
       <TrafficSetting />
-    </div>
+    </CommonOptionWrapper>
   )
 }
 

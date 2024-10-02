@@ -1,10 +1,10 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
-import TabSelector from "./TabSelector.js"
 import PhotoSelector from "./PhotoSelector.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
@@ -30,8 +30,8 @@ const OutroSetting = () => {
     }
   }
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="내용">
             <textarea name="" id=""></textarea>
@@ -56,8 +56,8 @@ const OutroSetting = () => {
             </ButtonWrapper>
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

@@ -1,12 +1,11 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
 import PhotoSelector from "./PhotoSelector.js";
-import ButtonWrapper from "../layout/ButtonWrapper.js";
-import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/NoticeSettingT.module.css";
 
@@ -29,8 +28,8 @@ const ThumbnailSettingU = () => {
     }
   }
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="사진">
             <PhotoSelector id="photoList" listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList} />
@@ -48,9 +47,9 @@ const ThumbnailSettingU = () => {
             <input type="text" />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
+      </CommonOptionContent>
       <p>가로 사진 사용 권장..</p>
-    </div>
+    </CommonOptionWrapper>
   )
 }
 

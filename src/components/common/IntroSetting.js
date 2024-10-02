@@ -1,6 +1,7 @@
 /* Import */
 import { useState } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import TabSelector from "./TabSelector.js";
 /* CSS Module */
@@ -63,7 +64,7 @@ const IntroSetting = () => {
   }
 
   return (
-    <div className="content__wrapper">
+    <CommonOptionWrapper>
       <ul className={styles.tab__list}>
         <li className={`${styles.tab__item} ${isActiveTab === 0 ? styles.active : ''}`} onClick={() => setActiveTabHandler(0)}>기본</li>
         <li className={`${styles.tab__item} ${isActiveTab === 1 ? styles.active : ''}`} onClick={() => setActiveTabHandler(1)}>채우기</li>
@@ -86,7 +87,7 @@ const IntroSetting = () => {
           </ul>
         </CommonItemWrapper>
       </ul>
-    </div>
+    </CommonOptionWrapper>
   )
 }
 

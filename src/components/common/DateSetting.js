@@ -1,10 +1,11 @@
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
 import DateSettingImage from "./DateSettingImage.js";
 import DateSettingCheckbox from "./DateSettingCheckbox.js";
-import Button from "../layout/Button.js";
 /* CSS Module */
 
 const dateHourDistList = ["오전", "오후"];
@@ -13,8 +14,8 @@ const dateMinuteList = [0, 10, 20, 30, 40, 50];
 
 const DateSetting = () => {
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="예식일">
             <input type="date" name="" id="" />
@@ -33,16 +34,16 @@ const DateSetting = () => {
             <DateSettingImage />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
+      </CommonOptionContent>
 
-      <div className="option__list">
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="옵션">
             <DateSettingCheckbox />
           </CommonItemContent>
         </CommonItemWrapper>
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

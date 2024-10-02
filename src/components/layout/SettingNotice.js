@@ -3,10 +3,14 @@ import styles from "../../css/module/layout/SettingNotice.module.css";
 
 const SettingNotice = ({ children }) => {
   return (
-    <p className={styles.setting__notice}>
+    <ul className={styles.notice__wrapper}>
       {children}
-    </p>
+    </ul>
   )
 }
 
 export default SettingNotice;
+CommonOptionContent
+import CommonOptionContent from "./CommonOptionContent.js";
+CommonOptionWrapper
+import CommonOptionWrapper from "./CommonOptionWrapper.js";

@@ -1,14 +1,10 @@
 .setting__item {
   width: 100%;
   max-width: 540px;
-  /* overflow: hidden; */
   border-radius: 8px;
   border: 1px solid var(--border-color--default);
   background-color: var(--bg-color--setting);
 }
-/* .setting__item:not(:last-child) {
-  margin-bottom: 10px;
-} */
 .setting__title {
   width: 100%;
   display: flex;
@@ -35,20 +31,18 @@
   transform: rotateX(0);
 }
 .setting__content {
-  /* height: 0px; */
-  /* overflow: hidden; */
   transition: margin-top 0.4s, margin-bottom 0.4s;
 }
 .setting__item.active .setting__content {
   margin: 24px;
 }
-.setting__item .setting__content .content {
+.setting__item .setting__content {
   margin-top: 0rem;
   margin-bottom: 0rem;
   height: 0;
   visibility: hidden;
 }
-.setting__item.active .setting__content .content {
+.setting__item.active .setting__content {
   height: 100%; 
   visibility: visible; 
 }

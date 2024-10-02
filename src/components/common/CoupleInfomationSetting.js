@@ -1,11 +1,14 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import CoupleInfomationSettingBasic from "./CoupleInfomationSettingBasic.js";
 import CoupleInfomationSettingParents from "./CoupleInfomationSettingParents.js";
 import SettingNotice from "../layout/SettingNotice.js"
+import SettingNoticeContent from "../layout/SettingNoticeContent.js"
 import Button from "../layout/Button.js"
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
@@ -31,8 +34,8 @@ const CoupleInfomation = () => {
   }
 
   return (
-    <div className="content__wrapper">
-      <div className="option__list">
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="신랑">
             <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
@@ -45,8 +48,8 @@ const CoupleInfomation = () => {
             </CommonItemContent>
           </CommonItemWrapper>
         ))}
-      </div>
-      <div className="option__list">
+      </CommonOptionContent>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="신부">
             <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
@@ -59,24 +62,21 @@ const CoupleInfomation = () => {
             </CommonItemContent>
           </CommonItemWrapper>
         ))}
-      </div>
-      <div className="option__list">
+      </CommonOptionContent>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="故人 표기" multi={true}>
             <CheckItem id="depF" content="국화꽃으로 표기" />
-            <div className="notice__wrapper">
-              <SettingNotice>
-                <span>※</span>
-                <span>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</span>
-              </SettingNotice>
-            </div>
+            <SettingNotice>
+              <SettingNoticeContent>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</SettingNoticeContent>
+            </SettingNotice>
           </CommonItemContent>
         </CommonItemWrapper>
         {/* Notice로 */}
         {/* 국화꽃 표기 방법 생각 */}
         {/* 아마 context 하면 되지 않을까 */}
-      </div>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 

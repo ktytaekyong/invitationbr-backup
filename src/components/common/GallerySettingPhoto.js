@@ -3,6 +3,7 @@ import { useEffect, useState, useContext } from "react";
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";
 import SettingNotice from "../layout/SettingNotice.js";
+import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
 import styles from "../../css/module/common/GallerySettingPhoto.module.css";
@@ -48,21 +49,14 @@ const GallerySettingPhoto = () => {
             </p>
           </div>
         </div>
-      
       </div>
-      <div className="notice__wrapper">
-        <SettingNotice>
-          <span>※</span>
-          <span>파일 확장자명은 jpg, jpeg, gif, png, 용량 5mb이하로 최대 20장까지 등록하실 수 
-          있습니다.</span>
-        </SettingNotice>
-        <SettingNotice>
-          <span>※</span>
-          <span>사진을 드래그하여 순서를 변경할 수 있습니다.</span>
-        </SettingNotice>
-      </div>
+      <SettingNotice>
+        <SettingNoticeContent>파일 확장자명은 jpg, jpeg, gif, png, 용량 5mb이하로 최대 20장까지 등록하실 수 있습니다.</SettingNoticeContent>
+      </SettingNotice>
+      <SettingNotice>
+        <SettingNoticeContent>사진을 드래그하여 순서를 변경할 수 있습니다.</SettingNoticeContent>
+      </SettingNotice>
     </>
-    
   )
 }
 

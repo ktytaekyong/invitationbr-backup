@@ -27,7 +27,7 @@
   border: 1px solid var(--border-color--default); */
 }
 
-.option__list {
+.option__content_wrapper {
   display: flex;
   flex-direction: column;
   row-gap: 12px;
@@ -35,43 +35,35 @@
   padding-top: 24px;
   padding-bottom: 24px;
 }
-.option__list:first-child {
+.option__content_wrapper:first-child {
   padding-top: 0;
 }
-.option__list:last-of-type {
+.option__content_wrapper:last-of-type {
   border-bottom: none;
   padding-bottom: 0;
 }
 /* STYLE */
 /* .setting_input__style_default */
-.option__list input {
+.option__content_wrapper input {
   font-size: var(--font-size--sm);
 }
-/* .option__list input:focus {
+/* .option__content_wrapper input:focus {
   border: none;
 } */
-.option__list input[type="text"],
-.option__list input[type="number"],
-.option__list input[type="date"],
-.option__list select {
+.option__content_wrapper input[type="text"],
+.option__content_wrapper input[type="number"],
+.option__content_wrapper input[type="date"],
+.option__content_wrapper select {
   border: 1px solid var(--border-color--default);
   border-radius: var(--radius--default);
   padding: 10px;
   height: 40px;
 }
-.option__list input[type="date"] {
+.option__content_wrapper input[type="date"] {
   width: 100%;
   max-width: 160px;
 }
 
-.notice__wrapper {
-  display: flex;
-  flex-direction: column;
-  row-gap: 6px;
-}
-.notice__wrapper.mt {
-  margin-top: 24px;
-}
 /* PICKER */
 .react-colorful {
   height: unset !important;

@@ -1,4 +1,6 @@
 /* Component */
+import CommonOptionWrapper from "./CommonOptionWrapper.js";
+import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
@@ -42,8 +44,8 @@ const FGiftList = [
 
 const GiftSetting = () => {
   return (
-    <div className="content__wrapper">
-      <ul className={`option__list ${styles.gift}`}>
+    <CommonOptionWrapper>
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="그룹명">
             <input type="text" className={styles.input__group} placeholder="신랑측 계좌번호"/>
@@ -53,8 +55,10 @@ const GiftSetting = () => {
           </CommonItemContent>
         </CommonItemWrapper>
         <GiftSettingAccount listName={MGiftList} />
-      </ul>
-      <ul className={`option__list ${styles.gift}`}>
+      </CommonOptionContent>
+      {/* <ul className={`option__list ${styles.gift}`}>
+      </ul> */}
+      <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="그룹명">
             <input type="text" className={styles.input__group} placeholder="신부측 계좌번호"/>
@@ -64,8 +68,8 @@ const GiftSetting = () => {
           </CommonItemContent>
         </CommonItemWrapper>
         <GiftSettingAccount listName={FGiftList} />
-      </ul>
-    </div>
+      </CommonOptionContent>
+    </CommonOptionWrapper>
   )
 }
 
