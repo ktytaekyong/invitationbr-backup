@@ -11,30 +11,6 @@ import styles from "../../css/module/common/OrderSettingState.module.css";
 
 const fixedList = ["고정 탭 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const orderList = [
-  // {
-  //   title: "고정 탭 설정",
-  //   order: "fixed"
-  // },
-  // {
-  //   title: "기본 정보",
-  //   order: "fixed"
-  // },
-  // {
-  //   title: "배경",
-  //   order: "fixed"
-  // },
-  // {
-  //   title: "인트로 화면",
-  //   order: "fixed"
-  // },
-  // {
-  //   title: "인트로 사진",
-  //   order: "fixed"
-  // },
-  // {
-  //   title: "신랑/신부 정보",
-  //   order: "fixed"
-  // },
   {
     title: "모시는 글",
     order: 1,
@@ -85,7 +61,7 @@ const orderList = [
     order: 10,
     option: true,
   }
-]
+];
 
 const OrderSettingState = () => {
   const [orders, setOrders] = useState(orderList);
@@ -141,7 +117,7 @@ const OrderSettingState = () => {
     )
   }, [])
   useEffect(() => {
-    // console.log(orders);
+    console.log(orders);
   }, [orders]);
   return (
     <DndProvider options={HTML5toTouch}>
