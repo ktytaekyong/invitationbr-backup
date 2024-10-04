@@ -1,0 +1,49 @@
+{
+  "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
+  "backgroundList": {
+    "color": "#ffffff"
+  },
+  "basicTabList": [
+    {
+      "id": "tabLetter",
+      "content": "모시는 글"
+    },
+    {
+      "id": "tabDate",
+      "content": "예식 일시"
+    },
+    {
+      "id": "tabLocation",
+      "content": "오시는 길"
+    },
+    {
+      "id": "tabGallery",
+      "content": "갤러리"
+    },
+    {
+      "id": "tabMovie",
+      "content": "동영상"
+    },
+    {
+      "id": "tabGift",
+      "content": "마음 전하기"
+    },
+    {
+      "id": "tabNoticeT",
+      "content": "안내사항 (탭형)"
+    },
+    {
+      "id": "tabNoticeD",
+      "content": "안내사항 (분리형)"
+    },
+    {
+      "id": "tabGuestbook",
+      "content": "방명록"
+    },
+    {
+      "id": "tabAttend",
+      "content": "참석의사"
+    }
+  ]
+}
+

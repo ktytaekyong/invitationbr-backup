@@ -15,13 +15,9 @@ const Tab = () => {
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }
-
   useEffect(() => {
     setIsActive(0);
   }, []);
-// {
-//   console.log(TabCtx.selectTabList);
-// }
   return (
     <ul className={styles.tab}>
       {TabCtx.selectTabList

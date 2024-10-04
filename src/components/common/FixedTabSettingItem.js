@@ -1,11 +1,11 @@
 /* CSS Module */
 import styles from "../../css/module/common/FixedTabSettingItem.module.css";
 
-const FixedTabSettingItem = (props) => {
+const FixedTabSettingItem = ({ id, checked, onChange, optionTitle }) => {
   return (
     <li className={styles.option__item}>
-      <input type="checkbox" id={props.id} checked={props.checked} onChange={props.onChange}/>
-      <label htmlFor={props.id}>{props.optionTitle}</label>
+      <input type="checkbox" id={id} checked={checked} onChange={onChange} />
+      <label htmlFor={id}>{optionTitle}</label>
     </li>
   )
 }

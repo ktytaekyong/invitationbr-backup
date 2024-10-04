@@ -1,7 +1,5 @@
 /* Import */
 import { createContext, useState } from "react";
-import initList from "./option-list.json";
-
 // export const TabContext = createContext({
 //   selectTabList: initList.selectTabList,
 //   basicTabList: initList.basicTabList,
