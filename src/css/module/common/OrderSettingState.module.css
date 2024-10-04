@@ -1,26 +1,68 @@
-.option__list > li {
-  flex-direction: column;
-  align-items: flex-start;
-}
-.order__list {
+.order__setting {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
-  width: 100%;
-  border-top: 1px solid var(--border-color--default);
+  gap: 16px 8px;
   padding-top: 24px;
-  margin-top: 8px;
+  margin-top: 11px;
+  border-radius: var(--radius--default);
+  border-top: 1px solid var(--border-color--default);
+  overflow: hidden;
+}
+.order__wrapper {
+  min-height: 200px;
+  border-radius: var(--radius--default);
+  border: 1px solid var(--border-color--default);
+  padding: 8px;
+  background-color: #fff;
+}
+.order__wrapper.fixed {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
 }
 .order__item {
-  height: 80px;
-  border: 1px solid var(--border-color--default);
-  padding: 0.5rem 1rem;
-  margin-bottom: 0.5rem;
-  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 5px;
+  height: 32px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-color: var(--point-color--default);
+  color: #FFF;
+  border-radius: var(--radius--default);
+  font-size: var(--font-size--xsm);
   cursor: move;
 }
-.order__item.fixed {
-  background-color: var(--text-color--disable);
+.order__item label,
+.order__item p {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  color: #FFF;
+}
+.order__wrapper.fixed .order__item {
+  background-color: var(--border-color--play);
   pointer-events: none;
   cursor: no-drop;
 }
+.order__item input[type="checkbox"] {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  background-color: transparent;
+  background-image: url(../../../img/state/checkbox_color_selected.png);
+  background-repeat: no-repeat;
+  background-size: 16px;
+  background-position: center;
+  position: relative;
+  z-index: 3;
+  flex-shrink: 0;
+}
+/* .setting__title_wrap input[type="checkbox"]:checked {
+  background-image: url(../../../img/state/checkbox_color_selected.png);
+} */

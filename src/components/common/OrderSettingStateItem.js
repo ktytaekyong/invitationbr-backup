@@ -70,9 +70,9 @@ const OrderSettingStateItem = ({ children, id, index, moveItemHandler, className
   const opacity = isDragging ? 0 : 1
   drag(drop(orderItemRef));
   return (
-    <li ref={orderItemRef} className={className} style={{ opacity }}data-handler-id={handlerId}>
+    <div ref={orderItemRef} className={className} style={{ opacity }} data-handler-id={handlerId}>
       {children}
-    </li>
+    </div>
   )
 }
 

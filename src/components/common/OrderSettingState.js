@@ -4,46 +4,86 @@ import { DndProvider } from "react-dnd-multi-backend";
 import { HTML5toTouch } from "rdndmb-html5-to-touch";
 import update from "immutability-helper";
 /* Component */
+import OrderSettingStateFixedItem from "./OrderSettingStateFixedItem.js";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
 /* CSS Module */
 import styles from "../../css/module/common/OrderSettingState.module.css";
 
+const fixedList = ["고정 탭 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const orderList = [
+  // {
+  //   title: "고정 탭 설정",
+  //   order: "fixed"
+  // },
+  // {
+  //   title: "기본 정보",
+  //   order: "fixed"
+  // },
+  // {
+  //   title: "배경",
+  //   order: "fixed"
+  // },
+  // {
+  //   title: "인트로 화면",
+  //   order: "fixed"
+  // },
+  // {
+  //   title: "인트로 사진",
+  //   order: "fixed"
+  // },
+  // {
+  //   title: "신랑/신부 정보",
+  //   order: "fixed"
+  // },
   {
-    title: "as1df",
-    order: "fixed"
+    title: "모시는 글",
+    order: 1,
+    option: false,
   },
   {
-    title: "as2df",
-    order: "fixed"
+    title: "예식 일시",
+    order: 2,
+    option: false,
   },
   {
-    title: "as3df",
-    order: 1
+    title: "오시는 길",
+    order: 3,
+    option: false,
   },
   {
-    title: "as4df",
-    order: 2
-  },
-  {
-    title: "asd5f",
-    order: 3
-  },
-  {
-    title: "asd6f",
-    order: 4
+    title: "갤러리",
+    order: 4,
+    option: true,
   },  
   {
-    title: "asd7f",
-    order: 5
+    title: "동영상",
+    order: 5,
+    option: true,
   },
   {
-    title: "asd8f",
-    order: 6
+    title: "마음전하기",
+    order: 6,
+    option: true,
   },
   {
-    title: "as9df",
-    order: 7
+    title: "안내사항",
+    order: 7,
+    option: true,
+  },
+  {
+    title: "공지사항",
+    order: 8,
+    option: true,
+  },
+  {
+    title: "방명록",
+    order: 9,
+    option: true,
+  },
+  {
+    title: "참석 의사 전달",
+    order: 10,
+    option: true,
   }
 ]
 
@@ -78,26 +118,62 @@ const OrderSettingState = () => {
   }, [orders]);
   const renderItemHandler = useCallback((item, index) => {
     return (
-      <OrderSettingStateItem 
-        key={`${item.title}${index}`} 
-        index={index}
-        id={`${item.title}${index}`} 
-        moveItemHandler={moveItemHandler}
-        className={`${styles.order__item} ${item.order === "fixed" ? styles.fixed : null}`} 
-      >
-        {item.title}
-        {index}
-      </OrderSettingStateItem>
+        <OrderSettingStateItem 
+          key={`${item.title}${index}`} 
+          index={index}
+          id={`${item.title}${index}`} 
+          moveItemHandler={moveItemHandler}
+          className={`${styles.order__wrapper}`} 
+        >
+          <div className={styles.order__item}>
+            {
+              item.option ?
+              <>
+                <input type="checkbox" id={`orderItem${item.order}`}/>
+                <label htmlFor="">{item.title}</label>
+              </>
+              :
+              <p>{item.title}</p>
+            }
+          </div>
+          {/* {index} */}
+        </OrderSettingStateItem>
     )
   }, [])
   useEffect(() => {
-    console.log(orders);
+    // console.log(orders);
   }, [orders]);
   return (
     <DndProvider options={HTML5toTouch}>
-      <ul className={styles.order__list}>
-        {orders.map((order, i) => renderItemHandler(order, i))}
-      </ul>
+      <div className={styles.order__setting}>
+        <div className={`${styles.order__wrapper} ${styles.fixed}`}>
+          {
+            fixedList.filter(((_, idx) => idx < 3))
+            .map((item) => (
+              <OrderSettingStateFixedItem className={styles.order__item}>{item}</OrderSettingStateFixedItem>
+            ))
+          }
+        </div>
+        <div className={`${styles.order__wrapper} ${styles.fixed}`}>
+          {
+            fixedList.filter(((_, idx) => ((idx > 2) && (idx < 6))))
+            .map((item) => (
+              <OrderSettingStateFixedItem className={styles.order__item}>{item}</OrderSettingStateFixedItem>
+            ))
+          }
+        </div>
+        {
+          orders.map((orderItem, i) => renderItemHandler(orderItem, i))
+        }
+        <div className={`${styles.order__wrapper} ${styles.fixed}`}>
+          {
+            fixedList.filter(((_, idx) => idx > 5))
+            .map((item) => (
+              <OrderSettingStateFixedItem className={styles.order__item}>{item}</OrderSettingStateFixedItem>
+            ))
+          }
+        </div>
+      </div>
     </DndProvider>
   )
 }
