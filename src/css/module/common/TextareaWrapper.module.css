@@ -1,0 +1,19 @@
+.textarea__wrap {
+  width: 100%;
+}
+.textarea__wrap label {
+  display: block;
+  padding-left: 4px;
+  font-size: var(--font-size--xxsm);
+  font-weight: var(--font-weight--Regular);
+  margin-bottom: 8px;
+}
+.textarea__wrap label span {
+  font-weight: var(--font-weight--Regular);
+}
+.textarea__wrap label.style__m span {
+  color: var(--text-color--blue);
+}
+.textarea__wrap label.style__f span {
+  color: var(--text-color--essntial);
+}

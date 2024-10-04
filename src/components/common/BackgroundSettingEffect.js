@@ -5,7 +5,7 @@ import TabSelector from "./TabSelector"
 import RadioList from "./RadioList";
 import RadioItem from "./RadioItem";
 /* CSS Module */
-import styles from "../../css/module/common/BackgroundSettingEffect.module.css";
+// import styles from "../../css/module/common/BackgroundSettingEffect.module.css";
 
 const effectList = [
   {

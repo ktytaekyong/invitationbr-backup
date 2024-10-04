@@ -4,11 +4,12 @@ import { useState, useEffect, useRef } from "react";
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import OrderSettingState from "./OrderSettingState.js";
-/* CSS Module */
-import styles from "../../css/module/common/OrderSetting.module.css";
 import CommonOptionContent from "./CommonOptionContent.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
+/* CSS Module */
+import styles from "../../css/module/common/OrderSetting.module.css";
+
 
 // const orderList = [
 //   {
