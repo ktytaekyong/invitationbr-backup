@@ -21,6 +21,7 @@
 
   --border-color--default: #E5E8EB; /* */
   --border-color--gray: #5B6470; /* */
+  --border-color--play: #A8B3BD; /* */
 
   --button-color--default: #182D4B; /* */
   --button-color--cancel: #F2F4F6; /* */
@@ -47,14 +48,15 @@
   --font-size--ssm: 15px;
   --font-size--sm: 14px;
   --font-size--xsm: 13px;
+  --font-size--xxsm: 12px;
   
   --font-size--couple-name: 27px;
-  --font-size--temp-lg: 20px;
+  /* --font-size--temp-lg: 20px;
   --font-size--temp-sl: 18px;
   --font-size--temp-default: 16px;
   --font-size--temp-ssm: 15px;
   --font-size--temp-sm: 12px;
-  --font-size--temp-xsm: 11px;
+  --font-size--temp-xsm: 11px; */
 
   /* WIDTH */
   --width--min: 460px;

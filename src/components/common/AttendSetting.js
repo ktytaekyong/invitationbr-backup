@@ -63,30 +63,40 @@ const AttendSetting = () => {
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
+          <CommonItemContent title="제목">
+            <input type="text" />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
+          <CommonItemContent title="내용" multi={true}>
+            <textarea name="" id=""></textarea>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
+          <CommonItemContent title="버튼명">
           </CommonItemContent>
         </CommonItemWrapper>
+
+        <CommonItemWrapper>
+          <CommonItemContent title="항목" multi={true}>
+          </CommonItemContent>
+        </CommonItemWrapper>
+      </CommonOptionContent>
+
+      <CommonOptionContent>
+        <CommonItemWrapper>
+          <CommonItemContent title="노출 방식" multi="check">
+
+          </CommonItemContent>
+        </CommonItemWrapper>
+
+        <CommonItemWrapper>
+          <CommonItemContent title="카톡 알림" multi={true}>
+          </CommonItemContent>
+        </CommonItemWrapper>
+
       </CommonOptionContent>
     </CommonOptionWrapper>
   )

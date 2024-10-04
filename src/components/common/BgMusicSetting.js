@@ -3,89 +3,37 @@ import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
+import BgMusicSettingSelector from "./BgMusicSettingSelector.js";
+import BgMusicSettingPlayer from "./BgMusicSettingPlayer.js";
+import CheckItem from "./CheckItem.js";
+import SettingNotice from "../layout/SettingNotice.js";
+import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
 import styles from "../../css/module/common/GallerySettingType.module.css";
-
-const themeList = [
-  {
-    itemName: "[베이직] 모던",
-    itemKey: "themeModernBasic"
-  },
-  {
-    itemName: "[베이직] 클래식",
-    itemKey: "themeClassicBasic"
-  },
-  {
-    itemName: "[일러스트] 모던",
-    itemKey: "themeModernIllust"
-  },
-  {
-    itemName: "[일러스트] 클래식",
-    itemKey: "themeClassicIllust"
-  },
-  {
-    itemName: "심플",
-    itemKey: "themeSimple"
-  },
-  {
-    itemName: "플라워",
-    itemKey: "themeFlower"
-  },
-];
-
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
-  },
-  {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-]
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
-  },
-]
+/* Image */
 
 const BgMusicSetting = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
-          </CommonItemContent>
-          <BackgroundSettingTheme />
-        </CommonItemWrapper>
-
-        <CommonItemWrapper>
-          <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
+          <CommonItemContent>
+            <BgMusicSettingPlayer></BgMusicSettingPlayer>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="효과">
-            <BackgroundSettingEffect />
+          <CommonItemContent title="무료음원 (4곡)" multi={true}>
+            <BgMusicSettingSelector></BgMusicSettingSelector>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="옵션">
-            <BackgroundSettingCheckbox></BackgroundSettingCheckbox>
+          <CommonItemContent title="자동재생" multi="check">
+            <CheckItem content="청첩장에 접속하면 자동재생"></CheckItem>
+            <SettingNotice>
+              <SettingNoticeContent>카톡 브라우저를 제외한 타 브라우저는 보안 정책상 자동재생이 불가능합니다.</SettingNoticeContent>
+            </SettingNotice>
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>
