@@ -8,7 +8,7 @@ import CommonOptionContent from "./CommonOptionContent.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
-import styles from "../../css/module/common/OrderSetting.module.css";
+// import styles from "../../css/module/common/OrderSetting.module.css";
 
 const OrderSetting = () => {
   return (

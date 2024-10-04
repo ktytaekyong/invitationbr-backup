@@ -4,7 +4,7 @@ import { DndProvider } from "react-dnd-multi-backend";
 import { HTML5toTouch } from "rdndmb-html5-to-touch";
 import update from "immutability-helper";
 /* Component */
-import OrderSettingStateFixedItem from "./OrderSettingStateFixedItem.js";
+import OrderSettingStateFixedWrapper from "./OrderSettingStateFixedWrapper.js";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
 /* CSS Module */
 import styles from "../../css/module/common/OrderSettingState.module.css";
@@ -146,33 +146,10 @@ const OrderSettingState = () => {
   return (
     <DndProvider options={HTML5toTouch}>
       <div className={styles.order__setting}>
-        <div className={`${styles.order__wrapper} ${styles.fixed}`}>
-          {
-            fixedList.filter(((_, idx) => idx < 3))
-            .map((item) => (
-              <OrderSettingStateFixedItem className={styles.order__item}>{item}</OrderSettingStateFixedItem>
-            ))
-          }
-        </div>
-        <div className={`${styles.order__wrapper} ${styles.fixed}`}>
-          {
-            fixedList.filter(((_, idx) => ((idx > 2) && (idx < 6))))
-            .map((item) => (
-              <OrderSettingStateFixedItem className={styles.order__item}>{item}</OrderSettingStateFixedItem>
-            ))
-          }
-        </div>
-        {
-          orders.map((orderItem, i) => renderItemHandler(orderItem, i))
-        }
-        <div className={`${styles.order__wrapper} ${styles.fixed}`}>
-          {
-            fixedList.filter(((_, idx) => idx > 5))
-            .map((item) => (
-              <OrderSettingStateFixedItem className={styles.order__item}>{item}</OrderSettingStateFixedItem>
-            ))
-          }
-        </div>
+        <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => idx < 3}></OrderSettingStateFixedWrapper>
+        <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => ((idx > 2) && (idx < 6))}></OrderSettingStateFixedWrapper>
+        {orders.map((orderItem, i) => renderItemHandler(orderItem, i))}
+        <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => (idx > 5)}></OrderSettingStateFixedWrapper>
       </div>
     </DndProvider>
   )

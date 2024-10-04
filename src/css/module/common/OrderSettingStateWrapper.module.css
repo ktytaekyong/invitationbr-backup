@@ -1,0 +1,11 @@
+.order__wrapper.fixed {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+}
+/* order__item */
+.order__wrapper.fixed > div {
+  background-color: var(--border-color--play);
+  pointer-events: none;
+  cursor: no-drop;
+}

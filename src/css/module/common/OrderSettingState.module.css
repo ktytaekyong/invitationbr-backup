@@ -9,17 +9,13 @@
   border-top: 1px solid var(--border-color--default);
   overflow: hidden;
 }
-.order__wrapper {
+/* order__wrapper */
+.order__setting > div {
   min-height: 200px;
   border-radius: var(--radius--default);
   border: 1px solid var(--border-color--default);
   padding: 8px;
   background-color: #fff;
-}
-.order__wrapper.fixed {
-  display: flex;
-  flex-direction: column;
-  row-gap: 8px;
 }
 .order__item {
   display: flex;
@@ -43,11 +39,6 @@
   overflow: hidden;
   color: #FFF;
 }
-.order__wrapper.fixed .order__item {
-  background-color: var(--border-color--play);
-  pointer-events: none;
-  cursor: no-drop;
-}
 .order__item input[type="checkbox"] {
   appearance: none;
   -moz-appearance: none;
@@ -63,6 +54,3 @@
   z-index: 3;
   flex-shrink: 0;
 }
-/* .setting__title_wrap input[type="checkbox"]:checked {
-  background-image: url(../../../img/state/checkbox_color_selected.png);
-} */
