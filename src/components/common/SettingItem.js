@@ -5,7 +5,7 @@ import styles from "../../css/module/common/SettingItem.module.css";
 /* Image */
 import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
 
-const SettingItem = (props) => {
+const SettingItem = ({ id, option, itemTitle, itemContent, checked }) => {
   const [isActive, setIsActive] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
@@ -25,12 +25,12 @@ const SettingItem = (props) => {
       <div className={styles.setting__title} onClick={activeToggleHandler}>
         <div className={styles.setting__title_wrap}>
           {
-            props.option ?
-            <p>{props.itemTitle}</p>
+            option ?
+            <p>{itemTitle}</p>
             :
             <>
-              <input type="checkbox" id={props.id} />
-              <label htmlFor={props.id}>{props.itemTitle}</label>
+              <input type="checkbox" id={id} checked={checked} />
+              <label htmlFor={id}>{itemTitle}</label>
             </>
           }
         </div>
@@ -38,7 +38,7 @@ const SettingItem = (props) => {
       </div>
       <div className={styles.setting__content}>
         {/* <div className={styles.content__wrap}> */}
-          {props.itemContent}
+          {itemContent}
         {/* </div> */}
       </div>
     </li>

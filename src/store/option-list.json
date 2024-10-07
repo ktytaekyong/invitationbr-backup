@@ -1,6 +1,6 @@
 {
-  "settingContentList": [
-    ""
+  "selectSettingList": [
+    "settingFixedTab", "settingBasicInfo", "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgm", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
   ],
   "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
   "basicTabList": [
@@ -21,7 +21,7 @@
       "content": "갤러리"
     },
     {
-      "id": "tabMovie",
+      "id": "tabVideo",
       "content": "동영상"
     },
     {
@@ -43,6 +43,134 @@
     {
       "id": "tabAttend",
       "content": "참석의사"
+    }
+  ],
+  "settingList": [
+    {
+      "itemId": "settingFixedTab",
+      "itemEssential": true,
+      "itemTitle": "고정 탭 설정",
+      "itemContent": "FixedTabSetting"
+    }, 
+    {
+      "itemId": "settingBasicInfomation",
+      "itemEssential": true,
+      "itemTitle": "기본 정보",
+      "itemContent": "BasicInfomationSetting"
+    }, 
+    {
+      "itemId": "settingBackground",
+      "itemEssential": true,
+      "itemTitle": "배경",
+      "itemContent": "BackgroundSetting"
+    }, 
+    {
+      "itemId": "settingIntro",
+      "itemEssential": true,
+      "itemTitle": "인트로 화면",
+      "itemContent": "IntroSetting"
+    }, 
+    {
+      "itemId": "settingIntroPhoto",
+      "itemEssential": true,
+      "itemTitle": "인트로 사진",
+      "itemContent": "IntroPhotoSetting"
+    }, 
+    {
+      "itemId": "settingCoupleInfomation",
+      "itemEssential": true,
+      "itemTitle": "신랑/신부 정보",
+      "itemContent": "CoupleInfomationSetting"
+    }, 
+    {
+      "itemId": "settingLetter",
+      "itemEssential": true,
+      "itemTitle": "모시는 글",
+      "itemContent": "LetterSetting"
+    }, 
+    {
+      "itemId": "settingDate",
+      "itemEssential": true,
+      "itemTitle": "예식 일시",
+      "itemContent": "DateSetting"
+    },
+    {
+      "itemId": "settingLocation",
+      "itemEssential": true,
+      "itemTitle": "오시는 길",
+      "itemContent": "LocationSetting"
+    }, 
+    {
+      "itemId": "settingGallery",
+      "itemEssential": false,
+      "itemTitle": "갤러리",
+      "itemContent": "GallerySetting"
+    }, 
+    {
+      "itemId": "settingVideo",
+      "itemEssential": false,
+      "itemTitle": "동영상",
+      "itemContent": "VideoSetting"
+    }, 
+    {
+      "itemId": "settingGift",
+      "itemEssential": false,
+      "itemTitle": "마음 전하기",
+      "itemContent": "GiftSetting"
+    }, 
+    {
+      "itemId": "settingNoticeT",
+      "itemEssential": false,
+      "itemTitle": "안내사항 (탭형)",
+      "itemContent": "NoticeSettingT"
+    }, 
+    {
+      "itemId": "settingNoticeD",
+      "itemEssential": false,
+      "itemTitle": "안내사항 (분리형)",
+      "itemContent": "NoticeSettingD"
+    }, 
+    {
+      "itemId": "settingBgMusic",
+      "itemEssential": false,
+      "itemTitle": "배경음악",
+      "itemContent": "BgMusicSetting"
+    }, 
+    {
+      "itemId": "settingGuestbook",
+      "itemEssential": false,
+      "itemTitle": "방명록",
+      "itemContent": "GuestbookSetting"
+    }, 
+    {
+      "itemId": "settingAttend",
+      "itemEssential": false,
+      "itemTitle": "참석의사 (RSVP)",
+      "itemContent": "AttendSetting"
+    }, 
+    {
+      "itemId": "settingOutro",
+      "itemEssential": false,
+      "itemTitle": "하단 글귀",
+      "itemContent": "OutroSetting"
+    }, 
+    {
+      "itemId": "settingThumbnailK",
+      "itemEssential": false,
+      "itemTitle": "카카오톡 공유 썸네일",
+      "itemContent": "ThumbnailSettingK"
+    }, 
+    {
+      "itemId": "settingThumbnailU",
+      "itemEssential": false,
+      "itemTitle": "URL 공유 썸네일",
+      "itemContent": "ThumbnailSettingU"
+    }, 
+    {
+      "itemId": "settingOrder",
+      "itemEssential": false,
+      "itemTitle": "메뉴 순서 변경",
+      "itemContent": "OrderSetting"
     }
   ],
   "backgroundList": {
