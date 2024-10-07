@@ -1,4 +1,18 @@
 {
+  "basicInfoList": {
+    "groomInfo": {
+      "lastname": "이",
+      "firstname": "보람"
+    },
+    "brideInfo": {
+      "lastname": "김",
+      "firstname": "신우"
+    },
+    "dateInfo": {
+      "date": "",
+      "time": ""
+    }
+  },
   "selectSettingList": [
     "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation",
     "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"

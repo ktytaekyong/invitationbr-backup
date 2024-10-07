@@ -1,23 +1,28 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
-import Button from "../layout/Button.js"
 /* CSS Module */
 import styles from "../../css/module/common/BasicInfomationSettingName.module.css";
 
-const BasicInfomationSettingName = () => {
-  const [isActive, setIsActive] = useState(0);
-  const [isActiveTab, setIsActiveTab] = useState(0);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
-  }
-  const setActiveTabHandler = (idx) => {
-    setIsActiveTab(idx);
-  }
+const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
   return (
     <div className={styles.option__input}>
-      <input type="text" placeholder="성" required={true} />
-      <input type="text" placeholder="이름" required={true} />
+      <input type="text" 
+        id={`BasicInfoLastName${genderCode}`}
+        name="lastname"
+        value={nameInfo.lastname}
+        placeholder="성"
+        onChange={onChange}
+        required={true}
+      />
+      <input type="text" 
+        id={`BasicInfoFirstName${genderCode}`} 
+        name="firstname"
+        value={nameInfo.firstname} 
+        placeholder="이름" 
+        onChange={onChange}
+        required={true} 
+      />
     </div>
   )
 }

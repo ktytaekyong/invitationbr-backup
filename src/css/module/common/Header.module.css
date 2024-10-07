@@ -40,7 +40,7 @@
   text-align: center;
 }
 .header__title h2 {
-  font-size: var(--font-size--temp-lg);
+  font-size: var(--font-size--lg);
   font-weight: var(--font-weight--SemiBold);
 }
 .header__title p {

@@ -10,24 +10,16 @@ const dateHourDistList = ["오전", "오후"];
 const dateHourList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 const dateMinuteList = [0, 10, 20, 30, 40, 50];
 
-const BasicInfomationSettingDate = ({ data }) => {
-  const [isActive, setIsActive] = useState(0);
-  const [isActiveTab, setIsActiveTab] = useState(0);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
-  }
-  const setActiveTabHandler = (idx) => {
-    setIsActiveTab(idx);
-  }
+const BasicInfomationSettingDate = ({ inputType }) => {
   return (
     <div className={styles.option__input}>
       {
-        data === "date" ?
-        <input type="date" />
+        inputType === "date" ?
+        <input type="date" id="BasicInfoDate" />
         :
         <>
-          <OptionSelector selectID="DateHourSelect" listName={dateHourList} type="hour" hour={dateHourDistList}></OptionSelector>
-          <OptionSelector selectID="DateMinuteSelect" listName={dateMinuteList} type="minute" styleType="minute__selector"></OptionSelector>
+          <OptionSelector selectID="BasicInfoDateHour" listName={dateHourList} type="hour" hour={dateHourDistList}></OptionSelector>
+          <OptionSelector selectID="BasicInfoDateMin" listName={dateMinuteList} type="minute" styleType="minute__selector"></OptionSelector>
         </>
       }
     </div>
