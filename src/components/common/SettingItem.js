@@ -5,7 +5,7 @@ import styles from "../../css/module/common/SettingItem.module.css";
 /* Image */
 import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
 
-const SettingItem = ({ id, option, itemTitle, itemContent, checked }) => {
+const SettingItem = ({ id, option, itemTitle, itemContent, checked, onChange }) => {
   const [isActive, setIsActive] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
@@ -29,7 +29,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checked }) => {
             <p>{itemTitle}</p>
             :
             <>
-              <input type="checkbox" id={id} checked={checked} />
+              <input type="checkbox" id={id} checked={checked} onChange={onChange} />
               <label htmlFor={id}>{itemTitle}</label>
             </>
           }

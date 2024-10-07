@@ -1,5 +1,5 @@
 /* Import */
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 /* Component */
 import SettingItem from "./SettingItem";
 import FixedTabSetting from "./FixedTabSetting";
@@ -11,7 +11,7 @@ import CoupleInfomationSetting from "./CoupleInfomationSetting";
 import LetterSetting from "./LetterSetting";
 import DateSetting from "./DateSetting";
 import LocationSetting from "./LocationSetting";
-import TrafficSetting from "./TrafficSetting";
+// import TrafficSetting from "./TrafficSetting";
 import GallerySetting from "./GallerySetting";
 import VideoSetting from "./VideoSetting";
 import GiftSetting from "./GiftSetting";
@@ -80,15 +80,27 @@ const renderComponents = (item) => {
 
 const SettingList = () => {
   const { selectSettingList, setSelectSettingList, settingList } = useContext(SetContext);
+  const changeSettingHandler = (clickedIdx) => {
+    const selectedItem = settingList[clickedIdx].itemId;
+    setSelectSettingList(prevList => {
+      if(selectSettingList.includes(selectedItem)) {
+        return prevList.filter(item => item !== selectedItem);
+      } else {
+        return [...prevList, selectedItem];
+      }
+    });
+  };
+
   return (
     <ul className={styles.setting__list}>
       {settingList.map((item, idx) => {
-        const isChecked = selectSettingList.includes(item.id);
+        const isChecked = selectSettingList.includes(item.itemId);
         return (
           <SettingItem 
             itemTitle={item.itemTitle} 
             itemContent={renderComponents(item.itemContent)} 
             option={item.itemEssential}
+            onChange={() => changeSettingHandler(idx)}
             checked={isChecked}
             id={item.itemId} 
             key={idx} 
