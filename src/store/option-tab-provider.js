@@ -6,7 +6,7 @@ import { TabContext } from "./option-tab-context.js"
 
 const TabProvider = ({ children }) => {
   const [selectTabList, setSelectTabList] = useState(initList.selectTabList);
-  const [basicTabList, setBasicTabList] = useState(initList.basicTabList);
+  const basicTabList = initList.basicTabList;
 
   return (
     <TabContext.Provider
@@ -14,7 +14,6 @@ const TabProvider = ({ children }) => {
         selectTabList,
         basicTabList,
         setSelectTabList,
-        setBasicTabList,
       }}
     >
       {children}
