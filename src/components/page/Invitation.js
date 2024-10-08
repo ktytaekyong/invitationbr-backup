@@ -16,7 +16,7 @@ import Guestbook from "../invitationSection/Guestbook";
 import Attend from "../invitationSection/Attend";
 import Outro from "../invitationSection/Outro";
 /* CSS Module */
-import styles from "../../css/module/page/Invitation.module.css";
+import styles from "../../css/module/page/Invitation.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 

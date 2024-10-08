@@ -36,7 +36,7 @@
 }
 
 // POSITION
-@mixin position($type: r, $top: null, $right: null, $bottom: null, $left: null) {
+@mixin position($type: r, $top: null, $left: null, $bottom: null, $right: null) {
   @if($type == "a") {
     position: absolute;
   } @else if($type == "s") {
