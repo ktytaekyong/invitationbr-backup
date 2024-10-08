@@ -4,15 +4,15 @@ import { useState, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Intro.module.css";
 
-// const tabList = ["모시는 글", "예식 일시", "오시는 길", "갤러리"];
-
 const Intro = () => {
   // useEffect(() => {
   //   setIsActive(0);
   // }, []);
   
   return (
-    <div>
+    <div 
+      className={`${styles.invite__intro_wrap} ${styles.intro__style_theme_1}`}
+    >
       <p>Intro</p>
     </div>
   )

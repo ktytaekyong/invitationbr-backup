@@ -19,6 +19,7 @@
   --bg-color--second: #F0F1F1;
   --bg-color--invite: #FFF;
   --bg-color--setting: #F9FAFB; /* */
+  --bg-color--tab: #F2F4F6; /* */
 
   --border-color--default: #E5E8EB; /* */
   --border-color--gray: #5B6470; /* */
@@ -29,7 +30,7 @@
 
   /* FONT */
   --font-family--default: "Pretendard";
-  --font-family--point: "Noto Serif KR", serif;
+  --font-family--theme: "SeoulHangang";
   --font-weight--Thin: 100;
   --font-weight--ExtraLight: 200;
   --font-weight--Light: 300;

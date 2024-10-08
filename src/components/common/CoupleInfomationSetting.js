@@ -41,8 +41,8 @@ const CoupleInfomation = () => {
           <CommonItemContent title="신랑">
             <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
           </CommonItemContent>
-          {parents.map((parent) => (
-            <CommonItemContent title={parent.itemName}>
+          {parents.map((parent, idx) => (
+            <CommonItemContent title={parent.itemName} key={`${parent.itemName}${idx}`}>
               <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="M"></CoupleInfomationSettingParents>
             </CommonItemContent>
           ))}
@@ -55,8 +55,8 @@ const CoupleInfomation = () => {
           <CommonItemContent title="신부">
             <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
           </CommonItemContent>
-          {parents.map((parent) => (
-            <CommonItemContent title={parent.itemName}>
+          {parents.map((parent, idx) => (
+            <CommonItemContent title={parent.itemName} key={`${parent.itemName}${idx}`}>
               <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="F"></CoupleInfomationSettingParents>
             </CommonItemContent>
           ))}

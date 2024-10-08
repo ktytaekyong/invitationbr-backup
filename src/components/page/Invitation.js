@@ -23,7 +23,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const { selectSettingList, setSelectSettingList, settingList } = useContext(SetContext);
   return (
-    <div className={styles.invitation}>
+    <div className={`${styles.invitation} global__invitation`}>
       <Container>
         <Tab></Tab>
         <Intro></Intro>

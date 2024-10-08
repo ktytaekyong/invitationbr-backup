@@ -27,7 +27,7 @@ const DateSettingImage = () => {
   return (
     <ul className={styles.calendar__img_list}>
       {imageList.map((item, idx) => (
-        <li className={styles.calendar__img_item} style={{backgroundImage: `url(${item.src})`}}>
+        <li className={styles.calendar__img_item} key={`url(${item.src}${idx}`} style={{backgroundImage: `url(${item.src})`}}>
         </li>
       ))}
     </ul>

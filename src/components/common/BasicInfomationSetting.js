@@ -17,7 +17,7 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const BasicInfomationSetting = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const nameDataChangeHandler = (e, infoType) => {
+  const basicDataChangeHandler = (e, infoType) => {
     const { name, value } = e.target;
     setBasicInfoList(prev => ({
       ...prev,
@@ -36,14 +36,14 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingName 
               genderCode="M"
               nameInfo={basicInfoList.groomInfo}
-              onChange={(e) => nameDataChangeHandler(e, "groomInfo")}
+              onChange={(e) => basicDataChangeHandler(e, "groomInfo")}
             />
           </CommonItemContent>
           <CommonItemContent title="신부" essential={true}>
             <BasicInfomationSettingName 
               genderCode="F" 
               nameInfo={basicInfoList.brideInfo} 
-              onChange={(e) => nameDataChangeHandler(e, "brideInfo")} 
+              onChange={(e) => basicDataChangeHandler(e, "brideInfo")} 
             />
           </CommonItemContent>
         </CommonItemWrapper>
@@ -52,11 +52,19 @@ const BasicInfomationSetting = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="예식일">
-            <BasicInfomationSettingDate inputType="date" />
+            <BasicInfomationSettingDate 
+              inputType="date"
+              dateInfo={basicInfoList.dateInfo} 
+              onChange={(e) => basicDataChangeHandler(e, "dateInfo")}
+            />
           </CommonItemContent>
 
           <CommonItemContent title="예식시간">
-            <BasicInfomationSettingDate inputType="time" />
+            <BasicInfomationSettingDate 
+              inputType="time" 
+              timeInfo={basicInfoList.timeInfo}
+              onChange={(e) => basicDataChangeHandler(e, "timeInfo")}
+            />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>
@@ -64,11 +72,18 @@ const BasicInfomationSetting = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="예식장 명">
-            <BasicInfomationSettingPlace inputType="name" />
+            <BasicInfomationSettingPlace
+              inputType="placeName"
+              placeInfo={basicInfoList.placeInfo}
+              onChange={(e) => basicDataChangeHandler(e, "placeInfo")}
+            />
           </CommonItemContent>
           
           <CommonItemContent title="층과 홀">
-            <BasicInfomationSettingPlace inputType="place" />
+            <BasicInfomationSettingPlace 
+              placeInfo={basicInfoList.placeInfo}
+              onChange={(e) => basicDataChangeHandler(e, "placeInfo")}
+            />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>

@@ -40,3 +40,9 @@
   font-weight: 800;
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
 }
+/* SeoulHangang - Medium */
+@font-face {
+  font-family: 'SeoulHangang';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulHangangM.woff') format('woff');
+  font-weight: 400;
+}

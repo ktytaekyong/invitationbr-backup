@@ -25,8 +25,8 @@ const GiftSettingAccount = ({ listName, gender }) => {
   return (
     <>
       {
-        listName.map((_, idx) => (
-          <CommonItemWrapper>
+        listName.map((item, idx) => (
+          <CommonItemWrapper key={`${item}${idx}`}>
             <CommonItemContent title="계좌정보" multi={true}>
               <div className={styles.input__wrap}>
                 <OptionSelector listName={bankList} />

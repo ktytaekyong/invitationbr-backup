@@ -2,15 +2,22 @@
   "basicInfoList": {
     "groomInfo": {
       "lastname": "이",
-      "firstname": "보람"
+      "firstname": "신랑"
     },
     "brideInfo": {
       "lastname": "김",
-      "firstname": "신우"
+      "firstname": "신부"
     },
     "dateInfo": {
-      "date": "",
-      "time": ""
+      "date": "2024-10-30"
+    },
+    "timeInfo": {
+      "hour": "12",
+      "min": "30"
+    },
+    "placeInfo": {
+      "placeName": "기본 식장",
+      "placeDetail": "1층 기본 홀"
     }
   },
   "selectSettingList": [

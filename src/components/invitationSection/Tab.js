@@ -19,22 +19,26 @@ const Tab = () => {
   }, []);
 
   return (
+    TabCtx.selectTabList.length === 0 ?
+    null
+    :
     <ul className={styles.tab}>
-      {TabCtx.selectTabList
-      .map((item, idx) => {
-        const tabContent = TabCtx.basicTabList.find(tab => tab.id === item);
-        return (
-          <li key={"tab" + idx}
-            id={"tab" + idx} 
-            className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
-            onClick={() => setActiveHandler(idx)}
-            >
-            <Link to="/">{tabContent ? tabContent.content : item}</Link>
-          </li>
-        )
-      })}
+    {TabCtx.selectTabList
+    .map((item, idx) => {
+      const tabContent = TabCtx.basicTabList.find(tab => tab.id === item);
+      return (
+        <li key={"tab" + idx}
+          id={"tab" + idx} 
+          className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
+          onClick={() => setActiveHandler(idx)}
+          >
+          <Link to="/">{tabContent ? tabContent.content : item}</Link>
+        </li>
+      )
+    })}
     </ul>
   )
+
 }
 
 export default Tab;

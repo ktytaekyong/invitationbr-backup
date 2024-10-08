@@ -2,20 +2,24 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  background-color: #fff;
+  padding: 3px;
+  border-radius: 4px;
+  background-color: var(--bg-color--tab);
 }
 .tab__item {
   width: 25%;
-  border: 1px solid #000;
 }
 .tab__item > a {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 12px 5px;
+  padding: 10px 3px;
   font-size: var(--font-size--ssm);
-  background-color: #fff;
+  border-radius: 4px;
+  background-color: var(--bg-color--tab);
 }
 .tab__item.active > a {
-  background-color: #EEE;
+  border: 1px solid #E3E7EB;
+  background-color: #FFF;
+  box-shadow: 0 0 2px rgba(227, 231, 235, 0.7);
 }

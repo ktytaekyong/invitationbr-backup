@@ -67,7 +67,6 @@ const OrderSettingState = () => {
   const [orders, setOrders] = useState(orderList);
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
     if (orders[dragIndex].order === "fixed" || orders[hoverIndex].order === "fixed") {
-      console.log("no");
       return;
     }
     setOrders((prevList) =>
@@ -81,7 +80,6 @@ const OrderSettingState = () => {
         let currentOrder = 1;
         return updateOrderList.map((item, index) => {
           if (item.order === "fixed") {
-            console.log("no");
             return item; // 고정된 항목은 건드리지 않음
           }
           return {
@@ -112,13 +110,12 @@ const OrderSettingState = () => {
               <p>{item.title}</p>
             }
           </div>
-          {/* {index} */}
         </OrderSettingStateItem>
     )
   }, [])
-  useEffect(() => {
-    console.log(orders);
-  }, [orders]);
+  // useEffect(() => {
+  //   console.log(orders);
+  // }, [orders]);
   return (
     <DndProvider options={HTML5toTouch}>
       <div className={styles.order__setting}>

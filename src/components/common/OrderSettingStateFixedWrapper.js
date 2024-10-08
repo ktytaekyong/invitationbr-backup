@@ -13,8 +13,8 @@ const OrderSettingStateFixedWrapper = ({ listName, filterCondition, className })
   return (
     <div className={`${styles.order__wrapper} ${styles.fixed}`}>
       {
-        listName.filter(filterCondition).map((item) => (
-          <OrderSettingStateFixedItem className={className}>{item}</OrderSettingStateFixedItem>
+        listName.filter(filterCondition).map((item, idx) => (
+          <OrderSettingStateFixedItem className={className} key={`${item}${idx}`}>{item}</OrderSettingStateFixedItem>
         ))
       }
     </div>
