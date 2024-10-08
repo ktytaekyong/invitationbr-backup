@@ -1,0 +1,22 @@
+@import "../../_module";
+.option__item {
+  & input {
+    &[type="checkbox"] {
+      @include input__appearance;
+      display: none;
+      &:checked + label {
+        color: #FFF;
+        background-color: $button-color--default;
+      }
+    }
+  }
+  & label {
+    @include flex__row;
+    padding: 14px 20px;
+    font-size: $font-size--xsm;
+    border-radius: $radius--button-list;
+    border: 1px solid $border-color--default;
+    background-color: #fff;
+    color: $text-color--disable;
+  }
+}

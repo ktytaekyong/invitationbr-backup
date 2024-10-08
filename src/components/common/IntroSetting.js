@@ -6,7 +6,7 @@ import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 /* CSS Module */
-import styles from "../../css/module/common/IntroSetting.module.css";
+import styles from "../../css/module/common/IntroSetting.module.scss";
 /* Image */
 import templateImage1 from "../../img/intro/intro_photo_temp1.png";
 

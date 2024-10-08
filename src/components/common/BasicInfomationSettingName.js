@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/BasicInfomationSettingName.module.css";
+import styles from "../../css/module/common/BasicInfomationSettingName.module.scss";
 
 const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
   return (

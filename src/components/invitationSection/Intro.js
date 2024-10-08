@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/invitationSection/Intro.module.css";
+import styles from "../../css/module/invitationSection/Intro.module.scss";
 
 const Intro = () => {
   // useEffect(() => {

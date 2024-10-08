@@ -1,0 +1,64 @@
+@import "../../_module";
+.setting {
+  &__item {
+    width: 100%;
+    max-width: 540px;
+    border-radius: 8px;
+    border: 1px solid $border-color--default;
+    background-color: $bg-color--setting;
+    &.active {
+      .setting__title {
+        border-radius: 8px 8px 0px 0px;
+        border-bottom: 1px solid $border-color--default;
+      }
+      .setting__arrow_img {
+        transform: rotateX(0);
+      }
+      .setting__content {
+        height: 100%; 
+        margin: 24px;
+        visibility: visible; 
+      }
+    }
+  }
+  &__title {
+    @include flex__row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 14px 24px;
+    border-radius: 8px;
+    background-color: #FFF;
+    & > p {
+      font-weight: $font-weight--SemiBold;
+    }
+    &_wrap {
+      @include flex__row;
+      justify-content: flex-start;
+      align-items: center;
+      column-gap: 12px;
+      & input[type="checkbox"] {
+        @include input__appearance;
+        width: 20px;
+        height: 20px;
+        background: transparent url(../../../img/state/checkbox_circle_disabled.png) no-repeat center / 20px;
+        &:checked {
+          background-image: url(../../../img/state/checkbox_circle_selected.png);
+        }
+      }
+    }
+  }
+  &__arrow_img {
+    width: 32px;
+    height: 32px;
+    transform: rotateX(180deg);
+    transition: $transition--fast;
+  }
+  &__content {
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+    height: 0;
+    visibility: hidden;
+    transition: margin-top 0.4s, margin-bottom 0.4s;
+  }
+}

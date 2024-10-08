@@ -35,6 +35,11 @@
   flex-direction: $direction;
 }
 
+@mixin flex__row_inline($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
 // POSITION
 @mixin position($type: r, $top: null, $left: null, $bottom: null, $right: null) {
   @if($type == "a") {

@@ -1,9 +1,10 @@
+@import "../../_module";
 .item__content_wrapper {
-  width: 100%;
-  min-height: 24px;
-  display: flex;
+  @include flex__row;
   justify-content: flex-start;
   align-items: center;
   flex-wrap: wrap;
+  width: 100%;
+  min-height: 24px;
   row-gap: 12px;
 }

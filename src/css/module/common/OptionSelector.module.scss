@@ -1,0 +1,30 @@
+@import "../../_module";
+.option__selector {
+  width: 100%;
+  &_wrapper {
+    @include position;
+    width: 100%;
+    max-width: $width-input-setting;
+    font-weight: $font-weight--Regular;
+    &::after {
+      @include position(a, 50%, _, _, 0);
+      transform: translateY(-50%);
+      width: 38px;
+      height: 100%;
+      border-left: 1px solid $border-color--default;
+      background: url(../../../img/icon/icon_seletor_arrow.png) center / 32px;
+      pointer-events: none;
+      content: "";
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}
+/* CUSTOM */
+.info__firstname_selector {
+  max-width: 100px;
+}
+.minute__selector {
+  max-width: 100px;
+}

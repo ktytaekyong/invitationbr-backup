@@ -1,10 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
-import TabSelector from "./TabSelector"
-import RadioItem from "./RadioItem"
 /* CSS Module */
-import styles from "../../css/module/common/RadioList.module.css";
+import styles from "../../css/module/common/RadioList.module.scss";
 
 const RadioList = ({ title, children }) => {
   const [radioActive, setRadioActive] = useState(false);

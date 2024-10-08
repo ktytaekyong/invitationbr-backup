@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 /* Component */
 import FixedTabSettingItem from "../common/FixedTabSettingItem";
 /* CSS Module */
-import styles from "../../css/module/common/FixedTabSettingList.module.css";
+import styles from "../../css/module/common/FixedTabSettingList.module.scss";
 /* Context */
 import { TabContext } from "../../store/option-tab-context.js";
 

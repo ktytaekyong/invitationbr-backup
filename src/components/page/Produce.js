@@ -1,10 +1,10 @@
 /* Import */
-import React from "react";
+import { useEffect } from "react";
 /* Component */
 import Container from "../layout/Container";
 import SettingList from "../common/SettingList";
 /* CSS Module */
-import styles from "../../css/module/page/Produce.module.css";
+import styles from "../../css/module/page/Produce.module.scss";
 
 const Produce = () => {
   return (

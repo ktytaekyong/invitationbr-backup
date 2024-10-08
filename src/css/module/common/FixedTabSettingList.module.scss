@@ -1,0 +1,8 @@
+@import "../../_module";
+.option__list {
+  @include flex__row;
+  flex-wrap: wrap;
+  gap: 10px 4px;
+  padding-top: 24px;
+  border-top: 1px solid $border-color--default;
+}

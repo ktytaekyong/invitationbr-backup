@@ -1,0 +1,38 @@
+@import "../../_module";
+.item__content {
+  @include flex__row;
+  gap: 8px 12px;
+  width: 100%;
+  & .option__title {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    min-width: 70px;
+    font-size: $font-size--ssm;
+    word-break: keep-all;
+  }
+  & .option__content {
+    width: 100%;
+    @include flex__row;
+    gap: 12px $col-gap--setting-basic;
+  }
+  &.multiLine {
+    .option__title {
+      align-items: flex-start;
+      padding-top: 5px;
+    }
+    .option__content {
+      @include flex__column;
+    }
+    &.multiCheck {
+      .option__content {
+        row-gap: 8px; 
+      }
+    }
+  }
+  .essential {
+    display: inline-block;
+    margin-left: 4px;
+    color: $text-color--essntial;
+  }
+}

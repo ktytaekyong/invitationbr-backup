@@ -1,37 +1,32 @@
+@import "../../_module";
 .check {
-  display: flex;
+  @include flex__row;
   justify-content: flex-start;
   align-items: center;
   column-gap: 5px;
-}
-.check input {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  background-image: url(../../../img/state/checkbox_disabled.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}
-.check label {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: 4px;
-  font-size: var(--font-size--sm);
-  font-weight: var(--font-weight--Regular);
-  color: var(--text-color--disable-input);
-}
-.check input:checked {
-  background-image: url(../../../img/state/checkbox_selected.svg);
-}
-.check input:checked + label {
-  color: var(--text-color--default);
-}
-.check label img {
-  width: 18px;
-  height: 18px;
+  & input {
+    @include input__appearance;
+    width: 24px;
+    height: 24px;
+    background: transparent url(../../../img/state/checkbox_disabled.png) no-repeat center / contain;
+    &:checked {
+      background-image: url(../../../img/state/checkbox_selected.svg);
+      & + label {
+        color: $text-color--default;
+      }
+    }
+  }
+  & label {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 4px;
+    font-size: $font-size--sm;
+    font-weight: $font-weight--Regular;
+    color: $text-color--disable-input;
+    & img {
+      width: 18px;
+      height: 18px;
+    }
+  }
 }

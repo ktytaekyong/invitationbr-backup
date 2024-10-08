@@ -1,7 +1,7 @@
 /* Import */
 import { useEffect } from "react";
 /* CSS Module */
-import styles from "../../css/module/common/OptionSelector.module.css";
+import styles from "../../css/module/common/OptionSelector.module.scss";
 
 const OptionSelector = ({ selectID, selectName, value, listName, onChange, styleType }) => {
   return (

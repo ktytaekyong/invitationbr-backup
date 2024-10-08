@@ -25,7 +25,7 @@ import ThumbnailSettingK from "./ThumbnailSettingK";
 import ThumbnailSettingU from "./ThumbnailSettingU";
 import OrderSetting from "./OrderSetting";
 /* CSS Module */
-import styles from "../../css/module/common/SettingList.module.css";
+import styles from "../../css/module/common/SettingList.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 

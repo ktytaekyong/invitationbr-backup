@@ -11,7 +11,7 @@ import CheckItem from "./CheckItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
-import styles from "../../css/module/common/CommonOptionContent.module.css";
+// import styles from "../../css/module/common/CommonOptionContent.module.css";
 
 const GallerySetting = () => {
   return (

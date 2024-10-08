@@ -1,5 +1,5 @@
 /* CSS Module */
-import styles from "../../css/module/common/FixedTabSettingItem.module.css";
+import styles from "../../css/module/common/FixedTabSettingItem.module.scss";
 
 const FixedTabSettingItem = ({ id, checked, onChange, optionTitle }) => {
   return (

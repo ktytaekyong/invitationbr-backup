@@ -1,0 +1,5 @@
+@import "../../_module";
+.option__content_wrapper {
+  @include flex__column;
+  row-gap: 24px;
+}

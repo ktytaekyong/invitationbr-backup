@@ -1,5 +1,5 @@
 /* CSS Module */
-import styles from "../../css/module/common/CommonItemContent.module.css";
+import styles from "../../css/module/common/CommonItemContent.module.scss";
 
 const CommonItemContent = ({ title, multi, essential, children }) => {
   return (

@@ -1,7 +1,7 @@
 /* Import */
 import React from "react";
 /* CSS Module */
-import styles from "../../css/module/layout/Button.module.css";
+import styles from "../../css/module/layout/Button.module.scss";
 
 const Button = ({ type, styleType, content, onClick }) => {
   // props.styleType

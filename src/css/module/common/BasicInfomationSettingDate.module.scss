@@ -1,0 +1,10 @@
+@import "../../_module";
+.option__input {
+  @include flex__row;
+  width: 100%;
+  column-gap: $col-gap--setting-basic;
+  & input {
+    width: 100%;
+    max-width: $width-input-setting;
+  }
+}

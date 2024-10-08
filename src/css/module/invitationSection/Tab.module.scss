@@ -1,0 +1,26 @@
+@import "../../_module";
+.tab {
+  @include flex__row;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 3px;
+  border-radius: 4px;
+  background-color: $bg-color--tab;
+  &__item {
+    width: 25%;
+    & > a {
+      @include flex__row;
+      justify-content: center;
+      align-items: center;
+      padding: 10px 3px;
+      font-size: $font-size--ssm;
+      border-radius: 4px;
+      background-color: $bg-color--tab;
+    }
+    &.active > a {
+      border: 1px solid #E3E7EB;
+      background-color: #FFF;
+      box-shadow: 0 0 2px rgba(227, 231, 235, 0.7);
+    }
+  }
+}

@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 /* Component */
 import OptionSelector from "./OptionSelector.js";
 /* CSS Module */
-import styles from "../../css/module/common/BasicInfomationSettingDate.module.css";
+import styles from "../../css/module/common/BasicInfomationSettingDate.module.scss";
 
 const dateHourList = [
   {itemKey: 8, itemName: "오전 8시"}, {itemKey: 9, itemName: "오전 9시"}, {itemKey: 10, itemName: "오전 10시"}, {itemKey: 11, itemName: "오전 11시"}, {itemKey: 12, itemName: "오후 12시"}, {itemKey: 13, itemName: "오후 1시"}, {itemKey: 14, itemName: "오후 2시"}, {itemKey: 15, itemName: "오후 3시"}, {itemKey: 16, itemName: "오후 4시"}, {itemKey: 17, itemName: "오후 5시"}, {itemKey: 18, itemName: "오후 6시"}, {itemKey: 19, itemName: "오후 7시"}, {itemKey: 20, itemName: "오후 8시"}, {itemKey: 21, itemName: "오후 9시"}

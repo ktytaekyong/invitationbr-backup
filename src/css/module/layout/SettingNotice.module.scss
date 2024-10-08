@@ -1,0 +1,5 @@
+@import "../../_module";
+.notice__wrapper {
+  @include flex__column;
+  row-gap: 6px;
+}

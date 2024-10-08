@@ -1,0 +1,13 @@
+@import "../../_module";
+.option__input {
+  @include flex__row;
+  column-gap: $col-gap--setting-basic;
+  & input {
+    &:first-child {
+      max-width: 100px;
+    }
+    &:last-child {
+      max-width: 140px;
+    }
+  }
+}

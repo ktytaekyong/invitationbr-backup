@@ -3,11 +3,10 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/invitationSection/Tab.module.css";
+import styles from "../../css/module/invitationSection/Tab.module.scss";
 /* Context */
 import { TabContext } from "../../store/option-tab-context.js";
 
-// const tabList = [ /* 기본 리스트 */];
 const Tab = () => {
   const TabCtx = useContext(TabContext); 
   const [isActive, setIsActive] = useState(false);
@@ -38,7 +37,6 @@ const Tab = () => {
     })}
     </ul>
   )
-
 }
 
 export default Tab;

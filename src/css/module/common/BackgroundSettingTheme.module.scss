@@ -1,8 +1,11 @@
-.bg__selector {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  column-gap: 8px;
+@import "../../_module";
+.bg {
+  &__selector {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 8px;
+  }
 }
 .bg__item {
   width: 32px;

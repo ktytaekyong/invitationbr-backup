@@ -39,11 +39,11 @@ input {
     max-width: 160px;
     position: relative;
     &::-webkit-calendar-picker-indicator {
-      @include position(a, _, 0);
+      @include position(a, 50%, _, _, 0);
+      transform: translateY(-50%);
       width: 38px;
       height: 38px;
-      padding-left: 0;
-      padding-right: 0;
+      padding: 0;
       background: url(../img/icon/icon_input_date.png) no-repeat center / 32px;
       border-left: 1px solid $border-color--default;
     }

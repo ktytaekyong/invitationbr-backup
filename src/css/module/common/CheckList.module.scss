@@ -1,0 +1,5 @@
+@import "../../_module";
+.check__wrapper {
+  @include flex__column;
+  row-gap: 4px;
+}

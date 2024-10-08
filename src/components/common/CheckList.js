@@ -1,5 +1,5 @@
 /* CSS Module */
-import styles from "../../css/module/common/CheckList.module.css";
+import styles from "../../css/module/common/CheckList.module.scss";
 
 const CheckList = ({ children }) => {
   return (

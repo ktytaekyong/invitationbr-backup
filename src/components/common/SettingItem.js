@@ -1,7 +1,7 @@
 /* Import */
 import { useState, useRef, useEffect } from "react";
 /* CSS Module */
-import styles from "../../css/module/common/SettingItem.module.css";
+import styles from "../../css/module/common/SettingItem.module.scss";
 /* Image */
 import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
 
@@ -35,7 +35,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             
           }
         </div>
-          <img src={iconSettingItemArrowImg} alt="" className={styles.setting_arrow_img} />
+          <img src={iconSettingItemArrowImg} alt="" className={styles.setting__arrow_img} />
       </div>
       <div className={styles.setting__content}>
         {itemContent}

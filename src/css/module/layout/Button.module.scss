@@ -1,0 +1,92 @@
+@import "../../_module";
+.btn {
+  @include flex__row_inline;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  padding: 12px 24px;
+  font-size: $font-size--sm;
+  font-weight: $font-weight--SemiBold;
+  border: none;
+  &.default {
+    border-radius: $radius--default;
+    border: 1px solid $button-color--default;
+    background-color: #FFF;
+    color: $text-color--default;
+  }
+  &.primary {
+    border-radius: $radius--default;
+    background-color: $button-color--default;
+    color: #FFF;
+  }
+  &.point {
+    font-weight: $font-weight--Medium;
+    border-radius: $radius--default;
+    background-color: $point-color--default;
+    color: #FFF;
+  }
+  &.close {
+    @include position(a, 0, _, _, 0);
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    line-height: 1em;
+    border-radius: 999px;
+    background: transparent url(../../../img/icon/icon_close.png) no-repeat center / cover;
+    color: $button-color--default;
+    content: "";
+  }
+  &.modify {
+    @include position;
+    padding: 5px 28px 5px 0;
+    font-weight: $font-weight--Regular;
+    background: transparent url(../../../img/icon/icon_textmodify_arrow.png) no-repeat right / 24px;
+  }
+  &.picker {
+    width: calc((100% - 8px) / 2);
+    padding: 9px 0px;
+    border-radius: $radius--default;
+    font-weight: $font-weight--Medium;
+    font-size: $font-size--xsm;
+    &:first-child {
+      background-color: $button-color--cancel;
+      color: $text-color--gray;
+    }
+    &:last-child {
+      background-color: $point-color--default;
+      color: #FFF;
+    }
+  }
+  &.sample__view {
+    @include position;
+    max-width: 108px;
+    height: 40px;
+    padding: 5px 0 5px 28px;
+    margin-left: 12px;
+    font-weight: $font-weight--Regular;
+    background: transparent url(../../../img/icon/icon_add.png) no-repeat left / 24px;
+  }
+  &.add {
+    @include position;
+    max-width: 108px;
+    padding: 0 0 0 28px;
+    font-weight: $font-weight--Regular;
+    background: transparent url(../../../img/icon/icon_add.png) no-repeat left / 24px;
+  }
+  &.file__delete {
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: transparent url(../../../img/icon/icon_close.png) no-repeat left / 24px;
+  }
+  &.remove {
+    max-width: 105px;
+    padding: 0 0 0 28px;
+    margin-top: 4px;
+    font-weight: var(--font-weight--Regular);
+    background: transparent url(../../../img/icon/icon_remove.png) no-repeat left 4px center / 24px;
+  }
+}

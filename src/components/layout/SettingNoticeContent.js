@@ -1,5 +1,5 @@
 /* CSS Module */
-import styles from "../../css/module/layout/SettingNoticeContent.module.css";
+import styles from "../../css/module/layout/SettingNoticeContent.module.scss";
 
 const SettingNoticeContent = ({ children }) => {
   return (

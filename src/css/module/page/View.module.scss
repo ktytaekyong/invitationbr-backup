@@ -1,0 +1,16 @@
+@import "../../_module";
+.view {
+  @include position;
+  @include flex__row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: $bg-color--default;
+  & > div {
+    @include flex__row;
+    justify-content: center;
+    align-items: flex-start;
+    column-gap: 30px;
+  }
+}

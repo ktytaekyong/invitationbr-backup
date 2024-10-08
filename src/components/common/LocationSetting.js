@@ -12,7 +12,7 @@ import LocationSettingFile from "./LocationSettingFile.js";
 import TrafficSetting from "./TrafficSetting.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
-import styles from "../../css/module/common/BasicInfomationSettingDate.module.css";
+// import styles from "../../css/module/common/BasicInfomationSettingDate.module.css";
 
 const LocationSetting = () => {
   return (

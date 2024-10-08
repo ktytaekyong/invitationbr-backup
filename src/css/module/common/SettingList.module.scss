@@ -1,6 +1,6 @@
+@import "../../_module";
 .setting__list {
-  display: flex;
-  flex-direction: column;
+  @include flex__column;
   row-gap: 16px;
   overflow: hidden;
 }

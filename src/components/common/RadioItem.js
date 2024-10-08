@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/RadioItem.module.css";
+import styles from "../../css/module/common/RadioItem.module.scss";
 
 const RadioItem = ({ id, radioName, content, defaultChecked }) => {
   const [radioActive, setRadioActive] = useState(false);

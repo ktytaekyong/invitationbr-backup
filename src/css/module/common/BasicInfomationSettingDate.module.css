@@ -1,9 +1,0 @@
-.option__input {
-  display: flex;
-  width: 100%;
-  column-gap: var(--col-gap--setting-basic);
-}
-.option__input input {
-  width: 100%;
-  max-width: var(--width-input-setting);
-}

@@ -1,6 +1,6 @@
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/CommonItemWrapper.module.css";
+import styles from "../../css/module/common/CommonItemWrapper.module.scss";
 
 const CommonItemWrapper = (props) => {
   return (

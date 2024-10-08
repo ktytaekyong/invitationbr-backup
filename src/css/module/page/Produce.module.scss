@@ -1,0 +1,7 @@
+@import "../../_module";
+.produce {
+  width: 65%;
+  & > div {
+    padding: 0;
+  }
+}

@@ -1,7 +1,7 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* CSS Module */
-import styles from "../../css/module/common/BackgroundSettingTheme.module.css";
+import styles from "../../css/module/common/BackgroundSettingTheme.module.scss";
 
 const colorList = ["#FFF", "#E8E9EC", "#FFF3F3", "#FDFBF5"];
 const BackgroundSettingTheme = () => {

@@ -1,9 +1,8 @@
 /* Import */
 import { useState, useEffect } from "react";
 /* Component */
-import OptionSelector from "./OptionSelector"
 /* CSS Module */
-import styles from "../../css/module/common/TabSelector.module.css";
+import styles from "../../css/module/common/TabSelector.module.scss";
 
 const TabSelector = ({ listName, onChange }) => {
   const [isActive, setIsActive] = useState(false);
@@ -30,8 +29,8 @@ const TabSelector = ({ listName, onChange }) => {
         onChange ?
         listName.map((item, idx) => (
           <li className={`${styles.selector__item} ${isActive === idx ? styles["active"] : ""}`} 
-          key={item + idx} id={item.id} 
-          onClick={() => setActiveHandler(idx, onChange)} 
+            key={item + idx} id={item.id} 
+            onClick={() => setActiveHandler(idx, onChange)} 
           >{item.title}</li>
         ))
         :
