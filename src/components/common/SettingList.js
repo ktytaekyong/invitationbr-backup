@@ -99,8 +99,9 @@ const SettingList = () => {
           <SettingItem 
             itemTitle={item.itemTitle} 
             itemContent={renderComponents(item.itemContent)} 
-            option={item.itemEssential}
+            option={item.itemCheckbox}
             onChange={() => changeSettingHandler(idx)}
+            checkboxID={item.itemCheckbox}
             checked={isChecked}
             id={item.itemId} 
             key={idx} 

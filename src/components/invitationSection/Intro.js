@@ -13,7 +13,11 @@ const Intro = () => {
     <div 
       className={`${styles.invite__intro_wrap} ${styles.intro__style_theme_1}`}
     >
-      <p>Intro</p>
+      <div className="invite__intro">
+        <p className="intro__headline">wedding invitation</p>
+        <div className="intro__photo"></div>
+        <div className="intro__title"></div>
+      </div>
     </div>
   )
 }

@@ -28,127 +28,130 @@
   "settingList": [
     {
       "itemId": "settingFixedTab",
-      "itemEssential": true,
       "itemTitle": "고정 탭 설정",
       "itemContent": "FixedTabSetting"
     }, 
     {
       "itemId": "settingBasicInfomation",
-      "itemEssential": true,
       "itemTitle": "기본 정보",
       "itemContent": "BasicInfomationSetting"
     }, 
     {
       "itemId": "settingBackground",
-      "itemEssential": true,
       "itemTitle": "배경",
       "itemContent": "BackgroundSetting"
     }, 
     {
       "itemId": "settingIntro",
-      "itemEssential": true,
       "itemTitle": "인트로 화면",
       "itemContent": "IntroSetting"
     }, 
     {
       "itemId": "settingIntroPhoto",
-      "itemEssential": true,
       "itemTitle": "인트로 사진",
       "itemContent": "IntroPhotoSetting"
     }, 
     {
       "itemId": "settingCoupleInfomation",
-      "itemEssential": true,
       "itemTitle": "신랑/신부 정보",
       "itemContent": "CoupleInfomationSetting"
     }, 
     {
       "itemId": "settingLetter",
-      "itemEssential": true,
       "itemTitle": "모시는 글",
       "itemContent": "LetterSetting"
     }, 
     {
       "itemId": "settingDate",
-      "itemEssential": true,
       "itemTitle": "예식 일시",
       "itemContent": "DateSetting"
     },
     {
       "itemId": "settingLocation",
-      "itemEssential": true,
       "itemTitle": "오시는 길",
       "itemContent": "LocationSetting"
     }, 
     {
       "itemId": "settingGallery",
       "itemEssential": false,
+      "itemCheckbox": "settingGalleryUse",
       "itemTitle": "갤러리",
       "itemContent": "GallerySetting"
     }, 
     {
       "itemId": "settingVideo",
       "itemEssential": false,
+      "itemCheckbox": "settingVideoUse",
       "itemTitle": "동영상",
       "itemContent": "VideoSetting"
     }, 
     {
       "itemId": "settingGift",
       "itemEssential": false,
+      "itemCheckbox": "settingGiftUse",
       "itemTitle": "마음 전하기",
       "itemContent": "GiftSetting"
     }, 
     {
       "itemId": "settingNoticeT",
       "itemEssential": false,
+      "itemCheckbox": "settingNoticeTUse",
       "itemTitle": "안내사항 (탭형)",
       "itemContent": "NoticeSettingT"
     }, 
     {
       "itemId": "settingNoticeD",
       "itemEssential": false,
+      "itemCheckbox": "settingNoticeDUse",
       "itemTitle": "안내사항 (분리형)",
       "itemContent": "NoticeSettingD"
     }, 
     {
       "itemId": "settingBgMusic",
       "itemEssential": false,
+      "itemCheckbox": "settingBgMusicUse",
       "itemTitle": "배경음악",
       "itemContent": "BgMusicSetting"
     }, 
     {
       "itemId": "settingGuestbook",
       "itemEssential": false,
+      "itemCheckbox": "settingGuestbookUse",
       "itemTitle": "방명록",
       "itemContent": "GuestbookSetting"
     }, 
     {
       "itemId": "settingAttend",
       "itemEssential": false,
+      "itemCheckbox": "settingAttendUse",
       "itemTitle": "참석의사 (RSVP)",
       "itemContent": "AttendSetting"
     }, 
     {
       "itemId": "settingOutro",
       "itemEssential": false,
+      "itemCheckbox": "settingOutroUse",
       "itemTitle": "하단 글귀",
       "itemContent": "OutroSetting"
     }, 
     {
       "itemId": "settingThumbK",
       "itemEssential": false,
+      "itemCheckbox": "settingThumbKUse",
       "itemTitle": "카카오톡 공유 썸네일",
       "itemContent": "ThumbnailSettingK"
     }, 
     {
       "itemId": "settingThumbU",
       "itemEssential": false,
+      "itemCheckbox": "settingThumbUUse",
       "itemTitle": "URL 공유 썸네일",
       "itemContent": "ThumbnailSettingU"
     }, 
     {
       "itemId": "settingOrder",
       "itemEssential": false,
+      "itemCheckbox": "settingOrderUse",
       "itemTitle": "메뉴 순서 변경",
       "itemContent": "OrderSetting"
     }

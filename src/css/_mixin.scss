@@ -1,0 +1,94 @@
+// RESPONSIVE
+@mixin device__query($device) {
+  @if ($device == "pc") {
+    @media screen and (min-width: 1800px) {
+      @content;
+    }
+  } @else if ($device == "notebook") {
+    @media screen and (max-width: 1799px) {
+      @content;
+    }
+  } @else if ($device == "tablet") {
+    @media screen and (max-width: 1199px) {
+      @content;
+    }
+  } @else if ($device == "mobile") {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  }
+} // @include device-query(pc) {}
+
+// 해상도에 맞춘 비율
+@function ratio($px, $width) {
+  @return calc($px / $width * 100vw);
+}
+
+// FLEX
+@mixin flex__row($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+@mixin flex__column($direction: column) {
+  display: flex;
+  flex-direction: $direction;
+}
+
+// POSITION
+@mixin position($type: r, $top: null, $right: null, $bottom: null, $left: null) {
+  @if($type == "a") {
+    position: absolute;
+  } @else if($type == "s") {
+    position: static;
+  } @else if($type == "st") {
+    position: sticky;
+  } @else if($type == "f") {
+    position: fixed;
+  } @else if($type == "r") {
+    position: relative;
+  }
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+} // @include position(a, 0, 0, null, 0);
+
+// WORD SKIP(...)
+@mixin word__skip($line: 1) {
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// DISABLE SCROLL
+@mixin scroll__disabled {
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// INPUT APPEARANCE
+@mixin input__appearance {
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+}
+
+// VISIBLITY
+@mixin hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: $transition--default;
+}
+
+@mixin visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+// PROJECT CUSTOM

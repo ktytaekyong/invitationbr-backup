@@ -1,5 +1,5 @@
 /* CSS Module */
-import styles from "../../css/module/common/CheckItem.module.css";
+import styles from "../../css/module/common/CheckItem.module.scss";
 
 const CheckItem = (props) => {
   return (

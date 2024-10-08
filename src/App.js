@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/common/Header";
 import View from "./components/page/View";
 /* Css */
-import "./css/App.css";
+import "./css/App.scss";
 /* Src */
 
 function App() {

@@ -1,0 +1,103 @@
+@charset "utf-8";
+/* COLOR */
+$text-color--default: #191F28;
+$text-color--gray: #5B6470; /* */
+$text-color--disable: #7A7A7A; /* */
+$text-color--disable-input: #7F8A94; /* */
+$text-color--essntial: #FF6550; /* */
+$text-color--placeholder: #B9C0C7; /* */
+$text-color--blue: #4E9CF6; /* */
+
+$text-color--temp: #484848;
+
+$point-color--default: #FF6550; /* */
+$point-color--second: #EDEDED;
+
+$bg-color--default: #F6F7F8; /* */
+
+$bg-color--second: #F0F1F1;
+$bg-color--invite: #FFF;
+$bg-color--setting: #F9FAFB; /* */
+$bg-color--tab: #F2F4F6; /* */
+$bg-color--picker: rgba(255, 255, 255, 0.7); /* */
+
+$border-color--default: #E5E8EB; /* */
+$border-color--gray: #5B6470; /* */
+$border-color--play: #A8B3BD; /* */
+
+$button-color--default: #182D4B; /* */
+$button-color--cancel: #F2F4F6; /* */
+
+/* FONT */
+$font-family--default: "Pretendard";
+$font-family--theme: "SeoulHangang";
+$font-weight--Thin: 100;
+$font-weight--ExtraLight: 200;
+$font-weight--Light: 300;
+$font-weight--Regular: 400;
+$font-weight--Medium: 500;
+$font-weight--SemiBold: 600;
+$font-weight--Bold: 700;
+$font-weight--ExtraBold: 800;
+$font-weight--Black: 900;
+
+/* FONT-SIZE */
+$font-size--section-title: 50px;
+$font-size--xl: 24px;
+$font-size--lg: 20px;
+$font-size--sl: 18px;
+$font-size--default: 16px;
+$font-size--ssm: 15px;
+$font-size--sm: 14px;
+$font-size--xsm: 13px;
+$font-size--xxsm: 12px;
+
+$font-size--couple-name: 27px;
+/* $font-size--temp-lg: 20px;
+$font-size--temp-sl: 18px;
+$font-size--temp-default: 16px;
+$font-size--temp-ssm: 15px;
+$font-size--temp-sm: 12px;
+$font-size--temp-xsm: 11px; */
+
+/* WIDTH */
+$width--min: 460px;
+$width--max: 1320px;
+
+$width-pc: 1800;
+$width-notebook: 1799;
+$width-tablet: 1199;
+$width-mobile: 599;
+$width-mobile-basic: 375;
+
+$width-input-setting: 160px; /* */
+
+/* PADDING */
+$padding--default: 0 20px;
+$padding--mobile: 24px;
+
+/* TRANSITION */
+$transition-fast: 0.3s linear all;
+$transition--default: 0.5s linear all;
+$transition--template: .42s ease all;
+
+/* BORDER-RADIUS */
+$radius--default: 8px; /* */
+$radius--button-list: 999px; /* */
+
+/* GAP */
+$col-gap--setting-basic: 8px; /* */
+
+/* device == "pc" */
+@media screen and (min-width: 1800px) {
+  /* @content; */
+}
+
+/* device == "notebook" */
+@media screen and (max-width: 1799px) {
+  /* @content; */
+}
+
+/* device == "tablet" */
+/* clamp 35%, 90% */
+

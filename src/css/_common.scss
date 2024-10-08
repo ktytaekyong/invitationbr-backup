@@ -1,0 +1,99 @@
+* {
+  &::placeholder {
+    color: $text-color--default;
+    font-weight: $font-weight--Regular;
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.container {
+  width: 100%;
+  max-width: 1000px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 30px 20px;
+  .global__invitation * {
+    font-family: $font-family--theme !important;
+  }
+}
+/* STYLE */
+/* .setting_input__style_default */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="password"],
+textarea,
+select {
+  border: 1px solid $border-color--default;
+  border-radius: $radius--default;
+  padding: 10px;
+  width: 100%;
+  height: 40px;
+}
+input {
+  font-size: $font-size--sm;
+  &[type="date"] {
+    @include input__appearance;
+    width: 100%;
+    max-width: 160px;
+    position: relative;
+    &::-webkit-calendar-picker-indicator {
+      @include position(a, _, 0);
+      width: 38px;
+      height: 38px;
+      padding-left: 0;
+      padding-right: 0;
+      background: url(../img/icon/icon_input_date.png) no-repeat center / 32px;
+      border-left: 1px solid $border-color--default;
+    }
+    &::-webkit-inner-spin-button {
+      display: none;
+    }
+  }
+  &[type="radio"] {
+    @include input__appearance;
+    width: 24px;
+    height: 24px;
+    background: url(../img/state/radiobox_disabled.svg) no-repeat center / cover;
+    + label {
+      font-size: $font-size--sm;
+      font-weight: $font-weight--Regular;
+      color: $text-color--disable-input;
+    }
+    &:checked {
+      background-image: url(../img/state/radiobox_selected.svg);
+      + label {
+        color: $text-color--default;
+      }
+    }
+  }
+}
+textarea {
+  resize: none;
+  height: 84px;
+}
+/* PICKER */
+.react {
+  &-colorful {
+    height: unset !important;
+    &__saturation {
+      height: 92px;
+    }
+    &__hue {
+      width: 176px;
+      height: 8px !important;
+      border-radius: 999px !important;
+      margin: 19px auto 0;
+    }
+    &__pointer {
+      width: 14px !important;
+      height: 14px !important;
+      border: 1px solid $border-color--gray !important;
+      background-color: $bg-color--picker !important;
+      &-fill {
+        background-color: rgba(255, 255, 255, 0.7) !important;
+      }
+    }
+  }
+}

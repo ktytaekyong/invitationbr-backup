@@ -1,14 +1,14 @@
 * {
   margin: 0;
   padding: 0;
-  font-family: var(--font-family--default);
+  font-family: $font-family--default;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   box-sizing: border-box;
   letter-spacing: -0.02em;
   line-height: 1.2em;
-  font-weight: var(--font-weight--Medium);
-  color: var(--text-color--default);
+  font-weight: $font-weight--Medium;
+  color: $text-color--default;
 }
 body {
   overflow-x: hidden;
@@ -35,31 +35,27 @@ select {
   -webkit-appearance: none;
   appearance: none;
   background-color: #fff;
-  color: var(--text-color--default);
+  color: $text-color--default;
 }
 /* SAFARI MOBILE BUTTON APPEARANCE */
-/* input, */
 textarea,
 button {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
+  @include input__appearance;
   border-radius: 0;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
 }
-/* INPUT TYPE NUMBER SPINNER APPEARANCE */
-input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type="number"] {
-  -moz-appearance: textfield;
-}
 button {
   cursor: pointer;
+}
+/* INPUT TYPE NUMBER SPINNER APPEARANCE */
+input {
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    @include input__appearance;
+    margin: 0;
+  }
+  &[type="number"] {
+    -moz-appearance: textfield;
+  }
 }
