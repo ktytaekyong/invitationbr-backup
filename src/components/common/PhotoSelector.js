@@ -1,7 +1,7 @@
 /* Component */
 import Button from "../layout/Button";
 /* CSS Module */
-import styles from "../../css/module/common/PhotoSelector.module.css";
+import styles from "../../css/module/common/PhotoSelector.module.scss";
 /* Image */
 import photoAddImg from "../../img/photoSelector/photo_selector_add.png"
 
