@@ -10,7 +10,6 @@ import IntroPhotoSettingTextColor from "./IntroPhotoSettingTextColor.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js"
 import Button from "../layout/Button.js"
 /* CSS Module */
-import styles from "../../css/module/common/IntroPhotoSetting.module.css";
 
 const IntroPhotoSetting = () => {
   const [photoList, setPhotoList] = useState([]);

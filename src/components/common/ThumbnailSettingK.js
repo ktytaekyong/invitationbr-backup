@@ -10,7 +10,7 @@ import TextEditor from "./TextEditor.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
-import styles from "../../css/module/common/NoticeSettingT.module.css";
+// import styles from "../../css/module/common/NoticeSettingT.module.css";
 
 const ThumbnailSettingK = () => {
   const [radioActive, setRadioActive] = useState(false);

@@ -1,15 +1,9 @@
 /* Import */
 import { useEffect, useState, useContext } from "react";
 /* Component */
-import CommonItemWrapper from "./CommonItemWrapper.js";
-import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
-import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
-import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
-import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 import TabSelector from "./TabSelector.js";
 /* CSS Module */
-import styles from "../../css/module/common/GallerySettingType.module.css";
+// import styles from "../../css/module/common/GallerySettingType.module.scss";
 
 const typeList = [
   {
@@ -30,15 +24,7 @@ const GallerySettingType = () => {
   const [radioActive, setRadioActive] = useState(false);
   return (
     <>
-      {/* <ul className={styles.effect__selector}>
-        {effectList.map((item, idx) => (
-          <li className={`${styles.effect__item} ${isActive === idx ? styles["active"] : ""}`} 
-          key={item + idx} id={"effect" + idx} onClick={() => setActiveHandler(idx)} 
-          >{item.title}</li>
-        ))}
-      </ul> */}
       <TabSelector listName={typeList} onChange={setRadioActive} />
-
     </>
   )
 }

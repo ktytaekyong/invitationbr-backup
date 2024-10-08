@@ -1,0 +1,116 @@
+@import "../../_module";
+.option {
+  &__list {
+    width: 100%;
+    margin-top: 4px;
+    display: none;
+    &.active {
+      @include flex__column;
+      row-gap: 8px;
+    }
+  }
+  &__item {
+    @include position;
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 8px;
+    .txt__wrapper {
+      @include flex__row;
+      justify-content: flex-start;
+      align-items: center;
+      column-gap: 5px;
+      width: 100%;
+      input {
+        width: 100%;
+        max-width: 326px;
+        text-align: center;
+      }
+    }
+  }
+}
+
+.txt__picker {
+  @include flex__row;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 60px;
+  height: 40px;
+  font-size: $font-size--sm;
+  border-radius: 8px;
+  border: 1px solid $border-color--default;
+  background-color: #fff;
+  cursor: pointer;
+  & svg {
+    pointer-events: none;
+  }
+}
+.picker {
+  &__active {
+    @include position(a, 0, 69px);
+    z-index: 99;
+    border-radius: $radius--default;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+    cursor: default;
+  }
+  &__input {
+    @include position;
+    width: 100%;
+    span {
+      @include position(a, 50%, 26px);
+      transform: translateY(-50%);
+      font-weight: $font-weight--Regular;
+      font-size: $font-size--sm;
+      color: $text-color--gray;
+    }
+    &_wrap {
+      display: block;
+      width: 176px;
+      height: 32px;
+      padding: 0 14px 0 22px;
+      margin: 11px auto 16px;
+      font-weight: $font-weight--Regular;
+      border-radius: 4px;
+      border: 1px solid $border-color--default;
+      color: $text-color--gray;
+    }
+  }
+  &__select {
+    @include position(a, 50%, _, _, 18px);
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    border: 1px solid $border-color--default;
+  }
+  &__preset {
+    width: 176px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    place-items: center;
+    margin: 0 auto 24px;
+    &_item {
+      @include position;
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      border: none;
+      box-shadow: none;
+      &.active::after {
+        @include position(a, 50%, 50%);
+        width: 8px;
+        height: 8px;
+        transform: translate(-50%, -50%);
+        border-radius: 999px;
+        background-color: #FFF;
+        content: "";
+      }
+    }
+  }
+  &__button_wrapper {
+    width: 176px;
+    margin: 0 auto 12px;
+  }
+}

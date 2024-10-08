@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/LetterSettingTitle.module.css";
+import styles from "../../css/module/common/LetterSettingTitle.module.scss";
 
 const LetterSettingTitle = () => {
   return (

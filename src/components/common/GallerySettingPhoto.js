@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react";
 import PhotoSelector from "./PhotoSelector.js";
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/GallerySettingPhoto.module.css";
+import styles from "../../css/module/common/GallerySettingPhoto.module.scss";
 
 const GallerySettingPhoto = () => {
   const [galleryPhotoList, setGalleryPhotoList] = useState([]);

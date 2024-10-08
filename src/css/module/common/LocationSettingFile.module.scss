@@ -1,0 +1,68 @@
+@import "../../_module";
+.file {
+  &__selector {
+    @include flex__row;
+    width: 100%;
+    input[type="file"] {
+      display: none;
+    }
+  }
+  &__wrap {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 8px;
+    width: 100%;
+    p {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      height: 40px;
+      padding: 10px;
+      font-size: $font-size--sm;
+      font-weight: $font-weight--Regular;
+      border-radius: $radius--default;
+      border: 1px solid $border-color--default;  
+      background-color: #fff;
+      color: $text-color--placeholder;
+      & + button {
+        display: none;
+      }
+    }
+    label {
+      @include flex__row_inline;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      padding: 12px 24px;
+      font-size: $font-size--sm;
+      font-weight: $font-weight--Medium;
+      border-radius: $radius--default;
+      border: none;
+      background-color: $point-color--default;
+      color: #FFF;
+    }
+  }
+  .add p {
+    & + button {
+      display: block;
+    }
+  }
+  &__name_wrap {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    &.add {
+      p {
+        width: unset;
+        padding-left: 0;
+        padding-right: 4px;
+        border: none;  
+        background-color: transparent;
+        color: $text-color--default;
+      }
+    }
+  }
+}

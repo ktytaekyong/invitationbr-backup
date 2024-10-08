@@ -1,10 +1,11 @@
 /* Import */
 import { useState, useEffect, useRef } from "react";
 import { HexColorPicker, HexColorInput } from "react-colorful";
-/* CSS Module */
-import styles from "../../css/module/common/IntroPhotoSettingTextColor.module.css";
+/* Component */
 import ButtonWrapper from "../layout/ButtonWrapper";
 import Button from "../layout/Button";
+/* CSS Module */
+import styles from "../../css/module/common/IntroPhotoSettingTextColor.module.scss";
 /* Image */
 import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_picker.svg";
 
@@ -28,13 +29,6 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       pickerClose(); // 현재 취소 안됨(적용)
     }
   };
-
-  // useEffect(() => {
-  //   {
-  //     console.log("color:"+color);
-  //     console.log("prevColor:"+prevColor);
-  //   }
-  // }, [color, prevColor]);
   
   const presetColors = ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"];
   const pickerOpen = (clickIdx) => {
@@ -115,9 +109,9 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                       color={color[repeatidx]} 
                       onChange={(newColor) => {changeColorList(repeatidx, newColor);}} 
                     />
-                    <div className={styles.picker__input_wrap}>
+                    <div className={styles.picker__input}>
                       <span>#</span>
-                      <HexColorInput className={styles.picker__input} 
+                      <HexColorInput className={styles.picker__input_wrap} 
                         color={color[repeatidx]} 
                         onChange={(newColor) => {changeColorList(repeatidx, newColor);}}
                       />
@@ -127,7 +121,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                       {presetColors.map((presetColor) => {
                         return <button 
                           key={presetColor} 
-                          className={`${styles.preset__item} ${presetColor === color[repeatidx] ? styles.active : null}`} 
+                          className={`${styles.picker__preset_item} ${presetColor === color[repeatidx] ? styles.active : null}`} 
                           style={{backgroundColor: presetColor}} 
                           onClick={() => {changeColorList(repeatidx, presetColor);}} 
                         >

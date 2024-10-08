@@ -4,7 +4,7 @@ import { useDrag, useDrop } from 'react-dnd'
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 /* CSS Module */
-import styles from "../../css/module/common/OrderSettingStateItem.module.css";
+// import styles from "../../css/module/common/OrderSettingStateItem.module.css";
 
 const ItemTypes = {
   ORDER: "order",

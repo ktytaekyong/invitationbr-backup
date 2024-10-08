@@ -1,7 +1,7 @@
 /* Component */
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/BackgroundSettingCheckbox.module.css";
+import styles from "../../css/module/common/DateSettingCheckbox.module.scss";
 
 const DateSettingCheckbox = () => {
   return (

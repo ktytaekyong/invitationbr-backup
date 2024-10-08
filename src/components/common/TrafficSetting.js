@@ -6,7 +6,7 @@ import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import TextEditor from "./TextEditor.js";
 /* CSS Module */
-import styles from "../../css/module/common/TrafficSetting.module.css";
+// import styles from "../../css/module/common/TrafficSetting.module.scss";
 
 const trafficList = [
   {

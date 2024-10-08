@@ -1,0 +1,50 @@
+@import "../../_module";
+.bg__selector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 8px;
+  width: 100%;
+  &_wrap {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 12px;
+  }
+  &_item {
+    @include flex__column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $border-color--default;
+    border-radius: $radius--default;
+    padding: 16px 4px;
+    background-color: #fff;
+    * {
+      font-weight: $font-weight--Regular;
+      color: $text-color--disable-input;
+    }
+    svg {
+      fill: #E5E8EB;
+    }
+    &.active {
+      border: 1px solid $text-color--default;
+      * {
+        color: $text-color--default;
+      }
+      svg {
+        fill: $text-color--default;
+      }
+    }
+  }
+  &_author {
+    @include word__skip;
+    margin-top: 10px;
+    margin-bottom: 2px;
+    font-size: $font-size--xsm;
+    text-align: center;
+  }
+  &_title {
+    @include word__skip;
+    font-size: $font-size--xxsm;
+    text-align: center;
+  }
+}

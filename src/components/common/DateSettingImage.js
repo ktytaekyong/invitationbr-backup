@@ -1,11 +1,6 @@
 /* Component */
-import CommonItemWrapper from "./CommonItemWrapper.js";
-import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
-import DateSettingCheckbox from "./DateSettingCheckbox.js";
-import Button from "../layout/Button.js";
 /* CSS Module */
-import styles from "../../css/module/common/DateSettingImage.module.css";
+import styles from "../../css/module/common/DateSettingImage.module.scss";
 /* Image */
 import CalendarImg from "../../img/calendar/calendar_img.png";
 const imageList = [

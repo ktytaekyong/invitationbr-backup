@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from "react";
 /* Component */
 import Button from "../layout/Button.js";
 /* CSS Module */
-import styles from "../../css/module/common/LocationSettingFile.module.css";
+import styles from "../../css/module/common/LocationSettingFile.module.scss";
 
 const LocationSettingFile = () => {
   const [locationFileList, setLocationFileList] = useState([]);

@@ -1,6 +1,6 @@
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/TextareaWrapper.module.css";
+import styles from "../../css/module/common/TextareaWrapper.module.scss";
 
 const TextareaWapper = ({ id, content, division, gender }) => {
   return (

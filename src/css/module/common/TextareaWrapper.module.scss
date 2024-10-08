@@ -1,0 +1,22 @@
+@import "../../_module";
+.textarea {
+  &__wrap {
+    width: 100%;
+    label {
+      display: block;
+      padding-left: 4px;
+      margin-bottom: 8px;
+      font-size: $font-size--xxsm;
+      font-weight: $font-weight--Regular;
+      span {
+        font-weight: $font-weight--Regular;
+      }
+    }
+    &.style__m span {
+      color: $text-color--blue;
+    }
+    &.style__f span {
+      color: $text-color--essntial;
+    }
+  }
+}

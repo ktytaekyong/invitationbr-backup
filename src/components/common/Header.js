@@ -6,7 +6,7 @@ import Container from "../layout/Container";
 import ButtonWrapper from "../layout/ButtonWrapper";
 import Button from "../layout/Button";
 /* CSS Module */
-import styles from "../../css/module/common/Header.module.css";
+import styles from "../../css/module/common/Header.module.scss";
 /* Image */
 import iconHomeArrowImg from "../../img/icon/icon_header_home_arrow.svg"
 import iconHomeImg from "../../img/icon/icon_header_home.svg"

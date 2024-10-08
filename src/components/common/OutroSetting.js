@@ -10,7 +10,7 @@ import TextEditor from "./TextEditor.js";
 import RadioList from "./RadioList.js";
 import RadioItem from "./RadioItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/NoticeSettingT.module.css";
+// import styles from "../../css/module/common/NoticeSettingT.module.css";
 
 const OutroSetting = () => {
   const [radioActive, setRadioActive] = useState(false);

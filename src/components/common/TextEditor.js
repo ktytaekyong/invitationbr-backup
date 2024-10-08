@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 /* Component */
 import Button from "../layout/Button.js"
 /* CSS Module */
-import styles from "../../css/module/common/TextEditor.module.css";
+import styles from "../../css/module/common/TextEditor.module.scss";
 /* Image */
 import {ReactComponent as IconToolImgBold} from "../../img/icon/icon_editor_tool_bold.svg"
 import {ReactComponent as IconImgItalic} from "../../img/icon/icon_editor_tool_italic.svg"
@@ -14,7 +14,7 @@ import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_c
 
 const TextEditor = ({ type }) => {
   return (
-    <div className={`${styles.editor__content_wrap} ${type === "letter" ? styles["letter"] : null}`}>
+    <div className={`${styles.editor__content} ${type === "letter" ? styles["letter"] : null}`}>
       <div className={styles.tool__list}>
         <ul className={styles.tool__list_deco}>
           <button>
@@ -39,7 +39,7 @@ const TextEditor = ({ type }) => {
           </button>
         </ul>
       </div>
-      <textarea name="" id="" className={styles.editor__content} placeholder="내용을 입력하세요."></textarea>
+      <textarea name="" id="" className={styles.editor__content_wrap} placeholder="내용을 입력하세요."></textarea>
       {
         type === "letter" ?
         <Button type="button" content="샘플 문구 보기" styleType="sample__view"></Button>

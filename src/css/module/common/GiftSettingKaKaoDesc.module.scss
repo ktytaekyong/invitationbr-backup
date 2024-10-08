@@ -1,0 +1,19 @@
+@import "../../_module";
+.kakao__desc {
+  @include flex__row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 16px;
+  column-gap: 8px;
+  img {
+    width: 18px;
+    height: 18px;
+  }
+  p {
+    font-size: $font-size--sm;
+    font-weight: $font-weight--Regular;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,48 @@
+@import "../../_module";
+.order {
+  &__setting {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px 8px;
+    padding-top: 24px;
+    margin-top: 11px;
+    border-radius: $radius--default;
+    border-top: 1px solid $border-color--default;
+    overflow: hidden;
+    > div {
+      min-height: 200px;
+      padding: 8px;
+      border-radius: $radius--default;
+      border: 1px solid $border-color--default;
+      background: #fff;
+    }
+  }
+  &__item {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 5px;
+    height: 32px;
+    padding: 0 10px;
+    font-size: $font-size--xsm;
+    border-radius: $radius--default;
+    background: $point-color--default;
+    color: #FFF;
+    cursor: move;
+    label,
+    p {
+      @include word__skip;
+      color: #FFF;
+    }
+    input[type="checkbox"] {
+      @include input__appearance;
+      @include position;
+      width: 16px;
+      height: 16px;
+      background: transparent url(../../../img/state/checkbox_color_selected.png) no-repeat center / 16px;
+      z-index: 3;
+      flex-shrink: 0;
+    }
+  }
+}

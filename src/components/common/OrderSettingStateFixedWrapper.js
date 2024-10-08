@@ -7,7 +7,7 @@ import update from "immutability-helper";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
 import OrderSettingStateFixedItem from "./OrderSettingStateFixedItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/OrderSettingStateWrapper.module.css";
+import styles from "../../css/module/common/OrderSettingStateFixedWrapper.module.scss";
 
 const OrderSettingStateFixedWrapper = ({ listName, filterCondition, className }) => {
   return (

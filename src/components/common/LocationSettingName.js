@@ -1,7 +1,7 @@
 /* Import */
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/LocationSettingName.module.css";
+import styles from "../../css/module/common/LocationSettingName.module.scss";
 
 const LocationSettingName = ({ data }) => {
 

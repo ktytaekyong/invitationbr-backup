@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import OptionSelector from "./OptionSelector"
 import CheckItem from "./CheckItem";
 /* CSS Module */
-import styles from "../../css/module/common/CoupleInfomationSettingBasic.module.css";
+import styles from "../../css/module/common/CoupleInfomationSettingBasic.module.scss";
 
 const CoupleInfomationSettingBasic = ({ couple, coupleKey }) => {
   const [depActive, setDepActive] = useState(false);

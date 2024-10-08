@@ -9,7 +9,7 @@ import CheckItem from "./CheckItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
-import styles from "../../css/module/common/GallerySettingType.module.css";
+// import styles from "../../css/module/common/GallerySettingType.module.css";
 /* Image */
 
 const BgMusicSetting = () => {

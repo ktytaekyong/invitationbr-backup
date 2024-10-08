@@ -13,10 +13,10 @@
     border: 1px solid $border-color--default;
     background: #FFF no-repeat center / cover;
     label {
+      @include position;
       width: inherit;
       height: inherit;
       display: block;
-      position: relative;
       cursor: pointer;
     }
   }

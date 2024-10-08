@@ -1,0 +1,14 @@
+@import "../../_module";
+.order {
+  &__wrapper {
+    &.fixed {
+      @include flex__column;
+      row-gap: 8px;
+      > div {
+        background-color: $border-color--play;
+        pointer-events: none;
+        cursor: no-drop;
+      }
+    }
+  }
+}

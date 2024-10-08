@@ -1,0 +1,111 @@
+@import "../../_module";
+.bg__player_wrap {
+  @include flex__column;
+  row-gap: 12px;
+  width: 100%;
+  margin-bottom: 4px;
+  .info {
+    @include flex__row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    row-gap: 8px;
+    &__wrap {
+      @include flex__row;
+      column-gap: 25px;
+      .album {
+        @include flex__row;
+        .cover {
+          @include position;
+          width: 48px;
+          height: 48px;
+          z-index: 2;
+          img {
+            width: 100%;
+          }
+          .cd {
+            @include position(a, 50%, _, _, -12px);
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            z-index: -1;
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+    .title {
+      @include flex__column;
+      justify-content: center;
+      align-items: flex-start;
+      row-gap: 6px;
+      &__wrap {
+        font-size: $font-size--ssm;
+      }
+      .author {
+        font-size: $font-size--xsm;
+        font-weight: $font-weight--Regular;
+        color: $text-color--disable-input;
+      }
+    }
+  }
+  .player {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    img {
+      width: 100%;
+    }
+  }
+  .timeline {
+    @include flex__row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 12px;
+    width: 100%;
+    &__wrap {
+      @include position;
+      width: 100%;
+      height: 6px;
+      border-radius: 999px;
+      background-color: $border-color--default;
+    }
+    &__current {
+      @include position(a, 50%, 0);
+      transform: translateY(-50%);
+      width: 25%;
+      height: 6px;
+      border-radius: 999px 0 0 999px;
+      background-color: $border-color--play;
+    }
+    &__view {
+      @include position(a, 50%, 25%);
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      background-color: $border-color--play;
+      &::after {
+        @include position(a, 50%, 50%);
+        transform: translate(-50%, -50%);
+        width: 3px;
+        height: 3px;
+        background-color: #FFF;
+        content: "";
+      }
+    }
+  }
+  .time {
+    @include flex__row;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 3px;
+    span {
+      font-size: $font-size--xsm;
+      font-weight: $font-weight--Regular;
+      color: $text-color--disable-input;
+    }
+  }
+}

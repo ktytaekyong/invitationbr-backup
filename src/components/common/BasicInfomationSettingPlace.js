@@ -1,7 +1,7 @@
 /* Import */
 /* Component */
 /* CSS Module */
-import styles from "../../css/module/common/BasicInfomationSettingPlace.module.css";
+import styles from "../../css/module/common/BasicInfomationSettingPlace.module.scss";
 
 const dateHourDistList = ["오전", "오후"];
 const dateHourList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];

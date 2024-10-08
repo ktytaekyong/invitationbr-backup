@@ -14,7 +14,7 @@ import RadioItem from "./RadioItem.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
-import styles from "../../css/module/common/NoticeSettingT.module.css";
+import styles from "../../css/module/common/NoticeSettingT.module.scss";
 
 const noticeTList = [
   {

@@ -7,7 +7,7 @@ import GiftSettingAccount from "./GiftSettingAccount.js";
 import GiftSettingKaKaoDesc from "./GiftSettingKaKaoDesc.js";
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/GiftSetting.module.css";
+// import styles from "../../css/module/common/GiftSetting.module.scss";
 
 const MGiftList = [
   {
@@ -40,7 +40,7 @@ const GiftSetting = () => {
         <ListOptionContent>
           <CommonItemWrapper>
             <CommonItemContent title="그룹명">
-              <input type="text" className={styles.input__group} placeholder="신랑측 계좌번호"/>
+              <input type="text" placeholder="신랑측 계좌번호"/>
             </CommonItemContent>
             <CommonItemContent title="펼쳐두기">
               <CheckItem content="신랑측 계좌정보를 펼쳐둡니다."></CheckItem>
@@ -50,10 +50,9 @@ const GiftSetting = () => {
         </ListOptionContent>
         
         <ListOptionContent>
-
           <CommonItemWrapper>
             <CommonItemContent title="그룹명">
-              <input type="text" className={styles.input__group} placeholder="신부측 계좌번호"/>
+              <input type="text" placeholder="신부측 계좌번호"/>
             </CommonItemContent>
             <CommonItemContent title="펼쳐두기">
               <CheckItem content="신부측 계좌정보를 펼쳐둡니다."></CheckItem>

@@ -1,0 +1,19 @@
+@import "../../_module";
+.video {
+  &__wrap > div {
+    @include flex__column;
+    row-gap: 16px;
+  }
+  &__reg {
+    margin-top: 8px;
+  }
+}
+.input__wrap {
+  @include flex__column;
+  row-gap: 8px;
+  label {
+    font-size: $font-size--xsm;
+    font-weight: $font-weight--Regular;
+    margin-top: 4px;
+  }
+}

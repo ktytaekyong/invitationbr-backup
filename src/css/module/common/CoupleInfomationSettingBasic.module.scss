@@ -1,0 +1,15 @@
+@import "../../_module";
+.couple__info {
+  @include flex__row;
+  column-gap: 8px;
+  width: 100%;
+  .info {
+    &__firstname,
+    &__name {
+      max-width: 60px;
+    }
+    &__number {
+      max-width: 150px;
+    }
+  }
+}

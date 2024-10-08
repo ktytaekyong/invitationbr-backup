@@ -1,7 +1,7 @@
 /* Component */
 import SettingNotice from "../layout/SettingNotice.js";
 /* CSS Module */
-import styles from "../../css/module/common/GiftSettingKaKaoDesc.module.css";
+import styles from "../../css/module/common/GiftSettingKaKaoDesc.module.scss";
 /* Image */
 import iconKakaoImg from "../../img/icon/icon_kakao.png"
 

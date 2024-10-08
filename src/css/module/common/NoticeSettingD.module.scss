@@ -1,0 +1,8 @@
+@import "../../_module";
+.option__list {
+  @include flex__column;
+  row-gap: 15px;
+  > li {
+    align-items: flex-start;
+  }
+}

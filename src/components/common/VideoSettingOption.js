@@ -5,7 +5,7 @@ import PhotoSelector from "./PhotoSelector.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
-import styles from "../../css/module/common/VideoSettingOption.module.css";
+import styles from "../../css/module/common/VideoSettingOption.module.scss";
 
 const VideoSettingOption = ({ active }) => {
   const [videoList, setVideoList] = useState([]);

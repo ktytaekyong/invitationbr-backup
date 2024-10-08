@@ -7,7 +7,7 @@ import update from "immutability-helper";
 import OrderSettingStateFixedWrapper from "./OrderSettingStateFixedWrapper.js";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/OrderSettingState.module.css";
+import styles from "../../css/module/common/OrderSettingState.module.scss";
 
 const fixedList = ["고정 탭 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const orderList = [

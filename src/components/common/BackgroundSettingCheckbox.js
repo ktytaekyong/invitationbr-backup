@@ -2,7 +2,7 @@
 import CheckList from "./CheckList.js";
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
-import styles from "../../css/module/common/BackgroundSettingCheckbox.module.css";
+// import styles from "../../css/module/common/BackgroundSettingCheckbox.module.scss";
 
 const BackgroundSettingCheckbox = () => {
   return (

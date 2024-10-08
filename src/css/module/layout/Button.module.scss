@@ -86,7 +86,7 @@
     max-width: 105px;
     padding: 0 0 0 28px;
     margin-top: 4px;
-    font-weight: var(--font-weight--Regular);
+    font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_remove.png) no-repeat left 4px center / 24px;
   }
 }

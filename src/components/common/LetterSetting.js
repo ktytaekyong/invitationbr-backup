@@ -9,7 +9,7 @@ import LetterSettingTitle from "./LetterSettingTitle.js";
 import TextEditor from "./TextEditor.js";
 import Button from "../layout/Button.js"
 /* CSS Module */
-import styles from "../../css/module/common/IntroPhotoSetting.module.css";
+// import styles from "../../css/module/common/LetterSetting.module.css";
 
 const LetterSetting = () => {
   const [isActive, setIsActive] = useState(0);
