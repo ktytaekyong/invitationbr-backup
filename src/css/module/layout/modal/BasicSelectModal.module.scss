@@ -6,6 +6,7 @@
     align-items: flex-start;
     margin-top: 70px;
     * {
+      font-size: $font-size--sm;
       font-weight: $font-weight--Medium;
     }
     button {
@@ -31,7 +32,6 @@
     }
   }
   &__description {
-    font-size: $font-size--sm;
     text-align: center;
     color: $text-color--gray;
     a {

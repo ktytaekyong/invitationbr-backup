@@ -5,7 +5,7 @@ import clsx from 'clsx';
 import { styled, css } from '@mui/system';
 import ModalBasic from '@mui/material/Modal';
 /* CSS Module */
-import styles from "../../../css/module/layout/modal/BasicSelectModal.module.scss";
+import styles from "../../../css/module/layout/modal/BasicModal.module.scss";
 import ButtonWrapper from "../ButtonWrapper";
 import Button from "../Button";
 
@@ -23,7 +23,7 @@ export default function BasicModal(props) {
         <ModalContent sx={{ width: 300 }}>
           {props.notice ?
             <p className={styles.modal__notice}>
-              저장 완료 되었습니다.
+              {props.noticeContent}
             </p>
             :
             null

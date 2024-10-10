@@ -6,7 +6,6 @@ import { styled, css } from '@mui/system';
 import ModalBasic from '@mui/material/Modal';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/BasicSelectModal.module.scss";
-import ButtonWrapper from "../ButtonWrapper";
 import Button from "../Button";
 
 export default function BasicSelectModal(props) {
@@ -23,26 +22,10 @@ export default function BasicSelectModal(props) {
         <ModalContent sx={{ width: 300 }}>
           <div className={styles.modal__title}>
             <p>{props.title}</p>
-            <Button styleType="close"></Button>
+            <Button styleType="close" onClick={props.onClose}></Button>
           </div>
-          {props.notice ?
-            <p className={styles.modal__notice}>
-              저장 완료 되었습니다.
-            </p>
-            :
-            null
-          }
           <div id="unstyled-modal-description" className={styles.modal__description}>
             {props.children}
-            {
-              props.ButtonWrapperUse ? 
-              <ButtonWrapper styleType="centerfill">
-                <Button content={props.btnContent1} styleType="cancel" onClick={props.onClose}></Button>
-                <Button content={props.btnContent2} styleType="point" onClick={()=> false}></Button>
-              </ButtonWrapper>
-              :
-              null
-            }
           </div>
         </ModalContent>
       </ModalBasic>

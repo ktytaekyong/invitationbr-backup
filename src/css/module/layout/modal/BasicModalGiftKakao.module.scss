@@ -1,0 +1,43 @@
+@import "../../../_module";
+.modal {
+  &__gift {
+    &_list {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      row-gap: 15px;
+      width: 100%;
+      height: 47vh;
+      padding: 16px 16px 36px;
+      overflow-x: hidden;
+      overflow-y: scroll;
+    }
+    &_item {
+      @include flex__row;
+      width: 100%;
+      column-gap: 5px;
+      > span {
+        margin-top: 4px;
+        font-size: 0.57em;
+        font-weight: $font-weight--Regular;
+        line-height: 1.4em;
+        color: $text-color--gray;
+      }
+      p {
+        font-weight: $font-weight--Regular;
+        line-height: 1.4em;
+        text-align: left;
+        color: $text-color--gray;
+        word-break: keep-all;
+      }
+      img {
+        width: 100%;
+        max-width: 180px;
+        margin-top: 10px;
+      }
+    }
+  }
+  &__wrapper {
+    @include flex__column;
+  }
+}

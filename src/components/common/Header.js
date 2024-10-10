@@ -1,5 +1,5 @@
 /* Import */
-import React from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
@@ -13,7 +13,7 @@ import iconHomeArrowImg from "../../img/icon/icon_header_home_arrow.svg"
 import iconHomeImg from "../../img/icon/icon_header_home.svg"
 
 const Header = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   

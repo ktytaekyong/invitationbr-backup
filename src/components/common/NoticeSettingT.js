@@ -12,8 +12,10 @@ import RadioList from "./RadioList.js";
 import RadioItem from "./RadioItem.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
+import BasicModalHeader from "../layout/modal/BasicModalHeader.js";
 /* CSS Module */
 import styles from "../../css/module/common/NoticeSettingT.module.scss";
+import BasicModalNoticeT from "../layout/modal/BasicModalNoticeT.js";
 
 const noticeTList = [
   {
@@ -31,6 +33,9 @@ const noticeTList = [
 const NoticeSettingT = () => {
   const [radioActive, setRadioActive] = useState(false);
   const [noticeTImgList, setNoticeTImgList] = useState([]);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if(file) {
@@ -47,38 +52,42 @@ const NoticeSettingT = () => {
     }
   }
   return (
-    <CommonOptionWrapper>
-      <CommonOptionContent>
-        <CommonItemWrapper>
-          <CommonItemContent title="탭 순서" multi="check">
-            <TabSelector listName={noticeTList} onChange={setRadioActive} />
-            <ButtonWrapper>
-              <Button content="탭 추가" styleType="add"></Button>
-            </ButtonWrapper>
-          </CommonItemContent>
-        </CommonItemWrapper>
-        {noticeTList.map((item, idx) => (
-          <CommonItemWrapper key={`${item.title}${idx}`}>
-            {/* <div className={`${styles.option__item} ${item.view ? styles.active : null}`}> */}
-              <CommonItemContent title="제목">
-                <input type="text" placeholder={item.title}/>
-              </CommonItemContent>
-
-              <CommonItemContent title="내용">
-                <TextEditor></TextEditor>
-              </CommonItemContent>
-
-              <CommonItemContent title="사진" multi={true}>
-                <PhotoSelector id="NoticeTPhotoList" listName={noticeTImgList} onChange={fileAddHandler} deleteFunction={setNoticeTImgList} />
-                <RadioList title="사진 위치">
-                  <RadioItem radioName="noticePhotoPosition" id="noticePhotoIntro" content="본문 위쪽" defaultCheck={true}></RadioItem>
-                  <RadioItem radioName="noticePhotoPosition" id="noticePhotoAll" content="본문 아래쪽"></RadioItem>
-                </RadioList>
-              </CommonItemContent>
+    <>
+      <CommonOptionWrapper>
+        <CommonOptionContent>
+          <CommonItemWrapper>
+            <CommonItemContent title="탭 순서" multi="check">
+              <TabSelector listName={noticeTList} onChange={setRadioActive} />
+              <ButtonWrapper>
+                <Button content="탭 추가" styleType="add" onClick={handleOpen}></Button>
+              </ButtonWrapper>
+            </CommonItemContent>
           </CommonItemWrapper>
-        ))}
-      </CommonOptionContent>
-    </CommonOptionWrapper>
+          {noticeTList.map((item, idx) => (
+            <CommonItemWrapper key={`${item.title}${idx}`}>
+              {/* <div className={`${styles.option__item} ${item.view ? styles.active : null}`}> */}
+                <CommonItemContent title="제목">
+                  <input type="text" placeholder={item.title}/>
+                </CommonItemContent>
+
+                <CommonItemContent title="내용">
+                  <TextEditor></TextEditor>
+                </CommonItemContent>
+
+                <CommonItemContent title="사진" multi={true}>
+                  <PhotoSelector id="NoticeTPhotoList" listName={noticeTImgList} onChange={fileAddHandler} deleteFunction={setNoticeTImgList} />
+                  <RadioList title="사진 위치">
+                    <RadioItem radioName="noticePhotoPosition" id="noticePhotoIntro" content="본문 위쪽" defaultCheck={true}></RadioItem>
+                    <RadioItem radioName="noticePhotoPosition" id="noticePhotoAll" content="본문 아래쪽"></RadioItem>
+                  </RadioList>
+                </CommonItemContent>
+            </CommonItemWrapper>
+          ))}
+        </CommonOptionContent>
+      </CommonOptionWrapper>
+
+      <BasicModalNoticeT openvar={open} onClose={handleClose}></BasicModalNoticeT>
+    </>
   )
 }
 

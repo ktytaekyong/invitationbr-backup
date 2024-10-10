@@ -8,11 +8,6 @@
     * {
       font-weight: $font-weight--Medium;
     }
-    > div {
-      > div:last-child {
-        // padding: 0 24px 24px;
-      } 
-    }
     button {
       font-size: $font-size--xsm;
     }
@@ -29,7 +24,7 @@
   }
   &__notice {
     padding-top: 24px;
-    padding-bottom: 26px;
+    padding-bottom: 24px;
     font-size: $font-size--ssm;
     text-align: center;
   }
