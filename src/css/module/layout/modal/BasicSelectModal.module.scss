@@ -8,17 +8,29 @@
     * {
       font-weight: $font-weight--Medium;
     }
-    > div {
-      > div:last-child {
-        // padding: 0 24px 24px;
-      } 
-    }
     button {
       font-size: $font-size--xsm;
     }
   }
+  &__title {
+    @include position;
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 48px;
+    padding-top: 0;
+    padding-left: 24px;
+    border-bottom: 1px solid $border-color--default;
+    p {
+      font-size: $font-size--ssm;
+    }
+    button {
+      top: 50% !important;
+      right: 14px !important; 
+      transform: translateY(-50%);
+    }
+  }
   &__description {
-    padding: 0 24px 24px;
     font-size: $font-size--sm;
     text-align: center;
     color: $text-color--gray;

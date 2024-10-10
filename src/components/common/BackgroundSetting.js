@@ -80,15 +80,6 @@ const BackgroundSetting = () => {
             <BackgroundSettingEffect />
           </CommonItemContent>
         </CommonItemWrapper>
-
-        {/* <CommonItemWrapper>
-          
-        </CommonItemWrapper> */}
-
-        {/* <CommonItemWrapper>
-          
-        </CommonItemWrapper> */}
-          
       </CommonOptionContent>
 
       <CommonOptionContent>

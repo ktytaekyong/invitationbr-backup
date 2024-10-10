@@ -21,6 +21,10 @@ export default function BasicModal(props) {
         slots={{ backdrop: StyledBackdrop }}
       >
         <ModalContent sx={{ width: 300 }}>
+          <div className={styles.modal__title}>
+            <p>{props.title}</p>
+            <Button styleType="close"></Button>
+          </div>
           {props.notice ?
             <p className={styles.modal__notice}>
               저장 완료 되었습니다.

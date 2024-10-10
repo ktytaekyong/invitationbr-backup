@@ -5,7 +5,6 @@ import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
-import OptionSelector from "./OptionSelector.js";
 import TabSelector from "./TabSelector.js"
 import TextEditor from "./TextEditor.js";
 import PhotoSelector from "./PhotoSelector.js";

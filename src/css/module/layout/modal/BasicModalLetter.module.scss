@@ -1,4 +1,29 @@
 @import "../../../_module";
 .modal {
-  &__letter {}
+  &__letter {
+    &_list {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 8px;
+      height: 47vh;
+      margin-top: 16px;
+      padding: 0 16px 16px;
+      overflow-y: scroll;
+    }
+    &_item {
+      padding: 16px 10px;
+      border-radius: $radius--default;
+      border: 1px solid $border-color--default;
+      p {
+        font-weight: $font-weight--Regular;
+        line-height: 1.4em;
+        color: $text-color--gray;
+        word-break: keep-all;
+      }
+      &.active {
+        border: 1px solid $button-color--default;
+      }
+    }
+  }
 }

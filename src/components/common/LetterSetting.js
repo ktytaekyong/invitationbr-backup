@@ -7,24 +7,13 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import LetterSettingTitle from "./LetterSettingTitle.js";
 import TextEditor from "./TextEditor.js";
-import Button from "../layout/Button.js"
 /* CSS Module */
 // import styles from "../../css/module/common/LetterSetting.module.css";
 
 const LetterSetting = () => {
-  const [isActive, setIsActive] = useState(0);
-  const [isActiveTab, setIsActiveTab] = useState(0);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
-  }
-  const setActiveTabHandler = (idx) => {
-    setIsActiveTab(idx);
-  }
-
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
-
         <CommonItemWrapper>
           <CommonItemContent title="제목">
             <LetterSettingTitle />
@@ -34,7 +23,6 @@ const LetterSetting = () => {
             <TextEditor type="letter" />
           </CommonItemContent>
         </CommonItemWrapper>
-
       </CommonOptionContent>
     </CommonOptionWrapper>
   )

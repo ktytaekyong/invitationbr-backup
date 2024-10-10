@@ -7,6 +7,19 @@
     outline: none;
   }
 }
+* {
+  &::-webkit-scrollbar {
+    width: 6px; 
+    &-thumb {
+      width: 100%;
+      background: #D1D6DB;
+      border-radius: 6px;
+    }
+    &-track {
+      background: #F9FAFB;
+    }
+  }
+}
 .container {
   width: 100%;
   max-width: 1000px;

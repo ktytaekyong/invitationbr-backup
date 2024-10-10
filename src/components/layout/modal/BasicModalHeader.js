@@ -15,7 +15,6 @@ export default function BasicModalHeader({ openvar, onClose }) {
         onClose={onClose} 
         notice={true} 
         ButtonWrapperUse={true}
-        HeaderUse={false}
         btnContent1="취소"
         btnContent2="청첩장 보기"
       >
