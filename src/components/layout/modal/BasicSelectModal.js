@@ -9,7 +9,7 @@ import styles from "../../../css/module/layout/modal/BasicSelectModal.module.scs
 import ButtonWrapper from "../ButtonWrapper";
 import Button from "../Button";
 
-export default function BasicModal(props) {
+export default function BasicSelectModal(props) {
   return (
     <>
       <ModalBasic

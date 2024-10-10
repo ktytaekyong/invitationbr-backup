@@ -14,9 +14,16 @@ import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_ri
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
 const TextEditor = ({ type }) => {
+  const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const handleClose = () => {
+    setOpen(false);
+    setIsActiveTab(0);
+  };
+  const setActiveTabHandler = (idx) => {
+    setIsActiveTab(idx);
+  }
   return (
     <>
       <div className={`${styles.editor__content} ${type === "letter" ? styles["letter"] : null}`}>
@@ -53,7 +60,7 @@ const TextEditor = ({ type }) => {
       </div>
       {
         type === "letter" ?
-        <BasicModalLetter openvar={open} onClose={handleClose}></BasicModalLetter>
+        <BasicModalLetter isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose}></BasicModalLetter>
         : null
       }
     </>

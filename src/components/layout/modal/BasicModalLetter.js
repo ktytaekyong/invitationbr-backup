@@ -1,6 +1,5 @@
 /* Import */
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 /* Component */
 import TabSelector from '../../common/TabSelector';
 import BasicSelectModal from './BasicSelectModal';
@@ -8,11 +7,10 @@ import BasicModalContent from './BasicModalContent';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/BasicModalLetter.module.scss";
 
-export default function BasicModalLetter({ openvar, onClose }) {
+export default function BasicModalLetter({ openvar, onClose, isActiveTab, setActiveTabHandler }) {
   const [isDefaultActive, setIsDefaultActive] = useState(null);
   const [isParentsActive, setIsParentsActive] = useState(null);
   const [isReligionActive, setIsReligionActive] = useState(null);
-  const [isActiveTab, setIsActiveTab] = useState(0);
   const setDefaultActiveHandler = (idx) => {
     setIsDefaultActive(idx);
     setIsParentsActive(null);
@@ -28,9 +26,7 @@ export default function BasicModalLetter({ openvar, onClose }) {
     setIsParentsActive(null);
     setIsDefaultActive(null);
   }
-  const setActiveTabHandler = (idx) => {
-    setIsActiveTab(idx);
-  }
+
   const letterSampleThemeList = [
     {
       title: "일반",
@@ -149,7 +145,7 @@ export default function BasicModalLetter({ openvar, onClose }) {
       title="샘플문구 선택"
     >
       <BasicModalContent>
-        <TabSelector listName={letterSampleThemeList} onChange={setActiveTabHandler}></TabSelector>
+        <TabSelector listName={letterSampleThemeList} onChange={setActiveTabHandler} />
         {renderContent(isActiveTab)}
       </BasicModalContent>
     </BasicSelectModal>
