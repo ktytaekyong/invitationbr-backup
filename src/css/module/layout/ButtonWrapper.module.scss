@@ -9,5 +9,12 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    &fill {
+      width: calc(100% - 8px);
+      margin-top: 18px;
+      button {
+        width: 50%;
+      }
+    }
   }
 }

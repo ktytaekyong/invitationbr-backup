@@ -37,7 +37,7 @@ const GiftSetting = () => {
       <GiftSettingKaKaoDesc />
       
       <CommonOptionWrapper>
-        <ListOptionContent>
+        <ListOptionContent list={true}>
           <CommonItemWrapper>
             <CommonItemContent title="그룹명">
               <input type="text" placeholder="신랑측 계좌번호"/>
@@ -49,7 +49,7 @@ const GiftSetting = () => {
           <GiftSettingAccount gender="M" listName={MGiftList} />
         </ListOptionContent>
         
-        <ListOptionContent>
+        <ListOptionContent list={true}>
           <CommonItemWrapper>
             <CommonItemContent title="그룹명">
               <input type="text" placeholder="신부측 계좌번호"/>

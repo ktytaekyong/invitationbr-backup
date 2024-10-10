@@ -1,9 +1,9 @@
 /* CSS Module */
 import styles from "../../css/module/common/ListOptionContent.module.scss";
 
-const ListOptionContent = ({ children }) => {
+const ListOptionContent = ({ children, list }) => {
   return (
-    <div className={styles.option__content}>
+    <div className={`${styles.option__content} ${list ? styles.list : null}`}>
       {children}
     </div>
   )

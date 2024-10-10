@@ -1,0 +1,48 @@
+@import "../../../_module";
+.modal {
+  &__basic {
+    @include flex__row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 70px;
+    * {
+      font-weight: $font-weight--Medium;
+    }
+    button {
+      font-size: $font-size--xsm;
+    }
+  }
+  &__title {
+    @include position;
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 48px;
+    padding-top: 0;
+    padding-left: 24px;
+    border-bottom: 1px solid $border-color--default;
+    p {
+      font-size: $font-size--ssm;
+    }
+    button {
+      top: 50% !important;
+      right: 14px !important; 
+      transform: translateY(-50%);
+      background-size: 16px !important;
+    }
+  }
+  &__description {
+    margin-top: 26px;
+    font-size: $font-size--sm;
+    text-align: center;
+    color: $text-color--gray;
+    a {
+      text-decoration: underline;
+      color: $text-color--essntial;
+    }
+  }
+  &__notice {
+    font-size: $font-size--ssm;
+    text-align: center;
+  }
+}

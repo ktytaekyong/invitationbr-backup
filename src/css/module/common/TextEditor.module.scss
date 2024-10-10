@@ -12,9 +12,10 @@
     height: 110px;
     padding: 12px;
     font-size: $font-size--sm;
+    border-radius: 0;
     border: none;
     border-top: 1px solid $border-color--default;
-    border-bottom: none;
+    border-bottom: 1px solid $border-color--default;
     resize: none;
   }
   .tool {
@@ -51,7 +52,7 @@
         @include position;
         padding-left: 8px;
         &::after {
-          @include position(a, 50%, _, _, -13px);
+          @include position(a, 50%, null, null, -13px);
           transform: translateY(-50%);
           width: 1px;
           height: 15px;

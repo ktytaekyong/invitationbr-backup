@@ -25,8 +25,13 @@
     background-color: $point-color--default;
     color: #FFF;
   }
+  &.cancel {
+    border-radius: $radius--default;
+    background-color: $button-color--cancel;
+    color: $text-color--gray;
+  }
   &.close {
-    @include position(a, 0, _, _, 0);
+    @include position(a, 0, null, null, 0);
     @include flex__row;
     justify-content: center;
     align-items: center;

@@ -2,8 +2,11 @@
 .option__content {
   @include flex__column;
   row-gap: 24px;
-  &:nth-of-type(n + 2) {
-    margin-top: 12px;
+  &.list {
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   > div {
     padding-bottom: 24px;

@@ -1,6 +1,6 @@
 @import "../../_module";
 .header {
-  @include position(st, 0, 0, _, 0);
+  @include position(st, 0, 0, null, 0);
   width: 100%;
   height: 100px;
   border-bottom: 1px solid $border-color--default;
@@ -39,5 +39,11 @@
       font-size: $font-size--ssm;
       color: $text-color--gray;
     }
+  }
+}
+
+.modal {
+  &__header {
+    display: none;
   }
 }

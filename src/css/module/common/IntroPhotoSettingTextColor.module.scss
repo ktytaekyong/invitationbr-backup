@@ -78,7 +78,7 @@
     }
   }
   &__select {
-    @include position(a, 50%, _, _, 18px);
+    @include position(a, 50%, null, null, 18px);
     transform: translateY(-50%);
     width: 20px;
     height: 20px;

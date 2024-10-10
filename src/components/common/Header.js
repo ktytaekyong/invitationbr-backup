@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Container from "../layout/Container";
 import ButtonWrapper from "../layout/ButtonWrapper";
 import Button from "../layout/Button";
+import BasicModalHeader from "../layout/modal/BasicModalHeader.js";
 /* CSS Module */
 import styles from "../../css/module/common/Header.module.scss";
 /* Image */
@@ -12,6 +13,10 @@ import iconHomeArrowImg from "../../img/icon/icon_header_home_arrow.svg"
 import iconHomeImg from "../../img/icon/icon_header_home.svg"
 
 const Header = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+  
   return (
     <header className={styles.header}>
       <Container>
@@ -25,9 +30,11 @@ const Header = () => {
         </div>
         <ButtonWrapper>
           <Button type="button" styleType="default" content="미리보기" />
-          <Button type="button" styleType="primary" content="저장" />
+          <Button type="button" styleType="primary" content="저장" onClick={handleOpen}/>
         </ButtonWrapper>
       </Container>
+
+      <BasicModalHeader openvar={open} onClose={handleClose}></BasicModalHeader>
     </header>
   )
 }
