@@ -15,7 +15,8 @@ import Button from "../layout/Button.js";
 import BasicModalHeader from "../layout/modal/BasicModalHeader.js";
 /* CSS Module */
 import styles from "../../css/module/common/NoticeSettingT.module.scss";
-import BasicModalNoticeT from "../layout/modal/BasicModalNoticeT.js";
+import BasicModalNoticeTAdd from "../layout/modal/BasicModalNoticeTAdd.js";
+import BasicModalNoticeTDelete from "../layout/modal/BasicModalNoticeTDelete.js";
 
 const noticeTList = [
   {
@@ -23,19 +24,22 @@ const noticeTList = [
     id: "noticeTab1",
     view: true,
   }, 
-  // {
-  //   title: "식사안내",
-  //   id: "noticeTab2",
-  //   view: false
-  // }, 
+  {
+    title: "식사안내",
+    id: "noticeTab2",
+    view: false
+  }, 
 ]; 
 
 const NoticeSettingT = () => {
   const [radioActive, setRadioActive] = useState(false);
   const [noticeTImgList, setNoticeTImgList] = useState([]);
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+  const [openAdd, setOpenAdd] = useState(false);
+  const [openDel, setOpenDel] = useState(false);
+  const handleOpenAdd = () => setOpenAdd(true);
+  const handleCloseAdd = () => setOpenAdd(false);
+  const handleOpenDel = () => setOpenDel(true);
+  const handleCloseDel = () => setOpenDel(false);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if(file) {
@@ -57,9 +61,9 @@ const NoticeSettingT = () => {
         <CommonOptionContent>
           <CommonItemWrapper>
             <CommonItemContent title="탭 순서" multi="check">
-              <TabSelector listName={noticeTList} onChange={setRadioActive} />
+              <TabSelector listName={noticeTList} onChange={setRadioActive} onClick={handleOpenDel} />
               <ButtonWrapper>
-                <Button content="탭 추가" styleType="add" onClick={handleOpen}></Button>
+                <Button content="탭 추가" styleType="add" onClick={handleOpenAdd}></Button>
               </ButtonWrapper>
             </CommonItemContent>
           </CommonItemWrapper>
@@ -86,7 +90,8 @@ const NoticeSettingT = () => {
         </CommonOptionContent>
       </CommonOptionWrapper>
 
-      <BasicModalNoticeT openvar={open} onClose={handleClose}></BasicModalNoticeT>
+      <BasicModalNoticeTAdd openvar={openAdd} onClose={handleCloseAdd}></BasicModalNoticeTAdd>
+      <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel}></BasicModalNoticeTDelete>
     </>
   )
 }

@@ -42,7 +42,6 @@
     border-radius: 999px;
     background: transparent url(../../../img/icon/icon_close.png) no-repeat center / cover;
     color: $button-color--default;
-    content: "";
   }
   &.modify {
     @include position;
@@ -93,5 +92,17 @@
     margin-top: 4px;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_remove.png) no-repeat left 4px center / 24px;
+  }
+  &.tab__delete {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    line-height: 1em;
+    border-radius: 999px;
+    background: transparent url(../../../img/icon/icon_item_delete.png) no-repeat center / 16px;
+    color: $button-color--default;
   }
 }

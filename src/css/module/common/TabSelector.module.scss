@@ -6,19 +6,34 @@
   flex-wrap: wrap;
   gap: 3px 5px;
   .selector__item {
+    @include position;
     @include flex__row;
     justify-content: center;
     align-items: center;
+    column-gap: 7px;
     padding: 8px 20px;
     font-size: $font-size--xsm;
     border-radius: $radius--button-list;
     border: 1px solid $bg-color--second;
     background-color: #FFF;
-    color: $text-color--disable-input;
     cursor: pointer;
+    span {
+      color: $text-color--disable-input;
+    }
+    button {
+      display: none;
+    }
     &.active {
       background-color: $button-color--default;
-      color: #FFF;
+      span {
+        color: #FFF;
+      }
+      button {
+        @include flex__row_inline;
+      }
+      &.tab {
+        padding: 8px 13px 8px 20px;
+      }
     }
   }
 }

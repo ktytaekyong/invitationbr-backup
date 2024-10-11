@@ -6,7 +6,7 @@ import BasicModal from './BasicModal';
 /* CSS Module */
 // import styles from "../../../css/module/layout/modal/BasicModalHeader.module.scss";
 
-const BasicModalNoticeT = ({ openvar, onClose }) => {
+const BasicModalNoticeTAdd = ({ openvar, onClose }) => {
   return (
     <>
       <BasicModal 
@@ -25,4 +25,4 @@ const BasicModalNoticeT = ({ openvar, onClose }) => {
   );
 }
 
-export default BasicModalNoticeT;
+export default BasicModalNoticeTAdd;
