@@ -13,10 +13,10 @@ import RadioItem from "./RadioItem.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import BasicModalHeader from "../layout/modal/BasicModalHeader.js";
-/* CSS Module */
-import styles from "../../css/module/common/NoticeSettingT.module.scss";
 import BasicModalNoticeTAdd from "../layout/modal/BasicModalNoticeTAdd.js";
 import BasicModalNoticeTDelete from "../layout/modal/BasicModalNoticeTDelete.js";
+/* CSS Module */
+import styles from "../../css/module/common/NoticeSettingT.module.scss";
 
 const noticeTList = [
   {

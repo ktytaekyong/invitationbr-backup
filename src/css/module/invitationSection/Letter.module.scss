@@ -1,0 +1,90 @@
+@import "../../_module";
+.letter {
+  &__wrap {
+    width: 100%;
+    padding-top: 35px;
+    padding-bottom: 70px;
+    text-align: center;
+    > div {
+      &:nth-child(2) {
+        margin-top: 16px;
+      }
+      &:nth-child(3) {
+        margin-top: 30px;
+      }
+    }
+  }
+  &__headline {
+    @include flex__column_inline;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    * {
+      line-height: 1.5em;
+    }
+    p {
+      &:first-child {
+        font-size: $font-size--lg;
+        font-weight: $font-weight--Bold;
+        color: $text-color--temp;
+      }
+      &:last-child {
+        font-size: 11px;
+        font-weight: $font-weight--Regular;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: $text-color--deco-gray;
+      }
+    }
+    .divide {
+      width: 100%;
+      height: 2px;
+      margin-top: 3px;
+      margin-bottom: 6px;
+      background: $border-color--default;
+    }
+  }
+  &__content {
+    @include flex__column;
+    row-gap: 32px;
+    .greet {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 12px;
+      text-align: center;
+      p {
+        font-size: $font-size--ssm;
+        line-height: 1.7em;
+        color: $text-color--temp;
+      }
+    }
+    .detail {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 8px;
+      margin-bottom: 8px;
+      * {
+        line-height: 1.5em;
+      }
+      p {
+        display: inline-block;
+        font-size: $font-size--default;
+      }
+      span {
+        display: inline-block;
+        margin-left: 8px;
+        margin-right: 16px;
+        font-size: $font-size--sm;
+        font-weight: $font-weight--Regular;
+        color: $text-color--disable;
+      }
+    }
+  }
+}
+// .intro__style {
+//   &_theme_1 {
+    
+//   }
+// }

@@ -2,8 +2,9 @@
 .intro {
   &__wrap {
     width: 100%;
-    padding: 0 25px;
+    padding: 0 45px;
     padding-top: 32px;
+    padding-bottom: 35px;
     > div {
       &:nth-child(2) {
         margin-top: 16px;
@@ -55,6 +56,44 @@
     background: #EEE;
     img {
       width: 100%;
+    }
+  }
+  &__title {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 4px;
+    * {
+      line-height: 1.5em;
+    }
+    &_couple {
+      @include flex__row;
+      justify-content: center;
+      align-items: center;
+      column-gap: 27px;
+      margin-bottom: 8px;
+      h2 {
+        font-size: $font-size--xl;
+        letter-spacing: 0.25em;
+        color: #222425;
+      }
+      p {
+        width: 2px;
+        height: 19px;
+        background: $border-color--default;
+      }
+    }
+    &_date {
+      h3 {
+        font-size: $font-size--sl;
+        color: $text-color--temp;
+      }
+    }
+    &_place {
+      h4 {
+        font-size: $font-size--ssm;
+        color: $text-color--disable-input;
+      }
     }
   }
 }

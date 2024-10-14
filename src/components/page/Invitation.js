@@ -4,6 +4,7 @@ import { useContext } from "react";
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
+import Letter from "../invitationSection/Letter";
 import Date from "../invitationSection/Date";
 import Location from "../invitationSection/Location";
 import Gallery from "../invitationSection/Gallery";
@@ -27,6 +28,7 @@ const Invitation = () => {
       <Container>
         <Tab></Tab>
         <Intro></Intro>
+        <Letter></Letter>
         <Date></Date>
         <Location></Location>
         {

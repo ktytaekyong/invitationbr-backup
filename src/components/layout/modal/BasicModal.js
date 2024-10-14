@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { styled, css } from '@mui/system';
 import ModalBasic from '@mui/material/Modal';
-/* CSS Module */
-import styles from "../../../css/module/layout/modal/BasicModal.module.scss";
 import ButtonWrapper from "../ButtonWrapper";
 import Button from "../Button";
+/* CSS Module */
+import styles from "../../../css/module/layout/modal/BasicModal.module.scss";
 
 export default function BasicModal(props) {
   return (

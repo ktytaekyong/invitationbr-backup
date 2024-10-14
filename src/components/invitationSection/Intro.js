@@ -35,7 +35,7 @@ const Intro = () => {
             <h3 className={styles.date}>{`${basicInfoList.dateInfo.date} 오전 ${basicInfoList.timeInfo.hour}:${basicInfoList.timeInfo.min}`}</h3>
           </div>
           <div className={styles.intro__title_place}>
-            <h3 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h3>
+            <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
           </div>
         </div>
       </div>

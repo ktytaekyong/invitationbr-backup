@@ -36,7 +36,12 @@
 }
 
 @mixin flex__row_inline($direction: row) {
-  display: flex;
+  display: inline-flex;
+  flex-direction: $direction;
+}
+
+@mixin flex__column_inline($direction: column) {
+  display: inline-flex;
   flex-direction: $direction;
 }
 
