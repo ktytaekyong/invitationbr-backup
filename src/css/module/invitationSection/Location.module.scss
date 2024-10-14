@@ -1,0 +1,118 @@
+@import "../../_module";
+.location {
+  &__wrap {
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 35px;
+    text-align: center;
+  }
+  &__headline {
+    @include flex__column_inline;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 30px;
+    * {
+      line-height: 1.5em;
+    }
+    p {
+      &:first-child {
+        font-size: $font-size--lg;
+        font-weight: $font-weight--Bold;
+        color: $text-color--temp;
+      }
+      &:last-child {
+        font-size: 11px;
+        font-weight: $font-weight--Regular;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: $text-color--deco-gray;
+      }
+    }
+    .divide {
+      width: 100%;
+      height: 2px;
+      margin-top: 3px;
+      margin-bottom: 6px;
+      background: $border-color--default;
+    }
+  }
+  &__content {
+    @include flex__column;
+    .place {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 5px;
+      text-align: center;
+      margin-bottom: 24px;
+      * {
+        line-height: 1.5em;
+      }
+      p {
+        &:first-child {
+          font-size: $font-size--sl;
+          letter-spacing: -0.03em;
+          color: $text-color--temp;
+        }
+        &:last-child {
+          font-size: $font-size--ssm;
+          letter-spacing: -0.03em;
+          color: $text-color--disable;
+        }
+      }
+    }
+    .map {
+      width: 100%;
+      margin-top: 32px;
+      background: #FFF;
+      &__wrap {
+        width: 100%;
+        border-bottom: 10px solid $bg-color--tab;
+      }
+      img {
+        width: 100%;
+      }
+      &__search_list {
+        @include flex__row;
+        width: calc(100% - 30px);
+        margin: 0 15px;
+      }
+      &__search_item {
+        width: calc(100% / 3);
+        padding: 20px 20px;
+        a {
+          @include flex__row;
+          justify-content: center;
+          align-items: center;
+          column-gap: 10px;
+          img {
+            width: 24px;
+            height: 24px;
+          }
+          p {
+            font-family: $font-family--default !important;
+            font-weight: $font-weight--Regular;
+            color: $text-color--temp;
+          }
+        }
+        &:nth-of-type(2) {
+          position: relative;
+          &::after, &::before {
+            @include position(a, 50%, null);
+            content: "";
+            width: 1px;
+            height: 22px;
+            background: $border-color--default;
+            transform: translateY(-50%);
+          }
+          &::after {
+            left: 0;
+          }
+          &::before {
+            right: 0;
+          }
+        }
+      }
+    }
+  }
+}

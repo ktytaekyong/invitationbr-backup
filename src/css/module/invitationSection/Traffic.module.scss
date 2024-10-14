@@ -1,0 +1,44 @@
+@import "../../_module";
+.traffic {
+  * {
+    line-height: 1.5em;
+    letter-spacing: -0.03em;
+  }
+  &__wrap {
+    width: 100%;
+    padding-top: 30px;
+    text-align: left;
+  }
+  &__content {
+    padding: 0 24px;
+  }
+  &__list {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 20px;
+  }
+  &__item {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 10px;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $border-color--default;
+    &:last-of-type {
+      border-bottom: none;
+    }
+    p {
+      &:first-of-type {
+        font-size: $font-size--default;
+      }
+      &:nth-of-type(2) {
+        font-family: $font-family--default !important;
+        font-weight: $font-weight--Regular !important;
+        font-size: $font-size--sm;
+        color: $text-color--disable;
+      }
+    }
+  }
+}
