@@ -3,12 +3,12 @@
   @include position(st, 130px, 0);
   width: 100%;
   max-width: 390px;
-  height: 100%;
+  height: 82vh;
   border: 1px solid $border-color--default;
   border-radius: $radius--default;
   padding: 20px;
   background-color: #FFF;
-  overflow: hidden;
+  overflow-y: scroll;
   > div {
     @include scroll__disabled;
     @include position;
