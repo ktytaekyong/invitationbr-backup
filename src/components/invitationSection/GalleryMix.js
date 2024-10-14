@@ -1,9 +1,9 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/scrollbar';
+import 'swiper/css/pagination';
 /* Component */
 /* CSS Module */
 import styles from "../../css/module/invitationSection/GalleryMix.module.scss";
@@ -19,11 +19,9 @@ const GalleryMix = () => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
+        pagination={true}
         loop={true}
-        // scrollbar={{
-        //   hide: false,
-        // }}
-        modules={[Scrollbar]}
+        modules={[Pagination]}
         className="mySwiper"
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}

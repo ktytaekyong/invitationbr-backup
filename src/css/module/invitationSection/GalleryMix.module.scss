@@ -9,13 +9,20 @@
           background: #EEE;
         }
       }
-      // .swiper-scrollbar {
-      //   @include position(s);
-      //   width: 100%;
-      //   height: 6px;
-      //   margin-top: 24px;
-      //   background: $bg-color--tab;
-      // }
+      .swiper-pagination {
+        @include position(s);
+        margin-top: 24px;
+      }
+      .swiper-pagination-bullet {
+        background: $border-color--default;
+        opacity: 1;
+      }
+      .swiper-pagination-bullet-active {
+        width: 36px;
+        height: 8px;
+        border-radius: 999px;
+        background: $text-color--disable;
+      }
     }
     .top {
       width: 100%;
