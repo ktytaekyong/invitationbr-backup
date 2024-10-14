@@ -6,57 +6,59 @@
   }
 }
 :global {
-  .MuiPickersCalendarHeader-root {
-    display: none !important;
-  }
-  .MuiDateCalendar-root {
-    height: unset !important;
-  }
-  .MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition {
-    height: unset !important;
-    min-height: unset !important;
-    > * {
-      position: static;
+  .calendar__wrap {
+    .MuiPickersCalendarHeader-root {
+      display: none !important;
     }
-  }
-  .MuiDayCalendar-header {
-    > span {
-      &:first-of-type {
-        color: $point-color--default !important;
-      }
-      &:last-of-type {
-        color: $text-color--blue !important;
+    .MuiDateCalendar-root {
+      height: unset !important;
+    }
+    .MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition {
+      height: unset !important;
+      min-height: unset !important;
+      > * {
+        position: static;
       }
     }
-  }
-  .MuiDayCalendar-weekContainer {
-    > * {
-      &:first-child {
-        color: $point-color--default !important;
-      }
-      &:last-child {
-        color: $text-color--blue !important;
+    .MuiDayCalendar-header {
+      > span {
+        &:first-of-type {
+          color: $point-color--default !important;
+        }
+        &:last-of-type {
+          color: $text-color--blue !important;
+        }
       }
     }
-  }
-  .MuiDayCalendar-weekDayLabel {
-    width: 42px !important;
-    height: 42px !important;
-  }
-  .MuiPickersDay-today {
-    color: #FFF !important;
-    border: none !important;
-    background: $text-color--placeholder !important;
-  }
-  .MuiButtonBase-root.MuiPickersDay-root {
-    width: 42px !important;
-    height: 42px !important;
-  }
-  .MuiPickersDay-root {
-    width: 42px !important;
-    height: 42px !important;
-  }
-  .Mui-selected {
-    background: $point-color--third !important;
+    .MuiDayCalendar-weekContainer {
+      > * {
+        &:first-child {
+          color: $point-color--default !important;
+        }
+        &:last-child {
+          color: $text-color--blue !important;
+        }
+      }
+    }
+    .MuiDayCalendar-weekDayLabel {
+      width: 42px !important;
+      height: 42px !important;
+    }
+    .MuiPickersDay-today {
+      color: #FFF !important;
+      border: none !important;
+      background: $text-color--placeholder !important;
+    }
+    .MuiButtonBase-root.MuiPickersDay-root {
+      width: 42px !important;
+      height: 42px !important;
+    }
+    .MuiPickersDay-root {
+      width: 42px !important;
+      height: 42px !important;
+    }
+    .Mui-selected {
+      background: $point-color--third !important;
+    }
   }
 }

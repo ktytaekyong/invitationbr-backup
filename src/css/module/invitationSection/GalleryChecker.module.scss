@@ -1,0 +1,14 @@
+@import "../../_module";
+.checker {
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px 8px;
+    margin-bottom: 24px;
+    .gallery__item {
+      height: 72px;
+      border-radius: 4px;
+      background: #EEE;
+    }
+  }
+}

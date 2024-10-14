@@ -122,5 +122,13 @@
       font-weight: 600;
       font-size: $font-size--default;
     }
+    &__gallery_view {
+      padding: 15px 55px 15px 32px;
+      border-radius: 999px;
+      background: $button-color--cancel url(../../../img/icon/icon_btn_arrow_down.png) no-repeat right 32px center / 18px;
+      color: $text-color--default;
+      font-weight: 600;
+      font-size: $font-size--default;
+    }
   }
 }
