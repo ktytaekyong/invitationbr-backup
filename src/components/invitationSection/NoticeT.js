@@ -1,7 +1,7 @@
 /* Import */
 import { useState, useEffect, useContext, useRef } from "react";
 /* Component */
-import Button from "../layout/Button.js";
+import NoticeTItem from "./NoticeTItem.js";
 import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/NoticeT.module.scss";
@@ -21,9 +21,11 @@ const NoticeT = () => {
       <div className={styles.notice__wrap}>
         <HeadLine title="안내사항" content="information" />
         <div className={styles.notice__content}>
-          <div id="AccountM" className={styles.account__list}>
-            <div className={styles.account__list_title} onClick={activeToggleHandler}>
-            </div>
+          <NoticeTItem></NoticeTItem>
+          <div className={styles.content}>
+            <img src="" alt="" />
+            <p>포토부스가 예식장 좌측에 설치될 예정이오니<br />
+            바쁘시더라도 가벼운 마음으로 즐겨주세요~</p>
           </div>
         </div>
       </div>

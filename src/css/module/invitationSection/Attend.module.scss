@@ -1,0 +1,26 @@
+@import "../../_module";
+.attend {
+  &__wrap {
+    width: 100%;
+    padding: 35px 24px;
+    text-align: center;
+  }
+  &__content {
+    @include position;
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    * {
+      letter-spacing: -0.03em;
+    }
+    p {
+      width: 100%;
+      margin-bottom: 24px;
+      text-align: center;
+      line-height: 1.5em;
+      font-size: $font-size--ssm;
+      color: $text-color--temp;
+    }
+  }
+}

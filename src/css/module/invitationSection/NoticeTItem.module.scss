@@ -3,9 +3,8 @@
   @include flex__row;
   justify-content: flex-start;
   align-items: center;
-  width: calc(100% - 40px);
+  width: 100%;
   padding: 3px;
-  margin: 20px 20px 0;
   border-radius: 4px;
   background-color: $bg-color--tab;
   &__item {
@@ -15,11 +14,14 @@
       justify-content: center;
       align-items: center;
       padding: 10px 3px;
-      font-size: $font-size--sm;
+      font-size: $font-size--ssm;
+      letter-spacing: -0.03em;
       border-radius: 4px;
       background-color: $bg-color--tab;
+      color: $text-color--disable;
     }
     &.active > a {
+      color: $text-color--temp;
       border: 1px solid #E3E7EB;
       background-color: #FFF;
       box-shadow: 0 0 2px rgba(227, 231, 235, 0.7);

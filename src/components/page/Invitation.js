@@ -16,6 +16,8 @@ import BgMusic from "../invitationSection/BgMusic";
 import Guestbook from "../invitationSection/Guestbook";
 import Attend from "../invitationSection/Attend";
 import Outro from "../invitationSection/Outro";
+import Banner from "../invitationSection/Banner.js";
+import Footer from "../invitationSection/Footer.js";
 /* CSS Module */
 import styles from "../../css/module/page/Invitation.module.scss";
 /* Context */
@@ -24,7 +26,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const { selectSettingList, setSelectSettingList, settingList } = useContext(SetContext);
   return (
-    <div className={`${styles.invitation} global__invitation`}>
+    <div className={`${styles.invitation}`}>
       <Container>
         <Tab></Tab>
         <Intro></Intro>
@@ -51,10 +53,7 @@ const Invitation = () => {
           selectSettingList.includes("settingNoticeD") ?
           <NoticeD></NoticeD> : null
         }
-        {
-          selectSettingList.includes("settingBgMusic") ?
-          <BgMusic></BgMusic> : null
-        }
+        <Banner></Banner>
         {
           selectSettingList.includes("settingGuestbook") ?
           <Guestbook></Guestbook> : null
@@ -67,6 +66,12 @@ const Invitation = () => {
           selectSettingList.includes("settingOutro") ?
           <Outro></Outro> : null
         }
+        {
+          selectSettingList.includes("settingBgMusic") ?
+          <BgMusic></BgMusic> : null
+        }
+        
+        <Footer></Footer>
       </Container>
     </div>
   )

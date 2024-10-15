@@ -1,0 +1,33 @@
+@import "../../_module";
+.banner {
+  width: 100%;
+  padding: 15px 24px;
+  border-radius: $radius--default;
+  overflow: hidden;
+  * {
+    letter-spacing: -0.03em;
+    line-height: 1.5em;
+  }
+  &__wrap {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    padding: 17px 20px;
+    text-align: left;
+    border-radius: $radius--default;
+    text-align: left;
+    background: #FFF5F0 url(../../../img/gift/banner_img.png) no-repeat right 25px center / 40px;
+    p {
+      &:first-of-type {
+        font-size: $font-size--sl;
+      }
+      &:nth-of-type(2) {
+        font-size: $font-size--sm;
+        font-weight: $font-weight--Regular;
+        font-family: $font-family--default !important;
+        color: $text-color--disable;
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+@import "../../_module";
+.outro {
+  &__wrap {
+    width: 100%;
+    padding: 35px 24px;
+    text-align: center;
+  }
+  &__content {
+    @include position;
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    .img__wrap {
+      width: 100%;
+      height: 200px;
+      background: #EEE;
+      border-radius: $radius--default;
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    .content__wrap {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      margin-top: 30px;
+      img {
+        width: 24px;
+        height: 24px;
+        margin-bottom: 20px;
+      }
+      p {
+        line-height: 1.5em;
+        letter-spacing: -0.03em;
+        font-size: $font-size--ssm;
+        color: $text-color--temp;
+      }
+    }
+  }
+}

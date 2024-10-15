@@ -1,0 +1,95 @@
+@import "../../_module";
+.guestbook {
+  &__wrap {
+    width: 100%;
+    padding: 35px 24px;
+    text-align: center;
+  }
+  &__content {
+    @include position;
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    background: #FFF;
+    * {
+      letter-spacing: -0.03em;
+    }
+    .input__wrap {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 10px;
+      width: 100%;
+      margin-bottom: 24px;
+      * {
+        font-family: $font-family--default !important;
+        font-size: $font-size--ssm;
+        font-weight: $font-weight--Regular;
+      }
+      input {
+        height: 52px;
+      }
+      textarea {
+        height: 120px;
+        padding-top: 16px;
+      }
+      textarea, input {
+        @include flex__row;
+        justify-content: center;
+        align-items: center;
+        padding-left: 16px;
+      }
+    }
+    .guest {
+      width: 100%;
+      margin-top: 40px;
+      &__list {
+        @include flex__column;
+        justify-content: flex-start;
+        align-items: center;
+        row-gap: 16px;
+        margin-bottom: 24px;
+      }
+      &__item {
+        @include flex__column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        row-gap: 3px;
+        width: 100%;
+        padding: 24px 20px;
+        border-radius: $radius--default;
+        background: $bg-color--setting;
+        * {
+          font-family: $font-family--default !important;
+        }
+        p {
+          &.name {
+            color: $text-color--temp;
+          }
+          &.content {
+            width: 100%;
+            margin-top: 12px;
+            margin-bottom: 3px;
+            font-weight: $font-weight--Regular;
+            font-size: $font-size--ssm;
+            text-align: left;
+            line-height: 1.5em;
+            color: $text-color--disable;
+          }
+        }
+        .tool {
+          @include flex__row;
+          justify-content: flex-start;
+          align-items: center;
+          column-gap: 8px;
+          p {
+            font-size: $font-size--xsm;
+            font-weight:$font-weight--Regular;
+            color: #ADADAD;
+          }
+        }
+      }
+    }
+  }
+}

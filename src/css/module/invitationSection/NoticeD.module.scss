@@ -1,12 +1,10 @@
 @import "../../_module";
 .notice {
-  background: $bg-color--setting;
   &__wrap {
     width: 100%;
     margin-top: 35px;
-    padding: 50px 24px;
+    padding: 35px 24px;
     text-align: center;
-    border-bottom: 10px solid $bg-color--tab;
   }
   &__content {
     @include position;
@@ -15,7 +13,6 @@
     align-items: flex-start;
     row-gap: 16px;
     width: 100%;
-    padding: 16px;
     background: #FFF;
     border-radius: $radius--default;
     .content {
@@ -24,17 +21,29 @@
       align-items: center;
       row-gap: 16px;
       width: 100%;
-      padding: 8px 24px 16px;
+      padding: 32px 30px;
+      border-radius: $radius--default;
+      background: $bg-color--setting;
       img {
         width: 100%;
         max-width: 260px;
         height: 150px;
-        object-fit: cover;
-        object-position: center;
         border-radius: $radius--default;
         background: #EEE;
+        object-fit: cover;
+        object-position: center;
       }
-      p {
+      .title {
+        width: 100%;
+        margin-bottom: 4px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid $border-color--default;
+        p {
+          letter-spacing: -0.03em;
+          line-height: 1.5em;
+        }
+      }
+      > p {
         font-size: $font-size--sm;
         font-weight: $font-weight--Regular;
         font-family: $font-family--default !important;
