@@ -130,5 +130,20 @@
       font-weight: 600;
       font-size: $font-size--default;
     }
+    &__kakao {
+      width: 48px;
+      height: 20px;
+      padding: 0;
+      background: url(../../../img/icon/icon_account_kakao.png) no-repeat center / 100%;
+    }
+    &__copy {
+      padding: 7.5px 29px 7.5px 9px;
+      border-radius: 4px;
+      background: #FFF url(../../../img/icon/icon_copy.png) no-repeat right 8px center / 17px;
+      color: $text-color--default;
+      font-weight: 600;
+      font-size: $font-size--xsm !important;
+      border: 1px solid $border-color--default;
+    }
   }
 }

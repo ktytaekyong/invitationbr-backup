@@ -32,7 +32,6 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             </>
             :
             <p>{itemTitle}</p>
-            
           }
         </div>
           <img src={iconSettingItemArrowImg} alt="" className={styles.setting__arrow_img} />
