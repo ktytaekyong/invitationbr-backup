@@ -19,7 +19,7 @@ const NoticeT = () => {
   return (
     <div className={`${styles.notice} ${styles.style_theme_1}`}>
       <div className={styles.notice__wrap}>
-        <HeadLine title="안내사항" content="information"></HeadLine>
+        <HeadLine title="안내사항" content="information" />
         <div className={styles.notice__content}>
           <div id="AccountM" className={styles.account__list}>
             <div className={styles.account__list_title} onClick={activeToggleHandler}>
