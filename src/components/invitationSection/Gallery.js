@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import GallerySlide from "./GallerySlide.js";
 import GalleryChecker from "./GalleryChecker.js";
 import GalleryMix from "./GalleryMix.js";
+import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Gallery.module.scss";
 /* Image */
@@ -36,14 +37,10 @@ const Gallery = () => {
   return (
     <div className={`${styles.gallery} ${styles.style_theme_1}`}>
       <div className={styles.gallery__wrap}>
-        <div className={styles.gallery__headline}>
-          <p>갤러리</p>
-          <div className={styles.divide}></div>
-          <p>gallery</p>
+        <HeadLine title="갤러리" content="gallery"></HeadLine>
+        <div className={styles.gallery__content}>
+          {renderContent(galleryType)}
         </div>
-          <div className={styles.gallery__content}>
-            {renderContent(galleryType)}
-          </div>
       </div>
     </div>
   )

@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 /* Component */
 import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
+import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Date.module.scss";
 /* Image */
@@ -15,11 +16,7 @@ const Date = () => {
   return (
     <div className={`${styles.date} ${styles.style_theme_1}`}>
       <div className={styles.date__wrap}>
-        <div className={styles.date__headline}>
-          <p>예식 일시</p>
-          <div className={styles.divide}></div>
-          <p>D-day</p>
-        </div>
+        <HeadLine title="예식 일시" content="D-day"></HeadLine>
         <div className={styles.date__content}>
           <div className={styles.date}>
             <p>{basicInfoList.dateInfo.date}</p>

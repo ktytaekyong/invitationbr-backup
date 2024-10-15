@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 /* Component */
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
+import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Letter.module.scss";
 /* Image */
@@ -15,11 +16,7 @@ const Intro = () => {
   return (
     <div className={`${styles.letter} ${styles.style_theme_1}`}>
       <div className={styles.letter__wrap}>
-        <div className={styles.letter__headline}>
-          <p>초대합니다</p>
-          <div className={styles.divide}></div>
-          <p>invitation</p>
-        </div>
+        <HeadLine title="초대합니다" content="invitation"></HeadLine>
         <div className={styles.letter__content}>
           <div className={styles.greet}>
             <p>

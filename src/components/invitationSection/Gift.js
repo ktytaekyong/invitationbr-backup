@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext, useRef } from "react";
 /* Component */
 import Button from "../layout/Button.js";
+import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Gift.module.scss";
 /* Image */
@@ -31,11 +32,7 @@ const Gift = () => {
   return (
     <div className={`${styles.gift} ${styles.style_theme_1}`}>
       <div className={styles.gift__wrap}>
-        <div className={styles.gift__headline}>
-          <p>마음 전하기</p>
-          <div className={styles.divide}></div>
-          <p>account</p>
-        </div>
+        <HeadLine title="마음 전하기" content="account"></HeadLine>
         <div className={styles.gift__content}>
           <div id="AccountM" className={styles.account__list}>
             <div className={styles.account__list_title} onClick={activeToggleHandler}>

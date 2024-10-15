@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Traffic from "./Traffic.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
+import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Location.module.scss";
 /* Image */
@@ -20,11 +21,7 @@ const Location = () => {
   return (
     <div className={`${styles.location} ${styles.style_theme_1}`}>
       <div className={styles.location__wrap}>
-        <div className={styles.location__headline}>
-          <p>오시는 길</p>
-          <div className={styles.divide}></div>
-          <p>LOCATION</p>
-        </div>
+        <HeadLine title="오시는 길" content="location"></HeadLine>
         <div className={styles.location__content}>
           <div className={styles.place}>
             <p>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</p>
