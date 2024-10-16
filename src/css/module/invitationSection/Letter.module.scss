@@ -41,6 +41,9 @@
       p {
         display: inline-block;
         font-size: $font-size--default;
+        font-weight: $font-weight--Medium;
+        color: $text-color--temp;
+        letter-spacing: 0.03em;
       }
       span {
         display: inline-block;

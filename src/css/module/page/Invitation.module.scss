@@ -11,6 +11,7 @@
   overflow-y: scroll;
   * {
     font-family: $font-family--theme;
+    font-weight: $font-weight--Medium;
   }
   &::-webkit-scrollbar {
     display: none;

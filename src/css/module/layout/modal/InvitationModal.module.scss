@@ -1,0 +1,60 @@
+@import "../../../_module";
+.modal {
+  &__invite {
+    @include flex__row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 70px;
+    * {
+      font-weight: $font-weight--Medium;
+    }
+    button {
+      font-size: $font-size--xsm;
+    }
+    .border_wrapper {
+      background: $bg-color--setting;
+    }
+    .wrapper {
+      @include position;
+      @include flex__column;
+      margin: 10px;
+      padding: 24px 0;
+      border: 1px solid $border-color--default;
+      border-radius: $radius--default;
+      background: #FFF;
+    }
+  }
+  &__header {
+    width: 100%;
+    @include flex__column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+    img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 4px;
+    }
+    p {
+      font-family: $font-family--theme;
+      font-size: $font-size--sl;
+      font-weight: $font-weight--Bold;
+      line-height: 1.5em;
+      color: $text-color--temp;
+    }
+  }
+  &__description {
+    width: 100%;
+    padding: 0 24px;
+    font-size: $font-size--sm;
+    text-align: center;
+    color: $text-color--gray;
+    a {
+      text-decoration: underline;
+      color: $text-color--essntial;
+    }
+    p {
+      color: $text-color--gray;
+    }
+  }
+}

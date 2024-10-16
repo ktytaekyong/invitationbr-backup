@@ -1,7 +1,7 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 /* Component */
-import NoticeTItem from "./NoticeTItem.js";
+import InvitationModalGuestbook from "../layout/modal/InvitationModalGuestbook.js";
 import HeadLine from "../layout/HeadLine.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
@@ -14,6 +14,11 @@ import { InfoContext } from "../../store/option-info-context.js";
 const Guestbook = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [isActive, setIsActive] = useState(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
   const activeToggleHandler = () => {
     setIsActive(!isActive);
   };
@@ -39,7 +44,7 @@ const Guestbook = () => {
                   <p className={styles.content}>두분 결혼 너무 축하드립니다. 행복하세요 :)</p>
                   <div className={styles.tool}>
                     <p>2024.08.22</p>
-                    <Button content="" styleType="invitation__guest_remove"></Button>
+                    <Button content="" styleType="invitation__guest_remove" onClick={handleOpen}></Button>
                   </div>
                 </li>
                 <li className={styles.guest__item}>
@@ -48,7 +53,7 @@ const Guestbook = () => {
                   결혼 진심으로 축하드려요~ 예식날 봬요♥</p>
                   <div className={styles.tool}>
                     <p>2024.08.22</p>
-                    <Button content="" styleType="invitation__guest_remove"></Button>
+                    <Button content="" styleType="invitation__guest_remove" onClick={handleOpen}></Button>
                   </div>
                 </li>
               </ul>
@@ -59,6 +64,7 @@ const Guestbook = () => {
           }
         </div>
       </div>
+      <InvitationModalGuestbook openvar={open} onClose={handleClose}></InvitationModalGuestbook>
     </div>
   )
 }

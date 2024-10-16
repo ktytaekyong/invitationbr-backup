@@ -21,7 +21,7 @@
     .img__wrap {
       width: 24px;
       height: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 13px;
       img {
         width: 100%;
       }
@@ -35,7 +35,7 @@
       line-height: 1.5em;
       * {
         color: $text-color--disable;
-        font-weight: $font-weight--ExtraBold;
+        font-weight: $font-weight--Bold;
         letter-spacing: 0.1em;
       }
       span {

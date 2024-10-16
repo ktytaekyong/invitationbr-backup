@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 /* Component */
 import NoticeTItem from "./NoticeTItem.js";
 import HeadLine from "../layout/HeadLine.js";
+import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
@@ -13,9 +14,10 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const Attend = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const [isActive, setIsActive] = useState(false);
-  const activeToggleHandler = () => {
-    setIsActive(!isActive);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -28,10 +30,11 @@ const Attend = () => {
           참석 의사 전달 부탁 드립니다.
           </p>
           <ButtonWrapper styleType="center">
-            <Button content="참석 의사 전달하기" styleType="invitation__attend"></Button>
+            <Button content="참석 의사 전달하기" styleType="invitation__attend" onClick={handleOpen}></Button>
           </ButtonWrapper>
         </div>
       </div>
+      <InvitationModalAttend openvar={open} onClose={handleClose}></InvitationModalAttend>
     </div>
   )
 }

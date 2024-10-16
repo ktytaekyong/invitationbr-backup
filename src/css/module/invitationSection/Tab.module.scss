@@ -10,14 +10,17 @@
   background-color: $bg-color--tab;
   &__item {
     width: 25%;
-    & > a {
+    > a {
       @include flex__row;
       justify-content: center;
       align-items: center;
-      padding: 10px 3px;
+      vertical-align: middle;
+      padding: 8px 3px;
       font-size: $font-size--sm;
+      font-weight: $font-weight--Light;
       border-radius: 4px;
       background-color: $bg-color--tab;
+      color: #333;
     }
     &.active > a {
       border: 1px solid #E3E7EB;

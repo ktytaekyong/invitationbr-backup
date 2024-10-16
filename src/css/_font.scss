@@ -40,9 +40,27 @@
   font-weight: 800;
   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
 }
+/* SeoulHangang - Light */
+// @font-face {
+//   font-family: 'SeoulHangang';
+//   src: url('../font/SeoulHangang/SeoulHangangL.ttf') format('truetype');
+//   font-weight: 400;
+// }
 /* SeoulHangang - Medium */
 @font-face {
   font-family: 'SeoulHangang';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/SeoulHangangM.woff') format('woff');
-  font-weight: 400;
+  src: url('../font/SeoulHangang/SeoulHangangM.ttf') format('truetype');
+  font-weight: 500;
 }
+/* SeoulHangang - Bold */
+// @font-face {
+//   font-family: 'SeoulHangang';
+//   src: url('../font/SeoulHangang/SeoulHangangEB.ttf') format('truetype');
+//   font-weight: 700;
+// }
+/* SeoulHangang - ExtraBold */
+// @font-face {
+//   font-family: 'SeoulHangangEB';
+//   src: url('../font/SeoulHangang/SeoulHangangEB.ttf') format('truetype');
+//   font-weight: 800;
+// }

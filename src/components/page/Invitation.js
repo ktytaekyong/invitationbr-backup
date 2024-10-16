@@ -18,6 +18,7 @@ import Attend from "../invitationSection/Attend";
 import Outro from "../invitationSection/Outro";
 import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
+import SettingOther from "../invitationSection/SettingOther.js";
 /* CSS Module */
 import styles from "../../css/module/page/Invitation.module.scss";
 /* Context */
@@ -66,11 +67,11 @@ const Invitation = () => {
           selectSettingList.includes("settingOutro") ?
           <Outro></Outro> : null
         }
+        <SettingOther />
         {
           selectSettingList.includes("settingBgMusic") ?
           <BgMusic></BgMusic> : null
         }
-        
         <Footer></Footer>
       </Container>
     </div>

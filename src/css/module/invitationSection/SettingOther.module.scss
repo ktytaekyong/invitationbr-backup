@@ -1,0 +1,41 @@
+@import "../../_module";
+.other {
+  padding: 35px 24px 30px;
+  * {
+    font-family: $font-family--default;
+  }
+  &__wrap {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 24px;
+    text-align: center
+  }
+  &__item {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 10px;
+    width: 100%;
+    padding: 30px 5px;
+    background: $bg-color--setting;
+    border-radius: $radius--default;
+    img {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 6px;
+    }
+    p {
+      line-height: 1.5em;
+      &:first-of-type {
+        font-size: $font-size--ssm;
+      }
+      &:nth-of-type(2) {
+        font-size: $font-size--sm;
+        font-weight: $font-weight--Regular;
+        color: $text-color--disable;
+        letter-spacing: -0.03em;
+      }
+    }
+  }
+}
