@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -10,18 +10,21 @@ import IntroPhotoSettingTextColor from "./IntroPhotoSettingTextColor.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js"
 import Button from "../layout/Button.js"
 /* CSS Module */
+/* Context */
+import { IntroContext } from "../../store/option-intro-context.js";
 
 const IntroPhotoSetting = () => {
+  const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
   const [photoList, setPhotoList] = useState([]);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if(file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setPhotoList([
+        setSelectIntroPhoto([
           {
             src: e.target.result,
-            alt: e.target.result,
+            alt: e.target.result
           },
         ]);
       };
@@ -39,7 +42,7 @@ const IntroPhotoSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="사진" multi={true}>
-            <PhotoSelector id="photoList" listName={photoList} onChange={fileAddHandler} deleteFunction={setPhotoList} />
+            <PhotoSelector id="photoList" listName={selectIntroPhoto} onChange={fileAddHandler} deleteFunction={setPhotoList} />
           </CommonItemContent>
 
           <CommonItemContent title="편집" multi={true}>

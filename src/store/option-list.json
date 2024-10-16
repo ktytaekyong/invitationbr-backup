@@ -200,6 +200,12 @@
   ],
   "backgroundList": {
     "color": "#ffffff"
-  }
+  },
+  "selectIntroPhoto": [
+    {
+      "src": "",
+      "alt": ""
+    }
+  ]
 }
 

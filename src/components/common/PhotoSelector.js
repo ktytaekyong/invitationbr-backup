@@ -24,9 +24,11 @@ const PhotoSelector = (props) => {
           </li>
         } */}
         {props.listName.map((item, idx) => (
+          item.src !== null ?(편집) 사진 적용
           <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
             <Button type="button" styleType="close" onClick={() => {introDeleteHandler(item)}} />
           </li>
+          : null
         ))}
       </ul>
     </div>

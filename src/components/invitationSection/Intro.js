@@ -5,11 +5,14 @@ import { useState, useEffect, useContext } from "react";
 import styles from "../../css/module/invitationSection/Intro.module.scss";
 /* Image */
 import introRing from "../../img/intro/intro_theme_1_ring.png";
+import introPhoto from "../../img/intro/intro_photo_test.png";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
+import { IntroContext } from "../../store/option-intro-context.js";
 
 const Intro = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
   return (
     <div className={`${styles.intro} ${styles.style_theme_1}`}>
       <div className={styles.intro__wrap}>
@@ -23,7 +26,11 @@ const Intro = () => {
           </div>
         </div>
         <div className={styles.intro__photo}>
-          <img src="" alt="" />
+          {
+            selectIntroPhoto[0].src !== null ?
+            <img src={introPhoto} alt="표지 사진" />
+            : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
+          }
         </div>
         <div className={styles.intro__title}>
           <div className={styles.intro__title_couple}>
