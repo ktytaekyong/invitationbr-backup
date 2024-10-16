@@ -2,7 +2,7 @@
 .other {
   padding: 35px 24px 30px;
   * {
-    font-family: $font-family--default;
+    font-family: $font-family--default !important;
   }
   &__wrap {
     @include flex__column;
