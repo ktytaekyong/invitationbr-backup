@@ -23,7 +23,7 @@ export default function InvitationModal(props) {
         <ModalContent sx={{ width: 325 }}>
           <div className={styles.border_wrapper}>
             <div className={styles.wrapper}>
-              <Button styleType="invitation__close"></Button>
+              <Button styleType="invitation__close" onClick={props.onClose}></Button>
               <div className={styles.modal__header}>
                 <img src={props.headSrc} alt="" />
                 <p>{props.headContent}</p>

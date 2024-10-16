@@ -3,6 +3,7 @@ import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 import Traffic from "./Traffic.js";
+import InvitationModalLocation from "../layout/modal/InvitationModalLocation.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
@@ -18,6 +19,11 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const Location = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className={`${styles.location} ${styles.style_theme_1}`}>
       <div className={styles.location__wrap}>
@@ -28,7 +34,7 @@ const Location = () => {
             <p>울산광역시 남구 왕생로160</p>
           </div>
           <ButtonWrapper styleType="center">
-            <Button content="약도보기" styleType="invitation__map"></Button>
+            <Button content="약도보기" styleType="invitation__map" onClick={handleOpen}></Button>
           </ButtonWrapper>
           <div className={styles.map}>
             <div className={styles.map__wrap}>
@@ -58,6 +64,7 @@ const Location = () => {
         </div>
         <Traffic></Traffic>
       </div>
+      <InvitationModalLocation openvar={open} onClose={handleClose}></InvitationModalLocation>
     </div>
   )
 }

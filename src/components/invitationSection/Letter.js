@@ -1,6 +1,7 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 /* Component */
+import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
@@ -13,6 +14,11 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const Intro = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className={`${styles.letter} ${styles.style_theme_1}`}>
       <div className={styles.letter__wrap}>
@@ -42,10 +48,11 @@ const Intro = () => {
             </p>
           </div>
           <ButtonWrapper styleType="center">
-            <Button content="연락하기" styleType="invitation__call"></Button>
+            <Button content="연락하기" styleType="invitation__call" onClick={handleOpen}></Button>
           </ButtonWrapper>
         </div>
       </div>
+      <InvitationModalLetter openvar={open} onClose={handleClose}></InvitationModalLetter>
     </div>
   )
 }

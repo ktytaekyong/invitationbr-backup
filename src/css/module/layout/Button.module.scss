@@ -120,12 +120,12 @@
       @include flex__row;
       justify-content: center;
       align-items: center;
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
       padding: 0;
       line-height: 1em;
       border-radius: 999px;
-      background: transparent url(../../../img/icon/icon_close_modal.png) no-repeat center / 10px;
+      background: transparent url(../../../img/icon/icon_close_modal.png) no-repeat center / 15px;
     }
     &__call {
       padding: 15px 32px 15px 56px;

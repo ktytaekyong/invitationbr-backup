@@ -1,0 +1,84 @@
+@import "../../../_module";
+.input {
+  &__wrap {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    row-gap: 13px;
+    width: 100%;
+    margin-top: 8px;
+    &:nth-of-type(2) {
+      border-top: 1px solid $border-color--default;
+      padding-top: 17px;
+      margin-top: 17px;
+    }
+  }
+  &__item {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    column-gap: 16px;
+    width: 100%;
+    p {
+      font-size: $font-size--default;
+      font-family: $font-family--theme;
+      color: $text-color--temp;
+    }
+    &.groom {
+      .input__title {
+        color: $point-color--fourth;
+      }
+    }
+    &.bride {
+      .input__title {
+        color: $point-color--third;
+      }
+    }
+  }
+  &__title {
+    width: 76px;
+    font-size: $font-size--sm;
+    font-weight: $font-weight--Regular;
+    letter-spacing: -0.03em;
+    word-break: keep-all;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  &__data {
+    @include flex__column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    .data__wrap {
+      @include flex__row;
+      justify-content: flex-start;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      column-gap: 6px;
+      width: 100%;
+      .data__item {
+        @include flex__row;
+        justify-content: flex-end;
+        align-items: center;
+        column-gap: 31px;
+        padding-right: 5px;
+        width: 100%;
+        .contact {
+          @include flex__row;
+          justify-content: center;
+          align-items: center;
+          column-gap: 24px;
+          width: 100%;
+          max-width: 72px;
+          a {
+            width: 24px;
+            height: 24px; 
+            img {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
