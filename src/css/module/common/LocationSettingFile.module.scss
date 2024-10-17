@@ -26,9 +26,6 @@
       border: 1px solid $border-color--default;  
       background-color: #fff;
       color: $text-color--placeholder;
-      & + button {
-        display: none;
-      }
     }
     label {
       @include flex__row_inline;

@@ -33,13 +33,9 @@ const LocationSetting = () => {
           </CommonItemContent>
 
           <CommonItemContent title="약도 첨부">
-            <LocationSettingFile></LocationSettingFile>
+            <LocationSettingFile />
           </CommonItemContent>
         </CommonItemWrapper>
-
-        {/* <CommonItemWrapper>
-          
-        </CommonItemWrapper> */}
 
         {/* <CommonItemWrapper> */}
           {/* 멀티 구분도 필요 */}

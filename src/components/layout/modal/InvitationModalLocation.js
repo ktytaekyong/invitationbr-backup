@@ -1,5 +1,5 @@
 /* Import */
-import * as React from 'react';
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 import InvitationModal from './InvitationModal';
@@ -7,8 +7,11 @@ import InvitationModal from './InvitationModal';
 import styles from "../../../css/module/layout/modal/InvitationModalLocation.module.scss";
 /* Image */
 import iconModalHeader from "../../../img/icon/icon_map_modal.png";
+/* Context */
+import { InfoContext } from "../../../store/option-info-context.js";
 
 const InvitationModalLocation = ({ openvar, onClose }) => {
+  const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
   return (
     <>
       <InvitationModal 
@@ -23,7 +26,7 @@ const InvitationModalLocation = ({ openvar, onClose }) => {
             <div className={styles.input__data}>
               <div className={styles.data__wrap}>
                 <div className={styles.img__wrap}>
-                  <img src="" alt="" />
+                  <img src={selectLocationFile[0].src} alt={selectLocationFile[0].alt} />
                 </div>
               </div>
             </div>

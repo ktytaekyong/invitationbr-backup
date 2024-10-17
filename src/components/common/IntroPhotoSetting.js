@@ -32,7 +32,6 @@ const IntroPhotoSetting = () => {
     if(file) {
       try {
         const compressedFile = await imageCompression(file, option);
-        const originalSize = file.size / 1024; // KB 단위로 변환
         const fileList = new FileReader();
         fileList.onload = (e) => {
           setSelectIntroPhoto([
@@ -41,10 +40,6 @@ const IntroPhotoSetting = () => {
               alt: compressedFile.name
             },
           ]);
-          console.log(compressedFile);
-          console.log(`압축 전 파일 크기: ${originalSize.toFixed(2)} KB`);
-          const compressedSize = compressedFile.size / 1024; // KB 단위로 변환
-          console.log(`압축 후 파일 크기: ${compressedSize.toFixed(2)} KB`);
         };
         fileList.readAsDataURL(compressedFile);
       } catch (error) {

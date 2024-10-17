@@ -19,11 +19,15 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const Location = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
   };
+  useEffect(()=>{
+    console.log(selectLocationFile);
+  }, [selectLocationFile])
   return (
     <div className={`${styles.location} ${styles.style_theme_1}`}>
       <div className={styles.location__wrap}>
@@ -33,9 +37,13 @@ const Location = () => {
             <p>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</p>
             <p>울산광역시 남구 왕생로160</p>
           </div>
-          <ButtonWrapper styleType="center">
-            <Button content="약도보기" styleType="invitation__map" onClick={handleOpen}></Button>
-          </ButtonWrapper>
+          {
+            selectLocationFile.length > 0 ?
+            <ButtonWrapper styleType="center">
+              <Button content="약도보기" styleType="invitation__map" onClick={handleOpen} />
+            </ButtonWrapper>
+            : null
+          }
           <div className={styles.map}>
             <div className={styles.map__wrap}>
               <img src={tempMapImg} alt="" />
