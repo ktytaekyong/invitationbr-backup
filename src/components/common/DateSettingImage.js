@@ -9,15 +9,12 @@ import CalendarImg from "../../img/calendar/calendar_img.png";
 const imageList = [
   {
     src: "",
-
   },
   {
     src: "",
-
   },
   {
     src: "",
-
   }
 ]
 

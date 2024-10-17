@@ -12,7 +12,8 @@
     background-color: #fff;
     overflow: hidden;
     &.active {
-      border: 2px solid $point-color--fourth;
+      border: 1px solid #182D4B;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.06);
     }
   }
 }
