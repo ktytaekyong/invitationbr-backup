@@ -6,6 +6,7 @@ import TabProvider from "./option-tab-provider.js"
 import InfoProvider from "./option-info-provider.js"
 import IntroProvider from "./option-intro-provider.js"
 import SetProvider from "./option-set-provider.js"
+import GalleryProvider from "./option-gallery-provider.js";
 
 const ContextWrap = ({ children }) => {
   return (
@@ -14,9 +15,11 @@ const ContextWrap = ({ children }) => {
         <InfoProvider>
           <IntroProvider>
             <TabProvider>
-              <BackgroundContext.Provider value={{ backgroundList: initList.backgroundList }}>
-                {children}
-              </BackgroundContext.Provider>
+              <GalleryProvider>
+                <BackgroundContext.Provider value={{ backgroundList: initList.backgroundList }}>
+                  {children}
+                </BackgroundContext.Provider>
+              </GalleryProvider>
             </TabProvider>
           </IntroProvider>
         </InfoProvider>

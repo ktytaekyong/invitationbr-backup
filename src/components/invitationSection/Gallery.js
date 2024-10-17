@@ -33,7 +33,7 @@ const renderContent = (galleryType) => {
 // const Gallery = ({ galleryType }) => {
 const Gallery = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const galleryType = "mix";
+  const galleryType = "slide";
   return (
     <div className={`${styles.gallery} ${styles.style_theme_1}`}>
       <div className={styles.gallery__wrap}>

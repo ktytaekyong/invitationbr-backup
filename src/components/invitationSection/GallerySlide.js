@@ -8,12 +8,12 @@ import 'swiper/css/scrollbar';
 /* CSS Module */
 import styles from "../../css/module/invitationSection/GallerySlide.module.scss";
 /* Image */
-// import tempMapImg from "../../img/location/temp_map.png";
+import galleryPhoto from "../../img/gallery/slide_photo_test.png";
 /* Context */
-import { InfoContext } from "../../store/option-info-context.js";
+import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const GallerySlide = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   return (
     <div className={`${styles.gallery__type} ${styles.slide}`}>
       <Swiper
@@ -28,10 +28,28 @@ const GallerySlide = () => {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
+        {/* {
+          selectIntroPhoto.length === 0 ?
+          <img src={introPhoto} alt="표지 사진" />
+          : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
+        } */}
+        {
+          selectGalleryPhotoList.length === 0 ?
+          <>
+            <SwiperSlide>
+              <img src={galleryPhoto} alt="" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={galleryPhoto} alt="" />
+            </SwiperSlide>
+          </>
+          :
+          selectGalleryPhotoList.map((item, idx) => (
+            <SwiperSlide key={item + idx}>
+              <img src={item.src} alt="item.alt" />
+            </SwiperSlide>
+          ))
+        }
       </Swiper>
     </div>
   )

@@ -26,7 +26,11 @@ const InvitationModalLocation = ({ openvar, onClose }) => {
             <div className={styles.input__data}>
               <div className={styles.data__wrap}>
                 <div className={styles.img__wrap}>
-                  <img src={selectLocationFile[0].src} alt={selectLocationFile[0].alt} />
+                  {
+                    selectLocationFile.length > 0 ? 
+                    <img src={selectLocationFile[0].src} alt={selectLocationFile[0].alt} />
+                    : null
+                  }
                 </div>
               </div>
             </div>

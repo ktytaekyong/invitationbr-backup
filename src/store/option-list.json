@@ -20,11 +20,6 @@
       "placeDetail": "기본 홀(1층)"
     }
   },
-  "selectSettingList": [
-    "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation",
-    "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
-  ],
-  "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
   "settingList": [
     {
       "itemId": "settingFixedTab",
@@ -198,12 +193,22 @@
       "content": "참석의사"
     }
   ],
-  "backgroundList": {
-    "color": "#ffffff"
-  },
+
+  "selectSettingList": [
+    "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation",
+    "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
+  ],
+  "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
   "selectIntroPhoto": [
   ],
   "selectLocationFile": [
-  ]
+  ],
+  "selectGalleryType": "gallerySlideType",
+  "selectGalleryPhotoList": [
+  ],
+
+  "backgroundList": {
+    "color": "#ffffff"
+  }
 }
 
