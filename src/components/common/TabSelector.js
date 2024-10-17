@@ -19,26 +19,19 @@ const TabSelector = ({ listName, onChange, onClick }) => {
   return (
     <ul className={styles.tab__selector}>
       {
-        onChange ?
         listName.map((item, idx) => (
           <li className={`${styles.selector__item} ${isActive === idx ? styles["active"] : ""} ${item.id.indexOf("noticeTab") !== -1 ? styles["tab"] : ""}`} 
             key={item + idx} id={item.id} 
-            onClick={() => setActiveHandler(idx, onChange)} 
+            onClick={() => setActiveHandler(idx, onChange(item))} 
           >
             <span>{item.title}</span>
+            {/* 탭형 안내사항을 선택했을 경우 */}
             {
               item.id.indexOf("noticeTab") !== -1 ?
               <Button styleType="tab__delete" onClick={onClick ? onClick : false}></Button>
               : null
             }
           </li>
-        ))
-        :
-        listName.map((item, idx) => (
-          <li className={`${styles.selector__item} ${isActive === idx ? styles["active"] : ""}`} 
-            key={item + idx} id={item.id} 
-            onClick={() => setActiveHandler(idx)} 
-          >{item.title}</li>
         ))
       }
     </ul>
