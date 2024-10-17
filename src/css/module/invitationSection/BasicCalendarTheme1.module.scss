@@ -33,10 +33,10 @@
     .MuiDayCalendar-weekContainer {
       > * {
         &:first-child {
-          color: $point-color--default !important;
+          color: $point-color--default;
         }
         &:last-child {
-          color: $text-color--blue !important;
+          color: $text-color--blue;
         }
       }
     }
@@ -59,6 +59,7 @@
     }
     .Mui-selected {
       background: $point-color--third !important;
+      color: #FFF !important;
     }
   }
 }

@@ -9,16 +9,17 @@ import 'dayjs/locale/ko';
 import styles from "../../css/module/invitationSection/BasicCalendarTheme1.module.scss";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
-dayjs.locale('ko');
-console.log(dayjs.locale());
 
 const BasicCalendarTheme1 = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  useEffect(() => {
+    
+  }, [basicInfoList.dateInfo.date]);
   return (
     <div className="calendar__wrap">
       <LocalizationProvider dateAdapter={AdapterDayjs}>
         <DateCalendar 
-          defaultValue={dayjs(basicInfoList.dateInfo.date)}
+          value={dayjs(basicInfoList.dateInfo.date)}
           className={styles.calendar}
         />
       </LocalizationProvider>

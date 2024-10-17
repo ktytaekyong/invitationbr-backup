@@ -5,7 +5,7 @@ import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
 import Letter from "../invitationSection/Letter";
-import Date from "../invitationSection/Date";
+import Calendar from "../invitationSection/Calendar.js";
 import Location from "../invitationSection/Location";
 import Gallery from "../invitationSection/Gallery";
 import Video from "../invitationSection/Video";
@@ -32,7 +32,7 @@ const Invitation = () => {
         <Tab></Tab>
         <Intro></Intro>
         <Letter></Letter>
-        <Date></Date>
+        <Calendar></Calendar>
         <Location></Location>
         {
           selectSettingList.includes("settingGallery") ?

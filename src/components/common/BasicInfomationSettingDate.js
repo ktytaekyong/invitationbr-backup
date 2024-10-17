@@ -11,11 +11,18 @@ const dateHourList = [
 const dateMinuteList = [
   {itemKey: 0, itemName: "정각"}, {itemKey: 10, itemName: "10분"}, {itemKey: 20, itemName: "20분"}, {itemKey: 30, itemName: "30분"}, {itemKey: 40, itemName: "40분"}, {itemKey: 50, itemName: "50분"}
 ];
+
 const BasicInfomationSettingDate = ({ inputType, onChange, dateInfo, timeInfo }) => {
   return (
     <div className={styles.option__input}>
       {inputType === "date" ? 
-        <input type="date" id="BasicInfoDate" name="date" onChange={onChange} value={dateInfo.date} />
+        <input 
+          type="date" 
+          id="BasicInfoDate" 
+          name="date" 
+          onChange={onChange} 
+          value={dateInfo.date} 
+        />
         :
         <>
           <OptionSelector selectID="BasicInfoHour" selectName="hour" listName={dateHourList} value={timeInfo.hour} onChange={onChange} />

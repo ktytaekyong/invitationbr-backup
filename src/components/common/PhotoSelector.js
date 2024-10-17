@@ -1,3 +1,5 @@
+/* Import */
+// import imageCompression from 'browser-image-compression';
 /* Component */
 import Button from "../layout/Button";
 /* CSS Module */

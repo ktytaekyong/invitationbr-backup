@@ -28,6 +28,7 @@ a {
 }
 img {
   display: block;
+  image-rendering: auto;
   -webkit-user-drag: none;
 }
 select {

@@ -13,6 +13,17 @@ import { IntroContext } from "../../store/option-intro-context.js";
 const Intro = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
+  const handleDateChange = (date) => {
+    const selectedDate = date; 
+    const formattedDate = selectedDate.split('-').join('.'); // "-"를 "."으로 변경
+    return formattedDate;
+  };
+  const handleDaysChange = (date) => {
+    const dateObj = new Date(date);
+    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; // 요일 배열
+    const dayOfWeek = daysOfWeek[dateObj.getDay()]; // 요일 계산
+    return dayOfWeek;
+  }
   return (
     <div className={`${styles.intro} ${styles.style_theme_1}`}>
       <div className={styles.intro__wrap}>
@@ -27,7 +38,7 @@ const Intro = () => {
         </div>
         <div className={styles.intro__photo}>
           {
-            selectIntroPhoto[0].src !== null ?
+            selectIntroPhoto.length === 0 ?
             <img src={introPhoto} alt="표지 사진" />
             : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
           }
@@ -39,7 +50,9 @@ const Intro = () => {
             <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
           </div>
           <div className={styles.intro__title_date}>
-            <h3 className={styles.date}>{`${basicInfoList.dateInfo.date} 오전 ${basicInfoList.timeInfo.hour}:${basicInfoList.timeInfo.min}`}</h3>
+            <h3 className={styles.date}>
+              {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}:${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min : "00"}`}
+            </h3>
           </div>
           <div className={styles.intro__title_place}>
             <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>

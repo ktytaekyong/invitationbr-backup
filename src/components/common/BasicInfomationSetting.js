@@ -26,7 +26,7 @@ const BasicInfomationSetting = () => {
         [name]: value
       }
     }))
-    console.log(basicInfoList);
+    // console.log(basicInfoList);
   }
   return (
     <CommonOptionWrapper>
