@@ -28,11 +28,6 @@ const GallerySlide = () => {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        {/* {
-          selectIntroPhoto.length === 0 ?
-          <img src={introPhoto} alt="표지 사진" />
-          : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-        } */}
         {
           selectGalleryPhotoList.length === 0 ?
           <>

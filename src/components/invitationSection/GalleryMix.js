@@ -10,10 +10,10 @@ import styles from "../../css/module/invitationSection/GalleryMix.module.scss";
 /* Image */
 // import tempMapImg from "../../img/location/temp_map.png";
 /* Context */
-import { InfoContext } from "../../store/option-info-context.js";
+import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const GalleryMix = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   return (
     <div className={`${styles.gallery__type} ${styles.mix}`}>
       <Swiper
@@ -23,10 +23,15 @@ const GalleryMix = () => {
         loop={true}
         modules={[Pagination]}
         className="mySwiper"
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>
+        {
+          selectGalleryPhotoList.length === 0 ?
+          
+          :
+        }
+        {/* <SwiperSlide>
           <div className={styles.top}>
             <img src="" alt="" />
             1
@@ -49,19 +54,7 @@ const GalleryMix = () => {
             <img src="" alt="" />
             <img src="" alt="" />
           </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className={styles.top}>
-            3
-            <img src="" alt="" />
-          </div>
-          <div className={styles.bottom}>
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-            <img src="" alt="" />
-          </div>
-        </SwiperSlide>
+        </SwiperSlide> */}
       </Swiper>
     </div>
   )
