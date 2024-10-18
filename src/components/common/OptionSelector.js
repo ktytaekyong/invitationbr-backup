@@ -9,7 +9,6 @@ const OptionSelector = ({ selectID, selectName, value, listName, onChange, style
       <select 
         id={selectID} 
         name={selectName}
-        value={value}
         onChange={onChange} 
         className={styles.option__selector}>
         {

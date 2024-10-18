@@ -37,13 +37,13 @@ const Intro = () => {
           </div>
           <div className={styles.detail}>
             <p>
-              {/* {故 ? 故 : null} */}이길현 · {/* {故 ? 故 : null} */}김윤희
-              <span>의 차남</span>
+              {basicInfoList.groomParentInfo.dadDeceased ? "故" : null}{basicInfoList.groomParentInfo.dadName} · {basicInfoList.groomParentInfo.momDeceased ? "故" : null}{basicInfoList.groomParentInfo.momName}
+              <span>의 {basicInfoList.groomInfo.relation}</span>
               {basicInfoList.groomInfo.firstname}
             </p>
             <p>
-              {/* {故 ? 故 : null} */}김영수 · {/* {故 ? 故 : null} */}이영은
-              <span>의 장녀</span>
+              {basicInfoList.brideParentInfo.dadDeceased ? "故" : null}{basicInfoList.brideParentInfo.dadName} · {basicInfoList.brideParentInfo.momDeceased ? "故" : null}{basicInfoList.brideParentInfo.momName}
+              <span>의 {basicInfoList.brideInfo.relation}</span>
               {basicInfoList.brideInfo.firstname}
             </p>
           </div>

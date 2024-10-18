@@ -26,7 +26,6 @@ const GallerySettingType = () => {
   const { selectGalleryType, setSelectGalleryType } = useContext(GalleryContext);
   const changeTypeHandler = (item) => {
     setSelectGalleryType(item.id);
-    console.log(selectGalleryType);
   }
   return (
     <TabSelector listName={typeList} onChange={changeTypeHandler} />

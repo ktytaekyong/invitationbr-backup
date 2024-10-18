@@ -2,11 +2,15 @@
   "basicInfoList": {
     "groomInfo": {
       "lastname": "이",
-      "firstname": "신랑"
+      "firstname": "신랑",
+      "relation": "아들",
+      "number": "01000000001"
     },
     "brideInfo": {
       "lastname": "김",
-      "firstname": "신부"
+      "firstname": "신부",
+      "relation": "딸",
+      "number": "01000000002"
     },
     "dateInfo": {
       "date": "2024-10-30"
@@ -18,8 +22,26 @@
     "placeInfo": {
       "placeName": "기본 식장",
       "placeDetail": "기본 홀(1층)"
+    },
+    "groomParentInfo": {
+      "dadName": "이아빠",
+      "dadNumber": "01000000001",
+      "dadDeceased": false,
+      "momName": "이엄마",
+      "momNumber": "01000000002",
+      "momDeceased": false
+    },
+    "brideParentInfo": {
+      "dadName": "김아빠",
+      "dadNumber": "01000000003",
+      "dadDeceased": false,
+      "momName": "김엄마",
+      "momNumber": "01000000004",
+      "momDeceased": false
     }
   },
+
+
   "settingList": [
     {
       "itemId": "settingFixedTab",
@@ -204,11 +226,22 @@
   "selectLocationFile": [
   ],
   "selectGalleryType": "gallerySlideType",
+  "selectGalleryView": false,
   "selectGalleryPhotoList": [
   ],
 
   "backgroundList": {
     "color": "#ffffff"
-  }
+  },
+  "trafficList": [
+    {
+      "traffic": "",
+      "content": ""
+    },
+    {
+      "traffic": "",
+      "content": ""
+    }
+  ]
 }
 

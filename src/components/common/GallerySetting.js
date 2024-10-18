@@ -12,8 +12,11 @@ import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
 // import styles from "../../css/module/common/CommonOptionContent.module.css";
+/* Context */
+import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const GallerySetting = () => {
+  const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -26,6 +29,7 @@ const GallerySetting = () => {
           <CommonItemContent title="더보기">
             <CheckItem id="galleryMoreOption" content="사진이 3줄 이상일 경우 ‘더보기’ 버튼 생성"></CheckItem>
           </CommonItemContent>
+          {/* onChange={setSelectGalleryPhotoList} */}
 
           <GallerySettingPhoto />
           <SettingNotice>

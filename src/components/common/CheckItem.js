@@ -4,7 +4,7 @@ import styles from "../../css/module/common/CheckItem.module.scss";
 const CheckItem = (props) => {
   return (
     <div className={styles.check}>
-      <input type="checkbox" name={props.id} id={props.id} disabled={props.disabled} />
+      <input type="checkbox" name={props.name} id={props.id} disabled={props.disabled} onChange={props.onChange} />
       <label htmlFor={props.id}>
         {
           props.labelImgSrc ?

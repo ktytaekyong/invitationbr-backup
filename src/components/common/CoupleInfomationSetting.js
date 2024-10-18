@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -13,24 +13,49 @@ import Button from "../layout/Button.js"
 import CheckItem from "./CheckItem.js";
 /* CSS Module */
 // const parents = ["아버지", "어머니"];
+/* Context */
+import { InfoContext } from "../../store/option-info-context.js";
+
 const parents = [
   {
     itemName: "아버지",
-    itemKey: "Father"
+    itemKey: "Dad"
   },
   {
     itemName: "어머니",
-    itemKey: "Mother"
+    itemKey: "Mom"
   }
 ];
+
 const CoupleInfomation = () => {
   const [isActive, setIsActive] = useState(0);
   const [isActiveTab, setIsActiveTab] = useState(0);
+  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }
   const setActiveTabHandler = (idx) => {
     setIsActiveTab(idx);
+  }
+  const basicDataChangeHandler = (e, infoType) => {
+    const { name, value } = e.target;
+    setBasicInfoList(prev => ({
+      ...prev,
+      [infoType]: {
+        ...prev[infoType],
+        [name]: value
+      }
+    }))
+  }
+  const basicCheckedHandler = (e, infoType) => {
+    const { name, checked } = e.target;
+    setBasicInfoList(prev => ({
+      ...prev,
+      [infoType]: {
+        ...prev[infoType],
+        [name]: checked
+      }
+    }))
   }
 
   return (
@@ -39,11 +64,18 @@ const CoupleInfomation = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="신랑">
-            <CoupleInfomationSettingBasic couple="신랑" coupleKey="M"></CoupleInfomationSettingBasic>
+            <CoupleInfomationSettingBasic couple="신랑" coupleKey="M" value={basicInfoList.groomInfo} />
           </CommonItemContent>
           {parents.map((parent, idx) => (
             <CommonItemContent title={parent.itemName} key={`${parent.itemName}${idx}`}>
-              <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="M"></CoupleInfomationSettingParents>
+              <CoupleInfomationSettingParents 
+                itemKey={parent.itemKey} 
+                pName={parent.itemName} 
+                coupleKey="M"
+                data={basicInfoList.groomParentInfo}
+                onChange={(e) => basicDataChangeHandler(e, "groomParentInfo")}
+                onCheck={(e) => basicCheckedHandler(e, "groomParentInfo")}
+              />
             </CommonItemContent>
           ))}
         </CommonItemWrapper>
@@ -53,11 +85,18 @@ const CoupleInfomation = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="신부">
-            <CoupleInfomationSettingBasic couple="신부" coupleKey="F"></CoupleInfomationSettingBasic>
+            <CoupleInfomationSettingBasic couple="신부" coupleKey="F" value={basicInfoList.brideInfo} />
           </CommonItemContent>
           {parents.map((parent, idx) => (
             <CommonItemContent title={parent.itemName} key={`${parent.itemName}${idx}`}>
-              <CoupleInfomationSettingParents itemKey={parent.itemKey} name={parent.itemName} coupleKey="F"></CoupleInfomationSettingParents>
+              <CoupleInfomationSettingParents 
+                itemKey={parent.itemKey} 
+                pName={parent.itemName} 
+                coupleKey="F"
+                data={basicInfoList.brideParentInfo}
+                onChange={(e) => basicDataChangeHandler(e, "brideParentInfo")}
+                onCheck={(e) => basicCheckedHandler(e, "brideParentInfo")}
+              />
             </CommonItemContent>
           ))}
         </CommonItemWrapper>

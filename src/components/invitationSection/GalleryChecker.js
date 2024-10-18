@@ -15,7 +15,15 @@ import galleryPhoto from "../../img/gallery/slide_photo_test.png";
 import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const GalleryChecker = () => {
-  const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
+  const { selectGalleryPhotoList, setSelectGalleryPhotoList, selectGalleryView, setSelectGalleryView } = useContext(GalleryContext);
+  const [moreViewIdx, setMoreViewIdx] = useState(20);
+  useEffect(() => {
+    if(selectGalleryView) {
+      setMoreViewIdx(9);
+    } else {
+      setMoreViewIdx(20);
+    }
+  }, [selectGalleryView])
   return (
     <div className={`${styles.gallery__type} ${styles.checker}`}>
       <div className={styles.checker__wrap}>
@@ -37,19 +45,41 @@ const GalleryChecker = () => {
             <div className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
+            <div className={styles.gallery__item}>
+              <img src={galleryPhoto} alt="" />
+            </div>
+            <div className={styles.gallery__item}>
+              <img src={galleryPhoto} alt="" />
+            </div>
+            <div className={styles.gallery__item}>
+              <img src={galleryPhoto} alt="" />
+            </div>
+            <div className={styles.gallery__item}>
+              <img src={galleryPhoto} alt="" />
+            </div>
+            <div className={styles.gallery__item}>
+              <img src={galleryPhoto} alt="" />
+            </div>
+            <div className={styles.gallery__item}>
+              <img src={galleryPhoto} alt="" />
+            </div>
           </>
           :
-          selectGalleryPhotoList.map((item, idx) => (
+          selectGalleryPhotoList.filter((_, idx) => idx < moreViewIdx)
+          .map((item, idx) => (
             <div key={item + idx} className={styles.gallery__item}>
               <img src={item.src} alt="" />
             </div>
           ))
         }
-        
       </div>
-      <ButtonWrapper styleType="center">
-        <Button content="더보기" styleType="invitation__gallery_view"></Button>
-      </ButtonWrapper>
+      {
+        selectGalleryView === false ?
+        null :
+        <ButtonWrapper styleType="center">
+          <Button content="더보기" styleType="invitation__gallery_view" />
+        </ButtonWrapper>
+      }
       {/* <Swiper
         spaceBetween={0}
         slidesPerView={1}
