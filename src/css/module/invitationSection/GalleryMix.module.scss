@@ -5,6 +5,10 @@
       .swiper-slide {
         border-radius: $radius--default;
         img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
           border-radius: $radius--default;
           background: #EEE;
         }
@@ -24,11 +28,23 @@
         background: $text-color--disable;
       }
     }
-    .top {
+    .slide__wrap {
+      @include flex__row;
+      flex-wrap: wrap;
+      column-gap: 8px;
       width: 100%;
-      height: 220px;
-      background: #EEE;
       border-radius: $radius--default;
+      img {
+        &:first-child {
+          width: 100%;
+          height: 220px;
+          margin-bottom: 12px;
+        }
+        &:nth-child(n + 2) {
+          width: calc((100% - 24px) / 4);
+          height: 52px;
+        }
+      }
     }
     .bottom {
       display: grid;
