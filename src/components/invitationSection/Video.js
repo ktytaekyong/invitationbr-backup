@@ -19,7 +19,8 @@ const Video = () => {
           <div className={styles.video__play}>
             <img src={iconVideoPlay} alt="" />
           </div>
-          <video src={videoList.videoUrl}></video>
+          {/* <video src=""></video> */}
+          <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
     </div>
