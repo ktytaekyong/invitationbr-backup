@@ -17,8 +17,8 @@ const Traffic = () => {
             {
               trafficList.map((item, idx) => (
                 <li key={item.traffic + idx} className={styles.traffic__item}>
-                  <p>{item.traffic}</p>
-                  <p>{item.content}</p>
+                  <p>{item.traffic === "" ? "교통수단" : item.traffic}</p>
+                  <p>{item.content === "" ? "교통수단입니다." : item.content}</p>
                 </li>
               ))
             }

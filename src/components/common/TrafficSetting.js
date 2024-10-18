@@ -29,14 +29,28 @@ const TrafficSetting = () => {
       return [...trafficList].filter((_, listidx) => listidx !== removeidx);
     })
   }
+  const trafficDataChangeHandler = (e, index) => {
+    const { name, value } = e.target;
+    setTrafficList(prev => (
+      prev.map((item, idx) => 
+        idx === index ? { ...item, [name]: value } : item 
+      )
+    ))
+  }
   return (
     <ListOptionContent>
       {
         trafficList.map((item, idx) => (
         <CommonItemWrapper key={`${item}${idx}`}>
           <CommonItemContent title="교통수단" multi={true}>
-            <input type="text" value={item.traffic} placeholder="교통수단명을 입력하세요. (ex : 지하철/버스/자가용)" />
-            <TextEditor textValue={item.content}></TextEditor>
+            <input 
+              type="text" 
+              name="traffic" 
+              value={item.traffic} 
+              placeholder="교통수단명을 입력하세요. (ex : 지하철/버스/자가용)"
+              onChange={(e) => trafficDataChangeHandler(e, idx)} 
+            />
+            <TextEditor name="content" textValue={item.content} onChange={(e) => trafficDataChangeHandler(e, idx)} />
             <Button type="button" content="교통수단 삭제" styleType="remove" onClick={() => trafficRemoveHandler(idx)} />
           </CommonItemContent>
         </CommonItemWrapper>
