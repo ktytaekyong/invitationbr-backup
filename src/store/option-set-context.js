@@ -5,4 +5,6 @@ export const SetContext = createContext({
   settingList: [],
   selectSettingList: [],
   setSelectSettingList: () => {}, 
+  videoList: [],
+  setVideoList: () => {}, 
 });

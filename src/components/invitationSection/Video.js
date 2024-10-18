@@ -7,10 +7,10 @@ import styles from "../../css/module/invitationSection/Video.module.scss";
 /* Image */
 import iconVideoPlay from "../../img/icon/icon_video_play.png";
 /* Context */
-import { InfoContext } from "../../store/option-info-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const Video = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { videoList, setVideoList } = useContext(SetContext);
   return (
     <div className={`${styles.video} ${styles.style_theme_1}`}>
       <div className={styles.video__wrap}>
@@ -19,7 +19,7 @@ const Video = () => {
           <div className={styles.video__play}>
             <img src={iconVideoPlay} alt="" />
           </div>
-          <video src=""></video>
+          <video src={videoList.videoUrl}></video>
         </div>
       </div>
     </div>

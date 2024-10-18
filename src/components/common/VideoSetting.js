@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -12,16 +12,20 @@ import VideoSettingOption from "./VideoSettingOption.js";
 
 const typeList = [
   {
-    id: "vedioYoutubeOption",
+    id: "videoYoutubeOption",
     title: "유튜브 등록",
   },
   {
-    id: "vedioRegOption",
+    id: "videoRegOption",
     title: "직접 등록",
   }
 ];
 const VideoSetting = () => {
-  const [active, setActive] = useState(false);
+  // const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const [isActiveTab, setIsActiveTab] = useState("videoYoutubeOption");
+  const setActiveTabHandler = (item) => {
+    setIsActiveTab(item);
+  }
 
   return (
     <CommonOptionWrapper>
@@ -29,8 +33,8 @@ const VideoSetting = () => {
         <CommonItemWrapper>
           <CommonItemContent title="등록방법" multi={true}>
             {/* 탭 활성화 필요 */}
-            <TabSelector listName={typeList} onChange={setActive}></TabSelector>
-            <VideoSettingOption active={active} />
+            <TabSelector listName={typeList} onChange={setActiveTabHandler} />
+            <VideoSettingOption active={isActiveTab} />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>

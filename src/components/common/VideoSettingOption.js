@@ -1,14 +1,16 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
 import styles from "../../css/module/common/VideoSettingOption.module.scss";
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const VideoSettingOption = ({ active }) => {
-  const [videoList, setVideoList] = useState([]);
+  const { videoList, setVideoList } = useContext(SetContext);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if(file) {
@@ -24,15 +26,24 @@ const VideoSettingOption = ({ active }) => {
       fileList.readAsDataURL(file);
     }
   }
+  const youtubeUrlHandler = (e) => {
+    const { name, value } = e.target;
+    setVideoList((prev) => (
+      {
+        ...prev,
+        [name]: value
+      }
+    ))
+  }
   
   return (
     <div className={styles.video__wrap}>
       {
-        active === false ?
+        active === "videoYoutubeOption" ?
         <div className={styles.video__youtube}>
           <div className={styles.input__wrap}>
             <label htmlFor="videoYoutubeUrl">유튜브 URL</label>
-            <input type="text" id="videoYoutubeUrl" name="videoYoutubeUrl" className={styles.youtube__input} />
+            <input type="text" id="videoUrl" name="videoUrl" value={videoList.videoUrl} className={styles.youtube__input} />
           </div>
           <SettingNotice>
             <SettingNoticeContent>업로드한 영상의 URL 주소를 입력하세요.</SettingNoticeContent>
@@ -42,7 +53,7 @@ const VideoSettingOption = ({ active }) => {
         </div>
         :
         <div className={styles.video__reg}>
-          <PhotoSelector listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList}></PhotoSelector>
+          <PhotoSelector type="video" listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList}></PhotoSelector>
           <SettingNotice>
             <SettingNoticeContent>파일확장자명은 mp3, mov, avi, mkv, 용량 10mb 이하로 1개만 등록하실 수 있습니다.</SettingNoticeContent>
           </SettingNotice>

@@ -25,11 +25,16 @@ const PhotoSelector = (props) => {
             <Button type="button" styleType="close" content="X" />
           </li>
         } */}
-        {props.listName.map((item, idx) => (
-          <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
-            <Button type="button" styleType="close" onClick={() => {introDeleteHandler(item)}} />
-          </li>
-        ))}
+        {
+          props.type === "video" ?
+          null
+          :
+          props.listName.map((item, idx) => (
+            <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
+              <Button type="button" styleType="close" onClick={() => {introDeleteHandler(item)}} />
+            </li>
+          ))
+        }
       </ul>
     </div>
   )

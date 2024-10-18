@@ -41,7 +41,6 @@
     }
   },
 
-
   "settingList": [
     {
       "itemId": "settingFixedTab",
@@ -242,6 +241,10 @@
       "traffic": "",
       "content": ""
     }
-  ]
+  ],
+  "videoList": {
+    "videoUrl": "https://www.youtube.com/watch?v=Ph3qiYfmyro",
+    "videoSrc": ""
+  }
 }
 
