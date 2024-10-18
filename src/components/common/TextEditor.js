@@ -13,7 +13,7 @@ import {ReactComponent as IconImgLeft} from "../../img/icon/icon_editor_tool_lef
 import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_right.svg"
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
-const TextEditor = ({ type }) => {
+const TextEditor = ({ type, textValue }) => {
   const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -51,7 +51,7 @@ const TextEditor = ({ type }) => {
             </button>
           </ul>
         </div>
-        <textarea name="" id="" className={styles.editor__content_wrap} placeholder="내용을 입력하세요."></textarea>
+        <textarea name="" id="" className={styles.editor__content_wrap} value={textValue} placeholder="내용을 입력하세요."></textarea>
         {
           type === "letter" ?
           <div className={styles.button__wrapper}>

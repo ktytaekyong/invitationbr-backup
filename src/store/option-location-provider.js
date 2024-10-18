@@ -2,20 +2,20 @@
 import { useState } from "react";
 import initList from "./option-list.json";
 /* Context */
-import { IntroContext } from "./option-intro-context.js"
+import { LocationContext } from "./option-location-context.js"
 
-const IntroProvider = ({ children }) => {
-  const [selectIntroPhoto, setSelectIntroPhoto] = useState(initList.selectIntroPhoto);
+const LocationProvider = ({ children }) => {
+  const [trafficList, setTrafficList] = useState(initList.trafficList);
   return (
-    <IntroContext.Provider
+    <LocationContext.Provider
       value={{
-        selectIntroPhoto,
-        setSelectIntroPhoto,
+        trafficList,
+        setTrafficList,
       }}
     >
       {children}
-    </IntroContext.Provider>
+    </LocationContext.Provider>
   );
 };
 
-export default IntroProvider;
+export default LocationProvider;
