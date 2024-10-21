@@ -22,6 +22,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const NoticeSettingT = () => {
   const { noticeTList, setNoticeTList } = useContext(SetContext);
+  const { selectNoticeT, setSelectNoticeT } = useContext(SetContext);
   const [radioActive, setRadioActive] = useState("");
   const [noticeTImgList, setNoticeTImgList] = useState([]);
   const [addTitle, setAddTitle] = useState("");
@@ -76,8 +77,8 @@ const NoticeSettingT = () => {
   }
   useEffect(() => {
     if (noticeTList.length > 0) {
-      if (!noticeTList.some(item => item.id === radioActive)) {
-        setRadioActive(noticeTList[0].id);
+      if (!noticeTList.some(item => item.id === selectNoticeT)) {
+        setSelectNoticeT(noticeTList[0].id);
       }
     }
   }, [noticeTList, radioActive]);
@@ -87,14 +88,14 @@ const NoticeSettingT = () => {
         <CommonOptionContent>
           <CommonItemWrapper>
             <CommonItemContent title="탭 순서" multi="check">
-              <TabSelector listName={noticeTList} onChange={setRadioActive} onClick={handleOpenDel} delFunction={noticeRemoveHandler} />
+              <TabSelector listName={noticeTList} onChange={setSelectNoticeT} onClick={handleOpenDel} delFunction={noticeRemoveHandler} />
               <ButtonWrapper>
                 <Button content="탭 추가" styleType="add" onClick={handleOpenAdd}></Button>
               </ButtonWrapper>
             </CommonItemContent>
           </CommonItemWrapper>
           {noticeTList.map((item, idx) => (
-            <div key={`${item.title}${idx}`} id={item.id} className={`${styles.tab__item} ${radioActive === item.id ? styles["active"] : ""}`}>
+            <div key={`${item.title}${idx}`} id={item.id} className={`${styles.tab__item} ${selectNoticeT === item.id ? styles["active"] : ""}`}>
               <CommonItemWrapper>
                 <CommonItemContent title="제목">
                   <input type="text" placeholder={item.title}/>
