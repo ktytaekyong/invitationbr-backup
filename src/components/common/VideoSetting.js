@@ -21,7 +21,6 @@ const typeList = [
   }
 ];
 const VideoSetting = () => {
-  // const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [isActiveTab, setIsActiveTab] = useState("videoYoutubeOption");
   const setActiveTabHandler = (item) => {
     setIsActiveTab(item);

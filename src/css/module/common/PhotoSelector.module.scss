@@ -12,12 +12,19 @@
     border-radius: $radius--default;
     border: 1px solid $border-color--default;
     background: #FFF no-repeat center / cover;
+    overflow: hidden;
     label {
       @include position;
       width: inherit;
       height: inherit;
       display: block;
       cursor: pointer;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
     }
   }
 }

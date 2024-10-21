@@ -20,14 +20,14 @@ const Video = () => {
       <div className={styles.video__wrap}>
         <HeadLine title="동영상" content="movie"></HeadLine>
         <div className={styles.video__content}>
-          <div className={styles.video__play}>
+          {/* <div className={styles.video__play}>
             <img src={iconVideoPlay} alt="" />
-          </div>
+          </div> */}
           {
             isValidYouTubeUrl(videoList.videoUrl) ?
             <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             :
-            <video>
+            <video controls preload="auto">
               <source src={videoList.videoSrc} type="video/mp4" />
             </video>
           }

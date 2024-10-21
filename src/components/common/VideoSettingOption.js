@@ -27,7 +27,7 @@ const VideoSettingOption = ({ active }) => {
     }
   }
   const youtubeUrlHandler = (e) => {
-    setVideoList((prev) => (
+    setVideoList(() => (
       {
         videoUrl: e.target.value,
         videoSrc: "",
