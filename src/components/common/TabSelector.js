@@ -5,7 +5,7 @@ import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/TabSelector.module.scss";
 
-const TabSelector = ({ listName, onChange, onClick }) => {
+const TabSelector = ({ listName, onChange, onClick, delFunction }) => {
   const [isActive, setIsActive] = useState(0);
   const setActiveHandler = (idx, onChange) => {
     setIsActive(idx);
@@ -15,7 +15,11 @@ const TabSelector = ({ listName, onChange, onClick }) => {
       return;
     }
   }
-
+  useEffect(() => {
+    if (listName.length === 1) {
+      setIsActive(0);
+    }
+  }, [listName]);
   return (
     <ul className={styles.tab__selector}>
       {
@@ -28,7 +32,11 @@ const TabSelector = ({ listName, onChange, onClick }) => {
             {/* 탭형 안내사항을 선택했을 경우 */}
             {
               item.id.indexOf("noticeTab") !== -1 ?
-              <Button styleType="tab__delete" onClick={onClick ? onClick : false}></Button>
+              <Button styleType="tab__delete" 
+              onClick={() => {
+                delFunction(idx)?.();
+              }}
+              />
               : null
             }
           </li>

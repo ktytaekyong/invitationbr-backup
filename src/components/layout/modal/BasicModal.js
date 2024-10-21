@@ -34,7 +34,12 @@ export default function BasicModal(props) {
               props.ButtonWrapperUse ? 
               <ButtonWrapper styleType="centerfill">
                 <Button content={props.btnContent1} styleType="cancel" onClick={props.onClose}></Button>
-                <Button content={props.btnContent2} styleType="point" onClick={()=> false}></Button>
+                <Button content={props.btnContent2} styleType="point" 
+                  onClick={() => {
+                    props.onClick?.(); 
+                    props.onClose?.();
+                  }}
+                />
               </ButtonWrapper>
               :
               null
