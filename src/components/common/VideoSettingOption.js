@@ -16,22 +16,21 @@ const VideoSettingOption = ({ active }) => {
     if(file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setVideoList([
+        setVideoList(
           {
-            src: e.target.result,
-            alt: e.target.result,
+            videoUrl: "",
+            videoSrc: e.target.result,
           },
-        ]);
+        );
       };
       fileList.readAsDataURL(file);
     }
   }
   const youtubeUrlHandler = (e) => {
-    const { name, value } = e.target;
     setVideoList((prev) => (
       {
-        ...prev,
-        [name]: value
+        videoUrl: e.target.value,
+        videoSrc: "",
       }
     ))
   }
@@ -43,7 +42,7 @@ const VideoSettingOption = ({ active }) => {
         <div className={styles.video__youtube}>
           <div className={styles.input__wrap}>
             <label htmlFor="videoYoutubeUrl">유튜브 URL</label>
-            <input type="text" id="videoUrl" name="videoUrl" value={videoList.videoUrl} className={styles.youtube__input} />
+            <input type="text" id="videoUrl" name="videoUrl" value={videoList.videoUrl} onChange={youtubeUrlHandler} className={styles.youtube__input} />
           </div>
           <SettingNotice>
             <SettingNoticeContent>업로드한 영상의 URL 주소를 입력하세요.</SettingNoticeContent>

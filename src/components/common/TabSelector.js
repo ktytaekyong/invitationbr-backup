@@ -22,7 +22,7 @@ const TabSelector = ({ listName, onChange, onClick }) => {
         listName.map((item, idx) => (
           <li className={`${styles.selector__item} ${isActive === idx ? styles["active"] : ""} ${item.id.indexOf("noticeTab") !== -1 ? styles["tab"] : ""}`} 
             key={item + idx} id={item.id} 
-            onClick={() => setActiveHandler(idx, onChange(item))} 
+            onClick={() => setActiveHandler(idx, onChange(item.id))} 
           >
             <span>{item.title}</span>
             {/* 탭형 안내사항을 선택했을 경우 */}
