@@ -6,7 +6,9 @@ import { SetContext } from "./option-set-context.js"
 
 const SetProvider = ({ children }) => {
   const [selectSettingList, setSelectSettingList] = useState(initList.selectSettingList);
+  const [accountInfoList, setAccountInfoList] = useState(initList.accountInfoList);
   const [videoList, setVideoList] = useState(initList.videoList);
+  const [noticeTList, setNoticeTList] = useState(initList.noticeTList);
   const settingList = initList.settingList;
 
   return (
@@ -15,8 +17,12 @@ const SetProvider = ({ children }) => {
         settingList,
         selectSettingList,
         setSelectSettingList,
+        accountInfoList,
+        setAccountInfoList,
         videoList,
-        setVideoList
+        setVideoList,
+        noticeTList,
+        setNoticeTList
       }}
     >
       {children}

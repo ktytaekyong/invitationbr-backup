@@ -135,6 +135,7 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         selectName="relation"
         className={styles.info__firstname_selector}
         listName={relList}
+        value={value.relation}
         onChange={onChange}
       />
     </div>

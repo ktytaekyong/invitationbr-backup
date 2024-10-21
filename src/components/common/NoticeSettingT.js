@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -17,21 +17,11 @@ import BasicModalNoticeTAdd from "../layout/modal/BasicModalNoticeTAdd.js";
 import BasicModalNoticeTDelete from "../layout/modal/BasicModalNoticeTDelete.js";
 /* CSS Module */
 import styles from "../../css/module/common/NoticeSettingT.module.scss";
-
-const noticeTList = [
-  {
-    title: "포토부스",
-    id: "noticeTab1",
-    view: true,
-  }, 
-  {
-    title: "식사안내",
-    id: "noticeTab2",
-    view: false
-  }, 
-]; 
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const NoticeSettingT = () => {
+  const { noticeTList, setNoticeTList } = useContext(SetContext);
   const [radioActive, setRadioActive] = useState(false);
   const [noticeTImgList, setNoticeTImgList] = useState([]);
   const [openAdd, setOpenAdd] = useState(false);
@@ -55,6 +45,9 @@ const NoticeSettingT = () => {
       fileList.readAsDataURL(file);
     }
   }
+  useEffect(() => {
+    setRadioActive("noticeTab1");
+  }, [])
   return (
     <>
       <CommonOptionWrapper>
@@ -68,24 +61,25 @@ const NoticeSettingT = () => {
             </CommonItemContent>
           </CommonItemWrapper>
           {noticeTList.map((item, idx) => (
+            radioActive === item.id ?
             <CommonItemWrapper key={`${item.title}${idx}`}>
-              {/* <div className={`${styles.option__item} ${item.view ? styles.active : null}`}> */}
-                <CommonItemContent title="제목">
-                  <input type="text" placeholder={item.title}/>
-                </CommonItemContent>
+              <CommonItemContent title="제목">
+                <input type="text" placeholder={item.title}/>
+              </CommonItemContent>
 
-                <CommonItemContent title="내용">
-                  <TextEditor></TextEditor>
-                </CommonItemContent>
+              <CommonItemContent title="내용" multi={true}>
+                <TextEditor textValue={item.content}></TextEditor>
+              </CommonItemContent>
 
-                <CommonItemContent title="사진" multi={true}>
-                  <PhotoSelector id="NoticeTPhotoList" listName={noticeTImgList} onChange={fileAddHandler} deleteFunction={setNoticeTImgList} />
-                  <RadioList title="사진 위치">
-                    <RadioItem radioName="noticePhotoPosition" id="noticePhotoIntro" content="본문 위쪽" defaultCheck={true}></RadioItem>
-                    <RadioItem radioName="noticePhotoPosition" id="noticePhotoAll" content="본문 아래쪽"></RadioItem>
-                  </RadioList>
-                </CommonItemContent>
+              <CommonItemContent title="사진" multi={true}>
+                <PhotoSelector id="NoticeTPhotoList" listName={noticeTImgList} onChange={fileAddHandler} deleteFunction={setNoticeTImgList} />
+                <RadioList title="사진 위치">
+                  <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoIntro${idx}`} content="본문 위쪽" defaultChecked={true}></RadioItem>
+                  <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoAll${idx}`} content="본문 아래쪽"></RadioItem>
+                </RadioList>
+              </CommonItemContent>
             </CommonItemWrapper>
+            : null
           ))}
         </CommonOptionContent>
       </CommonOptionWrapper>

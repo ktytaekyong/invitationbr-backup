@@ -1,19 +1,19 @@
 /* Import */
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/OptionSelector.module.scss";
 
-const OptionSelector = ({ selectID, selectName, value, listName, onChange, styleType }) => {
+const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, value }) => {
   return (
     <div className={`${styles.option__selector_wrapper} ${styleType ? styles[styleType] : ""}`}>
       <select 
         id={selectID} 
         name={selectName}
         onChange={onChange} 
+        value={value}
         className={styles.option__selector}>
         {
           listName.map((item, index) => {
-            // console.log(item.itemKey);
             return (
               <option 
                 key={`${item.itemKey}${item.itemName}${index}`}

@@ -5,6 +5,10 @@ export const SetContext = createContext({
   settingList: [],
   selectSettingList: [],
   setSelectSettingList: () => {}, 
+  accountInfoList: {},
+  setAccountInfoList: () => {}, 
   videoList: {},
   setVideoList: () => {}, 
+  noticeTList: {},
+  setNoticeTList: () => {}, 
 });
