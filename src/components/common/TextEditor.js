@@ -13,7 +13,7 @@ import {ReactComponent as IconImgLeft} from "../../img/icon/icon_editor_tool_lef
 import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_right.svg"
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
-const TextEditor = ({ type, name, textValue, onChange, sampleFunction }) => {
+const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
   const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -57,7 +57,7 @@ const TextEditor = ({ type, name, textValue, onChange, sampleFunction }) => {
       </div>
       {
         type === "letter" ?
-        <BasicModalLetter sampleFunction={sampleFunction} isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose}></BasicModalLetter>
+        <BasicModalLetter setLetterList={setLetterList} isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose}></BasicModalLetter>
         : null
       }
     </>

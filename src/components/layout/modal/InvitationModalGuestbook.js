@@ -1,5 +1,5 @@
 /* Import */
-import * as React from 'react';
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 import InvitationModal from './InvitationModal';
@@ -7,13 +7,28 @@ import InvitationModal from './InvitationModal';
 import styles from "../../../css/module/layout/modal/InvitationModalGuestbook.module.scss";
 /* Image */
 import iconModalHeader from "../../../img/icon/icon_reg_modal.png";
+/* Context */
+import { SetContext } from "../../../store/option-set-context.js";
 
-const InvitationModalGuestbook = ({ openvar, onClose }) => {
+const InvitationModalGuestbook = ({ openvar, onClose, clickidx }) => {
+  const { guestbookList, setGuestbookList } = useContext(SetContext);
+  const [ tempPassword, setTempPassword ] = useState("");
+  const removeGuestbookHandler = (removeidx, password) => {
+    if(guestbookList[removeidx].guestPassword === password) {
+      setGuestbookList(prev => 
+        prev.filter((_, idx) => removeidx !== idx)
+      );
+    } else {
+      alert("비밀번호가 다릅니다.");
+      setTempPassword("");
+    }
+  }
   return (
     <>
       <InvitationModal 
         openvar={openvar} 
         onClose={onClose} 
+        onClick={() => removeGuestbookHandler(clickidx, tempPassword)}
         ButtonWrapperUse={true}
         headSrc={iconModalHeader}
         headContent="메시지 삭제"
@@ -25,7 +40,7 @@ const InvitationModalGuestbook = ({ openvar, onClose }) => {
               <div className={styles.data__wrap}>
                 <p>등록한 메시지 삭제 시<br />
                 비밀번호를 입력해 주세요.</p>
-                <input type="password" placeholder="비밀번호" />
+                <input type="password" name="delPassword" onChange={(e) => setTempPassword(e.target.value)} placeholder="비밀번호" />
               </div>
             </div>
           </div>

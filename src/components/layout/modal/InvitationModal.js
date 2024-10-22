@@ -33,7 +33,11 @@ export default function InvitationModal(props) {
                 {
                   props.ButtonWrapperUse ? 
                   <ButtonWrapper styleType="center">
-                    <Button content={props.btnContent} styleType="invitation__default" onClick={props.onClose}></Button>
+                    <Button content={props.btnContent} styleType="invitation__default" 
+                    onClick={() => {
+                      props.onClick?.(); 
+                      props.onClose?.();
+                    }}/>
                   </ButtonWrapper>
                   :
                   null

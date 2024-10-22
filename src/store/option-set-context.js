@@ -19,4 +19,6 @@ export const SetContext = createContext({
   setOutroList: () => {},
   letterList: {},
   setLetterList: () => {},
+  guestbookList: {},
+  setGuestbookList: () => {},
 });

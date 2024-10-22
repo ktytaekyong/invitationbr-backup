@@ -13,6 +13,7 @@ const SetProvider = ({ children }) => {
   const [letterList, setLetterList] = useState(initList.letterList);
   const [outroList, setOutroList] = useState(initList.outroList);
   const [selectNoticeT, setSelectNoticeT] = useState("noticeTab1");
+  const [guestbookList, setGuestbookList] = useState(initList.guestbookList);
   const settingList = initList.settingList;
 
   return (
@@ -35,6 +36,8 @@ const SetProvider = ({ children }) => {
         setOutroList,
         letterList,
         setLetterList,
+        guestbookList,
+        setGuestbookList,
       }}
     >
       {children}

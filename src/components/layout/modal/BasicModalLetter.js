@@ -7,24 +7,42 @@ import BasicModalContent from './BasicModalContent';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/BasicModalLetter.module.scss";
 
-export default function BasicModalLetter({ openvar, onClose, isActiveTab, setActiveTabHandler }) {
+export default function BasicModalLetter({ openvar, onClose, isActiveTab, setActiveTabHandler, setLetterList }) {
   const [isDefaultActive, setIsDefaultActive] = useState(null);
   const [isParentsActive, setIsParentsActive] = useState(null);
   const [isReligionActive, setIsReligionActive] = useState(null);
-  const setDefaultActiveHandler = (idx) => {
+  const setDefaultActiveHandler = (idx, sample) => {
     setIsDefaultActive(idx);
     setIsParentsActive(null);
     setIsReligionActive(null);
+    setLetterList((prev) => (
+      {
+        ...prev,
+        content: sample
+      }
+    ));
   }
-  const setParentsActiveHandler = (idx) => {
+  const setParentsActiveHandler = (idx, sample) => {
     setIsParentsActive(idx);
     setIsDefaultActive(null);
     setIsReligionActive(null);
+    setLetterList((prev) => (
+      {
+        ...prev,
+        content: sample
+      }
+    ));
   }
-  const setReligionActiveHandler = (idx) => {
+  const setReligionActiveHandler = (idx, sample) => {
     setIsReligionActive(idx);
     setIsParentsActive(null);
     setIsDefaultActive(null);
+    setLetterList((prev) => (
+      {
+        ...prev,
+        content: sample
+      }
+    ));
   }
 
   const letterSampleThemeList = [
@@ -93,7 +111,7 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
               <div 
                 key={`${item}${idx}`} 
                 className={`${styles.modal__letter_item} ${isDefaultActive === idx ? styles["active"] : ""}`}
-                onClick={() => setDefaultActiveHandler(idx)}
+                onClick={() => setDefaultActiveHandler(idx, item.content)}
               >
                 <p>{item.content}</p>
               </div>
@@ -107,7 +125,7 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
               <div 
               key={`${item}${idx}`} 
               className={`${styles.modal__letter_item} ${isParentsActive === idx ? styles["active"] : ""}`}
-              onClick={() => setParentsActiveHandler(idx)}
+              onClick={() => setParentsActiveHandler(idx, item.content)}
               >
                 <p>{item.content}</p>
               </div>
@@ -121,7 +139,7 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
               <div 
                 key={`${item}${idx}`} 
                 className={`${styles.modal__letter_item} ${isReligionActive === idx ? styles["active"] : ""}`}
-                onClick={() => setReligionActiveHandler(idx)}
+                onClick={() => setReligionActiveHandler(idx, item.content)}
               >
                 <p>{item.content}</p>
               </div>

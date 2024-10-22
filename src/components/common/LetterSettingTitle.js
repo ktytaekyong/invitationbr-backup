@@ -4,12 +4,13 @@ import { useState, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/LetterSettingTitle.module.scss";
 
-const LetterSettingTitle = ({ value }) => {
+const LetterSettingTitle = ({ value, onChange }) => {
   return (
     <input type="text" 
       id="letterSettingTitle" 
       value={value}
       className={styles.input__letter_title} 
+      onChange={onChange}
       placeholder="제목을 입력하세요."
     />
   )
