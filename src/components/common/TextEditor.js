@@ -13,7 +13,7 @@ import {ReactComponent as IconImgLeft} from "../../img/icon/icon_editor_tool_lef
 import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_right.svg"
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
-const TextEditor = ({ type, name, textValue, onChange }) => {
+const TextEditor = ({ type, name, textValue, onChange, sampleFunction }) => {
   const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -29,26 +29,14 @@ const TextEditor = ({ type, name, textValue, onChange }) => {
       <div className={`${styles.editor__content} ${type === "letter" ? styles["letter"] : null}`}>
         <div className={styles.tool__list}>
           <ul className={styles.tool__list_deco}>
-            <button>
-              <IconToolImgBold />
-            </button>
-            <button>
-              <IconImgItalic />
-            </button>
-            <button>
-              <IconImgUnderline />
-            </button>
+            <button><IconToolImgBold /></button>
+            <button><IconImgItalic /></button>
+            <button><IconImgUnderline /></button>
           </ul>
           <ul className={styles.tool__list_align}>
-            <button className={`${styles.active}`}>
-              <IconImgLeft />
-            </button>
-            <button>
-              <IconImgCenter />
-            </button>
-            <button>
-              <IconImgRight />
-            </button>
+            <button className={`${styles.active}`}><IconImgLeft /></button>
+            <button><IconImgCenter /></button>
+            <button><IconImgRight /></button>
           </ul>
         </div>
         <textarea 
@@ -69,7 +57,7 @@ const TextEditor = ({ type, name, textValue, onChange }) => {
       </div>
       {
         type === "letter" ?
-        <BasicModalLetter isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose}></BasicModalLetter>
+        <BasicModalLetter sampleFunction={sampleFunction} isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose}></BasicModalLetter>
         : null
       }
     </>

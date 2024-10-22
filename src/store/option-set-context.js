@@ -17,4 +17,6 @@ export const SetContext = createContext({
   setSelectNoticeT: () => {},
   outroList: {},
   setOutroList: () => {},
+  letterList: {},
+  setLetterList: () => {},
 });

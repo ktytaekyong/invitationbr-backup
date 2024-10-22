@@ -84,9 +84,6 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
     }
   ];
 
-  useEffect(() => {
-  }, [isActiveTab]);
-
   const renderContent = (index) => {
     switch (index) {
       case 0:

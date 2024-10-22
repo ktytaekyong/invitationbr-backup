@@ -11,9 +11,11 @@ import styles from "../../css/module/invitationSection/Letter.module.scss";
 // import introRing from "../../img/intro/intro_theme_1_ring.png";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const Intro = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { letterList, setLetterList } = useContext(SetContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -22,17 +24,11 @@ const Intro = () => {
   return (
     <div className={`${styles.letter} ${styles.style_theme_1}`}>
       <div className={styles.letter__wrap}>
-        <HeadLine title="초대합니다" content="invitation"></HeadLine>
+        <HeadLine title={letterList.title} content="invitation"></HeadLine>
         <div className={styles.letter__content}>
           <div className={styles.greet}>
             <p>
-              두 사람이 사랑으로 만나<br />
-              진실과 이해로써 하나를 이루려고 합니다.
-            </p>
-            <p>
-              이 두 사람을 진심으로 아끼고 돌봐주신<br />
-              여러 어른과 친지분들을 모시고 서약을 맺고자 하오니<br />
-              오셔서 축복해 주시면 감사하겠습니다.
+              {letterList.content}
             </p>
           </div>
           <div className={styles.detail}>

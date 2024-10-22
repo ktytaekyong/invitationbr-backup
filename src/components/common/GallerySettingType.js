@@ -28,7 +28,7 @@ const GallerySettingType = () => {
     setSelectGalleryType(item.id);
   }
   return (
-    <TabSelector listName={typeList} onChange={changeTypeHandler} />
+    <TabSelector listName={typeList} type="gallery" onChange={changeTypeHandler} />
   )
 }
 

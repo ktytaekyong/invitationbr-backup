@@ -5,10 +5,11 @@ import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/TabSelector.module.scss";
 
-const TabSelector = ({ listName, onChange, onClick, delFunction }) => {
+const TabSelector = ({ listName, onChange, onClick, delFunction, type }) => {
   const [isActive, setIsActive] = useState(0);
   const setActiveHandler = (idx, onChange) => {
     setIsActive(idx);
+    console.log(idx);
     if(onChange) {
       onChange(idx);
     } else {
@@ -28,7 +29,8 @@ const TabSelector = ({ listName, onChange, onClick, delFunction }) => {
             className={`${styles.selector__item} ${isActive === idx ? styles["active"] : ""} ${item.id && item.id.indexOf("noticeTab") !== -1 ? styles["tab"] : ""}`} 
             key={item + idx} 
             id={item.id} 
-            onClick={() => setActiveHandler(idx, onChange(item.id))} 
+            // onClick={() => setActiveHandler(idx, onChange(item.id))} 
+            onClick={() => type !== "gallery" ? setActiveHandler(idx, onChange(idx)) : setActiveHandler(idx, onChange(item))} 
           >
             <span>{item.title}</span>
             {/* 탭형 안내사항을 선택했을 경우 */}
