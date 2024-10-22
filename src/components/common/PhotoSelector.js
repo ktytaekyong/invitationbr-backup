@@ -11,6 +11,7 @@ import photoAddImg from "../../img/photoSelector/photo_selector_add.png"
 import { SetContext } from "../../store/option-set-context.js";
 
 const PhotoSelector = (props) => {
+  // selectorIdx
   const { videoList, setVideoList } = useContext(SetContext);
   const introDeleteHandler = (item) => {
     let list = [...props.listName];
@@ -26,18 +27,20 @@ const PhotoSelector = (props) => {
     ))
   }
   return (
-    <div className={`${styles.photo__selector} ${props.id === "galleryPhotoList" ? styles["gallery"] : null}`}>
+    <div id={props.id} className={`${styles.photo__selector} ${props.id === "galleryPhotoList" ? styles["gallery"] : null}`}>
       <ul className={styles.option__list}>
         <li className={styles.option__item} style={{backgroundImage: `url(${photoAddImg})`}}>
-          <input type="file" name="" id={`${props.id}File`} onChange={props.onChange} />
+          <input type="file" name="src" id={`${props.id}File`} onChange={props.onChange} />
           <label htmlFor={`${props.id}File`}></label>
         </li>
         {
           props.type !== "video" ?
           props.listName.map((item, idx) => (
+            item.src ? 
             <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
               <Button type="button" styleType="close" onClick={introDeleteHandler} />
             </li>
+            : null
           ))
           : null
         }

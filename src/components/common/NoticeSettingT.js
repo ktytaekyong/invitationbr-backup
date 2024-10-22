@@ -23,8 +23,12 @@ import { SetContext } from "../../store/option-set-context.js";
 const NoticeSettingT = () => {
   const { noticeTList, setNoticeTList } = useContext(SetContext);
   const { selectNoticeT, setSelectNoticeT } = useContext(SetContext);
+  const [noticeTImgList, setNoticeTImgList] = useState([
+    noticeTList.map((item) => (
+      item.src
+    ))
+  ]);
   const [radioActive, setRadioActive] = useState("");
-  const [noticeTImgList, setNoticeTImgList] = useState([]);
   const [addTitle, setAddTitle] = useState("");
   const [openAdd, setOpenAdd] = useState(false);
   const [openDel, setOpenDel] = useState(false);
@@ -32,17 +36,17 @@ const NoticeSettingT = () => {
   const handleCloseAdd = () => setOpenAdd(false);
   const handleOpenDel = () => setOpenDel(true);
   const handleCloseDel = () => setOpenDel(false);
-  const fileAddHandler = (e) => {
+  const fileAddHandler = (e, index) => {
     const file = e.target.files[0];
     if(file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setNoticeTImgList([
-          {
-            src: e.target.result,
-            alt: e.target.result,
-          },
-        ]);
+        setNoticeTList((prev) => {
+          const newList = [...prev];
+          newList[index] = { ...newList[index], src: e.target.result };
+          console.log(newList);
+          return newList;
+        })
       };
       fileList.readAsDataURL(file);
     }
@@ -75,6 +79,14 @@ const NoticeSettingT = () => {
       })
     }
   }
+  const noticeTabDataChangeHandler = (e, index) => {
+    const { name, value } = e.target;
+    setNoticeTList(prev => {
+      const newList = [...prev];
+      newList[index] = { ...newList[index], [name]: value };
+      return newList;
+    });
+  };
   useEffect(() => {
     if (noticeTList.length > 0) {
       if (!noticeTList.some(item => item.id === selectNoticeT)) {
@@ -88,25 +100,41 @@ const NoticeSettingT = () => {
         <CommonOptionContent>
           <CommonItemWrapper>
             <CommonItemContent title="탭 순서" multi="check">
-              <TabSelector listName={noticeTList} onChange={setSelectNoticeT} onClick={handleOpenDel} delFunction={noticeRemoveHandler} />
+              <TabSelector 
+                listName={noticeTList} 
+                onChange={setSelectNoticeT} 
+                onClick={handleOpenDel} 
+                delFunction={noticeRemoveHandler} 
+              />
               <ButtonWrapper>
-                <Button content="탭 추가" styleType="add" onClick={handleOpenAdd}></Button>
+                <Button content="탭 추가" styleType="add" onClick={handleOpenAdd} />
               </ButtonWrapper>
             </CommonItemContent>
           </CommonItemWrapper>
           {noticeTList.map((item, idx) => (
-            <div key={`${item.title}${idx}`} id={item.id} className={`${styles.tab__item} ${selectNoticeT === item.id ? styles["active"] : ""}`}>
+            <div key={`noticeTList${idx}`} id={item.id} className={`${styles.tab__item} ${selectNoticeT === item.id ? styles["active"] : ""}`}>
               <CommonItemWrapper>
                 <CommonItemContent title="제목">
-                  <input type="text" placeholder={item.title}/>
+                  <input 
+                    type="text" 
+                    id={`${item.id}Title`} 
+                    name="title" 
+                    value={item.title} 
+                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}} 
+                    placeholder="탭 제목을 작성해 주세요." 
+                  />
                 </CommonItemContent>
 
                 <CommonItemContent title="내용" multi={true}>
-                  <TextEditor textValue={item.content}></TextEditor>
+                  <TextEditor 
+                    name="content" 
+                    textValue={item.content} 
+                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}} 
+                  />
                 </CommonItemContent>
 
                 <CommonItemContent title="사진" multi={true}>
-                  <PhotoSelector id="NoticeTPhotoList" listName={noticeTImgList} onChange={fileAddHandler} deleteFunction={setNoticeTImgList} />
+                  <PhotoSelector id={`NoticeTPhotoList${idx}`} listName={[noticeTList[idx]]} onChange={(e) => fileAddHandler(e, idx)} deleteFunction={setNoticeTImgList} />
                   <RadioList title="사진 위치">
                     <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoIntro${idx}`} content="본문 위쪽" defaultChecked={true}></RadioItem>
                     <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoAll${idx}`} content="본문 아래쪽"></RadioItem>
@@ -118,8 +146,8 @@ const NoticeSettingT = () => {
         </CommonOptionContent>
       </CommonOptionWrapper>
 
-      <BasicModalNoticeTAdd openvar={openAdd} onClose={handleCloseAdd} addTitle={addTabTitle} addFunction={noticeAddHandler}></BasicModalNoticeTAdd>
-      <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel}></BasicModalNoticeTDelete>
+      <BasicModalNoticeTAdd openvar={openAdd} onClose={handleCloseAdd} addTitle={addTabTitle} addFunction={noticeAddHandler} />
+      <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel} />
     </>
   )
 }

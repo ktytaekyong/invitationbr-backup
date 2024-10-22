@@ -309,6 +309,22 @@
       "src": "",
       "position": "bottom"
     }
+  ],
+  "noticeDList": [
+    {
+      "title": "포토부스",
+      "id": "noticeTab1",
+      "content": "포토부스가 예식장 좌측에 설치될 예정이오니 바쁘시더라도 가벼운 마음으로 즐겨주세요~",
+      "src": "",
+      "position": "top"
+    },
+    {
+      "title": "식사안내",
+      "id": "noticeTab2",
+      "content": "식사안내 즐겨주세요~",
+      "src": "",
+      "position": "bottom"
+    }
   ]
 }
 
