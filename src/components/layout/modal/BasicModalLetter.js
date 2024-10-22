@@ -45,6 +45,8 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
     ));
   }
 
+
+
   const letterSampleThemeList = [
     {
       title: "일반",
@@ -62,15 +64,15 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
   const letterSampleDafaultList = [
     {
       id: "LetterSampleDafault1",
-      content: "오랫동안 마주 보며 다져온 사랑을 이제 한곳을 바라보며 걸어갈 수 있는 큰 사랑으로 키우고자 합니다. 두 사람이 사랑의 이름으로 지켜나갈 수 있게 축복해 주시면 감사하겠습니다.",
+      content: "오랫동안 마주 보며 다져온 사랑을\n이제 한곳을 바라보며 걸어갈 수 있는\n큰 사랑으로 키우고자 합니다.\n두 사람이 사랑의 이름으로 지켜나갈 수 있게\n축복해 주시면 감사하겠습니다.",
     },
     {
       id: "LetterSampleDafault2",
-      content: "두 사람이 사랑과 믿음으로 아름다운 한 가정을 이루게 되었습니다. 바쁘시더라도 참석해 주셔서 저희의 앞날을 축복해 주시고 격려해 주시면 더 없는 기쁨이 되겠습니다.",
+      content: "두 사람이 사랑과 믿음으로\n아름다운 한 가정을 이루게 되었습니다.\n바쁘시더라도 참석해 주셔서\n저희의 앞날을 축복해 주시고 격려해 주시면\n더 없는 기쁨이 되겠습니다.",
     },
     {
       id: "LetterSampleDafault3",
-      content: "소중한 저희 두 사람의 만남이 결실을 맺어 혼인의 예를 갖추려 합니다. 늘 봄날처럼 밝고 행복하게 살도록 노력하겠습니다. 축복해 주시면 큰 기쁨이겠습니다.",
+      content: "소중한 저희 두 사람의 만남이\n결실을 맺어 혼인의 예를 갖추려 합니다.\n늘 봄날처럼 밝고\n행복하게 살도록 노력하겠습니다.\n축복해 주시면 큰 기쁨이겠습니다.",
     },
     {
       id: "LetterSampleDafault4",

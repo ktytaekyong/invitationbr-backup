@@ -39,7 +39,7 @@ const PhotoSelector = (props) => {
           props.listName.map((item, idx) => (
             item.src ? 
             <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
-              <Button type="button" styleType="close" onClick={props.hasSrc ? props.hasSrcFunction : introDeleteHandler} />
+              <Button type="button" styleType="close" onClick={props.hasSrc ? props.hasSrcFunction : () => introDeleteHandler(item)} />
             </li>
             : null
           ))

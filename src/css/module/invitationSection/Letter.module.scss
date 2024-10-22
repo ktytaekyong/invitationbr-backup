@@ -21,6 +21,7 @@
       row-gap: 12px;
       text-align: center;
       p {
+        white-space: pre-line;
         font-size: $font-size--ssm;
         line-height: 1.7em;
         color: $text-color--temp;

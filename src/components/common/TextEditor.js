@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 /* Component */
 import Button from "../layout/Button.js"
 import BasicModalLetter from "../layout/modal/BasicModalLetter.js"
@@ -14,6 +14,7 @@ import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_ri
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
 const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
+  const textareaRef = useRef(null);
   const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -24,6 +25,17 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
   const setActiveTabHandler = (idx) => {
     setIsActiveTab(idx);
   }
+  const handleTextareaChange = (e) => {
+    const { value, selectionStart } = e.target;
+    const cursorPosition = selectionStart;
+    onChange(e);
+    setTimeout(() => {
+      if (textareaRef.current) {
+        textareaRef.current.selectionStart = cursorPosition;
+        textareaRef.current.selectionEnd = cursorPosition;
+      }
+    }, 0);
+  };
   return (
     <>
       <div className={`${styles.editor__content} ${type === "letter" ? styles["letter"] : null}`}>
@@ -40,12 +52,13 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
           </ul>
         </div>
         <textarea 
+          ref={textareaRef}
           name={name} 
           id={type + name} 
           className={styles.editor__content_wrap} 
           value={textValue} 
           placeholder="내용을 입력하세요."
-          onChange={onChange}
+          onChange={handleTextareaChange}
         />
         {
           type === "letter" ?

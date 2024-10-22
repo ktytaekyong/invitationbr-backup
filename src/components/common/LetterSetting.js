@@ -14,22 +14,23 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const LetterSetting = () => {
   const { letterList, setLetterList } = useContext(SetContext);
-  const letterTitleChangeHandler = (e) => {
+  const letterDataChangeHandler = (e) => {
+    const { name, value } = e.target;
     setLetterList((prev) => ({
-        ...prev,
-        title: e.target.value
-      }))
+      ...prev,
+      [name]: value
+    }))
   }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="제목">
-            <LetterSettingTitle value={letterList.title} onChange={letterTitleChangeHandler} />
+            <LetterSettingTitle value={letterList.title} onChange={letterDataChangeHandler} />
           </CommonItemContent>
           
           <CommonItemContent title="내용" multi={true}>
-            <TextEditor type="letter" textValue={letterList.content} setLetterList={setLetterList} />
+            <TextEditor type="letter" name="content" textValue={letterList.content} onChange={(e) => letterDataChangeHandler(e)} setLetterList={setLetterList} />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>

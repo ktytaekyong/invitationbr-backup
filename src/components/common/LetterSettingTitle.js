@@ -8,6 +8,7 @@ const LetterSettingTitle = ({ value, onChange }) => {
   return (
     <input type="text" 
       id="letterSettingTitle" 
+      name="title"
       value={value}
       className={styles.input__letter_title} 
       onChange={onChange}
