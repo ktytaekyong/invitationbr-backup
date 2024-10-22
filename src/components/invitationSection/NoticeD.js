@@ -6,29 +6,30 @@ import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/NoticeD.module.scss";
 /* Image */
+import defaultImg from "../../img/notice/notice_photo_test2.png"
 /* Context */
-import { InfoContext } from "../../store/option-info-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const NoticeD = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const [isActive, setIsActive] = useState(false);
-  const activeToggleHandler = () => {
-    setIsActive(!isActive);
-  };
-
+  const { noticeDList, setNoticeDList } = useContext(SetContext);
   return (
     <div className={`${styles.notice} ${styles.style_theme_1}`}>
       <div className={styles.notice__wrap}>
         <HeadLine title="공지사항" content="notice" />
         <div className={styles.notice__content}>
-          <div className={styles.content}>
-            <div className={styles.title}>
-              <p>답례품 안내</p>
-            </div>
-            <p>식사를 못하고 가시는 분들을 위해 피로연 출구에<br />
-            작은 선물을 준비했으니 잊지 마시고 챙겨 가세요.</p>
-            <img src="" alt="" />
-          </div>
+          {
+            noticeDList.map((item, idx) => (
+              <div className={styles.content}>
+                <div className={styles.title}>
+                  <p>{item.title}</p>
+                </div>
+                <p>
+                  {item.content}
+                </p>
+                <img src={item.src === "" ? defaultImg : item.src} alt="" />
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>

@@ -9,6 +9,8 @@ const SetProvider = ({ children }) => {
   const [accountInfoList, setAccountInfoList] = useState(initList.accountInfoList);
   const [videoList, setVideoList] = useState(initList.videoList);
   const [noticeTList, setNoticeTList] = useState(initList.noticeTList);
+  const [noticeDList, setNoticeDList] = useState(initList.noticeDList);
+  const [outroList, setOutroList] = useState(initList.outroList);
   const [selectNoticeT, setSelectNoticeT] = useState("noticeTab1");
   const settingList = initList.settingList;
 
@@ -24,8 +26,12 @@ const SetProvider = ({ children }) => {
         setVideoList,
         noticeTList,
         setNoticeTList,
+        noticeDList,
+        setNoticeDList,
         selectNoticeT,
-        setSelectNoticeT, 
+        setSelectNoticeT,
+        outroList,
+        setOutroList,
       }}
     >
       {children}

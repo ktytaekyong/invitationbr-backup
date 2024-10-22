@@ -312,19 +312,17 @@
   ],
   "noticeDList": [
     {
-      "title": "포토부스",
-      "id": "noticeTab1",
-      "content": "포토부스가 예식장 좌측에 설치될 예정이오니 바쁘시더라도 가벼운 마음으로 즐겨주세요~",
+      "title": "답례품 안내",
+      "id": "noticeDivide",
+      "content": "식사를 못하고 가시는 분들을 위해 피로연 출구에 작은 선물을 준비했으니 잊지 마시고 챙겨 가세요.",
       "src": "",
       "position": "top"
-    },
-    {
-      "title": "식사안내",
-      "id": "noticeTab2",
-      "content": "식사안내 즐겨주세요~",
-      "src": "",
-      "position": "bottom"
     }
-  ]
+  ],
+  "outroList": {
+    "content": "늘 사랑과 정성으로 키워주신 양가 부모님과 곁에서 아껴주시는 모든 분들에게 감사의 말씀 전합니다. 지금의 고마운 마음 잊지 않고 잘 살겠습니다.",
+    "src": "",
+    "position": "top"
+  }
 }
 

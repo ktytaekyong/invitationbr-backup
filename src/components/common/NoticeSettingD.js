@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -13,6 +13,8 @@ import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/NoticeSettingD.module.scss";
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const noticeTList = [
   {
@@ -30,41 +32,80 @@ const noticeTList = [
 const NoticeSettingD = () => {
   const [radioActive, setRadioActive] = useState(false);
   const [noticeDImgList, setNoticeDImgList] = useState([]);
-  const fileAddHandler = (e) => {
+  const { noticeDList, setNoticeDList } = useContext(SetContext);
+  const fileAddHandler = (e, index) => {
     const file = e.target.files[0];
-    if (file) {
+    if(file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setNoticeDImgList([
-          {
-            src: e.target.result,
-            alt: e.target.result,
-          },
-        ]);
+        setNoticeDList((prev) => {
+          const newList = [...prev];
+          newList[index] = { ...newList[index], src: e.target.result };
+          console.log(newList);
+          return newList;
+        })
       };
       fileList.readAsDataURL(file);
     }
+  }
+  const noticeDivDataChangeHandler = (e, index) => {
+    const { name, value } = e.target;
+    setNoticeDList(prev => {
+      const newList = [...prev];
+      newList[index] = { ...newList[index], [name]: value };
+      return newList;
+    });
   };
+  const photoDeleteHandler = (index) => {
+    setNoticeDList((prev) => {
+      const newList = [...prev];
+      newList[index].src = "";  
+      return newList;
+    });
+  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
-        <CommonItemWrapper>
-          <CommonItemContent title='제목'>
-            <input type='text' placeholder='제목 입력' />
-          </CommonItemContent>
+        {
+          noticeDList.map((item, idx) => (
+            <CommonItemWrapper>
+              <CommonItemContent title='제목'>
+                <input
+                  type="text" 
+                  id={`${item.id}Title`} 
+                  name="title" 
+                  value={item.title} 
+                  onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
+                  placeholder="탭 제목을 작성해 주세요." 
+                />
+              </CommonItemContent>
+    
+              <CommonItemContent title='내용'>
+                <TextEditor 
+                  name="content" 
+                  textValue={item.content} 
+                  onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
+                />
+              </CommonItemContent>
+    
+              <CommonItemContent title='사진' multi={true}>
+                <PhotoSelector 
+                  id={'NoticeDPhotoList${idx}'}
+                  listName={[noticeDList[idx]]} 
+                  onChange={(e) => fileAddHandler(e, idx)} 
+                  deleteFunction={setNoticeDList} 
+                  hasSrc={true} 
+                  hasSrcFunction={() => photoDeleteHandler(idx)}
+                />
+                <RadioList title='사진 위치'>
+                  <RadioItem radioName={`noticePhotoDPosition0`} id='noticePhotoTop' content='본문 위쪽' defaultChecked={true}></RadioItem>
+                  <RadioItem radioName={`noticePhotoDPosition0`} id='noticePhotoBottom' content='본문 아래쪽'></RadioItem>
+                </RadioList>
+              </CommonItemContent>
+            </CommonItemWrapper>
+          ))
+        }
 
-          <CommonItemContent title='내용'>
-            <TextEditor></TextEditor>
-          </CommonItemContent>
-
-          <CommonItemContent title='사진' multi={true}>
-            <PhotoSelector id='NoticeDPhotoList' listName={noticeDImgList} onChange={fileAddHandler} deleteFunction={setNoticeDImgList} />
-            <RadioList title='사진 위치'>
-              <RadioItem radioName='noticePhotoDPosition' id='noticePhotoIntro' content='본문 위쪽' defaultChecked={true}></RadioItem>
-              <RadioItem radioName='noticePhotoDPosition' id='noticePhotoAll' content='본문 아래쪽'></RadioItem>
-            </RadioList>
-          </CommonItemContent>
-        </CommonItemWrapper>
       </CommonOptionContent>
     </CommonOptionWrapper>
   );

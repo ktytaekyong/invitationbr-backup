@@ -6,6 +6,7 @@ import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/NoticeT.module.scss";
 /* Image */
+import defaultImg from "../../img/notice/notice_photo_test1.png"
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -28,7 +29,7 @@ const NoticeT = () => {
           {
             noticeTList.map((item, idx) => (
               <div key={item + idx} id={item.id} className={`${styles.content} ${isActive === idx ? styles.active : ""}`}>
-                <img src={item.src} alt="" />
+                <img src={item.src === "" ? defaultImg : item.src} alt="" />
                 <p>
                   {item.content}
                 </p>

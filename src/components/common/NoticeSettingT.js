@@ -23,11 +23,6 @@ import { SetContext } from "../../store/option-set-context.js";
 const NoticeSettingT = () => {
   const { noticeTList, setNoticeTList } = useContext(SetContext);
   const { selectNoticeT, setSelectNoticeT } = useContext(SetContext);
-  const [noticeTImgList, setNoticeTImgList] = useState([
-    noticeTList.map((item) => (
-      item.src
-    ))
-  ]);
   const [radioActive, setRadioActive] = useState("");
   const [addTitle, setAddTitle] = useState("");
   const [openAdd, setOpenAdd] = useState(false);
@@ -87,6 +82,13 @@ const NoticeSettingT = () => {
       return newList;
     });
   };
+  const photoDeleteHandler = (index) => {
+    setNoticeTList((prev) => {
+      const newList = [...prev];
+      newList[index].src = "";  
+      return newList;
+    });
+  }
   useEffect(() => {
     if (noticeTList.length > 0) {
       if (!noticeTList.some(item => item.id === selectNoticeT)) {
@@ -134,7 +136,14 @@ const NoticeSettingT = () => {
                 </CommonItemContent>
 
                 <CommonItemContent title="사진" multi={true}>
-                  <PhotoSelector id={`NoticeTPhotoList${idx}`} listName={[noticeTList[idx]]} onChange={(e) => fileAddHandler(e, idx)} deleteFunction={setNoticeTImgList} />
+                  <PhotoSelector 
+                    id={`NoticeTPhotoList${idx}`} 
+                    listName={[noticeTList[idx]]} 
+                    onChange={(e) => fileAddHandler(e, idx)} 
+                    deleteFunction={setNoticeTList} 
+                    hasSrc={true} 
+                    hasSrcFunction={() => photoDeleteHandler(idx)}
+                  />
                   <RadioList title="사진 위치">
                     <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoIntro${idx}`} content="본문 위쪽" defaultChecked={true}></RadioItem>
                     <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoAll${idx}`} content="본문 아래쪽"></RadioItem>
