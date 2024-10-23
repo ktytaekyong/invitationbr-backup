@@ -12,10 +12,64 @@ import styles from "../../css/module/common/OrderSettingState.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const fixedList = ["고정 탭 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
+const orderList = [
+  {
+    title: "모시는 글",
+    order: 1,
+    option: false,
+  },
+  {
+    title: "예식 일시",
+    order: 2,
+    option: false,
+  },
+  {
+    title: "오시는 길",
+    order: 3,
+    option: false,
+  },
+  {
+    title: "갤러리",
+    order: 4,
+    option: true,
+  },  
+  {
+    title: "동영상",
+    order: 5,
+    option: true,
+  },
+  {
+    title: "마음전하기",
+    order: 6,
+    option: true,
+  },
+  {
+    title: "안내사항",
+    order: 7,
+    option: true,
+  },
+  {
+    title: "공지사항",
+    order: 8,
+    option: true,
+  },
+  {
+    title: "방명록",
+    order: 9,
+    option: true,
+  },
+  {
+    title: "참석 의사 전달",
+    order: 10,
+    option: true,
+  }
+];
+
 const OrderSettingState = () => {
+  const [orders, setOrders] = useState(orderList);
   const { settingOrderList, setSettingOrderList, settingList } = useContext(SetContext);
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
-    setSettingOrderList((prevList) =>
+    setOrders((prevList) =>
       {
         const updateOrderList = update(prevList, {
           $splice: [
@@ -24,15 +78,15 @@ const OrderSettingState = () => {
           ],
         });
         let currentOrder = 1;
-        return updateOrderList.map((item) => (
-          {
+        return updateOrderList.map((item, index) => {
+          return {
             ...item,
-            order: currentOrder++
-          }
-        ));
+            order: currentOrder++ // 1부터 순서대로 order 값 업데이트
+          };
+        });
       }
     )
-  }, [settingOrderList]);
+  }, [orders]);
   const renderItemHandler = useCallback((item, index) => {
     return (
         <OrderSettingStateItem 
@@ -56,15 +110,15 @@ const OrderSettingState = () => {
         </OrderSettingStateItem>
     )
   }, [])
-  useEffect(() => {
-    console.log(settingOrderList);
-  }, [settingOrderList]);
+  // useEffect(() => {
+  //   console.log(orders);
+  // }, [orders]);
   return (
     <DndProvider options={HTML5toTouch}>
       <div className={styles.order__setting}>
         <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => idx < 3}></OrderSettingStateFixedWrapper>
         <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => ((idx > 2) && (idx < 6))}></OrderSettingStateFixedWrapper>
-        {settingOrderList.map((orderItem, i) => renderItemHandler(orderItem, i))}
+        {orders.map((orderItem, i) => renderItemHandler(orderItem, i))}
         <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => (idx > 5)}></OrderSettingStateFixedWrapper>
       </div>
     </DndProvider>

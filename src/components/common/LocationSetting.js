@@ -16,16 +16,34 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const LocationSetting = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const locationDataChangeHandler = (e, infoType) => {
+    const { name, value } = e.target;
+    setBasicInfoList(prev => ({
+      ...prev,
+      [infoType]: {
+        ...prev[infoType],
+        [name]: value
+      }
+    }))
+  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="예식장 명">
-            <LocationSettingName data="name" locationValue={basicInfoList.placeInfo.placeName} />
+            <LocationSettingName 
+              name="placeName" 
+              locationValue={basicInfoList.placeInfo.placeName} 
+              onChange={(e) => locationDataChangeHandler(e, "placeInfo")}
+            />
           </CommonItemContent>
 
           <CommonItemContent title="층과 홀">
-            <LocationSettingName data="place" locationValue={basicInfoList.placeInfo.placeDetail} />
+            <LocationSettingName 
+              name="placeDetail" 
+              locationValue={basicInfoList.placeInfo.placeDetail} 
+              onChange={(e) => locationDataChangeHandler(e, "placeInfo")}
+            />
           </CommonItemContent>
 
           <CommonItemContent title="주소" multi={true}>

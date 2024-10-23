@@ -7,6 +7,8 @@ export const SetContext = createContext({
   urlInfoList: [],
   setUrlInfoList: () => {}, 
   settingList: [],
+  settingOrderList: [],
+  setSettingOrderList: () => {},
   selectSettingList: [],
   setSelectSettingList: () => {}, 
   accountInfoList: {},

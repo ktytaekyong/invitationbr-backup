@@ -68,7 +68,7 @@ const NoticeSettingD = () => {
       <CommonOptionContent>
         {
           noticeDList.map((item, idx) => (
-            <CommonItemWrapper>
+            <CommonItemWrapper key={`noticeD${idx}`}>
               <CommonItemContent title='제목'>
                 <input
                   type="text" 

@@ -25,7 +25,7 @@ import styles from "../../css/module/page/Invitation.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Invitation = () => {
-  const { selectSettingList, setSelectSettingList, settingList } = useContext(SetContext);
+  const { selectSettingList, setSelectSettingList, settingOrderList } = useContext(SetContext);
   return (
     <div className={`${styles.invitation}`}>
       <Container>
@@ -35,6 +35,9 @@ const Invitation = () => {
         <Calendar></Calendar>
         <Location></Location>
         {
+
+        }
+        {/* {
           selectSettingList.includes("settingGallery") ?
           <Gallery></Gallery> : null
         }
@@ -53,9 +56,9 @@ const Invitation = () => {
         {
           selectSettingList.includes("settingNoticeD") ?
           <NoticeD></NoticeD> : null
-        }
+        } */}
         <Banner></Banner>
-        {
+        {/* {
           selectSettingList.includes("settingGuestbook") ?
           <Guestbook></Guestbook> : null
         }
@@ -66,12 +69,12 @@ const Invitation = () => {
         {
           selectSettingList.includes("settingOutro") ?
           <Outro></Outro> : null
-        }
+        } */}
         <SettingOther />
-        {
+        {/* {
           selectSettingList.includes("settingBgMusic") ?
           <BgMusic></BgMusic> : null
-        }
+        } */}
         <Footer></Footer>
       </Container>
     </div>

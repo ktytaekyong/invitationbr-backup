@@ -262,6 +262,58 @@
       "content": "참석의사"
     }
   ],
+  "settingOrderList": [
+    {
+      "title": "모시는 글",
+      "order": 1,
+      "option": false
+    },
+    {
+      "title": "예식 일시",
+      "order": 2,
+      "option": false
+    },
+    {
+      "title": "오시는 길",
+      "order": 3,
+      "option": false
+    },
+    {
+      "title": "갤러리",
+      "order": 4,
+      "option": true
+    },  
+    {
+      "title": "동영상",
+      "order": 5,
+      "option": true
+    },
+    {
+      "title": "마음전하기",
+      "order": 6,
+      "option": true
+    },
+    {
+      "title": "안내사항",
+      "order": 7,
+      "option": true
+    },
+    {
+      "title": "공지사항",
+      "order": 8,
+      "option": true
+    },
+    {
+      "title": "방명록",
+      "order": 9,
+      "option": true
+    },
+    {
+      "title": "참석 의사 전달",
+      "order": 10,
+      "option": true
+    }
+  ],
 
   "selectSettingList": [
     "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation",
