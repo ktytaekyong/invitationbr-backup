@@ -5,19 +5,22 @@ import Header from "./components/common/Header";
 import View from "./components/page/View";
 /* Css */
 import "./css/App.scss";
-/* Src */
+/* Context */
+import ContextWrap from "./store/option-context-wrap";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="App">
-        <Header />
-        <View />
-        <Routes>
-          <Route path="/" element={<></>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <ContextWrap>
+      <BrowserRouter>
+        <div className="App">
+          <Header />
+          <View />
+          <Routes>
+            <Route path="/" element={<></>} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </ContextWrap>
   );
 }
 

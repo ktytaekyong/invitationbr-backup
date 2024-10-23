@@ -1,9 +1,4 @@
 {
-  "setUrlInfo": [
-    {
-      
-    }
-  ],
   "basicInfoList": {
     "groomInfo": {
       "lastname": "이",
@@ -357,6 +352,20 @@
       "guestPassword": "123",
       "guestMessage": "두분 결혼 너무 축하드립니다. 행복하세요 :)",
       "guestDate": "2024.08.22"
+    }
+  ],
+  "kakaoInfoList": [
+    {
+      "title": "청첩장 만들기(카카오)",
+      "description": "청첩장 만들기(카카오)",
+      "src": ""
+    }
+  ],
+  "urlInfoList": [
+    {
+      "title": "청첩장 만들기(URL)",
+      "description": "청첩장 만들기(URL)",
+      "src": ""
     }
   ]
 }

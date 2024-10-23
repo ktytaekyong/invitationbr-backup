@@ -2,6 +2,10 @@
 import { createContext } from "react";
 
 export const SetContext = createContext({
+  kakaoInfoList: [],
+  setKakaoInfoList: () => {}, 
+  urlInfoList: [],
+  setUrlInfoList: () => {}, 
   settingList: [],
   selectSettingList: [],
   setSelectSettingList: () => {}, 

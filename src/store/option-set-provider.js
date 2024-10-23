@@ -5,6 +5,8 @@ import initList from "./option-list.json";
 import { SetContext } from "./option-set-context.js"
 
 const SetProvider = ({ children }) => {
+  const [kakaoInfoList, setKakaoInfoList] = useState(initList.kakaoInfoList);
+  const [urlInfoList, setUrlInfoList] = useState(initList.urlInfoList);
   const [selectSettingList, setSelectSettingList] = useState(initList.selectSettingList);
   const [accountInfoList, setAccountInfoList] = useState(initList.accountInfoList);
   const [videoList, setVideoList] = useState(initList.videoList);
@@ -19,6 +21,10 @@ const SetProvider = ({ children }) => {
   return (
     <SetContext.Provider
       value={{
+        kakaoInfoList,
+        setKakaoInfoList, 
+        urlInfoList,
+        setUrlInfoList, 
         settingList,
         selectSettingList,
         setSelectSettingList,
