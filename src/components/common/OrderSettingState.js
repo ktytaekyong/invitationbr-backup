@@ -94,11 +94,11 @@ const OrderSettingState = () => {
                   </label>
                 </div>
                 <div className={styles.order__item_inner}>
-                {/* {
-                  selectSettingList.includes(item) ? (
-                    <>{renderComponentHandler(item)}</>
-                  ) : null
-                } */}
+                  {
+                    selectSettingList.includes(item) ? (
+                      <>{renderComponentHandler(item)}</>
+                    ) : null
+                  }
                 </div>
               </div>
               :
