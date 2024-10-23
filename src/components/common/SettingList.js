@@ -72,7 +72,7 @@ const renderComponents = (item) => {
     case 'ThumbnailSettingU':
       return <ThumbnailSettingU />; 
     case 'OrderSetting':
-        return <OrderSetting />; 
+      return <OrderSetting />; 
     default:
       return null;
   }

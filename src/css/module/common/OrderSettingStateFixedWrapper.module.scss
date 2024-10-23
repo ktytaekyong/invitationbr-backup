@@ -1,12 +1,19 @@
 @import "../../_module";
 .order {
   &__wrapper {
+    overflow: hidden;
     &.fixed {
       @include flex__column;
       row-gap: 8px;
       > div {
+        @include position(s);
+        width: 100%;
+        height: 32px;
+        padding: 0 10px;
+        transform: unset;
         background-color: $border-color--play;
         pointer-events: none;
+        font-size: $font-size--xsm;
         cursor: no-drop;
       }
     }

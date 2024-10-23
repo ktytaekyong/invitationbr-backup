@@ -1,5 +1,5 @@
 /* Import */
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 /* Component */
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
@@ -25,58 +25,61 @@ import styles from "../../css/module/page/Invitation.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Invitation = () => {
-  const { selectSettingList, setSelectSettingList, settingOrderList } = useContext(SetContext);
+  const { settingList, selectSettingList, setSelectSettingList, settingOrderList } = useContext(SetContext);
+  const renderItemHandler = (id) => {
+    switch(id) {
+      case "settingLetter":
+        return <Letter />;
+      case "settingDate":
+        return <Calendar />;
+      case "settingLocation":
+        return <Location />;
+      case "settingGallery":
+        return <Gallery />;
+      case "settingVideo":
+        return <Video />;
+      case "settingGift":
+        return <Gift />;
+      case "settingNoticeT":
+        return <NoticeT />;
+      case "settingNoticeD":
+        return <NoticeD />;
+      case "settingGuestbook":
+        return <Guestbook />;
+      case "settingAttend":
+        return <Attend />;
+      case "settingAttend":
+        return <Attend />;
+      default:
+        return null;
+    }
+  }
+  useEffect(() => {
+    settingList.map((item) => (
+      selectSettingList.includes(item.itemId) ?
+      renderItemHandler(item.itemId)
+      : null
+    ))
+  }, [selectSettingList]) 
   return (
     <div className={`${styles.invitation}`}>
       <Container>
         <Tab></Tab>
         <Intro></Intro>
-        <Letter></Letter>
+        {/* <Letter></Letter>
         <Calendar></Calendar>
-        <Location></Location>
-        {
-          // selectSettingList.map((item, idx) => {
-          //   item === settingOrderList.
-          // })
-        }
-        {/* {
-          selectSettingList.includes("settingGallery") ?
-          <Gallery></Gallery> : null
-        }
-        {
-          selectSettingList.includes("settingVideo") ?
-          <Video></Video> : null
-        }
-        {
-          selectSettingList.includes("settingGift") ?
-          <Gift></Gift> : null
-        }
-        {
-          selectSettingList.includes("settingNoticeT") ?
-          <NoticeT></NoticeT> : null
-        }
-        {
-          selectSettingList.includes("settingNoticeD") ?
-          <NoticeD></NoticeD> : null
-        } */}
+        <Location></Location> */}
+        {selectSettingList.map((itemId) =>
+          selectSettingList.includes(itemId) ? (
+            <div key={itemId}>{renderItemHandler(itemId)}</div>
+          ) : null
+        )}
+        {selectSettingList.includes("settingOutro") && <Outro />}
+        
         <Banner></Banner>
-        {/* {
-          selectSettingList.includes("settingGuestbook") ?
-          <Guestbook></Guestbook> : null
-        }
-        {
-          selectSettingList.includes("settingAttend") ?
-          <Attend></Attend> : null
-        }
-        {
-          selectSettingList.includes("settingOutro") ?
-          <Outro></Outro> : null
-        } */}
+        {/* 위치 방명록 위 */}
+        
         <SettingOther />
-        {/* {
-          selectSettingList.includes("settingBgMusic") ?
-          <BgMusic></BgMusic> : null
-        } */}
         <Footer></Footer>
       </Container>
     </div>

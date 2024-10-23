@@ -6,6 +6,17 @@ import update from "immutability-helper";
 /* Component */
 import OrderSettingStateFixedWrapper from "./OrderSettingStateFixedWrapper.js";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
+import Letter from "../invitationSection/Letter";
+import Calendar from "../invitationSection/Calendar.js";
+import Location from "../invitationSection/Location";
+import Gallery from "../invitationSection/Gallery";
+import Video from "../invitationSection/Video";
+import Gift from "../invitationSection/Gift";
+import NoticeT from "../invitationSection/NoticeT.js";
+import NoticeD from "../invitationSection/NoticeD.js";
+import BgMusic from "../invitationSection/BgMusic";
+import Guestbook from "../invitationSection/Guestbook";
+import Attend from "../invitationSection/Attend";
 /* CSS Module */
 import styles from "../../css/module/common/OrderSettingState.module.scss";
 /* Context */
@@ -23,13 +34,41 @@ const OrderSettingState = () => {
             [hoverIndex, 0, prevList[dragIndex]],
           ],
         });
-        let currentOrder = 1;
+        // let currentOrder = 1;
         return updateOrderList.map((item, idx) => (
           updateOrderList[idx] = item
         ));
       }
     )
-  }, [selectSettingList]);
+  }, [selectSettingList, settingList]);
+  const renderComponentHandler = (id) => {
+    switch(id) {
+      case "settingLetter":
+        return <Letter />;
+      case "settingDate":
+        return <Calendar />;
+      case "settingLocation":
+        return <Location />;
+      case "settingGallery":
+        return <Gallery />;
+      case "settingVideo":
+        return <Video />;
+      case "settingGift":
+        return <Gift />;
+      case "settingNoticeT":
+        return <NoticeT />;
+      case "settingNoticeD":
+        return <NoticeD />;
+      case "settingGuestbook":
+        return <Guestbook />;
+      case "settingAttend":
+        return <Attend />;
+      case "settingAttend":
+        return <Attend />;
+      default:
+        return null;
+    }
+  }
   const renderItemHandler = useCallback((item, index) => {
     return (
         <OrderSettingStateItem 
@@ -42,7 +81,8 @@ const OrderSettingState = () => {
           <div className={styles.order__item}>
             {
               selectSettingList.includes(item) ?
-                <>
+              <div className={styles.order__item_wrap}>
+                <div className={styles.order__item_title}>
                   <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
                   <label htmlFor={`orderItemChk${index}`}>
                     {item.title}
@@ -52,7 +92,15 @@ const OrderSettingState = () => {
                       })
                     }
                   </label>
-                </>
+                </div>
+                <div className={styles.order__item_inner}>
+                {/* {
+                  selectSettingList.includes(item) ? (
+                    <>{renderComponentHandler(item)}</>
+                  ) : null
+                } */}
+                </div>
+              </div>
               :
               <p>{item.title}</p>
             }
