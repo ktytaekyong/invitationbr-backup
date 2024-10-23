@@ -21,7 +21,7 @@ const GallerySettingPhoto = () => {
     if(file) {
       try {
         const compressedFile = await imageCompression(file, option);
-        const fileList = new FileReader();
+        const fileList = new FileReader([]);
         fileList.onload = (e) => {
           setSelectGalleryPhotoList([
             ...selectGalleryPhotoList,
@@ -59,7 +59,7 @@ const GallerySettingPhoto = () => {
         </div>
         <div className={styles.photo__input}>
           <div className={styles.photo__input_wrap}>
-            <input type="file" name="galleryFile" id="galleryFile" onChange={fileAddHandler} />
+            <input type="file" name="galleryFile" id="galleryFile" multiple onChange={fileAddHandler} />
             <label htmlFor="galleryFile">사진 추가</label>
             {/* 아직 안됨 */}
             <p>사진을 끌어오셔도 됩니다.</p>
