@@ -315,8 +315,10 @@
     }
   ],
 
+  "basicSettingList": [
+    "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation"
+  ],
   "selectSettingList": [
-    "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation",
     "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
   ],
   "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],

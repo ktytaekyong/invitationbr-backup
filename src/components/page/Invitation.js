@@ -35,7 +35,9 @@ const Invitation = () => {
         <Calendar></Calendar>
         <Location></Location>
         {
-
+          // selectSettingList.map((item, idx) => {
+          //   item === settingOrderList.
+          // })
         }
         {/* {
           selectSettingList.includes("settingGallery") ?

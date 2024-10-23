@@ -13,9 +13,9 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const fixedList = ["고정 탭 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const OrderSettingState = () => {
-  const { settingOrderList, setSettingOrderList, settingList } = useContext(SetContext);
+  const { settingOrderList, setSettingOrderList, settingList, selectSettingList, setSelectSettingList } = useContext(SetContext);
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
-    setSettingOrderList((prevList) =>
+    setSelectSettingList((prevList) =>
       {
         const updateOrderList = update(prevList, {
           $splice: [
@@ -24,31 +24,35 @@ const OrderSettingState = () => {
           ],
         });
         let currentOrder = 1;
-        return updateOrderList.map((item) => (
-          {
-            ...item,
-            order: currentOrder++
-          }
+        return updateOrderList.map((item, idx) => (
+          updateOrderList[idx] = item
         ));
       }
     )
-  }, [settingOrderList]);
+  }, [selectSettingList]);
   const renderItemHandler = useCallback((item, index) => {
     return (
         <OrderSettingStateItem 
-          key={`${item.title}${index}`} 
+          key={`orderItem${index}`} 
           index={index}
-          id={`${item.title}${index}`} 
+          id={`orderItem${index}`} 
           moveItemHandler={moveItemHandler}
           className={`${styles.order__wrapper}`} 
         >
           <div className={styles.order__item}>
             {
-              item.option ?
-              <>
-                <input type="checkbox" id={`orderItem${item.order}`}/>
-                <label htmlFor="">{item.title}</label>
-              </>
+              selectSettingList.includes(item) ?
+                <>
+                  <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
+                  <label htmlFor={`orderItemChk${index}`}>
+                    {item.title}
+                    {
+                      settingList.map((settingListItem, idx) => {
+                        return settingListItem.itemId === item ? settingList[idx].itemTitle : ""
+                      })
+                    }
+                  </label>
+                </>
               :
               <p>{item.title}</p>
             }
@@ -57,14 +61,20 @@ const OrderSettingState = () => {
     )
   }, [])
   useEffect(() => {
-    console.log(settingOrderList);
-  }, [settingOrderList]);
+    console.log(selectSettingList);
+  }, [selectSettingList]);
   return (
     <DndProvider options={HTML5toTouch}>
       <div className={styles.order__setting}>
         <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => idx < 3}></OrderSettingStateFixedWrapper>
         <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => ((idx > 2) && (idx < 6))}></OrderSettingStateFixedWrapper>
-        {settingOrderList.map((orderItem, i) => renderItemHandler(orderItem, i))}
+        {
+          selectSettingList
+          .filter((item) => (
+            item !== "settingOutro" && item !== "settingThumbK" && item !== "settingThumbU" && item !== "settingOrder"
+          ))
+          .map((orderItem, j) => renderItemHandler(orderItem, j))
+        }
         <OrderSettingStateFixedWrapper className={styles.order__item} listName={fixedList} filterCondition={(_, idx) => (idx > 5)}></OrderSettingStateFixedWrapper>
       </div>
     </DndProvider>
