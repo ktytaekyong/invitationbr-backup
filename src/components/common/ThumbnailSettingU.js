@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -11,39 +11,55 @@ import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
 // import styles from "../../css/module/common/NoticeSettingT.module.css";
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const ThumbnailSettingU = () => {
-  const [radioActive, setRadioActive] = useState(false);
-  const [thumbUPhotoList, setThumbUPhotoList] = useState([]);
+  const { urlInfoList, setUrlInfoList } = useContext(SetContext);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if (file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setThumbUPhotoList([
-          {
+        setUrlInfoList(prev => (
+          [{
+            ...prev,
             src: e.target.result,
-            alt: e.target.result,
-          },
-        ]);
+          }]
+        ))
       };
       fileList.readAsDataURL(file);
     }
   };
+  const photoDeleteHandler = (index) => {
+    setUrlInfoList((prev) => {
+      const newList = [...prev];
+      newList[index].src = "";  
+      return newList;
+    });
+  }
+  const infoDataChangeHandler = (e, index) => {
+    const { name, value } = e.target;
+    setUrlInfoList((prev) => {
+      const newList = [...prev];
+      newList[index][name] = value;  
+      return newList;
+    });
+  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title='사진' multi={true}>
-            <PhotoSelector id='ThumbUPhoto' listName={thumbUPhotoList} onChange={fileAddHandler} deleteFunction={setThumbUPhotoList} />
+            <PhotoSelector id="ThumbUPhoto" listName={urlInfoList} onChange={fileAddHandler} hasSrc={true} hasSrcFunction={() => photoDeleteHandler(0)} />
           </CommonItemContent>
 
           <CommonItemContent title='제목'>
-            <input type='text' placeholder='제목 입력' />
+            <input type="text" name="title" value={urlInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />
           </CommonItemContent>
 
           <CommonItemContent title='내용' multi={true}>
-            <TextEditor></TextEditor>
+            <TextEditor name="description" textValue={urlInfoList[0].description} onChange={(e) => infoDataChangeHandler(e, 0)} />
             <SettingNotice>
               <SettingNoticeContent>가로 사진 사용을 권장합니다.</SettingNoticeContent>
               <SettingNoticeContent>이미지 변경 시 플랫폼별 정책에 따라 최대 3시간 소요됩니다.</SettingNoticeContent>

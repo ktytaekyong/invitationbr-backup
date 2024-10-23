@@ -15,7 +15,6 @@ import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 import { SetContext } from "../../store/option-set-context.js";
 
 const ThumbnailSettingK = () => {
-  const [thumbKPhotoList, setThumbKPhotoList] = useState([]);
   const { kakaoInfoList, setKakaoInfoList } = useContext(SetContext);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
