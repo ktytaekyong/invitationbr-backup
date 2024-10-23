@@ -27,7 +27,7 @@ const effectList = [
 ]; 
 
 const BackgroundSettingEffect = () => {
-  const [radioActive, setRadioActive] = useState(false);
+  const [isActive, setIsActive] = useState(0);
   return (
     <>
       {/* <ul className={styles.effect__selector}>
@@ -37,12 +37,12 @@ const BackgroundSettingEffect = () => {
           >{item.title}</li>
         ))}
       </ul> */}
-      <TabSelector listName={effectList} onChange={setRadioActive} />
+      <TabSelector listName={effectList} onChange={setIsActive} />
       {
-        radioActive ? 
+        isActive === 1 || isActive === 2 || isActive === 3 ? 
         <RadioList>
-          <RadioItem radioName="effectSection" id="effectIntro" content="인트로 화면"></RadioItem>
-          <RadioItem radioName="effectSection" id="effectAll" content="전체 화면"></RadioItem>
+          <RadioItem radioName="effectSection" id="effectIntro" content="인트로 화면" />
+          <RadioItem radioName="effectSection" id="effectAll" content="전체 화면" />
         </RadioList>
         :
         null

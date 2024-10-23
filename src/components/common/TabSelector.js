@@ -9,8 +9,6 @@ const TabSelector = ({ listName, onChange, onClick, delFunction, type, selectNot
   const [isActive, setIsActive] = useState(0);
   const setActiveHandler = (idx, onChange) => {
     setIsActive(idx);
-    console.log(idx);
-    console.log(selectNoticeT);
     if(onChange) {
       onChange(idx);
     } else {

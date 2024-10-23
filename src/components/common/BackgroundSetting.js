@@ -38,7 +38,7 @@ const themeList = [
 
 const fontList = [
   {
-    itemName: "맑은 고딕",
+    itemName: "서울한강",
     itemKey: "font1"
   },
   {
