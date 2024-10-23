@@ -89,13 +89,6 @@ const NoticeSettingT = () => {
       return newList;
     });
   }
-  useEffect(() => {
-    if (noticeTList.length > 0) {
-      if (!noticeTList.some(item => item.id === selectNoticeT)) {
-        setSelectNoticeT(noticeTList[0].id);
-      }
-    }
-  }, [noticeTList, radioActive]);
   return (
     <>
       <CommonOptionWrapper>
@@ -107,6 +100,7 @@ const NoticeSettingT = () => {
                 onChange={setSelectNoticeT} 
                 onClick={handleOpenDel} 
                 delFunction={noticeRemoveHandler} 
+                selectNoticeT={selectNoticeT}
               />
               <ButtonWrapper>
                 <Button content="탭 추가" styleType="add" onClick={handleOpenAdd} />
@@ -114,7 +108,7 @@ const NoticeSettingT = () => {
             </CommonItemContent>
           </CommonItemWrapper>
           {noticeTList.map((item, idx) => (
-            <div key={`noticeTList${idx}`} id={item.id} className={`${styles.tab__item} ${selectNoticeT === item.id ? styles["active"] : ""}`}>
+            <div key={`noticeTList${idx}`} id={item.id} className={`${styles.tab__item} ${selectNoticeT === idx ? styles["active"] : ""}`}>
               <CommonItemWrapper>
                 <CommonItemContent title="제목">
                   <input 
@@ -156,7 +150,7 @@ const NoticeSettingT = () => {
       </CommonOptionWrapper>
 
       <BasicModalNoticeTAdd openvar={openAdd} onClose={handleCloseAdd} addTitle={addTabTitle} addFunction={noticeAddHandler} />
-      <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel} />
+      <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel} onClick={() => noticeRemoveHandler(selectNoticeT)} />
     </>
   )
 }

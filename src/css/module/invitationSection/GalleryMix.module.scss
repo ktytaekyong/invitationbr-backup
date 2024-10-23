@@ -27,35 +27,16 @@
         border-radius: 999px;
         background: $text-color--disable;
       }
-    }
-    .slide__wrap {
-      @include flex__row;
-      flex-wrap: wrap;
-      column-gap: 8px;
-      width: 100%;
-      border-radius: $radius--default;
-      img {
-        &:first-child {
-          width: 100%;
+      .mySwiper2 {
+        margin-bottom: 12px;
+        .swiper-slide {
           height: 220px;
-          margin-bottom: 12px;
-        }
-        &:nth-child(n + 2) {
-          width: calc((100% - 24px) / 4);
-          height: 52px;
         }
       }
-    }
-    .bottom {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      width: 100%;
-      height: 52px;
-      margin-top: 12px;
-      border-radius: 4px;
-      img {
-        border-radius: 4px;
+      .mySwiper {
+        .swiper-slide {
+          height: 52px;
+        }
       }
     }
   }

@@ -12,6 +12,7 @@
       overflow-y: scroll;
     }
     &_item {
+      width: 100%;
       padding: 16px 10px;
       border-radius: $radius--default;
       border: 1px solid $border-color--default;

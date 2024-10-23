@@ -5,11 +5,12 @@ import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/TabSelector.module.scss";
 
-const TabSelector = ({ listName, onChange, onClick, delFunction, type }) => {
+const TabSelector = ({ listName, onChange, onClick, delFunction, type, selectNoticeT }) => {
   const [isActive, setIsActive] = useState(0);
   const setActiveHandler = (idx, onChange) => {
     setIsActive(idx);
     console.log(idx);
+    console.log(selectNoticeT);
     if(onChange) {
       onChange(idx);
     } else {
@@ -38,9 +39,10 @@ const TabSelector = ({ listName, onChange, onClick, delFunction, type }) => {
               item.id && item.id.indexOf("noticeTab") !== -1 ?
               <Button 
                 styleType="tab__delete" 
-                onClick={() => {
-                  delFunction(idx)?.();
-                }}
+                onClick={onClick} 
+                // onClick={() => {
+                //   delFunction(idx)?.();
+                // }}
               />
               : null
             }

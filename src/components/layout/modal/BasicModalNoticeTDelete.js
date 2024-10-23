@@ -6,13 +6,14 @@ import BasicModal from './BasicModal';
 /* CSS Module */
 // import styles from "../../../css/module/layout/modal/BasicModalHeader.module.scss";
 
-const BasicModalNoticeTDelete = ({ openvar, onClose }) => {
+const BasicModalNoticeTDelete = ({ openvar, onClose, onClick }) => {
   return (
     <>
       <BasicModal 
         openvar={openvar} 
         className=""
         onClose={onClose} 
+        onClick={onClick}
         notice={true} 
         noticeContent="탭 삭제"
         ButtonWrapperUse={true}

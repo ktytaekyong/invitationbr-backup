@@ -12,7 +12,7 @@ const SetProvider = ({ children }) => {
   const [noticeDList, setNoticeDList] = useState(initList.noticeDList);
   const [letterList, setLetterList] = useState(initList.letterList);
   const [outroList, setOutroList] = useState(initList.outroList);
-  const [selectNoticeT, setSelectNoticeT] = useState("noticeTab1");
+  const [selectNoticeT, setSelectNoticeT] = useState(0);
   const [guestbookList, setGuestbookList] = useState(initList.guestbookList);
   const settingList = initList.settingList;
 
