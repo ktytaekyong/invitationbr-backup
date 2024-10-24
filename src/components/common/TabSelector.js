@@ -40,9 +40,6 @@ const TabSelector = ({ listName, onChange, onClick, type, optionSet }) => {
               <Button 
                 styleType="tab__delete" 
                 onClick={onClick} 
-                // onClick={() => {
-                //   delFunction(idx)?.();
-                // }}
               />
               : null
             }

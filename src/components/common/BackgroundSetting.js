@@ -61,13 +61,7 @@ const fontWeightList = [
 ]
 const BackgroundSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
-  const optionChangeHandler = (option, type) => {
-    setSelectOptionList((prev) => ({
-      ...prev,
-      [type]: option
-    }))
-    console.log(selectOptionList);
-  }
+
   return (
     // 전체
     <CommonOptionWrapper>
@@ -80,8 +74,7 @@ const BackgroundSetting = () => {
               selectID="themeSelector" 
               selectName="themeSelector" 
               listName={themeList} 
-              optionSet={(option) => optionChangeHandler(option, "theme")} 
-              defaultValue={selectOptionList.theme}
+              // optionSet={(option) => optionChangeHandler(option, "theme")} 
               value={selectOptionList.theme} 
             />
             <BackgroundSettingTheme />

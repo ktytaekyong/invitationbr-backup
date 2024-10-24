@@ -1,20 +1,26 @@
 /* CSS Module */
 import styles from "../../css/module/common/CheckItem.module.scss";
 
-const CheckItem = (props) => {
+const CheckItem = ({ name, id, content, disabled, labelImgSrc, children, optionSet }) => {
   return (
     <div className={styles.check}>
-      <input type="checkbox" name={props.name} id={props.id} disabled={props.disabled} onChange={props.onChange} />
-      <label htmlFor={props.id}>
+      <input 
+        type="checkbox" 
+        name={name} 
+        id={id} 
+        disabled={disabled} 
+        onChange={() => {optionSet(id)}} 
+      />
+      <label htmlFor={id}>
         {
-          props.labelImgSrc ?
-          <img src={props.labelImgSrc} alt="" />
+          labelImgSrc ?
+          <img src={labelImgSrc} alt="" />
           :
           null
         }
-        {props.content}
+        {content}
       </label>
-      {props.children}
+      {children}
     </div>
   )
 }
