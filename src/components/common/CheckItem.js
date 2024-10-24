@@ -8,7 +8,7 @@ const CheckItem = ({ name, id, content, disabled, labelImgSrc, children, optionS
         type="checkbox" 
         name={name} 
         id={id} 
-        disabled={disabled} 
+        disabled={disabled}
         onChange={() => {optionSet(id)}} 
       />
       <label htmlFor={id}>

@@ -61,7 +61,7 @@ const fontWeightList = [
 ]
 const BackgroundSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
-
+  
   return (
     // 전체
     <CommonOptionWrapper>
