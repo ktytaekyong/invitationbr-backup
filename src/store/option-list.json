@@ -272,13 +272,37 @@
   "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
   "selectIntroPhoto": [
   ],
-  "selectIntroEffect": ["bgEffectNoSelect"],
   "selectLocationFile": [
   ],
   "selectGalleryType": "gallerySlideType",
   "selectGalleryView": false,
   "selectGalleryPhotoList": [
   ],
+  "selectOptionList": {
+    "theme": "themeModernBasic",
+    "backgroundColor": "#FFF",
+    "fontFamily": "SeoulHangang",
+    "fontWeight": "normal",
+    "effectType": "bgEffectNoSelect",
+    "effectRange": "effectIntro",
+    "zoomOption": false,
+    "scrollEffectOption": false,
+    "lockOption": false,
+    "introFillType": "basicTemplate1",
+    "deceasedFlower": "",
+    "dateCalendarType": "calendarType1",
+    "dateDdayOption": false,
+    "galleryMoreOption": false,
+    "groomAccountView": true,
+    "brideAccountView": false,
+    "bgmAutoPlay": false,
+    "optionAttendPopupOpen": false,
+    "optionAttendPopupScroll": false,
+    "optionAttendKakao": false
+  },
+  "attendList": {
+    
+  },
 
   "backgroundList": {
     "color": "#ffffff"

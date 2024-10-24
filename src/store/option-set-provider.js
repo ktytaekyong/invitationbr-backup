@@ -17,6 +17,7 @@ const SetProvider = ({ children }) => {
   const [outroList, setOutroList] = useState(initList.outroList);
   const [selectNoticeT, setSelectNoticeT] = useState(0);
   const [guestbookList, setGuestbookList] = useState(initList.guestbookList);
+  const [selectOptionList, setSelectOptionList] = useState(initList.selectOptionList);
   const settingList = initList.settingList;
 
   return (
@@ -47,6 +48,8 @@ const SetProvider = ({ children }) => {
         setLetterList,
         guestbookList,
         setGuestbookList,
+        selectOptionList,
+        setSelectOptionList
       }}
     >
       {children}

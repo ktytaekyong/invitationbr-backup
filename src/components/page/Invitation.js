@@ -5,6 +5,7 @@ import { useLocation } from "react-router-dom";
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
+import Effect from "../invitationSection/Effect.js";
 import Letter from "../invitationSection/Letter";
 import Calendar from "../invitationSection/Calendar.js";
 import Location from "../invitationSection/Location";
@@ -28,7 +29,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const previewnLocation = useLocation();
   const isTargetPage = previewnLocation.pathname === '/Preview';
-  const { settingList, selectSettingList, setSelectSettingList, settingOrderList } = useContext(SetContext);
+  const { settingList, selectSettingList, selectOptionList } = useContext(SetContext);
   const renderItemHandler = (id) => {
     switch(id) {
       case "settingLetter":
@@ -66,9 +67,10 @@ const Invitation = () => {
   }, [selectSettingList]) 
   return (
     <div className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}>
-      <Container>
-        <Tab></Tab>
-        <Intro></Intro>
+      <Container style={selectOptionList.effectRange === "effectIntro" ? {position: "relative"} : null}>
+        <Tab />
+        <Intro />
+        <Effect />
         {/* <Letter></Letter>
         <Calendar></Calendar>
         <Location></Location> */}
@@ -78,12 +80,11 @@ const Invitation = () => {
           ) : null
         )}
         {selectSettingList.includes("settingOutro") && <Outro />}
-        
-        <Banner></Banner>
+        <Banner />
         {/* 위치 방명록 위 */}
         
         <SettingOther />
-        <Footer></Footer>
+        <Footer />
       </Container>
     </div>
   )

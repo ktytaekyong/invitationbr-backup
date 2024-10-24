@@ -1,3 +1,5 @@
+/* Import */
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -8,6 +10,8 @@ import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
 import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
 import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
 /* CSS Module */
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const themeList = [
   {
@@ -35,7 +39,6 @@ const themeList = [
     itemKey: "themeFlower"
   },
 ];
-
 const fontList = [
   {
     itemName: "서울한강",
@@ -46,7 +49,6 @@ const fontList = [
     itemKey: "font2"
   },
 ]
-
 const fontWeightList = [
   {
     itemName: "보통",
@@ -57,8 +59,15 @@ const fontWeightList = [
     itemKey: "600"
   },
 ]
-
 const BackgroundSetting = () => {
+  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const optionChangeHandler = (option, type) => {
+    setSelectOptionList((prev) => ({
+      ...prev,
+      [type]: option
+    }))
+    console.log(selectOptionList);
+  }
   return (
     // 전체
     <CommonOptionWrapper>
@@ -67,7 +76,14 @@ const BackgroundSetting = () => {
         {/* 섹션 아이템 */}
         <CommonItemWrapper>
           <CommonItemContent title="테마">
-            <OptionSelector listName={themeList} />
+            <OptionSelector 
+              selectID="themeSelector" 
+              selectName="themeSelector" 
+              listName={themeList} 
+              optionSet={(option) => optionChangeHandler(option, "theme")} 
+              defaultValue={selectOptionList.theme}
+              value={selectOptionList.theme} 
+            />
             <BackgroundSettingTheme />
           </CommonItemContent>
 

@@ -27,4 +27,6 @@ export const SetContext = createContext({
   setLetterList: () => {},
   guestbookList: {},
   setGuestbookList: () => {},
+  selectOptionList: {},
+  setSelectOptionList: () => {},
 });
