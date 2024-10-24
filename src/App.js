@@ -13,11 +13,24 @@ function App() {
     <ContextWrap>
       <BrowserRouter>
         <div className="App">
-          <Header />
-          <View />
           <Routes>
-            <Route path="/" element={<></>} />
+            <Route 
+              path="/" 
+              element={
+                <>
+                  <Header />
+                </>
+              } 
+            />
+            <Route 
+              path="/Preview" 
+              element={
+                <>
+                </>
+              } 
+            />
           </Routes>
+          <View />
         </div>
       </BrowserRouter>
     </ContextWrap>

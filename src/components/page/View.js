@@ -1,5 +1,6 @@
 /* Import */
 import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
 import Invitation from "../page/Invitation";
@@ -8,11 +9,30 @@ import Produce from "../page/Produce";
 import styles from "../../css/module/page/View.module.scss";
 
 const View = () => {
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === '/Preview';
   return (
-    <section className={styles.view}>
+    <section className={`${styles.view} ${isTargetPage ? styles.preview : ""}`}>
       <Container>
-        <Invitation></Invitation>
-        <Produce></Produce>
+        <Routes>
+          <Route 
+            path="/" 
+            element={
+              <>
+                <Invitation></Invitation>
+                <Produce></Produce>
+              </>
+            } 
+          />
+          <Route 
+            path="/Preview" 
+            element={
+              <>
+                <Invitation />
+              </>
+            } 
+          />
+        </Routes>
       </Container>
     </section>
   )

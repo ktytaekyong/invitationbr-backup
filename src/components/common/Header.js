@@ -1,6 +1,6 @@
 /* Import */
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
 import ButtonWrapper from "../layout/ButtonWrapper";
@@ -17,6 +17,10 @@ const Header = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);  
+  const headerNav = useNavigate();
+  const previewHandler = () => {
+    headerNav('/Preview');  
+  };
   return (
     <>
       <MetaTag title="청첩장 만들기" description="설명" imageUrl="" />
@@ -31,8 +35,8 @@ const Header = () => {
             <p>선택 항목은 메뉴명 앞에 체크박스 표시가 있습니다.</p>
           </div>
           <ButtonWrapper>
-            <Button type="button" styleType="default" content="미리보기" />
-            <Button type="button" styleType="primary" content="저장" onClick={handleOpen}/>
+            <Button type="button" styleType="default" content="미리보기" onClick={previewHandler} />
+            <Button type="button" styleType="primary" content="저장" onClick={handleOpen} />
           </ButtonWrapper>
         </Container>
 

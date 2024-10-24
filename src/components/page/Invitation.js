@@ -1,5 +1,6 @@
 /* Import */
 import { useContext, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
@@ -25,6 +26,8 @@ import styles from "../../css/module/page/Invitation.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Invitation = () => {
+  const previewnLocation = useLocation();
+  const isTargetPage = previewnLocation.pathname === '/Preview';
   const { settingList, selectSettingList, setSelectSettingList, settingOrderList } = useContext(SetContext);
   const renderItemHandler = (id) => {
     switch(id) {
@@ -62,7 +65,7 @@ const Invitation = () => {
     ))
   }, [selectSettingList]) 
   return (
-    <div className={`${styles.invitation}`}>
+    <div className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}>
       <Container>
         <Tab></Tab>
         <Intro></Intro>

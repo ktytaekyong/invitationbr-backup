@@ -6,11 +6,17 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  min-height: 100vh;
   background-color: $bg-color--default;
   & > div {
     @include flex__row;
     justify-content: center;
     align-items: flex-start;
     column-gap: 30px;
+  }
+  &.preview {
+    > div {
+      padding: 0;
+    }
   }
 }

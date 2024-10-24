@@ -272,6 +272,7 @@
   "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
   "selectIntroPhoto": [
   ],
+  "selectIntroEffect": ["bgEffectNoSelect"],
   "selectLocationFile": [
   ],
   "selectGalleryType": "gallerySlideType",

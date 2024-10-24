@@ -30,13 +30,6 @@ const BackgroundSettingEffect = () => {
   const [isActive, setIsActive] = useState(0);
   return (
     <>
-      {/* <ul className={styles.effect__selector}>
-        {effectList.map((item, idx) => (
-          <li className={`${styles.effect__item} ${isActive === idx ? styles["active"] : ""}`} 
-          key={item + idx} id={"effect" + idx} onClick={() => setActiveHandler(idx)} 
-          >{item.title}</li>
-        ))}
-      </ul> */}
       <TabSelector listName={effectList} onChange={setIsActive} />
       {
         isActive === 1 || isActive === 2 || isActive === 3 ? 

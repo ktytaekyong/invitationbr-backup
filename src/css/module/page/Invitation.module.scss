@@ -9,6 +9,9 @@
   border-radius: $radius--default;
   background-color: #FFF;
   overflow-y: scroll;
+  &.preview {
+    height: 97vh;
+  }
   * {
     font-family: $font-family--theme;
     font-weight: $font-weight--Medium;
