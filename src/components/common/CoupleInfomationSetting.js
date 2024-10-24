@@ -57,14 +57,21 @@ const CoupleInfomation = () => {
       }
     }))
   }
-
+  // useEffect(() => {
+  //   console.log(basicInfoList);
+  // }, [basicInfoList])
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
 
         <CommonItemWrapper>
           <CommonItemContent title="신랑">
-            <CoupleInfomationSettingBasic couple="신랑" coupleKey="M" value={basicInfoList.groomInfo} />
+            <CoupleInfomationSettingBasic 
+              couple="신랑" 
+              coupleKey="M" 
+              value={basicInfoList.groomInfo} 
+              onChange={(e) => basicDataChangeHandler(e, "groomInfo")}
+            />
           </CommonItemContent>
           {parents.map((parent, idx) => (
             <CommonItemContent title={parent.itemName} key={`${parent.itemName}${idx}`}>
@@ -85,7 +92,12 @@ const CoupleInfomation = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="신부">
-            <CoupleInfomationSettingBasic couple="신부" coupleKey="F" value={basicInfoList.brideInfo} />
+            <CoupleInfomationSettingBasic 
+              couple="신부" 
+              coupleKey="F" 
+              value={basicInfoList.brideInfo} 
+              onChange={(e) => basicDataChangeHandler(e, "groomInfo")}
+            />
           </CommonItemContent>
           {parents.map((parent, idx) => (
             <CommonItemContent title={parent.itemName} key={`${parent.itemName}${idx}`}>

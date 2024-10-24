@@ -37,7 +37,7 @@ const Gift = () => {
             <div className={`${styles.account__list_content} ${isActive ? styles["active"] : ""}`}>
               {
                 accountInfoList.groomGroupList.map((item, idx) => (
-                  <div className={styles.account__item}>
+                  <div key={item.name + idx} className={styles.account__item}>
                     <div className={styles.name}>
                       <p>
                         {/* 신랑  */}
@@ -66,7 +66,7 @@ const Gift = () => {
             <div className={`${styles.account__list_content} ${isActive2 ? styles["active"] : ""}`}>
               {
                 accountInfoList.brideGroupList.map((item, idx) => (
-                  <div className={styles.account__item}>
+                  <div key={item.name + idx} className={styles.account__item}>
                     <div className={styles.name}>
                       <p>
                         {/* 신부 */}

@@ -25,8 +25,8 @@ const GallerySlide = () => {
         }}
         modules={[Scrollbar]}
         className="mySwiper"
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}
+        // onSlideChange={() => console.log('slide change')}
+        // onSwiper={(swiper) => console.log(swiper)}
       >
         {
           selectGalleryPhotoList.length === 0 ?

@@ -7,7 +7,6 @@ import CheckItem from "./CheckItem";
 import styles from "../../css/module/common/CoupleInfomationSettingBasic.module.scss";
 
 const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) => {
-  const [depActive, setDepActive] = useState(false);
   const [relList, setRelList] = useState([]);
   const MRelList = [
     {
@@ -135,6 +134,7 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         selectName="relation"
         className={styles.info__firstname_selector}
         listName={relList}
+        defaultValue={value.relation}
         value={value.relation}
         onChange={onChange}
       />

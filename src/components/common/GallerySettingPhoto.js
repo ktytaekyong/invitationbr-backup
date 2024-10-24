@@ -12,40 +12,36 @@ import { GalleryContext } from "../../store/option-gallery-context.js";
 const GallerySettingPhoto = () => {
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   const fileAddHandler = async (e) => {
-    const file = e.target.files[0];
+    const file = e.target.files;
     const option = {
       maxSizeMB: 4,
       maxWidthOrHeight: 1200,
       initialQuality: 1,
     }
-    if(file) {
+    if(file && file.length > 0) {
       try {
-        const compressedFile = await imageCompression(file, option);
-        const fileList = new FileReader([]);
-        fileList.onload = (e) => {
-          setSelectGalleryPhotoList([
-            ...selectGalleryPhotoList,
-            {
-              src: e.target.result,
-              alt: e.target.result,
-            },
-          ]);
-          setSelectGalleryPhotoList(() => {
-            if(selectGalleryPhotoList.length === 20) {
-              /* 토스트 */
-              return [...selectGalleryPhotoList];
-            } else {
-              return [
-                ...selectGalleryPhotoList,
-                {
-                  src: e.target.result,
-                  alt: e.target.result,
-                },
-              ];
-            }
-          });
-        };
-        fileList.readAsDataURL(compressedFile);
+        const filesArray = Array.from(file);
+        filesArray.forEach(async (file) => {
+          const compressedFile = await imageCompression(file, option);
+          const fileList = new FileReader();
+          fileList.onload = (e) => {
+            setSelectGalleryPhotoList((prevList) => {
+              if (prevList.length >= 20) {
+                /* 토스트 알림 추가 가능 */
+                return prevList;
+              } else {
+                return [
+                  ...prevList,
+                  {
+                    src: e.target.result,
+                    alt: e.target.result,
+                  },
+                ];
+              }
+            });
+          };
+          fileList.readAsDataURL(compressedFile);
+        });
       } catch (error) {
         console.error('이미지 압축 중 오류 발생:', error);
       }

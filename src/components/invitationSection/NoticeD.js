@@ -19,7 +19,7 @@ const NoticeD = () => {
         <div className={styles.notice__content}>
           {
             noticeDList.map((item, idx) => (
-              <div className={styles.content}>
+              <div key={item.title + idx} className={styles.content}>
                 <div className={styles.title}>
                   <p>{item.title}</p>
                 </div>

@@ -108,9 +108,9 @@ const OrderSettingState = () => {
         </OrderSettingStateItem>
     )
   }, [])
-  useEffect(() => {
-    console.log(selectSettingList);
-  }, [selectSettingList]);
+  // useEffect(() => {
+  //   console.log(selectSettingList);
+  // }, [selectSettingList]);
   return (
     <DndProvider options={HTML5toTouch}>
       <div className={styles.order__setting}>

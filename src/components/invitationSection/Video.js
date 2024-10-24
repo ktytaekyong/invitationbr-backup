@@ -25,7 +25,7 @@ const Video = () => {
           </div> */}
           {
             isValidYouTubeUrl(videoList.videoUrl) ?
-            <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             :
             <video controls preload="auto">
               <source src={videoList.videoSrc} type="video/mp4" />

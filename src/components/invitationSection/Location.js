@@ -25,9 +25,9 @@ const Location = () => {
   const handleClose = () => {
     setOpen(false);
   };
-  useEffect(()=>{
-    console.log(selectLocationFile);
-  }, [selectLocationFile])
+  // useEffect(()=>{
+  //   console.log(selectLocationFile);
+  // }, [selectLocationFile])
   return (
     <div className={`${styles.location} ${styles.style_theme_1}`}>
       <div className={styles.location__wrap}>

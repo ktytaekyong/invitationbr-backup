@@ -65,7 +65,7 @@ const Guestbook = () => {
                 {
                   guestbookList.filter((_, count) => count < guestMoreCount)
                   .map((item, idx) => (
-                  <li className={styles.guest__item}>
+                  <li key={item.guestName + idx} className={styles.guest__item}>
                     <p className={styles.name}>{item.guestName}</p>
                     <p className={styles.content}>
                       {item.guestMessage}
