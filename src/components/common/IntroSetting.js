@@ -1,5 +1,5 @@
 /* Import */
-import { useState } from "react";
+import { useState, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -9,6 +9,8 @@ import CommonItemContent from "./CommonItemContent.js";
 import styles from "../../css/module/common/IntroSetting.module.scss";
 /* Image */
 import templateImage1 from "../../img/intro/intro_photo_temp1.png";
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const basicIntroList = [
   {
@@ -49,21 +51,20 @@ const fillIntroList = [
 ]
 
 const IntroSetting = () => {
-  const [isBasicActive, setIsBasicActive] = useState(0);
-  const [isFillActive, setIsFillActive] = useState(null);
+  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(0);
-  const setBasicActiveHandler = (idx) => {
-    setIsBasicActive(idx);
-    setIsFillActive(null);
-  }
-  const setFillActiveHandler = (idx) => {
-    setIsFillActive(idx);
-    setIsBasicActive(null);
-  }
   const setActiveTabHandler = (idx) => {
     setIsActiveTab(idx);
   }
-
+  const introChangeHandler = (e) => {
+    const { name } = e.currentTarget.dataset;
+    const { id } = e.currentTarget;
+    setSelectOptionList((prev) => ({
+      ...prev,
+      [name]: id
+    }))
+    console.log(selectOptionList);
+  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -85,9 +86,11 @@ const IntroSetting = () => {
           <ul className={`${styles.intro__selector} ${isActiveTab === 0 ? styles.active : ''}`} id="introBasic">
             {basicIntroList.map((item, idx) => (
               <li 
-                className={`${styles.intro__item} ${isBasicActive === idx ? styles["active"] : ""}`} 
+                className={`${styles.intro__item} ${selectOptionList.introFillType === item.altVal ? styles["active"] : ""}`} 
                 key={`${item.imgSrc} ${idx}`} 
-                onClick={() => setBasicActiveHandler(idx)}
+                data-name="introFillType"
+                id={item.altVal}
+                onClick={(e) => introChangeHandler(e)}
               >
                 <img src={item.imgSrc} alt={item.altVal} />
               </li>
@@ -96,9 +99,11 @@ const IntroSetting = () => {
           <ul className={`${styles.intro__selector} ${isActiveTab === 1 ? styles.active : ''}`} id="introFill">
             {fillIntroList.map((item, idx) => (
               <li 
-                className={`${styles.intro__item} ${isFillActive === idx ? styles["active"] : ""}`} 
+                className={`${styles.intro__item} ${selectOptionList.introFillType === item.altVal ? styles["active"] : ""}`} 
                 key={`${item.imgSrc} ${idx}`} 
-                onClick={() => setFillActiveHandler(idx)}
+                data-name="introFillType"
+                id={item.altVal}
+                onClick={(e) => introChangeHandler(e)}
               >
                 <img src={item.imgSrc} alt={item.altVal} />
               </li>
