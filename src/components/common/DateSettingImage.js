@@ -1,38 +1,49 @@
 /* Import */
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 /* CSS Module */
 import styles from "../../css/module/common/DateSettingImage.module.scss";
 /* Image */
 import CalendarImg from "../../img/calendar/calendar_img.png";
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const imageList = [
   {
     src: "",
+    id: "calendarType1"
   },
   {
     src: "",
+    id: "calendarType2"
   },
   {
     src: "",
+    id: "calendarType3"
   }
 ]
 
 const DateSettingImage = () => {
-  const [isActive, setIsActive] = useState(0);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
+  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const calendarChangeHandler = (e) => {
+    const { name } = e.currentTarget.dataset;
+    const { id } = e.currentTarget;
+    setSelectOptionList((prev) => ({
+      ...prev,
+      [name]: id
+    }))
+    console.log(selectOptionList);
   }
-  useEffect(() => {
-    setIsActive(0);
-  }, []);
   return (
     <ul className={styles.calendar__img_list}>
       {imageList.map((item, idx) => (
         <li 
-          className={`${styles.calendar__img_item} ${isActive === idx ? styles["active"] : ""}`} key={`url(${item.src}${idx}`} 
+          key={`url(${item.src}${idx}`} 
+          className={`${styles.calendar__img_item} ${item.id === selectOptionList.dateCalendarType ? styles["active"] : ""}`} 
           style={{backgroundImage: `url(${item.src})`}}
-          onClick={() => setActiveHandler(idx)}
+          id={item.id}
+          data-name="dateCalendarType"
+          onClick={(e) => calendarChangeHandler(e)}
         >
         </li>
       ))}
