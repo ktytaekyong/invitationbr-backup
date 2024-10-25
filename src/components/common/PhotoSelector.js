@@ -11,14 +11,12 @@ import photoAddImg from "../../img/photoSelector/photo_selector_add.png"
 import { SetContext } from "../../store/option-set-context.js";
 
 const PhotoSelector = (props) => {
-  // selectorIdx
   const { videoList, setVideoList } = useContext(SetContext);
   const introDeleteHandler = (item) => {
     let list = [...props.listName];
     list = list.filter((e) => e !== item);
     props.deleteFunction(list);
   }
-
   const videoDeleteHandler = () => {
     setVideoList(() => (
       {

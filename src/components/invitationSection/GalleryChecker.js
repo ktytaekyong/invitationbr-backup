@@ -13,17 +13,25 @@ import styles from "../../css/module/invitationSection/GalleryChecker.module.scs
 import galleryPhoto from "../../img/gallery/slide_photo_test.png";
 /* Context */
 import { GalleryContext } from "../../store/option-gallery-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const GalleryChecker = () => {
-  const { selectGalleryPhotoList, setSelectGalleryPhotoList, selectGalleryView, setSelectGalleryView } = useContext(GalleryContext);
+  const { selectGalleryPhotoList } = useContext(GalleryContext);
+  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [moreViewIdx, setMoreViewIdx] = useState(20);
   useEffect(() => {
-    if(selectGalleryView) {
+    if(selectOptionList.galleryMoreOption) {
       setMoreViewIdx(9);
     } else {
       setMoreViewIdx(20);
     }
-  }, [selectGalleryView])
+  }, [selectOptionList.galleryMoreOption])
+  const moreViewHandler = () => {
+    setSelectOptionList((prev) => ({
+      ...prev,
+      galleryMoreOption: !selectOptionList.galleryMoreOption
+    }))
+  }
   return (
     <div className={`${styles.gallery__type} ${styles.checker}`}>
       <div className={styles.checker__wrap}>
@@ -57,12 +65,18 @@ const GalleryChecker = () => {
             <div className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
-              <img src={galleryPhoto} alt="" />
-            </div>
-            <div className={styles.gallery__item}>
-              <img src={galleryPhoto} alt="" />
-            </div>
+            {
+              selectOptionList.galleryMoreOption === false ?
+              <>
+                <div className={styles.gallery__item}>
+                  <img src={galleryPhoto} alt="" />
+                </div>
+                <div className={styles.gallery__item}>
+                  <img src={galleryPhoto} alt="" />
+                </div>
+              </>
+              : null
+            }
           </>
           :
           selectGalleryPhotoList.filter((_, idx) => idx < moreViewIdx)
@@ -74,11 +88,15 @@ const GalleryChecker = () => {
         }
       </div>
       {
-        selectGalleryView === false ?
-        null :
+        selectOptionList.galleryMoreOption ?
         <ButtonWrapper styleType="center">
-          <Button content="더보기" styleType="invitation__gallery_view" />
+          <Button 
+            content="더보기" 
+            styleType="invitation__gallery_view"
+            onClick={moreViewHandler}
+          />
         </ButtonWrapper>
+        : null
       }
       {/* <Swiper
         spaceBetween={0}

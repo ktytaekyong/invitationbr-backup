@@ -25,9 +25,8 @@ const GallerySetting = () => {
           <CommonItemContent title="타입">
             <GallerySettingType />
           </CommonItemContent>
-
           {
-            selectOptionList.galleryMoreOption ?
+            selectOptionList.galleryType === "galleryBoardType" ?
             <CommonItemContent title="더보기">
               <CheckItem 
                 id="galleryMoreOption"
@@ -37,7 +36,6 @@ const GallerySetting = () => {
             </CommonItemContent>
             : null
           }
-
           <GallerySettingPhoto />
           <SettingNotice>
             <SettingNoticeContent>파일 확장자명은 jpg, jpeg, gif, png, 용량 5mb이하로 최대 20장까지 등록하실 수 있습니다.</SettingNoticeContent>

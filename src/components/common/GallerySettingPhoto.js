@@ -12,36 +12,38 @@ import { GalleryContext } from "../../store/option-gallery-context.js";
 const GallerySettingPhoto = () => {
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   const fileAddHandler = async (e) => {
-    const file = e.target.files;
+    const files = e.target.files;
     const option = {
       maxSizeMB: 4,
       maxWidthOrHeight: 1200,
       initialQuality: 1,
     }
-    if(file && file.length > 0) {
+    if (files && files.length > 0) {
       try {
-        const filesArray = Array.from(file);
-        filesArray.forEach(async (file) => {
+        const filesArray = Array.from(files);
+        for (const file of filesArray) { // forEach 대신 for...of 사용
           const compressedFile = await imageCompression(file, option);
           const fileList = new FileReader();
-          fileList.onload = (e) => {
+          
+          fileList.onload = (event) => {
             setSelectGalleryPhotoList((prevList) => {
               if (prevList.length >= 20) {
-                /* 토스트 알림 추가 가능 */
+                // 토스트 알림 추가 가능
                 return prevList;
               } else {
                 return [
                   ...prevList,
                   {
-                    src: e.target.result,
-                    alt: e.target.result,
+                    src: event.target.result,
+                    alt: event.target.result,
                   },
                 ];
               }
             });
           };
+  
           fileList.readAsDataURL(compressedFile);
-        });
+        }
       } catch (error) {
         console.error('이미지 압축 중 오류 발생:', error);
       }
