@@ -14,20 +14,19 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const Gift = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const { accountInfoList, setAccountInfoList } = useContext(SetContext);
-  const [isActive, setIsActive] = useState(false);
-  const [isActive2, setIsActive2] = useState(false);
+  const { accountInfoList, setAccountInfoList, selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const [isActive, setIsActive] = useState(selectOptionList.groomAccountView);
+  const [isActive2, setIsActive2] = useState(selectOptionList.brideAccountView);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
   };
   const activeToggleHandler2 = () => {
     setIsActive2(!isActive2);
   };
-
   return (
     <div className={`${styles.gift} ${styles.style_theme_1}`}>
       <div className={styles.gift__wrap}>
-        <HeadLine title="마음 전하기" content="account"></HeadLine>
+        <HeadLine title="마음 전하기" content="account" />
         <div className={styles.gift__content}>
           <div id="AccountM" className={styles.account__list}>
             <div className={styles.account__list_title} onClick={activeToggleHandler}>

@@ -64,7 +64,6 @@ const GiftSetting = () => {
       };
     })
   }
-
   const titleDataChangeHandler = (e) => {
     const { name, value } = e.target;
     setAccountInfoList(prev => ({
@@ -98,7 +97,7 @@ const GiftSetting = () => {
               <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신랑측 계좌번호" />
             </CommonItemContent>
             <CommonItemContent title="펼쳐두기">
-              <CheckItem content="신랑측 계좌정보를 펼쳐둡니다."></CheckItem>
+              <CheckItem name="groomAccountView" id="groomAccountView" content="신랑측 계좌정보를 펼쳐둡니다." />
             </CommonItemContent>
           </CommonItemWrapper>
           <GiftSettingAccount 
@@ -116,7 +115,7 @@ const GiftSetting = () => {
               <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신부측 계좌번호" />
             </CommonItemContent>
             <CommonItemContent title="펼쳐두기">
-              <CheckItem content="신부측 계좌정보를 펼쳐둡니다."></CheckItem>
+              <CheckItem name="brideAccountView" id="brideAccountView" content="신부측 계좌정보를 펼쳐둡니다." />
             </CommonItemContent>
           </CommonItemWrapper>
           <GiftSettingAccount 
