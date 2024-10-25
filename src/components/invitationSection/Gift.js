@@ -43,14 +43,14 @@ const Gift = () => {
                         <span>{item.name}</span>
                       </p>
                       {
-                        <Button content="" styleType="invitation__kakao"></Button>
+                        <Button styleType="invitation__kakao" />
                       }
                       {/* <img src={iconGiftKakao} alt="" />   */}
                     </div>
                     <div className={styles.account}>
                       <p>
                         {item.bankType} | <span>{item.account}</span></p>
-                      <Button content="복사" styleType="invitation__copy"></Button>
+                      <Button content="복사" styleType="invitation__copy" />
                     </div>
                   </div>
                 ))

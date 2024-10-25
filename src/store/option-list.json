@@ -63,12 +63,14 @@
         "bankType": "우리은행",
         "account": "3333333334",
         "name": "이신랑",
-        "kakaopayLink": ""
+        "kakaopayUse": true,
+        "kakaopayLink": "https://test.co.kr"
       },
       {
         "bankType": "기업은행",
         "account": "3333433334",
         "name": "이아빠",
+        "kakaopayUse": false,
         "kakaopayLink": ""
       }
     ],
@@ -78,12 +80,14 @@
         "bankType": "국민은행",
         "account": "3333433335",
         "name": "김신부",
+        "kakaopayUse": false,
         "kakaopayLink": ""
       },
       {
         "bankType": "은행",
         "account": "계좌",
         "name": "예금주",
+        "kakaopayUse": true,
         "kakaopayLink": ""
       }
     ]

@@ -32,7 +32,7 @@ const bankList = [
     itemKey: "농협은행"
   },
 ]
-const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onChange }) => {
+const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onChange, onCheck }) => {
   const { accountInfoList, setAccountInfoList } = useContext(SetContext);
   return (
     <>
@@ -78,8 +78,15 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
             </CommonItemContent>
             
             <CommonItemContent title="간편 송금" multi={true}>
-              <CheckItem id={`${gender}accountKakaoOption${idx}`} content="카카오페이" labelImgSrc={iconKakaoImg}></CheckItem>
+              <CheckItem 
+                id={`${gender}accountKakaoOption${idx}`} 
+                name="kakaopayUse" 
+                content="카카오페이"
+                labelImgSrc={iconKakaoImg}
+                groupType={gender === "M" ? "groomGroupList" : "brideGroupList"}
+              />
               {
+                item.kakaopayLink !== "" ?
                 <input 
                   type="text" 
                   name="kakaopayLink" 
@@ -92,6 +99,7 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                   } 
                   placeholder="송금 링크 복사 후 붙여넣기 하세요." 
                 />
+                : null
               }
               <Button content="계좌정보 삭제" onClick={() => deleteFunction(idx)} styleType="remove" />
             </CommonItemContent>
