@@ -69,19 +69,37 @@ const IntroSetting = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <ul className={styles.tab__list}>
-            <li className={`${styles.tab__item} ${isActiveTab === 0 ? styles.active : ''}`} onClick={() => setActiveTabHandler(0)}>기본</li>
-            <li className={`${styles.tab__item} ${isActiveTab === 1 ? styles.active : ''}`} onClick={() => setActiveTabHandler(1)}>채우기</li>
+            <li 
+              className={`${styles.tab__item} ${isActiveTab === 0 ? styles.active : ''}`} 
+              onClick={() => setActiveTabHandler(0)}
+            >
+              기본
+            </li>
+            <li 
+              className={`${styles.tab__item} ${isActiveTab === 1 ? styles.active : ''}`} 
+              onClick={() => setActiveTabHandler(1)}
+            >
+              채우기
+            </li>
           </ul>
           <ul className={`${styles.intro__selector} ${isActiveTab === 0 ? styles.active : ''}`} id="introBasic">
             {basicIntroList.map((item, idx) => (
-              <li className={`${styles.intro__item} ${isBasicActive === idx ? styles["active"] : ""}`} key={`${item.imgSrc} ${idx}`} onClick={() => setBasicActiveHandler(idx)}>
+              <li 
+                className={`${styles.intro__item} ${isBasicActive === idx ? styles["active"] : ""}`} 
+                key={`${item.imgSrc} ${idx}`} 
+                onClick={() => setBasicActiveHandler(idx)}
+              >
                 <img src={item.imgSrc} alt={item.altVal} />
               </li>
             ))}
           </ul>
           <ul className={`${styles.intro__selector} ${isActiveTab === 1 ? styles.active : ''}`} id="introFill">
             {fillIntroList.map((item, idx) => (
-              <li className={`${styles.intro__item} ${isFillActive === idx ? styles["active"] : ""}`} key={`${item.imgSrc} ${idx}`} onClick={() => setFillActiveHandler(idx)}>
+              <li 
+                className={`${styles.intro__item} ${isFillActive === idx ? styles["active"] : ""}`} 
+                key={`${item.imgSrc} ${idx}`} 
+                onClick={() => setFillActiveHandler(idx)}
+              >
                 <img src={item.imgSrc} alt={item.altVal} />
               </li>
             ))}

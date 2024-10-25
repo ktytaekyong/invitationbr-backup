@@ -28,15 +28,7 @@ const parents = [
 ];
 
 const CoupleInfomation = () => {
-  const [isActive, setIsActive] = useState(0);
-  const [isActiveTab, setIsActiveTab] = useState(0);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const setActiveHandler = (idx) => {
-    setIsActive(idx);
-  }
-  const setActiveTabHandler = (idx) => {
-    setIsActiveTab(idx);
-  }
   const basicDataChangeHandler = (e, infoType) => {
     const { name, value } = e.target;
     setBasicInfoList(prev => ({
@@ -47,19 +39,6 @@ const CoupleInfomation = () => {
       }
     }))
   }
-  const basicCheckedHandler = (e, infoType) => {
-    const { name, checked } = e.target;
-    setBasicInfoList(prev => ({
-      ...prev,
-      [infoType]: {
-        ...prev[infoType],
-        [name]: checked
-      }
-    }))
-  }
-  // useEffect(() => {
-  //   console.log(basicInfoList);
-  // }, [basicInfoList])
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -81,7 +60,6 @@ const CoupleInfomation = () => {
                 coupleKey="M"
                 data={basicInfoList.groomParentInfo}
                 onChange={(e) => basicDataChangeHandler(e, "groomParentInfo")}
-                onCheck={(e) => basicCheckedHandler(e, "groomParentInfo")}
               />
             </CommonItemContent>
           ))}
@@ -107,7 +85,6 @@ const CoupleInfomation = () => {
                 coupleKey="F"
                 data={basicInfoList.brideParentInfo}
                 onChange={(e) => basicDataChangeHandler(e, "brideParentInfo")}
-                onCheck={(e) => basicCheckedHandler(e, "brideParentInfo")}
               />
             </CommonItemContent>
           ))}
@@ -117,15 +94,13 @@ const CoupleInfomation = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="故人 표기" multi="check">
-            <CheckItem id="depF" content="국화꽃으로 표기" />
+            <CheckItem name="deceasedFlower" id="deceasedFlower" disabled={false} labelImgSrc={false} content="국화꽃으로 표기" />
             <SettingNotice>
               <SettingNoticeContent>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</SettingNoticeContent>
             </SettingNotice>
           </CommonItemContent>
         </CommonItemWrapper>
-        {/* Notice로 */}
-        {/* 국화꽃 표기 방법 생각 */}
-        {/* 아마 context 하면 되지 않을까 */}
+
       </CommonOptionContent>
     </CommonOptionWrapper>
   )
