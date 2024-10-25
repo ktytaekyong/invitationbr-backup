@@ -25,15 +25,17 @@ const VideoSetting = () => {
   const setActiveTabHandler = (item) => {
     setIsActiveTab(item);
   }
-
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="등록방법" multi={true}>
             {/* 탭 활성화 필요 */}
-            <TabSelector listName={typeList} onChange={setActiveTabHandler} />
-            <VideoSettingOption active={isActiveTab} />
+            <TabSelector 
+              listName={typeList}
+              name="videoType"
+            />
+            <VideoSettingOption />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>

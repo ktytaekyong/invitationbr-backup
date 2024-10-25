@@ -5,7 +5,7 @@ import TabSelector from "./TabSelector.js";
 /* CSS Module */
 // import styles from "../../css/module/common/GallerySettingType.module.scss";
 /* Context */
-import { GalleryContext } from "../../store/option-gallery-context.js";
+// import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const typeList = [
   {
@@ -23,12 +23,12 @@ const typeList = [
 ]
 
 const GallerySettingType = () => {
-  const { selectGalleryType, setSelectGalleryType } = useContext(GalleryContext);
-  const changeTypeHandler = (item) => {
-    setSelectGalleryType(item.id);
-  }
+  // const { selectGalleryType, setSelectGalleryType } = useContext(GalleryContext);
   return (
-    <TabSelector listName={typeList} type="gallery" onChange={changeTypeHandler} />
+    <TabSelector 
+      listName={typeList} 
+      name="galleryType"
+    />
   )
 }
 

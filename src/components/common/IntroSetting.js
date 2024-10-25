@@ -4,7 +4,6 @@ import { useState, useContext } from "react";
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
-import CommonItemContent from "./CommonItemContent.js";
 /* CSS Module */
 import styles from "../../css/module/common/IntroSetting.module.scss";
 /* Image */
@@ -30,7 +29,6 @@ const basicIntroList = [
     altVal: "basicTemplate4",
   },
 ]
-
 const fillIntroList = [
   {
     imgSrc: templateImage1,

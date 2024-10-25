@@ -8,9 +8,11 @@ import styles from "../../css/module/invitationSection/Calendar.module.scss";
 /* Image */
 // import introRing from "../../img/intro/intro_theme_1_ring.png";
 /* Context */
+import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const Calendar = () => {
+  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const handleDaysChange = (date) => {
     const dateObj = new Date(date);
@@ -43,9 +45,12 @@ const Calendar = () => {
           <div className={styles.calendar}>
             <BasicCalendarTheme1 />
           </div>
-          <div className={styles.d_day}>
-            <p>{basicInfoList.groomInfo.firstname}<span>♥</span>{basicInfoList.brideInfo.firstname}의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
-          </div>
+          {selectOptionList.dateDdayOption ?
+            <div className={styles.d_day}>
+              <p>{basicInfoList.groomInfo.firstname}<span>♥</span>{basicInfoList.brideInfo.firstname}의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+            </div>
+            : null
+          }
         </div>
       </div>
     </div>

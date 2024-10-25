@@ -10,27 +10,19 @@ import styles from "../../css/module/invitationSection/Gallery.module.scss";
 /* Image */
 // import tempMapImg from "../../img/location/temp_map.png";
 /* Context */
-import { GalleryContext } from "../../store/option-gallery-context.js";
-
-
+import { SetContext } from "../../store/option-set-context.js";
 
 // const Gallery = ({ galleryType }) => {
 const Gallery = () => {
-  const { selectGalleryType, setSelectGalleryType } = useContext(GalleryContext);
+  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const renderContent = (selectGalleryType) => {
     switch (selectGalleryType) {
       case "gallerySlideType":
-        return (
-          <GallerySlide></GallerySlide>
-        );
+        return <GallerySlide />;
       case "galleryBoardType":
-        return (
-          <GalleryChecker></GalleryChecker>
-        );
+        return <GalleryChecker />;
       case "galleryMixedType":
-        return (
-          <GalleryMix></GalleryMix>
-        );
+        return <GalleryMix />;
       default:
         return;
     }
@@ -38,9 +30,9 @@ const Gallery = () => {
   return (
     <div className={`${styles.gallery} ${styles.style_theme_1}`}>
       <div className={styles.gallery__wrap}>
-        <HeadLine title="갤러리" content="gallery"></HeadLine>
+        <HeadLine title="갤러리" content="gallery" />
         <div className={styles.gallery__content}>
-          {renderContent(selectGalleryType)}
+          {renderContent(selectOptionList.galleryType)}
         </div>
       </div>
     </div>

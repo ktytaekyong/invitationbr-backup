@@ -274,7 +274,6 @@
   ],
   "selectLocationFile": [
   ],
-  "selectGalleryType": "gallerySlideType",
   "selectGalleryView": false,
   "selectGalleryPhotoList": [
   ],
@@ -292,13 +291,19 @@
     "deceasedFlower": false,
     "dateCalendarType": "calendarType1",
     "dateDdayOption": false,
+    "galleryType": "gallerySlideType",
     "galleryMoreOption": false,
+    "videoType": "videoYoutubeOption",
     "groomAccountView": true,
     "brideAccountView": false,
     "bgmAutoPlay": false,
     "optionAttendPopupOpen": false,
     "optionAttendPopupScroll": false,
     "optionAttendKakao": false
+  },
+  "videoList": {
+    "videoUrl": "https://www.youtube.com/embed/O5wKQzqXFkw?si=9IgDGAMtKYCmB98L",
+    "videoSrc": ""
   },
   "attendList": {
     
@@ -317,10 +322,7 @@
       "content": ""
     }
   ],
-  "videoList": {
-    "videoUrl": "https://www.youtube.com/embed/O5wKQzqXFkw?si=9IgDGAMtKYCmB98L",
-    "videoSrc": ""
-  },
+
   "noticeTList": [
     {
       "title": "포토부스",
