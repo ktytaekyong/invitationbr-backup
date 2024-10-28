@@ -88,7 +88,7 @@
         "account": "계좌",
         "name": "예금주",
         "kakaopayUse": true,
-        "kakaopayLink": ""
+        "kakaopayLink": "https://test.com"
       }
     ]
   },

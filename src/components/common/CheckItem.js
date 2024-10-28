@@ -5,9 +5,10 @@ import styles from "../../css/module/common/CheckItem.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const CheckItem = ({ name, id, content, labelImgSrc, children, groupType }) => {
+const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx }) => {
   const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList } = useContext(SetContext);
   const [ isChecked, setIsChecked ] = useState();
+  const [ isAccountChecked, setIsAccountChecked ] = useState();
   const checkedChangeHandler = (e) => {
     const { name, id, checked } = e.target;
     const newArray = Object.entries(selectOptionList);
@@ -30,21 +31,16 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType }) => {
     console.log(selectOptionList);
     console.log(checked);
   }
-  const checkedChangeAccountHandler = (e) => {
-    const { name, id, checked } = e.target;
-    const newArray = Object.entries(accountInfoList[groupType]);
-    newArray.map((item) => {
-      setIsChecked(checked);
-      setSelectOptionList((prev) => ({
-        ...prev,
-        [groupType]: {
-          ...prev[groupType],
-          [name]: checked
-        }
-      }))
-    })
-    console.log(accountInfoList[groupType]);
-    console.log(checked);
+  const checkedChangeAccountHandler = (e, idx) => {
+    const { name, checked } = e.target;
+    setAccountInfoList((prev) => ({
+      ...prev,
+      [groupType]: prev[groupType].map((item, gidx) =>
+        gidx === idx
+          ? { ...item, [name]: checked }  // 해당 인덱스의 항목만 업데이트
+          : item  // 나머지는 그대로 유지
+      )
+    }));
   }
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
@@ -56,6 +52,16 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType }) => {
       }
     })
   }, [])
+  useEffect(() => {
+    if (name === "kakaopayUse") {
+      setIsChecked(accountInfoList[groupType][checkidx]?.kakaopayUse || false);
+    } else {
+      const selectedOption = selectOptionList[name];
+      if (typeof selectedOption === "boolean") {
+        setIsChecked(selectedOption);
+      }
+    }
+  }, [accountInfoList, selectOptionList, name, groupType, checkidx]);
   return (
     name !== "kakaopayUse" ? 
     <div className={styles.check}>
@@ -79,7 +85,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType }) => {
         name={name} 
         id={id} 
         checked={isChecked}
-        onChange={(e) => checkedChangeAccountHandler(e)}
+        onChange={(e) => checkedChangeAccountHandler(e, checkidx)}
       />
       <label htmlFor={id}>
         {

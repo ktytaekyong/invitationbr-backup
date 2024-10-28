@@ -83,10 +83,11 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                 name="kakaopayUse" 
                 content="카카오페이"
                 labelImgSrc={iconKakaoImg}
+                checkidx={idx}
                 groupType={gender === "M" ? "groomGroupList" : "brideGroupList"}
               />
               {
-                item.kakaopayLink !== "" ?
+                item.kakaopayUse ?
                 <input 
                   type="text" 
                   name="kakaopayLink" 
