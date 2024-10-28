@@ -29,13 +29,6 @@ const effectList = [
 ]; 
 const BackgroundSettingEffect = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
-  const optionChangeHandler = (option, type) => {
-    setSelectOptionList((prev) => ({
-      ...prev,
-      [type]: option
-    }))
-    console.log(selectOptionList);
-  }
   return (
     <>
       <TabSelector listName={effectList} name="effectType" />

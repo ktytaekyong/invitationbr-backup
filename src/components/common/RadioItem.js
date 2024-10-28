@@ -7,7 +7,7 @@ import styles from "../../css/module/common/RadioItem.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const RadioItem = ({ id, name, content }) => {
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { selectOptionList, setSelectOptionList, noticeTList, setNoticeTList, noticeDList, setNoticeDList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);
   const checkedChangeHandler = (e) => {
     const { name, id } = e.target;
@@ -16,6 +16,21 @@ const RadioItem = ({ id, name, content }) => {
       [name]: id
     }));
   };
+  const photoPositionChangeHandler = (e) => {
+    const { name, id } = e.target;
+    setSelectOptionList((prev) => ({
+      ...prev,
+      [name]: id
+    }));
+  };
+  const functionChangeHandler = (e, name) => {
+    if(name === "effectRange") {
+      checkedChangeHandler(e);
+    } else {
+      photoPositionChangeHandler(e)
+    }
+    // else if(name === )
+  }
   useEffect(() => {
     setIsChecked(selectOptionList[name] === id);
   }, [selectOptionList, name, id, isChecked]);
@@ -27,7 +42,7 @@ const RadioItem = ({ id, name, content }) => {
         id={id} 
         value={id} 
         checked={isChecked} 
-        onChange={checkedChangeHandler}
+        onChange={(e) => functionChangeHandler(e, name)}
       />
       <label htmlFor={id}>{content}</label>
     </div>

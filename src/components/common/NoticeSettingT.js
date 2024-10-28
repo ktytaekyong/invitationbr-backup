@@ -141,8 +141,16 @@ const NoticeSettingT = () => {
                     hasSrcFunction={() => photoDeleteHandler(idx)}
                   />
                   <RadioList title="사진 위치">
-                    <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoIntro${idx}`} content="본문 위쪽" defaultChecked={true} />
-                    <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoAll${idx}`} content="본문 아래쪽" />
+                    <RadioItem 
+                      name={`position`} 
+                      id={`top`} 
+                      content="본문 위쪽" 
+                    />
+                    <RadioItem 
+                      name={`position`} 
+                      id={`bottom`} 
+                      content="본문 아래쪽" 
+                    />
                   </RadioList>
                 </CommonItemContent>
               </CommonItemWrapper>
