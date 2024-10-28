@@ -285,7 +285,7 @@
     "theme": "themeModernBasic",
     "backgroundColor": "#FFF",
     "fontFamily": "SeoulHangang",
-    "fontWeight": "normal",
+    "fontWeight": "400",
     "effectType": "bgEffectNoSelect",
     "effectRange": "effectIntro",
     "zoomOption": true,

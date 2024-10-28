@@ -42,26 +42,41 @@ const themeList = [
 const fontList = [
   {
     itemName: "서울한강",
-    itemKey: "font1"
+    itemKey: "SeoulHangang"
+  },
+  {
+    itemName: "프리텐다드",
+    itemKey: "Pretendard"
   },
   {
     itemName: "돋움체",
-    itemKey: "font2"
+    itemKey: "돋움체"
+  },
+  {
+    itemName: "고딕체",
+    itemKey: "고딕체"
   },
 ]
 const fontWeightList = [
   {
-    itemName: "보통",
+    itemName: "Light",
+    itemKey: "300"
+  },
+  {
+    itemName: "Medium",
     itemKey: "400"
   },
   {
-    itemName: "볼드",
+    itemName: "SemiBold",
     itemKey: "600"
+  },
+  {
+    itemName: "Bold",
+    itemKey: "700"
   },
 ]
 const BackgroundSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
-  
   return (
     // 전체
     <CommonOptionWrapper>
@@ -72,17 +87,26 @@ const BackgroundSetting = () => {
           <CommonItemContent title="테마">
             <OptionSelector 
               selectID="themeSelector" 
-              selectName="themeSelector" 
+              selectName="theme" 
               listName={themeList} 
-              // optionSet={(option) => optionChangeHandler(option, "theme")} 
               value={selectOptionList.theme} 
             />
             <BackgroundSettingTheme />
           </CommonItemContent>
 
           <CommonItemContent title="폰트">
-            <OptionSelector listName={fontList} />
-            <OptionSelector listName={fontWeightList} />
+            <OptionSelector 
+              selectID="fontSelector" 
+              selectName="fontFamily" 
+              listName={fontList} 
+              value={selectOptionList.fontFamily} 
+            />
+            <OptionSelector 
+              selectID="fontWeightSelector" 
+              selectName="fontWeight" 
+              listName={fontWeightList} 
+              value={selectOptionList.fontWeight} 
+            />
           </CommonItemContent>
 
           <CommonItemContent title="효과" multi={true}>

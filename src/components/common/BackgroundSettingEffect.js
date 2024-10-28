@@ -29,7 +29,6 @@ const effectList = [
 ]; 
 const BackgroundSettingEffect = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
-  const [isActive, setIsActive] = useState(0);
   const optionChangeHandler = (option, type) => {
     setSelectOptionList((prev) => ({
       ...prev,
@@ -39,12 +38,22 @@ const BackgroundSettingEffect = () => {
   }
   return (
     <>
-      <TabSelector listName={effectList} onChange={setIsActive} optionSet={(option) => optionChangeHandler(option, "effectType")} />
+      <TabSelector listName={effectList} name="effectType" />
       {
-        isActive === 1 || isActive === 2 || isActive === 3 ? 
+        selectOptionList.effectType === "bgEffectBlossoms" 
+        || selectOptionList.effectType === "bgEffectHeart"
+        || selectOptionList.effectType === "bgEffectSnowflake" ? 
         <RadioList>
-          <RadioItem radioName="effectSection" id="effectIntro" content="인트로 화면" optionSet={(option) => optionChangeHandler(option, "effectRange")} defaultChecked />
-          <RadioItem radioName="effectSection" id="effectAll" content="전체 화면" optionSet={(option) => optionChangeHandler(option, "effectRange")} />
+          <RadioItem 
+            name="effectRange" 
+            id="effectIntro" 
+            content="인트로 화면" 
+          />
+          <RadioItem 
+            name="effectRange" 
+            id="effectAll" 
+            content="전체 화면" 
+          />
         </RadioList>
         :
         null

@@ -19,8 +19,6 @@ const TabSelector = ({ listName, name, onClick }) => {
     if (id && id.indexOf("noticeTab") !== -1) {
       setSelectNoticeT(idx);
     }
-    console.log(selectOptionList);
-    console.log(selectNoticeT);
   }
   return (
     <ul className={styles.tab__selector}>

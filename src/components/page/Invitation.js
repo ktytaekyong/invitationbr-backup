@@ -14,7 +14,7 @@ import Video from "../invitationSection/Video";
 import Gift from "../invitationSection/Gift";
 import NoticeT from "../invitationSection/NoticeT.js";
 import NoticeD from "../invitationSection/NoticeD.js";
-import BgMusic from "../invitationSection/BgMusic";
+// import BgMusic from "../invitationSection/BgMusic";
 import Guestbook from "../invitationSection/Guestbook";
 import Attend from "../invitationSection/Attend";
 import Outro from "../invitationSection/Outro";
@@ -52,8 +52,6 @@ const Invitation = () => {
         return <Guestbook />;
       case "settingAttend":
         return <Attend />;
-      case "settingAttend":
-        return <Attend />;
       default:
         return null;
     }
@@ -64,9 +62,12 @@ const Invitation = () => {
       renderItemHandler(item.itemId)
       : null
     ))
-  }, [selectSettingList]) 
+  }, [settingList, selectSettingList]) 
   return (
-    <div className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}>
+    <div 
+      className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}
+      style={{ backgroundColor: selectOptionList.backgroundColor }}
+    >
       <Container style={selectOptionList.effectRange === "effectIntro" ? {position: "relative"} : null}>
         <Tab />
         <Intro />

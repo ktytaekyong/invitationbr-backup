@@ -8,12 +8,11 @@ import { SetContext } from "../../store/option-set-context.js";
 const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx }) => {
   const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList } = useContext(SetContext);
   const [ isChecked, setIsChecked ] = useState();
-  const [ isAccountChecked, setIsAccountChecked ] = useState();
   const checkedChangeHandler = (e) => {
     const { name, id, checked } = e.target;
     const newArray = Object.entries(selectOptionList);
     newArray.map((item) => {
-      if(item.includes(id)) {
+      if(item.includes(name)) {
         setIsChecked(checked);
         if(typeof item[1] === "boolean") {
           setSelectOptionList((prev) => ({
@@ -28,8 +27,6 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         }
       }
     })
-    console.log(selectOptionList);
-    console.log(checked);
   }
   const checkedChangeAccountHandler = (e, idx) => {
     const { name, checked } = e.target;
@@ -37,15 +34,15 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       ...prev,
       [groupType]: prev[groupType].map((item, gidx) =>
         gidx === idx
-          ? { ...item, [name]: checked }  // 해당 인덱스의 항목만 업데이트
-          : item  // 나머지는 그대로 유지
+          ? { ...item, [name]: checked }
+          : item
       )
     }));
   }
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
     newArray.map((item) => {
-      if(item.includes(id)) {
+      if(item.includes(name)) {
         if(typeof item[1] === "boolean") {
           setIsChecked(item[1]);
         }

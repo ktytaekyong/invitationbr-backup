@@ -23,7 +23,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const NoticeSettingT = () => {
   const { noticeTList, setNoticeTList } = useContext(SetContext);
   const { selectNoticeT, setSelectNoticeT } = useContext(SetContext);
-  
+
   const [addTitle, setAddTitle] = useState("");
   const [openAdd, setOpenAdd] = useState(false);
   const [openDel, setOpenDel] = useState(false);
@@ -62,6 +62,7 @@ const NoticeSettingT = () => {
         }
       ]
     ))
+    setSelectNoticeT(noticeTList.length);
   }
   const noticeRemoveHandler = (removeidx) => {
     if(noticeTList.length === 1) {
@@ -73,6 +74,7 @@ const NoticeSettingT = () => {
         return prev.filter((_, index) => index !== removeidx)
       })
     }
+    setSelectNoticeT(0);
   }
   const noticeTabDataChangeHandler = (e, index) => {
     const { name, value } = e.target;
@@ -139,8 +141,8 @@ const NoticeSettingT = () => {
                     hasSrcFunction={() => photoDeleteHandler(idx)}
                   />
                   <RadioList title="사진 위치">
-                    <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoIntro${idx}`} content="본문 위쪽" defaultChecked={true}></RadioItem>
-                    <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoAll${idx}`} content="본문 아래쪽"></RadioItem>
+                    <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoIntro${idx}`} content="본문 위쪽" defaultChecked={true} />
+                    <RadioItem radioName={`noticePhotoPosition${idx}`} id={`noticePhotoAll${idx}`} content="본문 아래쪽" />
                   </RadioList>
                 </CommonItemContent>
               </CommonItemWrapper>
