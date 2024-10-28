@@ -3,7 +3,6 @@ import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
-import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
 import Effect from "../invitationSection/Effect.js";
 import Letter from "../invitationSection/Letter";
@@ -69,7 +68,6 @@ const Invitation = () => {
       style={{ backgroundColor: selectOptionList.backgroundColor }}
     >
       <Container style={selectOptionList.effectRange === "effectIntro" ? {position: "relative"} : null}>
-        <Tab />
         <Intro />
         <Effect />
         {/* <Letter></Letter>

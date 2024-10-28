@@ -1,5 +1,6 @@
 @import "../../_module";
 .intro {
+  width: 100%;
   &__wrap {
     width: 100%;
     padding: 0 45px;
@@ -51,7 +52,6 @@
     height: 400px;
     object-fit: cover;
     width: 100%;
-    // height: 100%;
     border-radius: $radius--default;
     background: #EEE;
     overflow: hidden;
@@ -101,8 +101,31 @@
     }
   }
 }
-// .intro__style {
-//   &_theme_1 {
-    
-//   }
-// }
+.basicTemplate3 {
+  .intro__wrap {
+    padding-top: 50px;
+    > div:nth-child(2) {
+      margin-top: 24px;
+    }
+  }
+  .intro__headline {
+    .img__wrap {
+      width: 98px;
+      height: 20px;
+      margin-bottom: 6px;
+    }
+    .txt__wrap {
+      p {
+        font-size: 22px;
+        font-weight: $font-weight--Regular;
+        letter-spacing: 0;
+        line-height: 1.5em;
+        color: $text-color--default;
+      }
+    }
+  }
+  .intro__photo {
+    width: 100%;
+    height: 330px;
+  }
+}
