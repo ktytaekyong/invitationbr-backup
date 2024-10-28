@@ -23,7 +23,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const NoticeSettingT = () => {
   const { noticeTList, setNoticeTList } = useContext(SetContext);
   const { selectNoticeT, setSelectNoticeT } = useContext(SetContext);
-  const [radioActive, setRadioActive] = useState("");
+  
   const [addTitle, setAddTitle] = useState("");
   const [openAdd, setOpenAdd] = useState(false);
   const [openDel, setOpenDel] = useState(false);
@@ -97,9 +97,9 @@ const NoticeSettingT = () => {
             <CommonItemContent title="탭 순서" multi="check">
               <TabSelector 
                 listName={noticeTList} 
+                name="title"
                 onChange={setSelectNoticeT} 
                 onClick={handleOpenDel} 
-                delFunction={noticeRemoveHandler} 
                 selectNoticeT={selectNoticeT}
               />
               <ButtonWrapper>
