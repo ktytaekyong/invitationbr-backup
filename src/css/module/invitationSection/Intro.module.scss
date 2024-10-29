@@ -238,3 +238,79 @@
     }
   }
 }
+.basicTemplate4 {
+  .intro__wrap {
+    padding: 0 20px;
+    padding-top: 50px;
+    padding-bottom: 35px;
+    > div:nth-child(2) {
+      margin-top: 30px;
+    }
+  }
+  .intro__headline {
+    .txt__wrap {
+      p {
+        @include flex__row;
+        column-gap: 7px;
+        justify-content: center;
+        align-items: center;
+        font-size: $font-size--sm;
+        font-weight: $font-weight--Bold;
+        line-height: 1.1em;
+        letter-spacing: 0;
+      }
+    }
+  }
+  .intro__photo {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    height: 420px;
+    background: transparent;
+    border-radius: 0;
+    img {
+      border-radius: $radius--default;
+      display: block;
+    }
+    p {
+      margin-top: 50px;
+      writing-mode: vertical-rl;
+      text-transform: uppercase;
+      font-size: $font-size--xxsm;
+      font-weight: $font-weight--Bold;
+      letter-spacing: 0.3em;
+      line-height: 1.5em;
+      color: $text-color--disable;
+    }
+  }
+  .intro__title {
+    &_couple {
+      column-gap: 18px;
+      margin-bottom: 12px;
+      h2 {
+        line-height: 1.5em;
+        letter-spacing: 0.1em;
+        font-size: $font-size--xl;
+      }
+      img {
+        width: 58px;
+        height: 27px;
+        margin-bottom: 3px;
+      }
+    }
+    &_date {
+      h3 {
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+        color: $text-color--temp;
+      }
+    }
+  }
+  .Intro__couple__lRbJy p {
+    width: 2px;
+    height: 19px;
+    background: #E5E8EB;
+}
+}
