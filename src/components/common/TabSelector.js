@@ -19,7 +19,11 @@ const TabSelector = ({ listName, name, onClick }) => {
     if (id && id.indexOf("noticeTab") !== -1) {
       setSelectNoticeT(idx);
     }
+    console.log(selectOptionList);
   }
+  useEffect(()=>{
+    console.log(selectOptionList.name);
+  })
   return (
     <ul className={styles.tab__selector}>
       {
@@ -27,7 +31,7 @@ const TabSelector = ({ listName, name, onClick }) => {
           <li 
             className={`
               ${styles.selector__item} 
-              ${(item.id && item.id.indexOf("noticeTab") !== -1 && selectNoticeT === idx) || selectOptionList[name] === item.id ? styles["active"] : ""} 
+              ${((selectOptionList[name] === item.id) || (item.id && item.id.indexOf("noticeTab") !== -1 && selectNoticeT === idx)) ? styles["active"] : ""} 
               ${item.id && item.id.indexOf("noticeTab") !== -1 ? styles["tab"] : ""}
             `} 
             key={item + idx} 

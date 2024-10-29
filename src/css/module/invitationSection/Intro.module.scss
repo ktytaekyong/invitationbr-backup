@@ -4,14 +4,14 @@
   &__wrap {
     width: 100%;
     padding: 0 45px;
-    padding-top: 32px;
+    padding-top: 50px;
     padding-bottom: 35px;
     > div {
       &:nth-child(2) {
-        margin-top: 16px;
+        margin-top: 24px;
       }
       &:nth-child(3) {
-        margin-top: 30px;
+        margin-top: 40px;
       }
     }
   }
@@ -20,9 +20,9 @@
     justify-content: flex-start;
     align-items: center;
     .img__wrap {
-      width: 24px;
-      height: 24px;
-      margin-bottom: 13px;
+      width: 98px;
+      height: 20px;
+      margin-bottom: 6px;
       img {
         width: 100%;
       }
@@ -34,22 +34,18 @@
       row-gap: 5px;
       text-transform: uppercase;
       line-height: 1.5em;
-      * {
-        color: $text-color--disable;
-        font-weight: $font-weight--Bold;
-        letter-spacing: 0.1em;
-      }
-      span {
-        font-size: $font-size--xxsm;
-      }
       p {
-        font-size: $font-size--sm;
+        font-size: 22px;
+        font-weight: $font-weight--Regular;
+        letter-spacing: 0;
+        line-height: 1.5em;
+        color: $text-color--default;
       }
     }
   }
   &__photo {
     width: 100%;
-    height: 400px;
+    height: 330px;
     object-fit: cover;
     width: 100%;
     border-radius: $radius--default;
@@ -101,31 +97,144 @@
     }
   }
 }
-.basicTemplate3 {
+.basicTemplate2 {
   .intro__wrap {
-    padding-top: 50px;
-    > div:nth-child(2) {
-      margin-top: 24px;
-    }
+    padding: 0 24px;
+    padding-top: 74px;
+    padding-bottom: 35px;
   }
   .intro__headline {
     .img__wrap {
-      width: 98px;
-      height: 20px;
-      margin-bottom: 6px;
+      width: 89px;
+      margin-bottom: 4px;
     }
     .txt__wrap {
       p {
-        font-size: 22px;
-        font-weight: $font-weight--Regular;
-        letter-spacing: 0;
-        line-height: 1.5em;
-        color: $text-color--default;
+        @include flex__row;
+        column-gap: 7px;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        font-weight: $font-weight--Bold;
+        line-height: 1.1em;
+        letter-spacing: 0.05em;
+        white-space: pre-line;
+        span {
+          font-size: 20px;
+        }
       }
     }
   }
   .intro__photo {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
     width: 100%;
-    height: 330px;
+    height: 390px;
+    background: transparent;
+    border-radius: 0;
+    img {
+      width: calc(100% - 20px);
+      border-radius: 500px 500px 25px 25px;
+      display: block;
+    }
+    p {
+      margin-top: 50px;
+      writing-mode: vertical-rl;
+      text-transform: uppercase;
+      font-size: $font-size--xxsm;
+      font-weight: $font-weight--Bold;
+      letter-spacing: 0.3em;
+      line-height: 1.5em;
+      color: $text-color--disable;
+    }
+  }
+  .intro__title {
+    &_couple {
+      column-gap: 15px;
+      margin-bottom: 12px;
+      h2 {
+        line-height: 1.5em;
+        letter-spacing: 0.1em;
+        font-size: 21px;
+      }
+      .divide {
+        width: 80px;
+        height: 1px;
+        background: $text-color--default;
+      }
+    }
+    &_date {
+      h3 {
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+        color: $text-color--temp;
+      }
+    }
+  }
+  .Intro__couple__lRbJy p {
+    width: 2px;
+    height: 19px;
+    background: #E5E8EB;
+}
+}
+.basicTemplate3 {
+  .intro__wrap {
+    padding: 0 45px;
+    padding-top: 55px;
+    padding-bottom: 35px;
+    > div:nth-child(3) {
+      margin-top: 20px;
+    }
+  }
+  .intro__headline {
+    .img__wrap {
+      width: 48px;
+      height: 29px;
+      margin-bottom: 0;
+    }
+  }
+  .intro__title {
+    &_couple {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: center;
+      row-gap: 12px;
+      margin-bottom: 43px;
+      h2 {
+        margin-left: 0.25em;
+        margin-top: 0.07em;
+        line-height: 1.5em;
+        font-size: $font-size--xl;
+        color: $text-color--default;
+      }
+      .divide {
+        width: unset;
+        background: transparent;
+        color: $text-color--disable-input;
+      }
+    }
+    &_date {
+      h3 {
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+        color: $text-color--temp;
+      }
+    }
+  }
+  .intro__photo {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    width: 100%;
+    height: 320px;
+    background: transparent;
+    border-radius: 0;
+    img {
+      display: block;
+      border-radius: $radius--default;
+    }
   }
 }

@@ -58,7 +58,7 @@ const NoticeSettingT = () => {
           id: `noticeTab${Date.now().toString()}`,
           content: "",
           src: "",
-          position: ""
+          position: "top"
         }
       ]
     ))
@@ -162,7 +162,12 @@ const NoticeSettingT = () => {
         </CommonOptionContent>
       </CommonOptionWrapper>
 
-      <BasicModalNoticeTAdd openvar={openAdd} onClose={handleCloseAdd} addTitle={addTabTitle} addFunction={noticeAddHandler} />
+      <BasicModalNoticeTAdd 
+        openvar={openAdd} 
+        onClose={handleCloseAdd} 
+        addTitle={addTabTitle} 
+        addFunction={noticeAddHandler} 
+      />
       <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel} onClick={() => noticeRemoveHandler(selectNoticeT)} />
     </>
   )

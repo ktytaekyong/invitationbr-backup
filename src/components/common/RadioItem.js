@@ -7,7 +7,7 @@ import styles from "../../css/module/common/RadioItem.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
-  const { selectOptionList, setSelectOptionList, noticeTList, setNoticeTList } = useContext(SetContext);
+  const { selectOptionList, setSelectOptionList, noticeTList, setNoticeTList, noticeDList, setNoticeDList, outroList, setOutroList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);
   const checkedChangeHandler = (e) => {
     const { name, id } = e.target;
@@ -15,6 +15,14 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
       ...prev,
       [name]: id
     }));
+  };
+  const outroChangeHandler = (e) => {
+    const { id } = e.target;
+    setOutroList((prev) => ({
+      ...prev,
+      "position": id.includes("top") ? "top" : "bottom"
+    }));
+    console.log(outroList);
   };
   const photoPositionChangeHandler = (e, idx) => {
     const { name, id } = e.target;
@@ -36,13 +44,32 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
     ));
     console.log(noticeTList);
   };
+  const photoPositionDChangeHandler = (e) => {
+    const { name, id } = e.target;
+    setNoticeDList((prev) => (
+      prev.map((item) => {
+        if(name.includes("Position")) {
+          return {
+            ...item,
+            "position": id.includes("top") ? "top" : "bottom"
+          }
+        } else {
+          return item;
+        }
+      })
+    ));
+    console.log(noticeDList);
+  };
   const functionChangeHandler = (e, name, idx) => {
     if(name === "effectRange") {
       checkedChangeHandler(e);
+    } else if(name.includes("DPosition")) {
+      photoPositionDChangeHandler(e);
+    } else if(name === "outroPosition") {
+      outroChangeHandler(e);
     } else {
       photoPositionChangeHandler(e, idx)
     }
-    // else if(name === )
   }
   useEffect(() => {
     setIsChecked(selectOptionList[name] === id);

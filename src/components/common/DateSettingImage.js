@@ -20,6 +20,10 @@ const imageList = [
   {
     src: "",
     id: "calendarType3"
+  },
+  {
+    src: "",
+    id: "calendarType4"
   }
 ]
 
@@ -32,7 +36,6 @@ const DateSettingImage = () => {
       ...prev,
       [name]: id
     }))
-    console.log(selectOptionList);
   }
   return (
     <ul className={styles.calendar__img_list}>

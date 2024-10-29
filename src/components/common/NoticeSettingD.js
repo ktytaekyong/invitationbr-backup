@@ -30,7 +30,6 @@ const noticeTList = [
 ];
 
 const NoticeSettingD = () => {
-  const [radioActive, setRadioActive] = useState(false);
   const [noticeDImgList, setNoticeDImgList] = useState([]);
   const { noticeDList, setNoticeDList } = useContext(SetContext);
   const fileAddHandler = (e, index) => {
@@ -97,9 +96,21 @@ const NoticeSettingD = () => {
                   hasSrc={true} 
                   hasSrcFunction={() => photoDeleteHandler(idx)}
                 />
-                <RadioList title='사진 위치'>
-                  <RadioItem radioName={`noticePhotoDPosition0`} id='noticePhotoTop' content='본문 위쪽' defaultChecked={true}></RadioItem>
-                  <RadioItem radioName={`noticePhotoDPosition0`} id='noticePhotoBottom' content='본문 아래쪽'></RadioItem>
+                <RadioList title="사진 위치">
+                  <RadioItem 
+                    name={`DPosition${idx}`} 
+                    id={`topD${idx}`} 
+                    content="본문 위쪽" 
+                    radioidx={idx}
+                    radioChecked={item.position === "top" ? item.position : null} 
+                  />
+                  <RadioItem 
+                    name={`DPosition${idx}`} 
+                    id={`bottomD${idx}`} 
+                    content="본문 아래쪽" 
+                    radioidx={idx}
+                    radioChecked={item.position === "bottom" ? item.position : null} 
+                  />
                 </RadioList>
               </CommonItemContent>
             </CommonItemWrapper>

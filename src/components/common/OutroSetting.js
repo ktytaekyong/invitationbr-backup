@@ -67,8 +67,18 @@ const OutroSetting = () => {
               hasSrcFunction={() => photoDeleteHandler(0)}
             />
             <RadioList title='사진 위치 (사진 첨부는 선택사항 입니다.)'>
-              <RadioItem radioName='noticePhotoDPosition' id='noticePhotoIntro' content='본문 위쪽' defaultChecked={true}></RadioItem>
-              <RadioItem radioName='noticePhotoDPosition' id='noticePhotoAll' content='본문 아래쪽'></RadioItem>
+              <RadioItem 
+                name='outroPosition' 
+                id='topOutro' 
+                content='본문 위쪽' 
+                radioChecked={outroList.position === "top" ? outroList.position : null} 
+              />
+              <RadioItem 
+                name='outroPosition' 
+                id='bottomOutro' 
+                content='본문 아래쪽'
+                radioChecked={outroList.position === "bottom" ? outroList.position : null} 
+              />
             </RadioList>
           </CommonItemContent>
         </CommonItemWrapper>

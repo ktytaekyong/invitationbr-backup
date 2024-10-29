@@ -65,9 +65,9 @@ const DateSetting = () => {
             />
           </CommonItemContent>
           
-          <CommonItemContent title="이미지" multi={true}>
+          {/* <CommonItemContent title="이미지" multi={true}> */}
             <DateSettingImage />
-          </CommonItemContent>
+          {/* </CommonItemContent> */}
         </CommonItemWrapper>
       </CommonOptionContent>
 

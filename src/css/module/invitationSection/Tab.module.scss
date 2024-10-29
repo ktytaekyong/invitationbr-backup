@@ -1,5 +1,6 @@
 @import "../../_module";
 .tab {
+  @include position(st, 20px, 0, 0);
   @include flex__row;
   justify-content: flex-start;
   align-items: center;
