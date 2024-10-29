@@ -76,11 +76,10 @@ const NoticeSettingT = () => {
     }
     setSelectNoticeT(0);
   }
-  const noticeTabDataChangeHandler = (e, index) => {
-    const { name, value } = e.target;
+  const noticeTabDataChangeHandler = (e, index, position) => {
     setNoticeTList(prev => {
       const newList = [...prev];
-      newList[index] = { ...newList[index], [name]: value };
+      newList[index] = { ...newList[index], position: position }; // position 값 업데이트
       return newList;
     });
   };
@@ -142,14 +141,18 @@ const NoticeSettingT = () => {
                   />
                   <RadioList title="사진 위치">
                     <RadioItem 
-                      name={`position`} 
-                      id={`top`} 
+                      name={`position${idx}`} 
+                      id={`top${idx}`} 
                       content="본문 위쪽" 
+                      radioidx={idx}
+                      radioChecked={item.position === "top" ? item.position : null} 
                     />
                     <RadioItem 
-                      name={`position`} 
-                      id={`bottom`} 
+                      name={`position${idx}`} 
+                      id={`bottom${idx}`} 
                       content="본문 아래쪽" 
+                      radioidx={idx}
+                      radioChecked={item.position === "bottom" ? item.position : null} 
                     />
                   </RadioList>
                 </CommonItemContent>

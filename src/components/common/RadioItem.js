@@ -6,8 +6,8 @@ import styles from "../../css/module/common/RadioItem.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const RadioItem = ({ id, name, content }) => {
-  const { selectOptionList, setSelectOptionList, noticeTList, setNoticeTList, noticeDList, setNoticeDList } = useContext(SetContext);
+const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
+  const { selectOptionList, setSelectOptionList, noticeTList, setNoticeTList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);
   const checkedChangeHandler = (e) => {
     const { name, id } = e.target;
@@ -16,18 +16,31 @@ const RadioItem = ({ id, name, content }) => {
       [name]: id
     }));
   };
-  const photoPositionChangeHandler = (e) => {
+  const photoPositionChangeHandler = (e, idx) => {
     const { name, id } = e.target;
-    setSelectOptionList((prev) => ({
-      ...prev,
-      [name]: id
-    }));
+    setNoticeTList((prev) => (
+      prev.map((item, previdx) => {
+        if(idx === previdx) {
+          if(name.includes("position")) {
+            return {
+              ...item,
+              "position": id.includes("top") ? "top" : "bottom"
+            }
+          } else {
+            return item;
+          }
+        } else {
+          return item;
+        }
+      })
+    ));
+    console.log(noticeTList);
   };
-  const functionChangeHandler = (e, name) => {
+  const functionChangeHandler = (e, name, idx) => {
     if(name === "effectRange") {
       checkedChangeHandler(e);
     } else {
-      photoPositionChangeHandler(e)
+      photoPositionChangeHandler(e, idx)
     }
     // else if(name === )
   }
@@ -41,8 +54,8 @@ const RadioItem = ({ id, name, content }) => {
         name={name} 
         id={id} 
         value={id} 
-        checked={isChecked} 
-        onChange={(e) => functionChangeHandler(e, name)}
+        checked={radioChecked ? radioChecked : isChecked} 
+        onChange={(e) => functionChangeHandler(e, name, radioidx)}
       />
       <label htmlFor={id}>{content}</label>
     </div>
