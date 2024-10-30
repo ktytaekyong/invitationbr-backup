@@ -18,6 +18,8 @@ const SetProvider = ({ children }) => {
   const [selectNoticeT, setSelectNoticeT] = useState(0);
   const [guestbookList, setGuestbookList] = useState(initList.guestbookList);
   const [selectOptionList, setSelectOptionList] = useState(initList.selectOptionList);
+  const [selectBGM, setSelectBGM] = useState(initList.selectBGM);
+  const [bgFreeList, setBgFreeList] = useState(initList.bgFreeList);
   const settingList = initList.settingList;
 
   return (
@@ -49,7 +51,11 @@ const SetProvider = ({ children }) => {
         guestbookList,
         setGuestbookList,
         selectOptionList,
-        setSelectOptionList
+        setSelectOptionList,
+        bgFreeList,
+        setBgFreeList,
+        selectBGM,
+        setSelectBGM
       }}
     >
       {children}

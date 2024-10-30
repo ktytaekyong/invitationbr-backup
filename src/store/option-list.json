@@ -266,7 +266,50 @@
       "content": "참석의사"
     }
   ],
+  "bgFreeList": [
+    {
+      "bgid": "",
+      "bgauthor": "RUELLE",
+      "bgtitle": "I Get To Love You"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "존 레전드",
+      "bgtitle": "All of me"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "안녕바다",
+      "bgtitle": "별 빛이 내린다"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "아델",
+      "bgtitle": "Make you feel my Make you feel my Make you feel my"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "존 레전드",
+      "bgtitle": "All of me"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "RUELLE",
+      "bgtitle": "I Get To Love You"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "존 레전드",
+      "bgtitle": "All of me"
+    },
+    {
+      "bgid": "",
+      "bgauthor": "아델",
+      "bgtitle": "Make you feel my Make you feel my Make you feel my"
+    }
+  ],
 
+  "selectBGM": "bgid0",
   "basicSettingList": [
     "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation"
   ],
@@ -305,6 +348,7 @@
     "optionAttendPopupScroll": false,
     "optionAttendKakao": false
   },
+
   "videoList": {
     "videoUrl": "https://www.youtube.com/embed/O5wKQzqXFkw?si=9IgDGAMtKYCmB98L",
     "videoSrc": ""

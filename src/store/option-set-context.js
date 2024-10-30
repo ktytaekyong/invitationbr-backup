@@ -29,4 +29,8 @@ export const SetContext = createContext({
   setGuestbookList: () => {},
   selectOptionList: {},
   setSelectOptionList: () => {},
+  bgFreeList: [],
+  setBgFreeList: () => {},
+  selectBGM: {},
+  setSelectBGM: () => {},
 });

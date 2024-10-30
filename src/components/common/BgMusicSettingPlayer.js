@@ -1,3 +1,5 @@
+/* Import */
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import Button from "../layout/Button.js";
 /* CSS Module */
@@ -6,9 +8,11 @@ import styles from "../../css/module/common/BgMusicSettingPlayer.module.scss";
 import bgmCoverImg from "../../img/bgm/bgm_cover.png";
 import bgmCdImg from "../../img/bgm/bgm_cd.png";
 import bgmPlayImg from "../../img/icon/icon_play.png";
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const BgMusicSettingPlayer = () => {
-  const active = null;
+  const { selectBGM, setSelectBGM, bgFreeList, setBgFreeList } = useContext(SetContext);
   return (
     <div className={styles.bg__player_wrap}>
       <div className={styles.info}>
@@ -22,8 +26,12 @@ const BgMusicSettingPlayer = () => {
             </div>
           </div>
           <div className={styles.title}>
-            <div className={styles.title__wrap}>I Get To Love You</div>
-            <div className={styles.author}>RUELLE</div>
+            <div className={styles.title__wrap}>
+              <p>{bgFreeList.map((item) => item.bgid === selectBGM ? item.bgtitle : null)}</p>
+            </div>
+            <div className={styles.author}>
+              {bgFreeList.map((item) => item.bgid === selectBGM ? item.bgauthor : null)}
+            </div>
           </div>
         </div>
         <div className={styles.player}>

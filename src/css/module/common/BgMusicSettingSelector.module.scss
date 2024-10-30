@@ -21,6 +21,7 @@
     * {
       font-weight: $font-weight--Regular;
       color: $text-color--disable-input;
+      pointer-events: none;
     }
     svg {
       fill: #E5E8EB;

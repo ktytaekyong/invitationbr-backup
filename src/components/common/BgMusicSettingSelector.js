@@ -1,3 +1,5 @@
+/* Import */
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonItemContent from "./CommonItemContent.js";
 import Button from "../layout/Button.js";
@@ -5,49 +7,48 @@ import Button from "../layout/Button.js";
 import styles from "../../css/module/common/BgMusicSettingSelector.module.scss";
 /* Image */
 import { ReactComponent as IconBgSelectImg } from "../../img/icon/icon_bg_select.svg";
-
-const bgFreeList = [
-  {
-    bgauthor: "RUELLE",
-    bgtitle: "I Get To Love You"
-  },
-  {
-    bgauthor: "존 레전드",
-    bgtitle: "All of me"
-  },
-  {
-    bgauthor: "안녕바다",
-    bgtitle: "별 빛이 내린다"
-  },
-  {
-    bgauthor: "아델",
-    bgtitle: "Make you feel my Make you feel my Make you feel my"
-  },
-  {
-    bgauthor: "존 레전드",
-    bgtitle: "All of me"
-  },
-  {
-    bgauthor: "존 레전드",
-    bgtitle: "All of me"
-  },
-]
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const BgMusicSettingSelector = () => {
-  const active = null;
+  const { selectBGM, setSelectBGM, bgFreeList, setBgFreeList } = useContext(SetContext);
+  const [bgMoreCount, setBgMoreCount] = useState(6);
+  const bgmChangeHandler = (e) => {
+    const { id } = e.target;
+    setSelectBGM(id);
+  }
+  useEffect(() => {
+    setBgFreeList((prev) => (
+      prev.map((item, idx) => ({
+        ...item,
+        "bgid": "bgid" + idx
+      }))
+    ))
+  }, [])
   return (
     <div className={styles.bg__selector_wrap}>
       <ul className={styles.bg__selector}>
-        {bgFreeList.map((item, idx) => (
+        {bgFreeList.filter((_, count) => count < bgMoreCount)
+        .map((item, idx) => (
           <li key={item.bgtitle + idx} 
-            className={`${styles.bg__selector_item} ${styles.active} ${active ? styles.active : ""}`}>
+            id={item.bgid}
+            className={`${styles.bg__selector_item} ${selectBGM === item.bgid ? styles["active"] : ""}`}
+            onClick={bgmChangeHandler}
+          >
             <IconBgSelectImg />
-            <p className={styles.bg__selector_author}>{item.bgauthor}</p>
+            <p className={styles.bg__selector_author}>
+              {item.bgauthor}
+              {/* {selectBGM === item.bgid ? item.bgauthor : null} */}
+              </p>
             <p className={styles.bg__selector_title}>{item.bgtitle}</p>
           </li>
         ))}
       </ul>
-      <Button type="button" styleType="add" content={`더 보기 (${bgFreeList.length})`}></Button>
+      {
+        bgFreeList.length > bgMoreCount - 1 && bgMoreCount !== bgFreeList.length ?
+        <Button type="button" onClick={() => setBgMoreCount(bgFreeList.length)} styleType="add" content={`더 보기 (${bgFreeList.length - 6})`} />
+        : null
+      }
     </div>
   )
 }
