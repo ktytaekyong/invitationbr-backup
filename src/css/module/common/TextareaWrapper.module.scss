@@ -11,12 +11,13 @@
       span {
         font-weight: $font-weight--Regular;
       }
+      &.style__m span {
+        color: $text-color--blue;
+      }
+      &.style__f span {
+        color: $text-color--essntial;
+      }
     }
-    &.style__m span {
-      color: $text-color--blue;
-    }
-    &.style__f span {
-      color: $text-color--essntial;
-    }
+    
   }
 }

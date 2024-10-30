@@ -22,9 +22,41 @@
         color: $text-color--gray;
         word-break: keep-all;
         white-space: pre-line;
+        pointer-events: none;
       }
       &.active {
         border: 1px solid $button-color--default;
+      }
+    }
+  }
+}
+
+.tab__selector {
+  @include flex__row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 3px 5px;
+  .selector__item {
+    @include position;
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 7px;
+    padding: 8px 20px;
+    font-size: $font-size--xsm;
+    border-radius: $radius--button-list;
+    border: 1px solid $bg-color--second;
+    background-color: #FFF;
+    cursor: pointer;
+    span {
+      color: $text-color--disable-input;
+      pointer-events: none;
+    }
+    &.active {
+      background-color: $button-color--default;
+      span {
+        color: #FFF;
       }
     }
   }
