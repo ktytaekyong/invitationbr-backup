@@ -43,6 +43,8 @@ select {
 }
 input {
   font-size: $font-size--sm;
+  font-weight: $font-weight--Regular;
+  color: #666;
   &[type="date"] {
     @include input__appearance;
     width: 100%;
