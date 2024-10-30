@@ -24,6 +24,22 @@
       padding: 32px 30px;
       border-radius: $radius--default;
       background: $bg-color--setting;
+      &.top {
+        img {
+          order: 1;
+        }
+        p {
+          order: 2;
+        }
+      }
+      &.bottom {
+        img {
+          order: 2;
+        }
+        p {
+          order: 1;
+        }
+      }
       img {
         width: 100%;
         max-width: 260px;
@@ -49,6 +65,7 @@
         font-family: $font-family--default !important;
         letter-spacing: -0.03em;
         line-height: 1.5em;
+        white-space: pre-line;
         color: $text-color--disable;
       }
     }

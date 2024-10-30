@@ -29,7 +29,10 @@ const NoticeT = () => {
           <NoticeTItem onClick={setActiveHandler} isActive={isActive} />
           {
             noticeTList.map((item, idx) => (
-              <div key={item + idx} id={item.id} className={`${styles.content} ${isActive === idx ? styles["active"] : ""}`}>
+              <div 
+                key={item + idx} 
+                id={item.id} 
+                className={`${styles.content} ${isActive === idx ? styles["active"] : ""} ${styles[noticeTList[idx].position]}`}>
                 <img src={`${item.src === "" ? defaultImg[idx] : item.src}`} alt="" />
                 <p>
                   {item.content}
