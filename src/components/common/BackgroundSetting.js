@@ -57,23 +57,19 @@ const fontList = [
     itemKey: "고딕체"
   },
 ]
-const fontWeightList = [
+const fontSizeList = [
   {
-    itemName: "Light",
-    itemKey: "300"
+    itemName: "보통",
+    itemKey: "1em"
   },
   {
-    itemName: "Medium",
-    itemKey: "400"
+    itemName: "크게",
+    itemKey: "1.3em"
   },
   {
-    itemName: "SemiBold",
-    itemKey: "600"
-  },
-  {
-    itemName: "Bold",
-    itemKey: "700"
-  },
+    itemName: "작게",
+    itemKey: "0.8em"
+  }
 ]
 const BackgroundSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
@@ -102,10 +98,10 @@ const BackgroundSetting = () => {
               value={selectOptionList.fontFamily} 
             />
             <OptionSelector 
-              selectID="fontWeightSelector" 
-              selectName="fontWeight" 
-              listName={fontWeightList} 
-              value={selectOptionList.fontWeight} 
+              selectID="fontSizeSelector" 
+              selectName="fontSize" 
+              listName={fontSizeList} 
+              value={selectOptionList.fontSize} 
             />
           </CommonItemContent>
 

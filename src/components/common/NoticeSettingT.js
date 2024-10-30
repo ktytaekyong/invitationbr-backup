@@ -76,10 +76,11 @@ const NoticeSettingT = () => {
     }
     setSelectNoticeT(0);
   }
-  const noticeTabDataChangeHandler = (e, index, position) => {
+  const noticeTabDataChangeHandler = (e, index) => {
+    const { name, value } = e.target;
     setNoticeTList(prev => {
       const newList = [...prev];
-      newList[index] = { ...newList[index], position: position }; // position 값 업데이트
+      newList[index] = { ...newList[index], [name]: value };
       return newList;
     });
   };
