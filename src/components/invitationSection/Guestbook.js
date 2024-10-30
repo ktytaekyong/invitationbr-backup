@@ -45,7 +45,8 @@ const Guestbook = () => {
     ]);
     setTempBookList({ guestName: "", guestPassword: "", guestMessage: "" });
   }
-
+  useEffect(() => {
+  }, [guestbookList.length])
   return (
     <div className={`${styles.guestbook} ${styles.style_theme_1}`}>
       <div className={styles.guestbook__wrap}>
@@ -79,7 +80,7 @@ const Guestbook = () => {
                 }
               </ul>
               {
-                guestMoreCount === 2 ?
+                guestbookList.length > guestMoreCount - 1 && guestMoreCount !== guestbookList.length ?
                 <ButtonWrapper styleType="center">
                   <Button content="더보기" onClick={() => setGuestMoreCount(guestbookList.length)} styleType="invitation__gallery_view" />
                 </ButtonWrapper>
