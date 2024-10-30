@@ -22,7 +22,7 @@ import styles from "../../css/module/common/OrderSettingState.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const fixedList = ["고정 탭 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
+const fixedList = ["고정 메뉴 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const OrderSettingState = () => {
   const { settingOrderList, setSettingOrderList, settingList, selectSettingList, setSelectSettingList } = useContext(SetContext);
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
