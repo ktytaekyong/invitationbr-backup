@@ -74,7 +74,7 @@ const CoupleInfomation = () => {
               couple="신부" 
               coupleKey="F" 
               value={basicInfoList.brideInfo} 
-              onChange={(e) => basicDataChangeHandler(e, "groomInfo")}
+              onChange={(e) => basicDataChangeHandler(e, "brideInfo")}
             />
           </CommonItemContent>
           {parents.map((parent, idx) => (
