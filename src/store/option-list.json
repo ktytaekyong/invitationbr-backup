@@ -338,9 +338,16 @@
     {
       "title": "식사안내",
       "id": "noticeTab2",
-      "content": "식사안내 즐겨주세요~",
+      "content": "웨딩홀 5층 아스테라뷔페에서 드실 수 있습니다.\n시그니처 메뉴인 등심 스테이크도 꼭 맛보고 가세요.",
       "src": "",
-      "position": "bottom"
+      "position": "top"
+    },
+    {
+      "title": "주차안내",
+      "id": "noticeTab3",
+      "content": "포토부스가 예식장 좌측에 설치될 예정이오니\n바쁘시더라도 가벼운 마음으로 즐겨주세요~",
+      "src": "",
+      "position": "top"
     }
   ],
   "noticeDList": [

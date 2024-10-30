@@ -84,6 +84,8 @@ input {
 textarea {
   resize: none;
   height: 84px;
+  font-weight: $font-weight--Regular;
+  color: #666;
 }
 /* PICKER */
 .react {

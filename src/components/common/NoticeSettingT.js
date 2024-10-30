@@ -39,7 +39,6 @@ const NoticeSettingT = () => {
         setNoticeTList((prev) => {
           const newList = [...prev];
           newList[index] = { ...newList[index], src: e.target.result };
-          console.log(newList);
           return newList;
         })
       };
