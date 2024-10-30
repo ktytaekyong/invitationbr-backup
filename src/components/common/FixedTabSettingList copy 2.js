@@ -4,7 +4,6 @@ import FixedTabSettingItem from "../common/FixedTabSettingItem";
 import styles from "../../css/module/common/FixedTabSettingList.module.css";
 import { useEffect, useState } from "react";
 
-// 내가 봤을 땐 이거.. 1. 객체로 만든다 2. 선택한 목록을 새 배열에 넣는다 3. 꺼내 쓴다
 const basicTablList = [
   {
     id: "tabLetter",
@@ -48,12 +47,12 @@ const basicTablList = [
   },
   {
     id: "tabNoticeT",
-    content: "안내사항 (탭형)",
+    content: "안내사항",
     isView: false
   },
   {
     id: "tabNoticeD",
-    content: "안내사항 (분리형)",
+    content: "공지사항",
     isView: false
   },
   {
@@ -75,8 +74,8 @@ const basicTablList = [
 //   "갤러리",
 //   "동영상",
 //   "마음 전하기",
-//   "안내사항 (탭형)",
-//   "안내사항 (분리형)",
+//   "안내사항",
+//   "공지사항",
 //   "방명록",
 //   "참석의사",
 // ];

@@ -164,14 +164,14 @@
       "itemId": "settingNoticeT",
       "itemEssential": false,
       "itemCheckbox": "settingNoticeTUse",
-      "itemTitle": "안내사항 (탭형)",
+      "itemTitle": "안내사항",
       "itemContent": "NoticeSettingT"
     }, 
     {
       "itemId": "settingNoticeD",
       "itemEssential": false,
       "itemCheckbox": "settingNoticeDUse",
-      "itemTitle": "안내사항 (분리형)",
+      "itemTitle": "공지사항",
       "itemContent": "NoticeSettingD"
     }, 
     {
@@ -251,11 +251,11 @@
     },
     {
       "id": "tabNoticeT",
-      "content": "안내사항 (탭형)"
+      "content": "안내사항"
     },
     {
       "id": "tabNoticeD",
-      "content": "안내사항 (분리형)"
+      "content": "공지사항"
     },
     {
       "id": "tabGuestbook",

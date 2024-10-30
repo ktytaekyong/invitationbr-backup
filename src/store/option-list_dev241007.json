@@ -57,12 +57,12 @@
     },
     {
       "id": "tabNoticeT",
-      "content": "안내사항 (탭형)",
+      "content": "안내사항",
       "isView": false
     },
     {
       "id": "tabNoticeD",
-      "content": "안내사항 (분리형)",
+      "content": "공지사항",
       "isView": false
     },
     {

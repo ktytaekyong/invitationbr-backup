@@ -31,9 +31,7 @@ const Tab = () => {
           onClick={() => setActiveHandler(idx)}
         >
           <Link to="#" onClick={(e => e.preventDefault())}>
-            {tabContent && tabContent.id !== "tabNoticeT" && tabContent.id !== "tabNoticeD" ? tabContent.content : null}
-            {tabContent && tabContent.id === "tabNoticeT" ? "안내사항" : null}
-            {tabContent && tabContent.id === "tabNoticeD" ? "공지사항" : null}
+            {tabContent ? tabContent.content : null}
           </Link>
         </li>
       )

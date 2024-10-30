@@ -39,7 +39,7 @@ const TabSelector = ({ listName, name, onClick }) => {
             }}
           >
             <span>{item.title}</span>
-            {/* 탭형 안내사항을 선택했을 경우 */}
+            {/* 공지사항을 선택했을 경우 */}
             {
               item.id && item.id.indexOf("noticeTab") !== -1 ?
               <Button 
