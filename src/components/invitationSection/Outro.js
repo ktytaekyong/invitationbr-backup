@@ -15,7 +15,7 @@ const Outro = () => {
   return (
     <div className={`${styles.outro} ${styles.style_theme_1}`}>
       <div className={styles.outro__wrap}>
-        <div className={styles.outro__content}>
+        <div className={`${styles.outro__content} ${styles[outroList.position]}`}>
           <div className={styles.img__wrap}>
             <img src={outroList.src ? outroList.src : outroImg} alt="" />
           </div>
