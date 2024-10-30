@@ -26,7 +26,7 @@ const Header = () => {
       <MetaTag title="청첩장 만들기" description="설명" imageUrl="" />
       <header className={styles.header}>
         <Container>
-          <Link to="/" className={styles.header__home}>
+          <Link to="#" onClick={(e => e.preventDefault())} className={styles.header__home}>
             <img src={iconHomeArrowImg} alt="" />
             <img src={iconHomeImg} alt="" />
           </Link>

@@ -23,11 +23,11 @@ const Footer = () => {
     <div className={`${styles.footer}`}>
       <div className={styles.footer__copy}>
         <div className={styles.footer__copy_wrap}>
-          <Link to="/">
+          <Link to="#" onClick={(e => e.preventDefault())}>
             <img src={iconShareKakao} alt="" />
             <p>카카오톡 공유하기</p>
           </Link>
-          <Link to="/">
+          <Link to="#" onClick={(e => e.preventDefault())}>
             <img src={iconShareUrl} alt="" />
             <p>링크주소 복사하기</p>
           </Link>

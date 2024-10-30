@@ -22,7 +22,7 @@ const NoticeTItem = ({ onClick, isActive }) => {
             className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
             onClick={() => onClick(idx)}
             >
-            <Link to="/">{item.title}</Link>
+            <Link to="#" onClick={(e => e.preventDefault())}>{item.title}</Link>
           </li>
         )
       }

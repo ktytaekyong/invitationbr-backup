@@ -49,19 +49,19 @@ const Location = () => {
               <img src={tempMapImg} alt="" />
               <ul className={styles.map__search_list}>
                 <li className={styles.map__search_item}>
-                  <Link to="/">
+                  <Link to="#" onClick={(e => e.preventDefault())}>
                     <img src={iconMapTImg} alt="" />
                     <p>티맵</p>
                   </Link>
                 </li>
                 <li className={styles.map__search_item}>
-                  <Link to="/">
+                  <Link to="#" onClick={(e => e.preventDefault())}>
                     <img src={iconMapNaverImg} alt="" />
                     <p>네이버</p>
                   </Link>
                 </li>
                 <li className={styles.map__search_item}>
-                  <Link to="/">
+                  <Link to="#" onClick={(e => e.preventDefault())}>
                     <img src={iconMapKakaoImg} alt="" />
                     <p>카카오</p>
                   </Link>
