@@ -78,11 +78,10 @@ const Invitation = () => {
             <div key={itemId}>{renderItemHandler(itemId)}</div>
           ) : null
         )}
-        {selectSettingList.includes("settingOutro") && <Outro />}
         <Banner />
         {/* 위치 방명록 위 */}
-        
-        <SettingOther />
+        {selectSettingList.includes("settingOutro") && <Outro />}
+        {isTargetPage ? null: <SettingOther />}
         <Footer />
       </Container>
     </div>
