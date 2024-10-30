@@ -96,7 +96,7 @@ const CoupleInfomation = () => {
           <CommonItemContent title="故人 표기" multi="check">
             <CheckItem name="deceasedFlower" id="deceasedFlower" disabled={false} labelImgSrc={false} content="국화꽃으로 표기" />
             <SettingNotice>
-              <SettingNoticeContent>아버지, 어머지 정보는 미 입력 시 표기되지 않습니다.</SettingNoticeContent>
+              <SettingNoticeContent>아버지, 어머니 정보는 미 입력 시 표기되지 않습니다.</SettingNoticeContent>
             </SettingNotice>
           </CommonItemContent>
         </CommonItemWrapper>
