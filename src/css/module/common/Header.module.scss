@@ -6,16 +6,25 @@
   border-bottom: 1px solid $border-color--default;
   background-color: #fff;
   z-index: 999;
+  @include device__query(mobile) {
+    height: 60px;
+  }
   > div {
     @include flex__row;
     justify-content: space-between;
     align-items: center;
+    @include device__query(mobile) {
+      padding: 0 20px;
+    }
   }
   &__home {
     @include flex__row;
     justify-content: flex-start;
     align-items: center;
     column-gap: 13px;
+    @include device__query(mobile) {
+      display: none;
+    }
     img:first-child {
       width: 7px;
       height: 12px;
@@ -31,13 +40,23 @@
     row-gap: 6px;
     transform: translate(-50%, -50%);
     text-align: center;
+    @include device__query(mobile) {
+      @include position(s);
+      transform: unset;
+    }
     h2 {
       font-size: $font-size--lg;
       font-weight: $font-weight--SemiBold;
+      @include device__query(mobile) {
+        font-size: $font-size--default;
+      }
     }
     p {
       font-size: $font-size--ssm;
       color: $text-color--gray;
+      @include device__query(mobile) {
+        display: none;
+      }
     }
   }
 }
