@@ -25,6 +25,8 @@ export const SetContext = createContext({
   setOutroList: () => {},
   letterList: {},
   setLetterList: () => {},
+  guestbookAdminPassword: "",
+  setGuestbookAdminPassword: () => {},
   guestbookList: {},
   setGuestbookList: () => {},
   selectOptionList: {},

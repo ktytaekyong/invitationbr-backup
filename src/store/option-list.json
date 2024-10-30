@@ -427,6 +427,7 @@
       "guestDate": "2024.08.23"
     }
   ],
+  "guestbookAdminPassword": "",
   "kakaoInfoList": [
     {
       "title": "청첩장 만들기(카카오)",

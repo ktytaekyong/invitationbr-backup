@@ -11,10 +11,10 @@ import iconModalHeader from "../../../img/icon/icon_reg_modal.png";
 import { SetContext } from "../../../store/option-set-context.js";
 
 const InvitationModalGuestbook = ({ openvar, onClose, clickidx }) => {
-  const { guestbookList, setGuestbookList } = useContext(SetContext);
+  const { guestbookList, setGuestbookList, guestbookAdminPassword } = useContext(SetContext);
   const [ tempPassword, setTempPassword ] = useState("");
   const removeGuestbookHandler = (removeidx, password) => {
-    if(guestbookList[removeidx].guestPassword === password) {
+    if(guestbookList[removeidx].guestPassword === password || guestbookAdminPassword === password) {
       setGuestbookList(prev => 
         prev.filter((_, idx) => removeidx !== idx)
       );

@@ -17,6 +17,7 @@ const SetProvider = ({ children }) => {
   const [outroList, setOutroList] = useState(initList.outroList);
   const [selectNoticeT, setSelectNoticeT] = useState(0);
   const [guestbookList, setGuestbookList] = useState(initList.guestbookList);
+  const [guestbookAdminPassword, setGuestbookAdminPassword] = useState(initList.guestbookAdminPassword);
   const [selectOptionList, setSelectOptionList] = useState(initList.selectOptionList);
   const [selectBGM, setSelectBGM] = useState(initList.selectBGM);
   const [bgFreeList, setBgFreeList] = useState(initList.bgFreeList);
@@ -48,6 +49,8 @@ const SetProvider = ({ children }) => {
         setOutroList,
         letterList,
         setLetterList,
+        guestbookAdminPassword,
+        setGuestbookAdminPassword,
         guestbookList,
         setGuestbookList,
         selectOptionList,
