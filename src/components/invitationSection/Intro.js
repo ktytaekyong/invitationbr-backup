@@ -1,7 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 /* Component */
-import Tab from "../invitationSection/Tab";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Intro.module.scss";
 /* Image */
@@ -48,157 +47,145 @@ const Intro = () => {
     switch(id) {
       case "basicTemplate1":
         return (
-          <>
-            <Tab />
-            <div className={styles.intro__wrap}>
-              <div className={styles.intro__headline}>
-                <div className={styles.img__wrap}>
-                  <img src={intro1Letter} alt="" />
-                </div>
-                <div className={styles.txt__wrap}>
-                  <p>저희 결혼합니다</p>
-                </div>
+          <div className={styles.intro__wrap}>
+            <div className={styles.intro__headline}>
+              <div className={styles.img__wrap}>
+                <img src={intro1Letter} alt="" />
               </div>
-              <div className={styles.intro__photo}>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
-              </div>
-              <div className={styles.intro__title}>
-                <div className={styles.intro__title_couple}>
-                  <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
-                  <p className={styles.divide}></p>
-                  <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
-                </div>
-                <div className={styles.intro__title_date}>
-                  <h3 className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
-                  </h3>
-                </div>
-                <div className={styles.intro__title_place}>
-                  <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
-                </div>
+              <div className={styles.txt__wrap}>
+                <p>저희 결혼합니다</p>
               </div>
             </div>
-          </>
+            <div className={styles.intro__photo}>
+              {
+                selectIntroPhoto.length === 0 ?
+                <img src={introPhoto} alt="표지 사진" />
+                : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
+              }
+            </div>
+            <div className={styles.intro__title}>
+              <div className={styles.intro__title_couple}>
+                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <p className={styles.divide}></p>
+                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+              </div>
+              <div className={styles.intro__title_date}>
+                <h3 className={styles.date}>
+                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                </h3>
+              </div>
+              <div className={styles.intro__title_place}>
+                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+              </div>
+            </div>
+          </div>
         );
       case "basicTemplate2":
         return (
-          <>
-            {/* <Tab /> */}
-            <div className={styles.intro__wrap}>
-              <div className={styles.intro__headline}>
-                <div className={styles.img__wrap}>
-                  <img src={intro2Letter} alt="" />
-                </div>
-                <div className={styles.txt__wrap}>
-                  <p>
-                    {`${handleDateChangeTheme2M(basicInfoList.dateInfo.date)}`}
-                    <span>/</span>
-                    {`${handleDateChangeTheme2D(basicInfoList.dateInfo.date)}`}
-                  </p>
-                </div>
+          <div className={styles.intro__wrap}>
+            <div className={styles.intro__headline}>
+              <div className={styles.img__wrap}>
+                <img src={intro2Letter} alt="" />
               </div>
-              <div className={styles.intro__photo}>
-                <p>getting</p>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
-                <p>married</p>
-              </div>
-              <div className={styles.intro__title}>
-                <div className={styles.intro__title_couple}>
-                  <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
-                  <p className={styles.divide}></p>
-                  <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
-                </div>
-                <div className={styles.intro__title_date}>
-                  <h3 className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
-                  </h3>
-                </div>
-                <div className={styles.intro__title_place}>
-                  <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
-                </div>
+              <div className={styles.txt__wrap}>
+                <p>
+                  {`${handleDateChangeTheme2M(basicInfoList.dateInfo.date)}`}
+                  <span>/</span>
+                  {`${handleDateChangeTheme2D(basicInfoList.dateInfo.date)}`}
+                </p>
               </div>
             </div>
-          </>
+            <div className={styles.intro__photo}>
+              <p>getting</p>
+              {
+                selectIntroPhoto.length === 0 ?
+                <img src={introPhoto} alt="표지 사진" />
+                : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
+              }
+              <p>married</p>
+            </div>
+            <div className={styles.intro__title}>
+              <div className={styles.intro__title_couple}>
+                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <p className={styles.divide}></p>
+                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+              </div>
+              <div className={styles.intro__title_date}>
+                <h3 className={styles.date}>
+                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                </h3>
+              </div>
+              <div className={styles.intro__title_place}>
+                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+              </div>
+            </div>
+          </div>
         );
       case "basicTemplate3":
         return (
-          <>
-            <Tab />
-            <div className={styles.intro__wrap}>
-              <div className={styles.intro__headline}>
-                <div className={styles.img__wrap}>
-                  <img src={intro3Letter} alt="" />
-                </div>
-              </div>
-              <div className={styles.intro__title}>
-                <div className={styles.intro__title_couple}>
-                  <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
-                  <p className={styles.divide}>그리고</p>
-                  <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
-                </div>
-                <div className={styles.intro__title_date}>
-                  <h3 className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
-                    </h3>
-                </div>
-                <div className={styles.intro__title_place}>
-                  <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
-                </div>
-              </div>
-              <div className={styles.intro__photo}>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
+          <div className={styles.intro__wrap}>
+            <div className={styles.intro__headline}>
+              <div className={styles.img__wrap}>
+                <img src={intro3Letter} alt="" />
               </div>
             </div>
-          </>
+            <div className={styles.intro__title}>
+              <div className={styles.intro__title_couple}>
+                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <p className={styles.divide}>그리고</p>
+                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+              </div>
+              <div className={styles.intro__title_date}>
+                <h3 className={styles.date}>
+                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                  </h3>
+              </div>
+              <div className={styles.intro__title_place}>
+                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+              </div>
+            </div>
+            <div className={styles.intro__photo}>
+              {
+                selectIntroPhoto.length === 0 ?
+                <img src={introPhoto} alt="표지 사진" />
+                : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
+              }
+            </div>
+          </div>
         );
       case "basicTemplate4":
         return (
-          <>
-            {/* <Tab /> */}
-            <div className={styles.intro__wrap}>
-              <div className={styles.intro__headline}>
-                <div className={styles.txt__wrap}>
-                  <p>
-                    {`${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`}
-                  </p>
-                </div>
-              </div>
-              <div className={styles.intro__photo}>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
-              </div>
-              <div className={styles.intro__title}>
-                <div className={styles.intro__title_couple}>
-                  <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
-                  <img src={intro4Letter} alt="" />
-                  <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
-                </div>
-                <div className={styles.intro__title_date}>
-                  <h3 className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
-                  </h3>
-                </div>
-                <div className={styles.intro__title_place}>
-                  <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
-                </div>
+          <div className={styles.intro__wrap}>
+            <div className={styles.intro__headline}>
+              <div className={styles.txt__wrap}>
+                <p>
+                  {`${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`}
+                </p>
               </div>
             </div>
-          </>
+            <div className={styles.intro__photo}>
+              {
+                selectIntroPhoto.length === 0 ?
+                <img src={introPhoto} alt="표지 사진" />
+                : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
+              }
+            </div>
+            <div className={styles.intro__title}>
+              <div className={styles.intro__title_couple}>
+                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <img src={intro4Letter} alt="" />
+                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+              </div>
+              <div className={styles.intro__title_date}>
+                <h3 className={styles.date}>
+                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                </h3>
+              </div>
+              <div className={styles.intro__title_place}>
+                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+              </div>
+            </div>
+          </div>
         );
       // case "settingDate":
       //   return <Calendar />;
@@ -226,8 +213,8 @@ const Intro = () => {
   }
   return (
     <div 
-      key={selectOptionList.introFillType} 
-      id={selectOptionList.introFillType} 
+      key={selectOptionList.introFillType}
+      id={selectOptionList.introFillType}
       className={`${styles.intro} ${styles[selectOptionList.introFillType]}`}
     >
       {renderIntroHandler(selectOptionList.introFillType)}

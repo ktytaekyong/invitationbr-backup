@@ -1,8 +1,9 @@
 /* Import */
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
+import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
 import Effect from "../invitationSection/Effect.js";
 import Letter from "../invitationSection/Letter";
@@ -29,6 +30,10 @@ const Invitation = () => {
   const previewnLocation = useLocation();
   const isTargetPage = previewnLocation.pathname === '/Preview';
   const { settingList, selectSettingList, selectOptionList } = useContext(SetContext);
+  const [isActiveTab, setIsActiveTab] = useState(false);
+  const setActiveTabHandler = () => {
+    setIsActiveTab(!isActiveTab);
+  }
   const renderItemHandler = (id) => {
     switch(id) {
       case "settingLetter":
@@ -67,7 +72,13 @@ const Invitation = () => {
       className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}
       style={{ backgroundColor: selectOptionList.backgroundColor }}
     >
-      <Container style={selectOptionList.effectRange === "effectIntro" ? {position: "relative"} : null}>
+      <Container 
+        style={{
+          ...(selectOptionList.effectRange === "effectIntro" ? { position: "relative" } : {}),
+          ...(isActiveTab ? { overflow: "hidden" } : {}),
+        }}
+      >
+        <Tab buttonOnClick={setActiveTabHandler} isActiveTab={isActiveTab} />
         <Intro />
         <Effect />
         {/* <Letter></Letter>
