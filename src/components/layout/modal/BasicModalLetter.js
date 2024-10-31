@@ -1,52 +1,59 @@
 /* Import */
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 /* Component */
 import TabSelector from '../../common/TabSelector';
 import BasicSelectModal from './BasicSelectModal';
 import BasicModalContent from './BasicModalContent';
+import BasicModalLetterItem from './BasicModalLetterItem';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/BasicModalLetter.module.scss";
+/* Context */
+import { SetContext } from "../../../store/option-set-context.js";
 
-export default function BasicModalLetter({ openvar, onClose, isActiveTab, setActiveTabHandler, setLetterList }) {
-  const [isDefaultActive, setIsDefaultActive] = useState(null);
-  const [isParentsActive, setIsParentsActive] = useState(null);
-  const [isReligionActive, setIsReligionActive] = useState(null);
-  const setDefaultActiveHandler = (idx, sample) => {
-    setIsDefaultActive(idx);
-    setIsParentsActive(null);
-    setIsReligionActive(null);
-    setLetterList((prev) => (
-      {
-        ...prev,
-        content: sample
-      }
-    ));
+const BasicModalLetter = ({ openvar, onClose }) => {
+  const { letterList, setLetterList } = useContext(SetContext);
+  const [ activeTab, setActiveTab ] = useState(0);
+  const [ activeItem, setActiveItem ] = useState(null);
+  const [ sample, setSample ] = useState(letterList.content);
+  const letterChangeHandler = (e) => {
+    const { id } = e.target;
+    setActiveItem(id);
+    let sampleContent = sample;
+
+    if (id.includes("SampleDafault")) {
+      letterSampleDafaultList.forEach((item) => {
+        if (item.id === id) {
+          sampleContent = item.content;
+        }
+      });
+    } else if (id.includes("SampleParents")) {
+      letterSampleParentsList.forEach((item) => {
+        if (item.id === id) {
+          sampleContent = item.content;
+        }
+      });
+    } else if (id.includes("SampleReligion")) {
+      letterSampleReligionList.forEach((item) => {
+        if (item.id === id) {
+          sampleContent = item.content;
+        }
+      });
+    }
+
+    setSample(sampleContent);
+    setLetterList((prev) => ({
+      ...prev,
+      content: sampleContent,
+    }));
+  
+    console.log(letterList);
   }
-  const setParentsActiveHandler = (idx, sample) => {
-    setIsParentsActive(idx);
-    setIsDefaultActive(null);
-    setIsReligionActive(null);
-    setLetterList((prev) => (
-      {
-        ...prev,
-        content: sample
-      }
-    ));
-  }
-  const setReligionActiveHandler = (idx, sample) => {
-    setIsReligionActive(idx);
-    setIsParentsActive(null);
-    setIsDefaultActive(null);
-    setLetterList((prev) => (
-      {
-        ...prev,
-        content: sample
-      }
-    ));
-  }
-
-
-
+  // setLetterList((prev) => (
+  //   {
+  //     ...prev,
+  //     content: sample
+  //   }
+  // ));
   const letterSampleThemeList = [
     {
       title: "일반",
@@ -103,68 +110,52 @@ export default function BasicModalLetter({ openvar, onClose, isActiveTab, setAct
       content: "오랫동안 마주 보며 다져온 사랑을\n이제 한곳을 바라보며 걸어갈 수 있는\n큰 사랑으로 키우고자 합니다.\n두 사람이 사랑의 이름으로 지켜나갈 수 있게\n축복해 주시면 감사하겠습니다.",
     }
   ];
-
-  const renderContent = (index) => {
-    switch (index) {
-      case 0:
-        return (
-          <div className={`${styles.modal__letter_list}`}>
-            {letterSampleDafaultList.map((item, idx) => (
-              <div 
-                key={`${item}${idx}`} 
-                className={`${styles.modal__letter_item} ${isDefaultActive === idx ? styles["active"] : ""}`}
-                onClick={() => setDefaultActiveHandler(idx, item.content)}
-              >
-                <p>{item.content}</p>
-              </div>
-            ))}
-          </div>
-        );
-      case 1:
-        return (
-          <div className={`${styles.modal__letter_list}`}>
-            {letterSampleParentsList.map((item, idx) => (
-              <div 
-              key={`${item}${idx}`} 
-              className={`${styles.modal__letter_item} ${isParentsActive === idx ? styles["active"] : ""}`}
-              onClick={() => setParentsActiveHandler(idx, item.content)}
-              >
-                <p>{item.content}</p>
-              </div>
-            ))}
-          </div>
-        );
-      case 2:
-        return (
-          <div className={`${styles.modal__letter_list}`}>
-            {letterSampleReligionList.map((item, idx) => (
-              <div 
-                key={`${item}${idx}`} 
-                className={`${styles.modal__letter_item} ${isReligionActive === idx ? styles["active"] : ""}`}
-                onClick={() => setReligionActiveHandler(idx, item.content)}
-              >
-                <p>{item.content}</p>
-              </div>
-            ))}
-          </div>
-        );
-      default:
-        return;
-    }
-  };
-
   return (
-    <BasicSelectModal 
-      openvar={openvar} 
-      className={styles.modal__letter} 
-      onClose={onClose} 
-      ButtonWrapperUse={false}
-      title="샘플문구 선택"
-    >
-      <BasicModalContent>
-        <TabSelector listName={letterSampleThemeList} onChange={setActiveTabHandler} />
-        {renderContent(isActiveTab)}
+  <BasicSelectModal   
+    openvar={openvar} 
+    className={styles.modal__letter} 
+    onClose={onClose} 
+    ButtonWrapperUse={false}
+    title="샘플문구 선택"
+  >
+    <BasicModalContent>
+      <TabSelector 
+        listName={letterSampleThemeList} 
+        id="letterSampleSelector"
+        type="sample"
+        onClick={setActiveTab}
+        activeTab={activeTab}
+      />
+        {
+          activeTab === 0 ? 
+          <BasicModalLetterItem 
+            listName={letterSampleDafaultList}
+            activeItem={activeItem}
+            onClick={(e) => letterChangeHandler(e)}
+          />
+          : null
+        }
+        {
+          activeTab === 1 ? 
+          <BasicModalLetterItem 
+            listName={letterSampleParentsList}
+            activeItem={activeItem}
+            onClick={(e) => letterChangeHandler(e)}
+          />
+          : null
+        }
+        {
+          activeTab === 2 ? 
+          <BasicModalLetterItem 
+            listName={letterSampleReligionList}
+            activeItem={activeItem}
+            onClick={(e) => letterChangeHandler(e)}
+          />
+          : null
+        }
+        
       </BasicModalContent>
     </BasicSelectModal>
   );
 }
+export default BasicModalLetter;
