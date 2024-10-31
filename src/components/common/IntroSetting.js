@@ -7,43 +7,50 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/common/IntroSetting.module.scss";
 /* Image */
-import templateImage1 from "../../img/intro/intro_photo_temp1.png";
+import basicTemplateImage1 from "../../img/intro/intro_photo_basic1.jpg";
+import basicTemplateImage2 from "../../img/intro/intro_photo_basic2.jpg";
+import basicTemplateImage3 from "../../img/intro/intro_photo_basic3.jpg";
+import basicTemplateImage4 from "../../img/intro/intro_photo_basic4.jpg";
+import FillTemplateImage1 from "../../img/intro/intro_photo_fill1.jpg";
+import FillTemplateImage2 from "../../img/intro/intro_photo_fill2.jpg";
+import FillTemplateImage3 from "../../img/intro/intro_photo_fill3.jpg";
+import FillTemplateImage4 from "../../img/intro/intro_photo_fill4.jpg";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const basicIntroList = [
   {
-    imgSrc: templateImage1,
+    imgSrc: basicTemplateImage1,
     altVal: "basicTemplate1",
   },
   {
-    imgSrc: templateImage1,
+    imgSrc: basicTemplateImage2,
     altVal: "basicTemplate2",
   },
   {
-    imgSrc: templateImage1,
+    imgSrc: basicTemplateImage3,
     altVal: "basicTemplate3",
   },
   {
-    imgSrc: templateImage1,
+    imgSrc: basicTemplateImage4,
     altVal: "basicTemplate4",
   },
 ]
 const fillIntroList = [
   {
-    imgSrc: templateImage1,
+    imgSrc: FillTemplateImage1,
     altVal: "fillTemplate1",
   },
   {
-    imgSrc: templateImage1,
+    imgSrc: FillTemplateImage2,
     altVal: "fillTemplate2",
   },
   {
-    imgSrc: templateImage1,
+    imgSrc: FillTemplateImage3,
     altVal: "fillTemplate3",
   },
   {
-    imgSrc: templateImage1,
+    imgSrc: FillTemplateImage4,
     altVal: "fillTemplate4",
   },
 ]
