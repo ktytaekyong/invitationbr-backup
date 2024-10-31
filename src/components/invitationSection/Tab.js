@@ -26,7 +26,7 @@ const Tab = ({ buttonOnClick, isActiveTab }) => {
     null
     :
     <div className={`${styles.tab__wrap} ${styles[selectOptionList.introFillType]}`}>
-      <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`}></div>
+      <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={buttonOnClick}></div>
       <div className={styles.button__wrapper}>
         <Button onClick={buttonOnClick} className={`${isActiveTab ? styles["active"] : ""}`} />
       </div>
@@ -47,6 +47,7 @@ const Tab = ({ buttonOnClick, isActiveTab }) => {
           )
         })}
       </ul>
+      
     </div>
     
   )
