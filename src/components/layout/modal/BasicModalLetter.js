@@ -19,7 +19,6 @@ const BasicModalLetter = ({ openvar, onClose }) => {
     const { id } = e.target;
     setActiveItem(id);
     let sampleContent = sample;
-
     if (id.includes("SampleDafault")) {
       letterSampleDafaultList.forEach((item) => {
         if (item.id === id) {
@@ -39,21 +38,12 @@ const BasicModalLetter = ({ openvar, onClose }) => {
         }
       });
     }
-
     setSample(sampleContent);
     setLetterList((prev) => ({
       ...prev,
       content: sampleContent,
     }));
-  
-    console.log(letterList);
   }
-  // setLetterList((prev) => (
-  //   {
-  //     ...prev,
-  //     content: sample
-  //   }
-  // ));
   const letterSampleThemeList = [
     {
       title: "일반",
