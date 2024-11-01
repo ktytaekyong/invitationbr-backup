@@ -8,9 +8,11 @@ import styles from "../../css/module/common/CoupleInfomationSettingParents.modul
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
-const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onChange, onCheck }) => {
-  const [depActive, setDepActive] = useState(false);
+const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onChange }) => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  useEffect(() => {
+    console.log(basicInfoList);
+  }, [basicInfoList])
   return (
     <div className={styles.couple__info}>
       <input 
@@ -22,7 +24,7 @@ const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onCha
         value={itemKey === "Dad" ? data.dadName : data.momName}
         onChange={onChange}
       />
-      <input type="number" 
+      <input type="number"
         id={`${coupleKey}${itemKey}Number`} 
         name={itemKey === "Dad" ? "dadNumber" : "momNumber"}
         className={styles.info__parentnumber} 
@@ -34,8 +36,8 @@ const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onCha
         name={itemKey === "Dad" ? "dadDeceased" : "momDeceased"} 
         id={`${coupleKey}${itemKey}Dep`} 
         content={"故"} 
-        checked={itemKey === "Dad" ? data.dadDeceased : data.momDeceased}
-        onChange={onCheck}
+        infoType={coupleKey === "M" ? "groomParentInfo" : "brideParentInfo"}
+        propsOnChange={true}
       />
     </div>
   )

@@ -18,7 +18,6 @@ const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, v
         }))
       }
     })
-    console.log(selectOptionList);
   }
   return (
     <div className={`${styles.option__selector_wrapper} ${styleType ? styles[styleType] : ""}`}>

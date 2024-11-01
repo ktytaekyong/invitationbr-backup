@@ -9,7 +9,7 @@
     "groomParentInfo": {
       "dadName": "이아빠",
       "dadNumber": "01000000001",
-      "dadDeceased": false,
+      "dadDeceased": true,
       "momName": "이엄마",
       "momNumber": "01000000002",
       "momDeceased": false

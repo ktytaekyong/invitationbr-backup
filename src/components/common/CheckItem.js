@@ -4,9 +4,11 @@ import { useState, useEffect, useContext } from "react";
 import styles from "../../css/module/common/CheckItem.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { InfoContext } from "../../store/option-info-context.js";
 
-const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx }) => {
+const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx, propsOnChange, infoType }) => {
   const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList } = useContext(SetContext);
+  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [ isChecked, setIsChecked ] = useState(false);
   const checkedChangeHandler = (e) => {
     const { name, id, checked } = e.target;
@@ -18,7 +20,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
           setSelectOptionList((prev) => ({
             ...prev,
             [name]: checked
-          }))
+        }))
         } else if(typeof item[1] === "string") {
           setSelectOptionList((prev) => ({
             ...prev,
@@ -39,6 +41,18 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       )
     }));
   }
+  const handleCheckboxChange = (e, infoType) => {
+    const { name, checked } = e.target;
+    setIsChecked(checked);
+    setBasicInfoList((prev) => ({
+      ...prev,
+      [infoType]: {
+        ...prev[infoType],
+        [name]: checked,
+      },
+    }));
+    console.log(infoType);
+  };
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
     newArray.map((item) => {
@@ -48,7 +62,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         }
       }
     })
-  }, [])
+  }, [selectOptionList])
   useEffect(() => {
     if (name === "kakaopayUse") {
       setIsChecked(accountInfoList[groupType][checkidx]?.kakaopayUse || false);
@@ -59,6 +73,10 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       }
     }
   }, [accountInfoList, selectOptionList, name, groupType, checkidx]);
+  useEffect(() => {
+    const initialChecked = basicInfoList[infoType]?.[name] || false;
+    setIsChecked(initialChecked);
+  }, [basicInfoList, infoType, name]);
   return (
     name !== "kakaopayUse" ? 
     <div className={styles.check}>
@@ -67,7 +85,9 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         name={name} 
         id={id} 
         checked={isChecked}
-        onChange={(e) => checkedChangeHandler(e)}
+        onChange={(e) => (
+          propsOnChange ? handleCheckboxChange(e, infoType) : checkedChangeHandler(e)
+        )}
       />
       <label htmlFor={id}>
         {labelImgSrc ? <img src={labelImgSrc} alt="" /> : null}

@@ -38,11 +38,22 @@
         line-height: 1.5em;
       }
       p {
-        display: inline-block;
+        @include flex__row;
+        justify-content: center;
+        align-items: center;
         font-size: $font-size--default;
         font-weight: $font-weight--Medium;
         color: $text-color--temp;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.05em;
+        img {
+          width: 16px;
+          height: 16px;
+          margin-bottom: 4px;
+          margin-right: 5px;
+          &:last-of-type {
+            margin-left: 8px;
+          }
+        }
       }
       span {
         display: inline-block;

@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, Component } from "react";
 /* Component */
 import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
@@ -8,19 +8,25 @@ import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Letter.module.scss";
 /* Image */
-// import introRing from "../../img/intro/intro_theme_1_ring.png";
+import IconFlower  from "../../img/icon/icon_deceased_flower.png";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Intro = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const { letterList, setLetterList } = useContext(SetContext);
+  const { letterList, setLetterList, selectOptionList } = useContext(SetContext);
+  const [ deceasedIcon, setDeceasedIcon ] = useState("故");
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
   };
+  useEffect(() => {
+    selectOptionList.deceasedFlower ? 
+    setDeceasedIcon(<img src={IconFlower} />) 
+    : setDeceasedIcon("故");
+  }, [selectOptionList.deceasedFlower])
   return (
     <div id="Letter" className={`${styles.letter}`}>
       <div className={styles.letter__wrap}>
@@ -33,12 +39,12 @@ const Intro = () => {
           </div>
           <div className={styles.detail}>
             <p>
-              {basicInfoList.groomParentInfo.dadDeceased ? "故" : null}{basicInfoList.groomParentInfo.dadName} · {basicInfoList.groomParentInfo.momDeceased ? "故" : null}{basicInfoList.groomParentInfo.momName}
+              {basicInfoList.groomParentInfo.dadDeceased ? deceasedIcon : null}{basicInfoList.groomParentInfo.dadName} · {basicInfoList.groomParentInfo.momDeceased ? deceasedIcon : null}{basicInfoList.groomParentInfo.momName}
               <span>의 {basicInfoList.groomInfo.relation}</span>
               {basicInfoList.groomInfo.firstname}
             </p>
             <p>
-              {basicInfoList.brideParentInfo.dadDeceased ? "故" : null}{basicInfoList.brideParentInfo.dadName} · {basicInfoList.brideParentInfo.momDeceased ? "故" : null}{basicInfoList.brideParentInfo.momName}
+              {basicInfoList.brideParentInfo.dadDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.dadName} · {basicInfoList.brideParentInfo.momDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.momName}
               <span>의 {basicInfoList.brideInfo.relation}</span>
               {basicInfoList.brideInfo.firstname}
             </p>

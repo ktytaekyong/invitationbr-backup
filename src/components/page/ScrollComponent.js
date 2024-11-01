@@ -3,19 +3,19 @@ import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const ScrollComponent = () => {
-  const { hash } = useLocation();
+  const location = useLocation();
   const navigate = useNavigate();
   useEffect(() => {
-    if (hash) {
-      const element = document.getElementById(hash.substring(1));
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         setTimeout(() => {
-          navigate('', { replace: true }); 
+          navigate(`${location.pathname}${location.search}`, { replace: true });
         }, 100); 
       }
     }
-  }, [hash, navigate]);
+  }, [location.hash, navigate]);
   return null;
 }
 
