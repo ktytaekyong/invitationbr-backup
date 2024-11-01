@@ -7,7 +7,7 @@ const ScrollComponent = () => {
   const navigate = useNavigate();
   useEffect(() => {
     if (hash) {
-      const element = document.getElementById(hash.substring(1)); // '#' 제거
+      const element = document.getElementById(hash.substring(1));
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
         setTimeout(() => {

@@ -16,7 +16,7 @@ const Video = () => {
     return youtubeRegex.test(url);
   };
   return (
-    <div className={`${styles.video} ${styles.style_theme_1}`}>
+    <div id="Video" className={`${styles.video}`}>
       <div className={styles.video__wrap}>
         <HeadLine title="동영상" content="movie"></HeadLine>
         <div className={styles.video__content}>

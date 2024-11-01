@@ -22,7 +22,7 @@ const NoticeT = () => {
     setIsActive(0);
   }, [noticeTList.length]);
   return (
-    <div className={`${styles.notice} ${styles.style_theme_1}`}>
+    <div id="NoticeT" className={`${styles.notice}`}>
       <div className={styles.notice__wrap}>
         <HeadLine title="안내사항" content="information" />
         <div className={styles.notice__content}>

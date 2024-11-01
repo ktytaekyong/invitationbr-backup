@@ -24,7 +24,7 @@ const Gift = () => {
     setIsActive2(!isActive2);
   };
   return (
-    <div className={`${styles.gift} ${styles.style_theme_1}`}>
+    <div id="Gift" className={`${styles.gift}`}>
       <div className={styles.gift__wrap}>
         <HeadLine title="마음 전하기" content="account" />
         <div className={styles.gift__content}>

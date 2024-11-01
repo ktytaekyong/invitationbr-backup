@@ -13,7 +13,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const NoticeD = () => {
   const { noticeDList, setNoticeDList } = useContext(SetContext);
   return (
-    <div className={`${styles.notice} ${styles.style_theme_1}`}>
+    <div id="NoticeD" className={`${styles.notice}`}>
       <div className={styles.notice__wrap}>
         <HeadLine title="공지사항" content="notice" />
         <div className={styles.notice__content}>

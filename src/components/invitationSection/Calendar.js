@@ -34,7 +34,7 @@ const Calendar = () => {
     return diffDays;
   }
   return (
-    <div className={`${styles.date} ${styles.style_theme_1}`}>
+    <div id="Date" className={`${styles.date}`}>
       <div className={styles.date__wrap}>
         <HeadLine title="예식 일시" content="D-day"></HeadLine>
         <div className={styles.date__content}>

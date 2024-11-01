@@ -48,7 +48,7 @@ const Guestbook = () => {
   useEffect(() => {
   }, [guestbookList.length])
   return (
-    <div className={`${styles.guestbook} ${styles.style_theme_1}`}>
+    <div id="Guestbook" className={`${styles.guestbook}`}>
       <div className={styles.guestbook__wrap}>
         <HeadLine title="방명록" content="message" />
         <div className={styles.guestbook__content}>

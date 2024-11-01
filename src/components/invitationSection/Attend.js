@@ -21,7 +21,7 @@ const Attend = () => {
   };
 
   return (
-    <div className={`${styles.attend} ${styles.style_theme_1}`}>
+    <div id="Attend" className={`${styles.attend}`}>
       <div className={styles.attend__wrap}>
         <HeadLine title="참석 의사 전달" content="rsvp" />
         <div className={styles.attend__content}>

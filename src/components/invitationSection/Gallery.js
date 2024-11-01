@@ -28,7 +28,7 @@ const Gallery = () => {
     }
   };
   return (
-    <div className={`${styles.gallery} ${styles.style_theme_1}`}>
+    <div id="Gallery" className={`${styles.gallery}`}>
       <div className={styles.gallery__wrap}>
         <HeadLine title="갤러리" content="gallery" />
         <div className={styles.gallery__content}>

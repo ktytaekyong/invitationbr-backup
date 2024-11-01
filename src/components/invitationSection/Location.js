@@ -29,7 +29,7 @@ const Location = () => {
   //   console.log(selectLocationFile);
   // }, [selectLocationFile])
   return (
-    <div className={`${styles.location} ${styles.style_theme_1}`}>
+    <div id="Location" className={`${styles.location}`}>
       <div className={styles.location__wrap}>
         <HeadLine title="오시는 길" content="location"></HeadLine>
         <div className={styles.location__content}>
