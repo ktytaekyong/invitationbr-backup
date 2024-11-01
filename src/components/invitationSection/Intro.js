@@ -65,17 +65,34 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <h2 className={styles.groom}>
+                  {
+                    basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? 
+                    basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"
+                  }
+                </h2>
                 <p className={styles.divide}></p>
-                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+                <h2 className={styles.bride}>
+                  {
+                    basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ?
+                    basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"
+                  }
+                </h2>
               </div>
               <div className={styles.intro__title_date}>
                 <h3 className={styles.date}>
-                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                  {`
+                    ${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}
+                  `}
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+                <h4 className={styles.groom}>
+                  {
+                    basicInfoList.placeInfo.placeName || basicInfoList.placeInfo.placeDetail ? 
+                    `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+                  }
+                </h4>
               </div>
             </div>
           </div>

@@ -1,59 +1,59 @@
 {
   "basicInfoList": {
     "groomInfo": {
-      "lastname": "이",
-      "firstname": "신랑",
+      "lastname": "",
+      "firstname": "",
       "relation": "아들",
-      "number": "01000000001"
+      "number": ""
     },
     "groomParentInfo": {
-      "dadName": "이아빠",
-      "dadNumber": "01000000001",
-      "dadDeceased": true,
-      "momName": "이엄마",
-      "momNumber": "01000000002",
+      "dadName": "",
+      "dadNumber": "",
+      "dadDeceased": false,
+      "momName": "",
+      "momNumber": "",
       "momDeceased": false
     },
     "groomAccountInfo": {
-      "dadName": "이아빠",
-      "dadNumber": "01000000001",
+      "dadName": "",
+      "dadNumber": "",
       "dadDeceased": false,
-      "momName": "이엄마",
-      "momNumber": "01000000002",
+      "momName": "",
+      "momNumber": "",
       "momDeceased": false
     },
     "brideInfo": {
-      "lastname": "김",
-      "firstname": "신부",
+      "lastname": "",
+      "firstname": "",
       "relation": "딸",
-      "number": "01000000002"
+      "number": ""
     },
     "brideParentInfo": {
-      "dadName": "김아빠",
-      "dadNumber": "01000000003",
+      "dadName": "",
+      "dadNumber": "",
       "dadDeceased": false,
-      "momName": "김엄마",
-      "momNumber": "01000000004",
+      "momName": "",
+      "momNumber": "",
       "momDeceased": false
     },
     "brideAccountInfo": {
-      "dadName": "이아빠",
-      "dadNumber": "01000000001",
+      "dadName": "",
+      "dadNumber": "",
       "dadDeceased": false,
-      "momName": "이엄마",
-      "momNumber": "01000000002",
+      "momName": "",
+      "momNumber": "",
       "momDeceased": false
     },
     "dateInfo": {
       "date": "2024-11-30"
     },
     "timeInfo": {
-      "hour": "15",
+      "hour": "14",
       "min": "0"
     },
     "placeInfo": {
-      "placeName": "기본 식장",
-      "placeDetail": "기본 홀(1층)"
+      "placeName": "",
+      "placeDetail": ""
     }
   },
   "accountInfoList": {
@@ -316,7 +316,7 @@
   "selectSettingList": [
     "settingLetter", "settingDate", "settingLocation", "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
   ],
-  "selectTabList": ["tabLetter", "tabGallery", "tabLocation", "tabGuestbook"],
+  "selectTabList": ["tabLetter", "tabDate", "tabGallery", "tabLocation"],
   "selectIntroPhoto": [
   ],
   "selectLocationFile": [
@@ -404,8 +404,8 @@
     }
   ],
   "letterList": {
-    "title": "초대합니다",
-    "content": "두 사람이 사랑으로 만나\n진실과 이해로써 하나를 이루려고 합니다.\n\n이 두 사람을 진심으로 아끼고 돌봐주신\n여러 어른과 친지분들을 모시고 서약을 맺고자 하오니\n오셔서 축복해 주시면 감사하겠습니다."
+    "title": "",
+    "content": ""
   },
   "outroList": {
     "content": "늘 사랑과 정성으로 키워주신 양가 부모님과\n곁에서 아껴주시는 모든 분들에게\n감사의 말씀 전합니다.\n\n지금의 고마운 마음 잊지 않고\n잘 살겠습니다.",
