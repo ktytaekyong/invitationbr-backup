@@ -1,10 +1,11 @@
 /* Import */
 import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
 import Invitation from "../page/Invitation";
 import Produce from "../page/Produce";
+import ScrollComponent from "./ScrollComponent";
 /* CSS Module */
 import styles from "../../css/module/page/View.module.scss";
 
@@ -13,6 +14,7 @@ const View = () => {
   const isTargetPage = previewLocation.pathname === '/Preview';
   return (
     <section className={`${styles.view} ${isTargetPage ? styles.preview : ""}`}>
+      <ScrollComponent />
       <Container>
         <Routes>
           <Route 

@@ -7,7 +7,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx }) => {
   const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList } = useContext(SetContext);
-  const [ isChecked, setIsChecked ] = useState();
+  const [ isChecked, setIsChecked ] = useState(false);
   const checkedChangeHandler = (e) => {
     const { name, id, checked } = e.target;
     const newArray = Object.entries(selectOptionList);

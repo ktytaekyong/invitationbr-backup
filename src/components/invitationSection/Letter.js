@@ -22,7 +22,7 @@ const Intro = () => {
     setOpen(false);
   };
   return (
-    <div className={`${styles.letter} ${styles.style_theme_1}`}>
+    <div id="Letter" className={`${styles.letter}`}>
       <div className={styles.letter__wrap}>
         <HeadLine title={letterList.title} content="invitation" />
         <div className={styles.letter__content}>

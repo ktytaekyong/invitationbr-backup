@@ -78,7 +78,11 @@ const Invitation = () => {
           ...(isActiveTab ? { overflow: "hidden" } : {}),
         }}
       >
-        <Tab buttonOnClick={setActiveTabHandler} isActiveTab={isActiveTab} />
+        <Tab 
+          setActiveTabHandler={setActiveTabHandler} 
+          isActiveTab={isActiveTab} 
+          setIsActiveTab={setIsActiveTab}
+        />
         <Intro />
         <Effect />
         {/* <Letter></Letter>

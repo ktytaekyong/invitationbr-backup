@@ -39,6 +39,9 @@
       box-shadow: 0 0 2px rgba(227, 231, 235, 0.7);
     }
   }
+  .tab__day {
+    display: none;
+  }
 }
 .basicTemplate2,
 .basicTemplate4 { 
@@ -72,7 +75,7 @@
     width: 46%;
     height: 100vh;
     margin: 0;
-    padding: 100px 40px;
+    padding: 100px 30px;
     background-color: #fff;
     border-radius: 0;
     display: none;
@@ -80,8 +83,6 @@
       @include flex__column;
     }
     &__item {
-      padding: 10px 0;
-      border-bottom: 1px solid $border-color--default;
       * {
         font-family: $font-family--default;
         font-size: $font-size--default;
@@ -92,12 +93,32 @@
       &.active {
         a {
           border: none;
+          border-bottom: 1px solid $border-color--default;
           background-color: transparent;
           box-shadow: none;
         }
       }
       a {
+        margin: 0 12px;
+        padding: 14px 10px;
         background-color: transparent;
+        border-bottom: 1px solid $border-color--default;
+      }
+    }
+    .tab__day {
+      display: block;
+      margin-top: 24px;
+      p {
+        text-align: center;
+        font-family: $font-family--default;
+        font-size: $font-size--sm;
+        font-weight: $font-weight--Regular;
+        color: $text-color--default;
+        line-height: 1.5em;
+        span {
+          color: $point-color--third;
+          font-family: $font-family--default;
+        }
       }
     }
   }

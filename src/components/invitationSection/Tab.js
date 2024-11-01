@@ -11,24 +11,35 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 import { IntroContext } from "../../store/option-intro-context.js";
 
-const Tab = ({ buttonOnClick, isActiveTab }) => {
+const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const { basicTabList, selectTabList } = useContext(TabContext); 
   const { selectOptionList } = useContext(SetContext);
+  const { basicInfoList } = useContext(InfoContext);
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }
+  const dayCalculator = (date) => {
+    const today = new Date();
+    const selectedDate = new Date(date);
+    const diffTime = selectedDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+    return diffDays;
+  }
   useEffect(() => {
     setIsActive(0);
   }, []);
+  useEffect(() => {
+    setIsActiveTab(false);
+  }, [selectOptionList.introFillType, setIsActiveTab]);
   return (
     selectTabList.length === 0 ?
     null
     :
     <div className={`${styles.tab__wrap} ${styles[selectOptionList.introFillType]}`}>
-      <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={buttonOnClick}></div>
+      <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
       <div className={styles.button__wrapper}>
-        <Button onClick={buttonOnClick} className={`${isActiveTab ? styles["active"] : ""}`} />
+        <Button onClick={setActiveTabHandler} className={`${isActiveTab ? styles["active"] : ""}`} />
       </div>
       <ul className={`${styles.tab} ${isActiveTab ? styles["active"] : ""}`} >
         {selectTabList
@@ -36,20 +47,21 @@ const Tab = ({ buttonOnClick, isActiveTab }) => {
           const tabContent = basicTabList.find(tab => tab.id === item);
           return (
             <li key={"tab" + idx}
-              id={"tab" + idx} 
+              id={"scroll" + tabContent.id} 
               className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
               onClick={() => setActiveHandler(idx)}
             >
-              <Link to="#" onClick={(e => e.preventDefault())}>
+              <Link to={`#${tabContent.id.substring(3)}`}>
                 {tabContent ? tabContent.content : null}
               </Link>
             </li>
           )
         })}
+        <li className={styles.tab__day}>
+          <p>보람<span>♥</span>신우의 결혼식<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+        </li>
       </ul>
-      
     </div>
-    
   )
 }
 
