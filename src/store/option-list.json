@@ -53,7 +53,8 @@
     },
     "placeInfo": {
       "placeName": "",
-      "placeDetail": ""
+      "placeDetail": "",
+      "placeAddress": ""
     }
   },
   "accountInfoList": {

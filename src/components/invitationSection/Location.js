@@ -34,8 +34,15 @@ const Location = () => {
         <HeadLine title="오시는 길" content="location"></HeadLine>
         <div className={styles.location__content}>
           <div className={styles.place}>
-            <p>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</p>
-            <p>울산광역시 남구 왕생로160</p>
+            <p>
+              {
+                basicInfoList.placeInfo.placeName || basicInfoList.placeInfo.placeDetail ? 
+                `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`
+                : "보람컨벤션 카리나홀(4층)"
+              }
+            </p>
+            {/* <p>울산광역시 남구 왕생로160</p> */}
+            <p>{basicInfoList.placeInfo.placeAddress ? basicInfoList.placeInfo.placeAddress : "울산광역시 남구 왕생로160"}</p>
           </div>
           {
             selectLocationFile.length > 0 ?
