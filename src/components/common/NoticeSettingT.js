@@ -21,9 +21,7 @@ import styles from "../../css/module/common/NoticeSettingT.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const NoticeSettingT = () => {
-  const { noticeTList, setNoticeTList } = useContext(SetContext);
-  const { selectNoticeT, setSelectNoticeT } = useContext(SetContext);
-
+  const { noticeTList, setNoticeTList, selectNoticeT, setSelectNoticeT } = useContext(SetContext);
   const [addTitle, setAddTitle] = useState("");
   const [openAdd, setOpenAdd] = useState(false);
   const [openDel, setOpenDel] = useState(false);
@@ -64,6 +62,7 @@ const NoticeSettingT = () => {
     setSelectNoticeT(noticeTList.length);
   }
   const noticeRemoveHandler = (removeidx) => {
+    console.log(removeidx);
     if(noticeTList.length === 1) {
       setNoticeTList((prev) => {
         return prev;
@@ -73,7 +72,6 @@ const NoticeSettingT = () => {
         return prev.filter((_, index) => index !== removeidx)
       })
     }
-    setSelectNoticeT(0);
   }
   const noticeTabDataChangeHandler = (e, index) => {
     const { name, value } = e.target;
@@ -98,9 +96,8 @@ const NoticeSettingT = () => {
             <CommonItemContent title="탭 순서" multi="check">
               <TabSelector 
                 listName={noticeTList} 
-                name="title"
-                onChange={setSelectNoticeT} 
-                onClick={handleOpenDel} 
+                name={`noticeTtitle`}
+                onClickDel={handleOpenDel} 
                 selectNoticeT={selectNoticeT}
               />
               <ButtonWrapper>
@@ -109,7 +106,7 @@ const NoticeSettingT = () => {
             </CommonItemContent>
           </CommonItemWrapper>
           {noticeTList.map((item, idx) => (
-            <div key={`noticeTList${idx}`} id={item.id} className={`${styles.tab__item} ${selectNoticeT === idx ? styles["active"] : ""}`}>
+            <div key={`noticeTList${idx}`} id={`${item.id}content`} className={`${styles.tab__item} ${selectNoticeT === idx ? styles["active"] : ""}`}>
               <CommonItemWrapper>
                 <CommonItemContent title="제목">
                   <input 
@@ -168,7 +165,11 @@ const NoticeSettingT = () => {
         addTitle={addTabTitle} 
         addFunction={noticeAddHandler} 
       />
-      <BasicModalNoticeTDelete openvar={openDel} onClose={handleCloseDel} onClick={() => noticeRemoveHandler(selectNoticeT)} />
+      <BasicModalNoticeTDelete 
+        openvar={openDel}
+        onClose={handleCloseDel} 
+        onClick={() => noticeRemoveHandler(selectNoticeT)} 
+      />
     </>
   )
 }
