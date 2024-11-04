@@ -12,12 +12,11 @@ import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_
 import { IntroContext } from "../../store/option-intro-context.js";
 
 const IntroPhotoSettingTextColor = ({ isActive }) => {
-  const { selectOptionList, setSelectOptionList } = useContext(IntroContext);
+  const { selectIntroColor, setSelectIntroColor, presetColors, setPresetColors } = useContext(IntroContext);
   const [color, setColor] = useState(["", "", "", "", ""]);
   const [prevColor, setPrevColor] = useState(["", "", "", "", ""]);
   const [pickerActive, setPickerActive] = useState([false, false, false, false, false]);
   const [themeType, setThemeType] = useState([1, 2, 3, 4, 5]);
-  // const [presetColors, setPresetColors] = ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"];
   // 누른 곳 감지
   const pickerRef = useRef([]);
   const lastIdx = useRef(null);
@@ -33,7 +32,6 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     }
   };
   
-  const presetColors = ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"];
   const pickerOpen = (clickIdx) => {
     setPrevColor(color);
     setPickerActive((prevList) => {
@@ -91,57 +89,57 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     <>
       <ul className={`${styles.option__list} ${isActive ? styles["active"] : ""}`}>
         {
-          color.map((_, repeatidx) => {
+          selectIntroColor.map((item, coloridx) => {
             return (
-              <li key={`textInput${repeatidx}`} className={`${styles.option__item}`}>
+              <li key={`textInput${coloridx}`} className={`${styles.option__item}`}>
                 <div 
-                  ref={el => (pickerRef.current[repeatidx] = el)} 
+                  ref={el => (pickerRef.current[coloridx] = el)} 
                   className={styles.txt__picker} 
-                  onClick={() => pickerOpen(repeatidx)}
+                  onClick={() => pickerOpen(coloridx)}
                 >
-                  {color[repeatidx] !== "" ?
-                    <IconColorPickerImg fill={color[repeatidx]} />
+                  {color[coloridx] !== "" ?
+                    <IconColorPickerImg fill={color[coloridx]} />
                     :
                     "색상"
                   }
                 </div>
                 {
-                  pickerActive[repeatidx] ?
+                  pickerActive[coloridx] ?
                   <div className={styles.picker__active}>
                     <HexColorPicker 
-                      color={color[repeatidx]} 
-                      onChange={(newColor) => {changeColorList(repeatidx, newColor);}} 
+                      color={color[coloridx]} 
+                      onChange={(newColor) => {changeColorList(coloridx, newColor);}} 
                     />
                     <div className={styles.picker__input}>
                       <span>#</span>
                       <HexColorInput className={styles.picker__input_wrap} 
-                        color={color[repeatidx]} 
-                        onChange={(newColor) => {changeColorList(repeatidx, newColor);}}
+                        color={color[coloridx]} 
+                        onChange={(newColor) => {changeColorList(coloridx, newColor);}}
                       />
-                      <div className={styles.picker__select} style={{backgroundColor: `${color[repeatidx]}`}}></div>
+                      <div className={styles.picker__select} style={{backgroundColor: `${color[coloridx]}`}}></div>
                     </div>
                     <div className={styles.picker__preset}>
                       {presetColors.map((presetColor) => {
                         return <button 
                           key={presetColor} 
-                          className={`${styles.picker__preset_item} ${presetColor === color[repeatidx] ? styles.active : null}`} 
+                          className={`${styles.picker__preset_item} ${presetColor === color[coloridx] ? styles.active : null}`} 
                           style={{backgroundColor: presetColor}} 
-                          onClick={() => {changeColorList(repeatidx, presetColor);}} 
+                          onClick={() => {changeColorList(coloridx, presetColor);}} 
                         >
                         </button>
                       })}
                     </div>
                     <div className={styles.picker__button_wrapper}>
                       <ButtonWrapper styleType="center">
-                        <Button content="취소" styleType="picker" onClick={() => pickerCancel(repeatidx)}></Button>
-                        <Button content="적용" styleType="picker" onClick={() => pickerAccept(repeatidx)}></Button>
+                        <Button content="취소" styleType="picker" onClick={() => pickerCancel(coloridx)}></Button>
+                        <Button content="적용" styleType="picker" onClick={() => pickerAccept(coloridx)}></Button>
                       </ButtonWrapper>
                     </div>
                   </div>
                   : null
                 }
                 <div className={`${styles.txt__wrapper}`}>
-                  <input type="text" id={`settingTxt${repeatidx + 1}`} defaultValue="예시" style={{color: color[repeatidx]}}/>
+                  <input type="text" id={`settingTxt${coloridx + 1}`} defaultValue="예시" style={{color: color[coloridx]}}/>
                 </div>
               </li>
             )
