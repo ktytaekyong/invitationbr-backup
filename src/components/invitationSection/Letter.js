@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 /* Component */
 import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
@@ -13,21 +13,71 @@ import IconFlower  from "../../img/icon/icon_deceased_flower.png";
 import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
-const Intro = () => {
+const Letter = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const { letterList, setLetterList, selectOptionList } = useContext(SetContext);
   const [ deceasedIcon, setDeceasedIcon ] = useState("故");
-  
+  const [ isInitialRender, setIsInitialRender ] = useState(true);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
   };
+  const detailInitHandler = () => {
+    return (
+      <div className={styles.detail}>
+        <p>
+          {basicInfoList.groomParentInfo.dadDeceased ? deceasedIcon : null}이길현 · {basicInfoList.groomParentInfo.momDeceased ? deceasedIcon : null}김윤희
+          <span>의 {basicInfoList.groomInfo.relation}</span>
+          {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
+        </p>
+        <p>
+          {basicInfoList.brideParentInfo.dadDeceased ? deceasedIcon : null}김영수 · {basicInfoList.brideParentInfo.momDeceased ? deceasedIcon : null}이영은
+          <span>의 {basicInfoList.brideInfo.relation}</span>
+          {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+        </p>
+      </div>
+    )
+  }
+  const detailEditHandler = (type) => {
+    let parents, children, initName = null;
+    if(type === "groom") {
+      parents = basicInfoList.groomParentInfo;
+      children = basicInfoList.groomInfo;
+      initName = "보람"
+    } else if(type === "bride") {
+      parents = basicInfoList.brideParentInfo;
+      children = basicInfoList.brideInfo;
+      initName = "신우"
+    }
+    return (
+      <p>
+        {parents.dadDeceased ? deceasedIcon : null}{parents.dadName ? parents.dadName : ""}{parents.dadName && parents.momName ? " · " : ""}{parents.momDeceased ? deceasedIcon : null}{parents.momName ? parents.momName : ""}
+        <span>의 {children.relation}</span>
+        {children.firstname ? children.firstname : initName} 
+      </p>
+    )
+  }
+  useEffect(() => {
+    if (
+      basicInfoList.groomParentInfo.dadName ||
+      basicInfoList.groomParentInfo.momName ||
+      basicInfoList.brideParentInfo.dadName ||
+      basicInfoList.brideParentInfo.momName
+    ) {
+      setIsInitialRender(false);
+    }
+  }, [
+    basicInfoList.groomParentInfo.dadName,
+    basicInfoList.groomParentInfo.momName,
+    basicInfoList.brideParentInfo.dadName,
+    basicInfoList.brideParentInfo.momName,
+  ]);
   useEffect(() => {
     selectOptionList.deceasedFlower ? 
     setDeceasedIcon(<img src={IconFlower} />) 
     : setDeceasedIcon("故");
-  }, [selectOptionList.deceasedFlower])
+  }, [selectOptionList.deceasedFlower]);
   return (
     <div id="Letter" className={`${styles.letter}`}>
       <div className={styles.letter__wrap}>
@@ -43,26 +93,35 @@ const Intro = () => {
             </p>
           </div>
           <div className={styles.detail}>
-            <p>
-              {`
-                ${basicInfoList.groomParentInfo.dadName === "" && basicInfoList.groomParentInfo.momName === "" ?
-                  "이길현 · 김윤희"
-                : ""}
-              `}
-              {basicInfoList.groomParentInfo.dadName ? basicInfoList.groomParentInfo.dadName : ""}{basicInfoList.groomParentInfo.dadName && basicInfoList.groomParentInfo.momName ? " · " : ""}{basicInfoList.groomParentInfo.momDeceased ? deceasedIcon : null}{basicInfoList.groomParentInfo.momName ? basicInfoList.groomParentInfo.momName : ""}
-              <span>의 {basicInfoList.groomInfo.relation}</span>
-              {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
-            </p>
-            <p>
-              {`
-                ${basicInfoList.brideParentInfo.dadName === "" && basicInfoList.brideParentInfo.momName === "" ?
-                  "김영수 · 이영은"
-                : ""}
-              `}
-              {basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.dadDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.dadName ? basicInfoList.brideParentInfo.dadName : ""}{basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.momName ? " · " : ""}{basicInfoList.brideParentInfo.momName && basicInfoList.brideParentInfo.momDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.momName ? basicInfoList.brideParentInfo.momName : ""}
-              <span>의 {basicInfoList.brideInfo.relation}</span>
-              {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-            </p>
+            {
+              isInitialRender ?
+              detailInitHandler() :
+              <>
+                {
+                  basicInfoList.groomParentInfo.dadName === "" && basicInfoList.groomParentInfo.momName === "" ?
+                  <p>{basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"}</p>
+                  : 
+                  <>{detailEditHandler("groom")}</>
+                }
+                {
+                  basicInfoList.brideParentInfo.dadName === "" && basicInfoList.brideParentInfo.momName === "" ?
+                  <p>{basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}</p>
+                  : 
+                  <>{detailEditHandler("bride")}</>
+                }
+                {/* <p>
+                  {`
+                    ${basicInfoList.brideParentInfo.dadName === "" && basicInfoList.brideParentInfo.momName === "" ?
+                      "김영수 · 이영은"
+                    : ""}
+                  `}
+                  {basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.dadDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.dadName ? basicInfoList.brideParentInfo.dadName : ""}{basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.momName ? " · " : ""}{basicInfoList.brideParentInfo.momName && basicInfoList.brideParentInfo.momDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.momName ? basicInfoList.brideParentInfo.momName : ""}
+                  <span>의 {basicInfoList.brideInfo.relation}</span>
+                  {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+                </p> */}
+              </>
+            }
+
           </div>
           <ButtonWrapper styleType="center">
             <Button content="연락하기" styleType="invitation__call" onClick={handleOpen}></Button>
@@ -74,4 +133,4 @@ const Intro = () => {
   )
 }
 
-export default Intro;
+export default Letter;
