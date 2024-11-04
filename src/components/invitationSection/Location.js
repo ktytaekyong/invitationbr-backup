@@ -16,9 +16,11 @@ import iconMapNaverImg from "../../img/icon/icon_map_naver.png";
 import iconMapKakaoImg from "../../img/icon/icon_map_kakao.png";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
+import { LocationContext } from "../../store/option-location-context.js";
 
 const Location = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { trafficList, setTrafficList } = useContext(LocationContext);
   const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -77,9 +79,9 @@ const Location = () => {
             </div>
           </div>
         </div>
-        <Traffic></Traffic>
+        {trafficList.length > 0 ? <Traffic /> : null}
       </div>
-      <InvitationModalLocation openvar={open} onClose={handleClose}></InvitationModalLocation>
+      <InvitationModalLocation openvar={open} onClose={handleClose} />
     </div>
   )
 }
