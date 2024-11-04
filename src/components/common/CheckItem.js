@@ -62,6 +62,16 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         }
       }
     })
+  }, [])
+  useEffect(() => {
+    const newArray = Object.entries(selectOptionList);
+    newArray.map((item) => {
+      if(item.includes(name)) {
+        if(typeof item[1] === "boolean") {
+          setIsChecked(item[1]);
+        }
+      }
+    })
   }, [selectOptionList])
   useEffect(() => {
     if (name === "kakaopayUse") {

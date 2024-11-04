@@ -14,14 +14,6 @@
       "momNumber": "",
       "momDeceased": false
     },
-    "groomAccountInfo": {
-      "dadName": "",
-      "dadNumber": "",
-      "dadDeceased": false,
-      "momName": "",
-      "momNumber": "",
-      "momDeceased": false
-    },
     "brideInfo": {
       "lastname": "",
       "firstname": "",
@@ -29,14 +21,6 @@
       "number": ""
     },
     "brideParentInfo": {
-      "dadName": "",
-      "dadNumber": "",
-      "dadDeceased": false,
-      "momName": "",
-      "momNumber": "",
-      "momDeceased": false
-    },
-    "brideAccountInfo": {
       "dadName": "",
       "dadNumber": "",
       "dadDeceased": false,
@@ -58,38 +42,38 @@
     }
   },
   "accountInfoList": {
-    "groomTitle": "신랑측 계좌번호",
+    "groomTitle": "",
     "groomGroupList": [
       {
-        "bankType": "우리은행",
-        "account": "3333333334",
-        "name": "이신랑",
-        "kakaopayUse": true,
-        "kakaopayLink": "https://test.co.kr"
+        "bankType": "",
+        "account": "",
+        "name": "",
+        "kakaopayUse": false,
+        "kakaopayLink": ""
       },
       {
-        "bankType": "기업은행",
-        "account": "3333433334",
-        "name": "이아빠",
+        "bankType": "",
+        "account": "",
+        "name": "",
         "kakaopayUse": false,
         "kakaopayLink": ""
       }
     ],
-    "brideTitle": "신부측 계좌번호",
+    "brideTitle": "",
     "brideGroupList": [
       {
-        "bankType": "국민은행",
-        "account": "3333433335",
-        "name": "김신부",
+        "bankType": "",
+        "account": "",
+        "name": "",
         "kakaopayUse": false,
         "kakaopayLink": ""
       },
       {
-        "bankType": "은행",
-        "account": "계좌",
-        "name": "예금주",
-        "kakaopayUse": true,
-        "kakaopayLink": "https://test.com"
+        "bankType": "",
+        "account": "",
+        "name": "",
+        "kakaopayUse": false,
+        "kakaopayLink": ""
       }
     ]
   },
@@ -340,7 +324,7 @@
     "dateCalendarType": "calendarType1",
     "dateDdayOption": false,
     "galleryType": "galleryMixedType",
-    "galleryMoreOption": false,
+    "galleryMoreOption": true,
     "videoType": "videoYoutubeOption",
     "groomAccountView": true,
     "brideAccountView": false,

@@ -30,7 +30,7 @@ const Gift = () => {
         <div className={styles.gift__content}>
           <div id="AccountM" className={styles.account__list}>
             <div className={styles.account__list_title} onClick={activeToggleHandler}>
-              <p>{accountInfoList.groomTitle}</p>
+              <p>{accountInfoList.groomTitle ? accountInfoList.groomTitle : "신랑측 계좌번호"}</p>
               <img src={iconGiftArrow} alt="" />
             </div>
             <div className={`${styles.account__list_content} ${isActive ? styles["active"] : ""}`}>
@@ -40,16 +40,15 @@ const Gift = () => {
                     <div className={styles.name}>
                       <p>
                         {/* 신랑  */}
-                        <span>{item.name}</span>
+                        <span>{item.name ? item.name : "예금주"}</span>
                       </p>
                       {
-                        <Button styleType="invitation__kakao" />
+                        item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
                       }
-                      {/* <img src={iconGiftKakao} alt="" />   */}
                     </div>
                     <div className={styles.account}>
                       <p>
-                        {item.bankType} | <span>{item.account}</span></p>
+                        {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
                       <Button content="복사" styleType="invitation__copy" />
                     </div>
                   </div>
@@ -59,7 +58,7 @@ const Gift = () => {
           </div>
           <div id="AccountF" className={styles.account__list}>
             <div className={styles.account__list_title} onClick={activeToggleHandler2}>
-              <p>{accountInfoList.brideTitle}</p>
+              <p>{accountInfoList.brideTitle ? accountInfoList.brideTitle : "신부측 계좌번호"}</p>
               <img src={iconGiftArrow} alt="" />
             </div>
             <div className={`${styles.account__list_content} ${isActive2 ? styles["active"] : ""}`}>
@@ -69,16 +68,16 @@ const Gift = () => {
                     <div className={styles.name}>
                       <p>
                         {/* 신부 */}
-                        <span>{item.name}</span>
+                        <span>{item.name ? item.name : "예금주"}</span>
                       </p>
                       {
-                        <Button content="" styleType="invitation__kakao"></Button>
+                        item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
                       }
                       {/* <img src={iconGiftKakao} alt="" />   */}
                     </div>
                     <div className={styles.account}>
                       <p>
-                        {item.bankType} | <span>{item.account}</span></p>
+                      {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
                       <Button content="복사" styleType="invitation__copy"></Button>
                     </div>
                   </div>
