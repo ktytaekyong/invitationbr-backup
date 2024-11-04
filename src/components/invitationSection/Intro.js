@@ -43,6 +43,14 @@ const Intro = () => {
     const dayOfWeek = daysOfWeek[dateObj.getDay()]; // 요일 계산
     return dayOfWeek;
   }
+  const nameInitHandler = (data, defaultData) => {
+    const { lastname, firstname } = data;
+    return (lastname || firstname) ? `${lastname}${firstname}` : defaultData;
+  }
+  const placeInitHandler = (data, defaultData) => {
+    const { placeName, placeDetail } = data;
+    return (placeName || placeDetail) ? `${placeName} ${placeDetail}` : defaultData;
+  }
   const renderIntroHandler = (id) => {
     switch(id) {
       case "basicTemplate1":
@@ -65,19 +73,9 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>
-                  {
-                    basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? 
-                    basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"
-                  }
-                </h2>
+                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <p className={styles.divide}></p>
-                <h2 className={styles.bride}>
-                  {
-                    basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ?
-                    basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"
-                  }
-                </h2>
+                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
                 <h3 className={styles.date}>
@@ -87,12 +85,7 @@ const Intro = () => {
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>
-                  {
-                    basicInfoList.placeInfo.placeName || basicInfoList.placeInfo.placeDetail ? 
-                    `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
-                  }
-                </h4>
+                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
           </div>
@@ -123,9 +116,9 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <p className={styles.divide}></p>
-                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
                 <h3 className={styles.date}>
@@ -133,7 +126,7 @@ const Intro = () => {
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
           </div>
@@ -148,9 +141,9 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <p className={styles.divide}>그리고</p>
-                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
                 <h3 className={styles.date}>
@@ -158,7 +151,7 @@ const Intro = () => {
                   </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
             <div className={styles.intro__photo}>
@@ -189,9 +182,9 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname}</h2>
+                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <img src={intro4Letter} alt="" />
-                <h2 className={styles.bride}>{basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname}</h2>
+                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
                 <h3 className={styles.date}>
@@ -199,31 +192,11 @@ const Intro = () => {
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{`${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}`}</h4>
+                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
           </div>
         );
-      // case "settingDate":
-      //   return <Calendar />;
-      // case "settingLocation":
-      //   return <Location />;
-      // case "settingGallery":
-      //   return <Gallery />;
-      // case "settingVideo":
-      //   return <Video />;
-      // case "settingGift":
-      //   return <Gift />;
-      // case "settingNoticeT":
-      //   return <NoticeT />;
-      // case "settingNoticeD":
-      //   return <NoticeD />;
-      // case "settingGuestbook":
-      //   return <Guestbook />;
-      // case "settingAttend":
-      //   return <Attend />;
-      // case "settingAttend":
-      //   return <Attend />;
       default:
         return null;
     }

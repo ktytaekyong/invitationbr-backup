@@ -22,7 +22,11 @@ const Outro = () => {
           <div className={styles.content__wrap}>
             <img src={introRing} alt="" />
             <p>
-              {outroList.content}
+              {
+                outroList.content ?
+                outroList.content
+                : "늘 사랑과 정성으로 키워주신 양가 부모님과\n곁에서 아껴주시는 모든 분들에게\n감사의 말씀 전합니다.\n\n지금의 고마운 마음 잊지 않고\n잘 살겠습니다."
+              }
             </p>
           </div>
         </div>

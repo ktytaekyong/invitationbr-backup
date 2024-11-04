@@ -54,7 +54,7 @@ const TabSelector = ({ listName, name, onClick, type, activeTab, onClickDel }) =
             {
               item.id && item.id.indexOf("noticeTab") !== -1 ?
               <Button 
-                styleType="tab__delete" 
+                styleType="tab__delete"
                 onClick={onClickDel} 
               />
               : null
