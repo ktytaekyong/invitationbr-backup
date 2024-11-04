@@ -9,7 +9,10 @@ import intro1Letter from "../../img/intro/intro_theme_1_lettering.png";
 import intro2Letter from "../../img/intro/intro_theme_2_lettering.png";
 import intro3Letter from "../../img/intro/intro_theme_3_flower.png";
 import intro4Letter from "../../img/intro/intro_theme_4_lettering.png";
-import introPhoto from "../../img/intro/intro_photo_test.png";
+import introPhoto1 from "../../img/intro/intro_photo_test1.png";
+import introPhoto2 from "../../img/intro/intro_photo_test2.png";
+import introPhoto3 from "../../img/intro/intro_photo_test3.png";
+import introPhoto4 from "../../img/intro/intro_photo_test4.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
@@ -67,7 +70,7 @@ const Intro = () => {
             <div className={styles.intro__photo}>
               {
                 selectIntroPhoto.length === 0 ?
-                <img src={introPhoto} alt="표지 사진" />
+                <img src={introPhoto1} alt="표지 사진" />
                 : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
               }
             </div>
@@ -109,7 +112,7 @@ const Intro = () => {
               <p>getting</p>
               {
                 selectIntroPhoto.length === 0 ?
-                <img src={introPhoto} alt="표지 사진" />
+                <img src={introPhoto2} alt="표지 사진" />
                 : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
               }
               <p>married</p>
@@ -157,7 +160,7 @@ const Intro = () => {
             <div className={styles.intro__photo}>
               {
                 selectIntroPhoto.length === 0 ?
-                <img src={introPhoto} alt="표지 사진" />
+                <img src={introPhoto3} alt="표지 사진" />
                 : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
               }
             </div>
@@ -176,7 +179,7 @@ const Intro = () => {
             <div className={styles.intro__photo}>
               {
                 selectIntroPhoto.length === 0 ?
-                <img src={introPhoto} alt="표지 사진" />
+                <img src={introPhoto4} alt="표지 사진" />
                 : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
               }
             </div>

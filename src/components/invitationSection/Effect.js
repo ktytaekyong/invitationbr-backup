@@ -5,7 +5,6 @@ import { useState, useEffect, useContext } from "react";
 import styles from "../../css/module/invitationSection/Effect.module.scss";
 /* Image */
 import introRing from "../../img/intro/intro_theme_1_ring.png";
-import introPhoto from "../../img/intro/intro_photo_test.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
