@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
@@ -75,7 +75,7 @@ const Letter = () => {
   ]);
   useEffect(() => {
     selectOptionList.deceasedFlower ? 
-    setDeceasedIcon(<img src={IconFlower} />) 
+    setDeceasedIcon(<img src={IconFlower} alt="국화 이미지" />) 
     : setDeceasedIcon("故");
   }, [selectOptionList.deceasedFlower]);
   return (
@@ -109,16 +109,6 @@ const Letter = () => {
                   : 
                   <>{detailEditHandler("bride")}</>
                 }
-                {/* <p>
-                  {`
-                    ${basicInfoList.brideParentInfo.dadName === "" && basicInfoList.brideParentInfo.momName === "" ?
-                      "김영수 · 이영은"
-                    : ""}
-                  `}
-                  {basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.dadDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.dadName ? basicInfoList.brideParentInfo.dadName : ""}{basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.momName ? " · " : ""}{basicInfoList.brideParentInfo.momName && basicInfoList.brideParentInfo.momDeceased ? deceasedIcon : null}{basicInfoList.brideParentInfo.momName ? basicInfoList.brideParentInfo.momName : ""}
-                  <span>의 {basicInfoList.brideInfo.relation}</span>
-                  {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                </p> */}
               </>
             }
 
