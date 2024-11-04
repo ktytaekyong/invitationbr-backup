@@ -342,9 +342,9 @@
     
   },
 
-  "backgroundList": {
-    "color": "#ffffff"
-  },
+  "selectIntroColor": ["", "", "", "", ""],
+  "presetColors": ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"],
+
   "trafficList": [
     {
       "traffic": "",
@@ -355,7 +355,6 @@
       "content": ""
     }
   ],
-
   "noticeTList": [
     {
       "title": "포토부스",

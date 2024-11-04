@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { HexColorPicker, HexColorInput } from "react-colorful";
 /* Component */
 import ButtonWrapper from "../layout/ButtonWrapper";
@@ -8,8 +8,11 @@ import Button from "../layout/Button";
 import styles from "../../css/module/common/IntroPhotoSettingTextColor.module.scss";
 /* Image */
 import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_picker.svg";
+/* Context */
+import { IntroContext } from "../../store/option-intro-context.js";
 
 const IntroPhotoSettingTextColor = ({ isActive }) => {
+  const { selectOptionList, setSelectOptionList } = useContext(IntroContext);
   const [color, setColor] = useState(["", "", "", "", ""]);
   const [prevColor, setPrevColor] = useState(["", "", "", "", ""]);
   const [pickerActive, setPickerActive] = useState([false, false, false, false, false]);
