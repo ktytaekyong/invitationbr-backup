@@ -17,7 +17,7 @@
     @include flex__row;
     justify-content: flex-start;
     align-items: center;
-    column-gap: 25px;
+    column-gap: 16px;
     width: 100%;
     p {
       font-size: $font-size--default;
@@ -60,9 +60,13 @@
         @include flex__row;
         justify-content: space-between;
         align-items: center;
-        column-gap: 31px;
+        column-gap: 21px;
         padding-right: 5px;
         width: 100%;
+        p {
+          width: 100%;
+          text-align: center;
+        }
         .contact {
           @include flex__row;
           justify-content: center;

@@ -47,7 +47,11 @@ const Calendar = () => {
           </div>
           {selectOptionList.dateDdayOption ?
             <div className={styles.d_day}>
-              <p>{basicInfoList.groomInfo.firstname}<span>♥</span>{basicInfoList.brideInfo.firstname}의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+              <p>
+                {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
+                <span>♥</span>
+                {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+                의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
             </div>
             : null
           }
