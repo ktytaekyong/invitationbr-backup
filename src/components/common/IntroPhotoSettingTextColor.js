@@ -12,6 +12,10 @@ import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_
 import { IntroContext } from "../../store/option-intro-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
+const initTextType = [
+  ["저희 결혼합니다", "이보람 김신우", "2024.11.30 토요일 오후 2시", "보람컨벤션 카리나홀(4층)"],
+  
+]
 const IntroPhotoSettingTextColor = ({ isActive }) => {
   const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, selectIntroWord, setSelectIntroWord } = useContext(IntroContext);
   const { selectOptionList } = useContext(SetContext);
@@ -30,13 +34,6 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       pickerClose(); 
     }
   };
-  
-  // 1. prev 컬러에 클릭 시 집어 넣기
-
-  // 2. View (prevColor 적용했다가 -> 피커 꺼지면 selectColor 적용)
-  // 3. 확인 -> 적용, 확인을 누르면 prevColor 를 selectColor 에 적용
-  // 4. 취소 -> 적용 취소, prevColor 를 prev로 적용
-
   const pickerOpen = (clickIdx) => {
     // setPrevColor(selectIntroColor);
     setPickerActive((prevList) => {
@@ -92,21 +89,21 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
-  useEffect(()=> {
-    console.log(prevIntroColor);
-    console.log(selectIntroColor);
-  }, [prevIntroColor, selectIntroColor])
+  // useEffect(()=> {
+  //   console.log(prevIntroColor);
+  //   console.log(selectIntroColor);
+  // }, [prevIntroColor, selectIntroColor])
   useEffect(()=> {
     setPrevIntroColor([...selectIntroColor]);
   }, [pickerActive])
   useEffect(() => {
-    let typeCount = null;
+    let typeNumber = null;
     if(selectOptionList.introFillType === "basicTemplate1") {
-      typeCount = 4;
+      typeNumber = 4;
     } else if(selectOptionList.introFillType === "basicTemplate2") {
-      typeCount = 6;
+      typeNumber = 6;
     }
-    const newColorArray = Array.from({ length: typeCount }, () => "");
+    const newColorArray = Array.from({ length: typeNumber }, () => "");
     setSelectIntroColor(newColorArray);
   }, [selectOptionList.introFillType])
 
