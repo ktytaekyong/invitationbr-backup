@@ -10,17 +10,16 @@ import styles from "../../css/module/common/IntroPhotoSettingTextColor.module.sc
 import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_picker.svg";
 /* Context */
 import { IntroContext } from "../../store/option-intro-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const IntroPhotoSettingTextColor = ({ isActive }) => {
-  const { selectIntroColor, setSelectIntroColor, presetColors, setPresetColors } = useContext(IntroContext);
-  const [color, setColor] = useState(["", "", "", "", ""]);
-  const [prevColor, setPrevColor] = useState(["", "", "", "", ""]);
+  const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, selectIntroWord, setSelectIntroWord } = useContext(IntroContext);
+  const { selectOptionList } = useContext(SetContext);
   const [pickerActive, setPickerActive] = useState([false, false, false, false, false]);
   const [themeType, setThemeType] = useState([1, 2, 3, 4, 5]);
   // 누른 곳 감지
   const pickerRef = useRef([]);
   const lastIdx = useRef(null);
-  // const [lastIdx, setLastIdx] = useState(null);
   const handleClick = (e) => {
     if (pickerRef.current.includes(e.target)) { 
       lastIdx.current = pickerRef.current.indexOf(e.target);
@@ -28,12 +27,18 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       return; 
     } 
     else { 
-      pickerClose(); // 현재 취소 안됨(적용)
+      pickerClose(); 
     }
   };
   
+  // 1. prev 컬러에 클릭 시 집어 넣기
+
+  // 2. View (prevColor 적용했다가 -> 피커 꺼지면 selectColor 적용)
+  // 3. 확인 -> 적용, 확인을 누르면 prevColor 를 selectColor 에 적용
+  // 4. 취소 -> 적용 취소, prevColor 를 prev로 적용
+
   const pickerOpen = (clickIdx) => {
-    setPrevColor(color);
+    // setPrevColor(selectIntroColor);
     setPickerActive((prevList) => {
       return prevList.map((_, idx) => (
         clickIdx === idx ? true : false
@@ -49,41 +54,61 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     });
   }
   // 확인
-  const pickerAccept = (repeatidx) => {
-    setPrevColor((prevList) => {
-      return prevList.map((item, idx) => {
-        return idx === repeatidx ? color[idx] : item;
-      });
-    });
+  const pickerAccept = (coloridx) => {
+    setSelectIntroColor(prev => (
+      prev.map((item, idx) => (
+        coloridx === idx ? prevIntroColor[coloridx] : item
+      ))
+    ))
     lastIdx.current = null;
     pickerClose();
   }
   // 취소
-  const pickerCancel = (repeatidx) => {
-    // if(color !== prevColor) {
-      setColor((prevList) => {
-        return prevList.map((item, idx) => {
-          return idx === repeatidx ? prevColor[idx] : item;
-        });
-      });
-    // }
+  const pickerCancel = () => {
+      setSelectIntroColor((prev) => prev);
     lastIdx.current = null;
     pickerClose();
   }
-  const changeColorList = (repeatidx, color) => {
-    setColor((prevList) => {
-      return prevList.map((item, idx) => {
-        return idx === repeatidx ? color : item;
+  // 변경(onChange, onClick)
+  const changeColorList = (coloridx, color) => {
+    setPrevIntroColor((prev) => {
+      return prev.map((item, idx) => {
+        return idx === coloridx ? color : item;
       });
     });
   }
-
+  const changePresetColorList = (color) => {
+    let newColor = color;
+    if(presetColors.length === 5) {
+      setPresetColors((prev) => {
+        const updatedColors = [...prev.slice(1), newColor];
+        return updatedColors;
+      });
+    }
+  };
   useEffect(() => {
     document.addEventListener("click", handleClick);
     return () => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
+  useEffect(()=> {
+    console.log(prevIntroColor);
+    console.log(selectIntroColor);
+  }, [prevIntroColor, selectIntroColor])
+  useEffect(()=> {
+    setPrevIntroColor([...selectIntroColor]);
+  }, [pickerActive])
+  useEffect(() => {
+    let typeCount = null;
+    if(selectOptionList.introFillType === "basicTemplate1") {
+      typeCount = 4;
+    } else if(selectOptionList.introFillType === "basicTemplate2") {
+      typeCount = 6;
+    }
+    const newColorArray = Array.from({ length: typeCount }, () => "");
+    setSelectIntroColor(newColorArray);
+  }, [selectOptionList.introFillType])
 
   return (
     <>
@@ -97,41 +122,60 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                   className={styles.txt__picker} 
                   onClick={() => pickerOpen(coloridx)}
                 >
-                  {color[coloridx] !== "" ?
-                    <IconColorPickerImg fill={color[coloridx]} />
-                    :
-                    "색상"
+                  {selectIntroColor[coloridx] !== "" ?
+                    <IconColorPickerImg 
+                      fill={prevIntroColor[coloridx]} 
+                    />
+                    : "색상"
                   }
                 </div>
                 {
                   pickerActive[coloridx] ?
                   <div className={styles.picker__active}>
                     <HexColorPicker 
-                      color={color[coloridx]} 
-                      onChange={(newColor) => {changeColorList(coloridx, newColor);}} 
+                      color={prevIntroColor[coloridx]} 
+                      onChange={(newColor) => {
+                        changeColorList(coloridx, newColor);
+                        clearTimeout(window.lastColorChangeTimeout);
+                        window.lastColorChangeTimeout = setTimeout(() => {
+                          changePresetColorList(newColor);
+                        }, 300);
+                      }}
                     />
                     <div className={styles.picker__input}>
                       <span>#</span>
                       <HexColorInput className={styles.picker__input_wrap} 
-                        color={color[coloridx]} 
-                        onChange={(newColor) => {changeColorList(coloridx, newColor);}}
+                        color={prevIntroColor[coloridx]} 
+                        onChange={(newColor) => {
+                          changeColorList(coloridx, newColor);
+                          clearTimeout(window.lastColorChangeTimeout);
+                          window.lastColorChangeTimeout = setTimeout(() => {
+                            changePresetColorList(newColor);
+                          }, 300);
+                        }}
                       />
-                      <div className={styles.picker__select} style={{backgroundColor: `${color[coloridx]}`}}></div>
+                      <div 
+                        className={styles.picker__select}
+                        style={{backgroundColor: prevIntroColor[coloridx]}}
+                      ></div>
                     </div>
                     <div className={styles.picker__preset}>
                       {presetColors.map((presetColor) => {
                         return <button 
                           key={presetColor} 
-                          className={`${styles.picker__preset_item} ${presetColor === color[coloridx] ? styles.active : null}`} 
+                          className={`${styles.picker__preset_item} ${presetColor === prevIntroColor[coloridx] ? styles["active"] : ""}`} 
                           style={{backgroundColor: presetColor}} 
-                          onClick={() => {changeColorList(coloridx, presetColor);}} 
+                          onClick={() => {
+                            changeColorList(coloridx, presetColor);
+                            return false;
+                          }} 
                         >
                         </button>
                       })}
                     </div>
                     <div className={styles.picker__button_wrapper}>
                       <ButtonWrapper styleType="center">
-                        <Button content="취소" styleType="picker" onClick={() => pickerCancel(coloridx)}></Button>
+                        <Button content="취소" styleType="picker" onClick={() => pickerCancel()}></Button>
                         <Button content="적용" styleType="picker" onClick={() => pickerAccept(coloridx)}></Button>
                       </ButtonWrapper>
                     </div>
@@ -139,7 +183,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                   : null
                 }
                 <div className={`${styles.txt__wrapper}`}>
-                  <input type="text" id={`settingTxt${coloridx + 1}`} defaultValue="예시" style={{color: color[coloridx]}}/>
+                  <input type="text" id={`settingTxt${coloridx + 1}`} defaultValue="예시" style={{color: selectIntroColor[coloridx]}}/>
                 </div>
               </li>
             )

@@ -8,6 +8,8 @@ const IntroProvider = ({ children }) => {
   const [selectIntroPhoto, setSelectIntroPhoto] = useState(initList.selectIntroPhoto);
   const [presetColors, setPresetColors] = useState(initList.presetColors);
   const [selectIntroColor, setSelectIntroColor] = useState(initList.selectIntroColor);
+  const [prevIntroColor, setPrevIntroColor] = useState(initList.prevIntroColor);
+  const [selectIntroWord, setSelectIntroWord] = useState(initList.selectIntroWord);
   return (
     <IntroContext.Provider
       value={{
@@ -17,6 +19,10 @@ const IntroProvider = ({ children }) => {
         setPresetColors,
         selectIntroColor,
         setSelectIntroColor,
+        prevIntroColor,
+        setPrevIntroColor,
+        selectIntroWord,
+        setSelectIntroWord, 
       }}
     >
       {children}

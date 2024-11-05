@@ -21,7 +21,7 @@ import { IntroContext } from "../../store/option-intro-context.js";
 const Intro = () => {
   const { selectOptionList } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
+  const { selectIntroPhoto, setSelectIntroPhoto, selectIntroColor, prevIntroColor } = useContext(IntroContext);
   const handleDateChange = (date) => {
     const selectedDate = date; 
     const formattedDate = selectedDate.split('-').join('.');
@@ -64,7 +64,7 @@ const Intro = () => {
                 <img src={intro1Letter} alt="" />
               </div>
               <div className={styles.txt__wrap}>
-                <p>저희 결혼합니다</p>
+                <p style={{color: prevIntroColor[0]}}>저희 결혼합니다</p>
               </div>
             </div>
             <div className={styles.intro__photo}>
@@ -76,19 +76,19 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                <h2 className={styles.groom} style={{color: prevIntroColor[1]}}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <p className={styles.divide}></p>
-                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                <h2 className={styles.bride} style={{color: prevIntroColor[1]}}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
-                <h3 className={styles.date}>
+                <h3 className={styles.date} style={{color: prevIntroColor[2]}}>
                   {`
                     ${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}
                   `}
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                <h4 className={styles.groom} style={{color: prevIntroColor[3]}}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
           </div>

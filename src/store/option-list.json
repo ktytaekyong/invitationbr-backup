@@ -342,9 +342,12 @@
     
   },
 
-  "selectIntroColor": ["", "", "", "", ""],
+  "selectIntroColor": [],
+  "prevIntroColor": [],
   "presetColors": ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"],
-
+  "selectIntroWord": [
+    
+  ],
   "trafficList": [
     {
       "traffic": "",

@@ -8,4 +8,8 @@ export const IntroContext = createContext({
   setPresetColors: () => {}, 
   selectIntroColor: [],
   setSelectIntroColor: () => {}, 
+  prevIntroColor: [],
+  setPrevIntroColor: () => {}, 
+  selectIntroWord: [],
+  setSelectIntroWord: () => {}, 
 });
