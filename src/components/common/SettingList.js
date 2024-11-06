@@ -29,57 +29,8 @@ import styles from "../../css/module/common/SettingList.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const renderComponents = (item) => {
-  switch (item) {
-    case "FixedTabSetting":
-      return <FixedTabSetting />;
-    case 'BasicInfomationSetting':
-      return <BasicInfomationSetting />;
-    case 'BackgroundSetting':
-      return <BackgroundSetting />;
-    case 'IntroSetting':
-      return <IntroSetting />;  
-    case 'IntroPhotoSetting':
-      return <IntroPhotoSetting />;  
-    case 'CoupleInfomationSetting':
-      return <CoupleInfomationSetting />; 
-    case 'LetterSetting':
-      return <LetterSetting />; 
-    case 'DateSetting':
-      return <DateSetting />; 
-    case 'LocationSetting':
-      return <LocationSetting />; 
-    case 'GallerySetting':
-      return <GallerySetting />; 
-    case 'VideoSetting':
-      return <VideoSetting />; 
-    case 'GiftSetting':
-      return <GiftSetting />; 
-    case 'NoticeSettingT':
-      return <NoticeSettingT />; 
-    case 'NoticeSettingD':
-      return <NoticeSettingD />; 
-    case 'BgMusicSetting':
-      return <BgMusicSetting />; 
-    case 'GuestbookSetting':
-      return <GuestbookSetting />; 
-    case 'AttendSetting':
-      return <AttendSetting />; 
-    case 'OutroSetting':
-      return <OutroSetting />; 
-    case 'ThumbnailSettingK':
-      return <ThumbnailSettingK />; 
-    case 'ThumbnailSettingU':
-      return <ThumbnailSettingU />; 
-    case 'OrderSetting':
-      return <OrderSetting />; 
-    default:
-      return null;
-  }
-}
-
 const SettingList = () => {
-  const { selectSettingList, setSelectSettingList, settingList } = useContext(SetContext);
+  const { selectSettingList, setSelectSettingList, settingList, selectOptionList } = useContext(SetContext);
   const changeSettingHandler = (clickedIdx) => {
     const selectedItem = settingList[clickedIdx].itemId;
     setSelectSettingList(prevList => {
@@ -90,23 +41,79 @@ const SettingList = () => {
       }
     });
   };
-
+  const renderComponents = (item) => {
+    switch (item) {
+      case "FixedTabSetting":
+        return <FixedTabSetting />;
+      case 'BasicInfomationSetting':
+        return <BasicInfomationSetting />;
+      case 'BackgroundSetting':
+        return <BackgroundSetting />;
+      case 'IntroSetting':
+        return <IntroSetting />;
+      case 'IntroPhotoSetting':
+        return <IntroPhotoSetting />;  
+      case 'CoupleInfomationSetting':
+        return <CoupleInfomationSetting />; 
+      case 'LetterSetting':
+        return <LetterSetting />; 
+      case 'DateSetting':
+        return <DateSetting />; 
+      case 'LocationSetting':
+        return <LocationSetting />; 
+      case 'GallerySetting':
+        return <GallerySetting />; 
+      case 'VideoSetting':
+        return <VideoSetting />; 
+      case 'GiftSetting':
+        return <GiftSetting />; 
+      case 'NoticeSettingT':
+        return <NoticeSettingT />; 
+      case 'NoticeSettingD':
+        return <NoticeSettingD />; 
+      case 'BgMusicSetting':
+        return <BgMusicSetting />; 
+      case 'GuestbookSetting':
+        return <GuestbookSetting />; 
+      case 'AttendSetting':
+        return <AttendSetting />; 
+      case 'OutroSetting':
+        return <OutroSetting />; 
+      case 'ThumbnailSettingK':
+        return <ThumbnailSettingK />; 
+      case 'ThumbnailSettingU':
+        return <ThumbnailSettingU />; 
+      case 'OrderSetting':
+        return <OrderSetting />; 
+      default:
+        return null;
+    }
+  }
   return (
     <ul className={styles.setting__list}>
       {settingList.map((item, idx) => {
         const isChecked = selectSettingList.includes(item.itemId);
-        return (
-          <SettingItem 
-            itemTitle={item.itemTitle} 
-            itemContent={renderComponents(item.itemContent)} 
-            option={item.itemCheckbox}
-            onChange={() => changeSettingHandler(idx)}
-            checkboxID={item.itemCheckbox}
-            checked={isChecked}
-            id={item.itemId} 
-            key={idx} 
-          />
-        )
+        
+        if (
+          selectOptionList.theme !== "themeModernBasic" &&
+          item.itemId === "settingIntro"
+        ) {
+          return false;
+        }
+        else {
+          return (
+            <SettingItem
+              itemTitle={item.itemTitle}
+              itemContent={renderComponents(item.itemContent)}
+              option={item.itemCheckbox}
+              onChange={() => changeSettingHandler(idx)}
+              checkboxID={item.itemCheckbox}
+              checked={isChecked}
+              id={item.itemId}
+              key={idx}
+            />
+          );
+        }
       })}
     </ul>
   )

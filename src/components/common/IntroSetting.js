@@ -54,6 +54,18 @@ const fillIntroList = [
     altVal: "fillTemplate4",
   },
 ]
+// const flowerIntroList = [
+//   {
+//     imgSrc: FillTemplateImage1,
+//     altVal: "flowerTemplate1",
+//   },
+// ]
+// const simpleIntroList = [
+//   {
+//     imgSrc: FillTemplateImage1,
+//     altVal: "simpleTemplate1",
+//   },
+// ]
 
 const IntroSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);

@@ -18,18 +18,18 @@ const themeList = [
     itemName: "[베이직] 모던",
     itemKey: "themeModernBasic"
   },
-  {
-    itemName: "[베이직] 클래식",
-    itemKey: "themeClassicBasic"
-  },
-  {
-    itemName: "[일러스트] 모던",
-    itemKey: "themeModernIllust"
-  },
-  {
-    itemName: "[일러스트] 클래식",
-    itemKey: "themeClassicIllust"
-  },
+  // {
+  //   itemName: "[베이직] 클래식",
+  //   itemKey: "themeClassicBasic"
+  // },
+  // {
+  //   itemName: "[일러스트] 모던",
+  //   itemKey: "themeModernIllust"
+  // },
+  // {
+  //   itemName: "[일러스트] 클래식",
+  //   itemKey: "themeClassicIllust"
+  // },
   {
     itemName: "심플",
     itemKey: "themeSimple"
