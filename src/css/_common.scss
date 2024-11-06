@@ -6,8 +6,6 @@
   &:focus {
     outline: none;
   }
-}
-* {
   &::-webkit-scrollbar {
     width: 6px; 
     &-thumb {
@@ -19,6 +17,9 @@
       background: #F9FAFB;
     }
   }
+}
+html {
+  font-size: var(--font-size--base);
 }
 .container {
   width: 100%;

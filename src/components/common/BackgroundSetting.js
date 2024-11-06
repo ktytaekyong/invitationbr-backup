@@ -60,15 +60,15 @@ const fontList = [
 const fontSizeList = [
   {
     itemName: "보통",
-    itemKey: "1em"
+    itemKey: "16px"
   },
   {
     itemName: "크게",
-    itemKey: "1.3em"
+    itemKey: "19px"
   },
   {
     itemName: "작게",
-    itemKey: "0.8em"
+    itemKey: "14px"
   }
 ]
 const BackgroundSetting = () => {

@@ -36,7 +36,7 @@
       margin-bottom: 4px;
     }
     p {
-      font-family: $font-family--theme;
+      font-family: var(--font-family--theme);
       font-size: $font-size--sl;
       font-weight: $font-weight--Bold;
       line-height: 1.5em;

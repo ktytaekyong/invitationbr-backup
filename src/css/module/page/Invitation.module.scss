@@ -13,7 +13,7 @@
     height: 97vh;
   }
   * {
-    font-family: $font-family--theme;
+    font-family: var(--font-family--theme);
     font-weight: $font-weight--Medium;
   }
   &::-webkit-scrollbar {

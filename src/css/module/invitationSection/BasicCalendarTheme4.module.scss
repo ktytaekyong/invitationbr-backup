@@ -15,7 +15,7 @@
       height: unset !important;
     }
     .MuiDayCalendar-weekDayLabel {
-      font-family: $font-family--theme;
+      font-family: var(--font-family--theme);
     }
     .MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition {
       height: unset !important;

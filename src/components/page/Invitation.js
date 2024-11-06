@@ -67,6 +67,12 @@ const Invitation = () => {
       : null
     ))
   }, [settingList, selectSettingList]) 
+  useEffect(() => {
+    document.documentElement.style.setProperty('--font-family--theme', selectOptionList.fontFamily);
+  }, [selectOptionList.fontFamily]);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--font-size--base', selectOptionList.fontSize);
+  }, [selectOptionList.fontSize]);
   return (
     <div 
       className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}

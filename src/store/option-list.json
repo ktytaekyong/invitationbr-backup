@@ -313,7 +313,7 @@
     "theme": "themeModernBasic",
     "backgroundColor": "#FFF",
     "fontFamily": "SeoulHangang",
-    "fontSize": "1em",
+    "fontSize": "16px",
     "effectType": "bgEffectNoSelect",
     "effectRange": "effectIntro",
     "zoomOption": false,
@@ -346,7 +346,7 @@
   "prevIntroColor": [],
   "presetColors": ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"],
   "selectIntroWord": [
-    
+
   ],
   "trafficList": [
     {

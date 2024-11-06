@@ -111,7 +111,7 @@
       border-radius: 999px;
       background: $button-color--default;
       color: #FFF;
-      font-family: $font-family--theme;
+      font-family: var(--font-family--theme);
       font-weight: 600;
       font-size: $font-size--ssm;
     }

@@ -38,12 +38,12 @@
       span {
         color: $point-color--third;
         font-weight: $font-weight--Bold;
-        font-size: 17px;
+        font-size: 1.0625rem; // 17px
         &:first-of-type {
           font-size: $font-size--default;
         }
         &:last-of-type {
-          font-size: 17px;
+          font-size: 1.0625rem; // 17px
         }
       }
     }
@@ -215,7 +215,7 @@
         }
       }
       .MuiPickersDay-root {
-        font-family: $font-family--theme;
+        font-family: var(--font-family--theme);
       }
       .Mui-selected {
         background: $button-color--default !important;

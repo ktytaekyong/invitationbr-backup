@@ -21,7 +21,7 @@
     width: 100%;
     p {
       font-size: $font-size--default;
-      font-family: $font-family--theme;
+      font-family: var(--font-family--theme);
       color: $text-color--temp;
     }
     &.groom {

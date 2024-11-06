@@ -1,4 +1,8 @@
 @charset "utf-8";
+:root {
+  --font-family--theme: "SeoulHangang";
+  --font-size--base: 16px;
+}
 /* COLOR */
 $text-color--default: #191F28;
 $text-color--gray: #5B6470; 
@@ -33,8 +37,7 @@ $button-color--cancel: #F2F4F6; /* */
 
 /* FONT */
 $font-family--default: "Pretendard";
-// $font-family--theme: "SeoulHangang";
-$font-family--theme: "SeoulHangang";
+// var(--font-family--theme): "SeoulHangang";
 $font-weight--Thin: 100;
 $font-weight--ExtraLight: 200;
 $font-weight--Light: 300;
@@ -46,17 +49,17 @@ $font-weight--ExtraBold: 800;
 $font-weight--Black: 900;
 
 /* FONT-SIZE */
-$font-size--section-title: 50px;
-$font-size--xl: 24px;
-$font-size--lg: 20px;
-$font-size--sl: 18px;
-$font-size--default: 16px;
-$font-size--ssm: 15px;
-$font-size--sm: 14px;
-$font-size--xsm: 13px;
-$font-size--xxsm: 12px;
+$font-size--section-title: 3.125rem; // 50px
+$font-size--xl: 1.5rem; // 24px
+$font-size--lg: 1.25rem; // 20px;
+$font-size--sl: 1.125rem; // 18px;
+$font-size--default: 1rem; // 16px;
+$font-size--ssm: 0.9375rem; // 15px;
+$font-size--sm: 0.875rem; // 14px;
+$font-size--xsm: 0.8125rem; // 13px;
+$font-size--xxsm: 0.75rem; // 12px;
 
-$font-size--couple-name: 27px;
+$font-size--couple-name: 1.6875rem; // 27px;
 /* $font-size--temp-lg: 20px;
 $font-size--temp-sl: 18px;
 $font-size--temp-default: 16px;
