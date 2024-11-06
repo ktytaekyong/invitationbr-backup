@@ -102,10 +102,14 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       || selectOptionList.introFillType === "basicTemplate2"
       || selectOptionList.introFillType === "basicTemplate3"
       || selectOptionList.introFillType === "basicTemplate4"
+      || selectOptionList.introFillType === "fillTemplate1"
     ) {
       typeNumber = 4;
-    } else if(false) {
-      typeNumber = 6;
+    } else if(selectOptionList.introFillType === "fillTemplate2"
+      || selectOptionList.introFillType === "fillTemplate3"
+      || selectOptionList.introFillType === "fillTemplate4"
+    ) {
+      typeNumber = 3;
     }
     const newColorArray = Array.from({ length: typeNumber }, () => "");
     setSelectIntroColor(newColorArray);
