@@ -35,7 +35,6 @@ const DateSetting = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
-
         <CommonItemWrapper>
           <CommonItemContent title="예식일">
             <input 
@@ -65,9 +64,7 @@ const DateSetting = () => {
             />
           </CommonItemContent>
           
-          {/* <CommonItemContent title="이미지" multi={true}> */}
-            <DateSettingImage />
-          {/* </CommonItemContent> */}
+          <DateSettingImage />
         </CommonItemWrapper>
       </CommonOptionContent>
 

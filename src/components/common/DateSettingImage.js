@@ -4,29 +4,31 @@ import { useState, useEffect, useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/DateSettingImage.module.scss";
 /* Image */
-import CalendarImg from "../../img/calendar/calendar_img.png";
+import CalendarImg1 from "../../img/calendar/calendar_img1.jpg";
+import CalendarImg2 from "../../img/calendar/calendar_img2.jpg";
+import CalendarImg3 from "../../img/calendar/calendar_img3.jpg";
+import CalendarImg4 from "../../img/calendar/calendar_img4.jpg";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const imageList = [
   {
-    src: "",
+    src: CalendarImg1,
     id: "calendarType1"
   },
   {
-    src: "",
+    src: CalendarImg2,
     id: "calendarType2"
   },
   {
-    src: "",
+    src: CalendarImg3,
     id: "calendarType3"
   },
   {
-    src: "",
+    src: CalendarImg4,
     id: "calendarType4"
   }
 ]
-
 const DateSettingImage = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const calendarChangeHandler = (e) => {
