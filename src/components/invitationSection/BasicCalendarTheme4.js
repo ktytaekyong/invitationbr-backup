@@ -6,11 +6,11 @@ import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 /* CSS Module */
-import styles from "../../css/module/invitationSection/BasicCalendarTheme1.module.scss";
+import styles from "../../css/module/invitationSection/BasicCalendarTheme4.module.scss";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
-const BasicCalendarTheme1 = () => {
+const BasicCalendarTheme4 = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   useEffect(() => {
     const elements = document.querySelectorAll('.MuiDayCalendar-weekDayLabel');
@@ -54,4 +54,4 @@ const BasicCalendarTheme1 = () => {
     </div>
   );
 }
-export default BasicCalendarTheme1;
+export default BasicCalendarTheme4;

@@ -48,6 +48,7 @@
     .MuiPickersDay-today {
       color: #FFF !important;
       border: none !important;
+      border-radius: 4px !important;
       background: $text-color--placeholder !important;
     }
     .MuiButtonBase-root.MuiPickersDay-root {
@@ -59,6 +60,7 @@
       height: 42px !important;
     }
     .Mui-selected {
+      border-radius: 4px !important;
       background: $point-color--third !important;
       color: #FFF !important;
     }

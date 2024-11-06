@@ -49,8 +49,120 @@
     }
   }
 }
-// .intro__style {
-//   &_theme_1 {
+.calendarType1 {
+  .date__wrap_add {
+    width: 100%;
+    padding-bottom: 30px;
+    border-bottom: 10px solid $bg-color--tab;
+  }
+  .date__wrap {
+    width: calc(100% - 48px);
+    margin-left: 24px;
+    margin-right: 24px;
+    padding-bottom: 20px;
+    border-bottom: none;
+    border-radius: 999px 999px 70px 70px;
+    > img {
+      margin: 0 auto 16px;
+      width: 69px;
+      height: 20px;
+    }
+  }
+  .date__content {
+    .calendar {
+      margin: 20px 24px 0;
+      padding: 20px 6px 0;
+      border-top: 1px solid #E5E8EB;
+      border-bottom: none;
+    }
+    .d_day {
+      .divide {
+        width: 1px;
+        height: 36px;
+        background: rgba(122, 122, 122, 0.5);
+        margin: 20px auto;
+      }
+      p {
+        font-size: $font-size--ssm;
+        span {
+          font-size: $font-size--ssm;
+        }
+      }
+    }
+    .month {
+      font-size: $font-size--lg;
+      line-height: 1em;
+    }
+  }
+  .date {
+    @include flex__column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 4px;
+    margin-top: 20px;
+    text-align: center;
+    * {
+      line-height: 1.5em;
+    }
+    p {
+      &:last-of-type {
+        font-size: $font-size--default;
+      }
+      &:last-of-type {
+        font-size: $font-size--sm;
+        color: $text-color--temp;
+      }
+    }
+  }
+}
+.calendarType2 {
+  .calendar {
+    margin: 20px 20px;
+  }
+  .date__wrap {
+    width: calc(100% - 48px);
+    margin-left: 24px;
+    margin-right: 24px;
+    border-bottom: none;
+    border-radius: 16px;
+    > img {
+      margin: 0 auto 8px;
+      width: 62px;
+      height: 30px;
+    }
+  }
+  .date__content {
+    .calendar {
+      margin: 20px;
+      margin-top: 0;
+    }
+  }
+  .date {
+    * {
+      line-height: 1.5em;
+    }
+    p {
+      &:first-of-type {
+        font-size: $font-size--default;
+        letter-spacing: 0;
+      }
+      &:last-of-type {
+        font-size: $font-size--sm;
+        color: $text-color--temp;
+      }
+    }
+  }
+  .d_day {
+    margin-bottom: 20px;
+    p {
+      font-size: $font-size--ssm;
+      span {
+        font-size: $font-size--ssm !important;
+      }
+    }
     
-//   }
-// }
+  }
+}
+.calendarType4 {
+  
+}
