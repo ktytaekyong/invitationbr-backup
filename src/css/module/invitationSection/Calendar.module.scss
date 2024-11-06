@@ -163,6 +163,74 @@
     
   }
 }
+.calendarType3 {
+  padding-top: 0;
+  padding-bottom: 0;
+  .date__wrap {
+    padding-top: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    background: transparent;
+  }
+  .date__content {
+    .calendar {
+      margin: 8px 24px;
+      border-top: none;
+    }
+    .date {
+      row-gap: 4px;
+      * {
+        line-height: 1.5em;
+      }
+      p {
+        &:first-child {
+          font-size: $font-size--default;
+          letter-spacing: 0;
+        }
+        &:last-child {
+          font-size: $font-size--sm;
+          color: $text-color--temp;
+        }
+      }
+    }
+    .d_day {
+      margin-top: 14px;
+      p {
+        line-height: 1.5em;
+        text-align: center;
+        font-size: $font-size--ssm;
+        span {
+          font-size: $font-size--ssm;
+        }
+      }
+    }
+  }
+  :global {
+    .calendar__wrap {
+      .MuiDayCalendar-header {
+        background-color: $bg-color--setting;
+        border-radius: 8px;
+        * {
+          font-size: $font-size--xsm !important;
+        }
+      }
+      .MuiPickersDay-root {
+        font-family: $font-family--theme;
+      }
+      .Mui-selected {
+        background: $button-color--default !important;
+        color: #FFF !important;
+        border-radius: 8px !important;
+      }
+      .MuiPickersDay-today {
+        color: #FFF !important;
+        border: none !important;
+        border-radius: 8px !important;
+        background: $text-color--placeholder !important;
+      }
+    }
+  }
+}
 .calendarType4 {
   
 }

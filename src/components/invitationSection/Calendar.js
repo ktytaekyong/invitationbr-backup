@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 // import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
 import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
 import BasicCalendarTheme2 from "./BasicCalendarTheme2.js";
+import BasicCalendarTheme3 from "./BasicCalendarTheme3.js";
 import BasicCalendarTheme4 from "./BasicCalendarTheme4.js";
 import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
@@ -41,23 +42,23 @@ const Calendar = () => {
     const [year, month, day] = date.split('-');
     const monthEng = (month) => {
       switch(month) {
-        case "1":
+        case "01":
           return "January";
-        case "2":
+        case "02":
           return "February";
-        case "3":
+        case "03":
           return "March";
-        case "4":
+        case "04":
           return "April";
-        case "5":
+        case "05":
           return "May";
-        case "6":
+        case "06":
           return "June";
-        case "7":
+        case "07":
           return "July";
-        case "8":
+        case "08":
           return "August";
-        case "9":
+        case "09":
           return "September";
         case "10":
           return "October";
@@ -114,7 +115,7 @@ const Calendar = () => {
                   <p>
                     {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                     , {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                    의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                    의 결혼식이<span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
                 </div>
                 : null
               }
@@ -130,7 +131,27 @@ const Calendar = () => {
         );
       case "calendarType3":
         return (
-          null
+          <div className={styles.date__wrap}>
+            <HeadLine title="예식 일시" content="D-day"></HeadLine>
+            <div className={styles.date__content}>
+              <div className={styles.date}>
+                <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
+                <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+              </div>
+              <div className={styles.calendar}>
+                <BasicCalendarTheme3 />
+              </div>
+              {selectOptionList.dateDdayOption ?
+                <div className={styles.d_day}>
+                  <p>
+                    {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
+                    {/* <span>♥</span> */}, {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+                    의 결혼식이<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                </div>
+                : null
+              }
+            </div>
+          </div>
         );
       case "calendarType4":
         return (
@@ -160,8 +181,10 @@ const Calendar = () => {
         return null;
     }
   }
+  // useEffect(() => {
+  //   monthRenderer(basicInfoList.dateInfo.date);
+  // }, [basicInfoList.dateInfo.date])
   return (
-
     <div 
     id="Date" 
     key={selectOptionList.dateCalendarType}

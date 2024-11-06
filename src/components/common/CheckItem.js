@@ -85,7 +85,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
   }, [accountInfoList, selectOptionList, name, groupType, checkidx]);
   useEffect(() => {
     const initialChecked = basicInfoList[infoType]?.[name] || false;
-    setIsChecked(initialChecked);
+    // setIsChecked(initialChecked);
   }, [basicInfoList, infoType, name]);
   return (
     name !== "kakaopayUse" ? 

@@ -116,7 +116,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
             </div>
           </div>
 
-          <div className={`${styles.input__item} ${styles.title__top}`}>
+          {/* <div className={`${styles.input__item} ${styles.title__top}`}>
             <p className={styles.input__title}>메시지 전달</p>
             <div className={styles.input__data}>
               <div className={styles.data__wrap}>
@@ -124,7 +124,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
                 <p>0/50</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </InvitationModal>
     </>
