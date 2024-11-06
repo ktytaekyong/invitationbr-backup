@@ -16,6 +16,10 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const bankList = [
   {
+    itemName: "은행 선택",
+    itemKey: ""
+  },
+  {
     itemName: "기업은행",
     itemKey: "기업은행"
   },

@@ -23,6 +23,14 @@ const Gift = () => {
   const activeToggleHandler2 = () => {
     setIsActive2(!isActive2);
   };
+  const copyAccountHandler = async (text) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      alert("텍스트가 복사되었습니다!");
+    } catch (error) {
+      console.error("복사에 실패했습니다:", error);
+    }
+  };
   return (
     <div id="Gift" className={`${styles.gift}`}>
       <div className={styles.gift__wrap}>
@@ -49,7 +57,7 @@ const Gift = () => {
                     <div className={styles.account}>
                       <p>
                         {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
-                      <Button content="복사" styleType="invitation__copy" />
+                        <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")} />
                     </div>
                   </div>
                 ))
@@ -78,7 +86,7 @@ const Gift = () => {
                     <div className={styles.account}>
                       <p>
                       {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
-                      <Button content="복사" styleType="invitation__copy"></Button>
+                      <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")} />
                     </div>
                   </div>
                 ))
