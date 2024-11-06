@@ -52,7 +52,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
               onClick={() => setActiveHandler(idx)}
             >
               <Link to={`#${tabContent.id.substring(3)}`}>
-                {tabContent ? tabContent.content : null}
+                <span>{tabContent ? tabContent.content : null}</span>
               </Link>
             </li>
           )
