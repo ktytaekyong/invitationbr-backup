@@ -282,43 +282,7 @@
   }
 }
 [class*="fillTemplate"] {
-  &.fillTemplate1 {
-    .intro__wrap {
-      padding: 0;
-      padding-bottom: 35px;
-      margin-top: -44px;
-      > div:nth-child(2) {
-        margin-top: 40px;
-      }
-    }
-    .intro__photo {
-      background: url(../../../img/intro/intro_photo_test5.png) no-repeat top / cover;
-      min-height: 500px;
-      border-radius: 0;
-    }
-    .intro__headline {
-      width: 100%;
-      padding-top: 90px;
-      justify-content: center;
-      line-height: 1.5em;
-      p {
-        font-size: $font-size--sm;
-        writing-mode: vertical-rl;
-        text-transform: uppercase;
-        letter-spacing: 0.25em;
-      }
-    }
-    .intro__title {
-      
-    }
-    .Intro_intro__title__O8XWo {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      row-gap: 4px;
-    }
-  }
+  &.fillTemplate1,
   &.fillTemplate2 {
     .intro__wrap {
       padding: 0;
@@ -338,6 +302,10 @@
       padding-top: 90px;
       justify-content: center;
       line-height: 1.5em;
+    }
+  }
+  &.fillTemplate1 {
+    .intro__headline {
       p {
         font-size: $font-size--sm;
         writing-mode: vertical-rl;
@@ -345,19 +313,44 @@
         letter-spacing: 0.25em;
       }
     }
-    .intro__title {
-      
+  }
+  &.fillTemplate2 {
+    .intro__wrap {
+      > div:nth-child(2) {
+        margin-top: 30px;
+      }
     }
-    .Intro_intro__title__O8XWo {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      row-gap: 4px;
+    .intro__photo {
+      background: url(../../../img/intro/intro_photo_test6.png) no-repeat top / cover;
+    }
+    .intro__title {
+      * {
+        letter-spacing: 0.03em;
+      }
+    }
+    .intro__title_couple {
+      @include flex__row;
+      width: 60%;
+      margin: 0 auto;
+      padding-top: 135px;
+      justify-content: center;
+      line-height: 1.5em;
+      column-gap: 11px;
+      h2 {
+        color: #FFF;
+        letter-spacing: 0.15em;
+        &:nth-of-type(2) {
+          margin-left: 3px;
+        }
+      }
+      img {
+        width: 35px;
+        margin-bottom: 4px;
+        filter: brightness(0) invert(1);
+      }
     }
   }
 }
-
 .basicTemplate2,
 .fillTemplate1 {
   .intro__title {

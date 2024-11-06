@@ -141,3 +141,14 @@
     }
   }
 }
+
+.fillTemplate2 {
+  .button__wrapper {
+    button {
+      filter: brightness(0) invert(1);
+      &.active {
+        filter: unset;
+      }
+    }
+  }
+}
