@@ -213,7 +213,7 @@
 .basicTemplate4 {
   .intro__wrap {
     padding: 0 20px;
-    padding-top: 50px;
+    padding-top: 6px;
     padding-bottom: 35px;
     > div:nth-child(2) {
       margin-top: 30px;
@@ -257,33 +257,12 @@
       color: $text-color--disable;
     }
   }
-  .intro__title {
-    &_couple {
-      column-gap: 18px;
-      margin-bottom: 12px;
-      h2 {
-        line-height: 1.5em;
-        letter-spacing: 0.1em;
-        font-size: $font-size--xl;
-      }
-      img {
-        width: 58px;
-        height: 27px;
-        margin-bottom: 3px;
-      }
-    }
-    &_date {
-      h3 {
-        line-height: 1.5em;
-        letter-spacing: 0.03em;
-        color: $text-color--temp;
-      }
-    }
-  }
 }
 [class*="fillTemplate"] {
   &.fillTemplate1,
-  &.fillTemplate2 {
+  &.fillTemplate2,
+  &.fillTemplate3,
+  &.fillTemplate4 {
     .intro__wrap {
       padding: 0;
       padding-bottom: 35px;
@@ -293,7 +272,7 @@
       }
     }
     .intro__photo {
-      background: url(../../../img/intro/intro_photo_test5.png) no-repeat top / cover;
+      background: no-repeat top / cover;
       min-height: 500px;
       border-radius: 0;
     }
@@ -350,6 +329,56 @@
       }
     }
   }
+  &.fillTemplate3 {
+    .intro__photo {
+      background: url(../../../img/intro/intro_photo_test7.png) no-repeat top / cover;
+    }
+    .intro__title {
+    }
+    .intro__title_couple {
+      @include flex__row;
+      width: 60%;
+      margin: 0 auto;
+      justify-content: center;
+      line-height: 1.5em;
+      column-gap: 11px;
+      margin-bottom: 12px;
+      h2 {
+        letter-spacing: 0.1em;
+        &:nth-of-type(2) {
+          margin-left: 3px;
+        }
+      }
+    }
+  }
+  &.fillTemplate4 {
+    margin-top: -62px;
+    .intro__photo {
+      background: url(../../../img/intro/intro_photo_test8.png) no-repeat top / cover;
+    }
+    .intro__title_couple {
+      @include flex__row;
+      width: 60%;
+      margin: 0 auto;
+      justify-content: center;
+      line-height: 1.5em;
+      column-gap: 5px;
+      margin-bottom: 12px;
+      h2 {
+        letter-spacing: 0.1em;
+      }
+    }
+    .intro__title_date {
+      * {
+        letter-spacing: 0.03em;
+      }
+    }
+    .intro__title_place {
+      * {
+        letter-spacing: 0;
+      }
+    }
+  }
 }
 .basicTemplate2,
 .fillTemplate1 {
@@ -366,6 +395,32 @@
         width: 80px;
         height: 1px;
         background: $text-color--default;
+      }
+    }
+    &_date {
+      h3 {
+        line-height: 1.5em;
+        letter-spacing: 0.03em;
+        color: $text-color--temp;
+      }
+    }
+  }
+}
+.basicTemplate4,
+.fillTemplate3 {
+  .intro__title {
+    &_couple {
+      column-gap: 18px;
+      margin-bottom: 12px;
+      h2 {
+        line-height: 1.5em;
+        letter-spacing: 0.1em;
+        font-size: $font-size--xl;
+      }
+      img {
+        width: 58px;
+        height: 24px;
+        margin-bottom: 3px;
       }
     }
     &_date {

@@ -13,6 +13,10 @@ import introPhoto1 from "../../img/intro/intro_photo_test1.png";
 import introPhoto2 from "../../img/intro/intro_photo_test2.png";
 import introPhoto3 from "../../img/intro/intro_photo_test3.png";
 import introPhoto4 from "../../img/intro/intro_photo_test4.png";
+import introPhoto5 from "../../img/intro/intro_photo_test5.png";
+import introPhoto6 from "../../img/intro/intro_photo_test6.png";
+import introPhoto7 from "../../img/intro/intro_photo_test7.png";
+import introPhoto8 from "../../img/intro/intro_photo_test8.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
@@ -203,7 +207,7 @@ const Intro = () => {
       case "fillTemplate1":
         return (
           <div className={styles.intro__wrap}>
-            <div className={styles.intro__photo}>
+            <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto5 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
               <div className={styles.intro__headline}>
                 <div className={styles.txt__wrap}>
                   <p style={{color: prevIntroColor[0]}}>결혼합니다</p>
@@ -230,7 +234,7 @@ const Intro = () => {
       case "fillTemplate2":
         return (
           <div className={styles.intro__wrap}>
-            <div className={styles.intro__photo}>
+            <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto6 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
               <div className={styles.intro__title_couple}>
                 <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <img src={intro4Letter} alt="" />
@@ -249,7 +253,51 @@ const Intro = () => {
             </div>
           </div>
         );
-        default:
+      case "fillTemplate3":
+        return (
+          <div className={styles.intro__wrap}>
+            <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto7 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
+            </div>
+            <div className={styles.intro__title}>
+              <div className={styles.intro__title_couple}>
+                <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                <img src={intro4Letter} alt="" />
+                <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+              </div>
+              <div className={styles.intro__title_date}>
+                <h3 style={{color: prevIntroColor[1]}} className={styles.date}>
+                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                </h3>
+              </div>
+              <div className={styles.intro__title_place}>
+                <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+              </div>
+            </div>
+          </div>
+        );
+      case "fillTemplate4":
+        return (
+          <div className={styles.intro__wrap}>
+            <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto8 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
+            </div>
+            <div className={styles.intro__title}>
+              <div className={styles.intro__title_couple}>
+                <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                <h2>&</h2>
+                <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+              </div>
+              <div className={styles.intro__title_date}>
+                <h3 style={{color: prevIntroColor[1]}} className={styles.date}>
+                  {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                </h3>
+              </div>
+              <div className={styles.intro__title_place}>
+                <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+              </div>
+            </div>
+          </div>
+        );
+      default:
         return null;
     }
   }
