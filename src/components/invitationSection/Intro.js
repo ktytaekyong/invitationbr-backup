@@ -101,7 +101,7 @@ const Intro = () => {
                 <img src={intro2Letter} alt="" />
               </div>
               <div className={styles.txt__wrap}>
-                <p>
+                <p style={{color: prevIntroColor[0]}}>
                   {`${handleDateChangeTheme2M(basicInfoList.dateInfo.date)}`}
                   <span>/</span>
                   {`${handleDateChangeTheme2D(basicInfoList.dateInfo.date)}`}
@@ -119,17 +119,17 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <p className={styles.divide}></p>
-                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
-                <h3 className={styles.date}>
+                <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
                   {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
           </div>
@@ -144,17 +144,17 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <p className={styles.divide}>그리고</p>
-                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
-                <h3 className={styles.date}>
+                <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
                   {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
-                  </h3>
+                </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
             <div className={styles.intro__photo}>
@@ -171,7 +171,7 @@ const Intro = () => {
           <div className={styles.intro__wrap}>
             <div className={styles.intro__headline}>
               <div className={styles.txt__wrap}>
-                <p>
+                <p style={{color: prevIntroColor[0]}}>
                   {`${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`}
                 </p>
               </div>
@@ -185,17 +185,17 @@ const Intro = () => {
             </div>
             <div className={styles.intro__title}>
               <div className={styles.intro__title_couple}>
-                <h2 className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                 <img src={intro4Letter} alt="" />
-                <h2 className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
               </div>
               <div className={styles.intro__title_date}>
-                <h3 className={styles.date}>
+                <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
                   {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                 </h3>
               </div>
               <div className={styles.intro__title_place}>
-                <h4 className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
               </div>
             </div>
           </div>

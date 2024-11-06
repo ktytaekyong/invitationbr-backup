@@ -14,7 +14,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const initTextType = [
   ["저희 결혼합니다", "이보람 김신우", "2024.11.30 토요일 오후 2시", "보람컨벤션 카리나홀(4층)"],
-  
+
 ]
 const IntroPhotoSettingTextColor = ({ isActive }) => {
   const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, selectIntroWord, setSelectIntroWord } = useContext(IntroContext);
@@ -98,9 +98,13 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   }, [pickerActive])
   useEffect(() => {
     let typeNumber = null;
-    if(selectOptionList.introFillType === "basicTemplate1") {
+    if(selectOptionList.introFillType === "basicTemplate1"
+      || selectOptionList.introFillType === "basicTemplate2"
+      || selectOptionList.introFillType === "basicTemplate3"
+      || selectOptionList.introFillType === "basicTemplate4"
+    ) {
       typeNumber = 4;
-    } else if(selectOptionList.introFillType === "basicTemplate2") {
+    } else if(false) {
       typeNumber = 6;
     }
     const newColorArray = Array.from({ length: typeNumber }, () => "");
@@ -111,7 +115,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     <>
       <ul className={`${styles.option__list} ${isActive ? styles["active"] : ""}`}>
         {
-          selectIntroColor.map((item, coloridx) => {
+          selectIntroColor.map((_, coloridx) => {
             return (
               <li key={`textInput${coloridx}`} className={`${styles.option__item}`}>
                 <div 
