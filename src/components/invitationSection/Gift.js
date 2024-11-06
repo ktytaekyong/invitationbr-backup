@@ -3,6 +3,7 @@ import { useState, useEffect, useContext, useRef } from "react";
 /* Component */
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
+import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Gift.module.scss";
 /* Image */
@@ -23,14 +24,27 @@ const Gift = () => {
   const activeToggleHandler2 = () => {
     setIsActive2(!isActive2);
   };
+  // const handleClick = (newState) => () => {
+  //   setState({ ...newState, open: true });
+  // };
   const copyAccountHandler = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert("텍스트가 복사되었습니다!");
+      return <Toast message={"계좌번호가 복사되었습니다."} />
     } catch (error) {
       console.error("복사에 실패했습니다:", error);
     }
   };
+  // const [state, setState] = useState({
+  //   open: false,
+  //   vertical: 'bottom',
+  //   horizontal: 'center',
+  // });
+
+  // const handleClose = () => {
+  //   setState({ ...state, open: false });
+  // };
+
   return (
     <div id="Gift" className={`${styles.gift}`}>
       <div className={styles.gift__wrap}>
@@ -86,7 +100,11 @@ const Gift = () => {
                     <div className={styles.account}>
                       <p>
                       {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
-                      <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")} />
+                      <Button content="복사" styleType="invitation__copy" onClick={() => (
+                          copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")
+                          // handleClick({ vertical: 'bottom', horizontal: 'center' })
+                        )}
+                      />
                     </div>
                   </div>
                 ))
