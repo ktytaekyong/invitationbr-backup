@@ -93,10 +93,15 @@ const SettingList = () => {
     <ul className={styles.setting__list}>
       {settingList.map((item, idx) => {
         const isChecked = selectSettingList.includes(item.itemId);
-        
         if (
           selectOptionList.theme !== "themeModernBasic" &&
           item.itemId === "settingIntro"
+        ) {
+          return false;
+        }
+        if (
+          selectOptionList.theme !== "themeModernBasic" &&
+          item.itemId === "settingIntroPhoto"
         ) {
           return false;
         }
