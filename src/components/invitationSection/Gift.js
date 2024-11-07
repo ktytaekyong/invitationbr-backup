@@ -45,70 +45,79 @@ const Gift = () => {
       <div className={styles.gift__wrap}>
         <HeadLine title="마음 전하기" content="account" />
         <div className={styles.gift__content}>
-          <div id="AccountM" className={styles.account__list}>
-            <div className={styles.account__list_title} onClick={activeToggleHandler}>
-              <p>{accountInfoList.groomTitle ? accountInfoList.groomTitle : "신랑측 계좌번호"}</p>
-              <img src={iconGiftArrow} alt="" />
-            </div>
-            <div className={`${styles.account__list_content} ${isActive ? styles["active"] : ""}`}>
-              {
-                accountInfoList.groomGroupList.map((item, idx) => (
-                  <div key={item.name + idx} className={styles.account__item}>
-                    <div className={styles.name}>
-                      <p>
-                        {/* 신랑  */}
-                        <span>{item.name ? item.name : "예금주"}</span>
-                      </p>
-                      {
-                        item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
-                      }
+          {
+            accountInfoList.groomGroupList.length > 0 ?
+            <div id="AccountM" className={styles.account__list}>
+              <div className={styles.account__list_title} onClick={activeToggleHandler}>
+                <p>{accountInfoList.groomTitle ? accountInfoList.groomTitle : "신랑측 계좌번호"}</p>
+                <img src={iconGiftArrow} alt="" />
+              </div>
+              <div className={`${styles.account__list_content} ${isActive ? styles["active"] : ""}`}>
+                {
+                  accountInfoList.groomGroupList.map((item, idx) => (
+                    <div key={item.name + idx} className={styles.account__item}>
+                      <div className={styles.name}>
+                        <p>
+                          {/* 신랑  */}
+                          <span>{item.name ? item.name : "예금주"}</span>
+                        </p>
+                        {
+                          item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
+                        }
+                      </div>
+                      <div className={styles.account}>
+                        <p>
+                          {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
+                          <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")} />
+                      </div>
                     </div>
-                    <div className={styles.account}>
-                      <p>
-                        {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
-                        <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")} />
-                    </div>
-                  </div>
-                ))
-              }
+                  ))
+                }
+              </div>
             </div>
-          </div>
-          <div id="AccountF" className={styles.account__list}>
-            <div className={styles.account__list_title} onClick={activeToggleHandler2}>
-              <p>{accountInfoList.brideTitle ? accountInfoList.brideTitle : "신부측 계좌번호"}</p>
-              <img src={iconGiftArrow} alt="" />
-            </div>
-            <div className={`${styles.account__list_content} ${isActive2 ? styles["active"] : ""}`}>
-              {
-                accountInfoList.brideGroupList.map((item, idx) => (
-                  <div key={item.name + idx} className={styles.account__item}>
-                    <div className={styles.name}>
-                      <p>
-                        {/* 신부 */}
-                        <span>{item.name ? item.name : "예금주"}</span>
-                      </p>
-                      {
-                        item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
-                      }
-                      {/* <img src={iconGiftKakao} alt="" />   */}
+            : null
+          }
+          {
+            accountInfoList.brideGroupList.length > 0 ?
+            <div id="AccountF" className={styles.account__list}>
+              <div className={styles.account__list_title} onClick={activeToggleHandler2}>
+                <p>{accountInfoList.brideTitle ? accountInfoList.brideTitle : "신부측 계좌번호"}</p>
+                <img src={iconGiftArrow} alt="" />
+              </div>
+              <div className={`${styles.account__list_content} ${isActive2 ? styles["active"] : ""}`}>
+                {
+                  accountInfoList.brideGroupList.map((item, idx) => (
+                    <div key={item.name + idx} className={styles.account__item}>
+                      <div className={styles.name}>
+                        <p>
+                          {/* 신부 */}
+                          <span>{item.name ? item.name : "예금주"}</span>
+                        </p>
+                        {
+                          item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
+                        }
+                        {/* <img src={iconGiftKakao} alt="" />   */}
+                      </div>
+                      <div className={styles.account}>
+                        <p>
+                          {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span>
+                        </p>
+                        <Button 
+                          content="복사" 
+                          styleType="invitation__copy" 
+                          onClick={() => (
+                            copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")
+                          )}
+                        />
+                      </div>
                     </div>
-                    <div className={styles.account}>
-                      <p>
-                        {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span>
-                      </p>
-                      <Button 
-                        content="복사" 
-                        styleType="invitation__copy" 
-                        onClick={() => (
-                          copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")
-                        )}
-                      />
-                    </div>
-                  </div>
-                ))
-              }
+                  ))
+                }
+              </div>
             </div>
-          </div>
+            : null
+          }
+
         </div>
       </div>
     </div>
