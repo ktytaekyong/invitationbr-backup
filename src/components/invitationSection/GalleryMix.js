@@ -8,6 +8,7 @@ import 'swiper/css/free-mode';
 import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 /* Component */
+import InvitationModalGallery from "../layout/modal/InvitationModalGallery.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/GalleryMix.module.scss";
 /* Image */
@@ -18,6 +19,15 @@ import { GalleryContext } from "../../store/option-gallery-context.js";
 const GalleryMix = () => {
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [clickedSlideIndex, setClickedSlideIndex] = useState(0); 
+  const [open, setOpen] = useState(false);
+  const handleOpen = (index) => {
+    setOpen(true);
+    setClickedSlideIndex(index);
+  }
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <div className={`${styles.gallery__type} ${styles.mix}`}>
       <Swiper
@@ -34,16 +44,16 @@ const GalleryMix = () => {
         {
           selectGalleryPhotoList.length !== 0 ?
           selectGalleryPhotoList.map((item, idx) => (
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(idx)}>
               <img src={item.src} alt={item.alt} />
             </SwiperSlide>
           ))
           :
           <>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(1)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(2)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
             <SwiperSlide>
@@ -66,7 +76,7 @@ const GalleryMix = () => {
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
-        loop={true}
+        loop={false}
         spaceBetween={8}
         slidesPerView={4}
         slidesPerGroup={4}
@@ -109,6 +119,7 @@ const GalleryMix = () => {
           </>
         }
       </Swiper>
+      <InvitationModalGallery openvar={open} onClose={handleClose} clickidx={clickedSlideIndex}></InvitationModalGallery>
     </div>
   )
 }

@@ -35,7 +35,6 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
               </div>
             </div>
           </div>
-
           <div className={styles.input__item}>
             <p className={styles.input__title}>참석여부</p>
             <div className={styles.input__data}>
