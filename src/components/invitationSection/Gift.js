@@ -15,7 +15,7 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Gift = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  // const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const { accountInfoList, setAccountInfoList, selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [isActive, setIsActive] = useState(selectOptionList.groomAccountView);
   const [isActive2, setIsActive2] = useState(selectOptionList.brideAccountView);
