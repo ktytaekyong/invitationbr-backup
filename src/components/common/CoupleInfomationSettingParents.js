@@ -10,9 +10,9 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onChange }) => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  useEffect(() => {
-    console.log(basicInfoList);
-  }, [basicInfoList])
+  // useEffect(() => {
+  //   console.log(basicInfoList);
+  // }, [basicInfoList])
   return (
     <div className={styles.couple__info}>
       <input 

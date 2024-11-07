@@ -26,7 +26,6 @@ const parents = [
     itemKey: "Mom"
   }
 ];
-
 const CoupleInfomation = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const basicDataChangeHandler = (e, infoType) => {

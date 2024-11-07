@@ -92,7 +92,6 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
       itemKey: "동생"
     },
   ];
-
   useEffect(() => {
     coupleKey === "M" ?
     setRelList(MRelList)
