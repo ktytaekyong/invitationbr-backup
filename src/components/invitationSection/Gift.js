@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext, useRef } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
@@ -18,35 +19,29 @@ const Gift = () => {
   const { accountInfoList, setAccountInfoList, selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [isActive, setIsActive] = useState(selectOptionList.groomAccountView);
   const [isActive2, setIsActive2] = useState(selectOptionList.brideAccountView);
+  const [open, setOpen] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
   };
   const activeToggleHandler2 = () => {
     setIsActive2(!isActive2);
   };
-  // const handleClick = (newState) => () => {
-  //   setState({ ...newState, open: true });
-  // };
+  const handleClick = () => {
+    setOpen(true);
+  };
   const copyAccountHandler = async (text) => {
     try {
       await navigator.clipboard.writeText(text);
-      return <Toast message={"계좌번호가 복사되었습니다."} />
+      handleClick();
     } catch (error) {
-      console.error("복사에 실패했습니다:", error);
+      console.error("복사에 실패했습니다:", error); 
     }
   };
-  // const [state, setState] = useState({
-  //   open: false,
-  //   vertical: 'bottom',
-  //   horizontal: 'center',
-  // });
-
-  // const handleClose = () => {
-  //   setState({ ...state, open: false });
-  // };
-
   return (
     <div id="Gift" className={`${styles.gift}`}>
+      {
+        ReactDOM.createPortal(<Toast type="copy" open={open} setOpen={setOpen} message="계좌번호가 복사되었습니다." />, document.body)
+      }
       <div className={styles.gift__wrap}>
         <HeadLine title="마음 전하기" content="account" />
         <div className={styles.gift__content}>
@@ -99,10 +94,13 @@ const Gift = () => {
                     </div>
                     <div className={styles.account}>
                       <p>
-                      {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
-                      <Button content="복사" styleType="invitation__copy" onClick={() => (
+                        {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span>
+                      </p>
+                      <Button 
+                        content="복사" 
+                        styleType="invitation__copy" 
+                        onClick={() => (
                           copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")
-                          // handleClick({ vertical: 'bottom', horizontal: 'center' })
                         )}
                       />
                     </div>

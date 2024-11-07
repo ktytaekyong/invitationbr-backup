@@ -1,28 +1,36 @@
-// Import
-import { useState } from "react";
 // Component
 import Snackbar from '@mui/material/Snackbar';
+/* Image */
+import copyIcon from "../../img/icon/icon_toast_copy.png";
+import regIcon from "../../img/icon/icon_toast_reg.png";
 
-const Toast = ({ message }) => {
-  const [state, setState] = useState({
-    open: false,
-    vertical: 'bottom',
-    horizontal: 'center',
-  });
-  const { vertical, horizontal, open } = state;
-  const handleClose = () => {
-    setState({ ...state, open: false });
+const Toast = ({ message, open, setOpen, type }) => {
+  const msgRenderer = (type) => {
+    switch (type) {
+      case "copy":
+        return <img src={copyIcon} /> 
+      case "reg":
+        return <img src={regIcon} /> 
+    }
+  }
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
   };
-
   return (
-    <Snackbar
-      anchorOrigin={{ vertical, horizontal }}
-      open={open}
-      onClose={handleClose}
-      message={message}
-      key={vertical + horizontal}
-    />
-  )
+    <div>
+      <Snackbar
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        message={
+          <div className="mui-message">{msgRenderer(type)}{message}</div>
+        }
+      />
+    </div>
+  );
 }
 
 export default Toast;

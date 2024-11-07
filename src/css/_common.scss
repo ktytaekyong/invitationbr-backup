@@ -112,3 +112,42 @@ textarea {
     }
   }
 }
+/* Material UI */
+.MuiSnackbar-root {
+  justify-content: center !important;
+  left: 50% !important;
+  right: auto;
+  bottom: 70px !important;
+  transform: translateX(-50%);
+  mix-blend-mode: multiply !important;
+  // pointer-events: none !important;
+  z-index: 2147483647 !important;
+}
+.MuiSnackbarContent-root {
+  justify-content: center;
+  padding: 15px 16px !important;
+  background-color: #7197CF !important;
+  // background-color: rgba(113, 151, 207, 0.8) !important;
+  // background-blend-mode: multiply !important;
+  border-radius: 999px !important;
+  box-shadow: unset !important;
+  // filter: drop-shadow(0 4px 8px rgba(24, 45, 75, 0.12));
+}
+.MuiSnackbarContent-message {
+  padding: 0 !important;
+  .mui-message {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 8px;
+    color: #FFF !important;
+    text-align: center !important;
+    font-family: $font-family--default;
+    font-weight: $font-weight--Regular !important;
+    font-size: $font-size--default;
+    img {
+      width: 18px;
+      height: 18px;
+    }
+  }
+} 

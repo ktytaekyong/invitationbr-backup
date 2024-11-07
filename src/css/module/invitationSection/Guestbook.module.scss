@@ -45,6 +45,7 @@
       margin-top: 40px;
       &__list {
         @include flex__column;
+        // flex-direction: column-reverse;
         justify-content: flex-start;
         align-items: center;
         row-gap: 16px;

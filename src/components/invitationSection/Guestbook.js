@@ -1,10 +1,12 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import InvitationModalGuestbook from "../layout/modal/InvitationModalGuestbook.js";
 import HeadLine from "../layout/HeadLine.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
+import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Guestbook.module.scss";
 /* Image */
@@ -37,18 +39,26 @@ const Guestbook = () => {
       return;
     }
     setGuestbookList(prev => [
-      ...prev,
       {
         ...tempBookList,
         guestDate: new Date().toLocaleDateString()
-      }
+      },
+      ...prev,
     ]);
     setTempBookList({ guestName: "", guestPassword: "", guestMessage: "" });
+    handleClick();
   }
+  const [toastOpen, setToastOpen] = useState(false);
+  const handleClick = () => {
+    setToastOpen(true);
+  };
   useEffect(() => {
   }, [guestbookList.length])
   return (
     <div id="Guestbook" className={`${styles.guestbook}`}>
+      {
+        ReactDOM.createPortal(<Toast type="reg" open={toastOpen} setOpen={setToastOpen} message="등록되었습니다." />, document.body)
+      }
       <div className={styles.guestbook__wrap}>
         <HeadLine title="방명록" content="message" />
         <div className={styles.guestbook__content}>
