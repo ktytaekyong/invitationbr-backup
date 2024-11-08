@@ -56,19 +56,19 @@ const GalleryMix = () => {
             <SwiperSlide onClick={() => handleOpen(2)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(3)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(4)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(5)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(6)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
-            <SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(7)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
           </>

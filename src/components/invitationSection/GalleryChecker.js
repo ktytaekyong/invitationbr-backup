@@ -7,6 +7,7 @@ import Button from "../layout/Button.js";
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 /* Component */
+import InvitationModalGallery from "../layout/modal/InvitationModalGallery.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/GalleryChecker.module.scss";
 /* Image */
@@ -19,6 +20,15 @@ const GalleryChecker = () => {
   const { selectGalleryPhotoList } = useContext(GalleryContext);
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [moreViewIdx, setMoreViewIdx] = useState(20);
+  const [clickedSlideIndex, setClickedSlideIndex] = useState(0); 
+  const [open, setOpen] = useState(false);
+  const handleOpen = (index) => {
+    setOpen(true);
+    setClickedSlideIndex(index);
+  }
+  const handleClose = () => {
+    setOpen(false);
+  };
   useEffect(() => {
     if(selectOptionList.galleryMoreOption) {
       setMoreViewIdx(9);
@@ -27,10 +37,7 @@ const GalleryChecker = () => {
     }
   }, [selectOptionList.galleryMoreOption])
   const moreViewHandler = () => {
-    setSelectOptionList((prev) => ({
-      ...prev,
-      galleryMoreOption: !selectOptionList.galleryMoreOption
-    }))
+    setMoreViewIdx(20);
   }
   return (
     <div className={`${styles.gallery__type} ${styles.checker}`}>
@@ -38,40 +45,40 @@ const GalleryChecker = () => {
         {
           selectGalleryPhotoList.length === 0 ?
           <>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(1)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(2)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(3)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(4)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(5)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(6)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(7)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(8)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
-            <div className={styles.gallery__item}>
+            <div onClick={() => handleOpen(9)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
             {
               selectOptionList.galleryMoreOption === false ?
               <>
-                <div className={styles.gallery__item}>
+                <div onClick={() => handleOpen(10)} className={styles.gallery__item}>
                   <img src={galleryPhoto} alt="" />
                 </div>
-                <div className={styles.gallery__item}>
+                <div onClick={() => handleOpen(11)} className={styles.gallery__item}>
                   <img src={galleryPhoto} alt="" />
                 </div>
               </>
@@ -81,14 +88,14 @@ const GalleryChecker = () => {
           :
           selectGalleryPhotoList.filter((_, idx) => idx < moreViewIdx)
           .map((item, idx) => (
-            <div key={item + idx} className={styles.gallery__item}>
+            <div key={item + idx} onClick={() => handleOpen(idx)} className={styles.gallery__item}>
               <img src={item.src} alt="" />
             </div>
           ))
         }
       </div>
       {
-        selectOptionList.galleryMoreOption ?
+        selectOptionList.galleryMoreOption && moreViewIdx !== 20?
         <ButtonWrapper styleType="center">
           <Button 
             content="더보기" 
@@ -98,6 +105,7 @@ const GalleryChecker = () => {
         </ButtonWrapper>
         : null
       }
+      <InvitationModalGallery openvar={open} onClose={handleClose} clickidx={clickedSlideIndex}></InvitationModalGallery>
       {/* <Swiper
         spaceBetween={0}
         slidesPerView={1}
