@@ -37,7 +37,7 @@ const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onCha
         id={`${coupleKey}${itemKey}Dep`} 
         content={"故"} 
         infoType={coupleKey === "M" ? "groomParentInfo" : "brideParentInfo"}
-        propsOnChange={true}
+        type="info"
       />
     </div>
   )

@@ -35,4 +35,6 @@ export const SetContext = createContext({
   setBgFreeList: () => {},
   selectBGM: {},
   setSelectBGM: () => {},
+  attendList: {},
+  setAttendList: () => {},
 });

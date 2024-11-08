@@ -6,11 +6,11 @@ import styles from "../../css/module/common/CheckItem.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
-const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx, propsOnChange, infoType }) => {
+const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx, type, infoType }) => {
   const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [ isChecked, setIsChecked ] = useState(false);
-  const checkedChangeHandler = (e) => {
+  const checkedOptionChangeHandler = (e) => {
     const { name, id, checked } = e.target;
     const newArray = Object.entries(selectOptionList);
     newArray.map((item) => {
@@ -30,7 +30,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       }
     })
   }
-  const checkedChangeAccountHandler = (e, idx) => {
+  const checkedAccountChangeHandler = (e, idx) => {
     const { name, checked } = e.target;
     setAccountInfoList((prev) => ({
       ...prev,
@@ -41,7 +41,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       )
     }));
   }
-  const handleCheckboxChange = (e, infoType) => {
+  const checkedInfoChangeHandler = (e, infoType) => {
     const { name, checked } = e.target;
     setIsChecked(checked);
     setBasicInfoList((prev) => ({
@@ -51,7 +51,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         [name]: checked,
       },
     }));
-    console.log(infoType);
+    // console.log(infoType);
   };
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
@@ -96,7 +96,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         id={id} 
         checked={isChecked}
         onChange={(e) => (
-          propsOnChange ? handleCheckboxChange(e, infoType) : checkedChangeHandler(e)
+          type === "info" ? checkedInfoChangeHandler(e, infoType) : checkedOptionChangeHandler(e)
         )}
       />
       <label htmlFor={id}>
@@ -112,7 +112,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         name={name} 
         id={id} 
         checked={isChecked}
-        onChange={(e) => checkedChangeAccountHandler(e, checkidx)}
+        onChange={(e) => checkedAccountChangeHandler(e, checkidx)}
       />
       <label htmlFor={id}>
         {

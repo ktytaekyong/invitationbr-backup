@@ -339,7 +339,9 @@
     "videoSrc": ""
   },
   "attendList": {
-    
+    "attendTitle": "",
+    "attendContent": "",
+    "attendButtonTitle": "참석 의사 전달하기"
   },
 
   "selectIntroColor": [],

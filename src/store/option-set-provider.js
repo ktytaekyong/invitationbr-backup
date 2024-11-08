@@ -21,6 +21,7 @@ const SetProvider = ({ children }) => {
   const [selectOptionList, setSelectOptionList] = useState(initList.selectOptionList);
   const [selectBGM, setSelectBGM] = useState(initList.selectBGM);
   const [bgFreeList, setBgFreeList] = useState(initList.bgFreeList);
+  const [attendList, setAttendList] = useState(initList.attendList);
   const settingList = initList.settingList;
 
   return (
@@ -58,7 +59,9 @@ const SetProvider = ({ children }) => {
         bgFreeList,
         setBgFreeList,
         selectBGM,
-        setSelectBGM
+        setSelectBGM,
+        attendList,
+        setAttendList
       }}
     >
       {children}

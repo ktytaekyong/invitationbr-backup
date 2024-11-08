@@ -1,3 +1,5 @@
+/* Import */
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -10,75 +12,47 @@ import RadioItem from "./RadioItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
-
-const themeList = [
-  {
-    itemName: "[베이직] 모던",
-    itemKey: "themeModernBasic"
-  },
-  {
-    itemName: "[베이직] 클래식",
-    itemKey: "themeClassicBasic"
-  },
-  {
-    itemName: "[일러스트] 모던",
-    itemKey: "themeModernIllust"
-  },
-  {
-    itemName: "[일러스트] 클래식",
-    itemKey: "themeClassicIllust"
-  },
-  {
-    itemName: "심플",
-    itemKey: "themeSimple"
-  },
-  {
-    itemName: "플라워",
-    itemKey: "themeFlower"
-  },
-];
-
-const fontList = [
-  {
-    itemName: "맑은 고딕",
-    itemKey: "font1"
-  },
-  {
-    itemName: "돋움체",
-    itemKey: "font2"
-  },
-];
-
-const fontWeightList = [
-  {
-    itemName: "보통",
-    itemKey: "400"
-  },
-  {
-    itemName: "볼드",
-    itemKey: "600"
-  },
-];
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const AttendSetting = () => {
+  const { attendList, setAttendList } = useContext(SetContext);
+  const attendContentChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setAttendList((prev) => {
+      return {
+        ...prev,
+        [name]: value
+      }
+    })
+  }
+  const attendCheckChangeHandler = (e) => {
+    const { name, checked } = e.target;
+    setAttendList((prev) => {
+      return {
+        ...prev,
+        [name]: checked
+      }
+    })
+  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="제목">
-            <input type="text" />
+            <input type="text" name="attendTitle" value={attendList.attendTitle} onChange={(e) => attendContentChangeHandler(e)} placeholder="참석 의사 전달" />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="내용" multi={true}>
-            <textarea name="" id=""></textarea>
+            <textarea name="attendContent" id="attendContent" value={attendList.attendContent} onChange={(e) => attendContentChangeHandler(e)} placeholder="내용을 입력해주세요."></textarea>
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="버튼명">
-            <input type="text" />
+            <input type="text" name="attendButtonTitle" value={attendList.attendButtonTitle} onChange={(e) => attendContentChangeHandler(e)} placeholder="참석 의사 전달하기" />
           </CommonItemContent>
         </CommonItemWrapper>
 
