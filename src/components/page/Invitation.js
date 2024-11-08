@@ -102,7 +102,7 @@ const Invitation = () => {
         <Banner />
         {/* 위치 방명록 위 */}
         {selectSettingList.includes("settingOutro") && <Outro />}
-        {isTargetPage ? null: <SettingOther />}
+        {/* {isTargetPage ? null: <SettingOther />} */}
         <Footer />
       </Container>
     </div>
