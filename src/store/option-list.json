@@ -329,8 +329,7 @@
     "groomAccountView": true,
     "brideAccountView": false,
     "bgmAutoPlay": false,
-    "optionAttendPopupOpen": false,
-    "optionAttendPopupScroll": false,
+    "optionAttendPopup": "optionAttendPopupScroll",
     "optionAttendKakao": false
   },
 
@@ -341,7 +340,17 @@
   "attendList": {
     "attendTitle": "",
     "attendContent": "",
-    "attendButtonTitle": "참석 의사 전달하기"
+    "attendButtonTitle": "",
+    "optionAttendName": false,
+    "optionAttendCount": false,
+    "optionAttendMeat": false,
+    "optionAttendBus": false,
+    "attendMealNotice": "",
+    "attendNoMealNotice": "",
+    "attendBusNoticeM": "",
+    "attendNoBusNoticeM": "",
+    "attendBusNoticeF": "",
+    "attendNoBusNoticeF": ""
   },
 
   "selectIntroColor": [],

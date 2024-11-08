@@ -58,11 +58,12 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
         }
       })
     ));
-    console.log(noticeDList);
+    // console.log(noticeDList);
   };
   const functionChangeHandler = (e, name, idx) => {
-    if(name === "effectRange") {
+    if(name === "effectRange" || name === "optionAttendPopup") {
       checkedChangeHandler(e);
+      console.log(selectOptionList);
     } else if(name.includes("DPosition")) {
       photoPositionDChangeHandler(e);
     } else if(name === "outroPosition") {

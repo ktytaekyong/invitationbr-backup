@@ -1,14 +1,17 @@
 /* Import */
-import * as React from 'react';
-import { Link } from "react-router-dom";
+import { useState, useEffect, useContext } from "react";
 /* Component */
 import InvitationModal from './InvitationModal';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/InvitationModalAttend.module.scss";
 /* Image */
 import iconModalHeader from "../../../img/icon/icon_attend_modal.png";
+/* Context */
+import { SetContext } from "../../../store/option-set-context.js";
 
 const InvitationModalAttend = ({ openvar, onClose }) => {
+  const { attendList, setAttendList } = useContext(SetContext);
+  const [ currentView,  setCurrentView ] = useState("AttendTypeGroom");
   return (
     <>
       <InvitationModal 
@@ -25,16 +28,22 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
             <div className={styles.input__data}>
               <div className={`${styles.data__wrap} ${styles.type}`}>
                 <div className={styles.data__item}>
-                  <input type="radio" name="AttendType" id="AttendTypeGroom" defaultChecked />
+                  <input type="radio" name="AttendType" id="AttendTypeGroom" onClick={() => setCurrentView("AttendTypeGroom")} defaultChecked />
                   <label htmlFor="AttendTypeGroom">신랑측</label>
                 </div>
                 <div className={styles.data__item}>
-                  <input type="radio" name="AttendType" id="AttendTypeBride" />
+                  <input type="radio" name="AttendType" id="AttendTypeBride" onClick={() => setCurrentView("AttendTypeBride")} />
                   <label htmlFor="AttendTypeBride">신부측</label>
                 </div>
               </div>
             </div>
           </div>
+          {
+            <>
+              
+            </>
+          }
+          
           <div className={styles.input__item}>
             <p className={styles.input__title}>참석여부</p>
             <div className={styles.input__data}>

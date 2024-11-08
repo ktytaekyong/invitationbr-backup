@@ -7,7 +7,7 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx, type, infoType }) => {
-  const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList } = useContext(SetContext);
+  const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList, attendList, setAttendList } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [ isChecked, setIsChecked ] = useState(false);
   const checkedOptionChangeHandler = (e) => {
@@ -53,6 +53,15 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
     }));
     // console.log(infoType);
   };
+  const checkedAttendChangeHandler = (e) => {
+    const { name, checked } = e.target;
+    setIsChecked(checked);
+    setAttendList((prev) => ({
+      ...prev,
+      [name]: checked
+    }));
+    console.log(attendList);
+  };
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
     newArray.map((item) => {
@@ -95,9 +104,15 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
         name={name} 
         id={id} 
         checked={isChecked}
-        onChange={(e) => (
-          type === "info" ? checkedInfoChangeHandler(e, infoType) : checkedOptionChangeHandler(e)
-        )}
+        onChange={(e) => {
+          if (type === "info") {
+            checkedInfoChangeHandler(e, infoType);
+          } else if (type === "attend") {
+            checkedAttendChangeHandler(e);
+          } else {
+            checkedOptionChangeHandler(e);
+          }
+        }}
       />
       <label htmlFor={id}>
         {labelImgSrc ? <img src={labelImgSrc} alt="" /> : null}

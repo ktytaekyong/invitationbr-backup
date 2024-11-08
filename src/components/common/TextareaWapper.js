@@ -2,7 +2,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/TextareaWrapper.module.scss";
 
-const TextareaWapper = ({ id, content, division, gender }) => {
+const TextareaWapper = ({ id, content, division, gender, placeholder, value, onChange }) => {
   return (
     <div className={styles.textarea__wrap}>
       {
@@ -15,7 +15,7 @@ const TextareaWapper = ({ id, content, division, gender }) => {
         :
         null
       }
-      <textarea name={id} id={id}></textarea>
+      <textarea name={id} id={id} value={value} onChange={onChange} placeholder={placeholder} />
     </div>
   )
 }
