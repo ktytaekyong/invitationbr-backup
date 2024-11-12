@@ -329,7 +329,7 @@
     "groomAccountView": true,
     "brideAccountView": false,
     "bgmAutoPlay": false,
-    "optionAttendPopup": "optionAttendPopupScroll",
+    "optionAttendPopup": "optionAttendPopupOpen",
     "optionAttendKakao": false
   },
 

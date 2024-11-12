@@ -1,5 +1,5 @@
 /* Import */
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 /* Component */
 import Container from "../layout/Container";
@@ -29,6 +29,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const previewnLocation = useLocation();
   const isTargetPage = previewnLocation.pathname === '/Preview';
+  const containerRef = useRef(null);
   const { settingList, selectSettingList, selectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(false);
   const setActiveTabHandler = () => {
@@ -55,7 +56,7 @@ const Invitation = () => {
       case "settingGuestbook":
         return <Guestbook />;
       case "settingAttend":
-        return <Attend />;
+        return <Attend containerRef={containerRef} />;
       default:
         return null;
     }
@@ -75,6 +76,7 @@ const Invitation = () => {
   }, [selectOptionList.fontSize]);
   return (
     <div 
+      ref={containerRef}
       className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}
       style={{ backgroundColor: selectOptionList.backgroundColor }}
     >

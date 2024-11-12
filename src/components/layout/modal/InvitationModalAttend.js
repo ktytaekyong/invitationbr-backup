@@ -55,7 +55,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
     if(attendList.optionAttendCount === false) {
       setAttendCount("");
     }
-  }, [attendList])
+  }, [attendList.optionAttendName, attendList.optionAttendCount])
   useEffect(() => {
     if(openvar === false) {
       setGuestType("attendTypeGroom");
@@ -99,7 +99,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
             <div className={styles.input__data}>
               <div className={styles.data__wrap}>
                 <div className={styles.data__item}>
-                  <input type="radio" name="attendWhether" id="attendWhetherYes" checked={attendWhether === "attendWhetherYes"} onChange={() => setAttendWhether("attendWhetherYes")} defaultChecked />
+                  <input type="radio" name="attendWhether" id="attendWhetherYes" checked={attendWhether === "attendWhetherYes"} onChange={() => setAttendWhether("attendWhetherYes")} />
                   <label htmlFor="attendWhetherYes">가능</label>
                 </div>
                 <div className={styles.data__item}>

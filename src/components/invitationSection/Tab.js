@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 import Button from "../layout/Button.js";
@@ -16,6 +16,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const { selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const [isActive, setIsActive] = useState(false);
+  const scrollRef = useRef([]);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }

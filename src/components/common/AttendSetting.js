@@ -47,7 +47,7 @@ const AttendSetting = () => {
         }
       })
     }
-  }, [attendList])
+  }, [attendList.optionAttendMeal, attendList.optionAttendBus])
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
