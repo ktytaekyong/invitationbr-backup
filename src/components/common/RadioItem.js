@@ -22,7 +22,7 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
       ...prev,
       "position": id.includes("top") ? "top" : "bottom"
     }));
-    console.log(outroList);
+    // console.log(outroList);
   };
   const photoPositionChangeHandler = (e, idx) => {
     const { name, id } = e.target;

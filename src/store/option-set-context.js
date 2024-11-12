@@ -37,4 +37,6 @@ export const SetContext = createContext({
   setSelectBGM: () => {},
   attendList: {},
   setAttendList: () => {},
+  attendGuest: {},
+  setAttendGuest: () => {},
 });

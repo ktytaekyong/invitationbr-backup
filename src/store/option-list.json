@@ -341,9 +341,9 @@
     "attendTitle": "",
     "attendContent": "",
     "attendButtonTitle": "",
-    "optionAttendName": false,
+    "optionAttendName": true,
     "optionAttendCount": false,
-    "optionAttendMeat": false,
+    "optionAttendMeal": false,
     "optionAttendBus": false,
     "attendMealNotice": "",
     "attendNoMealNotice": "",
@@ -352,6 +352,15 @@
     "attendBusNoticeF": "",
     "attendNoBusNoticeF": ""
   },
+  "attendGuest": {
+    "attendType": "attendTypeGroom",
+    "attendWhether": "",
+    "attendName": "",
+    "attendCount": "",
+    "attendMealYes": "",
+    "attendBusYes": ""
+  },
+  "attendGuestList": [],
 
   "selectIntroColor": [],
   "prevIntroColor": [],

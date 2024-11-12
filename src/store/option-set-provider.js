@@ -22,8 +22,8 @@ const SetProvider = ({ children }) => {
   const [selectBGM, setSelectBGM] = useState(initList.selectBGM);
   const [bgFreeList, setBgFreeList] = useState(initList.bgFreeList);
   const [attendList, setAttendList] = useState(initList.attendList);
+  const [attendGuest, setAttendGuest] = useState(initList.attendList);
   const settingList = initList.settingList;
-
   return (
     <SetContext.Provider
       value={{
@@ -61,7 +61,9 @@ const SetProvider = ({ children }) => {
         selectBGM,
         setSelectBGM,
         attendList,
-        setAttendList
+        setAttendList,
+        attendGuest,
+        setAttendGuest
       }}
     >
       {children}

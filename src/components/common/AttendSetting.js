@@ -26,6 +26,28 @@ const AttendSetting = () => {
       }
     })
   }
+  useEffect(() => {
+    if(attendList.optionAttendMeal === false) {
+      setAttendList((prev) => {
+        return {
+          ...prev,
+          "attendMealNotice": "",
+          "attendNoMealNotice": "",
+        }
+      })
+    }
+    if(attendList.optionAttendBus === false) {
+      setAttendList((prev) => {
+        return {
+          ...prev,
+          "attendBusNoticeM": "",
+          "attendNoBusNoticeM": "",
+          "attendBusNoticeF": "",
+          "attendNoBusNoticeF": ""
+        }
+      })
+    }
+  }, [attendList])
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -51,10 +73,10 @@ const AttendSetting = () => {
           <CommonItemContent title="항목" multi="check">
             <CheckItem name="optionAttendName" type="attend" content="성함" id="optionAttendName"></CheckItem>
             <CheckItem name="optionAttendCount" type="attend" content="인원" id="optionAttendCount"></CheckItem>
-            <CheckItem name="optionAttendMeat" type="attend" content="식사 여부" id="optionAttendMeat"></CheckItem>
+            <CheckItem name="optionAttendMeal" type="attend" content="식사 여부" id="optionAttendMeal"></CheckItem>
             <ListOptionContent>
               {
-                attendList.optionAttendMeat ?
+                attendList.optionAttendMeal ?
                 <CommonItemWrapper>
                   <TextareaWapper content="식사함 항목 안내문구" id="attendMealNotice" value={attendList.attendMealNotice} onChange={(e) => attendContentChangeHandler(e)} placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 스테이크와 한정식이 준비되어 있습니다."></TextareaWapper>
                   <TextareaWapper content="식사안함 항목 안내문구" id="attendNoMealNotice" value={attendList.attendNoMealNotice} onChange={(e) => attendContentChangeHandler(e)} placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 식사 못하시는 분들을 위한 선물을 준비했으니 꼭 받아가세요."></TextareaWapper>
