@@ -1,13 +1,12 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
-import ButtonWrapper from "../layout/ButtonWrapper.js";
-import Button from "../layout/Button.js";
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import { Scrollbar } from 'swiper/modules';
+import ReactDOM from 'react-dom';
 import 'swiper/css';
 import 'swiper/css/scrollbar';
 /* Component */
 import InvitationModalGallery from "../layout/modal/InvitationModalGallery.js";
+import ButtonWrapper from "../layout/ButtonWrapper.js";
+import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/GalleryChecker.module.scss";
 /* Image */
@@ -18,7 +17,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const GalleryChecker = () => {
   const { selectGalleryPhotoList } = useContext(GalleryContext);
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { selectOptionList } = useContext(SetContext);
   const [moreViewIdx, setMoreViewIdx] = useState(20);
   const [clickedSlideIndex, setClickedSlideIndex] = useState(0); 
   const [open, setOpen] = useState(false);
@@ -105,7 +104,9 @@ const GalleryChecker = () => {
         </ButtonWrapper>
         : null
       }
-      <InvitationModalGallery openvar={open} onClose={handleClose} clickidx={clickedSlideIndex}></InvitationModalGallery>
+      {
+        ReactDOM.createPortal(<InvitationModalGallery openvar={open} onClose={handleClose} clickidx={clickedSlideIndex} />, document.body)
+      }
       {/* <Swiper
         spaceBetween={0}
         slidesPerView={1}

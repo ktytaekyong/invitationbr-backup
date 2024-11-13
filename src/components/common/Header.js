@@ -1,6 +1,7 @@
 /* Import */
 import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import ReactDOM from 'react-dom';
 /* Component */
 import Container from "../layout/Container";
 import ButtonWrapper from "../layout/ButtonWrapper";
@@ -39,8 +40,9 @@ const Header = () => {
             <Button type="button" styleType="primary" content="저장" onClick={handleOpen} />
           </ButtonWrapper>
         </Container>
-
-        <BasicModalHeader openvar={open} onClose={handleClose}></BasicModalHeader>
+        {
+          ReactDOM.createPortal(<BasicModalHeader openvar={open} onClose={handleClose} />, document.body)
+        }
       </header>
     </>
   )

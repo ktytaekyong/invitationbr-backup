@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -12,7 +13,6 @@ import RadioList from "./RadioList.js";
 import RadioItem from "./RadioItem.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
-import BasicModalHeader from "../layout/modal/BasicModalHeader.js";
 import BasicModalNoticeTAdd from "../layout/modal/BasicModalNoticeTAdd.js";
 import BasicModalNoticeTDelete from "../layout/modal/BasicModalNoticeTDelete.js";
 /* CSS Module */
@@ -158,18 +158,23 @@ const NoticeSettingT = () => {
           ))}
         </CommonOptionContent>
       </CommonOptionWrapper>
-
-      <BasicModalNoticeTAdd 
-        openvar={openAdd} 
-        onClose={handleCloseAdd} 
-        addTitle={addTabTitle} 
-        addFunction={noticeAddHandler} 
-      />
-      <BasicModalNoticeTDelete 
-        openvar={openDel}
-        onClose={handleCloseDel} 
-        onClick={() => noticeRemoveHandler(selectNoticeT)} 
-      />
+      {
+        ReactDOM.createPortal(      
+        <BasicModalNoticeTAdd 
+          openvar={openAdd} 
+          onClose={handleCloseAdd} 
+          addTitle={addTabTitle} 
+          addFunction={noticeAddHandler} 
+        />, document.body)
+      }
+      {
+        ReactDOM.createPortal(      
+        <BasicModalNoticeTDelete 
+          openvar={openDel}
+          onClose={handleCloseDel} 
+          onClick={() => noticeRemoveHandler(selectNoticeT)} 
+        />, document.body)
+      }
     </>
   )
 }

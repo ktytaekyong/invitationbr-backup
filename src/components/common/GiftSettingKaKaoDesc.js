@@ -1,5 +1,6 @@
 /* Import */
 import { useEffect, useState } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import SettingNotice from "../layout/SettingNotice.js";
 import BasicModalGiftKakao from '../layout/modal/BasicModalGiftKakao.js';
@@ -20,7 +21,9 @@ const GiftSettingKaKaoDesc = () => {
           <p>카톡 송금 링크 복사 방법</p>
         </button>
       </div>
-      <BasicModalGiftKakao onClose={handleClose} openvar={open} />
+      {
+        ReactDOM.createPortal(<BasicModalGiftKakao onClose={handleClose} openvar={open} />, document.body)
+      }
     </>
   )
 }

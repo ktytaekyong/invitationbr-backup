@@ -1,5 +1,6 @@
 /* Import */
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import Button from "../layout/Button.js"
 import BasicModalLetter from "../layout/modal/BasicModalLetter.js"
@@ -70,7 +71,7 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
       </div>
       {
         type === "letter" ?
-        <BasicModalLetter setLetterList={setLetterList} isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose}></BasicModalLetter>
+        ReactDOM.createPortal(<BasicModalLetter setLetterList={setLetterList} isActiveTab={isActiveTab} setActiveTabHandler={setActiveTabHandler} openvar={open} onClose={handleClose} />, document.body)
         : null
       }
     </>

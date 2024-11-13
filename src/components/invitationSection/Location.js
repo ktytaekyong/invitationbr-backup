@@ -1,6 +1,7 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
 /* Component */
 import Traffic from "./Traffic.js";
 import InvitationModalLocation from "../layout/modal/InvitationModalLocation.js";
@@ -81,7 +82,9 @@ const Location = () => {
         </div>
         {trafficList.length > 0 ? <Traffic /> : null}
       </div>
-      <InvitationModalLocation openvar={open} onClose={handleClose} />
+      {
+        ReactDOM.createPortal(<InvitationModalLocation openvar={open} onClose={handleClose} />, document.body)
+      }
     </div>
   )
 }

@@ -1,7 +1,7 @@
 /* Import */
-import { useState, useEffect, useLayoutEffect, useRef, useContext } from "react";
+import { useState, useRef, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
-import NoticeTItem from "./NoticeTItem.js";
 import HeadLine from "../layout/HeadLine.js";
 import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
@@ -13,7 +13,7 @@ import styles from "../../css/module/invitationSection/Attend.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Attend = () => {
-  const { attendList, setAttendList, selectOptionList } = useContext(SetContext);
+  const { attendList } = useContext(SetContext);
   const attendRef = useRef(null);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -35,7 +35,9 @@ const Attend = () => {
           </ButtonWrapper>
         </div>
       </div>
-      <InvitationModalAttend openvar={open} onClose={handleClose} />
+      {
+        ReactDOM.createPortal(<InvitationModalAttend openvar={open} onClose={handleClose} />, document.body)
+      }
     </div>
   )
 }

@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
@@ -118,7 +119,9 @@ const Letter = () => {
           </ButtonWrapper>
         </div>
       </div>
-      <InvitationModalLetter openvar={open} onClose={handleClose}></InvitationModalLetter>
+      {
+        ReactDOM.createPortal(<InvitationModalLetter openvar={open} onClose={handleClose} />, document.body)
+      }
     </div>
   )
 }

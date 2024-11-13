@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import ReactDOM from 'react-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, Thumbs, Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -125,7 +126,9 @@ const GalleryMix = () => {
           </>
         }
       </Swiper>
-      <InvitationModalGallery openvar={open} onClose={handleClose} clickidx={clickedSlideIndex}></InvitationModalGallery>
+      {
+        ReactDOM.createPortal(<InvitationModalGallery openvar={open} onClose={handleClose} clickidx={clickedSlideIndex} />, document.body)
+      }
     </div>
   )
 }

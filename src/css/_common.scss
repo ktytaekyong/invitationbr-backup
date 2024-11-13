@@ -116,6 +116,9 @@ textarea {
   }
 }
 /* Material UI */
+.MuiModal-root {
+  z-index: 13000 !important;
+}
 .MuiSnackbar-root {
   justify-content: center !important;
   left: 50% !important;

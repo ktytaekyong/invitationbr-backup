@@ -21,10 +21,10 @@ const View = () => {
       e.preventDefault();
     });
     document.addEventListener('gesturechange', function (e) {
-        e.preventDefault();
+      e.preventDefault();
     });
     document.addEventListener('gestureend', function (e) {
-        e.preventDefault();
+      e.preventDefault();
     });
   }, [selectOptionList.zoomOption]);
   return (

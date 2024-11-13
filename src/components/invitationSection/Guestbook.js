@@ -101,11 +101,14 @@ const Guestbook = () => {
           }
         </div>
       </div>
-      <InvitationModalGuestbook 
-        openvar={open} 
-        clickidx={clickidx} 
-        onClose={handleClose} 
-      />
+      {
+        ReactDOM.createPortal(      
+        <InvitationModalGuestbook 
+          openvar={open} 
+          clickidx={clickidx} 
+          onClose={handleClose} 
+        />, document.body)
+      }
     </div>
   )
 }
