@@ -21,7 +21,7 @@ const GallerySettingPhoto = () => {
     if (files && files.length > 0) {
       try {
         const filesArray = Array.from(files);
-        for (const file of filesArray) { // forEach 대신 for...of 사용
+        for (const file of filesArray) { 
           const compressedFile = await imageCompression(file, option);
           const fileList = new FileReader();
           
@@ -41,7 +41,6 @@ const GallerySettingPhoto = () => {
               }
             });
           };
-  
           fileList.readAsDataURL(compressedFile);
         }
       } catch (error) {
@@ -49,10 +48,11 @@ const GallerySettingPhoto = () => {
       }
     }
   }
+  
   return (
     <>
       <div className={styles.photo__wrap}>
-        <div className={styles.photo__content}>
+        <div className={styles.photo__content} >
           <PhotoSelector id="galleryPhotoList" listName={selectGalleryPhotoList} onChange={fileAddHandler} deleteFunction={setSelectGalleryPhotoList} />
         </div>
         <div className={styles.photo__input}>
