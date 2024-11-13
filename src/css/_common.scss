@@ -21,6 +21,9 @@
 html {
   font-size: var(--font-size--base);
 }
+html, body {
+  touch-action: auto;
+}
 .container {
   width: 100%;
   max-width: 1000px;
