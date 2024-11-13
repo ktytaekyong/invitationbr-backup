@@ -22,7 +22,7 @@ html {
   font-size: var(--font-size--base);
 }
 html, body {
-  touch-action: auto;
+  touch-action: var(--touch-option);
 }
 .container {
   width: 100%;
