@@ -68,7 +68,7 @@
         padding: 0;
         background: transparent url(../../../img/icon/icon_header_menu.png) no-repeat center / 24px;
         cursor: pointer;
-        z-index: 9999;
+        z-index: 999;
         &.active {
           background-image: url(../../../img/icon/icon_header_menu_close.png);
         }

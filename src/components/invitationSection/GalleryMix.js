@@ -33,7 +33,7 @@ const GalleryMix = () => {
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
-        loop={true}
+        loop={false}
         centeredSlides={true}
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Thumbs]}
@@ -71,6 +71,9 @@ const GalleryMix = () => {
             <SwiperSlide onClick={() => handleOpen(7)}>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>
+            <SwiperSlide onClick={() => handleOpen(8)}>
+              <img src={galleryPhoto} alt="" />
+            </SwiperSlide>
           </>
         }
       </Swiper>
@@ -95,6 +98,9 @@ const GalleryMix = () => {
           ))
           :
           <>
+            <SwiperSlide>
+              <img src={galleryPhoto} alt="" />
+            </SwiperSlide>
             <SwiperSlide>
               <img src={galleryPhoto} alt="" />
             </SwiperSlide>

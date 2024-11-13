@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useRef, useContext } from "react";
+import { useState, useEffect, useLayoutEffect, useRef, useContext } from "react";
 /* Component */
 import NoticeTItem from "./NoticeTItem.js";
 import HeadLine from "../layout/HeadLine.js";
@@ -12,7 +12,7 @@ import styles from "../../css/module/invitationSection/Attend.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const Attend = ({ containerRef }) => {
+const Attend = () => {
   const { attendList, setAttendList, selectOptionList } = useContext(SetContext);
   const attendRef = useRef(null);
   const [open, setOpen] = useState(false);
@@ -20,26 +20,6 @@ const Attend = ({ containerRef }) => {
   const handleClose = () => {
     setOpen(false);
   };
-  // useEffect(() => {
-  //   if(selectOptionList.optionAttendPopup === "optionAttendPopupOpen" && (window.location.href.includes("preview"))) {
-  //     setOpen(true);
-  //   }
-  // }, [])
-  // useEffect(() => {
-  //   const rect = attendRef.current.getBoundingClientRect();
-  //   containerRef.current.addEventListener("scroll", () => {
-  //     console.log(attendRef.current.offsetHeight);
-  //     console.log(rect.top);
-  //     if(containerRef.current.scrollTop >= rect.top) {
-  //       console.log(attendRef.current);
-  //     }
-  //     console.log("rect.top" + rect.top);
-  //     console.log("window.scrollY" + window.scrollY);
-  //     console.log(window.innerHeight);
-  //     console.log(window.scrollY);
-  //   })
-  //   console.log(containerRef.current);
-  // }, []);
   return (
     <div id="Attend" className={`${styles.attend}`} ref={attendRef}>
       <div className={styles.attend__wrap}>
