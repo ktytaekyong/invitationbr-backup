@@ -1,6 +1,7 @@
 /* Import */
 import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import { useInView } from "react-intersection-observer";
 /* Component */
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
@@ -73,9 +74,13 @@ const Invitation = () => {
   useEffect(() => {
     document.documentElement.style.setProperty('--font-size--base', selectOptionList.fontSize);
   }, [selectOptionList.fontSize]);
+  useEffect(() => {
+    
+  }, [selectOptionList.scrollEffectOption]);
+
   return (
     <div 
-      className={`${styles.invitation} ${isTargetPage ? styles.preview : ""}`}
+      className={`${styles.invitation} ${isTargetPage ? styles.preview : ""} invitation-scroll`}
       style={{ backgroundColor: selectOptionList.backgroundColor }}
     >
       <Container 

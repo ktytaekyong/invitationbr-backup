@@ -14,7 +14,7 @@ import IconFlower  from "../../img/icon/icon_deceased_flower.png";
 import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
-const Letter = () => {
+const Letter = ({ aos }) => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const { letterList, setLetterList, selectOptionList } = useContext(SetContext);
   const [ deceasedIcon, setDeceasedIcon ] = useState("故");
@@ -80,7 +80,7 @@ const Letter = () => {
     : setDeceasedIcon("故");
   }, [selectOptionList.deceasedFlower]);
   return (
-    <div id="Letter" className={`${styles.letter}`}>
+    <div id="Letter" className={`${styles.letter}`} data-aos={aos}>
       <div className={styles.letter__wrap}>
         <HeadLine title={letterList.title ? letterList.title : "초대합니다"} content="invitation" />
         <div className={styles.letter__content}>

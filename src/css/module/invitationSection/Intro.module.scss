@@ -211,6 +211,9 @@
   }
 }
 .basicTemplate4 {
+  &:first-child {
+    padding-top: 44px;
+  }
   .intro__wrap {
     padding: 0 20px;
     padding-top: 6px;
