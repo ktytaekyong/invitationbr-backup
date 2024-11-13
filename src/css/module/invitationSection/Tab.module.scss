@@ -71,6 +71,7 @@
         z-index: 999;
         &.active {
           background-image: url(../../../img/icon/icon_header_menu_close.png);
+          z-index: 1000
         }
       }
     }
