@@ -1,6 +1,9 @@
 @import "../../_module";
 .produce {
   width: 65%;
+  @include device__query(mobile) {
+    width: 100%;
+  }
   & > div {
     padding: 0;
   }
