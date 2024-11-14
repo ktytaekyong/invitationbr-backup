@@ -12,26 +12,21 @@ import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_
 import { IntroContext } from "../../store/option-intro-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
-const introText = [
-  "저희 결혼합니다", "이보람 김신우", "2024.11.30 토요일 오후 2시", "보람컨벤션 카리나홀(4층)"
-]
-
 const IntroPhotoSettingTextColor = ({ isActive }) => {
-  const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, selectIntroWord, setSelectIntroWord } = useContext(IntroContext);
+  const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, setIntroSmaple } = useContext(IntroContext);
   const { selectOptionList } = useContext(SetContext);
-  const [pickerActive, setPickerActive] = useState([false, false, false, false, false]);
-  const [themeType, setThemeType] = useState([1, 2, 3, 4, 5]);
+  const [ pickerActive, setPickerActive ] = useState([false, false, false, false, false]);
   // 누른 곳 감지
   const pickerRef = useRef([]);
   const lastIdx = useRef(null);
   const handleClick = (e) => {
     if (pickerRef.current.includes(e.target)) { 
       lastIdx.current = pickerRef.current.indexOf(e.target);
-    } else if (e.target.closest(`.${styles.picker__active}`)) { 
+    } else if (e.target.closest(`.${styles.picker__active}`)) {
       return; 
     } 
     else { 
-      pickerClose(); 
+      pickerClose();
     }
   };
   const pickerOpen = (clickIdx) => {
@@ -83,6 +78,15 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       });
     }
   };
+  const changeSampleText = (e, idx) => {
+    const { value } = e.target;
+    setIntroSmaple((prev) => 
+      prev.map((item, prevIdx) => (
+        prevIdx === idx ? value : item
+      ))
+    )
+  }
+
   useEffect(() => {
     document.addEventListener("click", handleClick);
     return () => {
@@ -112,7 +116,9 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       typeNumber = 3;
     }
     const newColorArray = Array.from({ length: typeNumber }, () => "");
+    const newSampleIntro = Array.from({ length: typeNumber }, () => "");
     setSelectIntroColor(newColorArray);
+    setIntroSmaple(newSampleIntro);
   }, [selectOptionList.introFillType])
 
   return (
@@ -188,7 +194,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                   : null
                 }
                 <div className={`${styles.txt__wrapper}`}>
-                  <input type="text" id={`settingTxt${coloridx + 1}`} defaultValue="예시" style={{color: selectIntroColor[coloridx]}}/>
+                  <input type="text" id={`settingTxt${coloridx + 1}`} onChange={(e) => changeSampleText(e, coloridx)} placeholder="예시" style={{color: selectIntroColor[coloridx]}} />
                 </div>
               </li>
             )

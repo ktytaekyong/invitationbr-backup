@@ -333,6 +333,10 @@
     "optionAttendKakao": false
   },
 
+  "introSmaple": [
+
+  ],
+
   "videoList": {
     "videoUrl": "",
     "videoSrc": ""

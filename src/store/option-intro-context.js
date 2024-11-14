@@ -12,4 +12,6 @@ export const IntroContext = createContext({
   setPrevIntroColor: () => {}, 
   selectIntroWord: [],
   setSelectIntroWord: () => {}, 
+  introSmaple: [],
+  setIntroSmaple: () => {}, 
 });

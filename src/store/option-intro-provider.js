@@ -10,6 +10,7 @@ const IntroProvider = ({ children }) => {
   const [selectIntroColor, setSelectIntroColor] = useState(initList.selectIntroColor);
   const [prevIntroColor, setPrevIntroColor] = useState(initList.prevIntroColor);
   const [selectIntroWord, setSelectIntroWord] = useState(initList.selectIntroWord);
+  const [introSmaple, setIntroSmaple] = useState(initList.introSmaple);
   return (
     <IntroContext.Provider
       value={{
@@ -23,6 +24,8 @@ const IntroProvider = ({ children }) => {
         setPrevIntroColor,
         selectIntroWord,
         setSelectIntroWord, 
+        introSmaple,
+        setIntroSmaple, 
       }}
     >
       {children}
