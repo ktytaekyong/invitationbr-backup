@@ -12,7 +12,8 @@ import { GalleryContext } from "../../store/option-gallery-context.js";
 const GallerySettingPhoto = () => {
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   const fileAddHandler = async (e) => {
-    const files = e.target.files;
+    e.preventDefault();
+    const files = e.type === 'drop' ? e.dataTransfer.files : e.target.files;
     const option = {
       maxSizeMB: 4,
       maxWidthOrHeight: 1200,
@@ -48,10 +49,14 @@ const GallerySettingPhoto = () => {
       }
     }
   }
-  
+
   return (
     <>
-      <div className={styles.photo__wrap}>
+      <div 
+        className={styles.photo__wrap}
+        onDragOver={(e) => e.preventDefault()}
+        onDrop={fileAddHandler}
+      >
         <div className={styles.photo__content} >
           <PhotoSelector id="galleryPhotoList" listName={selectGalleryPhotoList} onChange={fileAddHandler} deleteFunction={setSelectGalleryPhotoList} />
         </div>
@@ -59,7 +64,6 @@ const GallerySettingPhoto = () => {
           <div className={styles.photo__input_wrap}>
             <input type="file" name="galleryFile" id="galleryFile" multiple onChange={fileAddHandler} />
             <label htmlFor="galleryFile">사진 추가</label>
-            {/* 아직 안됨 */}
             <p>사진을 끌어오셔도 됩니다.</p>
           </div>
           <div className={styles.photo__input_total}>
