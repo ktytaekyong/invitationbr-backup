@@ -12,10 +12,10 @@ import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_
 import { IntroContext } from "../../store/option-intro-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
-const initTextType = [
-  ["저희 결혼합니다", "이보람 김신우", "2024.11.30 토요일 오후 2시", "보람컨벤션 카리나홀(4층)"],
-
+const introText = [
+  "저희 결혼합니다", "이보람 김신우", "2024.11.30 토요일 오후 2시", "보람컨벤션 카리나홀(4층)"
 ]
+
 const IntroPhotoSettingTextColor = ({ isActive }) => {
   const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, selectIntroWord, setSelectIntroWord } = useContext(IntroContext);
   const { selectOptionList } = useContext(SetContext);
@@ -180,8 +180,8 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                     </div>
                     <div className={styles.picker__button_wrapper}>
                       <ButtonWrapper styleType="center">
-                        <Button content="취소" styleType="picker" onClick={() => pickerCancel()}></Button>
-                        <Button content="적용" styleType="picker" onClick={() => pickerAccept(coloridx)}></Button>
+                        <Button content="취소" styleType="picker" onClick={() => pickerCancel()} />
+                        <Button content="적용" styleType="picker" onClick={() => pickerAccept(coloridx)} />
                       </ButtonWrapper>
                     </div>
                   </div>
