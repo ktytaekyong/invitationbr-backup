@@ -2,6 +2,7 @@
 import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import { useInView } from "react-intersection-observer";
+import ReactDOM from 'react-dom';
 /* Component */
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
@@ -22,6 +23,7 @@ import Outro from "../invitationSection/Outro";
 import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
 import SettingOther from "../invitationSection/SettingOther.js";
+import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 /* CSS Module */
 import styles from "../../css/module/page/Invitation.module.scss";
 /* Context */
@@ -35,6 +37,18 @@ const Invitation = () => {
   const setActiveTabHandler = () => {
     setIsActiveTab(!isActiveTab);
   }
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => {
+    setOpen(false);
+  };
+  useEffect(() => {
+    if(selectOptionList.optionAttendPopup === "optionAttendPopupOpen" && selectSettingList.includes("settingAttend")) {
+      if (!open) {  // 이미 모달이 열려 있지 않다면 열기
+        handleOpen();
+      }
+    }
+  }, [])
   const renderItemHandler = (id) => {
     switch(id) {
       case "settingLetter":
@@ -56,11 +70,22 @@ const Invitation = () => {
       case "settingGuestbook":
         return <Guestbook />;
       case "settingAttend":
-        return <Attend />;
+        return <Attend ref={attendRef} handleOpen={handleOpen} />;
       default:
         return null;
     }
   }
+  const [attendRef, inView] = useInView({
+    triggerOnce: true, 
+    threshold: 0.5,
+  });
+  useEffect(() => {
+    if(selectOptionList.optionAttendPopup === "optionAttendPopupScroll" && selectSettingList.includes("settingAttend")) {
+      if (inView) {
+        handleOpen();
+      }
+    } 
+  }, [inView]);
   useEffect(() => {
     settingList.map((item) => (
       selectSettingList.includes(item.itemId) ?
@@ -74,10 +99,9 @@ const Invitation = () => {
   useEffect(() => {
     document.documentElement.style.setProperty('--font-size--base', selectOptionList.fontSize);
   }, [selectOptionList.fontSize]);
-  useEffect(() => {
+  // useEffect(() => {
     
-  }, [selectOptionList.scrollEffectOption]);
-
+  // }, [selectOptionList.scrollEffectOption]);
   return (
     <div 
       className={`${styles.invitation} ${isTargetPage ? styles.preview : ""} invitation-scroll`}
@@ -110,6 +134,9 @@ const Invitation = () => {
         {/* {isTargetPage ? null: <SettingOther />} */}
         <Footer />
       </Container>
+      {
+        ReactDOM.createPortal(<InvitationModalAttend openvar={open} onClose={handleClose} />, document.body)
+      }
     </div>
   )
 }
