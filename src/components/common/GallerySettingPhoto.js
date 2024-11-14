@@ -1,9 +1,10 @@
 /* Import */
 import { useEffect, useState, useContext } from "react";
+import ReactDOM from 'react-dom';
 import imageCompression from 'browser-image-compression';
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";
-import CheckItem from "./CheckItem.js";
+import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/common/GallerySettingPhoto.module.scss";
 /* Context */
@@ -11,6 +12,7 @@ import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const GallerySettingPhoto = () => {
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
+  const [open, setOpen] = useState(false);
   const fileAddHandler = async (e) => {
     e.preventDefault();
     const files = e.type === 'drop' ? e.dataTransfer.files : e.target.files;
@@ -29,7 +31,7 @@ const GallerySettingPhoto = () => {
           fileList.onload = (event) => {
             setSelectGalleryPhotoList((prevList) => {
               if (prevList.length >= 20) {
-                // 토스트 알림 추가 가능
+                setOpen(true);
                 return prevList;
               } else {
                 return [
@@ -62,7 +64,7 @@ const GallerySettingPhoto = () => {
         </div>
         <div className={styles.photo__input}>
           <div className={styles.photo__input_wrap}>
-            <input type="file" name="galleryFile" id="galleryFile" multiple onChange={fileAddHandler} />
+            <input type="file" name="galleryFile" id="galleryFile" multiple onChange={fileAddHandler} /> 
             <label htmlFor="galleryFile">사진 추가</label>
             <p>사진을 끌어오셔도 됩니다.</p>
           </div>
@@ -75,6 +77,7 @@ const GallerySettingPhoto = () => {
           </div>
         </div>
       </div>
+      <Toast type="warn" open={open} setOpen={setOpen} message="최대 20장입니다." />
     </>
   )
 }

@@ -132,12 +132,12 @@ textarea {
 .MuiSnackbarContent-root {
   justify-content: center;
   padding: 15px 16px !important;
-  background-color: #7197CF !important;
+  // background-color: #7197CF !important;
+  background-color: var(--toast-bgcolor, #7197CF) !important;
   // background-color: rgba(113, 151, 207, 0.8) !important;
   // background-blend-mode: multiply !important;
   border-radius: 999px !important;
   box-shadow: unset !important;
-  // filter: drop-shadow(0 4px 8px rgba(24, 45, 75, 0.12));
 }
 .MuiSnackbarContent-message {
   padding: 0 !important;
@@ -156,4 +156,4 @@ textarea {
       height: 18px;
     }
   }
-} 
+}
