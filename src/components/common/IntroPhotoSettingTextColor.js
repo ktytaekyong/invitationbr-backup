@@ -11,10 +11,12 @@ import { ReactComponent as IconColorPickerImg } from "../../img/icon/icon_color_
 /* Context */
 import { IntroContext } from "../../store/option-intro-context.js";
 import { SetContext } from "../../store/option-set-context.js";
+import { InfoContext } from "../../store/option-info-context.js";
 
 const IntroPhotoSettingTextColor = ({ isActive }) => {
-  const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, setIntroSmaple } = useContext(IntroContext);
+  const { selectIntroColor, setSelectIntroColor, prevIntroColor, setPrevIntroColor, presetColors, setPresetColors, setintroSample } = useContext(IntroContext);
   const { selectOptionList } = useContext(SetContext);
+  const { basicInfoList } = useContext(InfoContext);
   const [ pickerActive, setPickerActive ] = useState([false, false, false, false, false]);
   // 누른 곳 감지
   const pickerRef = useRef([]);
@@ -80,13 +82,104 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   };
   const changeSampleText = (e, idx) => {
     const { value } = e.target;
-    setIntroSmaple((prev) => 
+    setintroSample((prev) => 
       prev.map((item, prevIdx) => (
         prevIdx === idx ? value : item
       ))
     )
   }
-
+  const handleDateChange = (date) => {
+    const selectedDate = date; 
+    const formattedDate = selectedDate.split('-').join('.');
+    return formattedDate;
+  };
+  const handleDateChangeTheme2M = (date) => {
+    const selectedDate = date; 
+    return selectedDate.substring(5, 7);
+  };
+  const handleDateChangeTheme2D = (date) => {
+    const selectedDate = date; 
+    return selectedDate.substring(8, 10);
+  };
+  const handleDateChangeTheme4 = (date) => {
+    const selectedDate = date; 
+    const formattedDate = selectedDate.split('-').join(' / ');
+    return formattedDate;
+  };
+  const handleDaysChange = (date) => {
+    const dateObj = new Date(date);
+    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; // 요일 배열
+    const dayOfWeek = daysOfWeek[dateObj.getDay()]; // 요일 계산
+    return dayOfWeek;
+  }
+  const placeholderRenderer = (idx) => {
+    if(selectOptionList.theme === "themeModernBasic"){
+      switch(selectOptionList.introFillType) {
+        case "basicTemplate1":
+          const listB1 = [
+            "저희 결혼합니다", 
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listB1[idx];
+        case "basicTemplate2":
+          const listB2 = [
+            `${handleDateChangeTheme2M(basicInfoList.dateInfo.date)} / ${handleDateChangeTheme2D(basicInfoList.dateInfo.date)}`,
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listB2[idx];
+        case "basicTemplate3":
+          const listB3 = [
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listB3[idx];
+        case "basicTemplate4":
+          const listB4 = [
+            `${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`,
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listB4[idx];
+        case "fillTemplate1":
+          const listF1 = [
+            "결혼합니다", 
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listF1[idx];
+        case "fillTemplate2":
+          const listF2 = [
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listF2[idx];
+        case "fillTemplate3":
+          const listF3 = [
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listF3[idx];
+        case "fillTemplate4":
+          const listF4 = [
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
+          ];
+          return listF4[idx];
+        default:
+          return;
+      }
+    }
+  }
   useEffect(() => {
     document.addEventListener("click", handleClick);
     return () => {
@@ -104,12 +197,12 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     let typeNumber = null;
     if(selectOptionList.introFillType === "basicTemplate1"
       || selectOptionList.introFillType === "basicTemplate2"
-      || selectOptionList.introFillType === "basicTemplate3"
       || selectOptionList.introFillType === "basicTemplate4"
       || selectOptionList.introFillType === "fillTemplate1"
     ) {
       typeNumber = 4;
-    } else if(selectOptionList.introFillType === "fillTemplate2"
+    } else if(selectOptionList.introFillType === "basicTemplate3"
+      || selectOptionList.introFillType === "fillTemplate2"
       || selectOptionList.introFillType === "fillTemplate3"
       || selectOptionList.introFillType === "fillTemplate4"
     ) {
@@ -118,9 +211,8 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     const newColorArray = Array.from({ length: typeNumber }, () => "");
     const newSampleIntro = Array.from({ length: typeNumber }, () => "");
     setSelectIntroColor(newColorArray);
-    setIntroSmaple(newSampleIntro);
+    setintroSample(newSampleIntro);
   }, [selectOptionList.introFillType])
-
   return (
     <>
       <ul className={`${styles.option__list} ${isActive ? styles["active"] : ""}`}>
@@ -194,7 +286,14 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                   : null
                 }
                 <div className={`${styles.txt__wrapper}`}>
-                  <input type="text" id={`settingTxt${coloridx + 1}`} onChange={(e) => changeSampleText(e, coloridx)} placeholder="예시" style={{color: selectIntroColor[coloridx]}} />
+                  <input 
+                    type="text" 
+                    id={`settingTxt${coloridx + 1}`} 
+                    onChange={(e) => changeSampleText(e, coloridx)} 
+                    placeholder={placeholderRenderer(coloridx)}
+                    style={{color: selectIntroColor[coloridx]}} 
+                    // Require: 저장 시 인트로 인풋(상기)에 입력한 내용이 우선 적용 (241115)
+                  />
                 </div>
               </li>
             )

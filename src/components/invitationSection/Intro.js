@@ -25,7 +25,7 @@ import { IntroContext } from "../../store/option-intro-context.js";
 const Intro = () => {
   const { selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
-  const { selectIntroPhoto, prevIntroColor, introSmaple } = useContext(IntroContext);
+  const { selectIntroPhoto, prevIntroColor, introSample } = useContext(IntroContext);
   const handleDateChange = (date) => {
     const selectedDate = date; 
     const formattedDate = selectedDate.split('-').join('.');
@@ -75,7 +75,7 @@ const Intro = () => {
                 <div className={styles.txt__wrap}>
                   <p style={{color: prevIntroColor[0]}}>
                     {
-                      introSmaple && introSmaple[0] ? introSmaple[0] : "저희 결혼합니다"
+                      introSample && introSample[0] ? introSample[0] : "저희 결혼합니다"
                     }
                   </p>
                 </div>
@@ -90,25 +90,25 @@ const Intro = () => {
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
                   <h2 className={styles.groom} style={{color: prevIntroColor[1]}}>
-                    {introSmaple && introSmaple[1] ? nameDivideHandler(introSmaple[1], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}
+                    {introSample && introSample[1] ? nameDivideHandler(introSample[1], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}
                   </h2>
                   <p className={styles.divide}></p>
                   <h2 className={styles.bride} style={{color: prevIntroColor[1]}}>
                     {}
-                    {introSmaple && introSmaple[1] ? nameDivideHandler(introSmaple[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}
+                    {introSample && introSample[1] ? nameDivideHandler(introSample[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}
 
                   </h2>
                 </div>
                 <div className={styles.intro__title_date}>
                   <h3 className={styles.date} style={{color: prevIntroColor[2]}}>
                     {
-                      introSmaple && introSmaple[2] ? introSmaple[2] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`
+                      introSample && introSample[2] ? introSample[2] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`
                     }
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
                   <h4 className={styles.groom} style={{color: prevIntroColor[3]}}>
-                    {introSmaple && introSmaple[3] ? introSmaple[3] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}
+                    {introSample && introSample[3] ? introSample[3] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}
                   </h4>
                 </div>
               </div>
@@ -123,9 +123,16 @@ const Intro = () => {
                 </div>
                 <div className={styles.txt__wrap}>
                   <p style={{color: prevIntroColor[0]}}>
-                    {`${handleDateChangeTheme2M(basicInfoList.dateInfo.date)}`}
-                    <span>/</span>
-                    {`${handleDateChangeTheme2D(basicInfoList.dateInfo.date)}`}
+                    {introSample && introSample[0] ? 
+                      <span>{introSample[0]}</span>
+                      : (
+                        <>
+                          {handleDateChangeTheme2M(basicInfoList.dateInfo.date)}
+                          <span>/</span>
+                          {handleDateChangeTheme2D(basicInfoList.dateInfo.date)}
+                        </>
+                      )
+                    }
                   </p>
                 </div>
               </div>
@@ -140,9 +147,9 @@ const Intro = () => {
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{introSample && introSample[1] ? nameDivideHandler(introSample[1], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <p className={styles.divide}></p>
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{introSample && introSample[1] ? nameDivideHandler(introSample[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
                 </div>
                 <div className={styles.intro__title_date}>
                   <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
@@ -165,17 +172,25 @@ const Intro = () => {
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
-                  <p className={styles.divide}>그리고</p>
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  {
+                    introSample && introSample[0] ? 
+                    <h2>{introSample[0]}</h2> :
+                    (
+                      <>
+                        <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{introSample && introSample[0] ? nameDivideHandler(introSample[1], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                        <p className={styles.divide}>그리고</p>
+                        <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{introSample && introSample[0] ? nameDivideHandler(introSample[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                      </>
+                    )
+                  }
                 </div>
                 <div className={styles.intro__title_date}>
-                  <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                  <h3 style={{color: prevIntroColor[1]}} className={styles.date}>
+                    {introSample && introSample[1] ? introSample[1] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
-                  <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{introSample && introSample[2] ? introSample[2] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
                 </div>
               </div>
               <div className={styles.intro__photo}>
@@ -193,7 +208,7 @@ const Intro = () => {
               <div className={styles.intro__headline}>
                 <div className={styles.txt__wrap}>
                   <p style={{color: prevIntroColor[0]}}>
-                    {`${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`}
+                    {introSample && introSample[0] ? introSample[0] : `${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`}
                   </p>
                 </div>
               </div>
@@ -206,17 +221,17 @@ const Intro = () => {
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{introSample && introSample[1] ? nameDivideHandler(introSample[1], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <img src={intro4Letter} alt="" />
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{introSample && introSample[1] ? nameDivideHandler(introSample[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
                 </div>
                 <div className={styles.intro__title_date}>
                   <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                    {introSample && introSample[2] ? introSample[2] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
-                  <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                  <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{introSample && introSample[3] ? introSample[3] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
                 </div>
               </div>
             </div>
@@ -227,23 +242,23 @@ const Intro = () => {
               <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto5 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
                 <div className={styles.intro__headline}>
                   <div className={styles.txt__wrap}>
-                    <p style={{color: prevIntroColor[0]}}>결혼합니다</p>
+                    <p style={{color: prevIntroColor[0]}}>{introSample && introSample[0] ? introSample[0] : "결혼합니다"}</p>
                   </div>
                 </div>
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                  <h2 style={{color: prevIntroColor[1]}} className={styles.groom}>{introSample && introSample[1] ? nameDivideHandler(introSample[1], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <p className={styles.divide}></p>
-                  <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  <h2 style={{color: prevIntroColor[1]}} className={styles.bride}>{introSample && introSample[1] ? nameDivideHandler(introSample[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
                 </div>
                 <div className={styles.intro__title_date}>
                   <h3 style={{color: prevIntroColor[2]}} className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                    {introSample && introSample[2] ? introSample[2] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
-                  <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                  <h4 style={{color: prevIntroColor[3]}} className={styles.groom}>{introSample && introSample[3] ? introSample[3] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
                 </div>
               </div>
             </div>
@@ -253,19 +268,19 @@ const Intro = () => {
             <div className={styles.intro__wrap}>
               <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto6 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <img src={intro4Letter} alt="" />
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
                 </div>
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_date}>
                   <h3 style={{color: prevIntroColor[1]}} className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                    {introSample && introSample[1] ? introSample[1] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
-                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{introSample && introSample[2] ? introSample[2] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
                 </div>
               </div>
             </div>
@@ -277,17 +292,17 @@ const Intro = () => {
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <img src={intro4Letter} alt="" />
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
                 </div>
                 <div className={styles.intro__title_date}>
                   <h3 style={{color: prevIntroColor[1]}} className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                    {introSample && introSample[1] ? introSample[1] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
-                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{introSample && introSample[2] ? introSample[2] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
                 </div>
               </div>
             </div>
@@ -299,17 +314,17 @@ const Intro = () => {
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
+                  <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <h2>&</h2>
-                  <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
+                  <h2 style={{color: prevIntroColor[0]}} className={styles.bride}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}</h2>
                 </div>
                 <div className={styles.intro__title_date}>
                   <h3 style={{color: prevIntroColor[1]}} className={styles.date}>
-                    {`${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
+                    {introSample && introSample[1] ? introSample[1] : `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date) + "요일"} ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}`}
                   </h3>
                 </div>
                 <div className={styles.intro__title_place}>
-                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
+                  <h4 style={{color: prevIntroColor[2]}} className={styles.groom}>{introSample && introSample[2] ? introSample[2] : placeInitHandler(basicInfoList.placeInfo, "보람컨벤션 카리나홀(4층)")}</h4>
                 </div>
               </div>
             </div>
