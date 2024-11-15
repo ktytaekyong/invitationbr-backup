@@ -27,8 +27,8 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
           {
             option ?
             <>
-              <input type="checkbox" id={checkboxID} name={checkboxID} checked={checked} onChange={onChange} />
-              <label htmlFor={checkboxID} name={checkboxID}>{itemTitle}</label>
+              <input type="checkbox" id={checkboxID} name={checkboxID} checked={checked} onChange={onChange} onClick={(e) => e.stopPropagation()}/>
+              <label htmlFor={checkboxID} name={checkboxID} onClick={(e) => e.stopPropagation()}>{itemTitle}</label>
             </>
             :
             <p>{itemTitle}</p>

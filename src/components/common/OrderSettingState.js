@@ -67,9 +67,9 @@ const OrderSettingState = () => {
         return null;
     }
   }
-  useEffect(() => {
-    console.log("Updated selectSettingList:", selectSettingList);
-  }, [selectSettingList]);
+  // useEffect(() => {
+  //   console.log("Updated selectSettingList:", selectSettingList);
+  // }, [selectSettingList]);
   const renderItemHandler = useCallback((item, index) => {
     return (
         <OrderSettingStateItem 
