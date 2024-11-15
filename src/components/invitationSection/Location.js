@@ -8,6 +8,7 @@ import InvitationModalLocation from "../layout/modal/InvitationModalLocation.js"
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
+import LocationMap from "./LocationMap.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Location.module.scss";
 /* Image */
@@ -44,7 +45,6 @@ const Location = () => {
                 : "보람컨벤션 카리나홀(4층)"
               }
             </p>
-            {/* <p>울산광역시 남구 왕생로160</p> */}
             <p>{basicInfoList.placeInfo.placeAddress ? basicInfoList.placeInfo.placeAddress : "울산광역시 남구 왕생로160"}</p>
           </div>
           {
@@ -56,7 +56,10 @@ const Location = () => {
           }
           <div className={styles.map}>
             <div className={styles.map__wrap}>
-              <img src={tempMapImg} alt="" />
+              <div className={styles.map__view}>
+                <img src={tempMapImg} alt="" />
+                {/* <LocationMap /> */}
+              </div>
               <ul className={styles.map__search_list}>
                 <li className={styles.map__search_item}>
                   <Link to="#" onClick={(e => e.preventDefault())}>

@@ -39,8 +39,11 @@
         width: 100%;
         border-bottom: 10px solid $bg-color--tab;
       }
-      img {
+      &__view {
         width: 100%;
+        img {
+          width: 100%;
+        }
       }
       &__search_list {
         @include flex__row;
