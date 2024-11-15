@@ -24,7 +24,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const fixedList = ["고정 메뉴 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const OrderSettingState = () => {
-  const { settingOrderList, setSettingOrderList, settingList, selectSettingList, setSelectSettingList } = useContext(SetContext);
+  const { settingList, selectSettingList, setSelectSettingList } = useContext(SetContext);
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
     setSelectSettingList((prevList) =>
       {
@@ -63,8 +63,6 @@ const OrderSettingState = () => {
         return <Guestbook />;
       case "settingAttend":
         return <Attend />;
-      case "settingAttend":
-        return <Attend />;
       default:
         return null;
     }
@@ -94,11 +92,13 @@ const OrderSettingState = () => {
                   </label>
                 </div>
                 <div className={styles.order__item_inner}>
-                  {
+                  
+                  {// Feat: 내부 이미지 OR 렌더링 처리
+                  /* {
                     selectSettingList.includes(item) ? (
-                      <>{renderComponentHandler(item)}</>
+                      renderComponentHandler(item)
                     ) : null
-                  }
+                  } */}
                 </div>
               </div>
               :
