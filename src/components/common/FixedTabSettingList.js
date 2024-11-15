@@ -11,7 +11,6 @@ import { TabContext } from "../../store/option-tab-context.js";
 const FixedTabSettingList = () => {
   const { basicTabList, selectTabList, setSelectTabList } = useContext(TabContext);
   const [open, setOpen] = useState(false);
-
   const changeFixTabHandler = (clickedIdx) => {
     const selectedItem = basicTabList[clickedIdx].id;
     setSelectTabList(prevList => {
