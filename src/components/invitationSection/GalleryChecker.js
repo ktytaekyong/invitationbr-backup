@@ -35,9 +35,6 @@ const GalleryChecker = () => {
       setMoreViewIdx(20);
     }
   }, [selectOptionList.galleryMoreOption])
-  const moreViewHandler = () => {
-    setMoreViewIdx(20);
-  }
   return (
     <div className={`${styles.gallery__type} ${styles.checker}`}>
       <div className={styles.checker__wrap}>
@@ -71,6 +68,16 @@ const GalleryChecker = () => {
             <div onClick={() => handleOpen(9)} className={styles.gallery__item}>
               <img src={galleryPhoto} alt="" />
             </div>
+            {moreViewIdx === 20 ?
+              <>
+                <div onClick={() => handleOpen(10)} className={styles.gallery__item}>
+                  <img src={galleryPhoto} alt="" />
+                </div>
+                <div onClick={() => handleOpen(11)} className={styles.gallery__item}>
+                  <img src={galleryPhoto} alt="" />
+                </div>
+              </> : null
+            }
             {
               selectOptionList.galleryMoreOption === false ?
               <>
@@ -99,7 +106,7 @@ const GalleryChecker = () => {
           <Button 
             content="더보기" 
             styleType="invitation__gallery_view"
-            onClick={moreViewHandler}
+            onClick={() => setMoreViewIdx(20)}
           />
         </ButtonWrapper>
         : null
