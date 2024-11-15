@@ -73,7 +73,7 @@ const NoticeSettingD = () => {
                   name="title" 
                   value={item.title} 
                   onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
-                  placeholder="탭 제목을 작성해 주세요." 
+                  placeholder="공지사항 제목을 작성해 주세요." 
                 />
               </CommonItemContent>
     

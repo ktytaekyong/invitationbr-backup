@@ -24,10 +24,10 @@ const NoticeD = () => {
                 className={`${styles.content} ${styles[noticeDList[idx].position]}`}
               >
                 <div className={styles.title}>
-                  <p>{item.title}</p>
+                  <p>{item.title ? item.title : "답례품 안내"}</p>
                 </div>
                 <p>
-                  {item.content}
+                  {item.content ? item.content : "식사를 못하고 가시는 분들을 위해 피로연 출구에\n작은 선물을 준비했으니 잊지 마시고 챙겨 가세요."}
                 </p>
                 <img src={item.src === "" ? defaultImg : item.src} alt="" />
               </div>

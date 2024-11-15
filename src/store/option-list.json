@@ -407,9 +407,9 @@
   ],
   "noticeDList": [
     {
-      "title": "답례품 안내",
+      "title": "",
       "id": "noticeDivide",
-      "content": "식사를 못하고 가시는 분들을 위해 피로연 출구에\n작은 선물을 준비했으니 잊지 마시고 챙겨 가세요.",
+      "content": "",
       "src": "",
       "position": "top"
     }
