@@ -135,6 +135,7 @@
     height: 100vh;
     display: none;
     z-index: -1;
+    backdrop-filter: blur(10px);
     &.active {
       display: flex;
       justify-content: flex-end;
