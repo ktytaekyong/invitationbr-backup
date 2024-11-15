@@ -115,7 +115,7 @@ const Calendar = () => {
                   <p>
                     {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                     , {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                    의 결혼식이<span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                    의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
                 </div>
                 : null
               }
