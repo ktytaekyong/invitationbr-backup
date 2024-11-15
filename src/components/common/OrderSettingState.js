@@ -25,22 +25,22 @@ import { SetContext } from "../../store/option-set-context.js";
 const fixedList = ["고정 메뉴 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
 const OrderSettingState = () => {
   const { settingList, selectSettingList, setSelectSettingList } = useContext(SetContext);
+  const fixedItems = ["settingOutro", "settingThumbK", "settingThumbU", "settingOrder"];
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
-    setSelectSettingList((prevList) =>
-      {
-        const updateOrderList = update(prevList, {
-          $splice: [
-            [dragIndex, 1],
-            [hoverIndex, 0, prevList[dragIndex]],
-          ],
-        });
-        // let currentOrder = 1;
-        return updateOrderList.map((item, idx) => (
-          updateOrderList[idx] = item
-        ));
-      }
-    )
-  }, [selectSettingList, settingList]);
+    setSelectSettingList((prevList) => {
+      const movableItems = prevList.filter(item => !fixedItems.includes(item));
+      const updatedMovableItems = update(movableItems, {
+        $splice: [
+          [dragIndex, 1],
+          [hoverIndex, 0, movableItems[dragIndex]],
+        ],
+      });
+      const updatedList = prevList.map(item => 
+        fixedItems.includes(item) ? item : updatedMovableItems.shift()
+      );
+      return updatedList;
+    });
+  }, [setSelectSettingList]);
   const renderComponentHandler = (id) => {
     switch(id) {
       case "settingLetter":
@@ -67,6 +67,9 @@ const OrderSettingState = () => {
         return null;
     }
   }
+  useEffect(() => {
+    console.log("Updated selectSettingList:", selectSettingList);
+  }, [selectSettingList]);
   const renderItemHandler = useCallback((item, index) => {
     return (
         <OrderSettingStateItem 
@@ -92,7 +95,6 @@ const OrderSettingState = () => {
                   </label>
                 </div>
                 <div className={styles.order__item_inner}>
-                  
                   {// Feat: 내부 이미지 OR 렌더링 처리
                   /* {
                     selectSettingList.includes(item) ? (
