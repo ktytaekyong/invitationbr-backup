@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -8,6 +8,7 @@ import CommonItemContent from "./CommonItemContent.js";
 import ListOptionContent from "./ListOptionContent.js";
 import CheckItem from "./CheckItem.js";
 import TextareaWapperAttend from "./TextareaWapperAttend.js";
+import TextareaWapperCount from "./TextareaWapperCount.js";
 import RadioItem from "./RadioItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
@@ -47,7 +48,7 @@ const AttendSetting = () => {
         }
       })
     }
-  }, [attendList.optionAttendMeal, attendList.optionAttendBus])
+  }, [setAttendList, attendList.optionAttendMeal, attendList.optionAttendBus])
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -59,7 +60,7 @@ const AttendSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="내용" multi={true}>
-            <textarea name="attendContent" id="attendContent" value={attendList.attendContent} onChange={(e) => attendContentChangeHandler(e)} placeholder="내용을 입력해주세요." maxLength={100} />
+            <TextareaWapperCount name="attendContent" id="attendContent" value={attendList.attendContent} onChange={(e) => attendContentChangeHandler(e)} placeholder="내용을 입력해주세요." maxLength={100}></TextareaWapperCount>
           </CommonItemContent>
         </CommonItemWrapper>
 

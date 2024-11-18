@@ -60,7 +60,7 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       ...prev,
       [name]: checked
     }));
-    console.log(attendList);
+    // console.log(attendList);
   };
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
