@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -7,7 +7,6 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import SettingNotice from "../layout/SettingNotice";
 import SettingNoticeContent from "../layout/SettingNoticeContent";
-/* CSS Module */
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 

@@ -1,5 +1,3 @@
-/* Import */
-import { useState, useEffect, useRef } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
@@ -7,8 +5,6 @@ import OrderSettingState from "./OrderSettingState.js";
 import CommonOptionContent from "./CommonOptionContent.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
-/* CSS Module */
-// import styles from "../../css/module/common/OrderSetting.module.css";
 
 const OrderSetting = () => {
   return (

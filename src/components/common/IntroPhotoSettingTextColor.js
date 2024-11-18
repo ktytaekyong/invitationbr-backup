@@ -21,16 +21,6 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   // 누른 곳 감지
   const pickerRef = useRef([]);
   const lastIdx = useRef(null);
-  const handleClick = (e) => {
-    if (pickerRef.current.includes(e.target)) { 
-      lastIdx.current = pickerRef.current.indexOf(e.target);
-    } else if (e.target.closest(`.${styles.picker__active}`)) {
-      return; 
-    } 
-    else { 
-      pickerClose();
-    }
-  };
   const pickerOpen = (clickIdx) => {
     // setPrevColor(selectIntroColor);
     setPickerActive((prevList) => {
@@ -181,6 +171,16 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     }
   }
   useEffect(() => {
+    const handleClick = (e) => {
+      if (pickerRef.current.includes(e.target)) { 
+        lastIdx.current = pickerRef.current.indexOf(e.target);
+      } else if (e.target.closest(`.${styles.picker__active}`)) {
+        return; 
+      } 
+      else { 
+        pickerClose();
+      }
+    };
     document.addEventListener("click", handleClick);
     return () => {
       document.removeEventListener("click", handleClick);
@@ -192,7 +192,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
   // }, [prevIntroColor, selectIntroColor])
   useEffect(()=> {
     setPrevIntroColor([...selectIntroColor]);
-  }, [pickerActive])
+  }, [pickerActive, selectIntroColor, setPrevIntroColor])
   useEffect(() => {
     let typeNumber = null;
     if(selectOptionList.introFillType === "basicTemplate1"
@@ -212,7 +212,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
     const newSampleIntro = Array.from({ length: typeNumber }, () => "");
     setSelectIntroColor(newColorArray);
     setintroSample(newSampleIntro);
-  }, [selectOptionList.introFillType])
+  }, [selectOptionList.introFillType, setSelectIntroColor, setintroSample])
   return (
     <>
       <ul className={`${styles.option__list} ${isActive ? styles["active"] : ""}`}>

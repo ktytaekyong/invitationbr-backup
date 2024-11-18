@@ -1,8 +1,5 @@
-/* Import */
-import { useEffect, useState } from "react";
 /* Component */
 import BasicSelectModal from './BasicSelectModal';
-import BasicModalContent from './BasicModalContent';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/BasicModalGiftKakao.module.scss";
 /* Image */

@@ -1,8 +1,7 @@
 /* Import */
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ReactDOM from 'react-dom';
 /* Component */
-import SettingNotice from "../layout/SettingNotice.js";
 import BasicModalGiftKakao from '../layout/modal/BasicModalGiftKakao.js';
 /* CSS Module */
 import styles from "../../css/module/common/GiftSettingKaKaoDesc.module.scss";

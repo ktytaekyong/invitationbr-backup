@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useCallback } from "react";
+import { useContext, useCallback } from "react";
 import { DndProvider } from "react-dnd-multi-backend";
 import { HTML5toTouch } from "rdndmb-html5-to-touch";
 import update from "immutability-helper";
@@ -14,7 +14,7 @@ import Video from "../invitationSection/Video";
 import Gift from "../invitationSection/Gift";
 import NoticeT from "../invitationSection/NoticeT.js";
 import NoticeD from "../invitationSection/NoticeD.js";
-import BgMusic from "../invitationSection/BgMusic";
+// import BgMusic from "../invitationSection/BgMusic";
 import Guestbook from "../invitationSection/Guestbook";
 import Attend from "../invitationSection/Attend";
 /* CSS Module */
@@ -23,9 +23,10 @@ import styles from "../../css/module/common/OrderSettingState.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const fixedList = ["고정 메뉴 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
+const fixedItems = ["settingOutro", "settingThumbK", "settingThumbU", "settingOrder"];
+
 const OrderSettingState = () => {
   const { settingList, selectSettingList, setSelectSettingList } = useContext(SetContext);
-  const fixedItems = ["settingOutro", "settingThumbK", "settingThumbU", "settingOrder"];
   const moveItemHandler = useCallback((dragIndex, hoverIndex) => {
     setSelectSettingList((prevList) => {
       const movableItems = prevList.filter(item => !fixedItems.includes(item));
@@ -67,9 +68,6 @@ const OrderSettingState = () => {
         return null;
     }
   }
-  // useEffect(() => {
-  //   console.log("Updated selectSettingList:", selectSettingList);
-  // }, [selectSettingList]);
   const renderItemHandler = useCallback((item, index) => {
     return (
         <OrderSettingStateItem 
@@ -109,7 +107,7 @@ const OrderSettingState = () => {
           </div>
         </OrderSettingStateItem>
     )
-  }, [])
+  }, [moveItemHandler, selectSettingList, settingList])
   // useEffect(() => {
   //   console.log(selectSettingList);
   // }, [selectSettingList]);

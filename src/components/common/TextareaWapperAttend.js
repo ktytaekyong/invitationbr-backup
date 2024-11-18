@@ -1,4 +1,3 @@
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/common/TextareaWrapperAttend.module.scss";
 

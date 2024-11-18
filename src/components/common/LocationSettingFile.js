@@ -1,5 +1,5 @@
 /* Import */
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import Button from "../layout/Button.js";
 /* CSS Module */

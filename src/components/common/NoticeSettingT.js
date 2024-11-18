@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import ReactDOM from 'react-dom';
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";

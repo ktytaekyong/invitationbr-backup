@@ -1,6 +1,4 @@
-/* Import */
-import { useEffect } from "react";
-// Component
+/* Component */
 import Snackbar from '@mui/material/Snackbar';
 /* Image */
 import copyIcon from "../../img/icon/icon_toast_copy.png";
@@ -26,13 +24,6 @@ const Toast = ({ message, open, setOpen, type }) => {
     }
     setOpen(false);
   };
-  // useEffect(() => {
-  //   if(type === "warn") {
-  //     document.documentElement.style.setProperty("--toast-bgcolor", "#FF6550");
-  //   } else {
-  //     document.documentElement.style.setProperty("--toast-bgcolor", "#7197CF");
-  //   }
-  // }, [type]);
   return (
     <div>
       <Snackbar

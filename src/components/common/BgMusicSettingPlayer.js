@@ -1,7 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
-/* Component */
-import Button from "../layout/Button.js";
+import { useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/BgMusicSettingPlayer.module.scss";
 /* Image */
@@ -12,7 +10,7 @@ import bgmPlayImg from "../../img/icon/icon_play.png";
 import { SetContext } from "../../store/option-set-context.js";
 
 const BgMusicSettingPlayer = () => {
-  const { selectBGM, setSelectBGM, bgFreeList, setBgFreeList } = useContext(SetContext);
+  const { selectBGM, bgFreeList } = useContext(SetContext);
   return (
     <div className={styles.bg__player_wrap}>
       <div className={styles.info}>

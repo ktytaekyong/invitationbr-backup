@@ -1,6 +1,5 @@
 /* Import */
-import { useEffect, useState, useContext } from "react";
-import ReactDOM from 'react-dom';
+import { useState, useContext } from "react";
 import imageCompression from 'browser-image-compression';
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";

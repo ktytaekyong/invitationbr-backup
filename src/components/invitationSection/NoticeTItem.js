@@ -1,14 +1,13 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/invitationSection/NoticeTItem.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const NoticeTItem = ({ onClick, isActive }) => {
-  const { noticeTList, setNoticeTList } = useContext(SetContext);
+  const { noticeTList } = useContext(SetContext);
   return (
     noticeTList.length === 0 ?
     null

@@ -1,14 +1,12 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
-/* Component */
+import { useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Traffic.module.scss";
-/* Image */
 /* Context */
 import { LocationContext } from "../../store/option-location-context.js";
 
 const Traffic = () => {
-  const { trafficList, setTrafficList } = useContext(LocationContext);
+  const { trafficList } = useContext(LocationContext);
   return (
     <div className={`${styles.traffic} ${styles.style_theme_1}`}>
       <div className={styles.traffic__wrap}>
@@ -22,14 +20,6 @@ const Traffic = () => {
                 </li>
               ))
             }
-            {/* <li className={styles.traffic__item}>
-              <p>주차안내</p>
-              <p>
-                · 보람 전용 주차장 : 지하2층 지상 4층 약 500대 주차 가능<br />
-                · 세이브존 제휴 주차장 : 약 1500대 추가 주차 가능<br />
-                · 안내데스크에서 주차권을 수령
-              </p>
-            </li> */}
           </ul>
         </div>
       </div>

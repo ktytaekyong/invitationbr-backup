@@ -9,7 +9,6 @@ import Button from "../layout/Button.js";
 import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Guestbook.module.scss";
-/* Image */
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 import TextareaWapperCount from "../common/TextareaWapperCount.js";

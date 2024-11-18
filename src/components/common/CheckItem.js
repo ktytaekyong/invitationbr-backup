@@ -7,13 +7,13 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx, type, infoType }) => {
-  const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList, attendList, setAttendList } = useContext(SetContext);
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList, setAttendList } = useContext(SetContext);
+  const { setBasicInfoList } = useContext(InfoContext);
   const [ isChecked, setIsChecked ] = useState(false);
   const checkedOptionChangeHandler = (e) => {
     const { name, id, checked } = e.target;
     const newArray = Object.entries(selectOptionList);
-    newArray.map((item) => {
+    newArray.forEach((item) => {
       if(item.includes(name)) {
         setIsChecked(checked);
         if(typeof item[1] === "boolean") {
@@ -64,24 +64,24 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
   };
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
-    newArray.map((item) => {
+    newArray.forEach((item) => {
       if(item.includes(name)) {
         if(typeof item[1] === "boolean") {
           setIsChecked(item[1]);
         }
       }
     })
-  }, [])
+  }, [selectOptionList, name])
   useEffect(() => {
     const newArray = Object.entries(selectOptionList);
-    newArray.map((item) => {
+    newArray.forEach((item) => {
       if(item.includes(name)) {
         if(typeof item[1] === "boolean") {
           setIsChecked(item[1]);
         }
       }
     })
-  }, [selectOptionList])
+  }, [selectOptionList, name])
   useEffect(() => {
     if (name === "kakaopayUse") {
       setIsChecked(accountInfoList[groupType][checkidx]?.kakaopayUse || false);
@@ -92,10 +92,10 @@ const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checki
       }
     }
   }, [accountInfoList, selectOptionList, name, groupType, checkidx]);
-  useEffect(() => {
-    const initialChecked = basicInfoList[infoType]?.[name] || false;
-    // setIsChecked(initialChecked);
-  }, [basicInfoList, infoType, name]);
+  // useEffect(() => {
+  //   const initialChecked = basicInfoList[infoType]?.[name] || false;
+  //   setIsChecked(initialChecked);
+  // }, [basicInfoList, infoType, name]);
   return (
     name !== "kakaopayUse" ? 
     <div className={styles.check}>

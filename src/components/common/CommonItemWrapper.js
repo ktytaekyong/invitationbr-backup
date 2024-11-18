@@ -1,4 +1,3 @@
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/common/CommonItemWrapper.module.scss";
 

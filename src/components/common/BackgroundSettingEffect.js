@@ -1,11 +1,9 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import TabSelector from "./TabSelector"
 import RadioList from "./RadioList";
 import RadioItem from "./RadioItem";
-/* CSS Module */
-// import styles from "../../css/module/common/BackgroundSettingEffect.module.css";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -28,7 +26,7 @@ const effectList = [
   }, 
 ]; 
 const BackgroundSettingEffect = () => {
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { selectOptionList } = useContext(SetContext);
   return (
     <>
       <TabSelector listName={effectList} name="effectType" />

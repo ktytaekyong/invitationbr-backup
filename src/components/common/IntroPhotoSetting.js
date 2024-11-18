@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import imageCompression from 'browser-image-compression';
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
@@ -10,18 +10,16 @@ import PhotoSelector from "./PhotoSelector.js";
 import IntroPhotoSettingTextColor from "./IntroPhotoSettingTextColor.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js"
 import Button from "../layout/Button.js"
-/* CSS Module */
 /* Context */
 import { IntroContext } from "../../store/option-intro-context.js";
 
-const option = {
-  maxSizeMB: 2,
-  maxWidthOrHeight: 1024,
-}
-
+// const option = {
+//   maxSizeMB: 2,
+//   maxWidthOrHeight: 1024,
+// }
 const IntroPhotoSetting = () => {
   const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
-  const [photoList, setPhotoList] = useState([]);
+  const [ photoList ] = useState([]);
   const fileAddHandler = async (e) => {
     const file = e.target.files[0];
     const option = {

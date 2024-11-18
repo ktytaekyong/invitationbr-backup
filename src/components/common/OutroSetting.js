@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -9,15 +9,11 @@ import PhotoSelector from "./PhotoSelector.js";
 import TextEditor from "./TextEditor.js";
 import RadioList from "./RadioList.js";
 import RadioItem from "./RadioItem.js";
-/* CSS Module */
-// import styles from "../../css/module/common/NoticeSettingT.module.css";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const OutroSetting = () => {
-  const [radioActive, setRadioActive] = useState(false);
   const { outroList, setOutroList } = useContext(SetContext);
-  const [outroImgList, setOutroImgList] = useState([]);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if (file) {

@@ -1,12 +1,6 @@
-/* Import */
-import { useState, useEffect, useContext } from "react";
 /* Component */
 import CheckList from "./CheckList.js";
 import CheckItem from "./CheckItem.js";
-/* CSS Module */
-// import styles from "../../css/module/common/BackgroundSettingCheckbox.module.scss";
-/* Context */
-import { SetContext } from "../../store/option-set-context.js";
 
 const BackgroundSettingCheckbox = () => {
   return (

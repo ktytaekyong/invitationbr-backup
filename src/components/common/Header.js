@@ -24,7 +24,6 @@ const Header = () => {
   const handleSave = () => setSave(true);
   const handleSaveClose = () => setSave(false);
   const warnOpen = () => setOpen(true);
-  const warnClose = () => setOpen(false);
   const headerNav = useNavigate();
   const previewHandler = () => {
     headerNav('/Preview');  

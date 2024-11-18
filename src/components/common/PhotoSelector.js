@@ -1,6 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
-// import imageCompression from 'browser-image-compression';
+import { useContext } from "react";
 /* Component */
 import Button from "../layout/Button";
 /* CSS Module */

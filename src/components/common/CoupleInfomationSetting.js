@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -9,10 +9,7 @@ import CoupleInfomationSettingBasic from "./CoupleInfomationSettingBasic.js";
 import CoupleInfomationSettingParents from "./CoupleInfomationSettingParents.js";
 import SettingNotice from "../layout/SettingNotice.js"
 import SettingNoticeContent from "../layout/SettingNoticeContent.js"
-import Button from "../layout/Button.js"
 import CheckItem from "./CheckItem.js";
-/* CSS Module */
-// const parents = ["아버지", "어머니"];
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 

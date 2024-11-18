@@ -15,7 +15,7 @@ import iconMsgBride from "../../../img/icon/icon_msg_bride.png";
 import { InfoContext } from "../../../store/option-info-context.js";
 
 const InvitationModalLetter = ({ openvar, onClose }) => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { basicInfoList } = useContext(InfoContext);
   const [ isInitialRender, setIsInitialRender ] = useState(true);
   useEffect(() => {
     if (

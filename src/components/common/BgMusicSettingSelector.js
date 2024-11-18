@@ -1,7 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 /* Component */
-import CommonItemContent from "./CommonItemContent.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
 import styles from "../../css/module/common/BgMusicSettingSelector.module.scss";
@@ -24,7 +23,7 @@ const BgMusicSettingSelector = () => {
         "bgid": "bgid" + idx
       }))
     ))
-  }, [])
+  }, [setBgFreeList])
   return (
     <div className={styles.bg__selector_wrap}>
       <ul className={styles.bg__selector}>

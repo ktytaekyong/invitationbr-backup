@@ -1,5 +1,3 @@
-/* Import */
-import { useState, useEffect, useContext } from "react";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
@@ -11,8 +9,6 @@ import styles from "../../css/module/common/GiftSettingAccount.module.scss";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 /* Image */
 import iconKakaoImg from "../../img/icon/icon_kakao.png"
-/* Context */
-import { SetContext } from "../../store/option-set-context.js";
 
 const bankList = [
   {
@@ -36,8 +32,7 @@ const bankList = [
     itemKey: "농협은행"
   },
 ]
-const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onChange, onCheck }) => {
-  const { accountInfoList, setAccountInfoList } = useContext(SetContext);
+const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onChange }) => {
   return (
     <>
       {

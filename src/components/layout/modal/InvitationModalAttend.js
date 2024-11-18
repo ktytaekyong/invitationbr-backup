@@ -10,7 +10,7 @@ import iconModalHeader from "../../../img/icon/icon_attend_modal.png";
 import { SetContext } from "../../../store/option-set-context.js";
 
 const InvitationModalAttend = ({ openvar, onClose }) => {
-  const { attendList, setAttendList, attendGuest, setAttendGuest } = useContext(SetContext);
+  const { attendList } = useContext(SetContext);
   const [ guestType, setGuestType ] = useState("attendTypeGroom");
   const [ attendWhether, setAttendWhether ] = useState("attendWhetherYes");
   const [ attendName, setAttendName ] = useState("");
@@ -34,7 +34,6 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
     if(attendList.optionAttendBus) {
       guest.attendBus = attendBus;
     }
-    console.log(guest);
     // setAttendGuestList(guest)
   }
   const renderBusNotice = () => {

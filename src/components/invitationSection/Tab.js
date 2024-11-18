@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 /* Component */
 import Button from "../layout/Button.js";
@@ -9,14 +9,12 @@ import styles from "../../css/module/invitationSection/Tab.module.scss";
 import { TabContext } from "../../store/option-tab-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
-import { IntroContext } from "../../store/option-intro-context.js";
 
 const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const { basicTabList, selectTabList } = useContext(TabContext); 
   const { selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const [isActive, setIsActive] = useState(false);
-  const scrollRef = useRef([]);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }

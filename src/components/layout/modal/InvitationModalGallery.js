@@ -1,7 +1,7 @@
 /* Import */
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Pagination, Thumbs, Navigation } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/free-mode';
@@ -9,16 +9,13 @@ import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 /* Component */
 import GalleryModal from "./GalleryModal.js";
-/* CSS Module */
-import styles from "../../../css/module/layout/modal/InvitationModalGallery.module.scss";
 /* Image */
 import galleryPhoto from "../../../img/gallery/slide_photo_test.png";
 /* Context */
 import { GalleryContext } from "../../../store/option-gallery-context.js";
 
 const InvitationModalGallery = ({ src, onClose, openvar, clickidx }) => {
-  const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const { selectGalleryPhotoList } = useContext(GalleryContext);
   return (
     <GalleryModal 
       openvar={openvar} 

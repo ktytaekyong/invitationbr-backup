@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import ListOptionContent from "./ListOptionContent.js";
@@ -8,8 +8,6 @@ import CommonItemContent from "./CommonItemContent.js";
 import GiftSettingAccount from "./GiftSettingAccount.js";
 import GiftSettingKaKaoDesc from "./GiftSettingKaKaoDesc.js";
 import CheckItem from "./CheckItem.js";
-/* CSS Module */
-// import styles from "../../css/module/common/GiftSetting.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -89,7 +87,6 @@ const GiftSetting = () => {
   return (
     <>
       <GiftSettingKaKaoDesc />
-      
       <CommonOptionWrapper>
         <ListOptionContent list={true}>
           <CommonItemWrapper>
@@ -126,7 +123,6 @@ const GiftSetting = () => {
             onChange={accountDataChangeHandler}
           />
         </ListOptionContent>
-
       </CommonOptionWrapper>
     </>
   )

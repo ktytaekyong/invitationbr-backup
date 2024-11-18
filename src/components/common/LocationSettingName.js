@@ -1,5 +1,3 @@
-/* Import */
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/common/LocationSettingName.module.scss";
 

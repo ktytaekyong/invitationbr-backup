@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useContext } from "react";
 import ReactDOM from 'react-dom';
 /* Component */
 import Button from "../layout/Button.js";
@@ -9,14 +9,11 @@ import Toast from "../layout/Toast.js";
 import styles from "../../css/module/invitationSection/Gift.module.scss";
 /* Image */
 import iconGiftArrow from "../../img/icon/icon_gift_arrow.png";
-import iconGiftKakao from "../../img/icon/icon_account_kakao.png";
 /* Context */
-import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Gift = () => {
-  // const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const { accountInfoList, setAccountInfoList, selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { accountInfoList, selectOptionList } = useContext(SetContext);
   const [isActive, setIsActive] = useState(selectOptionList.groomAccountView);
   const [isActive2, setIsActive2] = useState(selectOptionList.brideAccountView);
   const [open, setOpen] = useState(false);
@@ -96,7 +93,6 @@ const Gift = () => {
                         {
                           item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
                         }
-                        {/* <img src={iconGiftKakao} alt="" />   */}
                       </div>
                       <div className={styles.account}>
                         <p>

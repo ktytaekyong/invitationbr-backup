@@ -1,6 +1,5 @@
 /* Import */
 import { useContext } from "react";
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Intro.module.scss";
 /* Image */
@@ -46,8 +45,8 @@ const Intro = () => {
   };
   const handleDaysChange = (date) => {
     const dateObj = new Date(date);
-    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; // 요일 배열
-    const dayOfWeek = daysOfWeek[dateObj.getDay()]; // 요일 계산
+    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; 
+    const dayOfWeek = daysOfWeek[dateObj.getDay()];
     return dayOfWeek;
   }
   const nameInitHandler = (data, defaultData) => {

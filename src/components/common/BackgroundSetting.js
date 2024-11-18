@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -9,7 +9,6 @@ import OptionSelector from "./OptionSelector.js";
 import BackgroundSettingTheme from "./BackgroundSettingTheme.js";
 import BackgroundSettingEffect from "./BackgroundSettingEffect.js";
 import BackgroundSettingCheckbox from "./BackgroundSettingCheckbox.js";
-/* CSS Module */
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -72,13 +71,11 @@ const fontSizeList = [
   }
 ]
 const BackgroundSetting = () => {
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { selectOptionList } = useContext(SetContext);
   return (
     // 전체
     <CommonOptionWrapper>
-      {/* 섹션 */}
       <CommonOptionContent>
-        {/* 섹션 아이템 */}
         <CommonItemWrapper>
           <CommonItemContent title="테마">
             <OptionSelector 

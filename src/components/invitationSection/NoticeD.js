@@ -1,7 +1,6 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
+import { useContext } from "react";
 /* Component */
-import NoticeTItem from "./NoticeTItem.js";
 import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/NoticeD.module.scss";
@@ -11,7 +10,7 @@ import defaultImg from "../../img/notice/notice_photo_test2.png"
 import { SetContext } from "../../store/option-set-context.js";
 
 const NoticeD = () => {
-  const { noticeDList, setNoticeDList } = useContext(SetContext);
+  const { noticeDList } = useContext(SetContext);
   return (
     <div id="NoticeD" className={`${styles.notice}`}>
       <div className={styles.notice__wrap}>

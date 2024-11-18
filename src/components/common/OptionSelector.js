@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/OptionSelector.module.scss";
 /* Context */
@@ -10,7 +10,7 @@ const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, v
   const dataChangeHandler = (e) => {
     const { name, value } = e.target;
     const newArray = Object.entries(selectOptionList);
-    newArray.map((item) => {
+    newArray.forEach((item) => {
       if(item.includes(name)) {
         setSelectOptionList((prev) => ({
           ...prev,

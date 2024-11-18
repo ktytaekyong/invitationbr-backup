@@ -1,5 +1,5 @@
 /* Import */
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 /* Component */
 import SettingItem from "./SettingItem";
 import FixedTabSetting from "./FixedTabSetting";
@@ -11,7 +11,6 @@ import CoupleInfomationSetting from "./CoupleInfomationSetting";
 import LetterSetting from "./LetterSetting";
 import DateSetting from "./DateSetting";
 import LocationSetting from "./LocationSetting";
-// import TrafficSetting from "./TrafficSetting";
 import GallerySetting from "./GallerySetting";
 import VideoSetting from "./VideoSetting";
 import GiftSetting from "./GiftSetting";

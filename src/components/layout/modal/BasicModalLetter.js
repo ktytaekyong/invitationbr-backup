@@ -1,5 +1,5 @@
 /* Import */
-import { useEffect, useState, useContext } from "react";
+import { useState, useContext } from "react";
 /* Component */
 import TabSelector from '../../common/TabSelector';
 import BasicSelectModal from './BasicSelectModal';

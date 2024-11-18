@@ -15,8 +15,8 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Letter = ({ aos }) => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const { letterList, setLetterList, selectOptionList } = useContext(SetContext);
+  const { basicInfoList } = useContext(InfoContext);
+  const { letterList, selectOptionList } = useContext(SetContext);
   const [ deceasedIcon, setDeceasedIcon ] = useState("故");
   const [ isInitialRender, setIsInitialRender ] = useState(true);
   const [open, setOpen] = useState(false);

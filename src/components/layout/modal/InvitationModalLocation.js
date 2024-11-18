@@ -1,6 +1,5 @@
 /* Import */
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 /* Component */
 import InvitationModal from './InvitationModal';
 /* CSS Module */
@@ -11,7 +10,7 @@ import iconModalHeader from "../../../img/icon/icon_map_modal.png";
 import { InfoContext } from "../../../store/option-info-context.js";
 
 const InvitationModalLocation = ({ openvar, onClose }) => {
-  const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
+  const { selectLocationFile } = useContext(InfoContext);
   return (
     <>
       <InvitationModal 

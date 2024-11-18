@@ -1,15 +1,10 @@
 /* Import */
-import { useState, useEffect, useCallback, useRef } from "react";
-import { useDrag, useDrop } from 'react-dnd'
-/* Component */
-import CommonItemWrapper from "./CommonItemWrapper.js";
-/* CSS Module */
-// import styles from "../../css/module/common/OrderSettingStateItem.module.css";
+import { useRef } from "react";
+import { useDrag, useDrop } from "react-dnd";
 
 const ItemTypes = {
   ORDER: "order",
 }
-
 const OrderSettingStateItem = ({ children, id, index, moveItemHandler, className }) => {
   const orderItemRef = useRef(null);
   const [{ handlerId }, drop] = useDrop({

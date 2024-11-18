@@ -1,6 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 /* Component */
 /* CSS Module */
 import styles from "../../css/module/invitationSection/SettingOther.module.scss";
@@ -13,7 +12,7 @@ import iconOrder from "../../img/icon/icon_other_setting_order.png";
 import { SetContext } from "../../store/option-set-context.js";
 
 const SettingOther = () => {
-  const { selectSettingList, setSelectSettingList, settingList } = useContext(SetContext);
+  const { selectSettingList } = useContext(SetContext);
   return (
     selectSettingList.includes("settingBgMusic") || selectSettingList.includes("settingThumbK") || selectSettingList.includes("settingThumbU") || selectSettingList.includes("settingOrder") ?
     <div className={styles.other}>

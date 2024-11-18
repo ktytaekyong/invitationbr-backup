@@ -1,5 +1,5 @@
 /* Import */
-import { useEffect, useState, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -10,13 +10,11 @@ import GallerySettingPhoto from "./GallerySettingPhoto.js";
 import CheckItem from "./CheckItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
-/* CSS Module */
-// import styles from "../../css/module/common/CommonOptionContent.module.css";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const GallerySetting = () => {
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { selectOptionList } = useContext(SetContext);
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>

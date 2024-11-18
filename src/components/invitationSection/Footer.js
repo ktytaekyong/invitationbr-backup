@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
@@ -10,16 +10,9 @@ import styles from "../../css/module/invitationSection/Footer.module.scss";
 import footerLogo from "../../img/footer/footer_logo.png";
 import iconShareKakao from "../../img/icon/icon_share_kakao.png";
 import iconShareUrl from "../../img/icon/icon_share_url.png";
-/* Context */
-import { InfoContext } from "../../store/option-info-context.js";
 
 const Footer = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const [isActive, setIsActive] = useState(false);
   const [open, setOpen] = useState(false);
-  const activeToggleHandler = () => {
-    setIsActive(!isActive);
-  };
   const handleClick = () => {
     setOpen(true);
   };

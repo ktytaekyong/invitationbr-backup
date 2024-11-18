@@ -1,6 +1,3 @@
-/* Import */
-import React from "react";
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/layout/ButtonWrapper.module.scss";
 

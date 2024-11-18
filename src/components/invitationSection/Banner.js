@@ -1,6 +1,5 @@
 /* Import */
 import { Link } from "react-router-dom";
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Banner.module.scss";
 

@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useEffect, useContext } from "react";
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar } from '@mui/x-date-pickers/DateCalendar';
@@ -11,7 +11,7 @@ import styles from "../../css/module/invitationSection/BasicCalendarTheme2.modul
 import { InfoContext } from "../../store/option-info-context.js";
 
 const BasicCalendarTheme2 = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { basicInfoList } = useContext(InfoContext);
   useEffect(() => {
     const elements = document.querySelectorAll('.MuiDayCalendar-weekDayLabel');
     elements.forEach((element) => {

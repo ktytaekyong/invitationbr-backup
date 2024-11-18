@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -7,8 +7,6 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import LetterSettingTitle from "./LetterSettingTitle.js";
 import TextEditor from "./TextEditor.js";
-/* CSS Module */
-// import styles from "../../css/module/common/LetterSetting.module.css";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 

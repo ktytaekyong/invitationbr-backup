@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
@@ -8,7 +8,6 @@ import InvitationModalLocation from "../layout/modal/InvitationModalLocation.js"
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
-import LocationMap from "./LocationMap.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Location.module.scss";
 /* Image */
@@ -21,21 +20,18 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { LocationContext } from "../../store/option-location-context.js";
 
 const Location = () => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const { trafficList, setTrafficList } = useContext(LocationContext);
-  const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
+  const { basicInfoList } = useContext(InfoContext);
+  const { trafficList } = useContext(LocationContext);
+  const { selectLocationFile } = useContext(InfoContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
   };
-  // useEffect(()=>{
-  //   console.log(selectLocationFile);
-  // }, [selectLocationFile])
   return (
     <div id="Location" className={`${styles.location}`}>
       <div className={styles.location__wrap}>
-        <HeadLine title="오시는 길" content="location"></HeadLine>
+        <HeadLine title="오시는 길" content="location" />
         <div className={styles.location__content}>
           <div className={styles.place}>
             <p>

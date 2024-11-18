@@ -1,5 +1,5 @@
 /* Import */
-import { useRef, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -9,8 +9,6 @@ import LocationSettingAddress from "./LocationSettingAddress.js";
 import LocationSettingName from "./LocationSettingName.js";
 import LocationSettingFile from "./LocationSettingFile.js";
 import TrafficSetting from "./TrafficSetting.js";
-/* CSS Module */
-// import styles from "../../css/module/common/BasicInfomationSettingDate.module.css";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
@@ -54,15 +52,6 @@ const LocationSetting = () => {
             <LocationSettingFile />
           </CommonItemContent>
         </CommonItemWrapper>
-
-        {/* <CommonItemWrapper> */}
-          {/* 멀티 구분도 필요 */}
-          
-        {/* </CommonItemWrapper> */}
-
-        {/* <CommonItemWrapper>
-          
-        </CommonItemWrapper> */}
       </CommonOptionContent>
 
       <TrafficSetting />

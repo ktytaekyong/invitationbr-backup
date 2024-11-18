@@ -1,9 +1,7 @@
 /* Import */
-import { useState, useRef, useContext, useEffect, forwardRef } from "react";
-import ReactDOM from 'react-dom';
+import { useContext, forwardRef } from "react";
 /* Component */
 import HeadLine from "../layout/HeadLine.js";
-import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 /* CSS Module */
@@ -13,7 +11,7 @@ import styles from "../../css/module/invitationSection/Attend.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Attend = forwardRef((props, ref) => {
-    const { attendList, selectOptionList, selectSettingList } = useContext(SetContext);
+    const { attendList } = useContext(SetContext);
     return (
       <div id="Attend" className={`${styles.attend}`} ref={ref}>
         <div className={styles.attend__wrap}>

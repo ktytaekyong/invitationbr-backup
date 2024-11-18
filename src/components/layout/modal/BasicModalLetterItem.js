@@ -1,9 +1,3 @@
-/* Import */
-import { useEffect, useState, useContext } from "react";
-/* Component */
-import TabSelector from '../../common/TabSelector';
-import BasicSelectModal from './BasicSelectModal';
-import BasicModalContent from './BasicModalContent';
 /* CSS Module */
 import styles from "../../../css/module/layout/modal/BasicModalLetter.module.scss";
 

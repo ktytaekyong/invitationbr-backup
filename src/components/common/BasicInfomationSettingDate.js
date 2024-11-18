@@ -1,5 +1,3 @@
-/* Import */
-import { useState, useEffect } from "react";
 /* Component */
 import OptionSelector from "./OptionSelector.js";
 /* CSS Module */

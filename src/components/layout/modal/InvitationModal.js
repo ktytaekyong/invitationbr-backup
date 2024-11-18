@@ -1,5 +1,5 @@
 /* Import */
-import React, { Children } from "react";
+import { forwardRef } from "react";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { styled, css } from '@mui/system';
@@ -23,7 +23,7 @@ export default function InvitationModal(props) {
         <ModalContent sx={{ width: 325 }}>
           <div className={styles.border_wrapper}>
             <div className={styles.wrapper}>
-              <Button styleType="invitation__close" onClick={props.onClose}></Button>
+              <Button styleType="invitation__close" onClick={props.onClose} />
               <div className={styles.modal__header}>
                 <img src={props.headSrc} alt="" />
                 <p>{props.headContent}</p>
@@ -51,7 +51,7 @@ export default function InvitationModal(props) {
   );
 }
 
-const Backdrop = React.forwardRef((props, ref) => {
+const Backdrop = forwardRef((props, ref) => {
   const { open, className, ...other } = props;
   return (
     <div
@@ -65,15 +65,6 @@ const Backdrop = React.forwardRef((props, ref) => {
 Backdrop.propTypes = {
   className: PropTypes.string.isRequired,
   open: PropTypes.bool,
-};
-
-const blue = {
-  200: '#99CCFF',
-  300: '#66B2FF',
-  400: '#3399FF',
-  500: '#007FFF',
-  600: '#0072E5',
-  700: '#0066CC',
 };
 
 const grey = {
@@ -112,36 +103,5 @@ const ModalContent = styled('div')(
     box-shadow: 0 4px 12px
       ${theme.palette.mode === 'dark' ? 'rgb(0 0 0 / 0.5)' : 'rgb(0 0 0 / 0.2)'};
     color: ${theme.palette.mode === 'dark' ? grey[50] : grey[900]};
-  `,
-);
-
-const TriggerButton = styled('button')(
-  ({ theme }) => css`
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 600;
-    font-size: 0.875rem;
-    line-height: 1.5;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: all 150ms ease;
-    cursor: pointer;
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    color: ${theme.palette.mode === 'dark' ? grey[200] : grey[900]};
-    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-
-    &:hover {
-      background: ${theme.palette.mode === 'dark' ? grey[800] : grey[50]};
-      border-color: ${theme.palette.mode === 'dark' ? grey[600] : grey[300]};
-    }
-
-    &:active {
-      background: ${theme.palette.mode === 'dark' ? grey[700] : grey[100]};
-    }
-
-    &:focus-visible {
-      box-shadow: 0 0 0 4px ${theme.palette.mode === 'dark' ? blue[300] : blue[200]};
-      outline: none;
-    }
   `,
 );

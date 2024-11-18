@@ -12,7 +12,6 @@ import TextareaWapperCount from "./TextareaWapperCount.js";
 import RadioItem from "./RadioItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
-/* CSS Module */
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 

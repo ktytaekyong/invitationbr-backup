@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";
 import SettingNotice from "../layout/SettingNotice.js";
@@ -9,8 +9,8 @@ import styles from "../../css/module/common/VideoSettingOption.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const VideoSettingOption = ({ active }) => {
-  const { videoList, setVideoList, selectOptionList, setSelectOptionList } = useContext(SetContext);
+const VideoSettingOption = () => {
+  const { videoList, setVideoList, selectOptionList } = useContext(SetContext);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
     if(file) {

@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -10,8 +10,6 @@ import BasicInfomationSettingDate from "./BasicInfomationSettingDate.js";
 import BasicInfomationSettingPlace from "./BasicInfomationSettingPlace.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
-/* CSS Module */
-// import styles from "../../css/module/common/IntroPhotoSetting.module.css";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
@@ -26,7 +24,6 @@ const BasicInfomationSetting = () => {
         [name]: value
       }
     }))
-    // console.log(basicInfoList);
   }
   return (
     <CommonOptionWrapper>

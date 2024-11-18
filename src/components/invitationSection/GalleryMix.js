@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import ReactDOM from 'react-dom';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { FreeMode, Pagination, Thumbs, Navigation } from 'swiper/modules';
@@ -18,7 +18,7 @@ import galleryPhoto from "../../img/gallery/slide_photo_test.png";
 import { GalleryContext } from "../../store/option-gallery-context.js";
 
 const GalleryMix = () => {
-  const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
+  const { selectGalleryPhotoList } = useContext(GalleryContext);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [clickedSlideIndex, setClickedSlideIndex] = useState(0); 
   const [open, setOpen] = useState(false);

@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/BackgroundSettingTheme.module.scss";
 /* Context */

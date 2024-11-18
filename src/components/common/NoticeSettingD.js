@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -9,26 +9,10 @@ import PhotoSelector from "./PhotoSelector.js";
 import TextEditor from "./TextEditor.js";
 import RadioList from "./RadioList.js";
 import RadioItem from "./RadioItem.js";
-/* CSS Module */
-import styles from "../../css/module/common/NoticeSettingD.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const noticeTList = [
-  {
-    title: "포토부스",
-    id: "noticeTab1",
-    view: true,
-  },
-  {
-    title: "식사안내",
-    id: "noticeTab2",
-    view: false,
-  },
-];
-
 const NoticeSettingD = () => {
-  const [noticeDImgList, setNoticeDImgList] = useState([]);
   const { noticeDList, setNoticeDList } = useContext(SetContext);
   const fileAddHandler = (e, index) => {
     const file = e.target.files[0];
@@ -87,7 +71,7 @@ const NoticeSettingD = () => {
     
               <CommonItemContent title='사진' multi={true}>
                 <PhotoSelector 
-                  id={'NoticeDPhotoList${idx}'}
+                  id={`NoticeDPhotoList${idx}`}
                   listName={[noticeDList[idx]]} 
                   onChange={(e) => fileAddHandler(e, idx)} 
                   deleteFunction={setNoticeDList} 

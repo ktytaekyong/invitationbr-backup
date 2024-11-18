@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import Button from "../layout/Button.js";
 /* CSS Module */
@@ -19,7 +19,6 @@ const TabSelector = ({ listName, name, onClick, type, activeTab, onClickDel }) =
     if(id.indexOf("noticeTab") !== -1) {
       setSelectNoticeT(tabidx);
     }
-    // console.log(selectOptionList);
     console.log(selectNoticeT);
   }
   return (

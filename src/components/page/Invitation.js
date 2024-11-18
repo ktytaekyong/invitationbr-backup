@@ -73,10 +73,11 @@ const Invitation = () => {
   };
 
   useEffect(() => {
+    const refsCopy = refs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = refs.current.indexOf(entry.target);
+          const index = refsCopy.indexOf(entry.target);
           if (index !== -1 && entry.isIntersecting) {
             setVisibleStates((prev) =>
               prev.map((state, i) => (i === index ? entry.isIntersecting : state))
@@ -84,13 +85,11 @@ const Invitation = () => {
           }
         });
       },
-      { threshold: 0.5 } // 요소가 50% 이상 화면에 들어올 때 감지
+      { threshold: 0.3 }
     );
-
-    refs.current.forEach((ref) => ref && observer.observe(ref));
-
+    refsCopy.forEach((ref) => ref && observer.observe(ref));
     return () => {
-      refs.current.forEach((ref) => ref && observer.unobserve(ref));
+      refsCopy.forEach((ref) => ref && observer.unobserve(ref));
     };
   }, []);
 
@@ -106,7 +105,7 @@ const Invitation = () => {
         setPopupOpened(true); 
       }
     }
-  }, [visibleStates, popupOpened]); 
+  }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]); 
 
   return (
     <div

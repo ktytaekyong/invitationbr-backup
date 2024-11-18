@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { SetContext } from "../../store/option-set-context.js";
 
 const MetaTag = () => {
-  const { selectOptionList, kakaoInfoList, setKakaoInfoList } = useContext(SetContext);
+  const { selectOptionList, kakaoInfoList } = useContext(SetContext);
   return (
     <Helmet>
       <title>청첩장 만들기</title>

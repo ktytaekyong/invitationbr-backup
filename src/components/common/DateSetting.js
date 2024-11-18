@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -8,8 +8,6 @@ import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
 import DateSettingImage from "./DateSettingImage.js";
 import DateSettingCheckbox from "./DateSettingCheckbox.js";
-import BasicInfomationSettingDate from "./BasicInfomationSettingDate.js";
-/* CSS Module */
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 

@@ -1,7 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
-/* Component */
-// import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
+import { useContext } from "react";
 import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
 import BasicCalendarTheme2 from "./BasicCalendarTheme2.js";
 import BasicCalendarTheme3 from "./BasicCalendarTheme3.js";
@@ -17,8 +15,8 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const Calendar = () => {
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
+  const { selectOptionList } = useContext(SetContext);
+  const { basicInfoList } = useContext(InfoContext);
   const handleDaysChange = (date) => {
     const dateObj = new Date(date);
     const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; 
@@ -39,7 +37,7 @@ const Calendar = () => {
     return diffDays;
   }
   const monthRenderer = (date) => {
-    const [year, month, day] = date.split('-');
+    const [, month] = date.split('-');
     const monthEng = (month) => {
       switch(month) {
         case "01":
@@ -66,6 +64,8 @@ const Calendar = () => {
           return "November";
         case "12":
           return "December";
+        default:
+          return;
       }
     }
     return monthEng(month);

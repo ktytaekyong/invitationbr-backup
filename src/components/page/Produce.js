@@ -1,5 +1,3 @@
-/* Import */
-import { useEffect } from "react";
 /* Component */
 import Container from "../layout/Container";
 import SettingList from "../common/SettingList";

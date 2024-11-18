@@ -1,9 +1,7 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
-/* Component */
+import { useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Effect.module.scss";
-/* Image */
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -16,8 +14,6 @@ const Effect = () => {
                   ${selectOptionList.effectType !== "bgEffectNoSelect" && selectOptionList.effectType === "bgEffectHeart" ? styles.heart : ""}
                   ${selectOptionList.effectType !== "bgEffectNoSelect" && selectOptionList.effectType === "bgEffectSnowflake" ? styles.snowflake : ""}
                 `}>
-      {/* {selectOptionList.effectType} */}
-      {/* {selectOptionList.effectRange} */}
     </div>
   )
 }

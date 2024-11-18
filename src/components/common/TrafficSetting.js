@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import ListOptionContent from "./ListOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
@@ -7,8 +7,6 @@ import CommonItemContent from "./CommonItemContent.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import TextEditor from "./TextEditor.js";
-/* CSS Module */
-// import styles from "../../css/module/common/TrafficSetting.module.scss";
 /* Context */
 import { LocationContext } from "../../store/option-location-context.js";
 

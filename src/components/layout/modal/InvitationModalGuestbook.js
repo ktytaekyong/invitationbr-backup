@@ -1,6 +1,5 @@
 /* Import */
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
 /* Component */
 import InvitationModal from './InvitationModal';
 /* CSS Module */

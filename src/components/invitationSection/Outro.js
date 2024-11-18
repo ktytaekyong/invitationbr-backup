@@ -1,7 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext, useRef } from "react";
-/* Component */
-import HeadLine from "../layout/HeadLine.js";
+import { useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Outro.module.scss";
 /* Image */
@@ -11,7 +9,7 @@ import outroImg from "../../img/outro/outro_photo_test1.png";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Outro = () => {
-  const { outroList, setOutroList } = useContext(SetContext);
+  const { outroList } = useContext(SetContext);
   return (
     <div className={`${styles.outro} ${styles.style_theme_1}`}>
       <div className={styles.outro__wrap}>

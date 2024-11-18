@@ -15,7 +15,7 @@ const ScrollComponent = () => {
         }, 100); 
       }
     }
-  }, [location.hash, navigate]);
+  }, [location.hash, location.pathname, location.search, navigate]);
   return null;
 }
 

@@ -1,15 +1,9 @@
-/* Import */
-import { useState, useEffect, useContext } from "react";
 /* Component */
-import OptionSelector from "./OptionSelector"
 import CheckItem from "./CheckItem";
 /* CSS Module */
 import styles from "../../css/module/common/CoupleInfomationSettingParents.module.scss";
-/* Context */
-import { InfoContext } from "../../store/option-info-context.js";
 
 const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onChange }) => {
-  const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   // useEffect(() => {
   //   console.log(basicInfoList);
   // }, [basicInfoList])

@@ -1,6 +1,3 @@
-/* Import */
-import { useState, useEffect } from "react";
-/* Component */
 /* CSS Module */
 import styles from "../../css/module/common/BasicInfomationSettingName.module.scss";
 

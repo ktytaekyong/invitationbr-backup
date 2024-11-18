@@ -13,7 +13,7 @@ import defaultImg3 from "../../img/notice/notice_photo_test3.png"
 import { SetContext } from "../../store/option-set-context.js";
 const defaultImg = [defaultImg1, defaultImg2, defaultImg3];
 const NoticeT = () => {
-  const { noticeTList, setNoticeTList } = useContext(SetContext);
+  const { noticeTList } = useContext(SetContext);
   const [isActive, setIsActive] = useState(0);
   const setActiveHandler = (idx) => {
     setIsActive(idx);

@@ -1,10 +1,5 @@
-/* Import */
-import * as React from 'react';
-import { Link } from "react-router-dom";
 /* Component */
 import BasicModal from './BasicModal';
-/* CSS Module */
-// import styles from "../../../css/module/layout/modal/BasicModalHeader.module.scss";
 
 const BasicModalNoticeTDelete = ({ openvar, onClose, onClick }) => {
   return (
