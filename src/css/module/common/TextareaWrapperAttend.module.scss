@@ -1,6 +1,7 @@
 @import "../../_module";
 .textarea {
   &__wrap {
+    @include position;
     width: 100%;
     label {
       display: block;
@@ -17,7 +18,13 @@
       &.style__f span {
         color: $text-color--essntial;
       }
+
     }
-    
+    > span {
+      @include position(a, null, null, 10px, 12px);
+      font-size: $font-size--xxsm;
+      color: $text-color--disable-input;
+      font-weight: $font-weight--Regular;
+    }
   }
 }

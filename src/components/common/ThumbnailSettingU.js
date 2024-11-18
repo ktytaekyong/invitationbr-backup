@@ -1,12 +1,12 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
+import TextAreaWrapperCount from "./TextareaWapperCount.js";
 import PhotoSelector from "./PhotoSelector.js";
-import TextEditor from "./TextEditor.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* CSS Module */
@@ -53,13 +53,11 @@ const ThumbnailSettingU = () => {
           <CommonItemContent title='사진' multi={true}>
             <PhotoSelector id="ThumbUPhoto" listName={urlInfoList} onChange={fileAddHandler} hasSrc={true} hasSrcFunction={() => photoDeleteHandler(0)} />
           </CommonItemContent>
-
           <CommonItemContent title='제목'>
             <input type="text" name="title" value={urlInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />
           </CommonItemContent>
-
           <CommonItemContent title='내용' multi={true}>
-            <TextEditor name="description" textValue={urlInfoList[0].description} onChange={(e) => infoDataChangeHandler(e, 0)} />
+            <TextAreaWrapperCount name="description" value={urlInfoList[0].description} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder="내용을 입력하세요." maxLength={100} />
             <SettingNotice>
               <SettingNoticeContent>가로 사진 사용을 권장합니다.</SettingNoticeContent>
               <SettingNoticeContent>이미지 변경 시 플랫폼별 정책에 따라 최대 3시간 소요됩니다.</SettingNoticeContent>

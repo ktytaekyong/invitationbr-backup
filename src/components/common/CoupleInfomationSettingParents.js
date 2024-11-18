@@ -23,6 +23,7 @@ const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onCha
         placeholder={`${pName} 성함`} 
         value={itemKey === "Dad" ? data.dadName : data.momName}
         onChange={onChange}
+        maxLength={7}
       />
       <input type="number"
         id={`${coupleKey}${itemKey}Number`} 

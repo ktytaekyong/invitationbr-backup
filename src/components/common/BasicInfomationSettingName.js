@@ -14,6 +14,7 @@ const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
         placeholder="성"
         onChange={onChange}
         required={true}
+        maxLength={2}
       />
       <input type="text" 
         id={`BasicInfoFirstName${genderCode}`} 
@@ -22,6 +23,7 @@ const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
         placeholder="이름" 
         onChange={onChange}
         required={true} 
+        maxLength={5}
       />
     </div>
   )

@@ -7,7 +7,7 @@ import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
 import ListOptionContent from "./ListOptionContent.js";
 import CheckItem from "./CheckItem.js";
-import TextareaWapper from "./TextareaWapper.js";
+import TextareaWapperAttend from "./TextareaWapperAttend.js";
 import RadioItem from "./RadioItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
@@ -59,7 +59,7 @@ const AttendSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="내용" multi={true}>
-            <textarea name="attendContent" id="attendContent" value={attendList.attendContent} onChange={(e) => attendContentChangeHandler(e)} placeholder="내용을 입력해주세요."></textarea>
+            <textarea name="attendContent" id="attendContent" value={attendList.attendContent} onChange={(e) => attendContentChangeHandler(e)} placeholder="내용을 입력해주세요." maxLength={100} />
           </CommonItemContent>
         </CommonItemWrapper>
 
@@ -78,8 +78,8 @@ const AttendSetting = () => {
               {
                 attendList.optionAttendMeal ?
                 <CommonItemWrapper>
-                  <TextareaWapper content="식사함 항목 안내문구" id="attendMealNotice" value={attendList.attendMealNotice} onChange={(e) => attendContentChangeHandler(e)} placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 스테이크와 한정식이 준비되어 있습니다."></TextareaWapper>
-                  <TextareaWapper content="식사안함 항목 안내문구" id="attendNoMealNotice" value={attendList.attendNoMealNotice} onChange={(e) => attendContentChangeHandler(e)} placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 식사 못하시는 분들을 위한 선물을 준비했으니 꼭 받아가세요."></TextareaWapper>
+                  <TextareaWapperAttend content="식사함 항목 안내문구" id="attendMealNotice" value={attendList.attendMealNotice} onChange={(e) => attendContentChangeHandler(e)} placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 스테이크와 한정식이 준비되어 있습니다."></TextareaWapperAttend>
+                  <TextareaWapperAttend content="식사안함 항목 안내문구" id="attendNoMealNotice" value={attendList.attendNoMealNotice} onChange={(e) => attendContentChangeHandler(e)} placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 식사 못하시는 분들을 위한 선물을 준비했으니 꼭 받아가세요."></TextareaWapperAttend>
                 </CommonItemWrapper> : null
               }
               <CommonItemWrapper>
@@ -87,17 +87,17 @@ const AttendSetting = () => {
                 {
                   attendList.optionAttendBus ?
                   <>
-                    <TextareaWapper content="탑승함 항목 안내문구" id="attendBusNoticeM" value={attendList.attendBusNoticeM} onChange={(e) => attendContentChangeHandler(e)} gender="M" division="(신랑측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞"></TextareaWapper>
-                    <TextareaWapper content="탑승안함 항목 안내문구" id="attendNoBusNoticeM" value={attendList.attendNoBusNoticeM} onChange={(e) => attendContentChangeHandler(e)} gender="M" division="(신랑측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요."></TextareaWapper>
-                    <TextareaWapper content="탑승함 항목 안내문구" id="attendBusNoticeF" value={attendList.attendBusNoticeF} onChange={(e) => attendContentChangeHandler(e)} gender="F" division="(신부측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞"></TextareaWapper>
-                    <TextareaWapper content="탑승안함 항목 안내문구" id="attendNoBusNoticeF" value={attendList.attendNoBusNoticeF} onChange={(e) => attendContentChangeHandler(e)} gender="F" division="(신부측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요."></TextareaWapper>
+                    <TextareaWapperAttend content="탑승함 항목 안내문구" id="attendBusNoticeM" value={attendList.attendBusNoticeM} onChange={(e) => attendContentChangeHandler(e)} gender="M" division="(신랑측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞"></TextareaWapperAttend>
+                    <TextareaWapperAttend content="탑승안함 항목 안내문구" id="attendNoBusNoticeM" value={attendList.attendNoBusNoticeM} onChange={(e) => attendContentChangeHandler(e)} gender="M" division="(신랑측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요."></TextareaWapperAttend>
+                    <TextareaWapperAttend content="탑승함 항목 안내문구" id="attendBusNoticeF" value={attendList.attendBusNoticeF} onChange={(e) => attendContentChangeHandler(e)} gender="F" division="(신부측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞"></TextareaWapperAttend>
+                    <TextareaWapperAttend content="탑승안함 항목 안내문구" id="attendNoBusNoticeF" value={attendList.attendNoBusNoticeF} onChange={(e) => attendContentChangeHandler(e)} gender="F" division="(신부측)" placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요."></TextareaWapperAttend>
                   </> : null
                 }
               </CommonItemWrapper>
               {/* <CommonItemWrapper>
                 <CheckItem content="메시지 전달" id="optionAttendMsg"></CheckItem>
-                <TextareaWapper content=" " id="attendMsgNoticeM" gender="M" division="신랑측"></TextareaWapper>
-                <TextareaWapper content=" " id="attendMsgNoticeF" gender="F" division="신부측"></TextareaWapper>
+                <TextareaWapperAttend content=" " id="attendMsgNoticeM" gender="M" division="신랑측"></TextareaWapperAttend>
+                <TextareaWapperAttend content=" " id="attendMsgNoticeF" gender="F" division="신부측"></TextareaWapperAttend>
               </CommonItemWrapper> */}
             </ListOptionContent>
           </CommonItemContent>

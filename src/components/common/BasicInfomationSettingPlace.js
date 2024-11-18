@@ -14,6 +14,7 @@ const BasicInfomationSettingPlace = ({ inputType, onChange, placeInfo }) => {
           value={placeInfo.placeName} 
           onChange={onChange} 
           placeholder="예식장 명 입력"
+          maxLength={30}
         />
         :
         <input
@@ -22,6 +23,7 @@ const BasicInfomationSettingPlace = ({ inputType, onChange, placeInfo }) => {
           value={placeInfo.placeDetail}
           onChange={onChange}
           placeholder="층과 홀 입력"
+          maxLength={20}
         />
       }
     </div>
