@@ -1,9 +1,6 @@
-/* Import */
 import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
-import ReactDOM from 'react-dom';
-/* Component */
+import ReactDOM from "react-dom";
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
@@ -16,41 +13,40 @@ import Video from "../invitationSection/Video";
 import Gift from "../invitationSection/Gift";
 import NoticeT from "../invitationSection/NoticeT.js";
 import NoticeD from "../invitationSection/NoticeD.js";
-// import BgMusic from "../invitationSection/BgMusic";
 import Guestbook from "../invitationSection/Guestbook";
 import Attend from "../invitationSection/Attend";
 import Outro from "../invitationSection/Outro";
 import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
-import SettingOther from "../invitationSection/SettingOther.js";
 import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
-/* CSS Module */
 import styles from "../../css/module/page/Invitation.module.scss";
-/* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const Invitation = () => {
-  const previewnLocation = useLocation();
-  const isTargetPage = previewnLocation.pathname === '/Preview';
-  const { settingList, selectSettingList, selectOptionList } = useContext(SetContext);
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
+
+  const { selectSettingList, selectOptionList } = useContext(SetContext);
+
   const [isActiveTab, setIsActiveTab] = useState(false);
+  const [visibleStates, setVisibleStates] = useState(
+    selectSettingList.map(() => false)
+  );
+  
+  const [popupOpened, setPopupOpened] = useState(false); 
+
   const setActiveTabHandler = () => {
     setIsActiveTab(!isActiveTab);
-  }
+  };
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
-  const handleClose = () => {
-    setOpen(false);
-  };
-  useEffect(() => {
-    if(selectOptionList.optionAttendPopup === "optionAttendPopupOpen" && selectSettingList.includes("settingAttend")) {
-      if (!open) {  // 이미 모달이 열려 있지 않다면 열기
-        handleOpen();
-      }
-    }
-  }, [])
+  const handleClose = () => setOpen(false);
+
+  const refs = useRef([]);
+
   const renderItemHandler = (id) => {
-    switch(id) {
+    switch (id) {
       case "settingLetter":
         return <Letter />;
       case "settingDate":
@@ -70,75 +66,96 @@ const Invitation = () => {
       case "settingGuestbook":
         return <Guestbook />;
       case "settingAttend":
-        return <Attend ref={attendRef} handleOpen={handleOpen} />;
+        return <Attend handleOpen={handleOpen} />;
       default:
         return null;
     }
-  }
-  const [attendRef, inView] = useInView({
-    triggerOnce: true, 
-    threshold: 0.5,
-  });
+  };
+
   useEffect(() => {
-    if(selectOptionList.optionAttendPopup === "optionAttendPopupScroll" && selectSettingList.includes("settingAttend")) {
-      if (inView) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const index = refs.current.indexOf(entry.target);
+          if (index !== -1 && entry.isIntersecting) {
+            setVisibleStates((prev) =>
+              prev.map((state, i) => (i === index ? entry.isIntersecting : state))
+            );
+          }
+        });
+      },
+      { threshold: 0.5 } // 요소가 50% 이상 화면에 들어올 때 감지
+    );
+
+    refs.current.forEach((ref) => ref && observer.observe(ref));
+
+    return () => {
+      refs.current.forEach((ref) => ref && observer.unobserve(ref));
+    };
+  }, []);
+
+  useEffect(() => {
+    if (
+      selectOptionList.optionAttendPopup === "optionAttendPopupScroll" &&
+      selectSettingList.includes("settingAttend") &&
+      !popupOpened 
+    ) {
+      const attendIndex = selectSettingList.indexOf("settingAttend");
+      if (attendIndex !== -1 && visibleStates[attendIndex]) {
         handleOpen();
+        setPopupOpened(true); 
       }
-    } 
-  }, [inView]);
-  useEffect(() => {
-    settingList.map((item) => (
-      selectSettingList.includes(item.itemId) ?
-      renderItemHandler(item.itemId)
-      : null
-    ))
-  }, [settingList, selectSettingList]) 
-  useEffect(() => {
-    document.documentElement.style.setProperty('--font-family--theme', selectOptionList.fontFamily);
-  }, [selectOptionList.fontFamily]);
-  useEffect(() => {
-    document.documentElement.style.setProperty('--font-size--base', selectOptionList.fontSize);
-  }, [selectOptionList.fontSize]);
-  // useEffect(() => {
-    
-  // }, [selectOptionList.scrollEffectOption]);
+    }
+  }, [visibleStates, popupOpened]); 
+
   return (
-    <div 
-      className={`${styles.invitation} ${isTargetPage ? styles.preview : ""} invitation-scroll`}
+    <div
+      className={`${styles.invitation} ${
+        isTargetPage ? styles.preview : ""
+      } invitation-scroll`}
       style={{ backgroundColor: selectOptionList.backgroundColor }}
     >
-      <Container 
-        style={{
-          ...(selectOptionList.effectRange === "effectIntro" ? { position: "relative" } : {}),
-          ...(isActiveTab ? { overflow: "hidden" } : {}),
-        }}
-      >
-        <Tab 
-          setActiveTabHandler={setActiveTabHandler} 
-          isActiveTab={isActiveTab} 
+      <Container>
+        <Tab
+          setActiveTabHandler={setActiveTabHandler}
+          isActiveTab={isActiveTab}
           setIsActiveTab={setIsActiveTab}
         />
         <Intro />
         <Effect />
-        {/* <Letter></Letter>
-        <Calendar></Calendar>
-        <Location></Location> */}
-        {selectSettingList.map((itemId) =>
-          selectSettingList.includes(itemId) ? (
-            <div key={itemId}>{renderItemHandler(itemId)}</div>
-          ) : null
-        )}
+        {selectSettingList.map((itemId, index) => (
+          <div
+            key={itemId}
+            ref={(el) => (refs.current[index] = el)} // 각 아이템에 ref 설정
+            className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
+              visibleStates[index] ? styles.visible : styles.hidden
+            }` : ""}
+          >
+            {renderItemHandler(itemId)}
+          </div>
+        ))}
         <Banner />
-        {/* 위치 방명록 위 */}
-        {selectSettingList.includes("settingOutro") && <Outro />}
-        {/* {isTargetPage ? null: <SettingOther />} */}
+        {selectSettingList.includes("settingOutro") && (
+          <div
+            ref={(el) => (refs.current[selectSettingList.indexOf("settingOutro")] = el)} // 아웃트로
+            className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
+              visibleStates[selectSettingList.indexOf("settingOutro")]
+                ? styles.visible
+                : styles.hidden
+            }` : ""}
+          >
+            <Outro />
+          </div>
+        )}
+
         <Footer />
       </Container>
-      {
-        ReactDOM.createPortal(<InvitationModalAttend openvar={open} onClose={handleClose} />, document.body)
-      }
+      {ReactDOM.createPortal(
+        <InvitationModalAttend openvar={open} onClose={handleClose} />,
+        document.body
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default Invitation;
