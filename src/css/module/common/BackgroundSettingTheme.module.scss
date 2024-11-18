@@ -13,6 +13,10 @@
     border-radius: 50%;
     border: 1px solid $border-color--default;
     cursor: pointer;
+    @include device__query(tablet) {
+      width: ratio(32px, 1000px);
+      height: ratio(32px, 1000px);
+    }
     &.active::after {
       @include position(a, 50%, 50%);
       transform: translate(-50%, -50%);

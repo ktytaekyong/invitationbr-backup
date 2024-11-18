@@ -1,6 +1,6 @@
 @import "../../_module";
 .produce {
-  width: 65%;
+  width: 100%;
   @include device__query(mobile) {
     width: 100%;
   }
