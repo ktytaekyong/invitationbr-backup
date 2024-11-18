@@ -115,7 +115,7 @@ textarea {
     }
   }
 }
-/* Material UI */
+/* Material UI Modal */
 .MuiModal-root {
   z-index: 13000 !important;
 }
@@ -151,5 +151,64 @@ textarea {
       width: 18px;
       height: 18px;
     }
+  }
+}
+
+/* Material UI Calendar */
+.calendar__wrap {
+  .MuiPickersCalendarHeader-root {
+    display: none !important;
+  }
+  .MuiDateCalendar-root {
+    width: 100%;
+    height: unset !important;
+  }
+  .MuiPickersSlideTransition-root.MuiDayCalendar-slideTransition {
+    height: unset !important;
+    min-height: unset !important;
+    > * {
+      position: static;
+    }
+  }
+  .MuiDayCalendar-header {
+    > span {
+      &:first-of-type {
+        color: $point-color--default !important;
+      }
+      &:last-of-type {
+        color: $text-color--blue !important;
+      }
+    }
+  }
+  .MuiDayCalendar-weekContainer {
+    > * {
+      &:first-child {
+        color: $point-color--default;
+      }
+      &:last-child {
+        color: $text-color--blue;
+      }
+    }
+  }
+  .MuiDayCalendar-weekDayLabel {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .MuiPickersDay-today {
+    color: #FFF !important;
+    border: none !important;
+    background: $text-color--placeholder !important;
+  }
+  .MuiButtonBase-root.MuiPickersDay-root {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .MuiPickersDay-root {
+    width: 42px !important;
+    height: 42px !important;
+  }
+  .Mui-selected {
+    background: $point-color--third !important;
+    color: #FFF !important;
   }
 }
