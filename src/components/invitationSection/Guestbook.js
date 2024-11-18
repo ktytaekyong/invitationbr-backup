@@ -12,6 +12,7 @@ import styles from "../../css/module/invitationSection/Guestbook.module.scss";
 /* Image */
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import TextareaWapperCount from "../common/TextareaWapperCount.js";
 
 const Guestbook = () => {
   const { guestbookList, setGuestbookList } = useContext(SetContext);
@@ -65,7 +66,7 @@ const Guestbook = () => {
           <div className={styles.input__wrap}>
             <input type="text" name="guestName" value={tempBookList.guestName} onChange={tempGuestbookHandler} placeholder="이름" />
             <input type="password" name="guestPassword" value={tempBookList.guestPassword} onChange={tempGuestbookHandler} placeholder="비밀번호" />
-            <textarea name="guestMessage" id="" value={tempBookList.guestMessage} onChange={tempGuestbookHandler} placeholder="축하메시지(100자 이내)" />
+            <TextareaWapperCount name="guestMessage" id="" value={tempBookList.guestMessage} onChange={tempGuestbookHandler} placeholder="축하메시지(100자 이내)" maxLength={100}></TextareaWapperCount>
           </div>
           <ButtonWrapper styleType="center">
             <Button content="등록하기" styleType="invitation__reg" onClick={regGuestbookHandler} />

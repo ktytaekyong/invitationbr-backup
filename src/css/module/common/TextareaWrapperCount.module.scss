@@ -5,9 +5,9 @@
     width: 100%;
     span {
       @include position(a, null, null, 10px, 12px);
-      font-size: $font-size--xxsm;
-      color: $text-color--disable-input;
-      font-weight: $font-weight--Regular;
+      font-size: $font-size--xxsm !important;
+      color: $text-color--disable-input !important;
+      font-weight: $font-weight--Regular !important;
     }
   }
 }
