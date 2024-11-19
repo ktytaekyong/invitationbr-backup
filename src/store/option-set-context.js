@@ -39,4 +39,7 @@ export const SetContext = createContext({
   setAttendList: () => {},
   attendGuest: {},
   setAttendGuest: () => {},
+
+  openSettingTab: {},
+  setOpenSettingTab: () => {},
 });

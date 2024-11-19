@@ -11,7 +11,6 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
     setIsActive(!isActive);
   };
   const itemRef = useRef(null);
-
   useEffect(() => {
     if(itemRef.current.id === "settingFixedTab") {
       setTimeout(() => {

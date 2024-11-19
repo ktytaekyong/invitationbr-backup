@@ -8,8 +8,12 @@
     background-color: $bg-color--setting;
     @include device__query(tablet) {
       max-width: unset;
+      display: none;
     }
     &.active {
+      @include device__query(tablet) {
+        @include flex__column;
+      }
       .setting__title {
         border-radius: 8px 8px 0px 0px;
         border-bottom: 1px solid $border-color--default;

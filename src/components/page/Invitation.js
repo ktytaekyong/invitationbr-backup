@@ -27,16 +27,13 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
-
   const { selectSettingList, selectOptionList } = useContext(SetContext);
-
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)
   );
   
   const [popupOpened, setPopupOpened] = useState(false); 
-
   const setActiveTabHandler = () => {
     setIsActiveTab(!isActiveTab);
   };
@@ -46,7 +43,6 @@ const Invitation = () => {
   const handleClose = () => setOpen(false);
 
   const refs = useRef([]);
-
   const renderItemHandler = (id) => {
     switch (id) {
       case "settingLetter":

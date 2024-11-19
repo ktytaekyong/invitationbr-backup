@@ -8,15 +8,24 @@ import styles from "../../css/module/layout/MobileSettingButtonWrapper.module.sc
 import { SetContext } from "../../store/option-set-context.js";
 
 const MobileSettingButtonWrapper = ({ id, position }) => {
-  const { settingList } = useContext(SetContext); 
+  const { settingList, openSettingTab, setOpenSettingTab } = useContext(SetContext);
   const buttonTitleChanger = (id) => {
     const content = settingList.find((item) => item.itemId === id);
-    console.log(content);
     return content.itemTitle; 
   };
+  const buttonClickHandler = (id) => {
+    setOpenSettingTab(() => {
+
+    })
+  }
   return (
     <div className={`${styles.wrapper} ${position === "absolute" ? styles.absolute : styles.static}`}>
-      <Button type="button" content={buttonTitleChanger(id)} styleType="mobile__setting" />
+      <Button 
+        type="button" 
+        content={buttonTitleChanger(id)} 
+        styleType="mobile__setting"
+        onClick={buttonClickHandler(id)}
+      />
     </div>
   )
 }
