@@ -6,6 +6,9 @@
     border-radius: 8px;
     border: 1px solid $border-color--default;
     background-color: $bg-color--setting;
+    @include device__query(tablet) {
+      max-width: unset;
+    }
     &.active {
       .setting__title {
         border-radius: 8px 8px 0px 0px;

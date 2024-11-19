@@ -13,10 +13,11 @@
     justify-content: center;
     align-items: flex-start;
     column-gap: 30px;
-    @include device__query(mobile) {
+    @include device__query(tablet) {
       @include flex__column;
       align-items: center;
       row-gap: 25px;
+      padding: 0;
     }
   }
   &.preview {

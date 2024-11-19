@@ -6,14 +6,16 @@
   border-bottom: 1px solid $border-color--default;
   background-color: #fff;
   z-index: 999;
-  @include device__query(mobile) {
+  @include device__query(tablet) {
     height: 60px;
+    border-bottom: none;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.03)
   }
   > div {
     @include flex__row;
     justify-content: space-between;
     align-items: center;
-    @include device__query(mobile) {
+    @include device__query(tablet) {
       padding: 0 20px;
     }
   }
@@ -22,7 +24,7 @@
     justify-content: flex-start;
     align-items: center;
     column-gap: 13px;
-    @include device__query(mobile) {
+    @include device__query(tablet) {
       display: none;
     }
     img:first-child {
@@ -40,27 +42,26 @@
     row-gap: 6px;
     transform: translate(-50%, -50%);
     text-align: center;
-    @include device__query(mobile) {
+    @include device__query(tablet) {
       @include position(s);
       transform: unset;
     }
     h2 {
       font-size: $font-size--lg;
       font-weight: $font-weight--SemiBold;
-      @include device__query(mobile) {
+      @include device__query(tablet) {
         font-size: $font-size--default;
       }
     }
     p {
       font-size: $font-size--ssm;
       color: $text-color--gray;
-      @include device__query(mobile) {
+      @include device__query(tablet) {
         display: none;
       }
     }
   }
 }
-
 .modal {
   &__header {
     display: none;

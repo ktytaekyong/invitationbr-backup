@@ -19,6 +19,8 @@ import Outro from "../invitationSection/Outro";
 import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
 import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
+import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
+
 import styles from "../../css/module/page/Invitation.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -115,11 +117,14 @@ const Invitation = () => {
       style={{ backgroundColor: selectOptionList.backgroundColor }}
     >
       <Container>
-        <Tab
-          setActiveTabHandler={setActiveTabHandler}
-          isActiveTab={isActiveTab}
-          setIsActiveTab={setIsActiveTab}
-        />
+        <>
+          <MobileSettingButtonWrapper id="settingFixedTab" position="static" />
+          <Tab
+            setActiveTabHandler={setActiveTabHandler}
+            isActiveTab={isActiveTab}
+            setIsActiveTab={setIsActiveTab}
+          />
+        </>
         <Intro />
         <Effect />
         {selectSettingList.map((itemId, index) => (

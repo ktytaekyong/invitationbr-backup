@@ -1,7 +1,7 @@
 @import "../../_module";
 .produce {
   width: 100%;
-  @include device__query(mobile) {
+  @include device__query(tablet) {
     width: 100%;
   }
   & > div {

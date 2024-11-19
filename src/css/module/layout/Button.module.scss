@@ -8,16 +8,27 @@
   font-size: $font-size--sm;
   font-weight: $font-weight--SemiBold;
   border: none;
+  @include device__query(tablet) {
+    padding: 8px 24px;
+    font-size: $font-size--xxsm;
+  }
   &.default {
     border-radius: $radius--default;
     border: 1px solid $button-color--default;
     background-color: #FFF;
     color: $text-color--default;
+    @include device__query(tablet) {
+      border-radius: $radius--default-sm;
+    }
   }
   &.primary {
     border-radius: $radius--default;
+    border: 1px solid $button-color--default;
     background-color: $button-color--default;
     color: #FFF;
+    @include device__query(tablet) {
+      border-radius: $radius--default-sm;
+    }
   }
   &.point {
     font-weight: $font-weight--Medium;
@@ -188,5 +199,15 @@
       font-weight: 600;
       font-size: $font-size--default;
     }
+  }
+  &.mobile__setting {
+    padding: 4px 19px 4px 8px;
+    font-family: $font-family--default;
+    font-weight: $font-weight--SemiBold;
+    font-size: 11.5px;
+    line-height: 1.4em;
+    border-radius: $radius--default-sm;
+    background: $point-color--default no-repeat url(../../../img/icon/icon_btn_add.png) right 2px center / 16px;
+    color: #FFF;
   }
 }
