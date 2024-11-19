@@ -1,11 +1,6 @@
 @charset "utf-8";
-:root {
-  --font-family--theme: "SeoulHangang";
-  --font-size--base: 16px;
-  --touch-option: manipulation;
-  --toast-bgcolor: #7197CF;
-}
-/* COLOR */
+
+// COLOR
 $text-color--default: #191F28;
 $text-color--gray: #5B6470; 
 $text-color--disable: #7A7A7A; 
@@ -17,27 +12,27 @@ $text-color--blue: #4E9CF6;
 
 $text-color--temp: #484848;
 
-$point-color--default: #FF6550; /* */
+$point-color--default: #FF6550;
 $point-color--second: #EDEDED;
 $point-color--third: #FF9283;
 $point-color--fourth: #83ACE8;
 
-$bg-color--default: #F6F7F8; /* */
+$bg-color--default: #F6F7F8;
 
 $bg-color--second: #F0F1F1;
 $bg-color--invite: #FFF;
-$bg-color--setting: #F9FAFB; /* */
-$bg-color--tab: #F2F4F6; /* */
-$bg-color--picker: rgba(255, 255, 255, 0.7); /* */
+$bg-color--setting: #F9FAFB;
+$bg-color--tab: #F2F4F6;
+$bg-color--picker: rgba(255, 255, 255, 0.7);
 
-$border-color--default: #E5E8EB; /* */
-$border-color--gray: #5B6470; /* */
-$border-color--play: #A8B3BD; /* */
+$border-color--default: #E5E8EB;
+$border-color--gray: #5B6470;
+$border-color--play: #A8B3BD;
 
-$button-color--default: #182D4B; /* */
-$button-color--cancel: #F2F4F6; /* */
+$button-color--default: #182D4B;
+$button-color--cancel: #F2F4F6;
 
-/* FONT */
+// FONT
 $font-family--default: "Pretendard";
 // var(--font-family--theme): "SeoulHangang";
 $font-weight--Thin: 100;
@@ -50,7 +45,7 @@ $font-weight--Bold: 700;
 $font-weight--ExtraBold: 800;
 $font-weight--Black: 900;
 
-/* FONT-SIZE */
+// FONT-SIZE
 $font-size--section-title: 3.125rem; // 50px
 $font-size--xl: 1.5rem; // 24px
 $font-size--lg: 1.25rem; // 20px;
@@ -62,14 +57,8 @@ $font-size--xsm: 0.8125rem; // 13px;
 $font-size--xxsm: 0.75rem; // 12px;
 
 $font-size--couple-name: 1.6875rem; // 27px;
-/* $font-size--temp-lg: 20px;
-$font-size--temp-sl: 18px;
-$font-size--temp-default: 16px;
-$font-size--temp-ssm: 15px;
-$font-size--temp-sm: 12px;
-$font-size--temp-xsm: 11px; */
 
-/* WIDTH */
+// WIDTH
 $width--min: 460px;
 $width--max: 1320px;
 
@@ -79,34 +68,20 @@ $width-tablet: 1199;
 $width-mobile: 599;
 $width-mobile-basic: 375;
 
-$width-input-setting: 160px; /* */
+$width-input-setting: 160px;
 
-/* PADDING */
+// PADDING
 $padding--default: 0 20px;
 $padding--mobile: 24px;
 
-/* TRANSITION */
+// TRANSITION
 $transition--fast: 0.3s linear all;
 $transition--default: 0.5s linear all;
 $transition--template: .42s ease all;
 
-/* BORDER-RADIUS */
-$radius--default: 8px; /* */
-$radius--button-list: 999px; /* */
+// BORDER-RADIUS
+$radius--default: 8px;
+$radius--button-list: 999px;
 
-/* GAP */
-$col-gap--setting-basic: 8px; /* */
-
-/* device == "pc" */
-@media screen and (min-width: 1800px) {
-  /* @content; */
-}
-
-/* device == "notebook" */
-@media screen and (max-width: 1799px) {
-  /* @content; */
-}
-
-/* device == "tablet" */
-/* clamp 35%, 90% */
-
+// GAP
+$col-gap--setting-basic: 8px;
