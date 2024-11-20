@@ -13,7 +13,7 @@ const CommonItemContent = ({ title, multi, essential, children, wrap }) => {
           null
         }
       </p>
-      <div className={styles.option__content} style={{flexWrap: isMobile && wrap ? "nowrap" : "wrap"}}>
+      <div className={styles.option__content} style={{flexWrap: wrap ? "nowrap" : "wrap"}}>
         {children}
       </div>
     </div>
