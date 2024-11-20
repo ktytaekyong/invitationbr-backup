@@ -1,0 +1,18 @@
+@import "../../_module";
+.drag {
+  &__top {
+    width: 100%;
+    padding: 12px 5px 11px;
+  }
+  &__divide {
+    width: 56px;
+    height: 4px;
+    margin: 0 auto;
+    background: #D3D6DB;
+    border-radius: 999px;
+    display: none;
+    @include device__query(tablet) {
+      display: block;
+    }
+  }
+}

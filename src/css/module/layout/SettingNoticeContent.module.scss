@@ -3,9 +3,29 @@
   @include flex__row;
   column-gap: 6px;
   font-size: $font-size--sm;
-  & span {
+  @include device__query(tablet) {
+    justify-content: center;
+    font-size: $font-size--xsm;
+  }
+  span {
     font-weight: $font-weight--Regular;
     color: $text-color--gray;
     word-break: keep-all;
+    @include device__query(tablet) {
+      text-align: center;
+      line-height: 1.4em;
+    }
+    br {
+      display: none;
+    }
+    @include device__query(tablet) {
+      justify-content: center;
+      &:first-child {
+        display: none;
+      }
+      br {
+        display: inline-block;
+      }
+    }
   }
 }

@@ -3,4 +3,7 @@
   @include flex__column;
   row-gap: 16px;
   overflow: hidden;
+  @include device__query(tablet) {
+    overflow: visible;
+  }
 }

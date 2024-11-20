@@ -1,9 +1,12 @@
 /* Import */
 import { useState, useRef, useEffect, useContext } from "react";
+// Component
+import MobileSettingDragTop from "../layout/MobileSettingDragTop.js";
 /* CSS Module */
 import styles from "../../css/module/common/SettingItem.module.scss";
 /* Image */
 import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
+import iconSettingItemCloseImg from "../../img/icon/icon_close_modal.png"
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -27,7 +30,14 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
 
   return (
     <li id={id} className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} ref={itemRef}>
-      <div className={styles.setting__title} onClick={!isMobile ? activeToggleHandler : activeSettingHandler}>
+      <MobileSettingDragTop />
+      <div className={styles.setting__title} 
+        onClick={() => {
+          if(!isMobile) {
+            activeToggleHandler();
+          }
+        }
+      }>
         <div className={styles.setting__title_wrap}>
           {
             option ?
@@ -39,7 +49,14 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             <p>{itemTitle}</p>
           }
         </div>
-          <img src={iconSettingItemArrowImg} alt="" className={styles.setting__arrow_img} />
+          {
+            !isMobile ?
+            <img src={iconSettingItemArrowImg} alt="" className={styles.setting__arrow_img} />
+            :
+            <div className={styles.setting__close} onClick={activeSettingHandler}>
+              <img src={iconSettingItemCloseImg} alt="" className={styles.setting__close_img} />
+            </div>
+          }
       </div>
       <div className={styles.setting__content}>
         {itemContent}

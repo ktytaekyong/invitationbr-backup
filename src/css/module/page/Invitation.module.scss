@@ -11,10 +11,12 @@
   overflow-y: scroll;
   flex-shrink: 0;
   @include device__query(tablet) {
+    @include position(s);
     height: unset;
     border: none;
     border-radius: 0;
     padding-top: 16px;
+    overflow: visible;
   }
   &.preview {
     height: 97vh;
@@ -29,12 +31,12 @@
   > div {
     @include scroll__disabled;
     padding: 0;
+    @include device__query(tablet) {
+      overflow: visible;
+    }
     &::-webkit-scrollbar {
       display: none;
     }
-  }
-  @include device__query(tablet) {
-    @include position(s);
   }
 }
 

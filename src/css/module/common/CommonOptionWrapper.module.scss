@@ -2,4 +2,7 @@
 .option__content_wrapper {
   @include flex__column;
   row-gap: 24px;
+  @include device__query(tablet) {
+    row-gap: 16px;
+  }
 }

@@ -5,4 +5,13 @@
   gap: 10px 4px;
   padding-top: 24px;
   border-top: 1px solid $border-color--default;
+  @include device__query(tablet) {
+    width: 100%;
+    max-width: 390px;
+    border-top: none;
+    padding-top: 0;
+    margin: 0 auto;
+    justify-content: center;
+    gap: 8px 4px;
+  }
 }

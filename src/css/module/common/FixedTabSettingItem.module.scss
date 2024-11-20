@@ -1,6 +1,6 @@
 @import "../../_module";
 .option__item {
-  & input {
+  input {
     &[type="checkbox"] {
       @include input__appearance;
       display: none;
@@ -10,7 +10,7 @@
       }
     }
   }
-  & label {
+  label {
     @include flex__row;
     padding: 14px 20px;
     font-size: $font-size--xsm;
@@ -18,5 +18,9 @@
     border: 1px solid $border-color--default;
     background-color: #fff;
     color: $text-color--disable;
+    @include device__query(tablet) {
+      padding: 10px 16px;
+      font-size: $font-size--xxsm;
+    }
   }
 }
