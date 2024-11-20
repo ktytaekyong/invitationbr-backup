@@ -11,6 +11,10 @@
   z-index: 10;
   pointer-events: none;
   // animation: pop 12s linear infinite;
+  @include device__query(tablet) {
+    height: 100vh;
+    background: repeat top center / auto 390px;
+  }
   &.flower {
     background-image: url(../../../img/intro/effect_flower1.gif);
   }
@@ -23,6 +27,9 @@
     background-image: url(../../../img/intro/effect_snow1.gif);
     background-size: contain;
     opacity: 0.7;
+  }
+  &.effectAll {
+    height: 100%;
   }
 }
 // @keyframes pop {

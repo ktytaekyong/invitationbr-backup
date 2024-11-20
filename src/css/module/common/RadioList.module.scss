@@ -6,6 +6,9 @@
   flex-wrap: wrap;
   column-gap: 12px;
   margin-top: 4px;
+  @include device__query(tablet) {
+    margin-top: 0px;
+  }
   &.active {
     @include flex__row;
   }

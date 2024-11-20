@@ -3,4 +3,9 @@
   @include flex__row;
   justify-content: flex-start;
   align-items: center;
+  label {
+    @include device__query(tablet) {
+      font-size: $font-size--xsm !important;
+    }
+  }
 }

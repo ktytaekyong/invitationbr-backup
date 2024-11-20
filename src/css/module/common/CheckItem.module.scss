@@ -4,7 +4,7 @@
   justify-content: flex-start;
   align-items: center;
   column-gap: 5px;
-  & input {
+  input {
     @include input__appearance;
     width: 24px;
     height: 24px;
@@ -16,7 +16,7 @@
       }
     }
   }
-  & label {
+  label {
     @include flex__row;
     justify-content: flex-start;
     align-items: center;
@@ -24,6 +24,9 @@
     font-size: $font-size--sm;
     font-weight: $font-weight--Regular;
     color: $text-color--disable-input;
+    @include device__query(tablet) {
+      font-size: $font-size--xsm;
+    }
     & img {
       width: 18px;
       height: 18px;

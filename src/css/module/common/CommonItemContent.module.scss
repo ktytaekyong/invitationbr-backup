@@ -20,6 +20,9 @@
     @include flex__row;
     flex-wrap: wrap;
     gap: 12px $col-gap--setting-basic;
+    @include device__query(tablet) {
+      gap: 8px $col-gap--setting-basic;
+    }
   }
   &.multiLine {
     .option__title {

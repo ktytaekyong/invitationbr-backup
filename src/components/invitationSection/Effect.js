@@ -9,7 +9,7 @@ const Effect = () => {
   const { selectOptionList } = useContext(SetContext);
   return (
     <div 
-      className={`${styles.effect} 
+      className={`${styles.effect} ${selectOptionList.effectRange === "effectAll" ? styles[selectOptionList.effectRange] : ""} 
                   ${selectOptionList.effectType !== "bgEffectNoSelect" && selectOptionList.effectType === "bgEffectBlossoms" ? styles.flower : ""}
                   ${selectOptionList.effectType !== "bgEffectNoSelect" && selectOptionList.effectType === "bgEffectHeart" ? styles.heart : ""}
                   ${selectOptionList.effectType !== "bgEffectNoSelect" && selectOptionList.effectType === "bgEffectSnowflake" ? styles.snowflake : ""}
