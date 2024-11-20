@@ -73,7 +73,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         transform: `translateY(${translateY}px)`,
       }}
     >
-      <MobileSettingDragTop  />
+      {isMobile ? <MobileSettingDragTop  /> : null}
       <div className={styles.setting__title} 
         onMouseDown={handleStart} 
         onTouchStart={handleStart}

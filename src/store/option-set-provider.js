@@ -1,11 +1,20 @@
 /* Import */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import initList from "./option-list.json";
 /* Context */
 import { SetContext } from "./option-set-context.js"
 
 const SetProvider = ({ children }) => {
-  const [isMobile, setIsMobile] = useState((window.innerWidth < 950));
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 950);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 950);
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
   const [settingOrderList, setSettingOrderList] = useState(initList.settingOrderList);
   const [kakaoInfoList, setKakaoInfoList] = useState(initList.kakaoInfoList);
   const [urlInfoList, setUrlInfoList] = useState(initList.urlInfoList);
