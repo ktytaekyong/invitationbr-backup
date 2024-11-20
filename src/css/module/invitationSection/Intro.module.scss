@@ -1,11 +1,16 @@
 @import "../../_module";
 .intro {
   width: 100%;
+  @include device__query(tablet) {
+    @include position;
+  }
   &__wrap {
     width: 100%;
     padding: 0 45px;
     padding-top: 50px;
     padding-bottom: 35px;
+    @include device__query(tablet) {
+    }
     > div {
       &:nth-child(2) {
         margin-top: 24px;

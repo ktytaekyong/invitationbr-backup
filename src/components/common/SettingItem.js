@@ -12,6 +12,12 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange }) => {
   const { isMobile, openSettingTab, setOpenSettingTab } = useContext(SetContext);
+
+  const [translateY, setTranslateY] = useState(0); // 현재 요소의 Y축 위치
+  const isDragging = useRef(false); // 드래그 상태
+  const startY = useRef(0); // 드래그 시작 Y 좌표
+  const startTranslateY = useRef(0); // 드래그 시작 시 translateY 값
+
   const [isActive, setIsActive] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
@@ -28,10 +34,49 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
     }
   }, []);
 
+  const handleStart = (e) => {
+    e.preventDefault();
+    isDragging.current = true;
+    startY.current = e.touches ? e.touches[0].clientY : e.clientY;
+    startTranslateY.current = translateY;
+  };
+
+  const handleMove = (e) => {
+    if (!isDragging.current) return;
+    const currentY = e.touches ? e.touches[0].clientY : e.clientY;
+    const delta = currentY - startY.current; // 드래그 이동 거리
+    const newTranslateY = startTranslateY.current + delta;
+    if (newTranslateY >= 0) {
+      setTranslateY(newTranslateY);
+    }
+    e.preventDefault();
+  };
+
+  const handleEnd = () => {
+    isDragging.current = false;
+    if(translateY > 100){
+      setOpenSettingTab("");
+      setTranslateY(0);
+    }
+  };
+
   return (
-    <li id={id} className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} ref={itemRef}>
-      <MobileSettingDragTop />
+    <li 
+      id={id} 
+      className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} 
+      ref={itemRef}
+      onMouseMove={handleMove}
+      onMouseUp={handleEnd}
+      onTouchMove={handleMove}
+      onTouchEnd={handleEnd}
+      style={{
+        transform: `translateY(${translateY}px)`,
+      }}
+    >
+      <MobileSettingDragTop  />
       <div className={styles.setting__title} 
+        onMouseDown={handleStart} 
+        onTouchStart={handleStart}
         onClick={() => {
           if(!isMobile) {
             activeToggleHandler();
@@ -58,7 +103,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             </div>
           }
       </div>
-      <div className={styles.setting__content}>
+      <div className={styles.setting__content} style={{}}>
         {itemContent}
       </div>
     </li>

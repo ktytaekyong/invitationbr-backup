@@ -1,6 +1,8 @@
+/* import */
 import { useContext, useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import ReactDOM from "react-dom";
+/* Component */
 import Container from "../layout/Container";
 import Tab from "../invitationSection/Tab";
 import Intro from "../invitationSection/Intro";
@@ -20,14 +22,15 @@ import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
 import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
-
+/* CSS */
 import styles from "../../css/module/page/Invitation.module.scss";
+// Context
 import { SetContext } from "../../store/option-set-context.js";
 
 const Invitation = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
-  const { selectSettingList, selectOptionList } = useContext(SetContext);
+  const { isMobile, selectSettingList, selectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)
@@ -114,13 +117,17 @@ const Invitation = () => {
     >
       <Container>
         <>
-          <MobileSettingButtonWrapper id="settingFixedTab" position="static" />
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingFixedTab" position="static" /> : null}
           <Tab
             setActiveTabHandler={setActiveTabHandler}
             isActiveTab={isActiveTab}
             setIsActiveTab={setIsActiveTab}
           />
         </>
+        {!isTargetPage && isMobile ?
+          <p className={styles.mobile__notice}>텍스트, 이미지를 추가하고 편집할 수 있습니다. <br />선택 항목은 체크박스 표시가 있습니다.</p>
+          : null
+        }
         <Intro />
         <Effect />
         {selectSettingList.map((itemId, index) => (

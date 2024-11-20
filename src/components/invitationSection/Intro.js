@@ -1,5 +1,8 @@
 /* Import */
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
+// Component
+import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Intro.module.scss";
 /* Image */
@@ -22,7 +25,10 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { IntroContext } from "../../store/option-intro-context.js";
 
 const Intro = () => {
-  const { selectOptionList } = useContext(SetContext);
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
+  
+  const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const { selectIntroPhoto, prevIntroColor, introSample } = useContext(IntroContext);
   const handleDateChange = (date) => {
@@ -404,6 +410,11 @@ const Intro = () => {
       id={selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme}
       className={`${styles.intro} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}
     >
+      
+      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="30px" /> : null}
+      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="78px" /> : null}
+      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="126px" /> : null}
+
       {renderIntroHandler(selectOptionList.introFillType)}
     </div>
   )

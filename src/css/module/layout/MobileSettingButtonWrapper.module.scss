@@ -7,7 +7,7 @@
     @include flex__row;
   }
   &.absolute {
-    @include position(a, 50%, 0);
+    @include position(a, 10px, 0);
   }
   &.static {
     @include position(s);

@@ -7,15 +7,18 @@ import styles from "../../css/module/layout/MobileSettingButtonWrapper.module.sc
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const MobileSettingButtonWrapper = ({ id, position }) => {
+const MobileSettingButtonWrapper = ({ id, position, top }) => {
   const { isMobile, settingList, openSettingTab, setOpenSettingTab } = useContext(SetContext);
   const buttonTitleChanger = useCallback((id) => {
     const content = settingList.find((item) => item.itemId === id);
     return content.itemTitle; 
-  }, [settingList]);
+  }, [settingList, id]);
   return (
     openSettingTab ? null :
-    <div className={`${styles.wrapper} ${position === "absolute" ? styles.absolute : styles.static}`}>
+    <div 
+      className={`${styles.wrapper} ${position === "absolute" ? styles.absolute : styles.static}`}
+      style={{top: position === "absolute" ? top : "unset"}}
+    >
       <Button 
         type="button" 
         content={buttonTitleChanger(id)} 

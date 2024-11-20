@@ -30,12 +30,12 @@
       .setting__title {
         border-radius: 8px 8px 0px 0px;
         border-bottom: 1px solid $border-color--default;
+        touch-action: none;
       }
       .setting__arrow_img {
         transform: rotateX(0);
       }
       .setting__content {
-        min-height: 220px;
         height: unset; 
         margin: 24px;
         visibility: visible; 
