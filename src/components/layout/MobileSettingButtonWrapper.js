@@ -1,5 +1,5 @@
 /* Import */
-import { useContext } from "react";
+import { useCallback, useContext, useEffect } from "react";
 // Component
 import Button from "./Button"
 // CSS
@@ -8,26 +8,24 @@ import styles from "../../css/module/layout/MobileSettingButtonWrapper.module.sc
 import { SetContext } from "../../store/option-set-context.js";
 
 const MobileSettingButtonWrapper = ({ id, position }) => {
-  const { settingList, openSettingTab, setOpenSettingTab } = useContext(SetContext);
-  const buttonTitleChanger = (id) => {
+  const { isMobile, settingList, openSettingTab, setOpenSettingTab } = useContext(SetContext);
+  const buttonTitleChanger = useCallback((id) => {
     const content = settingList.find((item) => item.itemId === id);
     return content.itemTitle; 
-  };
-  const buttonClickHandler = (id) => {
-    setOpenSettingTab(() => {
-
-    })
-  }
+  }, [settingList]);
   return (
+    openSettingTab ? null :
     <div className={`${styles.wrapper} ${position === "absolute" ? styles.absolute : styles.static}`}>
       <Button 
         type="button" 
         content={buttonTitleChanger(id)} 
         styleType="mobile__setting"
-        onClick={buttonClickHandler(id)}
+        onClick={() => {
+          if(isMobile) setOpenSettingTab(id);
+        }}
       />
     </div>
   )
 }
 
-export default MobileSettingButtonWrapper
+export default MobileSettingButtonWrapper;

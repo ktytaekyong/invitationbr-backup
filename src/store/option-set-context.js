@@ -2,6 +2,8 @@
 import { createContext } from "react";
 
 export const SetContext = createContext({
+  isMobile: "",
+  setIsMobile: () => {},
   kakaoInfoList: [],
   setKakaoInfoList: () => {}, 
   urlInfoList: [],

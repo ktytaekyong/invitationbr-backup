@@ -4,6 +4,7 @@
   @include device__query(tablet) {
     @include position(f, null, 0, 0);
     width: 100%;
+    z-index: 999999;
   }
   & > div {
     padding: 0;

@@ -1,14 +1,20 @@
 /* Import */
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 /* CSS Module */
 import styles from "../../css/module/common/SettingItem.module.scss";
 /* Image */
 import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
+/* Context */
+import { SetContext } from "../../store/option-set-context.js";
 
 const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange }) => {
+  const { isMobile, openSettingTab, setOpenSettingTab } = useContext(SetContext);
   const [isActive, setIsActive] = useState(false);
   const activeToggleHandler = () => {
     setIsActive(!isActive);
+  };
+  const activeSettingHandler = () => {
+    setOpenSettingTab("");
   };
   const itemRef = useRef(null);
   useEffect(() => {
@@ -20,8 +26,8 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
   }, []);
 
   return (
-    <li id={id} className={`${styles.setting__item} ${isActive ? styles["active"] : ""}`} ref={itemRef}>
-      <div className={styles.setting__title} onClick={activeToggleHandler}>
+    <li id={id} className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} ref={itemRef}>
+      <div className={styles.setting__title} onClick={!isMobile ? activeToggleHandler : activeSettingHandler}>
         <div className={styles.setting__title_wrap}>
           {
             option ?

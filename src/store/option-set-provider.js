@@ -5,6 +5,7 @@ import initList from "./option-list.json";
 import { SetContext } from "./option-set-context.js"
 
 const SetProvider = ({ children }) => {
+  const [isMobile, setIsMobile] = useState((window.innerWidth < 950));
   const [settingOrderList, setSettingOrderList] = useState(initList.settingOrderList);
   const [kakaoInfoList, setKakaoInfoList] = useState(initList.kakaoInfoList);
   const [urlInfoList, setUrlInfoList] = useState(initList.urlInfoList);
@@ -28,6 +29,8 @@ const SetProvider = ({ children }) => {
   return (
     <SetContext.Provider
       value={{
+        isMobile,
+        setIsMobile,
         kakaoInfoList,
         setKakaoInfoList, 
         urlInfoList,
