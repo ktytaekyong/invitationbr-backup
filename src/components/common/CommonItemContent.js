@@ -1,7 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/CommonItemContent.module.scss";
 
-const CommonItemContent = ({ title, multi, essential, children }) => {
+const CommonItemContent = ({ title, multi, essential, children, wrap }) => {
   return (
     <div className={`${styles.item__content} ${multi ? styles.multiLine : null} ${multi === "check" ? styles.multiCheck : null}`}>
       <p className={styles.option__title}>
@@ -13,7 +13,7 @@ const CommonItemContent = ({ title, multi, essential, children }) => {
           null
         }
       </p>
-      <div className={styles.option__content}>
+      <div className={styles.option__content} style={{flexWrap: isMobile && wrap ? "nowrap" : "wrap"}}>
         {children}
       </div>
     </div>

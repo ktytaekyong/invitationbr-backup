@@ -6,7 +6,7 @@ import styles from "../../css/module/common/OptionSelector.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, value }) => {
-  const { selectOptionList, setSelectOptionList } = useContext(SetContext);
+  const { isMobile, selectOptionList, setSelectOptionList } = useContext(SetContext);
   const dataChangeHandler = (e) => {
     const { name, value } = e.target;
     const newArray = Object.entries(selectOptionList);
@@ -30,7 +30,7 @@ const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, v
           onChange : 
           (e) => dataChangeHandler(e)
         }
-        className={styles.option__selector}>
+        className={`${styles.option__selector}`}>
         {
           listName.map((item, index) => {
             return (

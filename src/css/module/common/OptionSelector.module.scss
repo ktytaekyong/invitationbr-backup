@@ -2,11 +2,17 @@
 .option__selector {
   width: 100%;
   font-size: $font-size--sm;
+  @include device__query(tablet) {
+    font-size: $font-size--xsm;
+  }
   &_wrapper {
     @include position;
     width: 100%;
     max-width: $width-input-setting;
     font-weight: $font-weight--Regular;
+    @include device__query(tablet) {
+      max-width: 100%;
+    }
     &::after {
       @include position(a, 50%, null, null, 0);
       transform: translateY(-50%);

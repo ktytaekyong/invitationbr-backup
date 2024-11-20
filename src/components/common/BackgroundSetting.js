@@ -1,5 +1,5 @@
 /* Import */
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -71,13 +71,19 @@ const fontSizeList = [
   }
 ]
 const BackgroundSetting = () => {
-  const { selectOptionList } = useContext(SetContext);
+  const { selectOptionList, isMobile } = useContext(SetContext);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--font-family--theme', selectOptionList.fontFamily);
+  }, [selectOptionList.fontFamily]);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--font-size--base', selectOptionList.fontSize);
+  }, [selectOptionList.fontSize]);
   return (
     // 전체
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
-          <CommonItemContent title="테마">
+          <CommonItemContent title="테마" multi={isMobile}>
             <OptionSelector 
               selectID="themeSelector" 
               selectName="theme" 
@@ -87,7 +93,7 @@ const BackgroundSetting = () => {
             <BackgroundSettingTheme />
           </CommonItemContent>
 
-          <CommonItemContent title="폰트">
+          <CommonItemContent title="폰트" wrap={isMobile}>
             <OptionSelector 
               selectID="fontSelector" 
               selectName="fontFamily" 

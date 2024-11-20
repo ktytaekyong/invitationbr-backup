@@ -49,6 +49,9 @@ input {
   font-size: $font-size--sm;
   font-weight: $font-weight--Regular;
   color: #666;
+  @include device__query(tablet) {
+    font-size: $font-size--xsm;
+  }
   &[type="date"] {
     @include input__appearance;
     width: 100%;

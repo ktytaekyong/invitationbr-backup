@@ -3,16 +3,19 @@
   @include flex__row;
   gap: 8px 12px;
   width: 100%;
-  & .option__title {
+  .option__title {
     @include flex__row;
     justify-content: flex-start;
     align-items: center;
     min-width: 70px;
     font-size: $font-size--ssm;
     word-break: keep-all;
-    @include device__query(pc);
+    @include device__query(tablet) {
+      min-width: 52px;
+      font-size: $font-size--xsm;
+    }
   }
-  & .option__content {
+  .option__content {
     width: 100%;
     @include flex__row;
     flex-wrap: wrap;
@@ -34,7 +37,7 @@
   }
   .essential {
     display: inline-block;
-    margin-left: 4px;
+    margin-left: 3px;
     color: $text-color--essntial;
   }
 }
