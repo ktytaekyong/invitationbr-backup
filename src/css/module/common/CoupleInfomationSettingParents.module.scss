@@ -3,12 +3,24 @@
   @include flex__row;
   column-gap: 8px;
   width: 100%;
+  @include device__query(tablet) {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
   .info {
     &__parentname {
       max-width: 100px;
+      @include device__query(tablet) {
+        width: 63%;
+        max-width: unset;
+      }
     }
     &__parentnumber {
       max-width: 150px;
+      @include device__query(tablet) {
+        order: 2;
+        max-width: unset;
+      }
     }
   }
 }

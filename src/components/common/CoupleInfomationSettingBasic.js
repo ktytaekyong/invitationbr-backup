@@ -122,7 +122,7 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         id={`${coupleKey}Number`} 
         name="number" 
         className={styles.info__number} 
-        placeholder="전화 번호" 
+        placeholder="전화 번호 ‘-’ 없이 입력" 
         value={value.number}
         onChange={onChange}
       />

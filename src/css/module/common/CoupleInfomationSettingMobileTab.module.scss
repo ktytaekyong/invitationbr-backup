@@ -1,0 +1,23 @@
+@import "../../_module";
+.mobile__tab {
+  @include flex__row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 4px;
+  width: 100%;
+  margin-bottom: 8px;
+  button {
+    border-radius: 999px;
+    padding: 10px 16px;
+    font-size: $font-size--xxsm;
+    color: $text-color--disable-input;
+    background: #FFF;
+    outline: none;
+    border: 1px solid $border-color--default;
+    &.active {
+      border: 1px solid $button-color--default;
+      background: $button-color--default;
+      color: #FFF;
+    }
+  }
+}
