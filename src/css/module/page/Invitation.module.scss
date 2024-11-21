@@ -15,10 +15,13 @@
     height: unset;
     border: none;
     border-radius: 0;
-    overflow: visible;
+    // overflow: visible;
   }
   &.preview {
     height: 97vh;
+    @include device__query(tablet) {
+      height: 100vh;
+    }
   }
   * {
     font-family: var(--font-family--theme);

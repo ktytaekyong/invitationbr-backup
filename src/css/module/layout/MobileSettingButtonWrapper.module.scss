@@ -13,4 +13,41 @@
   &.static {
     @include position(s);
   }
+  input[type=checkbox] {
+    @include position;
+    @include input__appearance;
+    width: 18px;
+    height: 18px;
+    background: no-repeat url(../../../img/state/checkbox_color_disabled.png) right 2px center / 16px;
+    z-index: 5;
+    &:checked {
+      background-image: url(../../../img/state/checkbox_color_selected.png);
+    }
+  }
 }
+
+.mobile__setting {
+  @include flex__row;
+  justify-content: center;
+  align-items: center;
+  font-family: $font-family--default !important;
+  padding: 4px 19px 4px 5px;
+  border-radius: $radius--default-sm;
+  background: $point-color--default no-repeat url(../../../img/icon/icon_btn_add.png) right 2px center / 16px;
+  border: none;
+  outline: none;
+  span {
+    font-family: $font-family--default;
+    font-weight: $font-weight--SemiBold;
+    font-size: 11.5px !important;
+    line-height: 1.4em !important;
+    color: #FFF !important;
+    padding-left: 4px;
+    margin: 0 !important;
+    cursor: pointer;
+  }
+  &.disable {
+    background-color: $border-color--play;
+  }
+}
+

@@ -32,6 +32,7 @@ html, body {
   padding: 30px 20px;
   @include device__query(tablet) {
     @include position;
+    height: unset;
   }
 }
 /* STYLE */
@@ -123,7 +124,7 @@ textarea {
 }
 /* Material UI Modal */
 .MuiModal-root {
-  z-index: 13000 !important;
+  z-index: 99999 !important;
 }
 .MuiSnackbar-root {
   justify-content: center !important;

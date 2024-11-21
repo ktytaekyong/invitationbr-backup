@@ -4,6 +4,10 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   width: 100%;
+  @include device__query(tablet) {
+    @include scroll__disabled;
+    overflow-x: scroll;
+  }
   .calendar__img_item {
     height: 210px;
     background: no-repeat center / 100%;
@@ -11,6 +15,9 @@
     border: 1px solid $border-color--default;
     background-color: #fff;
     overflow: hidden;
+    @include device__query(tablet) {
+      height: ratio(210px, 950px);
+    }
     &.active {
       border: 1px solid #182D4B;
       box-shadow: 0 4px 4px rgba(0, 0, 0, 0.06);

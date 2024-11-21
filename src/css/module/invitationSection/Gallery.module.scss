@@ -1,5 +1,8 @@
 @import "../../_module";
 .gallery {
+  @include device__query(tablet) {
+    @include position;
+  }
   &__wrap {
     width: 100%;
     padding-top: 35px;

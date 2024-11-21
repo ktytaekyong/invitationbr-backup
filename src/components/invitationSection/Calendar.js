@@ -1,10 +1,13 @@
 /* Import */
 import { useContext } from "react";
+import { useLocation } from "react-router-dom";
+// Component
 import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
 import BasicCalendarTheme2 from "./BasicCalendarTheme2.js";
 import BasicCalendarTheme3 from "./BasicCalendarTheme3.js";
 import BasicCalendarTheme4 from "./BasicCalendarTheme4.js";
 import HeadLine from "../layout/HeadLine.js";
+import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Calendar.module.scss";
 /* Image */
@@ -15,7 +18,10 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const Calendar = () => {
-  const { selectOptionList } = useContext(SetContext);
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
+
+  const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const handleDaysChange = (date) => {
     const dateObj = new Date(date);
@@ -186,10 +192,11 @@ const Calendar = () => {
   // }, [basicInfoList.dateInfo.date])
   return (
     <div 
-    id="Date" 
-    key={selectOptionList.dateCalendarType}
-    className={`${styles.date} ${styles[selectOptionList.dateCalendarType]}`}
+      id="Date" 
+      key={selectOptionList.dateCalendarType}
+      className={`${styles.date} ${styles[selectOptionList.dateCalendarType]}`}
     >
+      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingDate" position="absolute" top="30px" /> : null}
       {renderCalandarHandler(selectOptionList.dateCalendarType)}
     </div>
   )

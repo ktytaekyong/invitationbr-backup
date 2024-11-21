@@ -21,8 +21,12 @@
     }
   }
   &.preview {
+    @include device__query(tablet) {
+      min-height: unset;
+    }
     > div {
       padding: 0;
+      height: 100%;
     }
   }
   &.noZoom {

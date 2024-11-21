@@ -1,6 +1,6 @@
 /* Import */
 import { useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
 import Traffic from "./Traffic.js";
@@ -8,6 +8,7 @@ import InvitationModalLocation from "../layout/modal/InvitationModalLocation.js"
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
+import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Location.module.scss";
 /* Image */
@@ -16,13 +17,17 @@ import iconMapTImg from "../../img/icon/icon_map_t.png";
 import iconMapNaverImg from "../../img/icon/icon_map_naver.png";
 import iconMapKakaoImg from "../../img/icon/icon_map_kakao.png";
 /* Context */
+import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 import { LocationContext } from "../../store/option-location-context.js";
 
 const Location = () => {
-  const { basicInfoList } = useContext(InfoContext);
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
+
+  const { isMobile } = useContext(SetContext);
+  const { basicInfoList, selectLocationFile } = useContext(InfoContext);
   const { trafficList } = useContext(LocationContext);
-  const { selectLocationFile } = useContext(InfoContext);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -32,6 +37,7 @@ const Location = () => {
     <div id="Location" className={`${styles.location}`}>
       <div className={styles.location__wrap}>
         <HeadLine title="오시는 길" content="location" />
+        {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLocation" position="absolute" top="70px" /> : null}
         <div className={styles.location__content}>
           <div className={styles.place}>
             <p>

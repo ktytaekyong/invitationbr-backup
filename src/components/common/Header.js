@@ -63,7 +63,7 @@ const Header = () => {
         {
           ReactDOM.createPortal(<BasicModalHeader openvar={save} onClose={handleSaveClose} />, document.body)
         }
-      <Toast type="warn" open={open} setOpen={setOpen} message="이름은 필수요소입니다." />
+        <Toast type="warn" open={open} setOpen={setOpen} message="이름은 필수요소입니다." />
       </header>
     </>
   )

@@ -25,22 +25,20 @@ const Toast = ({ message, open, setOpen, type }) => {
     setOpen(false);
   };
   return (
-    <div>
-      <Snackbar
-        open={open}
-        autoHideDuration={2000}
-        onClose={handleClose}
-        message={
-          // <div className={`mui-message ${type}`}>{msgRenderer(type)}{message}</div>
-          <div className={`mui-message`}>{msgRenderer(type)}{message}</div>
-        }
-        ContentProps={{
-          style: {
-            '--toast-bgcolor': type === 'warn' ? '#FF6550' : '#7197CF',
-          },
-        }}
-      />
-    </div>
+    <Snackbar
+      open={open}
+      autoHideDuration={2000}
+      onClose={handleClose}
+      message={
+        // <div className={`mui-message ${type}`}>{msgRenderer(type)}{message}</div>
+        <div className={`mui-message`}>{msgRenderer(type)}{message}</div>
+      }
+      ContentProps={{
+        style: {
+          '--toast-bgcolor': type === 'warn' ? '#FF6550' : '#7197CF',
+        },
+      }}
+    />
   );
 }
 

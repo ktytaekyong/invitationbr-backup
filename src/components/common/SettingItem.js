@@ -71,7 +71,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         transform: `translateY(${translateY}px)`,
       }}
     >
-      {isMobile ? <MobileSettingDragTop onMouseDown={handleStart} onTouchStart={handleStart}/> : null}
+      {isMobile ? <MobileSettingDragTop onMouseDown={handleStart} onTouchStart={handleStart} /> : null}
       <div className={styles.setting__title} 
         onMouseDown={handleStart} 
         onTouchStart={handleStart}
@@ -83,7 +83,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
       }>
         <div className={styles.setting__title_wrap}>
           {
-            option ?
+            !isMobile && option ?
             <>
               <input type="checkbox" id={checkboxID} name={checkboxID} checked={checked} onChange={onChange} onClick={(e) => e.stopPropagation()}/>
               <label htmlFor={checkboxID} name={checkboxID} onClick={(e) => e.stopPropagation()}>{itemTitle}</label>
