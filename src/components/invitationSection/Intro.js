@@ -414,6 +414,7 @@ const Intro = () => {
       {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="30px" /> : null}
       {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="78px" /> : null}
       {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="126px" /> : null}
+      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="174px" /> : null}
 
       {renderIntroHandler(selectOptionList.introFillType)}
     </div>

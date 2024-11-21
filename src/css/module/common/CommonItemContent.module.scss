@@ -28,6 +28,9 @@
     .option__title {
       align-items: flex-start;
       padding-top: 5px;
+      @include device__query(tablet) {
+        padding-top: 10px;
+      }
     }
     .option__content {
       @include flex__column;

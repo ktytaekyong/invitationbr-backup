@@ -1,11 +1,13 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
 import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
+import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Letter.module.scss";
 /* Image */
@@ -15,8 +17,11 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
 const Letter = ({ aos }) => {
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
+
   const { basicInfoList } = useContext(InfoContext);
-  const { letterList, selectOptionList } = useContext(SetContext);
+  const { isMobile, letterList, selectOptionList } = useContext(SetContext);
   const [ deceasedIcon, setDeceasedIcon ] = useState("故");
   const [ isInitialRender, setIsInitialRender ] = useState(true);
   const [open, setOpen] = useState(false);
@@ -83,6 +88,7 @@ const Letter = ({ aos }) => {
     <div id="Letter" className={`${styles.letter}`} data-aos={aos}>
       <div className={styles.letter__wrap}>
         <HeadLine title={letterList.title ? letterList.title : "초대합니다"} content="invitation" />
+        {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLetter" position="absolute" top={20} /> : null}
         <div className={styles.letter__content}>
           <div className={styles.greet}>
             <p>
@@ -94,6 +100,7 @@ const Letter = ({ aos }) => {
             </p>
           </div>
           <div className={styles.detail}>
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingCoupleInfomation" position="absolute" /> : null}
             {
               isInitialRender ?
               detailInitHandler() :

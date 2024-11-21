@@ -117,7 +117,6 @@ const Invitation = () => {
     >
       <Container>
         <>
-          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingFixedTab" position="static" /> : null}
           <Tab
             setActiveTabHandler={setActiveTabHandler}
             isActiveTab={isActiveTab}

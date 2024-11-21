@@ -3,13 +3,47 @@
   @include flex__row;
   column-gap: 8px;
   width: 100%;
+  @include device__query(tablet) {
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+  > div {
+    @include device__query(tablet) {
+      width: 37%;
+    }
+    select {
+      @include device__query(tablet) {
+        width: 100%;
+      }
+    }
+  }
   .info {
     &__firstname,
     &__name {
       max-width: 60px;
+      @include device__query(tablet) {
+        max-width: unset;
+        width: calc(33% - 8px);
+      }
+    }
+    &__firstname {
+      @include device__query(tablet) {
+        max-width: unset;
+        width: calc(30% - 8px);
+      }
     }
     &__number {
       max-width: 150px;
+      @include device__query(tablet) {
+        width: 100%;
+        max-width: unset;
+        order: 2;
+      }
+    }
+    input {
+      @include device__query(tablet) {
+        order: 1;
+      }
     }
   }
 }

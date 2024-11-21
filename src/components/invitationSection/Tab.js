@@ -1,8 +1,10 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 /* Component */
 import Button from "../layout/Button.js";
+import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Tab.module.scss";
 /* Context */
@@ -11,8 +13,10 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
   const { basicTabList, selectTabList } = useContext(TabContext); 
-  const { selectOptionList } = useContext(SetContext);
+  const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
@@ -32,35 +36,41 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     setIsActiveTab(false);
   }, [selectOptionList.introFillType, setIsActiveTab]);
   return (
-    selectTabList.length === 0 ?
-    null
-    :
-    <div className={`${styles.tab__wrap} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
-      <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
-      <div className={styles.button__wrapper}>
-        <Button onClick={setActiveTabHandler} className={`${isActiveTab ? styles["active"] : ""}`} />
-      </div>
-      <ul className={`${styles.tab} ${isActiveTab ? styles["active"] : ""}`} >
-        {selectTabList
-        .map((item, idx) => {
-          const tabContent = basicTabList.find(tab => tab.id === item);
-          return (
-            <li key={"tab" + idx}
-              id={"scroll" + tabContent.id} 
-              className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
-              onClick={() => setActiveHandler(idx)}
-            >
-              <Link to={`#${tabContent.id.substring(3)}`}>
-                <span>{tabContent ? tabContent.content : null}</span>
-              </Link>
+    <>
+      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingFixedTab" position="absolute" top={20} /> : null}
+      {
+        selectTabList.length === 0 ?
+        null
+        :
+        <div className={`${styles.tab__wrap} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
+          <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
+          <div className={styles.button__wrapper}>
+            <Button onClick={setActiveTabHandler} className={`${isActiveTab ? styles["active"] : ""}`} />
+          </div>
+          <ul className={`${styles.tab} ${isActiveTab ? styles["active"] : ""}`} >
+            {selectTabList
+            .map((item, idx) => {
+              const tabContent = basicTabList.find(tab => tab.id === item);
+              return (
+                <li key={"tab" + idx}
+                  id={"scroll" + tabContent.id} 
+                  className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
+                  onClick={() => setActiveHandler(idx)}
+                >
+                  <Link to={`#${tabContent.id.substring(3)}`}>
+                    <span>{tabContent ? tabContent.content : null}</span>
+                  </Link>
+                </li>
+              )
+            })}
+            <li className={styles.tab__day}>
+              <p>보람<span>♥</span>신우의 결혼식<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
             </li>
-          )
-        })}
-        <li className={styles.tab__day}>
-          <p>보람<span>♥</span>신우의 결혼식<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
-        </li>
-      </ul>
-    </div>
+          </ul>
+        </div>
+      }
+    </>
+
   )
 }
 

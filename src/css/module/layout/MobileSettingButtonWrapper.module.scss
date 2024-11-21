@@ -1,13 +1,14 @@
 @import "../../_module";
 .wrapper {
-  width: 100%;
+  max-width: 390px;
   padding: 4px 20px;
   display: none;
   @include device__query(tablet) {
     @include flex__row;
   }
   &.absolute {
-    @include position(a, 10px, 0);
+    @include position(a, -25px, 0);
+    z-index: 10000;
   }
   &.static {
     @include position(s);

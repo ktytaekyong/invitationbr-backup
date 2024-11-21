@@ -30,6 +30,9 @@ html, body {
   height: 100%;
   margin: 0 auto;
   padding: 30px 20px;
+  @include device__query(tablet) {
+    @include position;
+  }
 }
 /* STYLE */
 /* .setting_input__style_default */

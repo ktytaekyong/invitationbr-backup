@@ -12,6 +12,7 @@ import SettingNoticeContent from "../layout/SettingNoticeContent.js"
 import CheckItem from "./CheckItem.js";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const parents = [
   {
@@ -24,6 +25,7 @@ const parents = [
   }
 ];
 const CoupleInfomation = () => {
+  const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const basicDataChangeHandler = (e, infoType) => {
     const { name, value } = e.target;
@@ -38,9 +40,8 @@ const CoupleInfomation = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
-
         <CommonItemWrapper>
-          <CommonItemContent title="신랑">
+          <CommonItemContent title="신랑" multi={isMobile}>
             <CoupleInfomationSettingBasic 
               couple="신랑" 
               coupleKey="M" 
@@ -63,9 +64,8 @@ const CoupleInfomation = () => {
       </CommonOptionContent>
 
       <CommonOptionContent>
-
         <CommonItemWrapper>
-          <CommonItemContent title="신부">
+          <CommonItemContent title="신부" multi={isMobile}>
             <CoupleInfomationSettingBasic 
               couple="신부" 
               coupleKey="F" 

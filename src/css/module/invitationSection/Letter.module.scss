@@ -1,6 +1,9 @@
 @import "../../_module";
 .letter {
   width: 100%;
+  @include device__query(tablet) {
+    @include position;
+  }
   &__wrap {
     width: 100%;
     padding-top: 35px;
@@ -34,6 +37,9 @@
       align-items: center;
       row-gap: 8px;
       margin-bottom: 8px;
+      @include device__query(tablet) {
+        @include position;
+      }
       * {
         line-height: 1.5em;
       }
