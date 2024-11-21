@@ -35,7 +35,6 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
   }, []);
 
   const handleStart = (e) => {
-    e.preventDefault();
     isDragging.current = true;
     startY.current = e.touches ? e.touches[0].clientY : e.clientY;
     startTranslateY.current = translateY;
@@ -49,12 +48,11 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
     if (newTranslateY >= 0) {
       setTranslateY(newTranslateY);
     }
-    e.preventDefault();
   };
 
   const handleEnd = () => {
     isDragging.current = false;
-    if(translateY > 100){
+    if(translateY > 130){
       setOpenSettingTab("");
       setTranslateY(0);
     }
@@ -73,7 +71,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         transform: `translateY(${translateY}px)`,
       }}
     >
-      {isMobile ? <MobileSettingDragTop  /> : null}
+      {isMobile ? <MobileSettingDragTop onMouseDown={handleStart} onTouchStart={handleStart}/> : null}
       <div className={styles.setting__title} 
         onMouseDown={handleStart} 
         onTouchStart={handleStart}

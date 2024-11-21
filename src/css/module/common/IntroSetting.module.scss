@@ -32,6 +32,12 @@
   flex-wrap: wrap;
   column-gap: 8px;
   row-gap: 8px;
+  @include device__query(tablet) {
+    @include scroll__disabled;
+    overflow-x: scroll;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+  }
   &.active {
     @include flex__row;
   }
@@ -46,8 +52,8 @@
     background-color: $bg-color--second;
     overflow: hidden;
     @include device__query(tablet) {
-      // height: ratio(210px, 1000px);
-      width: calc((100% - 24px) / 2);
+      width: calc((100% - 24px) / 4);
+      min-width: 117px;
     }
     &.active {
       border: 1px solid $button-color--default;

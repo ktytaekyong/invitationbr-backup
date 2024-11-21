@@ -66,7 +66,6 @@ const fillIntroList = [
 //     altVal: "simpleTemplate1",
 //   },
 // ]
-
 const IntroSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(0);

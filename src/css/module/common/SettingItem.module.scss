@@ -99,5 +99,8 @@
     margin-bottom: 0rem;
     visibility: hidden;
     transition: margin-top 0.4s, margin-bottom 0.4s;
+    @include device__query(tablet) {
+      padding-bottom: 35px;
+    }
   }
 }
