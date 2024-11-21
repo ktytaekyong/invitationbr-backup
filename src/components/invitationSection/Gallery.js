@@ -31,7 +31,6 @@ const Gallery = () => {
   };
   return (
     <div id="Gallery" className={`${styles.gallery}`}>
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingGallery" position="absolute" top="30px" /> : null}
       <div className={styles.gallery__wrap}>
         <HeadLine title="갤러리" content="gallery" />
         <div className={styles.gallery__content}>

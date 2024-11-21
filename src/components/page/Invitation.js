@@ -55,7 +55,7 @@ const Invitation = () => {
       case "settingLocation":
         return <Location />;
       case "settingGallery":
-        return <Gallery />;
+        return <Gallery />
       case "settingVideo":
         return <Video />;
       case "settingGift":
@@ -133,10 +133,14 @@ const Invitation = () => {
           <div
             key={itemId}
             ref={(el) => (refs.current[index] = el)} // 각 아이템에 ref 설정
+            style={{position: "relative"}}
             className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
               visibleStates[index] ? styles.visible : styles.hidden
             }` : ""}
           >
+            {
+              !isTargetPage && isMobile ? <MobileSettingButtonWrapper id={itemId} position="absolute" top="30px" /> : null
+            }
             {renderItemHandler(itemId)}
           </div>
         ))}

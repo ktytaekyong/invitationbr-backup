@@ -48,6 +48,7 @@
   }
   &.disable {
     background-color: $border-color--play;
+    pointer-events: none;
   }
 }
 

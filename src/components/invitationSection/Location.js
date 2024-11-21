@@ -37,7 +37,6 @@ const Location = () => {
     <div id="Location" className={`${styles.location}`}>
       <div className={styles.location__wrap}>
         <HeadLine title="오시는 길" content="location" />
-        {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLocation" position="absolute" top="70px" /> : null}
         <div className={styles.location__content}>
           <div className={styles.place}>
             <p>
