@@ -138,9 +138,9 @@ const Invitation = () => {
               visibleStates[index] ? styles.visible : styles.hidden
             }` : ""}
           >
-            {
+            {/* {
               !isTargetPage && isMobile ? <MobileSettingButtonWrapper id={itemId} position="absolute" top="30px" /> : null
-            }
+            } */}
             {renderItemHandler(itemId)}
           </div>
         ))}
