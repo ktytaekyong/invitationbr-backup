@@ -15,7 +15,7 @@
     border-radius: 4px;
     background-color: $bg-color--tab;
     @include device__query(tablet) {
-      top: 70px;
+      top: 20px;
       margin-top: 25px;
     }
     .button__wrapper {
