@@ -16,6 +16,7 @@ const SetProvider = ({ children }) => {
     };
   }, []);
   const [settingOrderList, setSettingOrderList] = useState(initList.settingOrderList);
+  const basicSettingList = initList.basicSettingList
   const [kakaoInfoList, setKakaoInfoList] = useState(initList.kakaoInfoList);
   const [urlInfoList, setUrlInfoList] = useState(initList.urlInfoList);
   const [selectSettingList, setSelectSettingList] = useState(initList.selectSettingList);
@@ -44,6 +45,7 @@ const SetProvider = ({ children }) => {
         setKakaoInfoList, 
         urlInfoList,
         setUrlInfoList, 
+        basicSettingList,
         settingList,
         settingOrderList,
         setSettingOrderList,

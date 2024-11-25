@@ -196,7 +196,7 @@ const Calendar = () => {
       key={selectOptionList.dateCalendarType}
       className={`${styles.date} ${styles[selectOptionList.dateCalendarType]}`}
     >
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingDate" position="absolute" top="30px" /> : null}
+      {/* {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingDate" position="absolute" top="30px" /> : null} */}
       {renderCalandarHandler(selectOptionList.dateCalendarType)}
     </div>
   )

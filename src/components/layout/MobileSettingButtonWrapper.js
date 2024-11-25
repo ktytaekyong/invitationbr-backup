@@ -6,7 +6,7 @@ import styles from "../../css/module/layout/MobileSettingButtonWrapper.module.sc
 import { SetContext } from "../../store/option-set-context.js";
 
 const MobileSettingButtonWrapper = ({ id, position, top }) => {
-  const { isMobile, settingList, selectSettingList, setSelectSettingList, openSettingTab, setOpenSettingTab } = useContext(SetContext);
+  const { isMobile, settingList, basicSettingList, selectSettingList, setSelectSettingList, openSettingTab, setOpenSettingTab } = useContext(SetContext);
   const buttonTitleChanger = useCallback((id) => {
     const content = settingList.find((item) => item.itemId === id);
     return content.itemTitle; 
@@ -26,32 +26,39 @@ const MobileSettingButtonWrapper = ({ id, position, top }) => {
       className={`
         ${styles.wrapper} 
         ${position === "absolute" ? styles.absolute : styles.static}
+        ${selectSettingList.includes(id) || basicSettingList.includes(id) ? "" : styles.disable}
       `}
       style={{top: position === "absolute" ? top : "unset"}}
     >
       <div 
         className={`
           ${styles.mobile__setting} 
-          ${selectSettingList.includes(id) === -1 ? styles.disable : ""}
         `}
-        onClick={() => {
+        onClick={(e) => {
+          const { className } = e.target;
           if(isMobile) {
-            setOpenSettingTab(id);
+            if(className === styles.disable) {
+              return false;
+            } else {
+              setOpenSettingTab(id);
+            }
           }
         }}
       >
-        {
-          selectSettingList.includes(id) && id !== "settingLetter" && id !== "settingDate" && id !== "settingLocation" ?
-          <input 
-            type="checkbox" 
-            checked={selectSettingList.includes(id)}
-            onClick={(e) => {
-              e.stopPropagation();
-            }}
-            onChange={() => {
-              changeSettingHandler(id);
-            }}
-          /> : null
+        {settingList.map((item) => (
+          (item.itemEssential === false && item.itemId === id && id !== "settingLetter" && id !== "settingDate" && id !== "settingLocation" ?
+            <input 
+              key={item.itemId + item.itemEssential}
+              type="checkbox" 
+              checked={selectSettingList.includes(id)}
+              onClick={(e) => {
+                e.stopPropagation();
+              }}
+              onChange={() => {
+                changeSettingHandler(id);
+              }}
+            /> : null
+          )))
         }
         <span>{buttonTitleChanger(id)}</span>
       </div>

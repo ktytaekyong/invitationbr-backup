@@ -30,7 +30,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
-  const { isMobile, selectSettingList, selectOptionList } = useContext(SetContext);
+  const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)
@@ -93,7 +93,6 @@ const Invitation = () => {
       refsCopy.forEach((ref) => ref && observer.unobserve(ref));
     };
   }, []);
-
   useEffect(() => {
     if (
       selectOptionList.optionAttendPopup === "optionAttendPopupScroll" &&
@@ -107,7 +106,6 @@ const Invitation = () => {
       }
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]); 
-
   return (
     <div
       className={`${styles.invitation} ${
@@ -129,35 +127,35 @@ const Invitation = () => {
         }
         <Intro />
         <Effect />
-        {selectSettingList.map((itemId, index) => (
+        {settingList.map((item, index) => (
+          item.itemEssential === false || item.itemId === "settingLetter" || item.itemId === "settingDate" || item.itemId === "settingLocation" || item.itemId === "settingOutro"?
           <div
-            key={itemId}
-            ref={(el) => (refs.current[index] = el)} // 각 아이템에 ref 설정
+            key={item.itemId}
+            ref={(el) => (refs.current[index] = el)}
             style={{position: "relative"}}
             className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
               visibleStates[index] ? styles.visible : styles.hidden
             }` : ""}
           >
-            {/* {
-              !isTargetPage && isMobile ? <MobileSettingButtonWrapper id={itemId} position="absolute" top="30px" /> : null
-            } */}
-            {renderItemHandler(itemId)}
-          </div>
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} /> : null}
+            {selectSettingList.includes(item.itemId) ? renderItemHandler(item.itemId) : null}
+          </div> : null
         ))}
         <Banner />
-        {selectSettingList.includes("settingOutro") && (
+        {settingList.map((item, index) => (
+          item.itemEssential === false && item.itemId === "settingOutro" ?
           <div
-            ref={(el) => (refs.current[selectSettingList.indexOf("settingOutro")] = el)} // 아웃트로
+            key={item.itemId}
+            ref={(el) => (refs.current[selectSettingList.indexOf("settingOutro")] = el)}
+            style={{position: "relative"}}
             className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
-              visibleStates[selectSettingList.indexOf("settingOutro")]
-                ? styles.visible
-                : styles.hidden
+              visibleStates[index] ? styles.visible : styles.hidden
             }` : ""}
           >
-            <Outro />
-          </div>
-        )}
-
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} /> : null}
+            {selectSettingList.includes(item.itemId) ? <Outro /> : null}
+          </div> : null
+        ))}
         <Footer />
       </Container>
       {ReactDOM.createPortal(

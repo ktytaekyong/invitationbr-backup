@@ -88,7 +88,7 @@ const Letter = ({ aos }) => {
     <div id="Letter" className={`${styles.letter}`} data-aos={aos}>
       <div className={styles.letter__wrap}>
         <HeadLine title={letterList.title ? letterList.title : "초대합니다"} content="invitation" />
-        {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLetter" position="absolute" top={20} /> : null}
+        {/* {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLetter" position="absolute" top={20} /> : null} */}
         <div className={styles.letter__content}>
           <div className={styles.greet}>
             <p>

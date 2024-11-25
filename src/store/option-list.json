@@ -296,10 +296,10 @@
 
   "selectBGM": "bgid0",
   "basicSettingList": [
-    "settingFixedTab", "settingBasicInfo", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation"
+    "settingFixedTab", "settingBasicInfomation", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation"
   ],
   "selectSettingList": [
-    "settingLetter", "settingDate", "settingLocation", "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
+    "settingLetter", "settingDate", "settingLocation", "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
   ],
   "selectTabList": ["tabLetter", "tabDate", "tabGallery", "tabLocation"],
   "selectIntroPhoto": [

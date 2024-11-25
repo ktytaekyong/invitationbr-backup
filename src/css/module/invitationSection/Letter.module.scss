@@ -12,6 +12,9 @@
     > div {
       &:nth-child(3) {
         margin-top: 30px;
+        @include device__query(tablet) {
+          margin-top: 0;
+        }
       }
     }
   }
