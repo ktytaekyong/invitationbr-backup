@@ -22,6 +22,7 @@ import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
 import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
+import SettingOther from "../invitationSection/SettingOther.js";
 /* CSS */
 import styles from "../../css/module/page/Invitation.module.scss";
 // Context
@@ -30,6 +31,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const Invitation = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
+
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
@@ -128,7 +130,10 @@ const Invitation = () => {
         <Intro />
         <Effect />
         {settingList.map((item, index) => (
-          item.itemEssential === false || item.itemId === "settingLetter" || item.itemId === "settingDate" || item.itemId === "settingLocation" || item.itemId === "settingOutro"?
+          item.itemEssential === false 
+          || item.itemId === "settingLetter" 
+          || item.itemId === "settingDate" 
+          || item.itemId === "settingLocation" ?
           <div
             key={item.itemId}
             ref={(el) => (refs.current[index] = el)}
@@ -137,7 +142,11 @@ const Invitation = () => {
               visibleStates[index] ? styles.visible : styles.hidden
             }` : ""}
           >
-            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} /> : null}
+            {!isTargetPage && isMobile
+              && (item.itemId !== "settingOutro" && item.itemId !== "settingThumbK" && item.itemId !== "settingThumbU" && item.itemId !== "settingOrder" && item.itemId !== "settingBgMusic") ? 
+              <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} />
+              : null
+            }
             {selectSettingList.includes(item.itemId) ? renderItemHandler(item.itemId) : null}
           </div> : null
         ))}
@@ -152,15 +161,15 @@ const Invitation = () => {
               visibleStates[index] ? styles.visible : styles.hidden
             }` : ""}
           >
-            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} /> : null}
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingOutro" position="absolute" top={5} /> : null}
             {selectSettingList.includes(item.itemId) ? <Outro /> : null}
           </div> : null
         ))}
+        {!isTargetPage ? <SettingOther /> : null}
         <Footer />
       </Container>
       {ReactDOM.createPortal(
-        <InvitationModalAttend openvar={open} onClose={handleClose} />,
-        document.body
+        <InvitationModalAttend openvar={open} onClose={handleClose} />, document.body
       )}
     </div>
   );

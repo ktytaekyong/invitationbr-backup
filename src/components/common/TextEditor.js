@@ -40,7 +40,7 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
   return (
     <>
       <div className={`${styles.editor__content} ${type === "letter" ? styles["letter"] : null}`}>
-        <div className={styles.tool__list}>
+        {/* <div className={styles.tool__list}>
           <ul className={styles.tool__list_deco}>
             <button><IconToolImgBold /></button>
             <button><IconImgItalic /></button>
@@ -51,7 +51,7 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
             <button><IconImgCenter /></button>
             <button><IconImgRight /></button>
           </ul>
-        </div>
+        </div> */}
         <textarea 
           ref={textareaRef}
           name={name} 

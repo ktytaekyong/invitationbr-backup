@@ -1,15 +1,23 @@
 @import "../../_module";
 .other {
-  padding: 35px 24px 30px;
+  @include device__query(tablet) {
+    @include position;
+  }
   * {
     font-family: $font-family--default !important;
   }
   &__wrap {
     @include flex__column;
+    margin: 35px 24px 30px;
     justify-content: flex-start;
     align-items: center;
     row-gap: 24px;
-    text-align: center
+    text-align: center;
+    @include device__query(tablet) {
+      width: 100%;
+      margin: 0;
+      row-gap: 0;
+    }
   }
   &__item {
     @include flex__column;
@@ -20,6 +28,23 @@
     padding: 30px 5px;
     background: $bg-color--setting;
     border-radius: $radius--default;
+    @include device__query(tablet) {
+      @include position;
+      width: calc(100% - 48px);
+      margin: 0 auto 25px;
+    }
+    &_wrap {
+      width: 100%;
+      @include device__query(tablet) {
+        @include position;
+        width: 100%;
+      }
+      &:last-of-type {
+        @include device__query(tablet) {
+          margin-bottom: 15px;
+        }
+      }
+    }
     img {
       width: 48px;
       height: 48px;

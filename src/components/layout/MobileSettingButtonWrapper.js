@@ -32,17 +32,15 @@ const MobileSettingButtonWrapper = ({ id, position, top }) => {
     >
       <div 
         className={`
-          ${styles.mobile__setting} 
+          ${styles.mobile__setting}
+          ${selectSettingList.includes(id) || basicSettingList.includes(id) ? "" : styles.disable}
         `}
         onClick={(e) => {
-          const { className } = e.target;
-          if(isMobile) {
-            if(className === styles.disable) {
-              return false;
-            } else {
-              setOpenSettingTab(id);
-            }
+          if (isMobile && e.currentTarget.classList.contains(styles.disable)) {
+            e.preventDefault(); 
+            return; 
           }
+          setOpenSettingTab(id);
         }}
       >
         {settingList.map((item) => (
