@@ -22,6 +22,7 @@ import Banner from "../invitationSection/Banner.js";
 import Footer from "../invitationSection/Footer.js";
 import InvitationModalAttend from "../layout/modal/InvitationModalAttend.js";
 import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
+import MobileSettingNotice from "../layout/MobileSettingNotice.js";
 import SettingOther from "../invitationSection/SettingOther.js";
 /* CSS */
 import styles from "../../css/module/page/Invitation.module.scss";
@@ -107,7 +108,7 @@ const Invitation = () => {
         setPopupOpened(true); 
       }
     }
-  }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]); 
+  }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
   return (
     <div
       className={`${styles.invitation} ${
@@ -123,10 +124,7 @@ const Invitation = () => {
             setIsActiveTab={setIsActiveTab}
           />
         </>
-        {!isTargetPage && isMobile ?
-          <p className={styles.mobile__notice}>텍스트, 이미지를 추가하고 편집할 수 있습니다. <br />선택 항목은 체크박스 표시가 있습니다.</p>
-          : null
-        }
+        <MobileSettingNotice />
         <Intro />
         <Effect />
         {settingList.map((item, index) => (

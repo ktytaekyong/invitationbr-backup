@@ -11,7 +11,6 @@
     margin: 35px 24px 30px;
     justify-content: flex-start;
     align-items: center;
-    row-gap: 24px;
     text-align: center;
     @include device__query(tablet) {
       width: 100%;
@@ -26,6 +25,7 @@
     row-gap: 10px;
     width: 100%;
     padding: 30px 5px;
+    margin-bottom: 25px;
     background: $bg-color--setting;
     border-radius: $radius--default;
     @include device__query(tablet) {

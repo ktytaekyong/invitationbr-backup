@@ -1,0 +1,15 @@
+@import "../../_module";
+.mobile__setting_notice {
+  @include position(s);
+  margin-top: 16px;
+  margin-bottom: 0px;
+  font-weight: $font-weight--Regular;
+  font-size: $font-size--sm;
+  font-family: $font-family--default;
+  text-align: center;
+  line-height: 1.4em;
+  color: $point-color--default;
+  &.absolute {
+    @include position(a, 55px, 50%);
+  }
+}
