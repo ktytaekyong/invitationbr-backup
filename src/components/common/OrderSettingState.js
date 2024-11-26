@@ -83,7 +83,7 @@ const OrderSettingState = () => {
               <div className={styles.order__item_wrap}>
                 <div className={styles.order__item_title}>
                   {
-                    item.itemEssential === false ? null : <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
+                    item === "settingLetter" || item === "settingDate" || item === "settingLocation" || item === "settingOrder" ? null : <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
                   }
                   <label htmlFor={`orderItemChk${index}`}>
                     {item.title}

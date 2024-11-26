@@ -11,6 +11,8 @@
     overflow: hidden;
     @include device__query(tablet) {
       grid-template-columns: repeat(3, 1fr);
+      margin-top: 0;
+      gap: 8px;
     }
     > div {
       @include position;
