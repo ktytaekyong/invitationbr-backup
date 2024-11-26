@@ -403,6 +403,38 @@ const Intro = () => {
       // }
     }
   }
+  const mobileTabRederer = () => {
+    if(selectOptionList.theme === "themeModernBasic" 
+      && selectOptionList.introFillType === "basicTemplate1" 
+      || selectOptionList.introFillType === "basicTemplate2"
+      || selectOptionList.introFillType === "basicTemplate3"
+      || selectOptionList.introFillType === "basicTemplate4"
+    ) {
+      return (
+        <>
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="30px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="78px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="126px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="174px" /> : null}
+        </>
+      )
+    } else if(selectOptionList.theme === "themeModernBasic" 
+      && selectOptionList.introFillType === "fillTemplate1"
+      || selectOptionList.introFillType === "fillTemplate2"
+      || selectOptionList.introFillType === "fillTemplate3"
+      || selectOptionList.introFillType === "fillTemplate4"
+      ) {
+        return (
+          <>
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="78px" /> : null}
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="126px" /> : null}
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="174px" /> : null}
+            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="222px" /> : null}
+          </>
+        )
+
+    }
+  }
 
   return (
     <div 
@@ -410,12 +442,7 @@ const Intro = () => {
       id={selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme}
       className={`${styles.intro} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}
     >
-      
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="30px" /> : null}
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="78px" /> : null}
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="126px" /> : null}
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="174px" /> : null}
-
+      {mobileTabRederer()}
       {renderIntroHandler(selectOptionList.introFillType)}
     </div>
   )
