@@ -42,7 +42,10 @@
   border: 1px solid $border-color--default;
   background-color: #fff;
   cursor: pointer;
-  & svg {
+  @include device__query(tablet) {
+    font-size: $font-size--xsm;
+  }
+  svg {
     pointer-events: none;
   }
 }
@@ -54,6 +57,9 @@
     background-color: #fff;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
     cursor: default;
+    @include device__query(tablet) {
+      @include position(a, -232px, 69px);
+    }
   }
   &__input {
     @include position;
