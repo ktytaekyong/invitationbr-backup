@@ -62,7 +62,7 @@ const OrderSettingStateItem = ({ children, id, index, moveItemHandler, className
       isDragging: monitor.isDragging(),
     }),
   });
-  const opacity = isDragging ? 0 : 1
+  const opacity = isDragging ? 0.5 : 1
   drag(drop(orderItemRef));
   return (
     <div ref={orderItemRef} className={className} style={{ opacity }} data-handler-id={handlerId}>

@@ -47,7 +47,6 @@ const Invitation = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-
   const refs = useRef([]);
   const renderItemHandler = (id) => {
     switch (id) {
@@ -76,6 +75,10 @@ const Invitation = () => {
     }
   };
 
+  // useEffect(() => {
+  //   console.log(selectSettingList);
+  // }, [selectSettingList]);
+
   useEffect(() => {
     const refsCopy = refs.current;
     const observer = new IntersectionObserver(
@@ -91,11 +94,22 @@ const Invitation = () => {
       },
       { threshold: 0.3 }
     );
-    refsCopy.forEach((ref) => ref && observer.observe(ref));
+  
+    // refs에 selectSettingList 순서대로 엘리먼트를 추가
+    selectSettingList.forEach((itemId, index) => {
+      const element = refsCopy[index];
+      if (element) observer.observe(element);
+    });
+  
     return () => {
-      refsCopy.forEach((ref) => ref && observer.unobserve(ref));
+      // 옵저버 해제
+      selectSettingList.forEach((itemId, index) => {
+        const element = refsCopy[index];
+        if (element) observer.unobserve(element);
+      });
     };
-  }, []);
+  }, [selectSettingList, visibleStates]);
+
   useEffect(() => {
     if (
       selectOptionList.optionAttendPopup === "optionAttendPopupScroll" &&
@@ -109,6 +123,16 @@ const Invitation = () => {
       }
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
+
+  const [sortedSettingList, setSortedSettingList] = useState([]); // 정렬된 settingList
+  
+  useEffect(() => {
+    const sortedList = [...settingList].sort((a, b) => {
+      return selectSettingList.indexOf(a.itemId) - selectSettingList.indexOf(b.itemId);
+    });
+    setSortedSettingList(sortedList);
+  }, [selectSettingList]); // selectSettingList가 변경될 때마다 실행
+
   return (
     <div
       className={`${styles.invitation} ${
@@ -127,7 +151,57 @@ const Invitation = () => {
         <MobileSettingNotice />
         <Intro />
         <Effect />
-        {settingList.map((item, index) => (
+{sortedSettingList
+        .filter(
+          (setting) =>
+            setting.itemEssential === false ||
+            setting.itemId === "settingLetter" ||
+            setting.itemId === "settingDate" ||
+            setting.itemId === "settingLocation"
+        )
+        .map((item, idx) => {
+          const isInSelectList = selectSettingList.includes(item.itemId);
+
+          return (
+            <div
+              key={item.itemId}
+              ref={(el) => (refs.current[item.itemId] = el)}
+              style={{ position: "relative" }}
+              className={
+                selectOptionList.scrollEffectOption
+                  ? `${styles.invitationSection} ${visibleStates[item.itemId] ? styles.visible : styles.hidden}`
+                  : ""
+              }
+            >
+              {/* MobileSettingButtonWrapper는 항상 렌더링 */}
+              {!isTargetPage && isMobile && (item.itemId !== "settingOutro" && item.itemId !== "settingThumbK" && item.itemId !== "settingThumbU" && item.itemId !== "settingOrder" && item.itemId !== "settingBgMusic") ?
+              <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} />
+                : null
+              }
+
+              {/* selectSettingList에 포함된 경우는 실제 콘텐츠 렌더링 */}
+              {isInSelectList ? renderItemHandler(item.itemId) : null}
+
+              {/* selectSettingList에 포함되지 않은 경우는 콘텐츠 렌더링 없이 MobileSettingButtonWrapper만 렌더링 */}
+              {!isInSelectList ? (
+                <div> {/* 상위 div 렌더링 */}
+                  {/* 여기에 실제 콘텐츠는 렌더링되지 않음 */}
+                </div>
+              ) : null}
+            </div>
+          );
+        })}
+        {/* {
+          settingList.filter((settingitem) => settingitem.itemEssential === false || settingitem.itemId === "settingLetter" || settingitem.itemId === "settingDate" || settingitem.itemId === "settingLocation")
+          .map((item, idx) => {
+            if(selectSettingList.indexOf(item.itemId) !== -1) {
+              
+            } else if(selectSettingList.indexOf(item.itemId) === -1) {
+
+            }
+          })
+        } */}
+        {/* {settingList.map((item, index) => (
           item.itemEssential === false 
           || item.itemId === "settingLetter" 
           || item.itemId === "settingDate" 
@@ -147,7 +221,7 @@ const Invitation = () => {
             }
             {selectSettingList.includes(item.itemId) ? renderItemHandler(item.itemId) : null}
           </div> : null
-        ))}
+        ))} */}
         <Banner />
         {settingList.map((item, index) => (
           item.itemEssential === false && item.itemId === "settingOutro" ?

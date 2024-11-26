@@ -6,17 +6,17 @@ import update from "immutability-helper";
 /* Component */
 import OrderSettingStateFixedWrapper from "./OrderSettingStateFixedWrapper.js";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
-import Letter from "../invitationSection/Letter";
-import Calendar from "../invitationSection/Calendar.js";
-import Location from "../invitationSection/Location";
-import Gallery from "../invitationSection/Gallery";
-import Video from "../invitationSection/Video";
-import Gift from "../invitationSection/Gift";
-import NoticeT from "../invitationSection/NoticeT.js";
-import NoticeD from "../invitationSection/NoticeD.js";
+// import Letter from "../invitationSection/Letter";
+// import Calendar from "../invitationSection/Calendar.js";
+// import Location from "../invitationSection/Location";
+// import Gallery from "../invitationSection/Gallery";
+// import Video from "../invitationSection/Video";
+// import Gift from "../invitationSection/Gift";
+// import NoticeT from "../invitationSection/NoticeT.js";
+// import NoticeD from "../invitationSection/NoticeD.js";
 // import BgMusic from "../invitationSection/BgMusic";
-import Guestbook from "../invitationSection/Guestbook";
-import Attend from "../invitationSection/Attend";
+// import Guestbook from "../invitationSection/Guestbook";
+// import Attend from "../invitationSection/Attend";
 /* CSS Module */
 import styles from "../../css/module/common/OrderSettingState.module.scss";
 /* Context */
@@ -41,78 +41,78 @@ const OrderSettingState = () => {
       );
       return updatedList;
     });
+    
   }, [setSelectSettingList]);
-  const renderComponentHandler = (id) => {
-    switch(id) {
-      case "settingLetter":
-        return <Letter />;
-      case "settingDate":
-        return <Calendar />;
-      case "settingLocation":
-        return <Location />;
-      case "settingGallery":
-        return <Gallery />;
-      case "settingVideo":
-        return <Video />;
-      case "settingGift":
-        return <Gift />;
-      case "settingNoticeT":
-        return <NoticeT />;
-      case "settingNoticeD":
-        return <NoticeD />;
-      case "settingGuestbook":
-        return <Guestbook />;
-      case "settingAttend":
-        return <Attend />;
-      default:
-        return null;
-    }
-  }
+  
+  // const renderComponentHandler = (id) => {
+  //   switch(id) {
+  //     case "settingLetter":
+  //       return <Letter />;
+  //     case "settingDate":
+  //       return <Calendar />;
+  //     case "settingLocation":
+  //       return <Location />;
+  //     case "settingGallery":
+  //       return <Gallery />;
+  //     case "settingVideo":
+  //       return <Video />;
+  //     case "settingGift":
+  //       return <Gift />;
+  //     case "settingNoticeT":
+  //       return <NoticeT />;
+  //     case "settingNoticeD":
+  //       return <NoticeD />;
+  //     case "settingGuestbook":
+  //       return <Guestbook />;
+  //     case "settingAttend":
+  //       return <Attend />;
+  //     default:
+  //       return null;
+  //   }
+  // }
   const renderItemHandler = useCallback((item, index) => {
     return (
-        <OrderSettingStateItem 
-          key={`orderItem${index}`} 
-          index={index}
-          id={`orderItem${index}`} 
-          moveItemHandler={moveItemHandler}
-          className={`${styles.order__wrapper}`} 
-        >
-          <div className={styles.order__item}>
-            {
-              selectSettingList.includes(item) ?
-              <div className={styles.order__item_wrap}>
-                <div className={styles.order__item_title}>
+      <OrderSettingStateItem 
+        key={`orderItem${index}`} 
+        index={index}
+        id={`orderItem${index}`} 
+        moveItemHandler={moveItemHandler}
+        className={`${styles.order__wrapper}`} 
+      >
+        <div className={styles.order__item}>
+          {
+            selectSettingList.includes(item) ?
+            <div className={styles.order__item_wrap}>
+              <div className={styles.order__item_title}>
+                {
+                  item === "settingLetter" || item === "settingDate" || item === "settingLocation" || item === "settingOrder" ? null : <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
+                }
+                <label htmlFor={`orderItemChk${index}`}>
+                  {item.title}
                   {
-                    item === "settingLetter" || item === "settingDate" || item === "settingLocation" || item === "settingOrder" ? null : <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
+                    settingList.map((settingListItem, idx) => {
+                      return settingListItem.itemId === item ? settingList[idx].itemTitle : ""
+                    })
                   }
-                  <label htmlFor={`orderItemChk${index}`}>
-                    {item.title}
-                    {
-                      settingList.map((settingListItem, idx) => {
-                        return settingListItem.itemId === item ? settingList[idx].itemTitle : ""
-                      })
-                    }
-                  </label>
-                </div>
-                <div className={styles.order__item_inner}>
-                  {// Feat: 내부 이미지 OR 렌더링 처리
-                  /* {
-                    selectSettingList.includes(item) ? (
-                      renderComponentHandler(item)
-                    ) : null
-                  } */}
-                </div>
+                </label>
               </div>
-              :
-              <p>{item.title}</p>
-            }
-          </div>
-        </OrderSettingStateItem>
+              <div className={styles.order__item_inner}>
+                {// Feat: 내부 이미지 OR 렌더링 처리
+                /* {
+                  selectSettingList.includes(item) ? (
+                    renderComponentHandler(item)
+                  ) : null
+                } */}
+              </div>
+            </div>
+            :
+            <p>{item.title}</p>
+          }
+        </div>
+      </OrderSettingStateItem>
     )
   }, [moveItemHandler, selectSettingList, settingList])
-  // useEffect(() => {
-  //   console.log(selectSettingList);
-  // }, [selectSettingList]);
+
   return (
     <DndProvider options={HTML5toTouch}>
       <div className={styles.order__setting}>
