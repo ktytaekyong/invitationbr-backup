@@ -405,10 +405,10 @@ const Intro = () => {
   }
   const mobileTabRederer = () => {
     if(selectOptionList.theme === "themeModernBasic" 
-      && selectOptionList.introFillType === "basicTemplate1" 
+      && (selectOptionList.introFillType === "basicTemplate1" 
       || selectOptionList.introFillType === "basicTemplate2"
       || selectOptionList.introFillType === "basicTemplate3"
-      || selectOptionList.introFillType === "basicTemplate4"
+      || selectOptionList.introFillType === "basicTemplate4")
     ) {
       return (
         <>
@@ -419,20 +419,19 @@ const Intro = () => {
         </>
       )
     } else if(selectOptionList.theme === "themeModernBasic" 
-      && selectOptionList.introFillType === "fillTemplate1"
+      && (selectOptionList.introFillType === "fillTemplate1"
       || selectOptionList.introFillType === "fillTemplate2"
       || selectOptionList.introFillType === "fillTemplate3"
-      || selectOptionList.introFillType === "fillTemplate4"
-      ) {
-        return (
-          <>
-            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="78px" /> : null}
-            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="126px" /> : null}
-            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="174px" /> : null}
-            {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="222px" /> : null}
-          </>
-        )
-
+      || selectOptionList.introFillType === "fillTemplate4")
+    ) {
+      return (
+        <>
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="78px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="126px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntro" position="absolute" top="174px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="222px" /> : null}
+        </>
+      )
     }
   }
 
