@@ -10,9 +10,11 @@ import LocationSettingName from "./LocationSettingName.js";
 import LocationSettingFile from "./LocationSettingFile.js";
 import TrafficSetting from "./TrafficSetting.js";
 /* Context */
+import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
 const LocationSetting = () => {
+  const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const locationDataChangeHandler = (e, infoType) => {
     const { name, value } = e.target;
@@ -54,6 +56,7 @@ const LocationSetting = () => {
         </CommonItemWrapper>
       </CommonOptionContent>
 
+      {/* {isMobile ? null : <TrafficSetting />} */}
       <TrafficSetting />
     </CommonOptionWrapper>
   )

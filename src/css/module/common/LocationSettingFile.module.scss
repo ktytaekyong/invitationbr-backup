@@ -26,6 +26,9 @@
       border: 1px solid $border-color--default;  
       background-color: #fff;
       color: $text-color--placeholder;
+      @include device__query(tablet) {
+        font-size: $font-size--xsm;
+      }
     }
     label {
       @include flex__row_inline;
@@ -39,6 +42,10 @@
       border: none;
       background-color: $point-color--default;
       color: #FFF;
+      @include device__query(tablet) {
+        padding: 8px 24px;
+        font-size: $font-size--xxsm;
+      }
     }
   }
   .add p {

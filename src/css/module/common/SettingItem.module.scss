@@ -36,9 +36,13 @@
         transform: rotateX(0);
       }
       .setting__content {
+        @include scroll__disabled;
         height: unset; 
-        margin: 24px;
+        max-height: 80vh;
+        margin: 24px 0 24px 24px;
+        padding-right: 24px;
         visibility: visible; 
+        overflow-y: scroll;
       }
     }
   }

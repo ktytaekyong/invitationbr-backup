@@ -1,5 +1,5 @@
 /* Import */
-import { useContext } from "react";
+import { useContext, useState } from "react";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import ListOptionContent from "./ListOptionContent.js";
@@ -8,11 +8,13 @@ import CommonItemContent from "./CommonItemContent.js";
 import GiftSettingAccount from "./GiftSettingAccount.js";
 import GiftSettingKaKaoDesc from "./GiftSettingKaKaoDesc.js";
 import CheckItem from "./CheckItem.js";
+import CoupleInfomationSettingMobileTab from "./CoupleInfomationSettingMobileTab.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
 const GiftSetting = () => {
-  const { accountInfoList, setAccountInfoList } = useContext(SetContext);
+  const { isMobile, accountInfoList, setAccountInfoList } = useContext(SetContext);
+  const [ mobileTabActive, setMobileTabActive ] = useState("M");
   const groomAccountAddHandler = () => {
     setAccountInfoList((prev) => {
       return {
@@ -86,43 +88,51 @@ const GiftSetting = () => {
   };
   return (
     <>
+      {isMobile ? <CoupleInfomationSettingMobileTab mobileTabActive={mobileTabActive} onClick={setMobileTabActive} /> : null}
       <GiftSettingKaKaoDesc />
       <CommonOptionWrapper>
-        <ListOptionContent list={true}>
-          <CommonItemWrapper>
-            <CommonItemContent title="그룹명">
-              <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신랑측 계좌번호" />
-            </CommonItemContent>
-            <CommonItemContent title="펼쳐두기">
-              <CheckItem name="groomAccountView" id="groomAccountView" content="신랑측 계좌정보를 펼쳐둡니다." />
-            </CommonItemContent>
-          </CommonItemWrapper>
-          <GiftSettingAccount 
-            gender="M" 
-            listName={accountInfoList.groomGroupList} 
-            addFunction={groomAccountAddHandler}
-            deleteFunction={groomAccountRemoveHandler}
-            onChange={accountDataChangeHandler}
-          />
-        </ListOptionContent>
-        
-        <ListOptionContent list={true}>
-          <CommonItemWrapper>
-            <CommonItemContent title="그룹명">
-              <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신부측 계좌번호" />
-            </CommonItemContent>
-            <CommonItemContent title="펼쳐두기">
-              <CheckItem name="brideAccountView" id="brideAccountView" content="신부측 계좌정보를 펼쳐둡니다." />
-            </CommonItemContent>
-          </CommonItemWrapper>
-          <GiftSettingAccount 
-            gender="F" 
-            listName={accountInfoList.brideGroupList} 
-            addFunction={brideAccountAddHandler}
-            deleteFunction={brideAccountRemoveHandler}
-            onChange={accountDataChangeHandler}
-          />
-        </ListOptionContent>
+        {
+          isMobile && mobileTabActive === "F" ?
+          null :
+          <ListOptionContent list={true}>
+            <CommonItemWrapper>
+              <CommonItemContent title="그룹명">
+                <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신랑측 계좌번호" />
+              </CommonItemContent>
+              <CommonItemContent title="펼쳐두기">
+                <CheckItem name="groomAccountView" id="groomAccountView" content="신랑측 계좌정보를 펼쳐둡니다." />
+              </CommonItemContent>
+            </CommonItemWrapper>
+            <GiftSettingAccount 
+              gender="M" 
+              listName={accountInfoList.groomGroupList} 
+              addFunction={groomAccountAddHandler}
+              deleteFunction={groomAccountRemoveHandler}
+              onChange={accountDataChangeHandler}
+            />
+          </ListOptionContent>
+        }
+        {
+          isMobile && mobileTabActive === "M" ?
+          null :
+          <ListOptionContent list={true}>
+            <CommonItemWrapper>
+              <CommonItemContent title="그룹명">
+                <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신부측 계좌번호" />
+              </CommonItemContent>
+              <CommonItemContent title="펼쳐두기">
+                <CheckItem name="brideAccountView" id="brideAccountView" content="신부측 계좌정보를 펼쳐둡니다." />
+              </CommonItemContent>
+            </CommonItemWrapper>
+            <GiftSettingAccount 
+              gender="F" 
+              listName={accountInfoList.brideGroupList} 
+              addFunction={brideAccountAddHandler}
+              deleteFunction={brideAccountRemoveHandler}
+              onChange={accountDataChangeHandler}
+            />
+          </ListOptionContent>
+        }
       </CommonOptionWrapper>
     </>
   )

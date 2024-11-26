@@ -9,6 +9,9 @@
     margin-top: 11px;
     border-top: 1px solid $border-color--default;
     overflow: hidden;
+    @include device__query(tablet) {
+      grid-template-columns: repeat(3, 1fr);
+    }
     > div {
       @include position;
       min-height: 200px;

@@ -15,6 +15,11 @@
         pointer-events: none;
         font-size: $font-size--xsm;
         cursor: no-drop;
+        @include device__query(tablet) {
+          word-break: keep-all;
+          text-align: center;
+          padding: 0 3px;
+        }
       }
     }
   }

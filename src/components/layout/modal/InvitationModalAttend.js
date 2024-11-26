@@ -108,7 +108,6 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
               </div>
             </div>
           </div>
-
           {
             attendList.optionAttendName ? 
             <div className={styles.input__item}>
@@ -120,7 +119,6 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
               </div>
             </div> : null
           }
-
           {
             attendList.optionAttendCount ? 
             <div className={styles.input__item}>
@@ -132,7 +130,6 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
               </div>
             </div> : null
           }
-          
           {
             attendList.optionAttendMeal ?
             <>
@@ -151,21 +148,20 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
                   </div>
                 </div>
               </div>
-              <div className={styles.input__item}>
-                <p className={styles.input__title}></p>
-                <div className={styles.input__data}>
-                  <p className={styles.notice}>
-                    {
-                      attendMeal === "attendMealYes" ?
-                      attendList.attendMealNotice : attendList.attendNoMealNotice
-                    }
-                  </p>
+            {
+              attendList.attendMealNotice || attendList.attendNoMealNotice ? 
+                <div className={styles.input__item}>
+                  <p className={styles.input__title}></p>
+                    <div className={styles.input__data}>
+                      <p className={styles.notice}>
+                        {attendMeal === "attendMealYes" ? attendList.attendMealNotice : attendList.attendNoMealNotice}
+                      </p>
+                    </div>
                 </div>
-              </div>
-            </>
-            : null
+              : null
+            }
+            </> : null
           }
-
           {
             attendList.optionAttendBus ?
             <>

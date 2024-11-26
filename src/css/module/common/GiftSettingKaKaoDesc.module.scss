@@ -5,8 +5,14 @@
   align-items: center;
   width: 100%;
   margin-bottom: 16px;
+  @include device__query(tablet) {
+    margin-top: 20px;
+    justify-content: center;
+  }
   button {
     @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
     column-gap: 8px;
     border: none;
     background: transparent;
@@ -19,6 +25,9 @@
       font-weight: $font-weight--Regular;
       text-decoration: underline;
       cursor: pointer;
+      @include device__query(tablet) {
+        font-size: $font-size--xsm;
+      }
     }
   }
   

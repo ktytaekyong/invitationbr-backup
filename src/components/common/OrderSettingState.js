@@ -82,7 +82,9 @@ const OrderSettingState = () => {
               selectSettingList.includes(item) ?
               <div className={styles.order__item_wrap}>
                 <div className={styles.order__item_title}>
-                  <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
+                  {
+                    item.itemEssential === false ? null : <input type="checkbox" name={`orderItemChk${index}`} id={`orderItemChk${index}`} />
+                  }
                   <label htmlFor={`orderItemChk${index}`}>
                     {item.title}
                     {

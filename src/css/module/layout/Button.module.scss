@@ -90,6 +90,9 @@
     padding: 0 0 0 28px;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_add.png) no-repeat left / 24px;
+    @include device__query(tablet) {
+      padding: 2px 0 2px 28px;
+    }
   }
   &.file__delete {
     width: 24px;
