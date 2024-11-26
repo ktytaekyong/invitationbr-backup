@@ -432,6 +432,20 @@ const Intro = () => {
           {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingIntroPhoto" position="absolute" top="222px" /> : null}
         </>
       )
+    } else if(selectOptionList.theme === "themeSimple") {
+      return (
+        <>
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="108px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="156px" /> : null}
+        </>
+      )
+    } else if(selectOptionList.theme === "themeFlower") {
+      return (
+        <>
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBasicInfomation" position="absolute" top="108px" /> : null}
+          {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingBackground" position="absolute" top="156px" /> : null}
+        </>
+      )
     }
   }
 
