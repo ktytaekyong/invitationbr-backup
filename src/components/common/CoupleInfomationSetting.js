@@ -72,7 +72,7 @@ const CoupleInfomation = () => {
       {
         isMobile && mobileTabActive === "M" ?
         null :
-        <CommonOptionContent>
+        <CommonOptionContent style={isMobile ? {paddingBottom: 0, borderBottom: "none"} : null}>
           <CommonItemWrapper>
             <CommonItemContent title="신부" multi={isMobile}>
               <CoupleInfomationSettingBasic 
