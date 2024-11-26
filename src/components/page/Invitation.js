@@ -151,7 +151,7 @@ const Invitation = () => {
         <MobileSettingNotice />
         <Intro />
         <Effect />
-{sortedSettingList
+        {sortedSettingList
         .filter(
           (setting) =>
             setting.itemEssential === false ||
@@ -161,7 +161,6 @@ const Invitation = () => {
         )
         .map((item, idx) => {
           const isInSelectList = selectSettingList.includes(item.itemId);
-
           return (
             <div
               key={item.itemId}
@@ -183,45 +182,10 @@ const Invitation = () => {
               {isInSelectList ? renderItemHandler(item.itemId) : null}
 
               {/* selectSettingList에 포함되지 않은 경우는 콘텐츠 렌더링 없이 MobileSettingButtonWrapper만 렌더링 */}
-              {!isInSelectList ? (
-                <div> {/* 상위 div 렌더링 */}
-                  {/* 여기에 실제 콘텐츠는 렌더링되지 않음 */}
-                </div>
-              ) : null}
+
             </div>
           );
         })}
-        {/* {
-          settingList.filter((settingitem) => settingitem.itemEssential === false || settingitem.itemId === "settingLetter" || settingitem.itemId === "settingDate" || settingitem.itemId === "settingLocation")
-          .map((item, idx) => {
-            if(selectSettingList.indexOf(item.itemId) !== -1) {
-              
-            } else if(selectSettingList.indexOf(item.itemId) === -1) {
-
-            }
-          })
-        } */}
-        {/* {settingList.map((item, index) => (
-          item.itemEssential === false 
-          || item.itemId === "settingLetter" 
-          || item.itemId === "settingDate" 
-          || item.itemId === "settingLocation" ?
-          <div
-            key={item.itemId}
-            ref={(el) => (refs.current[index] = el)}
-            style={{position: "relative"}}
-            className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
-              visibleStates[index] ? styles.visible : styles.hidden
-            }` : ""}
-          >
-            {!isTargetPage && isMobile
-              && (item.itemId !== "settingOutro" && item.itemId !== "settingThumbK" && item.itemId !== "settingThumbU" && item.itemId !== "settingOrder" && item.itemId !== "settingBgMusic") ? 
-              <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} />
-              : null
-            }
-            {selectSettingList.includes(item.itemId) ? renderItemHandler(item.itemId) : null}
-          </div> : null
-        ))} */}
         <Banner />
         {settingList.map((item, index) => (
           item.itemEssential === false && item.itemId === "settingOutro" ?
