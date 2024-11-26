@@ -63,18 +63,18 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
       id={id} 
       className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} 
       ref={itemRef}
-      onMouseMove={handleMove}
-      onMouseUp={handleEnd}
-      onTouchMove={handleMove}
-      onTouchEnd={handleEnd}
+      onMouseMove={isMobile ? handleMove : null}
+      onMouseUp={isMobile ? handleEnd : null}
+      onTouchMove={isMobile ? handleMove : null}
+      onTouchEnd={isMobile ? handleEnd : null}
       style={{
         transform: `translateY(${translateY}px)`,
       }}
     >
       {isMobile ? <MobileSettingDragTop onMouseDown={handleStart} onTouchStart={handleStart} /> : null}
       <div className={styles.setting__title} 
-        onMouseDown={handleStart} 
-        onTouchStart={handleStart}
+        onMouseDown={isMobile ? handleStart : null} 
+        onTouchStart={isMobile ? handleStart : null}
         onClick={() => {
           if(!isMobile) {
             activeToggleHandler();
