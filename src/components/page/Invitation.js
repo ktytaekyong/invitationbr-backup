@@ -131,14 +131,13 @@ const Invitation = () => {
       return selectSettingList.indexOf(a.itemId) - selectSettingList.indexOf(b.itemId);
     });
     setSortedSettingList(sortedList);
-  }, [selectSettingList]); // selectSettingList가 변경될 때마다 실행
+  }, [selectSettingList]);
 
   return (
     <div
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
       } invitation-scroll`}
-      style={{ backgroundColor: selectOptionList.backgroundColor }}
     >
       <Container>
         <>

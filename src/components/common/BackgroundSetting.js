@@ -78,6 +78,9 @@ const BackgroundSetting = () => {
   useEffect(() => {
     document.documentElement.style.setProperty('--font-size--base', selectOptionList.fontSize);
   }, [selectOptionList.fontSize]);
+  useEffect(() => {
+    document.documentElement.style.setProperty('--theme-select-color', selectOptionList.backgroundColor);
+  }, [selectOptionList.backgroundColor]);
   return (
     // 전체
     <CommonOptionWrapper>

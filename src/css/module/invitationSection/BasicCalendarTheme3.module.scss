@@ -4,4 +4,9 @@
     pointer-events: none !important;
     font-size: $font-size--sm !important;
   }
+  :global {
+    .MuiDayCalendar-header {
+      background: var(--theme-select-color) !important;
+    }
+  }
 }

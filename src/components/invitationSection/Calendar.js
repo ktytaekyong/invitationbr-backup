@@ -81,7 +81,7 @@ const Calendar = () => {
       case "calendarType1":
         return (
           <div className={styles.date__wrap_add}>
-            <div className={styles.date__wrap}>
+            <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
               <img src={calendarTheme1} alt="" />
               <div className={styles.date__content}>
                 {selectOptionList.dateDdayOption ?
@@ -112,7 +112,7 @@ const Calendar = () => {
         );
       case "calendarType2":
         return (
-          <div className={styles.date__wrap}>
+          <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
             <img src={calendarTheme2} alt="" />
             <HeadLine title="예식 일시" content="D-day" />
             <div className={styles.date__content}>
@@ -161,7 +161,7 @@ const Calendar = () => {
         );
       case "calendarType4":
         return (
-          <div className={styles.date__wrap}>
+          <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
             <HeadLine title="예식 일시" content="D-day"></HeadLine>
             <div className={styles.date__content}>
               <div className={styles.date}>

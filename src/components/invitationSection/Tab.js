@@ -42,7 +42,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
         selectTabList.length === 0 ?
         null
         :
-        <div className={`${styles.tab__wrap} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
+        <div className={`${styles.tab__wrap} ${isTargetPage ? styles.preview : ""} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
           <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
           <div className={styles.button__wrapper}>
             <Button onClick={setActiveTabHandler} className={`${isActiveTab ? styles["active"] : ""}`} />

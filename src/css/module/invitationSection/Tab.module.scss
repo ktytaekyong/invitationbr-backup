@@ -13,10 +13,15 @@
     padding: 3px;
     margin: 0 20px;
     border-radius: 4px;
-    background-color: $bg-color--tab;
+    background-color: var(--theme-select-color);
     @include device__query(tablet) {
-      top: 20px;
+      top: 70px;
       margin-top: 25px;
+    }
+    &.preview {
+      @include device__query(tablet) {
+        top: 20px;
+      }
     }
     .button__wrapper {
       button {
@@ -35,7 +40,7 @@
       font-size: $font-size--sm;
       font-weight: $font-weight--Light;
       border-radius: 4px;
-      background-color: $bg-color--tab;
+      background-color: var(--theme-select-color);
       color: #333;
     }
     &.active > a {
@@ -65,7 +70,7 @@
     margin: 0 auto;
     top: 0;
     @include device__query(tablet) {
-      top: -50px;
+      top: 0;
       z-index: 10001;
     }
     .button__wrapper {
@@ -151,9 +156,11 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      @at-root .container {
-        overflow: hidden;
-      }
+      // @at-root:global {
+      //   body {
+      //     overflow: hidden !important;
+      //   }
+      // }
     }
   }
 }

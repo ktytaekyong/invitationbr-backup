@@ -311,7 +311,7 @@
   ],
   "selectOptionList": {
     "theme": "themeModernBasic",
-    "backgroundColor": "#FFF",
+    "backgroundColor": "#F9FAFB",
     "fontFamily": "SeoulHangang",
     "fontSize": "16px",
     "effectType": "bgEffectNoSelect",

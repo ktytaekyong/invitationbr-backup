@@ -5,7 +5,7 @@ import styles from "../../css/module/common/BackgroundSettingTheme.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const colorList = ["#FFF", "#E8E9EC", "#FFF3F3", "#FDFBF5"];
+const colorList = ["#F9FAFB", "#F5FAFE", "#FEF8F8", "#FDFAF5"];
 const BackgroundSettingTheme = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const backgroundColorHandler = (e) => {
