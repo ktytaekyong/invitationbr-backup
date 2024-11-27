@@ -24,6 +24,9 @@ html {
 html, body {
   touch-action: var(--touch-option);
 }
+body {
+  overscroll-behavior-y: contain !important;
+}
 .container {
   width: 100%;
   max-width: 1000px;
