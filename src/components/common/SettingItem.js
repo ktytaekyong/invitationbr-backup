@@ -38,6 +38,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
     isDragging.current = true;
     startY.current = e.touches ? e.touches[0].clientY : e.clientY;
     startTranslateY.current = translateY;
+    e.stopPropagation();
   };
 
   const handleMove = (e) => {
@@ -75,10 +76,10 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
       <div className={styles.setting__title} 
         onMouseDown={isMobile ? handleStart : null} 
         onTouchStart={isMobile ? handleStart : null}
-        onClick={() => {
+        onClick={(e) => {
           if(!isMobile) {
             activeToggleHandler();
-          }
+          } 
         }
       }>
         <div className={styles.setting__title_wrap}>
