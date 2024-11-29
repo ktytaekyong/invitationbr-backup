@@ -51,7 +51,7 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                     : (e) => onChange(e, "brideGroupList", idx)
                   } 
                 />
-                <input type="text" 
+                <input type="number" 
                   name="account" 
                   value={item.account} 
                   className={styles.input__account} 
