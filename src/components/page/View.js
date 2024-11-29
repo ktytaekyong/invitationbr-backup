@@ -16,7 +16,7 @@ const View = () => {
   const isTargetPage = previewLocation.pathname === '/Preview';
   const { selectOptionList } = useContext(SetContext);
   useEffect(() => {
-    document.documentElement.style.setProperty('--touch-option', selectOptionList.zoomOption ? "manipulation" : "auto");
+    document.documentElement.style.setProperty('--touch-option', selectOptionList.zoomOption ? "pan-y" : "auto");
   }, [selectOptionList.zoomOption]);
   return (
     <section className={`${styles.view} ${isTargetPage ? styles.preview : ""}`}>
