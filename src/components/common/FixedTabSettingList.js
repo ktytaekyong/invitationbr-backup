@@ -30,21 +30,23 @@ const FixedTabSettingList = () => {
   }, []);
 
   return (
-    <ul className={styles.option__list}>
-      {basicTabList.map((item, idx) => {
-        const isChecked = selectTabList.includes(item.id);
-        return (
-          <FixedTabSettingItem 
-            key={`tabOption${idx}`} 
-            id={item.id} 
-            optionTitle={item.content} 
-            checked={isChecked}
-            onChange={() => {changeFixTabHandler(idx)}}
-          />
-        )
-      })}
+    <>
+      <ul className={styles.option__list}>
+        {basicTabList.map((item, idx) => {
+          const isChecked = selectTabList.includes(item.id);
+          return (
+            <FixedTabSettingItem 
+              key={`tabOption${idx}`} 
+              id={item.id} 
+              optionTitle={item.content} 
+              checked={isChecked}
+              onChange={() => {changeFixTabHandler(idx)}}
+            />
+          )
+        })}
+      </ul>
       <Toast type="warn" open={open} setOpen={setOpen} message="최대 4개입니다." />
-    </ul>
+    </>
   )
 }
 

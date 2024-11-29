@@ -108,7 +108,8 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
         case "basicTemplate1":
           const listB1 = [
             "저희 결혼합니다", 
-            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
+            `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} 
+              ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
             basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
