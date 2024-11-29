@@ -17,15 +17,6 @@ const View = () => {
   const { selectOptionList } = useContext(SetContext);
   useEffect(() => {
     document.documentElement.style.setProperty('--touch-option', selectOptionList.zoomOption ? "manipulation" : "auto");
-    document.addEventListener('gesturestart', function (e) {
-      e.preventDefault();
-    });
-    document.addEventListener('gesturechange', function (e) {
-      e.preventDefault();
-    });
-    document.addEventListener('gestureend', function (e) {
-      e.preventDefault();
-    });
   }, [selectOptionList.zoomOption]);
   return (
     <section className={`${styles.view} ${isTargetPage ? styles.preview : ""}`}>
