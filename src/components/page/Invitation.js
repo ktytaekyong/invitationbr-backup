@@ -47,7 +47,8 @@ const Invitation = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const refs = useRef([]);
+
+  const refs = useRef({});
   const renderItemHandler = (id) => {
     switch (id) {
       case "settingLetter":
@@ -75,40 +76,40 @@ const Invitation = () => {
     }
   };
 
-  // useEffect(() => {
-  //   console.log(selectSettingList);
-  // }, [selectSettingList]);
-
   useEffect(() => {
-    const refsCopy = refs.current;
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const index = refsCopy.indexOf(entry.target);
-          if (index !== -1 && entry.isIntersecting) {
-            setVisibleStates((prev) =>
-              prev.map((state, i) => (i === index ? entry.isIntersecting : state))
-            );
+          const id = entry.target.dataset.id; 
+          if (id && entry.isIntersecting) {
+            setVisibleStates((prev) => {
+              const newStates = [...prev];
+              newStates[selectSettingList.indexOf(id)] = entry.isIntersecting;
+              return newStates;
+            });
           }
         });
       },
       { threshold: 0.3 }
     );
+    
+    // refs.current 값을 변수에 저장
+    const refsCopy = refs.current;
   
-    // refs에 selectSettingList 순서대로 엘리먼트를 추가
-    selectSettingList.forEach((itemId, index) => {
-      const element = refsCopy[index];
+    // observe each element
+    selectSettingList.forEach((itemId) => {
+      const element = refsCopy[itemId];
       if (element) observer.observe(element);
     });
   
     return () => {
-      // 옵저버 해제
-      selectSettingList.forEach((itemId, index) => {
-        const element = refsCopy[index];
+      // cleanup에서 refsCopy를 사용하여 unobserve
+      selectSettingList.forEach((itemId) => {
+        const element = refsCopy[itemId];
         if (element) observer.unobserve(element);
       });
     };
-  }, [selectSettingList, visibleStates]);
+  }, [selectSettingList, selectOptionList.scrollEffectOption]);  // 의존성 배열에 필요한 값 추가
 
   useEffect(() => {
     if (
@@ -124,14 +125,19 @@ const Invitation = () => {
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
 
-  const [sortedSettingList, setSortedSettingList] = useState([]); // 정렬된 settingList
+  const [sortedSettingList, setSortedSettingList] = useState([]); 
   
   useEffect(() => {
     const sortedList = [...settingList].sort((a, b) => {
       return selectSettingList.indexOf(a.itemId) - selectSettingList.indexOf(b.itemId);
     });
     setSortedSettingList(sortedList);
-  }, [selectSettingList]);
+  }, [selectSettingList, settingList]);
+
+  useEffect(() => {
+    console.log(selectOptionList.scrollEffectOption);
+    console.log(visibleStates);
+  }, [selectOptionList.scrollEffectOption, visibleStates])
 
   return (
     <div
@@ -164,24 +170,19 @@ const Invitation = () => {
             <div
               key={item.itemId}
               ref={(el) => (refs.current[item.itemId] = el)}
+              data-id={item.itemId}
               style={{ position: "relative" }}
               className={
                 selectOptionList.scrollEffectOption
-                  ? `${styles.invitationSection} ${visibleStates[item.itemId] ? styles.visible : styles.hidden}`
+                  ? `${styles.invitationSection} ${visibleStates[idx] ? styles.visible : styles.hidden}`
                   : ""
               }
             >
-              {/* MobileSettingButtonWrapper는 항상 렌더링 */}
               {!isTargetPage && isMobile && (item.itemId !== "settingOutro" && item.itemId !== "settingThumbK" && item.itemId !== "settingThumbU" && item.itemId !== "settingOrder" && item.itemId !== "settingBgMusic") ?
               <MobileSettingButtonWrapper id={item.itemId} position="absolute" top={5} />
                 : null
               }
-
-              {/* selectSettingList에 포함된 경우는 실제 콘텐츠 렌더링 */}
               {isInSelectList ? renderItemHandler(item.itemId) : null}
-
-              {/* selectSettingList에 포함되지 않은 경우는 콘텐츠 렌더링 없이 MobileSettingButtonWrapper만 렌더링 */}
-
             </div>
           );
         })}
@@ -191,6 +192,7 @@ const Invitation = () => {
           <div
             key={item.itemId}
             ref={(el) => (refs.current[selectSettingList.indexOf("settingOutro")] = el)}
+            data-id={item.itemId}
             style={{position: "relative"}}
             className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
               visibleStates[index] ? styles.visible : styles.hidden
