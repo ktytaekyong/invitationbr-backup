@@ -288,7 +288,6 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                     onChange={(e) => changeSampleText(e, coloridx)} 
                     placeholder={placeholderRenderer(coloridx)}
                     style={{color: selectIntroColor[coloridx]}} 
-                    // Require: 저장 시 인트로 인풋(상기)에 입력한 내용이 우선 적용 (241115)
                   />
                 </div>
               </li>

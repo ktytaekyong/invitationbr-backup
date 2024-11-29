@@ -27,7 +27,7 @@ const Toast = ({ message, open, setOpen, type }) => {
   return (
     <Snackbar
       open={open}
-      autoHideDuration={2000}
+      // autoHideDuration={2000}
       onClose={handleClose}
       message={
         // <div className={`mui-message ${type}`}>{msgRenderer(type)}{message}</div>

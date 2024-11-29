@@ -130,6 +130,8 @@ textarea {
   z-index: 999999 !important;
 }
 .MuiSnackbar-root {
+  width: 90%;
+  max-width: 290px;
   justify-content: center !important;
   left: 50% !important;
   right: auto;
