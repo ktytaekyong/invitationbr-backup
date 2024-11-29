@@ -1,5 +1,6 @@
 /* Import */
 import { useEffect, useState, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import FixedTabSettingItem from "../common/FixedTabSettingItem";
 import Toast from "../layout/Toast.js";
@@ -45,7 +46,9 @@ const FixedTabSettingList = () => {
           )
         })}
       </ul>
-      <Toast type="warn" open={open} setOpen={setOpen} message="최대 4개입니다." />
+      {
+        ReactDOM.createPortal(<Toast type="warn" open={open} setOpen={setOpen} message="최대 4개입니다." />, document.body)
+      }
     </>
   )
 }

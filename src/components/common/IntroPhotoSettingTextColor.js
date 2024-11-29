@@ -187,10 +187,6 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       document.removeEventListener("click", handleClick);
     };
   }, []);
-  // useEffect(()=> {
-  //   console.log(prevIntroColor);
-  //   console.log(selectIntroColor);
-  // }, [prevIntroColor, selectIntroColor])
   useEffect(()=> {
     setPrevIntroColor([...selectIntroColor]);
   }, [pickerActive, selectIntroColor, setPrevIntroColor])
@@ -243,7 +239,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                         clearTimeout(window.lastColorChangeTimeout);
                         window.lastColorChangeTimeout = setTimeout(() => {
                           changePresetColorList(newColor);
-                        }, 300);
+                        }, 200);
                       }}
                     />
                     <div className={styles.picker__input}>
@@ -255,7 +251,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                           clearTimeout(window.lastColorChangeTimeout);
                           window.lastColorChangeTimeout = setTimeout(() => {
                             changePresetColorList(newColor);
-                          }, 300);
+                          }, 200);
                         }}
                       />
                       <div 
