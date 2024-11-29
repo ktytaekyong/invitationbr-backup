@@ -5,16 +5,12 @@ import NoticeTItem from "./NoticeTItem.js";
 import HeadLine from "../layout/HeadLine.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/NoticeT.module.scss";
-/* Image */
-import defaultImg1 from "../../img/notice/notice_photo_test1.png"
-import defaultImg2 from "../../img/notice/notice_photo_test2.png"
-import defaultImg3 from "../../img/notice/notice_photo_test3.png"
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
-const defaultImg = [defaultImg1, defaultImg2, defaultImg3];
 const NoticeT = () => {
   const { noticeTList } = useContext(SetContext);
   const [isActive, setIsActive] = useState(0);
+  const [initial, setInitial] = useState([]);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }
@@ -30,10 +26,10 @@ const NoticeT = () => {
           {
             noticeTList.map((item, idx) => (
               <div 
-                key={item + idx} 
+                key={item.id + idx} 
                 id={item.id} 
                 className={`${styles.content} ${isActive === idx ? styles["active"] : ""} ${styles[noticeTList[idx].position]}`}>
-                <img src={`${item.src === "" ? defaultImg[idx] : item.src}`} alt="" />
+                {!item.src ? null : <img src={item.src} alt="" />}
                 <p>
                   {item.content}
                 </p>
