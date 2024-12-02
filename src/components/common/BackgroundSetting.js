@@ -48,12 +48,28 @@ const fontList = [
     itemKey: "Pretendard"
   },
   {
-    itemName: "돋움체",
-    itemKey: "돋움체"
+    itemName: "나눔스퀘어 네오",
+    itemKey: "NanumSquareNeo"
   },
   {
-    itemName: "고딕체",
-    itemKey: "고딕체"
+    itemName: "나눔스퀘어 라운드",
+    itemKey: "NanumSquareRound"
+  },
+  {
+    itemName: "나눔명조",
+    itemKey: "nanummyeongjo"
+  },
+  {
+    itemName: "본고딕(NotoSans)",
+    itemKey: "NotoSansKR"
+  },
+  {
+    itemName: "마루 부리",
+    itemKey: "MaruBuri"
+  },
+  {
+    itemName: "카페24 써라운드",
+    itemKey: "Cafe24Ssurround"
   },
 ]
 const fontSizeList = [
