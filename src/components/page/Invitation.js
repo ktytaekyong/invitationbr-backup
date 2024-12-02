@@ -134,10 +134,10 @@ const Invitation = () => {
     setSortedSettingList(sortedList);
   }, [selectSettingList, settingList]);
 
-  useEffect(() => {
-    console.log(selectOptionList.scrollEffectOption);
-    console.log(visibleStates);
-  }, [selectOptionList.scrollEffectOption, visibleStates])
+  // useEffect(() => {
+  //   console.log(selectOptionList.scrollEffectOption);
+  //   console.log(visibleStates);
+  // }, [selectOptionList.scrollEffectOption, visibleStates])
 
   return (
     <div

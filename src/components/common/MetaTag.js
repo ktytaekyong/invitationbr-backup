@@ -6,9 +6,6 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const MetaTag = () => {
   const { selectOptionList, kakaoInfoList } = useContext(SetContext);
-  useEffect(() => {
-    console.log(selectOptionList.zoomOption);
-  }, [selectOptionList.zoomOption]);
   return (
     <Helmet>
       <title>청첩장 만들기</title>
