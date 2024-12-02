@@ -25,7 +25,7 @@ const PhotoSelector = (props) => {
     ))
   }
   return (
-    <div id={props.id} className={`${styles.photo__selector} ${props.id === "galleryPhotoList" ? styles["gallery"] : null}`}>
+    <div id={props.id} className={`${styles.photo__selector} ${props.id === "galleryPhotoList" ? styles["gallery"] : ""}`}>
       <ul className={styles.option__list}>
         <li className={styles.option__item} style={{backgroundImage: `url(${photoAddImg})`}}>
           <input type="file" name="src" id={`${props.id}File`} multiple onChange={props.onChange} />

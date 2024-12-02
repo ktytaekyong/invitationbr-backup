@@ -1,7 +1,12 @@
 @import "../../_module";
+.photo__selector {
+  width: 100%;
+}
 .option__list {
   @include flex__row;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
   gap: 8px;
   .option__item {

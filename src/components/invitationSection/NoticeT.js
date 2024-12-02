@@ -10,7 +10,6 @@ import { SetContext } from "../../store/option-set-context.js";
 const NoticeT = () => {
   const { noticeTList } = useContext(SetContext);
   const [isActive, setIsActive] = useState(0);
-  const [initial, setInitial] = useState([]);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }

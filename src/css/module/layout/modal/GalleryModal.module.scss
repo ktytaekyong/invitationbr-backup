@@ -25,6 +25,9 @@
       border: 1px solid $border-color--default;
       border-radius: $radius--default;
       background: #FFF;
+      @include device__query(tablet) {
+        width: calc(100% - 20px);
+      }
     }
     :global {
       .modal {
@@ -43,6 +46,12 @@
       .swiper-wrapper {
         max-height: inherit;
         align-items: center;
+      }
+      .swiper-button-prev {
+
+      }
+      .swiper-button-next {
+        
       }
     }
   }
