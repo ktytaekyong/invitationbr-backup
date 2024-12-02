@@ -10,7 +10,6 @@ import 'swiper/css/thumbs';
 /* Component */
 import GalleryModal from "./GalleryModal.js";
 /* Image */
-import galleryPhoto from "../../../img/gallery/slide_photo_test.png";
 /* Context */
 import { GalleryContext } from "../../../store/option-gallery-context.js";
 
@@ -38,31 +37,7 @@ const InvitationModalGallery = ({ src, onClose, openvar, clickidx }) => {
                 <img src={item.src} alt={item.alt} />
               </SwiperSlide>
             ))
-          ) : (
-            <>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img src={galleryPhoto} alt="" />
-              </SwiperSlide>
-            </>
-          )}
+          ) : null}
         </Swiper>
       </div>
     </GalleryModal>

@@ -23,12 +23,8 @@ const GalleryModal = (props) => {
         <ModalContent>
           <div className={styles.border_wrapper}>
             <div className={styles.wrapper}>
-              <Button styleType="invitation__close" onClick={props.onClose}></Button>
-              <div className={styles.modal__header}>
-                <img src={props.headSrc} alt="" />
-                <p>{props.headContent}</p>
-              </div>
               <div id="unstyled-modal-description" className={styles.modal__description}>
+                <Button styleType="invitation__close" onClick={props.onClose} />
                 {props.children}
                 {
                   props.ButtonWrapperUse ? 
@@ -92,18 +88,12 @@ const StyledBackdrop = styled(Backdrop)`
 
 const ModalContent = styled('div')(
   ({ theme }) => css`
-    font-family: 'IBM Plex Sans', sans-serif;
     font-weight: 500;
-    text-align: start;
     position: relative;
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    background-color: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
     border-radius: 8px;
-    border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
-    box-shadow: 0 4px 12px
-      ${theme.palette.mode === 'dark' ? 'rgb(0 0 0 / 0.5)' : 'rgb(0 0 0 / 0.2)'};
     color: ${theme.palette.mode === 'dark' ? grey[50] : grey[900]};
   `,
 );

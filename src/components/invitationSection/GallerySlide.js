@@ -9,8 +9,6 @@ import 'swiper/css/scrollbar';
 import InvitationModalGallery from "../layout/modal/InvitationModalGallery.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/GallerySlide.module.scss";
-/* Image */
-import galleryPhoto from "../../img/gallery/slide_photo_test.png";
 /* Context */
 import { GalleryContext } from "../../store/option-gallery-context.js";
 
@@ -38,16 +36,6 @@ const GallerySlide = () => {
         className="mySwiper"
       >
         {
-          selectGalleryPhotoList.length === 0 ?
-          <>
-            <SwiperSlide onClick={() => handleOpen(1)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(2)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-          </>
-          :
           selectGalleryPhotoList.map((item, idx) => (
             <SwiperSlide key={item + idx} onClick={() => handleOpen(idx)}>
               <img src={item.src} alt="item.alt" />

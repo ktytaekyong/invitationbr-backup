@@ -225,3 +225,33 @@ textarea {
     color: #FFF !important;
   }
 }
+.modalSwiper {
+  .swiper-slide {
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .swiper-button-lock {
+    display: inline-block;
+    opacity: 0.3;
+  }
+  .swiper-button-prev,
+  .swiper-button-next {
+    position: static;
+    margin: 0 auto;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-top: 12px;
+  }
+  .swiper-button-prev:after, 
+  .swiper-button-next:after {
+    content: "";
+  }
+  .swiper-button-prev {
+    background: url("../img//icon/icon_btn_slide_left.png") no-repeat 50% / 40px;
+  }
+  .swiper-button-next {
+    margin-left: 16px;
+    background: url("../img//icon/icon_btn_slide_right.png") no-repeat 50% / 40px;
+  }
+}

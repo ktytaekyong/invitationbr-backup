@@ -15,8 +15,8 @@
     border-radius: 4px;
     background-color: var(--theme-select-color);
     @include device__query(tablet) {
-      top: 70px;
-      margin-top: 25px;
+      top: 82px;
+      margin-top: 22px;
     }
     &.preview {
       @include device__query(tablet) {

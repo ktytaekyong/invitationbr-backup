@@ -29,7 +29,7 @@
       "momDeceased": false
     },
     "dateInfo": {
-      "date": "2024-11-30"
+      "date": "2024-12-25"
     },
     "timeInfo": {
       "hour": "14",
@@ -308,6 +308,22 @@
   ],
   "selectGalleryView": false,
   "selectGalleryPhotoList": [
+    {
+      "src": "/img/gallery/slide_photo_test.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/gallery/slide_photo_test.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/gallery/slide_photo_test.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/gallery/slide_photo_test.png",
+      "alt": ""
+    }
   ],
   "selectOptionList": {
     "theme": "themeModernBasic",

@@ -5,34 +5,26 @@
     justify-content: center;
     align-items: flex-start;
     margin-top: 70px;
-
+    background: transparent !important;
     * {
       font-weight: $font-weight--Medium;
     }
     button {
       font-size: $font-size--xsm;
     }
-    .border_wrapper {
-      background: $bg-color--setting;
-    }
     .wrapper {
       @include position;
       @include flex__column;
       width: 100%;
-      max-width: 520px !important;
-      margin: 10px;
-      padding: 24px 0;
-      border: 1px solid $border-color--default;
       border-radius: $radius--default;
-      background: #FFF;
+      padding: 10px;
       @include device__query(tablet) {
-        width: calc(100% - 20px);
       }
     }
     :global {
       .modal {
         height: 100%;
-        max-height: 460px;
+        // max-height: 460px;
       }
       .swiper {
         max-height: inherit;
@@ -47,17 +39,11 @@
         max-height: inherit;
         align-items: center;
       }
-      .swiper-button-prev {
-
-      }
-      .swiper-button-next {
-        
-      }
     }
   }
   &__description {
+    @include position;
     width: 100%;
-    padding: 15px 48px;
     font-size: $font-size--sm;
     text-align: center;
     color: $text-color--gray;
