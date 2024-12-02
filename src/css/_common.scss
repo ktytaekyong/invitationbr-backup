@@ -96,6 +96,9 @@ input {
     }
   }
 }
+input[type="date"] {
+  text-align: left !important;
+}
 textarea {
   resize: none;
   height: 84px;
@@ -138,7 +141,7 @@ textarea {
   right: auto;
   bottom: 70px !important;
   transform: translateX(-50%);
-  mix-blend-mode: multiply !important;
+  // mix-blend-mode: multiply !important;
   z-index: 2147483647 !important;
 }
 .MuiSnackbarContent-root {
