@@ -15,7 +15,7 @@ import { InfoContext } from "../../store/option-info-context.js";
 const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
-  const { basicTabList, selectTabList } = useContext(TabContext); 
+  const { basicTabList, selectTabList, activeTabState, setActiveTabState } = useContext(TabContext); 
   const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const [isActive, setIsActive] = useState(false);
@@ -41,10 +41,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
       <MobileSettingButtonWrapper 
         id="settingFixedTab" 
         position="absolute" 
-        top={
-          selectOptionList.theme === "themeSimple" 
-          ? 45 : 20
-        } 
+        top={20}
       /> : null}
       {
         selectTabList.length === 0 ?

@@ -69,9 +69,17 @@
     background: transparent;
     margin: 0 auto;
     top: 0;
+    pointer-events: all;
     @include device__query(tablet) {
       top: 0;
       z-index: 10001;
+      pointer-events: none;
+      overscroll-behavior: contain;
+    }
+    * {
+      @include device__query(tablet) {
+        pointer-events: all;
+      }
     }
     .button__wrapper {
       button {
@@ -87,7 +95,7 @@
         z-index: 999;
         &.active {
           background-image: url(../../../img/icon/icon_header_menu_close.png);
-          z-index: 1000
+          z-index: 1000;
         }
       }
     }
@@ -101,8 +109,13 @@
     background-color: #fff;
     border-radius: 0;
     display: none;
+    @include device__query(tablet) {
+      height: calc(100vh - 60px);
+    }
     &.active {
       @include flex__column;
+      @include position(f, 60px, null, 0, 0);
+      height: calc(100vh - 60px);
     }
     &__item {
       * {
@@ -156,11 +169,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      // @at-root:global {
-      //   body {
-      //     overflow: hidden !important;
-      //   }
-      // }
+      overscroll-behavior: contain;
     }
   }
 }

@@ -34,6 +34,7 @@ const Invitation = () => {
   const isTargetPage = previewLocation.pathname === "/Preview";
 
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
+
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)
@@ -93,23 +94,18 @@ const Invitation = () => {
       { threshold: 0.3 }
     );
     
-    // refs.current 값을 변수에 저장
     const refsCopy = refs.current;
-  
-    // observe each element
     selectSettingList.forEach((itemId) => {
       const element = refsCopy[itemId];
       if (element) observer.observe(element);
     });
-  
     return () => {
-      // cleanup에서 refsCopy를 사용하여 unobserve
       selectSettingList.forEach((itemId) => {
         const element = refsCopy[itemId];
         if (element) observer.unobserve(element);
       });
     };
-  }, [selectSettingList, selectOptionList.scrollEffectOption]);  // 의존성 배열에 필요한 값 추가
+  }, [selectSettingList, selectOptionList.scrollEffectOption]);
 
   useEffect(() => {
     if (
@@ -143,7 +139,8 @@ const Invitation = () => {
     <div
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
-      } invitation-scroll`}
+      }`}
+      // style={isActiveTab ? { overflow: "hidden" } : null}
     >
       <Container>
         <>

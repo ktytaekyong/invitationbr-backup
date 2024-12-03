@@ -80,7 +80,7 @@ const SetProvider = ({ children }) => {
         attendGuest,
         setAttendGuest,
         openSettingTab,
-        setOpenSettingTab,
+        setOpenSettingTab
       }}
     >
       {children}
