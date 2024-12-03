@@ -56,16 +56,12 @@ const fontList = [
     itemKey: "NanumSquareRound"
   },
   {
-    itemName: "나눔명조",
-    itemKey: "nanummyeongjo"
-  },
-  {
-    itemName: "본고딕(NotoSans)",
-    itemKey: "NotoSansKR"
-  },
-  {
     itemName: "마루 부리",
     itemKey: "MaruBuri"
+  },
+  {
+    itemName: "나눔명조 옛한글",
+    itemKey: "NanumMyeongjoYetHangul"
   },
   {
     itemName: "카페24 써라운드 에어",
@@ -117,7 +113,7 @@ const BackgroundSetting = () => {
               selectID="fontSelector" 
               selectName="fontFamily" 
               listName={fontList} 
-              value={selectOptionList.fontFamily} 
+              value={selectOptionList.fontFamily}
             />
             <OptionSelector 
               selectID="fontSizeSelector" 
