@@ -20,7 +20,10 @@ const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, v
     })
   }
   return (
-    <div className={`${styles.option__selector_wrapper} ${styleType ? styles[styleType] : ""}`}>
+    <div 
+      className={`${styles.option__selector_wrapper} ${styleType ? styles[styleType] : ""}`}
+      style={selectID === "fontSizeSelector" ? {maxWidth: "40%"} : null} 
+    >
       <select 
         id={selectID} 
         name={selectName}
@@ -30,7 +33,8 @@ const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, v
           onChange : 
           (e) => dataChangeHandler(e)
         }
-        className={`${styles.option__selector}`}>
+        className={`${styles.option__selector}`}
+      >
         {
           listName.map((item, index) => {
             return (

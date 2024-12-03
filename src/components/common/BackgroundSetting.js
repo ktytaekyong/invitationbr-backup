@@ -68,8 +68,8 @@ const fontList = [
     itemKey: "MaruBuri"
   },
   {
-    itemName: "카페24 써라운드",
-    itemKey: "Cafe24Ssurround"
+    itemName: "카페24 써라운드 에어",
+    itemKey: "Cafe24SsurroundAir"
   },
 ]
 const fontSizeList = [
