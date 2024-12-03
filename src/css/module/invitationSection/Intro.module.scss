@@ -10,6 +10,15 @@
     padding-top: 50px;
     padding-bottom: 35px;
     @include device__query(tablet) {
+      padding-top: 35px;
+      > div {
+        &:nth-child(2) {
+          margin-top: 24px;
+        }
+        &:nth-child(3) {
+          margin-top: 40px;
+        }
+      }
     }
     > div {
       &:nth-child(2) {

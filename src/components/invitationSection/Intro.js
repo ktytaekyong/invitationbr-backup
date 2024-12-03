@@ -448,7 +448,6 @@ const Intro = () => {
       )
     }
   }
-
   return (
     <div 
       key={selectOptionList.introFillType + selectOptionList.theme}

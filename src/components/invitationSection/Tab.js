@@ -37,7 +37,15 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   }, [selectOptionList.introFillType, setIsActiveTab]);
   return (
     <>
-      {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingFixedTab" position="absolute" top={20} /> : null}
+      {!isTargetPage && isMobile ? 
+      <MobileSettingButtonWrapper 
+        id="settingFixedTab" 
+        position="absolute" 
+        top={
+          selectOptionList.theme === "themeSimple" 
+          ? 45 : 20
+        } 
+      /> : null}
       {
         selectTabList.length === 0 ?
         null
