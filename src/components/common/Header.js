@@ -51,7 +51,12 @@ const Header = () => {
             <p>선택 항목은 메뉴명 앞에 체크박스 표시가 있습니다.</p>
           </div>
           <ButtonWrapper>
-            <Button type="button" styleType="default" content="미리보기" onClick={previewHandler} />
+            <Button type="button" styleType="default" content="미리보기" 
+              onClick={() => {
+                previewHandler();
+                window.scrollTo(0, 0);
+              }} 
+            />
             <Button 
               type="button" 
               styleType="primary" 

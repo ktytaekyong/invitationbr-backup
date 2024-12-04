@@ -35,6 +35,7 @@ const Invitation = () => {
 
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
 
+  
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)

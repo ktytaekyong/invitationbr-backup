@@ -15,6 +15,7 @@ import IconFlower  from "../../img/icon/icon_deceased_flower.png";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Letter = ({ aos }) => {
   const previewLocation = useLocation();
@@ -24,6 +25,8 @@ const Letter = ({ aos }) => {
   const { isMobile, letterList, selectOptionList } = useContext(SetContext);
   const [ deceasedIcon, setDeceasedIcon ] = useState("故");
   const [ isInitialRender, setIsInitialRender ] = useState(true);
+  const { letterRef } = useContext(RefContext);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
@@ -85,7 +88,7 @@ const Letter = ({ aos }) => {
     : setDeceasedIcon("故");
   }, [selectOptionList.deceasedFlower]);
   return (
-    <div id="Letter" className={`${styles.letter}`} data-aos={aos}>
+    <div ref={letterRef} id="Letter" className={`${styles.letter}`} data-aos={aos}>
       <div className={styles.letter__wrap}>
         <HeadLine title={letterList.title ? letterList.title : "초대합니다"} content="invitation" />
         {/* {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLetter" position="absolute" top={20} /> : null} */}

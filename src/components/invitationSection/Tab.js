@@ -11,6 +11,7 @@ import styles from "../../css/module/invitationSection/Tab.module.scss";
 import { TabContext } from "../../store/option-tab-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const previewLocation = useLocation();
@@ -18,6 +19,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const { basicTabList, selectTabList, activeTabState, setActiveTabState } = useContext(TabContext); 
   const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
+  const { letterRef } = useContext(RefContext);
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -29,6 +31,12 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   }
+
+  const scrollHandler = (ref) => {
+    console.log(ref.current);
+    console.log(ref);
+  }
+  
   useEffect(() => {
     setIsActive(0);
   }, []);
@@ -60,11 +68,14 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
                 <li key={"tab" + idx}
                   id={"scroll" + tabContent.id} 
                   className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
-                  onClick={() => setActiveHandler(idx)}
+                  onClick={() => {
+                    setActiveHandler(idx);
+                    scrollHandler(tabContent.id.substring(3));
+                  }}
                 >
-                  <Link to={`#${tabContent.id.substring(3)}`}>
+                  {/* <Link to={`#${tabContent.id.substring(3)}`}> */}
                     <span>{tabContent ? tabContent.content : null}</span>
-                  </Link>
+                  {/* </Link> */}
                 </li>
               )
             })}
