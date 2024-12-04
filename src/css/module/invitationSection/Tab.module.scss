@@ -138,6 +138,9 @@
         padding: 14px 10px;
         background-color: transparent;
         border-bottom: 1px solid $border-color--default;
+        @include device__query(tablet) {
+          border-radius: 0;
+        }
       }
     }
     .tab__day {
