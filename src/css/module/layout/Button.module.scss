@@ -125,6 +125,17 @@
     background: transparent url(../../../img/icon/icon_item_delete.png) no-repeat center / 16px;
     color: $button-color--default;
   }
+  &.header__preview {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    line-height: 1em;
+    border-radius: 999px;
+    background: transparent url(../../../img/icon/icon_btn_close_white.png) no-repeat center / cover;
+  }
   &.invitation {
     &__default {
       padding: 12.5px 32px 12.5px 32px;

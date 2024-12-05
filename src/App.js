@@ -3,19 +3,12 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 /* Component */
 import Header from "./components/common/Header";
+import HeaderPreview from "./components/common/HeaderPreview";
 import View from "./components/page/View";
 /* Css */
 import "./css/App.scss";
 /* Context */
 import ContextWrap from "./store/option-context-wrap";
-
-// const ScrollToTop = () => {
-//   const location = useLocation();
-//   useEffect(() => {
-//     window.scrollTo({ top: 0, behavior: "smooth" });
-//   }, [location.pathname]);
-//   return null;
-// };
 
 function App() {
   return (
@@ -35,6 +28,7 @@ function App() {
               path="/Preview" 
               element={
                 <>
+                  <HeaderPreview />
                 </>
               } 
             />

@@ -1,0 +1,30 @@
+@import "../../_module";
+.header {
+  @include position(st, 0, 0, null, 0);
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  border-bottom: 1px solid $border-color--default;
+  background-color: $text-color--essntial;
+  z-index: 99999;
+  transition: $transition--fast;
+  > div {
+    @include flex__row;
+    justify-content: space-between;
+    align-items: center;
+    height: 52px;
+    max-width: 390px;
+    padding: 0 12px 0 18px;
+  }
+  &__title {
+    @include flex__column;
+    @include position(s);
+    row-gap: 6px;
+    transform: unset;
+    text-align: center;
+    p {
+      font-size: $font-size--ssm;
+      color: #FFF;
+    }
+  }
+}

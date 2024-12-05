@@ -21,6 +21,7 @@
     @include position(s);
     height: unset;
     overflow-y: unset;
+    border-radius: 0;
     @include device__query(tablet) {
       height: unset;
     }

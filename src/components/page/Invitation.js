@@ -139,7 +139,7 @@ const Invitation = () => {
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
       }`}
-      // style={isActiveTab ? { overflow: "hidden" } : null}
+      style={isActiveTab ? { overflow: "hidden" } : null}
     >
       <Container>
         <>

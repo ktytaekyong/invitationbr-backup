@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useContext } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
@@ -17,8 +17,10 @@ import iconHomeImg from "../../img/icon/icon_header_home.svg"
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 const Header = () => {
+  const { isMobile } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const { invitationRef } = useContext(RefContext);
   
@@ -41,10 +43,39 @@ const Header = () => {
     handleSave();
   }
 
+  const headerRef = useRef(null); 
+  const [lastPos, setLastPos] = useState(0);
+
+  useEffect(() => {
+    if(isMobile) {
+      const handleScroll = () => {
+        const currentPos = window.scrollY; 
+        const header = headerRef.current;
+        if (!header) return;
+        if (currentPos > 0) {
+          header.classList.add("active");
+        } else {
+          header.classList.remove("active");
+        }
+        if (lastPos > currentPos) {
+          header.style.transform = "translateY(0)"; 
+        } else if (lastPos < currentPos) {
+          header.style.transform = "translateY(-100%)"; 
+          header.classList.remove("active");
+        }
+        setLastPos(currentPos);
+      };
+      window.addEventListener("scroll", handleScroll);
+      return () => {
+        window.removeEventListener("scroll", handleScroll); 
+      };
+    }
+  }, [lastPos, isMobile]);
+
   return (
     <>
       <MetaTag title="청첩장 만들기" description="설명" imageUrl="" />
-      <header className={styles.header}>
+      <header ref={headerRef} className={styles.header}>
         <Container>
           <Link to="#" onClick={(e => e.preventDefault())} className={styles.header__home}>
             <img src={iconHomeArrowImg} alt="" />
