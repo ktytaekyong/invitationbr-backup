@@ -2,6 +2,7 @@
 import { createContext } from "react";
 
 export const RefContext = createContext({
+    invitationRef: null,
     letterRef: null,
     dateRef: null,
     locationRef: null,

@@ -79,41 +79,41 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         case "settingBackground":
         case "settingIntro":
         case "settingIntroPhoto":
-          introRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          introRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingLetter":
         case "settingCoupleInfomation":
-          letterRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          letterRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingDate":
-          dateRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          dateRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingLocation":
-          locationRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          locationRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingGallery":
-          galleryRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          galleryRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingVideo":
-          videoRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          videoRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingGift":
-          giftRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          giftRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingNoticeT":
-          noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingNoticeD":
-          noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingGuestbook":
-          guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingAttend":
-          attendRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          attendRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "settingOutro":
-          outroRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          outroRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         default:
           break;

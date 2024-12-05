@@ -41,34 +41,34 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     } else {
       switch (refid) {
         case "tabLetter":
-          letterRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          letterRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabDate":
-          dateRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          dateRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabLocation":
-          locationRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          locationRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabGallery":
-          galleryRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          galleryRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabVideo":
-          videoRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          videoRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabGift":
-          giftRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          giftRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabNoticeT":
-          noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabNoticeD":
-          noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabGuestbook":
-          guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         case "tabAttend":
-          attendRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          attendRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
           break;
         default:
           break;

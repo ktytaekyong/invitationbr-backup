@@ -28,13 +28,14 @@ import SettingOther from "../invitationSection/SettingOther.js";
 import styles from "../../css/module/page/Invitation.module.scss";
 // Context
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Invitation = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
 
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
-
+  const { invitationRef } = useContext(RefContext);
 
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
@@ -96,7 +97,7 @@ const Invitation = () => {
     );
     
     const refsCopy = refs.current;
-    
+
     selectSettingList.forEach((itemId) => {
       const element = refsCopy[itemId];
       if (element) observer.observe(element);
@@ -134,6 +135,7 @@ const Invitation = () => {
 
   return (
     <div
+      ref={invitationRef}
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
       }`}

@@ -4,6 +4,7 @@ import { useRef, useEffect } from "react";
 import { RefContext } from "./option-ref-context.js"
 
 const RefProvider = ({ children }) => {
+  const invitationRef = useRef(null);
   const letterRef = useRef(null);
   const dateRef = useRef(null);
   const locationRef = useRef(null);
@@ -19,6 +20,7 @@ const RefProvider = ({ children }) => {
   return (
     <RefContext.Provider
       value={{
+        invitationRef,
         letterRef,
         dateRef,
         locationRef,
