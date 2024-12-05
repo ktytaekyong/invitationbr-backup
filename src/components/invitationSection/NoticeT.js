@@ -7,8 +7,12 @@ import HeadLine from "../layout/HeadLine.js";
 import styles from "../../css/module/invitationSection/NoticeT.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
+
 const NoticeT = () => {
   const { noticeTList } = useContext(SetContext);
+  const { noticeTRef } = useContext(RefContext);
+
   const [isActive, setIsActive] = useState(0);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -17,7 +21,7 @@ const NoticeT = () => {
     setIsActive(0);
   }, [noticeTList.length]);
   return (
-    <div id="NoticeT" className={`${styles.notice}`}>
+    <div ref={noticeTRef} id="NoticeT" className={`${styles.notice}`}>
       <div className={styles.notice__wrap}>
         <HeadLine title="안내사항" content="information" />
         <div className={styles.notice__content}>

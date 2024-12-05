@@ -11,12 +11,15 @@ import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js"
 import styles from "../../css/module/invitationSection/Gallery.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Gallery = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
 
-  const { isMobile, selectOptionList } = useContext(SetContext);
+  const { selectOptionList } = useContext(SetContext);
+  const { galleryRef } = useContext(RefContext);
+
   const renderContent = (selectGalleryType) => {
     switch (selectGalleryType) {
       case "gallerySlideType":
@@ -30,7 +33,7 @@ const Gallery = () => {
     }
   };
   return (
-    <div id="Gallery" className={`${styles.gallery}`}>
+    <div ref={galleryRef} id="Gallery" className={`${styles.gallery}`}>
       <div className={styles.gallery__wrap}>
         <HeadLine title="갤러리" content="gallery" />
         <div className={styles.gallery__content}>

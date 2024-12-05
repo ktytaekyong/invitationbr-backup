@@ -20,6 +20,7 @@ import iconMapKakaoImg from "../../img/icon/icon_map_kakao.png";
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 import { LocationContext } from "../../store/option-location-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Location = () => {
   const previewLocation = useLocation();
@@ -27,14 +28,17 @@ const Location = () => {
 
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, selectLocationFile } = useContext(InfoContext);
+  const { locationRef } = useContext(RefContext);
+
   const { trafficList } = useContext(LocationContext);
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
   };
   return (
-    <div id="Location" className={`${styles.location}`}>
+    <div ref={locationRef} id="Location" className={`${styles.location}`}>
       <div className={styles.location__wrap}>
         {/* {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLocation" position="absolute" top={65} /> : null} */}
         <HeadLine title="오시는 길" content="location" />

@@ -35,7 +35,7 @@ const Invitation = () => {
 
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
 
-  
+
   const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)
@@ -96,6 +96,7 @@ const Invitation = () => {
     );
     
     const refsCopy = refs.current;
+    
     selectSettingList.forEach((itemId) => {
       const element = refsCopy[itemId];
       if (element) observer.observe(element);
@@ -130,11 +131,6 @@ const Invitation = () => {
     });
     setSortedSettingList(sortedList);
   }, [selectSettingList, settingList]);
-
-  // useEffect(() => {
-  //   console.log(selectOptionList.scrollEffectOption);
-  //   console.log(visibleStates);
-  // }, [selectOptionList.scrollEffectOption, visibleStates])
 
   return (
     <div

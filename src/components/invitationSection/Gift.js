@@ -11,9 +11,12 @@ import styles from "../../css/module/invitationSection/Gift.module.scss";
 import iconGiftArrow from "../../img/icon/icon_gift_arrow.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Gift = () => {
   const { accountInfoList, selectOptionList } = useContext(SetContext);
+  const { giftRef } = useContext(RefContext);
+
   const [isActive, setIsActive] = useState(selectOptionList.groomAccountView);
   const [isActive2, setIsActive2] = useState(selectOptionList.brideAccountView);
   const [open, setOpen] = useState(false);
@@ -35,7 +38,7 @@ const Gift = () => {
     }
   };
   return (
-    <div id="Gift" className={`${styles.gift}`}>
+    <div ref={giftRef} id="Gift" className={`${styles.gift}`}>
       {
         ReactDOM.createPortal(<Toast type="copy" open={open} setOpen={setOpen} message="계좌번호가 복사되었습니다." />, document.body)
       }

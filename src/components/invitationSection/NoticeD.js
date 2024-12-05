@@ -6,11 +6,14 @@ import HeadLine from "../layout/HeadLine.js";
 import styles from "../../css/module/invitationSection/NoticeD.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const NoticeD = () => {
   const { noticeDList } = useContext(SetContext);
+  const { noticeDRef } = useContext(RefContext);
+
   return (
-    <div id="NoticeD" className={`${styles.notice}`}>
+    <div ref={noticeDRef} id="NoticeD" className={`${styles.notice}`}>
       <div className={styles.notice__wrap}>
         <HeadLine title="공지사항" content="notice" />
         <div className={styles.notice__content}>

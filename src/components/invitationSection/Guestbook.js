@@ -7,14 +7,17 @@ import HeadLine from "../layout/HeadLine.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import Toast from "../layout/Toast.js";
+import TextareaWapperCount from "../common/TextareaWapperCount.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Guestbook.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
-import TextareaWapperCount from "../common/TextareaWapperCount.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Guestbook = () => {
   const { guestbookList, setGuestbookList } = useContext(SetContext);
+  const { guestbookRef } = useContext(RefContext);
+
   const [tempBookList, setTempBookList] = useState({ guestName: "", guestPassword: "", guestMessage: "" });
   const [open, setOpen] = useState(false);
   const [clickidx, setClickidx] = useState(0);
@@ -55,7 +58,7 @@ const Guestbook = () => {
   useEffect(() => {
   }, [guestbookList.length])
   return (
-    <div id="Guestbook" className={`${styles.guestbook}`}>
+    <div ref={guestbookRef} id="Guestbook" className={`${styles.guestbook}`}>
       {
         ReactDOM.createPortal(<Toast type="reg" open={toastOpen} setOpen={setToastOpen} message="등록되었습니다." />, document.body)
       }

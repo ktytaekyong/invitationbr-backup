@@ -16,10 +16,10 @@ import { RefContext } from "../../store/option-ref-context.js";
 const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
-  const { basicTabList, selectTabList, activeTabState, setActiveTabState } = useContext(TabContext); 
+  const { basicTabList, selectTabList } = useContext(TabContext); 
   const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
-  const { letterRef, dateRef } = useContext(RefContext);
+  const { letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -31,14 +31,37 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
     return diffDays;
   }
-
   const scrollHandler = (refid) => {
     switch (refid) {
       case "tabLetter":
-        letterRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        letterRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
         break;
       case "tabDate":
-        dateRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        dateRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabLocation":
+        locationRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabGallery":
+        galleryRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabVideo":
+        videoRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabGift":
+        giftRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabNoticeT":
+        noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabNoticeD":
+        noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabGuestbook":
+        guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        break;
+      case "tabAttend":
+        attendRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
         break;
       default:
         return;

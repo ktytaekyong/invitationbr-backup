@@ -6,15 +6,18 @@ import HeadLine from "../layout/HeadLine.js";
 import styles from "../../css/module/invitationSection/Video.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Video = () => {
   const { videoList } = useContext(SetContext);
+  const { videoRef } = useContext(RefContext);
+
   const isValidYouTubeUrl = (url) => {
     const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
     return youtubeRegex.test(url);
   };
   return (
-    <div id="Video" className={`${styles.video}`}>
+    <div ref={videoRef} id="Video" className={`${styles.video}`}>
       <div className={styles.video__wrap}>
         <HeadLine title="동영상" content="movie"></HeadLine>
         <div className={styles.video__content}>
