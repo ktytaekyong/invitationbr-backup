@@ -74,7 +74,6 @@
 
 // DISABLE SCROLL
 @mixin scroll__disabled {
-  overflow-x: scroll;
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {

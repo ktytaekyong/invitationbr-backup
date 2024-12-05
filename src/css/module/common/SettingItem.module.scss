@@ -42,7 +42,9 @@
         margin: 24px 0 24px 24px;
         padding-right: 24px;
         visibility: visible; 
-        overflow-y: scroll;
+        @include device__query(tablet) {
+          overflow-y: scroll;
+        }
       }
     }
   }

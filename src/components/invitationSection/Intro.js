@@ -1,6 +1,7 @@
 /* Import */
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
+import ReactDOM from 'react-dom';
 // Component
 import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
@@ -23,12 +24,15 @@ import introFlower from "../../img/intro/intro_photo_flower.png";
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 import { IntroContext } from "../../store/option-intro-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Intro = () => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
   
   const { isMobile, selectOptionList } = useContext(SetContext);
+  const { introRef } = useContext(RefContext);
+
   const { basicInfoList } = useContext(InfoContext);
   const { selectIntroPhoto, prevIntroColor, introSample } = useContext(IntroContext);
   const handleDateChange = (date) => {
@@ -450,6 +454,7 @@ const Intro = () => {
   }
   return (
     <div 
+      ref={introRef}
       key={selectOptionList.introFillType + selectOptionList.theme}
       id={selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme}
       className={`${styles.intro} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}

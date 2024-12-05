@@ -12,4 +12,6 @@ export const RefContext = createContext({
     noticeDRef: null,
     guestbookRef: null,
     attendRef: null,
+    introRef: null,
+    outroRef: null,
 });

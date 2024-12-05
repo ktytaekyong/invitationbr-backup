@@ -1,7 +1,9 @@
 /* Import */
 import { useState, useRef, useEffect, useContext } from "react";
+import ReactDOM from 'react-dom';
 // Component
 import MobileSettingDragTop from "../layout/MobileSettingDragTop.js";
+import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/common/SettingItem.module.scss";
 /* Image */
@@ -9,9 +11,11 @@ import iconSettingItemArrowImg from "../../img/icon/icon_settingItem_arrow.svg"
 import iconSettingItemCloseImg from "../../img/icon/icon_close_modal.png"
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange }) => {
-  const { isMobile, openSettingTab, setOpenSettingTab } = useContext(SetContext);
+  const { isMobile, openSettingTab, setOpenSettingTab, basicSettingList, selectSettingList } = useContext(SetContext);
+  const { introRef, outroRef, letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
 
   const [translateY, setTranslateY] = useState(0); // 현재 요소의 Y축 위치
   const isDragging = useRef(false); // 드래그 상태
@@ -19,6 +23,8 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
   const startTranslateY = useRef(0); // 드래그 시작 시 translateY 값
 
   const [isActive, setIsActive] = useState(false);
+  const [open, setOpen] = useState(false);
+
   const activeToggleHandler = () => {
     setIsActive(!isActive);
   };
@@ -59,27 +65,85 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
     }
   };
 
+  const scrollHandler = (refid) => {
+    console.log(refid);
+    if(!(basicSettingList.includes(refid)) && !(selectSettingList.includes(refid))) {
+      setOpen(true);
+      return false;
+    } else {
+      switch (refid) {
+        case "settingFixedTab":
+        case "settingBgMusic":
+          break;
+        case "settingBasicInfomation":
+        case "settingBackground":
+        case "settingIntro":
+        case "settingIntroPhoto":
+          introRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingLetter":
+        case "settingCoupleInfomation":
+          letterRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingDate":
+          dateRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingLocation":
+          locationRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingGallery":
+          galleryRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingVideo":
+          videoRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingGift":
+          giftRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingNoticeT":
+          noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingNoticeD":
+          noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingGuestbook":
+          guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingAttend":
+          attendRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "settingOutro":
+          outroRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        default:
+          break;
+      }
+    }
+  }
+
   return (
-    <li 
-      id={id} 
-      className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} 
-      ref={itemRef}
-      onMouseMove={isMobile ? handleMove : null}
-      onMouseUp={isMobile ? handleEnd : null}
-      onTouchMove={isMobile ? handleMove : null}
-      onTouchEnd={isMobile ? handleEnd : null}
-      style={{
-        transform: `translateY(${translateY}px)`,
-      }}
-    >
+    <>
+      <li 
+        id={id} 
+        className={`${styles.setting__item} ${!isMobile && isActive ? styles["active"] : ""} ${isMobile && openSettingTab === id ? styles["active"] : ""}`} 
+        ref={itemRef}
+        onMouseMove={isMobile ? handleMove : null}
+        onMouseUp={isMobile ? handleEnd : null}
+        onTouchMove={isMobile ? handleMove : null}
+        onTouchEnd={isMobile ? handleEnd : null}
+        style={{
+          transform: `translateY(${translateY}px)`,
+        }}
+      >
       {isMobile ? <MobileSettingDragTop onMouseDown={handleStart} onTouchStart={handleStart} /> : null}
       <div className={styles.setting__title} 
         onMouseDown={isMobile ? handleStart : null} 
         onTouchStart={isMobile ? handleStart : null}
-        onClick={(e) => {
+        onClick={() => { 
           if(!isMobile) {
             activeToggleHandler();
-          } 
+          }
+          scrollHandler(id);
         }
       }>
         <div className={styles.setting__title_wrap}>
@@ -102,10 +166,15 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             </div>
           }
       </div>
-      <div className={styles.setting__content} style={{}}>
+      <div className={styles.setting__content}>
         {itemContent}
       </div>
     </li>
+    {
+      ReactDOM.createPortal(<Toast type="warn" open={open} setOpen={setOpen} message="사용하지 않는 항목입니다." />, document.body)
+    }
+    </>
+
   )
 }
 

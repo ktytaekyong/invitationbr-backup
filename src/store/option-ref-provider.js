@@ -14,6 +14,8 @@ const RefProvider = ({ children }) => {
   const noticeDRef = useRef(null);
   const guestbookRef = useRef(null);
   const attendRef = useRef(null);
+  const introRef = useRef(null);
+  const outroRef = useRef(null);
   return (
     <RefContext.Provider
       value={{
@@ -26,7 +28,9 @@ const RefProvider = ({ children }) => {
         noticeTRef,
         noticeDRef,
         guestbookRef,
-        attendRef
+        attendRef,
+        introRef,
+        outroRef,
       }}
     >
       {children}

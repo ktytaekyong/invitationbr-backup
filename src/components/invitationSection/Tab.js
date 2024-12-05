@@ -35,8 +35,6 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     return diffDays;
   }
   const scrollHandler = (refid) => {
-    console.log(basicSettingList.includes("setting" + refid.substring(3)));
-    console.log(selectSettingList.includes("setting" + refid.substring(3)));
     if(!(basicSettingList.includes("setting" + refid.substring(3))) && !(selectSettingList.includes("setting" + refid.substring(3)))) {
       setOpen(true);
       return false;

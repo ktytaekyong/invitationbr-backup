@@ -6,11 +6,13 @@ import styles from "../../css/module/invitationSection/Outro.module.scss";
 import introRing from "../../img/intro/intro_theme_1_ring.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Outro = () => {
   const { outroList } = useContext(SetContext);
+  const { outroRef } = useContext(RefContext);
   return (
-    <div className={`${styles.outro} ${styles.style_theme_1}`}>
+    <div ref={outroRef} id="Outro" className={`${styles.outro} ${styles.style_theme_1}`}>
       <div className={styles.outro__wrap}>
         <div className={`${styles.outro__content} ${styles[outroList.position]}`}>
             {outroList.src ? 
