@@ -13,6 +13,7 @@
   @include device__query(tablet) {
     @include position(s);
     height: unset;
+    max-width: $width--min;
     border: none;
     border-radius: 0;
     overflow: unset;

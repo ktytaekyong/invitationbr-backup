@@ -7,7 +7,7 @@
   border-top: 1px solid $border-color--default;
   @include device__query(tablet) {
     width: 100%;
-    max-width: 390px;
+    max-width: $width--min;
     border-top: none;
     padding-top: 0;
     margin: 0 auto;

@@ -2,7 +2,7 @@
 .header {
   @include position(st, 0, 0, null, 0);
   width: 100%;
-  max-width: 390px;
+  max-width: $width--min;
   margin: 0 auto;
   border-bottom: 1px solid $border-color--default;
   background-color: $text-color--essntial;
@@ -13,7 +13,7 @@
     justify-content: space-between;
     align-items: center;
     height: 52px;
-    max-width: 390px;
+    max-width: $width--min;
     padding: 0 12px 0 18px;
   }
   &__title {
