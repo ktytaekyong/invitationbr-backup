@@ -1,10 +1,11 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
+import ReactDOM from 'react-dom';
 /* Component */
 import Button from "../layout/Button.js";
 import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
+import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Tab.module.scss";
 /* Context */
@@ -17,10 +18,12 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
   const { basicTabList, selectTabList } = useContext(TabContext); 
-  const { isMobile, selectOptionList } = useContext(SetContext);
+  const { isMobile, selectOptionList, basicSettingList, selectSettingList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const { letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
   const [isActive, setIsActive] = useState(false);
+  const [open, setOpen] = useState(false);
+
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }
@@ -32,40 +35,48 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     return diffDays;
   }
   const scrollHandler = (refid) => {
-    switch (refid) {
-      case "tabLetter":
-        letterRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabDate":
-        dateRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabLocation":
-        locationRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabGallery":
-        galleryRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabVideo":
-        videoRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabGift":
-        giftRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabNoticeT":
-        noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabNoticeD":
-        noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabGuestbook":
-        guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      case "tabAttend":
-        attendRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        break;
-      default:
-        return;
+    console.log(basicSettingList.includes("setting" + refid.substring(3)));
+    console.log(selectSettingList.includes("setting" + refid.substring(3)));
+    if(!(basicSettingList.includes("setting" + refid.substring(3))) && !(selectSettingList.includes("setting" + refid.substring(3)))) {
+      setOpen(true);
+      return false;
+    } else {
+      switch (refid) {
+        case "tabLetter":
+          letterRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabDate":
+          dateRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabLocation":
+          locationRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabGallery":
+          galleryRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabVideo":
+          videoRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabGift":
+          giftRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabNoticeT":
+          noticeTRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabNoticeD":
+          noticeDRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabGuestbook":
+          guestbookRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        case "tabAttend":
+          attendRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          break;
+        default:
+          break;
+      }
     }
+
   }
   
   useEffect(() => {
@@ -115,6 +126,9 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
             </li>
           </ul>
         </div>
+      }
+      {
+        ReactDOM.createPortal(<Toast type="warn" open={open} setOpen={setOpen} message="사용하지 않는 항목입니다." />, document.body)
       }
     </>
 

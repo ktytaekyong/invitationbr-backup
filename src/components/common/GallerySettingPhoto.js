@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useContext } from "react";
+import ReactDOM from 'react-dom';
 import imageCompression from 'browser-image-compression';
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";
@@ -76,7 +77,9 @@ const GallerySettingPhoto = () => {
           </div>
         </div>
       </div>
-      <Toast type="warn" open={open} setOpen={setOpen} message="최대 20장입니다." />
+      {
+        ReactDOM.createPortal(<Toast type="warn" open={open} setOpen={setOpen} message="최대 20장입니다." />, document.body)
+      }
     </>
   )
 }
