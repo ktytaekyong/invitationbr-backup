@@ -131,6 +131,11 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         onMouseUp={isMobile ? handleEnd : null}
         onTouchMove={isMobile ? handleMove : null}
         onTouchEnd={isMobile ? handleEnd : null}
+        onClick={() => { 
+          if(isMobile) {
+            scrollHandler(id);
+          }
+        }}
         style={{
           transform: `translateY(${translateY}px)`,
         }}
@@ -142,8 +147,8 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         onClick={() => { 
           if(!isMobile) {
             activeToggleHandler();
+            scrollHandler(id);
           }
-          scrollHandler(id);
         }
       }>
         <div className={styles.setting__title_wrap}>
