@@ -19,7 +19,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const { basicTabList, selectTabList, activeTabState, setActiveTabState } = useContext(TabContext); 
   const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
-  const { letterRef } = useContext(RefContext);
+  const { letterRef, dateRef } = useContext(RefContext);
   const [isActive, setIsActive] = useState(false);
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -32,9 +32,17 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     return diffDays;
   }
 
-  const scrollHandler = (ref) => {
-    console.log(ref.current);
-    console.log(ref);
+  const scrollHandler = (refid) => {
+    switch (refid) {
+      case "tabLetter":
+        letterRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        break;
+      case "tabDate":
+        dateRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+        break;
+      default:
+        return;
+    }
   }
   
   useEffect(() => {
@@ -70,7 +78,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
                   className={`${styles.tab__item} ${isActive === idx ? styles["active"] : ""}`}
                   onClick={() => {
                     setActiveHandler(idx);
-                    scrollHandler(tabContent.id.substring(3));
+                    scrollHandler(tabContent.id);
                   }}
                 >
                   {/* <Link to={`#${tabContent.id.substring(3)}`}> */}

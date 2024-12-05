@@ -16,6 +16,7 @@ import calendarTheme2 from "../../img/calendar/calandar_theme_2_flower.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
+import { RefContext } from "../../store/option-ref-context.js";
 
 const Calendar = () => {
   const previewLocation = useLocation();
@@ -23,6 +24,8 @@ const Calendar = () => {
 
   const { isMobile, selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
+  const { dateRef } = useContext(RefContext);
+
   const handleDaysChange = (date) => {
     const dateObj = new Date(date);
     const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; 
@@ -192,6 +195,7 @@ const Calendar = () => {
   // }, [basicInfoList.dateInfo.date])
   return (
     <div 
+      ref={dateRef}
       id="Date" 
       key={selectOptionList.dateCalendarType}
       className={`${styles.date} ${styles[selectOptionList.dateCalendarType]}`}

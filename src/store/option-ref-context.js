@@ -1,8 +1,9 @@
 /* Import */
-import { createContext, useRef } from "react";
+import { createContext } from "react";
 
 export const RefContext = createContext({
   // openSettingTab: {},
   // setOpenSettingTab: () => {}
     letterRef: null,
+    dateRef: null,
 });
