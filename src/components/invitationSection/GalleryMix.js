@@ -39,43 +39,13 @@ const GalleryMix = () => {
         thumbs={{ swiper: thumbsSwiper }}
         modules={[FreeMode, Thumbs]}
         className="mySwiper2"
-        // onSlideChange={() => console.log('slide change')}
-        // onSwiper={(swiper) => console.log(swiper)}
       >
         {
-          selectGalleryPhotoList.length !== 0 ?
           selectGalleryPhotoList.map((item, idx) => (
-            <SwiperSlide onClick={() => handleOpen(idx)}>
+            <SwiperSlide key={item.src + idx} onClick={() => handleOpen(idx)}>
               <img src={item.src} alt={item.alt} />
             </SwiperSlide>
           ))
-          :
-          <>
-            <SwiperSlide onClick={() => handleOpen(1)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(2)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(3)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(4)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(5)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(6)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(7)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide onClick={() => handleOpen(8)}>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-          </>
         }
       </Swiper>
       <Swiper
@@ -91,39 +61,11 @@ const GalleryMix = () => {
         className="mySwiper"
       >
         {
-          selectGalleryPhotoList.length !== 0 ?
           selectGalleryPhotoList.map((item, idx) => (
-            <SwiperSlide>
+            <SwiperSlide key={item.src + idx}>
               <img src={item.src} alt={item.alt} />
             </SwiperSlide>
           ))
-          :
-          <>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <img src={galleryPhoto} alt="" />
-            </SwiperSlide>
-          </>
         }
       </Swiper>
       {
