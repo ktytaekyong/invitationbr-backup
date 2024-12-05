@@ -41,15 +41,6 @@ const Header = () => {
     handleSave();
   }
 
-  const scrollHandler = (refid) => {
-    switch (refid) {
-      case "preview":
-        invitationRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
-        break;
-      default:
-        break;
-    }
-  }
   return (
     <>
       <MetaTag title="청첩장 만들기" description="설명" imageUrl="" />
@@ -67,7 +58,7 @@ const Header = () => {
             <Button type="button" styleType="default" content="미리보기" 
               onClick={() => {
                 previewHandler();
-                scrollHandler("preview");
+                window.scrollTo(0, 0);
               }} 
             />
             <Button 

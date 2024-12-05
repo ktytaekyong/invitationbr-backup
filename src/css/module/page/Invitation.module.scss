@@ -18,7 +18,9 @@
     overflow: unset;
   }
   &.preview {
-    height: 97vh;
+    @include position(s);
+    height: unset;
+    overflow-y: unset;
     @include device__query(tablet) {
       height: unset;
     }
