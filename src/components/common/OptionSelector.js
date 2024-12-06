@@ -41,6 +41,7 @@ const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, v
               <option 
                 key={`${item.itemKey}${item.itemName}${index}`}
                 value={item.itemKey}
+                style={selectName === "fontFamily" ? {fontFamily: item.itemKey} : null}
                 >
                   {item.itemName ? item.itemName : item}
               </option>
