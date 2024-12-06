@@ -7,21 +7,39 @@
   margin: 0 auto;
   z-index: 999;
   &__wrap {
-    @include position(st, 20px, 0);
+    @include position(st, 0, 0);
     z-index: 9999;
     width: calc(100% - 40px);
     padding: 3px;
-    margin: 0 20px;
+    margin: 20px 20px 0;
     border-radius: 4px;
-    background-color: var(--theme-select-color);
-    transition: $transition--fast;
+    background: var(--theme-select-color);
+    transition: 0.3s linear transform;
     @include device__query(tablet) {
       top: 82px;
       margin-top: 22px;
     }
     &.preview {
-      @include device__query(tablet) {
-        top: 20px;
+      top: 20px;
+    }
+    &::after {
+      @include position(a, 50%, 50%);
+      transform: translate(-50%, -50%);
+      width: calc(100% + 40px);
+      max-width: $width--min;
+      height: calc(100% + 40px);
+      backdrop-filter: blur(10px);
+      z-index: -1;
+      transition: $transition--fast;
+      opacity: 0;
+      content: "";
+    }
+    &.active {
+      top: 20px;
+      margin: 20px 20px;
+      &::after {
+        backdrop-filter: blur(10px);
+        opacity: 1;
       }
     }
     .button__wrapper {
@@ -82,6 +100,18 @@
     * {
       @include device__query(tablet) {
         pointer-events: all;
+      }
+    }
+    &.preview {
+      position: fixed;
+      left: 50%;
+      top: 0;
+      transform: translate(-50%, 0) !important;
+      max-width: $width--min;
+    }
+    &.active {
+      &:after {
+        backdrop-filter: unset !important;
       }
     }
     .button__wrapper {

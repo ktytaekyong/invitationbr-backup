@@ -1,5 +1,5 @@
 /* Import */
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
@@ -20,9 +20,11 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const { basicTabList, selectTabList } = useContext(TabContext); 
   const { isMobile, selectOptionList, basicSettingList, selectSettingList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
-  const { letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
+  const { invitationRef, letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
   const [isActive, setIsActive] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const tabRef = useRef(null);
 
   const setActiveHandler = (idx) => {
     setIsActive(idx);
@@ -83,6 +85,74 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   useEffect(() => {
     setIsActiveTab(false);
   }, [selectOptionList.introFillType, setIsActiveTab]);
+
+  useEffect(() => {
+    const currentPos = invitationRef.current?.scrollTop || 0;
+    const tab = tabRef.current;
+    if (!tab) return;
+    if (currentPos > 0) {
+      // tab.style.transform = "translateY(20px)";
+    } 
+  }, []);
+
+  const lastPos = useRef(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      const tab = tabRef.current;
+      if(isTargetPage || isMobile) {
+        console.log(isTargetPage);
+        const currentPos = window.scrollY || 0;
+        if (!tab) return;
+        if (currentPos > 0) {
+          tab.classList.add(styles["active"]);
+          // tab.style.transform = "translateY(20px)";
+        } else {
+          tab.classList.remove(styles["active"]);
+        }
+        if (lastPos.current > currentPos) {
+          tab.style.transform = "translateY(52px)";
+          if(currentPos <= 20) {
+            tab.style.transform = "translateY(0)";
+          }
+        } else if (lastPos.current < currentPos) {
+          tab.style.transform = "translateY(0)";
+          tab.classList.remove("active");
+        }
+        lastPos.current = currentPos;
+      } else {
+        const currentPos = invitationRef.current?.scrollTop || 0;
+        if (!tab) return;
+        if (currentPos > 0) {
+          tab.classList.add(styles["active"]);
+          // tab.style.transform = "translateY(20px)";
+        } else {
+          tab.classList.remove(styles["active"]);
+        }
+      }
+    };
+    if(isTargetPage || isMobile) {
+      if (window) {
+        window.addEventListener("scroll", handleScroll);
+      }
+      return () => {
+        if (window) {
+          window.removeEventListener("scroll", handleScroll);
+        }
+      };
+    } else {
+      const invitationEl = invitationRef.current;
+      if (invitationEl) {
+        invitationEl.addEventListener("scroll", handleScroll);
+      }
+      return () => {
+        if (invitationEl) {
+          invitationEl.removeEventListener("scroll", handleScroll);
+        }
+      };
+    }
+
+  }, [isMobile, isTargetPage]);
+
   return (
     <>
       {!isTargetPage && isMobile ? 
@@ -95,7 +165,7 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
         selectTabList.length === 0 ?
         null
         :
-        <div className={`${styles.tab__wrap} ${isTargetPage ? styles.preview : ""} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
+        <div ref={tabRef} className={`${styles.tab__wrap} ${isTargetPage ? styles.preview : ""} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
           <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
           <div className={styles.button__wrapper}>
             <Button onClick={setActiveTabHandler} className={`${isActiveTab ? styles["active"] : ""}`} />
