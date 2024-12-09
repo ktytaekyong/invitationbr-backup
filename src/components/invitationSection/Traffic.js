@@ -8,7 +8,7 @@ import { LocationContext } from "../../store/option-location-context.js";
 const Traffic = () => {
   const { trafficList } = useContext(LocationContext);
   return (
-    <div className={`${styles.traffic} ${styles.style_theme_1}`}>
+    <div className={`${styles.traffic}`}>
       <div className={styles.traffic__wrap}>
         <div className={styles.traffic__content}>
           <ul className={styles.traffic__list}>

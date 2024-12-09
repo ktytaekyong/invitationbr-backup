@@ -13,6 +13,11 @@
     max-width: $width--min;
     max-width: calc($width--min - 40px);
   }
+  &.basicTemplate1,
+  .basicTemplate3,
+  .fillTemplate4 {
+    width: 100%;
+  }
   &__wrap {
     @include position(st, 0, 0);
     z-index: 9999;

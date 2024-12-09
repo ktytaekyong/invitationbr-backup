@@ -40,7 +40,8 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
   return (
     <>
       <div className={`${styles.editor__content} ${type === "letter" ? styles["letter"] : null}`}>
-        {/* <div className={styles.tool__list}>
+        { // 241209 주석 추가: 에디터 기능 삭제
+        /* <div className={styles.tool__list}>
           <ul className={styles.tool__list_deco}>
             <button><IconToolImgBold /></button>
             <button><IconImgItalic /></button>
@@ -55,7 +56,7 @@ const TextEditor = ({ type, name, textValue, onChange, setLetterList }) => {
         <textarea 
           ref={textareaRef}
           name={name} 
-          id={type + name} 
+          id={"textarea" + name + Math.random(1)}
           className={styles.editor__content_wrap} 
           value={textValue} 
           placeholder="내용을 입력하세요."

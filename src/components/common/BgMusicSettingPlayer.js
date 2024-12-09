@@ -19,8 +19,9 @@ const BgMusicSettingPlayer = () => {
           <div className={styles.album}>
             <div className={styles.cover}>
               <img src={bgmCoverImg} alt="" />
-              <div className={`${styles.cd} ${styles.active}`}>
-                <img src={bgmCdImg} alt="" />
+              {/* 회전하는 애니메이션 필요: .active */}
+              <div className={`${styles.cd} ${styles.active}`}> 
+                <img src={bgmCdImg} alt="" /> 
               </div>
             </div>
           </div>

@@ -12,7 +12,7 @@ const Outro = () => {
   const { outroList } = useContext(SetContext);
   const { outroRef } = useContext(RefContext);
   return (
-    <div ref={outroRef} id="Outro" className={`${styles.outro} ${styles.style_theme_1}`}>
+    <div ref={outroRef} id="Outro" className={`${styles.outro}`}>
       <div className={styles.outro__wrap}>
         <div className={`${styles.outro__content} ${styles[outroList.position]}`}>
             {outroList.src ? 
