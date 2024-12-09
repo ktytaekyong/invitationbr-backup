@@ -22,7 +22,7 @@
     @include device__query(tablet) {
       @include position(f, 0, 0);
       top: 72px;
-      margin-top: 22px;
+      margin-top: 20px;
       z-index: 10001;
     }
     &.preview {
