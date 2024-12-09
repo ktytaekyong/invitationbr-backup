@@ -20,6 +20,7 @@
 }
 html {
   font-size: var(--font-size--base);
+  overflow-x: hidden;
 }
 html, body {
   touch-action: var(--touch-option);
@@ -27,6 +28,7 @@ html, body {
 body {
   overscroll-behavior-y: none !important;
   background-color: #F6F7F8;
+  overflow-x: hidden;
 }
 .container {
   width: 100%;
