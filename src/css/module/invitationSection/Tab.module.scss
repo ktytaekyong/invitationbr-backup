@@ -5,15 +5,15 @@
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  background: var(--theme-select-color);
+  padding: 3px;
+  border-radius: 4px;
   z-index: 999;
   &__wrap {
     @include position(st, 0, 0);
     z-index: 9999;
     width: calc(100% - 40px);
-    padding: 3px;
     margin: 20px 20px 0;
-    border-radius: 4px;
-    background: var(--theme-select-color);
     transition: 0.3s linear transform;
     @include device__query(tablet) {
       top: 82px;
@@ -28,7 +28,7 @@
       width: calc(100% + 40px);
       max-width: $width--min;
       height: calc(100% + 40px);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(5px);
       z-index: -1;
       transition: $transition--fast;
       opacity: 0;
@@ -38,7 +38,6 @@
       top: 20px;
       margin: 20px 20px;
       &::after {
-        backdrop-filter: blur(10px);
         opacity: 1;
       }
     }
