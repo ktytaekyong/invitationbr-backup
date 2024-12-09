@@ -34,7 +34,8 @@
       width: calc(100% + 40px);
       max-width: $width--min;
       height: calc(100% + 40px);
-      backdrop-filter: blur(5px);
+      backdrop-filter: blur(1px);
+      background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 90%);
       z-index: -1;
       transition: $transition--fast;
       opacity: 0;
