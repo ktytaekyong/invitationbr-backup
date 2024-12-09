@@ -138,7 +138,7 @@
     &.preview {
       position: fixed;
       left: 50%;
-      top: 54px;
+      top: 0;
       transform: translate(-50%, 0) !important;
       max-width: $width--min;
     }

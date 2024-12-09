@@ -285,10 +285,13 @@
   &.fillTemplate2,
   &.fillTemplate3,
   &.fillTemplate4 {
+    &.intro {
+      padding-top: 8px;
+    }
     .intro__wrap {
       padding: 0;
       padding-bottom: 35px;
-      margin-top: -44px;
+      // margin-top: -44px;
       > div:nth-child(2) {
         margin-top: 40px;
       }
@@ -374,7 +377,7 @@
     }
   }
   &.fillTemplate4 {
-    margin-top: -62px;
+    // margin-top: -62px;
     .intro__photo {
       background: url(../../../img/intro/intro_photo_test8.png) no-repeat top / cover;
     }

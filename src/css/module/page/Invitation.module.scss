@@ -15,7 +15,7 @@
     height: unset;
     max-width: $width--min;
     border: none;
-    margin-top: 54px;
+    margin-top: 52px;
     border-radius: 0;
     overflow: unset;
   }
@@ -25,7 +25,6 @@
     height: unset;
     overflow-y: unset;
     border-radius: 0;
-    padding-top: 40px;
     @include device__query(tablet) {
       height: unset;
     }

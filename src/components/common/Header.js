@@ -56,15 +56,15 @@ const Header = () => {
         if (!header) return;
         if(isTargetPage || isMobile) {
           if (currentPos > 0) {
-            header.classList.add("active");
+            header.classList.add(styles["active"]);
           } else {
-            header.classList.remove("active");
+            header.classList.remove(styles["active"]);
           }
           if (lastPos > currentPos) {
             header.style.transform = "translateY(0)"; 
           } else if (lastPos < currentPos) {
             header.style.transform = "translateY(-100%)"; 
-            header.classList.remove("active");
+            header.classList.remove(styles["active"]);
           }
           setLastPos(currentPos);
         }

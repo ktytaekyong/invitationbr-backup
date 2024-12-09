@@ -77,7 +77,6 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
           break;
       }
     }
-
   }
   
   useEffect(() => {
@@ -95,6 +94,14 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
       // tab.style.transform = "translateY(20px)";
     } 
   }, []);
+
+  const firstMenuPositionHandler = () => {
+    if(selectOptionList.theme === "themeModernBasic" && (selectOptionList.introFillType === "fillTemplate1" || selectOptionList.introFillType === "fillTemplate2" || selectOptionList.introFillType === "fillTemplate3")) {
+      return 8;
+    } else {
+      return -8;
+    }
+  }
 
   const lastPos = useRef(0);
   useEffect(() => {
@@ -162,7 +169,7 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
       <MobileSettingButtonWrapper 
         id="settingFixedTab" 
         position="absolute"
-        top={-8}
+        top={firstMenuPositionHandler()}
       /> : null}
       {
         selectTabList.length === 0 ?
