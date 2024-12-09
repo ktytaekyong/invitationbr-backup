@@ -1,6 +1,6 @@
 /* Import */
 import { useState, useContext, useRef, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import ReactDOM from 'react-dom';
 /* Component */
 import Container from "../layout/Container";
@@ -23,6 +23,8 @@ const Header = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const { invitationRef } = useContext(RefContext);
+  const previewLocation = useLocation();
+  const isTargetPage = previewLocation.pathname === "/Preview";
   
   const [save, setSave] = useState(false);
   const [open, setOpen] = useState(false);
@@ -52,18 +54,20 @@ const Header = () => {
         const currentPos = window.scrollY; 
         const header = headerRef.current;
         if (!header) return;
-        if (currentPos > 0) {
-          header.classList.add("active");
-        } else {
-          header.classList.remove("active");
+        if(isTargetPage || isMobile) {
+          if (currentPos > 0) {
+            header.classList.add("active");
+          } else {
+            header.classList.remove("active");
+          }
+          if (lastPos > currentPos) {
+            header.style.transform = "translateY(0)"; 
+          } else if (lastPos < currentPos) {
+            header.style.transform = "translateY(-100%)"; 
+            header.classList.remove("active");
+          }
+          setLastPos(currentPos);
         }
-        if (lastPos > currentPos) {
-          header.style.transform = "translateY(0)"; 
-        } else if (lastPos < currentPos) {
-          header.style.transform = "translateY(-100%)"; 
-          header.classList.remove("active");
-        }
-        setLastPos(currentPos);
       };
       window.addEventListener("scroll", handleScroll);
       return () => {

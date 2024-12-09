@@ -26,7 +26,15 @@
       z-index: 10001;
     }
     &.preview {
-      top: 20px;
+      position: fixed;
+      top: 50px;
+      > ul {
+        max-width: $width--min;
+        max-width: calc($width--min - 40px);
+      }
+      &.active {
+        top: 0;
+      }
     }
     &::after {
       @include position(a, 50%, 50%);
@@ -130,7 +138,7 @@
     &.preview {
       position: fixed;
       left: 50%;
-      top: 0;
+      top: 54px;
       transform: translate(-50%, 0) !important;
       max-width: $width--min;
     }

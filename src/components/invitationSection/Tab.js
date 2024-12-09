@@ -154,7 +154,6 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
         }
       };
     }
-
   }, [isMobile, isTargetPage]);
 
   return (

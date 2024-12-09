@@ -137,8 +137,10 @@ const Invitation = () => {
   useEffect(() => {
     if(isTabActive) {
       document.documentElement.style.overflowY = "hidden";
+      invitationRef.current.style.overflowY = "hidden";
     } else if(!isTabActive) {
       document.documentElement.style.overflowY = "visible";
+      invitationRef.current.style.overflowY = "scroll";
     }
   }, [isTabActive]);
 
