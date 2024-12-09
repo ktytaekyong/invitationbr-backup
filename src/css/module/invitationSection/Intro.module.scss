@@ -116,6 +116,11 @@
     padding: 0 24px;
     padding-top: 35px;
     padding-bottom: 35px;
+    > div:nth-child(3) {
+      @include device__query(tablet) {
+        margin-top: 30px;
+      }
+    }
   }
   .intro__headline {
     .img__wrap {
@@ -145,7 +150,7 @@
     align-items: center;
     column-gap: 10px;
     width: 100%;
-    height: $width--min;
+    height: 390px;
     background: transparent;
     border-radius: 0;
     img {
