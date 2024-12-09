@@ -6,17 +6,18 @@ import update from "immutability-helper";
 /* Component */
 import OrderSettingStateFixedWrapper from "./OrderSettingStateFixedWrapper.js";
 import OrderSettingStateItem from "./OrderSettingStateItem.js";
-// import Letter from "../invitationSection/Letter";
-// import Calendar from "../invitationSection/Calendar.js";
-// import Location from "../invitationSection/Location";
-// import Gallery from "../invitationSection/Gallery";
-// import Video from "../invitationSection/Video";
-// import Gift from "../invitationSection/Gift";
-// import NoticeT from "../invitationSection/NoticeT.js";
-// import NoticeD from "../invitationSection/NoticeD.js";
-// import BgMusic from "../invitationSection/BgMusic";
-// import Guestbook from "../invitationSection/Guestbook";
-// import Attend from "../invitationSection/Attend";
+import LetterImg from "../../img/orderState/background_letter.png";
+import DateImg from "../../img/orderState/background_date.png";
+import LocationImg from"../../img/orderState/background_location.png";
+import GalleryImg from "../../img/orderState/background_gallery.png";
+import VideoImg from "../../img/orderState/background_video.png";
+import GiftImg from "../../img/orderState/background_gift.png";
+import NoticeTImg from "../../img/orderState/background_noticeT.png";
+import NoticeDImg from "../../img/orderState/background_noticeD.png";
+import BgmImg from "../../img/orderState/background_bgm.png";
+import GuestbookImg from "../../img/orderState/background_guestbook.png";
+import AttendImg from "../../img/orderState/background_attend.png";
+import IntroImg from "../../img/orderState/background_letter.png";
 /* CSS Module */
 import styles from "../../css/module/common/OrderSettingState.module.scss";
 /* Context */
@@ -44,32 +45,34 @@ const OrderSettingState = () => {
     
   }, [setSelectSettingList]);
   
-  // const renderComponentHandler = (id) => {
-  //   switch(id) {
-  //     case "settingLetter":
-  //       return <Letter />;
-  //     case "settingDate":
-  //       return <Calendar />;
-  //     case "settingLocation":
-  //       return <Location />;
-  //     case "settingGallery":
-  //       return <Gallery />;
-  //     case "settingVideo":
-  //       return <Video />;
-  //     case "settingGift":
-  //       return <Gift />;
-  //     case "settingNoticeT":
-  //       return <NoticeT />;
-  //     case "settingNoticeD":
-  //       return <NoticeD />;
-  //     case "settingGuestbook":
-  //       return <Guestbook />;
-  //     case "settingAttend":
-  //       return <Attend />;
-  //     default:
-  //       return null;
-  //   }
-  // }
+  const renderComponentHandler = (id) => {
+    switch(id) {
+      case "settingLetter":
+        return LetterImg;
+      case "settingDate":
+        return DateImg;
+      case "settingLocation":
+        return LocationImg;
+      case "settingGallery":
+        return GalleryImg;
+      case "settingVideo":
+        return VideoImg;
+      case "settingGift":
+        return GiftImg;
+      case "settingNoticeT":
+        return NoticeTImg;
+      case "settingNoticeD":
+        return NoticeDImg;
+      case "settingGuestbook":
+        return GuestbookImg;
+      case "settingAttend":
+        return AttendImg;
+      case "settingBgMusic":
+        return BgmImg;
+      default:
+        return null;
+    }
+  }
   const renderItemHandler = useCallback((item, index) => {
     return (
       <OrderSettingStateItem 
@@ -103,6 +106,7 @@ const OrderSettingState = () => {
                     renderComponentHandler(item)
                   ) : null
                 } */}
+                <img src={renderComponentHandler(item)} alt="" />
               </div>
             </div>
             :
