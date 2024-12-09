@@ -9,6 +9,8 @@ import CheckItem from "./CheckItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 
+// C: 배경 음악 셋팅
+// 클릭 시 데이터 변경만 퍼블리싱
 const BgMusicSetting = () => {
   return (
     <CommonOptionWrapper>
@@ -20,7 +22,7 @@ const BgMusicSetting = () => {
         </CommonItemWrapper>
 
         <CommonItemWrapper>
-          <CommonItemContent title="무료음원 (4곡)" multi={true}>
+          <CommonItemContent title="무료음원 (8곡)" multi={true}>
             <BgMusicSettingSelector />
           </CommonItemContent>
         </CommonItemWrapper>

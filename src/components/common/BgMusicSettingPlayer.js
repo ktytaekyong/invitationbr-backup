@@ -9,6 +9,7 @@ import bgmPlayImg from "../../img/icon/icon_play.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 배경 음악 셋팅 - 플레이어 (BgMusicSetting)
 const BgMusicSettingPlayer = () => {
   const { selectBGM, bgFreeList } = useContext(SetContext);
   return (

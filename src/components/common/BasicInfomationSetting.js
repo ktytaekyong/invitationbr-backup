@@ -12,7 +12,7 @@ import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
-
+// C: 기본 정보 셋팅
 const BasicInfomationSetting = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const basicDataChangeHandler = (e, infoType) => {

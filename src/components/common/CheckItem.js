@@ -6,6 +6,7 @@ import styles from "../../css/module/common/CheckItem.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 
+// C: 체크박스 - 아이템 (CheckList)
 const CheckItem = ({ name, id, content, labelImgSrc, children, groupType, checkidx, type, infoType }) => {
   const { selectOptionList, setSelectOptionList, accountInfoList, setAccountInfoList, setAttendList } = useContext(SetContext);
   const { setBasicInfoList } = useContext(InfoContext);

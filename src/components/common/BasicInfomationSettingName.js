@@ -1,6 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/BasicInfomationSettingName.module.scss";
 
+// C: 기본 정보 셋팅 - 이름 (BasicInfomationSetting)
 const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
   return (
     <div className={styles.option__input}>

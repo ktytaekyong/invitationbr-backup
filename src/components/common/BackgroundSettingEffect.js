@@ -25,8 +25,10 @@ const effectList = [
     id: "bgEffectSnowflake"
   }, 
 ]; 
+// C: 배경 셋팅 - 효과 (BackgroundSetting)
 const BackgroundSettingEffect = () => {
   const { selectOptionList } = useContext(SetContext);
+
   return (
     <>
       <TabSelector listName={effectList} name="effectType" />

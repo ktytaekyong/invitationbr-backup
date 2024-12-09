@@ -9,6 +9,7 @@ import { ReactComponent as IconBgSelectImg } from "../../img/icon/icon_bg_select
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 배경 음악 셋팅 - 음원 (BgMusicSetting)
 const BgMusicSettingSelector = () => {
   const { selectBGM, setSelectBGM, bgFreeList, setBgFreeList } = useContext(SetContext);
   const [bgMoreCount, setBgMoreCount] = useState(6);
@@ -37,7 +38,6 @@ const BgMusicSettingSelector = () => {
             <IconBgSelectImg />
             <p className={styles.bg__selector_author}>
               {item.bgauthor}
-              {/* {selectBGM === item.bgid ? item.bgauthor : null} */}
               </p>
             <p className={styles.bg__selector_title}>{item.bgtitle}</p>
           </li>

@@ -17,6 +17,7 @@ const themeList = [
     itemName: "[베이직] 모던",
     itemKey: "themeModernBasic"
   },
+  // 241209: 주석 추가(사용할 가능성이 있는 항목)
   // {
   //   itemName: "[베이직] 클래식",
   //   itemKey: "themeClassicBasic"
@@ -82,9 +83,11 @@ const fontSizeList = [
     itemKey: "14px"
   }
 ]
+
+// C: 배경 셋팅
 const BackgroundSetting = () => {
   const { selectOptionList, isMobile } = useContext(SetContext);
-  useEffect(() => {
+  useEffect(() => { // 이하 useEffect: 옵션값에 따라 항목 스타일 수정
     document.documentElement.style.setProperty('--font-family--theme', selectOptionList.fontFamily);
   }, [selectOptionList.fontFamily]);
   useEffect(() => {
@@ -93,8 +96,8 @@ const BackgroundSetting = () => {
   useEffect(() => {
     document.documentElement.style.setProperty('--theme-select-color', selectOptionList.backgroundColor);
   }, [selectOptionList.backgroundColor]);
+
   return (
-    // 전체
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
