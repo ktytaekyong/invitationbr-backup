@@ -9,6 +9,9 @@
   text-align: center;
   line-height: 1.4em;
   color: $point-color--default;
+  @include device__query(tablet) {
+    padding-top: 80px;
+  }
   &.absolute {
     @include position(a, 55px, 50%);
   }

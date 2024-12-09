@@ -13,10 +13,10 @@
       @content;
     }
   } @else if ($device == "mobile") {
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: $width--min) {
       @content;
     }
-  }
+  } 
 } // @include device__query(pc) {}
 
 // 해상도에 맞춘 비율

@@ -14,7 +14,7 @@ import { SetContext } from "../../store/option-set-context.js";
 import { InfoContext } from "../../store/option-info-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 
-const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
+const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
   const previewLocation = useLocation();
   const isTargetPage = previewLocation.pathname === "/Preview";
   const { basicTabList, selectTabList } = useContext(TabContext); 
@@ -25,10 +25,11 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   const [open, setOpen] = useState(false);
 
   const tabRef = useRef(null);
+  const tabBtnRef = useRef(null);
 
   const setActiveHandler = (idx) => {
     setIsActive(idx);
-  }
+  }            
   const dayCalculator = (date) => {
     const today = new Date();
     const selectedDate = new Date(date);
@@ -83,8 +84,8 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
     setIsActive(0);
   }, []);
   useEffect(() => {
-    setIsActiveTab(false);
-  }, [selectOptionList.introFillType, setIsActiveTab]);
+    setIsTabActive(false);
+  }, [selectOptionList.introFillType, setIsTabActive]);
 
   useEffect(() => {
     const currentPos = invitationRef.current?.scrollTop || 0;
@@ -99,18 +100,21 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
   useEffect(() => {
     const handleScroll = () => {
       const tab = tabRef.current;
+      const tabBtn = tabBtnRef.current;
       if(isTargetPage || isMobile) {
         console.log(isTargetPage);
         const currentPos = window.scrollY || 0;
         if (!tab) return;
         if (currentPos > 0) {
           tab.classList.add(styles["active"]);
+          tabBtn.style.top = "0";
           // tab.style.transform = "translateY(20px)";
         } else {
           tab.classList.remove(styles["active"]);
+          tabBtn.style.top = "60px";
         }
         if (lastPos.current > currentPos) {
-          tab.style.transform = "translateY(52px)";
+          // tab.style.transform = "translateY(52px)";
           if(currentPos <= 20) {
             tab.style.transform = "translateY(0)";
           }
@@ -158,19 +162,19 @@ const Tab = ({ setActiveTabHandler, isActiveTab, setIsActiveTab }) => {
       {!isTargetPage && isMobile ? 
       <MobileSettingButtonWrapper 
         id="settingFixedTab" 
-        position="absolute" 
-        top={20}
+        position="absolute"
+        top={-8}
       /> : null}
       {
         selectTabList.length === 0 ?
         null
         :
         <div ref={tabRef} className={`${styles.tab__wrap} ${isTargetPage ? styles.preview : ""} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
-          <div className={`${styles.backdrop} ${isActiveTab ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
-          <div className={styles.button__wrapper}>
-            <Button onClick={setActiveTabHandler} className={`${isActiveTab ? styles["active"] : ""}`} />
+          <div className={`${styles.backdrop} ${isTabActive ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
+          <div ref={tabBtnRef} className={styles.button__wrapper}>
+            <Button onClick={setActiveTabHandler} className={`${isTabActive ? styles["active"] : ""}`} />
           </div>
-          <ul className={`${styles.tab} ${isActiveTab ? styles["active"] : ""}`} >
+          <ul className={`${styles.tab} ${isTabActive ? styles["active"] : ""}`} >
             {selectTabList
             .map((item, idx) => {
               const tabContent = basicTabList.find(tab => tab.id === item);

@@ -1,5 +1,5 @@
 /* Import */
-import { useCallback, useContext, useEffect } from "react";
+import { useCallback, useContext } from "react";
 // CSS
 import styles from "../../css/module/layout/MobileSettingButtonWrapper.module.scss"
 /* Context */

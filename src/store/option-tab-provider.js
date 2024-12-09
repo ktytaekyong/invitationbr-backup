@@ -7,12 +7,15 @@ import { TabContext } from "./option-tab-context.js"
 const TabProvider = ({ children }) => {
   const [selectTabList, setSelectTabList] = useState(initList.selectTabList);
   const basicTabList = initList.basicTabList;
+  const [isTabActive, setIsTabActive] = useState(false);
   return (
     <TabContext.Provider
       value={{
         selectTabList,
         basicTabList,
-        setSelectTabList
+        setSelectTabList,
+        isTabActive,
+        setIsTabActive
       }}
     >
       {children}

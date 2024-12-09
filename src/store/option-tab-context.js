@@ -1,12 +1,10 @@
 /* Import */
-import { createContext, useState } from "react";
-// export const TabContext = createContext({
-//   selectTabList: initList.selectTabList,
-//   basicTabList: initList.basicTabList,
-// });
+import { createContext } from "react";
 
 export const TabContext = createContext({
   basicTabList: [],
   selectTabList: [],
-  setSelectTabList: () => {}
+  setSelectTabList: () => {},
+  isTabActive: "",
+  setIsTabActive: () => {},
 });

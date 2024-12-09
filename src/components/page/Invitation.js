@@ -28,6 +28,7 @@ import SettingOther from "../invitationSection/SettingOther.js";
 import styles from "../../css/module/page/Invitation.module.scss";
 // Context
 import { SetContext } from "../../store/option-set-context.js";
+import { TabContext } from "../../store/option-tab-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 
 const Invitation = () => {
@@ -35,16 +36,16 @@ const Invitation = () => {
   const isTargetPage = previewLocation.pathname === "/Preview";
 
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
+  const { isTabActive, setIsTabActive } = useContext(TabContext);
   const { invitationRef } = useContext(RefContext);
 
-  const [isActiveTab, setIsActiveTab] = useState(false);
   const [visibleStates, setVisibleStates] = useState(
     selectSettingList.map(() => false)
   );
   
   const [popupOpened, setPopupOpened] = useState(false); 
   const setActiveTabHandler = () => {
-    setIsActiveTab(!isActiveTab);
+    setIsTabActive(!isTabActive);
   };
 
   const [open, setOpen] = useState(false);
@@ -132,6 +133,14 @@ const Invitation = () => {
     });
     setSortedSettingList(sortedList);
   }, [selectSettingList, settingList]);
+  
+  useEffect(() => {
+    if(isTabActive) {
+      document.documentElement.style.overflowY = "hidden";
+    } else if(!isTabActive) {
+      document.documentElement.style.overflowY = "visible";
+    }
+  }, [isTabActive]);
 
   return (
     <div
@@ -139,14 +148,14 @@ const Invitation = () => {
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
       }`}
-      style={isActiveTab ? { overflow: "hidden" } : null}
+
     >
       <Container>
         <>
           <Tab
             setActiveTabHandler={setActiveTabHandler}
-            isActiveTab={isActiveTab}
-            setIsActiveTab={setIsActiveTab}
+            isTabActive={isTabActive}
+            setIsTabActive={setIsTabActive}
           />
         </>
         <MobileSettingNotice />

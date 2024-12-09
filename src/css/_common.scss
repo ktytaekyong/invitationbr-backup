@@ -28,7 +28,9 @@ html, body {
 body {
   overscroll-behavior-y: none !important;
   background-color: #F6F7F8;
-  overflow-x: hidden;
+  @include device__query(tablet) {
+    overflow-x: hidden;
+  }
 }
 .container {
   width: 100%;
