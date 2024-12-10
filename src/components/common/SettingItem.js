@@ -58,13 +58,26 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
     }
   };
 
-  const handleEnd = () => {
+  const handleEnd = (e) => {
+    const element = e.currentTarget; 
+    const elementHeight = element.getBoundingClientRect().height; 
+    const maxHeight = elementHeight * 0.85; 
+  
+    const currentTranslateY = translateY; 
+  
+    console.log("Element Height:", elementHeight);
+    console.log("Max Height (80%):", maxHeight);
+    console.log("Current TranslateY:", currentTranslateY);
+  
     isDragging.current = false;
-    if(translateY > 130){
-      setOpenSettingTab("");
-      setTranslateY(0);
+  
+    if (currentTranslateY > maxHeight) {
+      console.log("Dragged below 80%, closing tab");
+      setOpenSettingTab(""); // 요소를 없애거나 처리
+      setTranslateY(0); // 드래그 위치 초기화
     }
-  }; // 드래그로 130만큼 움직이면 창이 내려감 (241210 퍼센트로 변경하려고 함)
+  };
+   // 드래그로 130만큼 움직이면 창이 내려감 (241210 퍼센트로 변경하려고 함)
 
   const scrollHandler = (refid) => {
     console.log(refid);
