@@ -143,6 +143,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
         }}
         style={{
           transform: `translateY(${translateY}px)`,
+          zIndex: id === "settingIntroPhoto" ? 9999 : "auto",
         }}
       >
       {isMobile ? <MobileSettingDragTop onMouseDown={handleStart} onTouchStart={handleStart} /> : null}

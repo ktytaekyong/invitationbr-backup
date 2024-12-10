@@ -21,11 +21,11 @@
     justify-content: flex-start;
     align-items: center;
     column-gap: 4px;
-    font-size: $font-size--sm;
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Regular;
     color: $text-color--disable-input;
     @include device__query(tablet) {
-      font-size: $font-size--xsm;
+      font-size: $font-size--setting-xsm;
     }
     & img {
       width: 18px;

@@ -57,14 +57,22 @@
   &.modify {
     @include position;
     padding: 5px 28px 5px 0;
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_textmodify_arrow.png) no-repeat right / 24px;
+    @include device__query(tablet) {
+      font-size: $font-size--setting-xsm;
+    }
   }
   &.modifyActive {
     @include position;
     padding: 5px 28px 5px 0;
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_textmodify_arrow_r.png) no-repeat right / 24px;
+    @include device__query(tablet) {
+      font-size: $font-size--setting-xsm;
+    }
   }
   &.picker {
     width: calc((100% - 8px) / 2);

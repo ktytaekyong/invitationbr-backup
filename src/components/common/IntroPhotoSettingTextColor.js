@@ -217,12 +217,12 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
             return (
               <li key={`textInput${coloridx}`} className={`${styles.option__item}`}>
                 <div 
-                  ref={el => (pickerRef.current[coloridx] = el)} 
+                  ref={el => (pickerRef.current[coloridx] = el)}
                   className={styles.txt__picker}
                   onClick={() => pickerOpen(coloridx)}
                 >
                   {selectIntroColor[coloridx] !== "" ?
-                    <IconColorPickerImg 
+                    <IconColorPickerImg
                       fill={prevIntroColor[coloridx]} 
                     />
                     : "색상"

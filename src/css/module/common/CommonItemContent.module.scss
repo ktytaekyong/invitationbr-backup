@@ -8,11 +8,11 @@
     justify-content: flex-start;
     align-items: center;
     min-width: 70px;
-    font-size: $font-size--ssm;
+    font-size: $font-size--setting-ssm;
     word-break: keep-all;
     @include device__query(tablet) {
       min-width: 52px;
-      font-size: $font-size--xsm;
+      font-size: $font-size--setting-xsm;
     }
   }
   .option__content {
@@ -22,6 +22,12 @@
     gap: 12px $col-gap--setting-basic;
     @include device__query(tablet) {
       gap: 8px $col-gap--setting-basic;
+    }
+    input {
+      font-size: $font-size--setting-sm;
+      @include device__query(tablet) {
+        font-size: $font-size--setting-xsm;
+      }
     }
   }
   &.multiLine {

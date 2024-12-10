@@ -12,13 +12,13 @@
     align-items: center;
     column-gap: 7px;
     padding: 8px 20px;
-    font-size: $font-size--xsm;
+    font-size: $font-size--setting-xsm;
     border-radius: $radius--button-list;
     border: 1px solid $bg-color--second;
     background-color: #FFF;
     cursor: pointer;
     @include device__query(tablet) {
-      font-size: $font-size--xxsm;
+      font-size: $font-size--setting-xxsm;
       padding: 10px 16px;
     }
     span {

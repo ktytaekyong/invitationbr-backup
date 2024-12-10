@@ -12,6 +12,7 @@ import ButtonWrapper from "../layout/ButtonWrapper.js"
 import Button from "../layout/Button.js"
 /* Context */
 import { IntroContext } from "../../store/option-intro-context.js";
+import { SetContext } from "../../store/option-set-context.js";
 
 // const option = {
 //   maxSizeMB: 2,
@@ -19,6 +20,7 @@ import { IntroContext } from "../../store/option-intro-context.js";
 // }
 const IntroPhotoSetting = () => {
   const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
+  const { isMobile } = useContext(SetContext);
   const [ photoList ] = useState([]);
   const fileAddHandler = async (e) => {
     const file = e.target.files[0];

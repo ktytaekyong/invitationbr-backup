@@ -1,9 +1,9 @@
 @import "../../_module";
 .option__selector {
   width: 100%;
-  font-size: $font-size--sm;
+  font-size: $font-size--setting-sm;
   @include device__query(tablet) {
-    font-size: $font-size--xsm;
+    font-size: $font-size--setting-xsm;
   }
   &_wrapper {
     @include position;

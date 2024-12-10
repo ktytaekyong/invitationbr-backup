@@ -2,9 +2,9 @@
 .notice__content {
   @include flex__row;
   column-gap: 6px;
-  font-size: $font-size--sm;
+  font-size: $font-size--setting-sm;
   @include device__query(tablet) {
-    font-size: $font-size--xsm;
+    font-size: $font-size--setting-xsm;
   }
   span {
     font-weight: $font-weight--Regular;

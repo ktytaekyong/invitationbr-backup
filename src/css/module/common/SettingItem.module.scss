@@ -15,6 +15,7 @@
     border-radius: 8px;
     border: 1px solid $border-color--default;
     background-color: $bg-color--setting;
+    z-index: 1;
     @include device__query(tablet) {
       max-width: unset;
       display: none;
@@ -74,9 +75,10 @@
         }
       }
       & > p {
+        font-size: $font-size--setting-default;
         font-weight: $font-weight--SemiBold;
         @include device__query(tablet) {
-          font-size: $font-size--sm;
+          font-size: $font-size--setting-sm;
         }
       }
     }
