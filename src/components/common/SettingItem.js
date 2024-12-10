@@ -13,6 +13,7 @@ import iconSettingItemCloseImg from "../../img/icon/icon_close_modal.png"
 import { SetContext } from "../../store/option-set-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 
+// C: 셋팅 하나씩 포장 (모바일에서 외형이 바뀜)
 const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange }) => {
   const { isMobile, openSettingTab, setOpenSettingTab, basicSettingList, selectSettingList } = useContext(SetContext);
   const { introRef, outroRef, letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
@@ -63,7 +64,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
       setOpenSettingTab("");
       setTranslateY(0);
     }
-  };
+  }; // 드래그로 130만큼 움직이면 창이 내려감 (241210 퍼센트로 변경하려고 함)
 
   const scrollHandler = (refid) => {
     console.log(refid);
@@ -166,7 +167,12 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             !isMobile ?
             <img src={iconSettingItemArrowImg} alt="" className={styles.setting__arrow_img} />
             :
-            <div className={styles.setting__close} onClick={activeSettingHandler}>
+            <div className={styles.setting__close} 
+              onClick={(e) => {
+                e.stopPropagation();
+                activeSettingHandler();
+              }}
+            >
               <img src={iconSettingItemCloseImg} alt="" className={styles.setting__close_img} />
             </div>
           }
