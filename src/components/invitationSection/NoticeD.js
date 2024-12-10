@@ -29,7 +29,7 @@ const NoticeD = () => {
                 <p>
                   {item.content ? item.content : "식사를 못하고 가시는 분들을 위해 피로연 출구에\n작은 선물을 준비했으니 잊지 마시고 챙겨 가세요."}
                 </p>
-                <img src={!item.src ? null : item.src} alt="" />
+                {!item.src ? null : <img src={item.src} alt="" />}
               </div>
             ))
           }
