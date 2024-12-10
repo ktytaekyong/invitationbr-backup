@@ -80,15 +80,34 @@ const Invitation = () => {
     }
   };
 
-  useEffect(() => { // useEffect: 옵저버 설정
+  const [isDomReady, setIsDomReady] = useState(false);
+
+  useEffect(() => {
+    // DOM 요소가 모두 렌더링되었는지 확인
+    const checkDomReady = () => {
+      const allReady = selectSettingList.every((itemId) => refs.current[itemId]);
+      if (allReady) setIsDomReady(true);
+    };
+    checkDomReady();
+    // DOM 업데이트를 감지
+    const observer = new MutationObserver(checkDomReady);
+    observer.observe(document.body, { childList: true, subtree: true });
+  
+    return () => observer.disconnect(); // 옵저버 정리
+  }, [selectSettingList]);
+
+  useEffect(() => {
+    if (!isDomReady) return;
+  
+    // 옵저버 설정
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          const id = entry.target.dataset.id; 
+          const id = entry.target.dataset.id;
           if (id && entry.isIntersecting) {
             setVisibleStates((prev) => {
               const newStates = [...prev];
-              newStates[selectSettingList.indexOf(id)] = entry.isIntersecting;
+              newStates[selectSettingList.indexOf(id)] = true;
               return newStates;
             });
           }
@@ -96,19 +115,19 @@ const Invitation = () => {
       },
       { threshold: 0.3 }
     );
-    const refsCopy = refs.current;
+  
     selectSettingList.forEach((itemId) => {
-      const element = refsCopy[itemId];
+      const element = refs.current[itemId];
       if (element) observer.observe(element);
-      console.log(element);
     });
+  
     return () => {
       selectSettingList.forEach((itemId) => {
-        const element = refsCopy[itemId];
+        const element = refs.current[itemId];
         if (element) observer.unobserve(element);
       });
     };
-  }, [selectSettingList]);
+  }, [isDomReady, selectSettingList]);
 
   useEffect(() => {
     if (
@@ -121,6 +140,10 @@ const Invitation = () => {
         handleOpen();
         setPopupOpened(true); 
       }
+    } else if (selectOptionList.optionAttendPopup === "optionAttendPopupOpen" &&
+      selectSettingList.includes("settingAttend") && !popupOpened) {
+        handleOpen();
+        setPopupOpened(true); 
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
 
