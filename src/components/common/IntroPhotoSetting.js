@@ -60,7 +60,7 @@ const IntroPhotoSetting = () => {
 
           <CommonItemContent title="편집" multi={true}>
             <ButtonWrapper>
-              <Button type="button" content={"문구 및 색상 편집"} styleType="modify" onClick={setActiveHandler} />
+              <Button type="button" content={"문구 및 색상 편집"} styleType={!isActive ? "modify" : "modifyActive"} onClick={setActiveHandler} />
             </ButtonWrapper>
             <IntroPhotoSettingTextColor listName={photoList} isActive={isActive} />
           </CommonItemContent>
