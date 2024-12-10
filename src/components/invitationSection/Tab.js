@@ -109,7 +109,6 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
       const tab = tabRef.current;
       const tabBtn = tabBtnRef.current;
       if(isTargetPage || isMobile) {
-        console.log(isTargetPage);
         const currentPos = window.scrollY || 0;
         if (!tab) return;
         if (currentPos > 0) {

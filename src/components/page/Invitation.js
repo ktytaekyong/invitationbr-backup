@@ -96,9 +96,7 @@ const Invitation = () => {
       },
       { threshold: 0.3 }
     );
-    
     const refsCopy = refs.current;
-
     selectSettingList.forEach((itemId) => {
       const element = refsCopy[itemId];
       if (element) observer.observe(element);
@@ -115,7 +113,7 @@ const Invitation = () => {
     if (
       selectOptionList.optionAttendPopup === "optionAttendPopupScroll" &&
       selectSettingList.includes("settingAttend") &&
-      !popupOpened 
+      !popupOpened
     ) {
       const attendIndex = selectSettingList.indexOf("settingAttend");
       if (attendIndex !== -1 && visibleStates[attendIndex]) {
@@ -150,7 +148,6 @@ const Invitation = () => {
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
       }`}
-
     >
       <Container>
         <>
@@ -198,12 +195,7 @@ const Invitation = () => {
           item.itemEssential === false && item.itemId === "settingOutro" ?
           <div
             key={item.itemId}
-            ref={(el) => (refs.current[selectSettingList.indexOf("settingOutro")] = el)}
-            data-id={item.itemId}
             style={{position: "relative"}}
-            className={selectOptionList.scrollEffectOption ? `${styles.invitationSection} ${
-              visibleStates[index] ? styles.visible : styles.hidden
-            }` : ""}
           >
             {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingOutro" position="absolute" top={5} /> : null}
             {selectSettingList.includes(item.itemId) ? <Outro /> : null}
