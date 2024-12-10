@@ -24,9 +24,9 @@ html {
 }
 html, body {
   touch-action: var(--touch-option);
+  overscroll-behavior: none;
 }
 body {
-  overscroll-behavior-y: none !important;
   background-color: #F6F7F8;
   @include device__query(tablet) {
     overflow-x: hidden;
