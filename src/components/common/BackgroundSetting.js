@@ -45,6 +45,14 @@ const fontList = [
     itemKey: "SeoulHangang"
   },
   {
+    itemName: "마루 부리",
+    itemKey: "MaruBuri"
+  },
+  {
+    itemName: "나눔명조 옛한글",
+    itemKey: "NanumMyeongjoYetHangul"
+  },
+  {
     itemName: "프리텐다드",
     itemKey: "Pretendard"
   },
@@ -55,14 +63,6 @@ const fontList = [
   {
     itemName: "나눔스퀘어 라운드",
     itemKey: "NanumSquareRound"
-  },
-  {
-    itemName: "마루 부리",
-    itemKey: "MaruBuri"
-  },
-  {
-    itemName: "나눔명조 옛한글",
-    itemKey: "NanumMyeongjoYetHangul"
   },
   {
     itemName: "카페24 써라운드 에어",
