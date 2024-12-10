@@ -147,6 +147,10 @@ const Invitation = () => {
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
 
+  useEffect(() => {
+    setPopupOpened(false); 
+  }, [selectOptionList.optionAttendPopup]);
+
   const [sortedSettingList, setSortedSettingList] = useState([]); 
   
   useEffect(() => {
