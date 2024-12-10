@@ -80,7 +80,7 @@ const Invitation = () => {
     }
   };
 
-  useEffect(() => {
+  useEffect(() => { // useEffect: 옵저버 설정
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -100,6 +100,7 @@ const Invitation = () => {
     selectSettingList.forEach((itemId) => {
       const element = refsCopy[itemId];
       if (element) observer.observe(element);
+      console.log(element);
     });
     return () => {
       selectSettingList.forEach((itemId) => {
@@ -107,7 +108,7 @@ const Invitation = () => {
         if (element) observer.unobserve(element);
       });
     };
-  }, [selectSettingList, selectOptionList.scrollEffectOption]);
+  }, [selectSettingList]);
 
   useEffect(() => {
     if (

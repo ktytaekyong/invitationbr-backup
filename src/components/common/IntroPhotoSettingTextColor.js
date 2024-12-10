@@ -218,7 +218,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
               <li key={`textInput${coloridx}`} className={`${styles.option__item}`}>
                 <div 
                   ref={el => (pickerRef.current[coloridx] = el)} 
-                  className={styles.txt__picker} 
+                  className={styles.txt__picker}
                   onClick={() => pickerOpen(coloridx)}
                 >
                   {selectIntroColor[coloridx] !== "" ?

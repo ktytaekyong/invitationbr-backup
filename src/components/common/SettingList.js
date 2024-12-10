@@ -29,7 +29,7 @@ import styles from "../../css/module/common/SettingList.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const SettingList = () => {
-  const { selectSettingList, setSelectSettingList, settingList, selectOptionList } = useContext(SetContext);
+  const { isMobile, selectSettingList, setSelectSettingList, settingList, selectOptionList } = useContext(SetContext);
   const changeSettingHandler = (clickedIdx) => {
     const selectedItem = settingList[clickedIdx].itemId;
     setSelectSettingList(prevList => {
@@ -114,6 +114,7 @@ const SettingList = () => {
               checkboxID={item.itemCheckbox}
               checked={isChecked}
               id={item.itemId}
+              style={item.itemId === "settingIntroPhoto" && isMobile ? {overflowY: "visible"} : null}
               key={idx}
             />
           );

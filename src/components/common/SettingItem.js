@@ -14,7 +14,7 @@ import { SetContext } from "../../store/option-set-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 
 // C: 셋팅 하나씩 포장 (모바일에서 외형이 바뀜)
-const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange }) => {
+const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange, style }) => {
   const { isMobile, openSettingTab, setOpenSettingTab, basicSettingList, selectSettingList } = useContext(SetContext);
   const { introRef, outroRef, letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);
 
@@ -72,7 +72,6 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
   };
 
   const scrollHandler = (refid) => {
-    console.log(refid);
     if(!(basicSettingList.includes(refid)) && !(selectSettingList.includes(refid))) {
       setOpen(true);
       return false;
@@ -182,7 +181,7 @@ const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, 
             </div>
           }
       </div>
-      <div className={styles.setting__content}>
+      <div className={styles.setting__content} style={style ? style : null}>
         {itemContent}
       </div>
     </li>
