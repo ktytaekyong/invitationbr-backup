@@ -58,7 +58,7 @@ const IntroPhotoSetting = () => {
             <PhotoSelector id="photoList" listName={selectIntroPhoto} onChange={fileAddHandler} deleteFunction={setSelectIntroPhoto} />
           </CommonItemContent>
 
-          <CommonItemContent title="편집" multi={true}>
+          <CommonItemContent title="편집" multi={isActive ? true : false}>
             <ButtonWrapper>
               <Button type="button" content={"문구 및 색상 편집"} styleType={!isActive ? "modify" : "modifyActive"} onClick={setActiveHandler} />
             </ButtonWrapper>
