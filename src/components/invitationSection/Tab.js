@@ -96,7 +96,7 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
   }, []);
 
   const firstMenuPositionHandler = () => {
-    if(selectOptionList.theme === "themeModernBasic" && (selectOptionList.introFillType === "fillTemplate1" || selectOptionList.introFillType === "fillTemplate2" || selectOptionList.introFillType === "fillTemplate3")) {
+    if(selectOptionList.theme === "themeModernBasic" && (selectOptionList.introFillType === "fillTemplate1" || selectOptionList.introFillType === "fillTemplate2" || selectOptionList.introFillType === "fillTemplate3" || selectOptionList.introFillType === "fillTemplate4")) {
       return 8;
     } else {
       return -8;
