@@ -16,6 +16,14 @@ const Video = () => {
     const youtubeRegex = /^(https?:\/\/)?(www\.)?(youtube\.com|youtu\.be)\/.+$/;
     return youtubeRegex.test(url);
   };
+
+  const renderVideoHandler = (src) => {
+    if(src) {
+      return <source src={src} type="video/mp4" />
+    } else {
+      return;
+    }
+  }
   return (
     <div ref={videoRef} id="Video" className={`${styles.video}`}>
       <div className={styles.video__wrap}>
@@ -26,7 +34,7 @@ const Video = () => {
             <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
             :
             <video controls preload="auto">
-              <source src={videoList.videoSrc} type="video/mp4" />
+              {renderVideoHandler(videoList.videoSrc)}
             </video>
           }
         </div>

@@ -16,12 +16,12 @@ const VideoSettingOption = () => {
     if(file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setVideoList(
+        setVideoList(() => (
           {
             videoUrl: "",
             videoSrc: e.target.result,
-          },
-        );
+          }
+        ));
       };
       fileList.readAsDataURL(file);
     }
