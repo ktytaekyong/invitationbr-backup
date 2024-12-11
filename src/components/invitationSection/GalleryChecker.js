@@ -17,7 +17,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const GalleryChecker = () => {
   const { selectGalleryPhotoList } = useContext(GalleryContext);
   const { selectOptionList } = useContext(SetContext);
-  const [moreViewIdx, setMoreViewIdx] = useState(20);
+  const [moreViewIdx, setMoreViewIdx] = useState(9);
   const [clickedSlideIndex, setClickedSlideIndex] = useState(0); 
   const [open, setOpen] = useState(false);
   const handleOpen = (index) => {
@@ -33,6 +33,9 @@ const GalleryChecker = () => {
     } else {
       setMoreViewIdx(20);
     }
+    console.log(selectOptionList.galleryMoreOption);
+    console.log(moreViewIdx);
+    console.log(selectGalleryPhotoList.length);
   }, [selectOptionList.galleryMoreOption])
   return (
     <div className={`${styles.gallery__type} ${styles.checker}`}>
@@ -47,7 +50,7 @@ const GalleryChecker = () => {
         }
       </div>
       {
-        selectOptionList.galleryMoreOption && moreViewIdx !== 20 && selectOptionList.length > 9 ?  
+        selectOptionList.galleryMoreOption && (moreViewIdx === 9) && (selectGalleryPhotoList.length > moreViewIdx) ?
         <ButtonWrapper styleType="center">
           <Button 
             content="더보기" 
