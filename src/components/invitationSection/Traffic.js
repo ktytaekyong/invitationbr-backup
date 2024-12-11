@@ -21,7 +21,7 @@ const Traffic = () => {
                 </li> : 
                 <li key={item.traffic + idx} className={styles.traffic__item}>
                   <p>{item.traffic === "" ? "지하철로 오시는 길" : item.traffic}</p>
-                  <p>{item.content === "" ? "태화강역 하차 (동해선)" : item.content}</p>
+                  <p>{item.content === "" ? "[분당선] 서울숲옆 5번 출구 도보 2분\n[2호선] 뚝섬역 8번 출구 도보 5분" : item.content}</p>
                 </li>
               ))
             }
