@@ -37,13 +37,13 @@
   flex-shrink: 0;
   width: 60px;
   height: 40px;
-  font-size: $font-size--sm;
+  font-size: $font-size--setting-sm;
   border-radius: 8px;
   border: 1px solid $border-color--default;
   background-color: #fff;
   cursor: pointer;
   @include device__query(tablet) {
-    font-size: $font-size--xsm;
+    font-size: $font-size--setting-xsm;
   }
   svg {
     pointer-events: none;
@@ -68,7 +68,7 @@
       @include position(a, 50%, 26px);
       transform: translateY(-50%);
       font-weight: $font-weight--Regular;
-      font-size: $font-size--sm;
+      font-size: $font-size--setting-sm;
       color: $text-color--gray;
     }
     &_wrap {

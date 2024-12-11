@@ -26,7 +26,7 @@
         align-items: center;
         flex-shrink: 0;
         padding: 8.5px 20px;
-        font-size: $font-size--xsm;
+        font-size: $font-size--setting-xsm;
         font-weight: $font-weight--Medium;
         border-radius: $radius--default;
         border: none;
@@ -34,7 +34,7 @@
         color: #FFF;
       }
       p {
-        font-size: $font-size--sm;
+        font-size: $font-size--setting-sm;
         font-weight: $font-weight--Regular;
       }
     }
@@ -46,7 +46,7 @@
         column-gap: 4px;
       }
       span {
-        font-size: $font-size--xsm;
+        font-size: $font-size--setting-xsm;
         font-weight: $font-weight--Regular;
         color: $text-color--disable-input;
         &:first-child {

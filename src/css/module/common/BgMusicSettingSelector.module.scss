@@ -40,12 +40,12 @@
     @include word__skip;
     margin-top: 10px;
     margin-bottom: 2px;
-    font-size: $font-size--xsm;
+    font-size: $font-size--setting-xsm;
     text-align: center;
   }
   &_title {
     @include word__skip;
-    font-size: $font-size--xxsm;
+    font-size: $font-size--setting-xxsm;
     text-align: center;
   }
 }

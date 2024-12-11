@@ -13,28 +13,34 @@
     font-size: $font-size--xxsm;
   }
   &.default {
+    font-size: $font-size--setting-sm;
     border-radius: $radius--default;
     border: 1px solid $button-color--default;
     background-color: #FFF;
     color: $text-color--default;
     @include device__query(tablet) {
       border-radius: $radius--default-sm;
+      font-size: $font-size--setting-xsm;
     }
   }
   &.primary {
+    font-size: $font-size--setting-sm;
     border-radius: $radius--default;
     border: 1px solid $button-color--default;
     background-color: $button-color--default;
     color: #FFF;
     @include device__query(tablet) {
       border-radius: $radius--default-sm;
+      font-size: $font-size--setting-xsm;
     }
   }
   &.point {
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Medium;
     border-radius: $radius--default;
     background-color: $point-color--default;
     color: #FFF;
+  
   }
   &.cancel {
     border-radius: $radius--default;
@@ -79,7 +85,7 @@
     padding: 9px 0px;
     border-radius: $radius--default;
     font-weight: $font-weight--Medium;
-    font-size: $font-size--xsm;
+    font-size: $font-size--setting-xsm;
     &:first-child {
       background-color: $button-color--cancel;
       color: $text-color--gray;
@@ -95,17 +101,23 @@
     height: 40px;
     padding: 5px 0 5px 28px;
     margin-left: 12px;
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_add.png) no-repeat left / 24px;
+    @include device__query(tablet) {
+      font-size: $font-size--setting-xsm;
+    }
   }
   &.add {
     @include position;
     max-width: 108px;
     padding: 0 0 0 28px;
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_add.png) no-repeat left / 24px;
     @include device__query(tablet) {
       padding: 2px 0 2px 28px;
+      font-size: $font-size--setting-xsm;
     }
   }
   &.file__delete {
@@ -118,8 +130,12 @@
     max-width: 105px;
     padding: 0 0 0 28px;
     margin-top: 4px;
+    font-size: $font-size--setting-sm;
     font-weight: $font-weight--Regular;
     background: transparent url(../../../img/icon/icon_remove.png) no-repeat left 4px center / 24px;
+    @include device__query(tablet) {
+      font-size: $font-size--setting-xsm;
+    }
   }
   &.tab__delete {
     @include flex__row;

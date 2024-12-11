@@ -13,13 +13,13 @@
         transform: unset;
         background-color: $border-color--play;
         pointer-events: none;
-        font-size: $font-size--xsm;
+        font-size: $font-size--setting-xsm;
         cursor: no-drop;
         @include device__query(tablet) {
           word-break: keep-all;
           text-align: center;
           padding: 0 3px;
-          font-size: $font-size--xsm;
+          font-size: $font-size--setting-xsm;
         }
       }
     }

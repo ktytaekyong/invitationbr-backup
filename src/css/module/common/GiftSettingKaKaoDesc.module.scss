@@ -21,12 +21,12 @@
       height: 18px;
     }
     p {
-      font-size: $font-size--sm;
+      font-size: $font-size--setting-sm;
       font-weight: $font-weight--Regular;
       text-decoration: underline;
       cursor: pointer;
       @include device__query(tablet) {
-        font-size: $font-size--xsm;
+        font-size: $font-size--setting-xsm;
       }
     }
   }

@@ -42,14 +42,14 @@
       align-items: flex-start;
       row-gap: 6px;
       &__wrap {
-        font-size: $font-size--ssm;
+        font-size: $font-size--setting-ssm;
       }
       p {
         @include word__skip;
         padding-right: 20px;
       }
       .author {
-        font-size: $font-size--xsm;
+        font-size: $font-size--setting-xsm;
         font-weight: $font-weight--Regular;
         color: $text-color--disable-input;
       }
@@ -107,7 +107,7 @@
     align-items: center;
     column-gap: 3px;
     span {
-      font-size: $font-size--xsm;
+      font-size: $font-size--setting-xsm;
       font-weight: $font-weight--Regular;
       color: $text-color--disable-input;
     }
