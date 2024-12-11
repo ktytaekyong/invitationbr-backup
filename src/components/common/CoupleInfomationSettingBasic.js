@@ -118,12 +118,19 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         onChange={onChange}
       />
       <input 
-        type="number" 
+        type="text" 
         id={`${coupleKey}Number`} 
         name="number" 
         className={styles.info__number} 
-        placeholder="전화 번호 ‘-’ 없이 입력" 
-        value={value.number}
+        placeholder="전화 번호 ‘-’ 없이 입력"
+        maxLength={13}
+        value={value.number
+          .replace(/[^0-9]/g, "")
+          .replace(/^(\d{3})(\d{0,4})?(\d{0,4})?$/, (match, p1, p2, p3) => {
+            if (p3) return `${p1}-${p2}-${p3}`;
+            if (p2) return `${p1}-${p2}`;
+            return p1;
+        })}
         onChange={onChange}
       />
       <OptionSelector 
