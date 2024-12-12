@@ -10,9 +10,6 @@ import Button from "../Button";
 import styles from "../../../css/module/layout/modal/InvitationModal.module.scss";
 
 export default function InvitationModal(props) {
-  useEffect(() => {
-    document.documentElement.style.overflowY = "auto";
-  }, [])
   return (
     <>
       <ModalBasic
