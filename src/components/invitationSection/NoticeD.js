@@ -11,7 +11,6 @@ import { RefContext } from "../../store/option-ref-context.js";
 const NoticeD = () => {
   const { noticeDList } = useContext(SetContext);
   const { noticeDRef } = useContext(RefContext);
-
   return (
     <div ref={noticeDRef} id="NoticeD" className={`${styles.notice}`}>
       <div className={styles.notice__wrap}>

@@ -15,6 +15,7 @@ import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
 import BasicModalNoticeTAdd from "../layout/modal/BasicModalNoticeTAdd.js";
 import BasicModalNoticeTDelete from "../layout/modal/BasicModalNoticeTDelete.js";
+import Toast from "../layout/Toast.js";
 /* CSS Module */
 import styles from "../../css/module/common/NoticeSettingT.module.scss";
 /* Context */
@@ -25,6 +26,7 @@ const NoticeSettingT = () => {
   const [addTitle, setAddTitle] = useState("");
   const [openAdd, setOpenAdd] = useState(false);
   const [openDel, setOpenDel] = useState(false);
+  const [openToast, setOpenToast] = useState(false);
   const handleOpenAdd = () => setOpenAdd(true);
   const handleCloseAdd = () => setOpenAdd(false);
   const handleOpenDel = () => setOpenDel(true);
@@ -65,6 +67,7 @@ const NoticeSettingT = () => {
     console.log(removeidx);
     if(noticeTList.length === 1) {
       setNoticeTList((prev) => {
+        setOpenToast(true);
         return prev;
       })
     } else {
@@ -84,10 +87,10 @@ const NoticeSettingT = () => {
   const photoDeleteHandler = (index) => {
     setNoticeTList((prev) => {
       const newList = [...prev];
-      newList[index].src = "";  
-      return newList;
+      newList[index] = { ...newList[index], src: "" };
+      return newList; 
     });
-  }
+  };
   return (
     <>
       <CommonOptionWrapper>
@@ -133,7 +136,7 @@ const NoticeSettingT = () => {
                     limit={1}
                     listName={[noticeTList[idx]]} 
                     onChange={(e) => fileAddHandler(e, idx)} 
-                    // deleteFunction={setNoticeTList}
+                    deleteFunction={() => photoDeleteHandler(idx)}
                   />
                   <RadioList title="사진 위치">
                     <RadioItem 
@@ -173,6 +176,9 @@ const NoticeSettingT = () => {
           onClose={handleCloseDel} 
           onClick={() => noticeRemoveHandler(selectNoticeT)} 
         />, document.body)
+      }
+      {
+        ReactDOM.createPortal(<Toast type="warn" open={openToast} setOpen={setOpenToast} message="최소 한 개입니다." />, document.body)
       }
     </>
   )

@@ -27,26 +27,35 @@ const PhotoSelector = (props) => {
           <label htmlFor={`${props.id}File`}></label>
         </li>
         {
-          props.type !== "video" ?
+          props.type !== "video" && props.id !== "galleryPhotoList" ?
+          props.listName.filter((_, idx) => idx < props.limit)
+          .map((item) => (
+            item.src ?
+            <li className={styles.option__item} key={item.id + Math.random()} style={{backgroundImage: `url(${item.src})`}}>
+              <Button type="button" styleType="close" onClick={props.deleteFunction} />
+            </li>
+            : null
+          ))
+          : null
+        }
+        {
+          props.id === "galleryPhotoList" ?
           props.listName.filter((_, idx) => idx < props.limit)
           .map((item, idx) => (
-            item.src && props.id !== "galleryPhotoList" ?
-            <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
-              <Button type="button" styleType="close" onClick={() => props.deleteFunction([])} />
-            </li>
-            : 
-            <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
+            item.src ?
+            <li className={styles.option__item} key={`${item.id}${Math.random()}`} style={{backgroundImage: `url(${item.src})`}}>
               <Button 
                 type="button" 
                 styleType="close" 
                 onClick={() => props.deleteFunction((prevList) => prevList.filter((_, removeIdx) => idx !== removeIdx))} 
               />
-            </li>
+            </li> 
+            : null
           ))
           : null
         }
         {
-          props.type === "video" && videoList.videoSrc !== ""?
+          props.type === "video" && videoList.videoSrc !== "" ?
           <li className={styles.option__item} key={videoList.videoSrc}>
             <video src={videoList.videoSrc} type="video/mp4" preload="auto"></video>
             <Button type="button" styleType="close" onClick={() => {videoDeleteHandler(videoList.videoSrc)}} />

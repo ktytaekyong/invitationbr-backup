@@ -40,10 +40,10 @@ const NoticeSettingD = () => {
   const photoDeleteHandler = (index) => {
     setNoticeDList((prev) => {
       const newList = [...prev];
-      newList[index].src = "";  
-      return newList;
+      newList[index] = { ...newList[index], src: "" };
+      return newList; 
     });
-  }
+  };
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -75,9 +75,7 @@ const NoticeSettingD = () => {
                   limit={1}
                   listName={[noticeDList[idx]]} 
                   onChange={(e) => fileAddHandler(e, idx)} 
-                  deleteFunction={setNoticeDList} 
-                  hasSrc={true} 
-                  hasSrcFunction={() => photoDeleteHandler(idx)}
+                  deleteFunction={() => photoDeleteHandler(idx)}
                 />
                 <RadioList title="사진 위치">
                   <RadioItem 

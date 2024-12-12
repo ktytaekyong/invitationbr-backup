@@ -52,7 +52,7 @@ const IntroPhotoSetting = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="사진" multi={true}>
-            <PhotoSelector id="photoList" limit={1} listName={selectIntroPhoto} onChange={fileAddHandler} deleteFunction={setSelectIntroPhoto} />
+            <PhotoSelector id="photoList" limit={1} listName={selectIntroPhoto} onChange={fileAddHandler} deleteFunction={() => setSelectIntroPhoto([])} />
           </CommonItemContent>
 
           <CommonItemContent title="편집" multi={isActive ? true : false}>
