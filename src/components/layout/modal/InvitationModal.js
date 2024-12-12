@@ -1,5 +1,5 @@
 /* Import */
-import { forwardRef } from "react";
+import { forwardRef, useEffect } from "react";
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { styled, css } from '@mui/system';
@@ -10,6 +10,9 @@ import Button from "../Button";
 import styles from "../../../css/module/layout/modal/InvitationModal.module.scss";
 
 export default function InvitationModal(props) {
+  useEffect(() => {
+    document.documentElement.style.overflowY = "auto";
+  }, [])
   return (
     <>
       <ModalBasic

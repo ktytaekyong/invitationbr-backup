@@ -2,6 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import { useLocation } from "react-router-dom";
 import ReactDOM from 'react-dom';
+import { nameHandler } from '../../utils/helpers';
 /* Component */
 import InvitationModalLetter from "../layout/modal/InvitationModalLetter.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
@@ -38,12 +39,12 @@ const Letter = ({ aos }) => {
         <p>
           {basicInfoList.groomParentInfo.dadDeceased ? deceasedIcon : null}이길현 · {basicInfoList.groomParentInfo.momDeceased ? deceasedIcon : null}김윤희
           <span>의 {basicInfoList.groomInfo.relation}</span>
-          {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
+          {nameHandler(basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람")}
         </p>
         <p>
           {basicInfoList.brideParentInfo.dadDeceased ? deceasedIcon : null}김영수 · {basicInfoList.brideParentInfo.momDeceased ? deceasedIcon : null}이영은
           <span>의 {basicInfoList.brideInfo.relation}</span>
-          {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+          {nameHandler(basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우")}
         </p>
       </div>
     )
@@ -61,9 +62,9 @@ const Letter = ({ aos }) => {
     }
     return (
       <p>
-        {parents.dadDeceased ? deceasedIcon : null}{parents.dadName ? parents.dadName : ""}{parents.dadName && parents.momName ? " · " : ""}{parents.momDeceased ? deceasedIcon : null}{parents.momName ? parents.momName : ""}
+        {parents.dadDeceased ? deceasedIcon : null}{nameHandler(parents.dadName ? parents.dadName : "")}{parents.dadName && parents.momName ? " · " : ""}{parents.momDeceased ? deceasedIcon : null}{nameHandler(parents.momName ? parents.momName : "")}
         <span>의 {children.relation}</span>
-        {children.firstname ? children.firstname : initName} 
+        {nameHandler(children.firstname ? children.firstname : initName)}
       </p>
     )
   }
@@ -91,7 +92,6 @@ const Letter = ({ aos }) => {
     <div ref={letterRef} id="Letter" className={`${styles.letter}`} data-aos={aos}>
       <div className={styles.letter__wrap}>
         <HeadLine title={letterList.title ? letterList.title : "초대합니다"} content="invitation" />
-        {/* {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingLetter" position="absolute" top={20} /> : null} */}
         <div className={styles.letter__content}>
           <div className={styles.greet}>
             <p>

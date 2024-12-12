@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect } from "react";
+import { autoHyphenHandler, nameHandler } from '../../utils/helpers';
 /* Component */
 import OptionSelector from "./OptionSelector"
 /* CSS Module */
@@ -105,8 +106,9 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         name="lastname" 
         className={styles.info__firstname} 
         placeholder={`성`} 
-        value={value.lastname}
+        value={nameHandler(value.lastname)}
         onChange={onChange}
+        maxLength={2}
       />
       <input 
         type="text" 
@@ -114,8 +116,9 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         name="firstname" 
         className={styles.info__name} 
         placeholder={`이름`} 
-        value={value.firstname}
+        value={nameHandler(value.firstname)}
         onChange={onChange}
+        maxLength={3}
       />
       <input 
         type="text" 
@@ -124,13 +127,7 @@ const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) =>
         className={styles.info__number} 
         placeholder="전화 번호 ‘-’ 없이 입력"
         maxLength={13}
-        value={value.number
-          .replace(/[^0-9]/g, "")
-          .replace(/^(\d{3})(\d{0,4})?(\d{0,4})?$/, (match, p1, p2, p3) => {
-            if (p3) return `${p1}-${p2}-${p3}`;
-            if (p2) return `${p1}-${p2}`;
-            return p1;
-        })}
+        value={autoHyphenHandler(value.number)}
         onChange={onChange}
       />
       <OptionSelector 

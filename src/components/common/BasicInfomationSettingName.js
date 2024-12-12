@@ -1,3 +1,5 @@
+// Import
+import { nameHandler } from '../../utils/helpers';
 /* CSS Module */
 import styles from "../../css/module/common/BasicInfomationSettingName.module.scss";
 
@@ -8,7 +10,7 @@ const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
       <input type="text" 
         id={`BasicInfoLastName${genderCode}`}
         name="lastname"
-        value={nameInfo.lastname}
+        value={nameHandler(nameInfo.lastname)}
         placeholder="성"
         onChange={onChange}
         required={true}
@@ -17,11 +19,11 @@ const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
       <input type="text" 
         id={`BasicInfoFirstName${genderCode}`} 
         name="firstname"
-        value={nameInfo.firstname} 
+        value={nameHandler(nameInfo.firstname)}
         placeholder="이름" 
         onChange={onChange}
         required={true} 
-        maxLength={5}
+        maxLength={3}
       />
     </div>
   )

@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import InvitationModal from './InvitationModal';
 /* CSS Module */
@@ -67,144 +68,149 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
   }, [openvar])
   return (
     <>
-      <InvitationModal 
-        openvar={openvar} 
-        onClick={attendCheckHandler}
-        onClose={onClose} 
-        ButtonWrapperUse={true}
-        headSrc={iconModalHeader}
-        headContent="참석 여부 전달하기"
-        btnContent="참석 여부 전달하기"
-      >
-        <div className={styles.input__wrap}>
-          <div className={styles.input__item}>
-            <p className={styles.input__title}>구분</p>
-            <div className={styles.input__data}>
-              <div className={`${styles.data__wrap} ${styles.type}`}>
-                <div className={styles.data__item}>
-                  <input type="radio" name="attendType" id="attendTypeGroom" checked={guestType === "attendTypeGroom"} onChange={() => setGuestType("attendTypeGroom")} />
-                  <label htmlFor="attendTypeGroom">신랑측</label>
-                </div>
-                <div className={styles.data__item}>
-                  <input type="radio" name="attendType" id="attendTypeBride" checked={guestType === "attendTypeBride"} onChange={() => setGuestType("attendTypeBride")} />
-                  <label htmlFor="attendTypeBride">신부측</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className={styles.input__item}>
-            <p className={styles.input__title}>참석여부</p>
-            <div className={styles.input__data}>
-              <div className={styles.data__wrap}>
-                <div className={styles.data__item}>
-                  <input type="radio" name="attendWhether" id="attendWhetherYes" checked={attendWhether === "attendWhetherYes"} onChange={() => setAttendWhether("attendWhetherYes")} />
-                  <label htmlFor="attendWhetherYes">가능</label>
-                </div>
-                <div className={styles.data__item}>
-                  <input type="radio" name="attendWhether" id="attendWhetherNo" checked={attendWhether === "attendWhetherNo"} onChange={() => setAttendWhether("attendWhetherNo")} />
-                  <label htmlFor="attendWhetherNo">불가</label>
-                </div>
-              </div>
-            </div>
-          </div>
-          {
-            attendList.optionAttendName ? 
+      {
+        ReactDOM.createPortal(
+          <InvitationModal 
+          openvar={openvar} 
+          onClick={attendCheckHandler}
+          onClose={onClose} 
+          ButtonWrapperUse={true}
+          headSrc={iconModalHeader}
+          headContent="참석 여부 전달하기"
+          btnContent="참석 여부 전달하기"
+        >
+          <div className={styles.input__wrap}>
             <div className={styles.input__item}>
-              <p className={styles.input__title}>성함</p>
+              <p className={styles.input__title}>구분</p>
               <div className={styles.input__data}>
-                <div className={styles.data__wrap}>
-                  <input type="text" id="attendName" onChange={(e) => {setAttendName(e.target.value)}} placeholder="작성자 성함 입력" />
-                </div>
-              </div>
-            </div> : null
-          }
-          {
-            attendList.optionAttendCount ? 
-            <div className={styles.input__item}>
-              <p className={styles.input__title}>참석인원</p>
-              <div className={styles.input__data}>
-                <div className={styles.data__wrap}>
-                  <input type="text" id="attendCount" onChange={(e) => {setAttendCount(e.target.value)}} placeholder="본인 외 참석 인원" />
-                </div>
-              </div>
-            </div> : null
-          }
-          {
-            attendList.optionAttendMeal ?
-            <>
-              <div className={styles.input__item}>
-                <p className={styles.input__title}>식사여부</p>
-                <div className={styles.input__data}>
-                  <div className={styles.data__wrap}>
-                    <div className={styles.data__item}>
-                      <input type="radio" name="attendMeal" id="attendMealYes" checked={attendMeal === "attendMealYes"} onChange={() => {setAttendMeal("attendMealYes")}} />
-                      <label htmlFor="attendMealYes">식사함</label>
-                    </div>
-                    <div className={styles.data__item}>
-                      <input type="radio" name="attendMeal" id="attendMealNo" checked={attendMeal === "attendMealNo"} onChange={() => {setAttendMeal("attendMealNo")}} />
-                      <label htmlFor="attendMealNo">식사안함</label>
-                    </div>
+                <div className={`${styles.data__wrap} ${styles.type}`}>
+                  <div className={styles.data__item}>
+                    <input type="radio" name="attendType" id="attendTypeGroom" checked={guestType === "attendTypeGroom"} onChange={() => setGuestType("attendTypeGroom")} />
+                    <label htmlFor="attendTypeGroom">신랑측</label>
+                  </div>
+                  <div className={styles.data__item}>
+                    <input type="radio" name="attendType" id="attendTypeBride" checked={guestType === "attendTypeBride"} onChange={() => setGuestType("attendTypeBride")} />
+                    <label htmlFor="attendTypeBride">신부측</label>
                   </div>
                 </div>
               </div>
+            </div>
+            
+            <div className={styles.input__item}>
+              <p className={styles.input__title}>참석여부</p>
+              <div className={styles.input__data}>
+                <div className={styles.data__wrap}>
+                  <div className={styles.data__item}>
+                    <input type="radio" name="attendWhether" id="attendWhetherYes" checked={attendWhether === "attendWhetherYes"} onChange={() => setAttendWhether("attendWhetherYes")} />
+                    <label htmlFor="attendWhetherYes">가능</label>
+                  </div>
+                  <div className={styles.data__item}>
+                    <input type="radio" name="attendWhether" id="attendWhetherNo" checked={attendWhether === "attendWhetherNo"} onChange={() => setAttendWhether("attendWhetherNo")} />
+                    <label htmlFor="attendWhetherNo">불가</label>
+                  </div>
+                </div>
+              </div>
+            </div>
             {
-              attendList.attendMealNotice || attendList.attendNoMealNotice ? 
+              attendList.optionAttendName ? 
+              <div className={styles.input__item}>
+                <p className={styles.input__title}>성함</p>
+                <div className={styles.input__data}>
+                  <div className={styles.data__wrap}>
+                    <input type="text" id="attendName" onChange={(e) => {setAttendName(e.target.value)}} placeholder="작성자 성함 입력" />
+                  </div>
+                </div>
+              </div> : null
+            }
+            {
+              attendList.optionAttendCount ? 
+              <div className={styles.input__item}>
+                <p className={styles.input__title}>참석인원</p>
+                <div className={styles.input__data}>
+                  <div className={styles.data__wrap}>
+                    <input type="text" id="attendCount" onChange={(e) => {setAttendCount(e.target.value)}} placeholder="본인 외 참석 인원" />
+                  </div>
+                </div>
+              </div> : null
+            }
+            {
+              attendList.optionAttendMeal ?
+              <>
+                <div className={styles.input__item}>
+                  <p className={styles.input__title}>식사여부</p>
+                  <div className={styles.input__data}>
+                    <div className={styles.data__wrap}>
+                      <div className={styles.data__item}>
+                        <input type="radio" name="attendMeal" id="attendMealYes" checked={attendMeal === "attendMealYes"} onChange={() => {setAttendMeal("attendMealYes")}} />
+                        <label htmlFor="attendMealYes">식사함</label>
+                      </div>
+                      <div className={styles.data__item}>
+                        <input type="radio" name="attendMeal" id="attendMealNo" checked={attendMeal === "attendMealNo"} onChange={() => {setAttendMeal("attendMealNo")}} />
+                        <label htmlFor="attendMealNo">식사안함</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {
+                attendList.attendMealNotice || attendList.attendNoMealNotice ? 
+                  <div className={styles.input__item}>
+                    <p className={styles.input__title}></p>
+                      <div className={styles.input__data}>
+                        <p className={styles.notice}>
+                          {attendMeal === "attendMealYes" ? attendList.attendMealNotice : attendList.attendNoMealNotice}
+                        </p>
+                      </div>
+                  </div>
+                : null
+              }
+              </> : null
+            }
+            {
+              attendList.optionAttendBus ?
+              <>
+                <div className={styles.input__item}>
+                  <p className={styles.input__title}>버스 탑승 여부</p>
+                  <div className={styles.input__data}>
+                    <div className={styles.data__wrap}>
+                      <div className={styles.data__item}>
+                        <input type="radio" name="attendBus" id="attendBusYes" checked={attendBus === "attendBusYes"} onChange={() => {setAttendBus("attendBusYes")}}/>
+                        <label htmlFor="attendBusYes">탑승함</label>
+                      </div>
+                      <div className={styles.data__item}>
+                        <input type="radio" name="attendBus" id="attendBusNo" checked={attendBus === "attendBusNo"} onChange={() => {setAttendBus("attendBusNo")}}/>
+                        <label htmlFor="attendBusNo">탑승안함</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
                 <div className={styles.input__item}>
                   <p className={styles.input__title}></p>
-                    <div className={styles.input__data}>
-                      <p className={styles.notice}>
-                        {attendMeal === "attendMealYes" ? attendList.attendMealNotice : attendList.attendNoMealNotice}
-                      </p>
-                    </div>
-                </div>
-              : null
-            }
-            </> : null
-          }
-          {
-            attendList.optionAttendBus ?
-            <>
-              <div className={styles.input__item}>
-                <p className={styles.input__title}>버스 탑승 여부</p>
-                <div className={styles.input__data}>
-                  <div className={styles.data__wrap}>
-                    <div className={styles.data__item}>
-                      <input type="radio" name="attendBus" id="attendBusYes" checked={attendBus === "attendBusYes"} onChange={() => {setAttendBus("attendBusYes")}}/>
-                      <label htmlFor="attendBusYes">탑승함</label>
-                    </div>
-                    <div className={styles.data__item}>
-                      <input type="radio" name="attendBus" id="attendBusNo" checked={attendBus === "attendBusNo"} onChange={() => {setAttendBus("attendBusNo")}}/>
-                      <label htmlFor="attendBusNo">탑승안함</label>
-                    </div>
+                  <div className={styles.input__data}>
+                    <p className={styles.notice}>
+                      {
+                        renderBusNotice()
+                      }
+                    </p>
                   </div>
                 </div>
-              </div>
-
-              <div className={styles.input__item}>
-                <p className={styles.input__title}></p>
-                <div className={styles.input__data}>
-                  <p className={styles.notice}>
-                    {
-                      renderBusNotice()
-                    }
-                  </p>
+              </> : null
+            }
+  
+            {/* <div className={`${styles.input__item} ${styles.title__top}`}>
+              <p className={styles.input__title}>메시지 전달</p>
+              <div className={styles.input__data}>
+                <div className={styles.data__wrap}>
+                  <textarea name="" id="" placeholder="신랑님에게 메시지를 남겨보세요."></textarea>
+                  <p>0/50</p>
                 </div>
               </div>
-            </> : null
-          }
+            </div> */}
+          </div>
+        </InvitationModal>
+        , document.body)
+      }
 
-          {/* <div className={`${styles.input__item} ${styles.title__top}`}>
-            <p className={styles.input__title}>메시지 전달</p>
-            <div className={styles.input__data}>
-              <div className={styles.data__wrap}>
-                <textarea name="" id="" placeholder="신랑님에게 메시지를 남겨보세요."></textarea>
-                <p>0/50</p>
-              </div>
-            </div>
-          </div> */}
-        </div>
-      </InvitationModal>
     </>
   );
 }

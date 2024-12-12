@@ -164,7 +164,7 @@ const Invitation = () => {
     if(isTabActive) {
       document.documentElement.style.overflowY = "hidden";
       invitationRef.current.style.overflowY = "hidden";
-    } else if(!isTabActive) {
+    } else if(!isTabActive && isMobile) {
       document.documentElement.style.overflowY = "visible";
       invitationRef.current.style.overflowY = "scroll";
     }

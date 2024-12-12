@@ -1,3 +1,5 @@
+// Import
+import { autoHyphenHandler, nameHandler } from '../../utils/helpers';
 /* Component */
 import CheckItem from "./CheckItem";
 /* CSS Module */
@@ -15,7 +17,7 @@ const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onCha
         name={itemKey === "Dad" ? "dadName" : "momName"}
         className={styles.info__parentname} 
         placeholder={`${pName} 성함`} 
-        value={itemKey === "Dad" ? data.dadName : data.momName}
+        value={nameHandler(itemKey === "Dad" ? data.dadName : data.momName)}
         onChange={onChange}
         maxLength={7}
       />
@@ -25,14 +27,7 @@ const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onCha
         className={styles.info__parentnumber} 
         placeholder="전화 번호 '-' 없이 입력" 
         maxLength={13}
-        value={(itemKey === "Dad" ? data.dadNumber : data.momNumber)
-            .replace(/[^0-9]/g, "")
-            .replace(/^(\d{3})(\d{0,4})?(\d{0,4})?$/, (match, p1, p2, p3) => {
-              if (p3) return `${p1}-${p2}-${p3}`;
-              if (p2) return `${p1}-${p2}`;
-              return p1;
-            })
-        }
+        value={autoHyphenHandler((itemKey === "Dad" ? data.dadNumber : data.momNumber))}
         onChange={onChange}
       />
       <CheckItem 
