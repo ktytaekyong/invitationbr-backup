@@ -131,6 +131,7 @@
     margin: 0 auto;
     top: 0;
     pointer-events: all;
+    transition: unset;
     @include device__query(tablet) {
       top: 0;
       z-index: 10001;
