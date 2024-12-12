@@ -208,14 +208,17 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                           : "이보람"
                         }
                       </p>
-                      <div className={styles.contact}>
-                        <Link to={`tel:${basicInfoList.groomInfo.number}`}>
-                          <img src={iconCallGroom} alt="" />
-                        </Link>
-                        <Link to={`sms:${basicInfoList.groomInfo.number}`}>
-                          <img src={iconMsgGroom} alt="" />
-                        </Link>
-                      </div>
+                      {
+                        basicInfoList.groomInfo.number ? 
+                        <div className={styles.contact}>
+                          <Link to={`tel:${basicInfoList.groomInfo.number}`}>
+                            <img src={iconCallGroom} alt="" />
+                          </Link>
+                          <Link to={`sms:${basicInfoList.groomInfo.number}`}>
+                            <img src={iconMsgGroom} alt="" />
+                          </Link>
+                        </div> : null
+                      }
                     </div>
                   </div>
                 </div>
@@ -228,14 +231,17 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                     <div className={`${styles.data__wrap}`}>
                       <div className={styles.data__item}>
                         <p>{basicInfoList.groomParentInfo.dadName}</p>
-                        <div className={styles.contact}>
-                          <Link to={`tel:${basicInfoList.groomParentInfo.dadNumber}`}>
-                            <img src={iconCallGroom} alt="" />
-                          </Link>
-                          <Link to={`sms:${basicInfoList.groomParentInfo.dadNumber}`}>
-                            <img src={iconMsgGroom} alt="" />
-                          </Link>
-                        </div>
+                        {
+                          basicInfoList.groomParentInfo.dadNumber ? 
+                          <div className={styles.contact}>
+                            <Link to={`tel:${basicInfoList.groomParentInfo.dadNumber}`}>
+                              <img src={iconCallGroom} alt="" />
+                            </Link>
+                            <Link to={`sms:${basicInfoList.groomParentInfo.dadNumber}`}>
+                              <img src={iconMsgGroom} alt="" />
+                            </Link>
+                          </div> : null
+                        }
                       </div>
                     </div>
                   </div>
@@ -249,14 +255,17 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                   <div className={`${styles.data__wrap}`}>
                     <div className={styles.data__item}>
                       <p>{basicInfoList.groomParentInfo.momName}</p>
-                      <div className={styles.contact}>
-                        <Link to={`tel:${basicInfoList.groomParentInfo.momNumber}`}>
-                          <img src={iconCallGroom} alt="" />
-                        </Link>
-                        <Link to={`sms:${basicInfoList.groomParentInfo.momNumber}`}>
-                          <img src={iconMsgGroom} alt="" />
-                        </Link>
-                      </div>
+                      {
+                        basicInfoList.groomParentInfo.momNumber ?
+                        <div className={styles.contact}>
+                          <Link to={`tel:${basicInfoList.groomParentInfo.momNumber}`}>
+                            <img src={iconCallGroom} alt="" />
+                          </Link>
+                          <Link to={`sms:${basicInfoList.groomParentInfo.momNumber}`}>
+                            <img src={iconMsgGroom} alt="" />
+                          </Link>
+                        </div> : null
+                      }
                     </div>
                   </div>
                 </div>
@@ -276,14 +285,17 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                           : "김신우"
                         }
                       </p>
-                      <div className={styles.contact}>
-                        <Link to={`tel:${basicInfoList.brideInfo.number}`}>
-                          <img src={iconCallBride} alt="" />
-                        </Link>
-                        <Link to={`sms:${basicInfoList.brideInfo.number}`}>
-                          <img src={iconMsgBride} alt="" />
-                        </Link>
-                      </div>
+                      {
+                        basicInfoList.brideInfo.number ?
+                        <div className={styles.contact}>
+                          <Link to={`tel:${basicInfoList.brideInfo.number}`}>
+                            <img src={iconCallBride} alt="" />
+                          </Link>
+                          <Link to={`sms:${basicInfoList.brideInfo.number}`}>
+                            <img src={iconMsgBride} alt="" />
+                          </Link>
+                        </div> : null
+                      }
                     </div>
                   </div>
                 </div>
@@ -296,14 +308,17 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                     <div className={`${styles.data__wrap}`}>
                       <div className={styles.data__item}>
                         <p>{basicInfoList.brideParentInfo.dadName}</p>
-                        <div className={styles.contact}>
-                          <Link to={`tel:${basicInfoList.brideParentInfo.dadNumber}`}>
-                            <img src={iconCallBride} alt="" />
-                          </Link>
-                          <Link to={`sms:${basicInfoList.brideParentInfo.dadNumber}`}>
-                            <img src={iconMsgBride} alt="" />
-                          </Link>
-                        </div>
+                        {
+                          basicInfoList.brideParentInfo.dadNumber ? 
+                          <div className={styles.contact}>
+                            <Link to={`tel:${basicInfoList.brideParentInfo.dadNumber}`}>
+                              <img src={iconCallBride} alt="" />
+                            </Link>
+                            <Link to={`sms:${basicInfoList.brideParentInfo.dadNumber}`}>
+                              <img src={iconMsgBride} alt="" />
+                            </Link>
+                          </div> : null
+                        }
                       </div>
                     </div>
                   </div>
@@ -317,14 +332,17 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                     <div className={`${styles.data__wrap}`}>
                       <div className={styles.data__item}>
                         <p>{basicInfoList.brideParentInfo.momName}</p>
-                        <div className={styles.contact}>
-                          <Link to={`tel:${basicInfoList.brideParentInfo.momNumber}`}>
-                            <img src={iconCallBride} alt="" />
-                          </Link>
-                          <Link to={`sms:${basicInfoList.brideParentInfo.momNumber}`}>
-                            <img src={iconMsgBride} alt="" />
-                          </Link>
-                        </div>
+                          {
+                            basicInfoList.brideParentInfo.momNumber ?
+                            <div className={styles.contact}>
+                              <Link to={`tel:${basicInfoList.brideParentInfo.momNumber}`}>
+                                <img src={iconCallBride} alt="" />
+                              </Link>
+                              <Link to={`sms:${basicInfoList.brideParentInfo.momNumber}`}>
+                                <img src={iconMsgBride} alt="" />
+                              </Link>
+                            </div> : null
+                          }
                       </div>
                     </div>
                   </div>
