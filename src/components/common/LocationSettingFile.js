@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import imageCompression from 'browser-image-compression';
 /* Component */
 import Button from "../layout/Button.js";
 /* CSS Module */
@@ -9,22 +10,37 @@ import { InfoContext } from "../../store/option-info-context.js";
 
 const LocationSettingFile = () => {
   const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
-  const fileAddHandler = (e) => {
-    const file = e.target.files[0];
-    if(file) {
-      const fileList = new FileReader();
-      fileList.onload = (e) => {
-        setSelectLocationFile([
-          {
-            fileName: file.name,
-            src: e.target.result,
-            alt: e.target.result,
-          },
-        ]);
-      };
-      fileList.readAsDataURL(file);
+  const fileAddHandler = async (e) => {
+    e.preventDefault();
+    const file = e.target.files[0]; 
+    const option = {
+      maxSizeMB: 4,
+      maxWidthOrHeight: 1200,
+      initialQuality: 1,
+    };
+  
+    if (file) {
+      try {
+        const compressedFile = await imageCompression(file, option); 
+  
+        const fileList = new FileReader();
+        fileList.onload = (event) => {
+          setSelectLocationFile([ 
+            {
+              fileName: file.name,
+              src: event.target.result,
+              alt: event.target.result,
+            },
+          ]);
+        };
+        fileList.readAsDataURL(compressedFile);
+      } catch (error) {
+        console.error('이미지 압축 중 오류 발생:', error);
+      } finally {
+        e.target.value = null; 
+      }
     }
-  }
+  };
   const fileDeleteHandler = (item) => {
     let list = [...selectLocationFile];
     list = list.filter((e) => e !== item);
