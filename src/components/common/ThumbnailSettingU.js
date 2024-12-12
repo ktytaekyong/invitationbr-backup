@@ -14,28 +14,28 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const ThumbnailSettingU = () => {
   const { urlInfoList, setUrlInfoList } = useContext(SetContext);
-  const fileAddHandler = (e) => {
-    const file = e.target.files[0];
+    const fileAddHandler = (e) => {
+    const file = e.target.files[0]; 
     if (file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setUrlInfoList(prev => (
+        setUrlInfoList((prev) => (
           [{
-            ...prev,
+            ...prev[0], 
             src: e.target.result,
           }]
-        ))
+        ));
       };
       fileList.readAsDataURL(file);
     }
   };
-  const photoDeleteHandler = (index) => {
+  const photoDeleteHandler = () => {
     setUrlInfoList((prev) => {
       const newList = [...prev];
-      newList[index].src = "";  
+      newList[0].src = ""; 
       return newList;
     });
-  }
+  };
   const infoDataChangeHandler = (e, index) => {
     const { name, value } = e.target;
     setUrlInfoList((prev) => {
@@ -49,7 +49,7 @@ const ThumbnailSettingU = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title='사진' multi={true}>
-            <PhotoSelector id="ThumbUPhoto" limit={1} listName={urlInfoList} onChange={fileAddHandler} hasSrc={true} hasSrcFunction={() => photoDeleteHandler(0)} />
+            <PhotoSelector id="ThumbUPhoto" limit={1} listName={urlInfoList} onChange={fileAddHandler} deleteFunction={photoDeleteHandler} />
           </CommonItemContent>
           <CommonItemContent title='제목'>
             <input type="text" name="title" value={urlInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />

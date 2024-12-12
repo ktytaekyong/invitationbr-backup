@@ -14,28 +14,31 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const ThumbnailSettingK = () => {
   const { kakaoInfoList, setKakaoInfoList } = useContext(SetContext);
-  const fileAddHandler = (e) => {
-    const file = e.target.files[0];
+   // 파일 추가 핸들러 (단일 파일만 처리)
+   const fileAddHandler = (e) => {
+    const file = e.target.files[0]; // 첫 번째 파일만 처리
     if (file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setKakaoInfoList(prev => (
+        setKakaoInfoList((prev) => (
           [{
-            ...prev,
+            ...prev[0], // 기존 데이터를 유지하면서 src만 업데이트
             src: e.target.result,
           }]
-        ))
+        ));
       };
-      fileList.readAsDataURL(file);
+      fileList.readAsDataURL(file); // 파일을 data URL로 읽기
     }
   };
-  const photoDeleteHandler = (index) => {
+
+  const photoDeleteHandler = () => {
     setKakaoInfoList((prev) => {
       const newList = [...prev];
-      newList[index].src = "";  
+      newList[0].src = ""; 
       return newList;
     });
-  }
+  };
+
   const infoDataChangeHandler = (e, index) => {
     const { name, value } = e.target;
     setKakaoInfoList((prev) => {
@@ -49,7 +52,7 @@ const ThumbnailSettingK = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title='사진' multi={true}>
-            <PhotoSelector id="ThumbKPhoto" limit={1} listName={kakaoInfoList} hasSrc={true} onChange={fileAddHandler} hasSrcFunction={() => photoDeleteHandler(0)} />
+            <PhotoSelector id="ThumbKPhoto" limit={1} listName={kakaoInfoList} onChange={fileAddHandler} deleteFunction={photoDeleteHandler} />
           </CommonItemContent>
 
           <CommonItemContent title='제목'>
