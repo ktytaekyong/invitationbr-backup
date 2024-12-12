@@ -30,11 +30,18 @@ const PhotoSelector = (props) => {
           props.type !== "video" ?
           props.listName.filter((_, idx) => idx < props.limit)
           .map((item, idx) => (
-            item.src ? 
+            item.src && props.id !== "galleryPhotoList" ?
             <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
               <Button type="button" styleType="close" onClick={() => props.deleteFunction([])} />
             </li>
-            : null
+            : 
+            <li className={styles.option__item} key={item.alt + idx} style={{backgroundImage: `url(${item.src})`}}>
+              <Button 
+                type="button" 
+                styleType="close" 
+                onClick={() => props.deleteFunction((prevList) => prevList.filter((_, removeIdx) => idx !== removeIdx))} 
+              />
+            </li>
           ))
           : null
         }
