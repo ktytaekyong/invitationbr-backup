@@ -22,23 +22,32 @@ const InvitationModalGallery = ({ src, onClose, openvar, clickidx }) => {
       ButtonWrapperUse={false}
     >
       <div className="modal">
-        <Swiper
-          initialSlide={clickidx}  // 클릭된 슬라이드부터 시작
-          loop={true}
-          spaceBetween={8}
-          slidesPerView={1}
-          modules={[Navigation, Pagination]}
-          className="modalSwiper"
-          navigation={true}
-        >
-          {selectGalleryPhotoList.length !== 0 ? (
-            selectGalleryPhotoList.map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <img src={item.src} alt={item.alt} />
-              </SwiperSlide>
-            ))
-          ) : null}
-        </Swiper>
+        <div className="swiper-container">
+          <Swiper
+            initialSlide={clickidx}  // 클릭된 슬라이드부터 시작
+            loop={true}
+            spaceBetween={8}
+            slidesPerView={1}
+            modules={[Navigation, Pagination]}
+            className="modalSwiper"
+            navigation={{
+              prevEl: '.swiper-button-wrapper .swiper-button-prev',
+              nextEl: '.swiper-button-wrapper .swiper-button-next',
+            }}
+          >
+            {selectGalleryPhotoList.length !== 0 ? (
+              selectGalleryPhotoList.map((item, idx) => (
+                <SwiperSlide key={idx}>
+                  <img src={item.src} alt={item.alt} />
+                </SwiperSlide>
+              ))
+            ) : null}
+            <div className="swiper-button-wrapper">
+              <button className="swiper-button-prev">Prev</button>
+              <button className="swiper-button-next">Next</button>
+            </div>
+          </Swiper>
+        </div>
       </div>
     </GalleryModal>
   );
