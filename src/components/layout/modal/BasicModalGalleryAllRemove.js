@@ -1,7 +1,7 @@
 /* Component */
 import BasicModal from './BasicModal';
 
-const BasicModalNoticeTDelete = ({ openvar, onClose, onClick }) => {
+const BasicModalGalleryAllRemove = ({ openvar, onClose, onClick }) => {
   return (
     <>
       <BasicModal 
@@ -10,16 +10,15 @@ const BasicModalNoticeTDelete = ({ openvar, onClose, onClick }) => {
         onClose={onClose} 
         onClick={onClick}
         notice={true} 
-        noticeContent="탭 삭제"
+        noticeContent="사진 모두 삭제"
         ButtonWrapperUse={true}
         btnContent1="취소"
-        btnContent2="탭 삭제"
+        btnContent2="삭제"
       >
-        <p>해당 탭을 삭제하시겠습니까?<br />
-        탭 삭제 시 입력한 내용도 함께 삭제됩니다.</p>
+        <p>현재 갤러리에 등록된 사진을 모두 삭제하시겠습니까?</p>
       </BasicModal>
     </>
   );
 }
 
-export default BasicModalNoticeTDelete;
+export default BasicModalGalleryAllRemove;

@@ -133,9 +133,7 @@ const NoticeSettingT = () => {
                     limit={1}
                     listName={[noticeTList[idx]]} 
                     onChange={(e) => fileAddHandler(e, idx)} 
-                    deleteFunction={setNoticeTList} 
-                    hasSrc={true} 
-                    hasSrcFunction={() => photoDeleteHandler(idx)}
+                    // deleteFunction={setNoticeTList}
                   />
                   <RadioList title="사진 위치">
                     <RadioItem 

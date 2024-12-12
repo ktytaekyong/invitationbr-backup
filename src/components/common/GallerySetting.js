@@ -1,5 +1,6 @@
 /* Import */
-import { useContext } from "react";
+import { useState, useContext } from "react";
+import ReactDOM from 'react-dom';
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -12,6 +13,7 @@ import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 import ButtonWrapper from "../layout/ButtonWrapper.js";
 import Button from "../layout/Button.js";
+import BasicModalGalleryAllRemove from "../layout/modal/BasicModalGalleryAllRemove.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 import { GalleryContext } from "../../store/option-gallery-context.js";
@@ -19,6 +21,11 @@ import { GalleryContext } from "../../store/option-gallery-context.js";
 const GallerySetting = () => {
   const { selectOptionList } = useContext(SetContext);
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -50,13 +57,21 @@ const GallerySetting = () => {
         selectGalleryPhotoList.length > 0 ?
         <CommonOptionContent>
           <ButtonWrapper styleType="center">
-            <Button content="사진 모두 삭제" styleType="point" onClick={() => setSelectGalleryPhotoList([])} />
+            <Button content="사진 모두 삭제" styleType="point" onClick={handleOpen} />
           </ButtonWrapper>
         </CommonOptionContent>
         : null
       }
-
+      {
+        ReactDOM.createPortal(      
+        <BasicModalGalleryAllRemove 
+          openvar={open}
+          onClose={handleClose} 
+          onClick={() => setSelectGalleryPhotoList([])}
+        />, document.body)
+      }
     </CommonOptionWrapper>
+    
   )
 }
 
