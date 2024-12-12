@@ -26,14 +26,14 @@ const OutroSetting = () => {
       };
       fileList.readAsDataURL(file);
     }
-    console.log(outroList);
   };
-  const photoDeleteHandler = () => {
-    setOutroList((prev) => ({
-      ...prev,
-      src: ""
-    }));
-  }
+  const photoDeleteHandler = (index) => {
+    setOutroList((prev) => {
+      let newList = {...prev};
+      newList = { ...newList, src: "" };
+      return newList; 
+    });
+  };
   const outroDataChangeHandler = (e) => {
     const { name, value } = e.target;
     setOutroList((prev) => ({
@@ -59,9 +59,7 @@ const OutroSetting = () => {
               limit={1}
               listName={[outroList]} 
               onChange={fileAddHandler} 
-              deleteFunction={setOutroList} 
-              hasSrc={true} 
-              hasSrcFunction={() => photoDeleteHandler(0)}
+              deleteFunction={() => photoDeleteHandler()} 
             />
             <RadioList title='사진 위치 (사진 첨부는 선택사항 입니다.)'>
               <RadioItem 
