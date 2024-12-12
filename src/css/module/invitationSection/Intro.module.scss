@@ -360,8 +360,6 @@
     .intro__photo {
       background: url(../../../img/intro/intro_photo_test7.png) no-repeat top / cover;
     }
-    .intro__title {
-    }
     .intro__title_couple {
       @include flex__row;
       width: 60%;

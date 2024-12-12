@@ -303,6 +303,38 @@
   ],
   "selectTabList": ["tabLetter", "tabDate", "tabGallery", "tabLocation"],
   "selectIntroPhoto": [
+    {
+      "src": "/img/intro/intro_photo1.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo2.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo3.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo4.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo5.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo6.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo7.png",
+      "alt": ""
+    },
+    {
+      "src": "/img/intro/intro_photo8.png",
+      "alt": ""
+    }
   ],
   "selectLocationFile": [
   ],

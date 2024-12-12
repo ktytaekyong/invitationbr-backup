@@ -1,7 +1,7 @@
 /* Import */
 import { useContext } from "react";
 import { useLocation } from "react-router-dom";
-import { nameHandler } from '../../utils/helpers';
+import { nameHandler, IntroPhotoChangeHandler } from '../../utils/helpers';
 // Component
 import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
@@ -11,14 +11,14 @@ import intro1Letter from "../../img/intro/intro_theme_1_lettering.png";
 import intro2Letter from "../../img/intro/intro_theme_2_lettering.png";
 import intro3Letter from "../../img/intro/intro_theme_3_flower.png";
 import intro4Letter from "../../img/intro/intro_theme_4_lettering.png";
-import introPhoto1 from "../../img/intro/intro_photo_test1.png";
-import introPhoto2 from "../../img/intro/intro_photo_test2.png";
-import introPhoto3 from "../../img/intro/intro_photo_test3.png";
-import introPhoto4 from "../../img/intro/intro_photo_test4.png";
-import introPhoto5 from "../../img/intro/intro_photo_test5.png";
-import introPhoto6 from "../../img/intro/intro_photo_test6.png";
-import introPhoto7 from "../../img/intro/intro_photo_test7.png";
-import introPhoto8 from "../../img/intro/intro_photo_test8.png";
+// import introPhoto1 from "../../img/intro/intro_photo_test1.png";
+// import introPhoto2 from "../../img/intro/intro_photo_test2.png";
+// import introPhoto3 from "../../img/intro/intro_photo_test3.png";
+// import introPhoto4 from "../../img/intro/intro_photo_test4.png";
+// import introPhoto5 from "../../img/intro/intro_photo_test5.png";
+// import introPhoto6 from "../../img/intro/intro_photo_test6.png";
+// import introPhoto7 from "../../img/intro/intro_photo_test7.png";
+// import introPhoto8 from "../../img/intro/intro_photo_test8.png";
 import introFlower from "../../img/intro/intro_photo_flower.png";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
@@ -90,11 +90,7 @@ const Intro = () => {
                 </div>
               </div>
               <div className={styles.intro__photo}>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto1} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
+                {IntroPhotoChangeHandler(0, "img")}
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
@@ -103,9 +99,7 @@ const Intro = () => {
                   </h2>
                   <p className={styles.divide}></p>
                   <h2 className={styles.bride} style={{color: prevIntroColor[1]}}>
-                    {}
                     {introSample && introSample[1] ? nameDivideHandler(introSample[1], 1) : nameInitHandler(basicInfoList.brideInfo, "김신우")}
-
                   </h2>
                 </div>
                 <div className={styles.intro__title_date}>
@@ -147,11 +141,7 @@ const Intro = () => {
               </div>
               <div className={styles.intro__photo}>
                 <p>getting</p>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto2} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
+                {IntroPhotoChangeHandler(1, "img")}
                 <p>married</p>
               </div>
               <div className={styles.intro__title}>
@@ -203,11 +193,7 @@ const Intro = () => {
                 </div>
               </div>
               <div className={styles.intro__photo}>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto3} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
+              {IntroPhotoChangeHandler(2, "img")}
               </div>
             </div>
           );
@@ -222,11 +208,7 @@ const Intro = () => {
                 </div>
               </div>
               <div className={styles.intro__photo}>
-                {
-                  selectIntroPhoto.length === 0 ?
-                  <img src={introPhoto4} alt="표지 사진" />
-                  : <img src={selectIntroPhoto[0].src} alt="표지 사진" />
-                }
+                {IntroPhotoChangeHandler(3, "img")}
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
@@ -248,7 +230,7 @@ const Intro = () => {
         case "fillTemplate1":
           return (
             <div className={styles.intro__wrap}>
-              <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto5 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
+              <div style={{backgroundImage: `url(${IntroPhotoChangeHandler(4, "bg")})`}} className={styles.intro__photo}>
                 <div className={styles.intro__headline}>
                   <div className={styles.txt__wrap}>
                     <p style={{color: prevIntroColor[0]}}>{introSample && introSample[0] ? introSample[0] : "결혼합니다"}</p>
@@ -275,7 +257,7 @@ const Intro = () => {
         case "fillTemplate2":
           return (
             <div className={styles.intro__wrap}>
-              <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto6 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
+              <div style={{backgroundImage: `url(${IntroPhotoChangeHandler(5, "bg")})`}} className={styles.intro__photo}>
                 <div className={styles.intro__title_couple}>
                   <h2 style={{color: prevIntroColor[0]}} className={styles.groom}>{introSample && introSample[0] ? nameDivideHandler(introSample[0], 0) : nameInitHandler(basicInfoList.groomInfo, "이보람")}</h2>
                   <img src={intro4Letter} alt="" />
@@ -297,7 +279,7 @@ const Intro = () => {
         case "fillTemplate3":
           return (
             <div className={styles.intro__wrap}>
-              <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto7 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
+              <div style={{backgroundImage: `url(${IntroPhotoChangeHandler(6, "bg")})`}} className={styles.intro__photo}>
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>
@@ -319,7 +301,7 @@ const Intro = () => {
         case "fillTemplate4":
           return (
             <div className={styles.intro__wrap}>
-              <div style={{backgroundImage: `url(${selectIntroPhoto.length === 0 ? introPhoto8 : selectIntroPhoto[0].src})`}} className={styles.intro__photo}>
+              <div style={{backgroundImage: `url(${IntroPhotoChangeHandler(7, "bg")})`}} className={styles.intro__photo}>
               </div>
               <div className={styles.intro__title}>
                 <div className={styles.intro__title_couple}>

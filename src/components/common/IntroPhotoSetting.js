@@ -12,15 +12,10 @@ import ButtonWrapper from "../layout/ButtonWrapper.js"
 import Button from "../layout/Button.js"
 /* Context */
 import { IntroContext } from "../../store/option-intro-context.js";
-import { SetContext } from "../../store/option-set-context.js";
 
-// const option = {
-//   maxSizeMB: 2,
-//   maxWidthOrHeight: 1024,
-// }
+// C: 인트로 사진 설정
 const IntroPhotoSetting = () => {
   const { selectIntroPhoto, setSelectIntroPhoto } = useContext(IntroContext);
-  const { isMobile } = useContext(SetContext);
   const [ photoList ] = useState([]);
   const fileAddHandler = async (e) => {
     const file = e.target.files[0];
@@ -57,7 +52,7 @@ const IntroPhotoSetting = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="사진" multi={true}>
-            <PhotoSelector id="photoList" listName={selectIntroPhoto} onChange={fileAddHandler} deleteFunction={setSelectIntroPhoto} />
+            <PhotoSelector id="photoList" limit={1} listName={selectIntroPhoto} onChange={fileAddHandler} deleteFunction={setSelectIntroPhoto} />
           </CommonItemContent>
 
           <CommonItemContent title="편집" multi={isActive ? true : false}>

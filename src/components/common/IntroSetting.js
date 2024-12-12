@@ -66,6 +66,8 @@ const fillIntroList = [
 //     altVal: "simpleTemplate1",
 //   },
 // ]
+
+// C: 인트로 화면 옵션 설정
 const IntroSetting = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const [isActiveTab, setIsActiveTab] = useState(0);

@@ -18,6 +18,10 @@
     border: 1px solid $border-color--default;
     background: #FFF no-repeat center / cover;
     overflow: hidden;
+    order: 0;
+    &:first-child {
+      order: 999;
+    }
     label {
       @include position;
       width: inherit;
@@ -41,10 +45,6 @@
     max-width: 112px;
     height: 112px;
     background: #FFF no-repeat center / cover;
-    order: 0;
-    &:first-child {
-      order: 999;
-    }
   }
 }
 input[type="file"] {
