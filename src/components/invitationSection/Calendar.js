@@ -7,7 +7,6 @@ import BasicCalendarTheme2 from "./BasicCalendarTheme2.js";
 import BasicCalendarTheme3 from "./BasicCalendarTheme3.js";
 import BasicCalendarTheme4 from "./BasicCalendarTheme4.js";
 import HeadLine from "../layout/HeadLine.js";
-import MobileSettingButtonWrapper from "../layout/MobileSettingButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/invitationSection/Calendar.module.scss";
 /* Image */
@@ -83,33 +82,25 @@ const Calendar = () => {
     switch(id) {
       case "calendarType1":
         return (
-          <div className={styles.date__wrap_add}>
-            <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
-              <img src={calendarTheme1} alt="" />
-              <div className={styles.date__content}>
-                {selectOptionList.dateDdayOption ?
-                  <div className={styles.d_day}>
-                    <p>
-                      {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
-                      , {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                      의 결혼식이<br />
-                      <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.
-                    </p>
-                    <p className={styles.divide}></p>
-                  </div>
-                  : null
-                }
-                <p className={styles.month}>
-                  {monthRenderer(basicInfoList.dateInfo.date)}
-                </p>
-                <div className={styles.calendar}>
-                  <BasicCalendarTheme1 />
-                </div>
+          <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
+            <HeadLine title="예식 일시" content="D-day"></HeadLine>
+            <div className={styles.date__content}>
+              <div className={styles.date}>
+                <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
+                <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
               </div>
-            </div>
-            <div className={styles.date}>
-              <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
-              <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+              <div className={styles.calendar}>
+                <BasicCalendarTheme4 />
+              </div>
+              {selectOptionList.dateDdayOption ?
+                <div className={styles.d_day}>
+                  <p>
+                    {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
+                    {/* <span>♥</span> */}, {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+                    의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                </div>
+                : null
+              }
             </div>
           </div>
         );
@@ -140,6 +131,38 @@ const Calendar = () => {
         );
       case "calendarType3":
         return (
+          <div className={styles.date__wrap_add}>
+            <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
+              <img src={calendarTheme1} alt="" />
+              <div className={styles.date__content}>
+                {selectOptionList.dateDdayOption ?
+                  <div className={styles.d_day}>
+                    <p>
+                      {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
+                      , {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
+                      의 결혼식이<br />
+                      <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.
+                    </p>
+                    <p className={styles.divide}></p>
+                  </div>
+                  : null
+                }
+                <p className={styles.month}>
+                  {monthRenderer(basicInfoList.dateInfo.date)}
+                </p>
+                <div className={styles.calendar}>
+                  <BasicCalendarTheme1 />
+                </div>
+              </div>
+            </div>
+            <div className={styles.date}>
+              <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
+              <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+            </div>
+          </div>
+        );
+      case "calendarType4":
+        return (
           <div className={styles.date__wrap}>
             <HeadLine title="예식 일시" content="D-day"></HeadLine>
             <div className={styles.date__content}>
@@ -156,30 +179,6 @@ const Calendar = () => {
                     {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                     {/* <span>♥</span> */}, {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
                     의 결혼식이<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
-                </div>
-                : null
-              }
-            </div>
-          </div>
-        );
-      case "calendarType4":
-        return (
-          <div className={styles.date__wrap} style={{ backgroundColor: "var(--theme-select-color)" }}>
-            <HeadLine title="예식 일시" content="D-day"></HeadLine>
-            <div className={styles.date__content}>
-              <div className={styles.date}>
-                <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
-                <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
-              </div>
-              <div className={styles.calendar}>
-                <BasicCalendarTheme4 />
-              </div>
-              {selectOptionList.dateDdayOption ?
-                <div className={styles.d_day}>
-                  <p>
-                    {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
-                    {/* <span>♥</span> */}, {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                    의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
                 </div>
                 : null
               }
