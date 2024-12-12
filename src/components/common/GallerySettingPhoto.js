@@ -60,7 +60,7 @@ const GallerySettingPhoto = () => {
         onDrop={fileAddHandler}
       >
         <div className={styles.photo__content} >
-          <PhotoSelector id="galleryPhotoList" listName={selectGalleryPhotoList} onChange={fileAddHandler} deleteFunction={setSelectGalleryPhotoList} />
+          <PhotoSelector id="galleryPhotoList" limit={20} listName={selectGalleryPhotoList} onChange={fileAddHandler} deleteFunction={setSelectGalleryPhotoList} />
         </div>
         <div className={styles.photo__input}>
           <div className={styles.photo__input_wrap}>

@@ -130,6 +130,7 @@ const NoticeSettingT = () => {
                 <CommonItemContent title="사진" multi={true}>
                   <PhotoSelector 
                     id={`NoticeTPhotoList${idx}`} 
+                    limit={1}
                     listName={[noticeTList[idx]]} 
                     onChange={(e) => fileAddHandler(e, idx)} 
                     deleteFunction={setNoticeTList} 

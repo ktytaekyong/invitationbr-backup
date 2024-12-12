@@ -49,7 +49,7 @@ const ThumbnailSettingU = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title='사진' multi={true}>
-            <PhotoSelector id="ThumbUPhoto" listName={urlInfoList} onChange={fileAddHandler} hasSrc={true} hasSrcFunction={() => photoDeleteHandler(0)} />
+            <PhotoSelector id="ThumbUPhoto" limit={1} listName={urlInfoList} onChange={fileAddHandler} hasSrc={true} hasSrcFunction={() => photoDeleteHandler(0)} />
           </CommonItemContent>
           <CommonItemContent title='제목'>
             <input type="text" name="title" value={urlInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />

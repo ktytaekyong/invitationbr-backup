@@ -56,6 +56,7 @@ const OutroSetting = () => {
           <CommonItemContent title='사진' multi={true}>
             <PhotoSelector 
               id='OutroPhoto'
+              limit={1}
               listName={[outroList]} 
               onChange={fileAddHandler} 
               deleteFunction={setOutroList} 

@@ -49,11 +49,11 @@ const ThumbnailSettingK = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title='사진' multi={true}>
-            <PhotoSelector id='ThumbKPhoto' listName={kakaoInfoList} hasSrc={true} onChange={fileAddHandler} hasSrcFunction={() => photoDeleteHandler(0)} />
+            <PhotoSelector id="ThumbKPhoto" limit={1} listName={kakaoInfoList} hasSrc={true} onChange={fileAddHandler} hasSrcFunction={() => photoDeleteHandler(0)} />
           </CommonItemContent>
 
           <CommonItemContent title='제목'>
-            <input type='text' name="title" value={kakaoInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />
+            <input type="text" name="title" value={kakaoInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />
           </CommonItemContent>
 
           <CommonItemContent title='내용' multi={true}>
