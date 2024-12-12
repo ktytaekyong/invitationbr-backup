@@ -7,6 +7,8 @@ import styles from "../../css/module/invitationSection/Video.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
+/* Image */
+import sampleVideoImg from "../../img/video/video_photo.png"
 
 const Video = () => {
   const { videoList } = useContext(SetContext);
@@ -30,12 +32,22 @@ const Video = () => {
         <HeadLine title="동영상" content="movie"></HeadLine>
         <div className={styles.video__content}>
           {
-            isValidYouTubeUrl(videoList.videoUrl) ?
-            <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
-            :
+            videoList.videoSrc ? 
             <video controls preload="auto">
               {renderVideoHandler(videoList.videoSrc)}
             </video>
+            :
+            null
+          }
+          {
+            videoList.videoUrl ? 
+            <iframe height="100%" src={videoList.videoUrl} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+            :
+            null
+          }
+          {
+            videoList.videoSrc === "" && videoList.videoUrl === "" ?
+            <img src={sampleVideoImg} alt="" /> : null
           }
         </div>
       </div>

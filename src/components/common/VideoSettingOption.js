@@ -13,27 +13,25 @@ const VideoSettingOption = () => {
   const { videoList, setVideoList, selectOptionList } = useContext(SetContext);
   const fileAddHandler = (e) => {
     const file = e.target.files[0];
-    if(file) {
+    if (file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
-        setVideoList(() => (
-          {
-            videoUrl: "",
-            videoSrc: e.target.result,
-          }
-        ));
+        setVideoList(() => ({
+          videoUrl: "",
+          videoSrc: e.target.result, 
+        }));
       };
       fileList.readAsDataURL(file);
     }
-  }
+  };
+
+  // 유튜브 URL 핸들러
   const youtubeUrlHandler = (e) => {
-    setVideoList(() => (
-      {
-        videoUrl: e.target.value,
-        videoSrc: "",
-      }
-    ))
-  }
+    setVideoList(() => ({
+      videoUrl: e.target.value,
+      videoSrc: "",
+    }));
+  };
   
   return (
     <div className={styles.video__wrap}>
@@ -55,7 +53,7 @@ const VideoSettingOption = () => {
         {
           selectOptionList.videoType === "videoRegOption" ?
           <div className={styles.video__reg}>
-            <PhotoSelector type="video" listName={videoList} onChange={fileAddHandler} deleteFunction={setVideoList}></PhotoSelector>
+            <PhotoSelector type="video" listName={videoList} onChange={fileAddHandler} deleteFunction={() => setVideoList({ videoUrl: "", videoSrc: "" })} />
             <SettingNotice>
               <SettingNoticeContent>파일확장자명은 mp3, mov, avi, mkv, 용량 10mb 이하로 1개만 등록하실 수 있습니다.</SettingNoticeContent>
             </SettingNotice>
