@@ -65,8 +65,8 @@ const GallerySettingPhoto = () => {
         <div className={styles.photo__input}>
           <div className={styles.photo__input_wrap}>
             <input type="file" name="galleryFile" id="galleryFile" multiple onChange={fileAddHandler} /> 
-            <label htmlFor="galleryFile">사진 추가</label>
-            <p>사진을 끌어오셔도 됩니다.</p>
+            <label htmlFor="galleryFile">재전송</label>
+            <p>(사진을 끌어오셔도 됩니다.)</p>
           </div>
           <div className={styles.photo__input_total}>
             <p>

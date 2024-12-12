@@ -19,23 +19,41 @@
       @include flex__row;
       justify-content: flex-start;
       align-items: center;
-      column-gap: 8px;
+      column-gap: 4px;
       label {
+        @include position;
         @include flex__row_inline;
         justify-content: center;
         align-items: center;
         flex-shrink: 0;
-        padding: 8.5px 20px;
-        font-size: $font-size--setting-xsm;
+        font-size: $font-size--setting-sm;
         font-weight: $font-weight--Medium;
         border-radius: $radius--default;
         border: none;
-        background-color: $point-color--default;
-        color: #FFF;
+        padding-left: 27px;
+        background: url(../../../img/icon/icon_add.png) no-repeat left center / 24px;
+        color: $text-color--default;
+        @include device__query(tablet) {
+          font-size: $font-size--setting-xsm;
+        }
+        &::after {
+          @include position(a, null, null, -2px, -1);
+          width: calc(100% - 25px);
+          height: 1px;
+          background: #000;
+          background: $text-color--default;
+          content: "";
+          @include device__query(tablet) {
+            width: calc(100% - 27px);
+          }
+        }
       }
       p {
         font-size: $font-size--setting-sm;
         font-weight: $font-weight--Regular;
+        @include device__query(tablet) {
+          font-size: $font-size--setting-xsm;
+        }
       }
     }
     &_total {
@@ -49,6 +67,9 @@
         font-size: $font-size--setting-xsm;
         font-weight: $font-weight--Regular;
         color: $text-color--disable-input;
+        @include device__query(tablet) {
+          font-size: $font-size--setting-xxsm;
+        }
         &:first-child {
           color: $text-color--default;
           font-weight: $font-weight--Bold;
