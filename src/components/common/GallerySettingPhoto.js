@@ -27,7 +27,6 @@ const GallerySettingPhoto = () => {
         for (const file of filesArray) { 
           const compressedFile = await imageCompression(file, option);
           const fileList = new FileReader();
-          
           fileList.onload = (event) => {
             setSelectGalleryPhotoList((prevList) => {
               if (prevList.length >= 20) {
@@ -48,6 +47,8 @@ const GallerySettingPhoto = () => {
         }
       } catch (error) {
         console.error('이미지 압축 중 오류 발생:', error);
+      } finally {
+        e.target.value = null;
       }
     }
   }
