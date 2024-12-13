@@ -6,6 +6,7 @@ import Button from "../layout/Button";
 import styles from "../../css/module/common/PhotoSelector.module.scss";
 /* Image */
 import photoAddImg from "../../img/photoSelector/photo_selector_add.png"
+import videoAddImg from "../../img/video/video_selector_add.png"
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -23,8 +24,8 @@ const PhotoSelector = (props) => {
   return (
     <div id={props.id} className={`${styles.photo__selector} ${props.id === "galleryPhotoList" ? styles["gallery"] : ""}`}>
       <ul className={styles.option__list}>
-        <li className={styles.option__item} style={{backgroundImage: `url(${photoAddImg})`}}>
-          <input type="file" name="src" id={`${props.id}File`} multiple={props.limit > 1 ? true : false}  onChange={props.onChange} />
+        <li className={styles.option__item} style={{backgroundImage: props.type === "video" ? `url(${videoAddImg})` : `url(${photoAddImg})`}}>
+          <input type="file" name="src" id={`${props.id}File`} multiple={props.limit > 1 ? true : false} onChange={props.onChange} />
           <label htmlFor={`${props.id}File`}></label>
         </li>
         {

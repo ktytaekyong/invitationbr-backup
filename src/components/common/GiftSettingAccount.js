@@ -55,9 +55,8 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                 />
                 <input type="number" 
                   name="account" 
-                  value={item.account} 
-                  className={styles.input__account} 
-                  maxLength={16}
+                  value={item.account}
+                  className={styles.input__account}
                   onChange={
                     gender === "M" ?
                     (e) => onChange(e, "groomGroupList", idx)
