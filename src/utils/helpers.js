@@ -22,23 +22,12 @@ export const nameHandler = (data) => ( // FUNC: 이름에 숫자 입력 차단
 // ********** PHOTO(INTRO) ********** //
 export const IntroPhotoChangeHandler = (introIdx, type) => { // FUNC: 인트로 사진 - 테스트 이미지/내 이미지 구분 로직
   const { selectIntroPhoto } = useContext(IntroContext);
-  if(selectIntroPhoto.length === 0) {
-    if(type === "img") {
-      return <img src="/img/intro/intro_photo_empty.png" alt="표지 사진" />;
-    } else if(type === "bg") {
-      return "/img/intro/intro_photo_empty.png";
-    }
-  } if(selectIntroPhoto.length === 1) {
-    if(type === "img") {
-      return <img src={selectIntroPhoto[0].src} alt={selectIntroPhoto[0].alt} />;
-    } else if(type === "bg") {
-      return selectIntroPhoto[0].src;
-    }
-  } else {
-    if(type === "img") {
-      return <img src={selectIntroPhoto[introIdx].src} alt={selectIntroPhoto[introIdx].alt} />;
-    } else if(type === "bg") {
-      return selectIntroPhoto[introIdx].src;
-    }
+  const defaultImg = "/img/intro/intro_photo_empty.png";
+  if (selectIntroPhoto.length === 0) {
+    return type === "img" ? <img src={defaultImg} alt="표지 사진" /> : defaultImg;
   }
+  const selectedPhoto = selectIntroPhoto[Math.min(introIdx, selectIntroPhoto.length - 1)];
+  return type === "img" 
+    ? <img src={selectedPhoto.src} alt={selectedPhoto.alt} /> 
+    : selectedPhoto.src;
 }
