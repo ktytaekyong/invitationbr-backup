@@ -31,7 +31,7 @@
     }
     &.preview {
       position: fixed;
-      top: 50px;
+      top: 52px;
       > ul {
         max-width: $width--min;
         max-width: calc($width--min - 40px);
@@ -53,7 +53,9 @@
       content: "";
     }
     &.active {
-      top: 60px;
+      @include device__query(tablet) {
+        top: 60px;
+      }
       margin: 20px 20px;
       z-index: 10055;
       &::after {

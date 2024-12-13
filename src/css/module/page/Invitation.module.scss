@@ -33,6 +33,7 @@
       // padding-top: 0;
     }
     &.fillTemplate4 {
+      margin-top: 0;
     }
   }
   * {
@@ -59,7 +60,9 @@
     }
   }
   &.fillTemplate4 {
-    margin-top: 52px;
+    @include device__query(tablet) {
+      margin-top: 52px;
+    }
   }
 }
 
