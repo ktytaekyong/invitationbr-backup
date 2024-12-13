@@ -50,6 +50,7 @@ const AttendSetting = () => {
               type="text" 
               name="attendTitle" 
               value={attendList.attendTitle} 
+              maxLength={10}
               onChange={(e) => DataChanger_Object(e, setAttendList)} 
               placeholder="참석 의사 전달" 
             />
@@ -74,7 +75,8 @@ const AttendSetting = () => {
             <input 
               type="text" 
               name="attendButtonTitle" 
-              value={attendList.attendButtonTitle} 
+              value={attendList.attendButtonTitle}
+              maxLength={10}
               onChange={(e) => DataChanger_Object(e, setAttendList)} 
               placeholder="참석 의사 전달하기" 
             />
