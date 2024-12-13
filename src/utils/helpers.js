@@ -34,14 +34,14 @@ export const IntroImgSeparator = (introIdx, type) => { // FUNC: 인트로 사진
 
 
 // ********** DATE ********** //
-export const DayConverter = (date) => { // FUNC: 영어 약어 요일 -> 한글 요일 변환
+export const DayConverter = (date) => { // FUNC: 숫자 데이터 날짜 -> 요일 변환
   const dateObj = new Date(date);
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; 
   const dayOfWeek = daysOfWeek[dateObj.getDay()]; 
   return dayOfWeek;
 }
 
-export const DayConverterENG = (date) => { // FUNC: 영어 약어 요일 -> 영어 요일 변환
+export const DayConverterENG = (date) => { // FUNC: 숫자 데이터 월 -> 영어 요일 변환
   const [, month] = date.split('-');
   const monthEng = (month) => {
     switch(month) {
