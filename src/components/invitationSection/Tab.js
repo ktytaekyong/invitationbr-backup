@@ -86,15 +86,6 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
     setIsTabActive(false);
   }, [selectOptionList.introFillType, setIsTabActive]);
 
-  useEffect(() => {
-    const currentPos = invitationRef.current?.scrollTop || 0;
-    const tab = tabRef.current;
-    if (!tab) return;
-    if (currentPos > 0) {
-      // tab.style.transform = "translateY(20px)";
-    } 
-  }, []);
-
   const firstMenuPositionHandler = () => {
     if(selectOptionList.theme === "themeModernBasic" && (selectOptionList.introFillType === "fillTemplate1" || selectOptionList.introFillType === "fillTemplate2" || selectOptionList.introFillType === "fillTemplate3" || selectOptionList.introFillType === "fillTemplate4")) {
       return 8;
@@ -103,62 +94,46 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
     }
   }
 
-  // const lastPos = useRef(0);
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const tab = tabRef.current;
-  //     const tabBtn = tabBtnRef.current;
-  //     if(isTargetPage || isMobile) {
-  //       const currentPos = window.scrollY || 0;
-  //       if (!tab) return;
-  //       if (currentPos > 0) {
-  //         tab.classList.add(styles["active"]);
-  //         tabBtn.style.top = "0";
-  //       } else {
-  //         tab.classList.remove(styles["active"]);
-  //         tabBtn.style.top = "60px";
-  //       }
-  //       if (lastPos.current > currentPos) {
-  //         if(currentPos <= 20) {
-  //           tab.style.transform = "translateY(0)";
-  //         }
-  //       } else if (lastPos.current < currentPos) {
-  //         tab.style.transform = "translateY(0)";
-  //         tab.classList.remove("active");
-  //       }
-  //       lastPos.current = currentPos;
-  //     } else {
-  //       const currentPos = invitationRef.current?.scrollTop || 0;
-  //       if (!tab) return;
-  //       if (currentPos > 0) {
-  //         tab.classList.add(styles["active"]);
-  //         // tab.style.transform = "translateY(20px)";
-  //       } else {
-  //         tab.classList.remove(styles["active"]);
-  //       }
-  //     }
-  //   };
-  //   if(isTargetPage || isMobile) {
-  //     if (window) {
-  //       window.addEventListener("scroll", handleScroll);
-  //     }
-  //     return () => {
-  //       if (window) {
-  //         window.removeEventListener("scroll", handleScroll);
-  //       }
-  //     };
-  //   } else {
-  //     const invitationEl = invitationRef.current;
-  //     if (invitationEl) {
-  //       invitationEl.addEventListener("scroll", handleScroll);
-  //     }
-  //     return () => {
-  //       if (invitationEl) {
-  //         invitationEl.removeEventListener("scroll", handleScroll);
-  //       }
-  //     };
-  //   }
-  // }, [isMobile, isTargetPage]);
+  useEffect(() => {
+    const handleScroll = () => {
+      const tab = tabRef.current;
+      let currentPos = 0;
+      if (isTargetPage || isMobile) {
+        // `window` 스크롤 값 사용
+        currentPos = window.scrollY;
+      } else {
+        // `invitationRef.current` 스크롤 값 사용
+        currentPos = invitationRef.current?.scrollTop || 0;
+      }
+      if (!tab) return;
+      if (currentPos > 0) {
+        tab.classList.add(styles["active"]);
+      } else {
+        tab.classList.remove(styles["active"]);
+      }
+    };
+
+    if(isTargetPage || isMobile) {
+      if (window) {
+        window.addEventListener("scroll", handleScroll);
+      }
+      return () => {
+        if (window) {
+          window.removeEventListener("scroll", handleScroll);
+        }
+      };
+    } else {
+      const invitationEl = invitationRef.current;
+      if (invitationEl) {
+        invitationEl.addEventListener("scroll", handleScroll);
+      }
+      return () => {
+        if (invitationEl) {
+          invitationEl.removeEventListener("scroll", handleScroll);
+        }
+      };
+    }
+  }, [isMobile, isTargetPage]);
 
   return (
     <>

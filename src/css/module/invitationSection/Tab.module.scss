@@ -36,9 +36,6 @@
         max-width: $width--min;
         max-width: calc($width--min - 40px);
       }
-      &.active {
-        top: 0;
-      }
     }
     &::after {
       @include position(a, 50%, 50%);
@@ -56,11 +53,8 @@
       content: "";
     }
     &.active {
-      top: 20px;
+      top: 52px;
       margin: 20px 20px;
-      @include device__query(tablet) {
-        top: 0;
-      }
       &::after {
         opacity: 1;
       }

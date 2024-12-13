@@ -46,7 +46,7 @@ const Header = () => {
   }
 
   const headerRef = useRef(null); 
-  const [lastPos, setLastPos] = useState(0);
+  // const [lastPos, setLastPos] = useState(0);
 
   // useEffect(() => {
   //   if(isMobile) {
@@ -60,13 +60,6 @@ const Header = () => {
   //         } else {
   //           header.classList.remove(styles["active"]);
   //         }
-  //         if (lastPos > currentPos) {
-  //           header.style.transform = "translateY(0)"; 
-  //         } else if (lastPos < currentPos) {
-  //           header.style.transform = "translateY(-100%)"; 
-  //           header.classList.remove(styles["active"]);
-  //         }
-  //         setLastPos(currentPos);
   //       }
   //     };
   //     window.addEventListener("scroll", handleScroll);
