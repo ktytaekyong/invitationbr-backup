@@ -47,7 +47,7 @@ const OutroSetting = () => {
         <CommonItemWrapper>
           <CommonItemContent title='내용' multi={true}>
             <TextEditor 
-              name="content" 
+              dataName="content" 
               textValue={outroList.content} 
               onChange={(e)=>{outroDataChangeHandler(e)}}
             />

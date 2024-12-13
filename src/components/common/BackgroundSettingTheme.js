@@ -6,7 +6,7 @@ import styles from "../../css/module/common/BackgroundSettingTheme.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 
 const colorList = ["#F9FAFB", "#F5FAFE", "#FEF8F8", "#FDFAF5"];
-// C: 배경 셋팅 - 테마 컬러 (BackgroundSetting)
+// C: 배경 편집 - 테마 컬러 (BackgroundSetting)
 const BackgroundSettingTheme = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const backgroundColorHandler = (e) => { // Func: 셀렉트박스 값에 따라 테마 컬러 변경

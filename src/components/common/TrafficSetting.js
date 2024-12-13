@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import { DataChanger_ObjectArray } from "../../utils/helpers.js";
 /* Component */
 import ListOptionContent from "./ListOptionContent.js";
 import CommonItemWrapper from "./CommonItemWrapper.js";
@@ -27,14 +28,6 @@ const TrafficSetting = () => {
       return [...trafficList].filter((_, listidx) => listidx !== removeidx);
     })
   }
-  const trafficDataChangeHandler = (e, index) => {
-    const { name, value } = e.target;
-    setTrafficList(prev => (
-      prev.map((item, idx) => 
-        idx === index ? { ...item, [name]: value } : item 
-      )
-    ))
-  }
   return (
     <ListOptionContent>
       {
@@ -46,9 +39,13 @@ const TrafficSetting = () => {
               name="traffic" 
               value={item.traffic} 
               placeholder="교통수단명을 입력하세요. (ex : 지하철/버스/자가용)"
-              onChange={(e) => trafficDataChangeHandler(e, idx)} 
+              onChange={(e) => DataChanger_ObjectArray(e, idx, setTrafficList)} 
             />
-            <TextEditor name="content" textValue={item.content} onChange={(e) => trafficDataChangeHandler(e, idx)} />
+            <TextEditor 
+              dataName="content" 
+              textValue={item.content} 
+              onChange={(e) => DataChanger_ObjectArray(e, idx, setTrafficList)} 
+            />
             <Button type="button" content="교통수단 삭제" styleType="remove" onClick={() => trafficRemoveHandler(idx)} />
           </CommonItemContent>
         </CommonItemWrapper>

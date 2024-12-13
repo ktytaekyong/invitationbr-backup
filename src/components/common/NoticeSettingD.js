@@ -63,7 +63,7 @@ const NoticeSettingD = () => {
     
               <CommonItemContent title='내용'>
                 <TextEditor 
-                  name="content" 
+                  dataName="content"
                   textValue={item.content} 
                   onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
                 />

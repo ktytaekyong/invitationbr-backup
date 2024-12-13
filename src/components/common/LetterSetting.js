@@ -19,8 +19,7 @@ const LetterSetting = () => {
         <CommonItemWrapper>
           <CommonItemContent title="제목">
             <LetterSettingTitle 
-              dataName="title"
-               value={letterList.title} 
+              value={letterList.title} 
               onChange={(e) => DataChanger_Object(e, setLetterList)} 
             />
           </CommonItemContent>

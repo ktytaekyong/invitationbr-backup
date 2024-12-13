@@ -89,7 +89,7 @@ const FRelList = [
     itemKey: "동생"
   },
 ];
-const CoupleInfomationSettingBasic = ({ couple, coupleKey, value, onChange }) => {
+const CoupleInfomationSettingBasic = ({ coupleKey, value, onChange }) => {
   const [relList, setRelList] = useState([]);
   useEffect(() => {
     coupleKey === "M" ?

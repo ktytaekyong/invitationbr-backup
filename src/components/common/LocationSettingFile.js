@@ -8,6 +8,7 @@ import styles from "../../css/module/common/LocationSettingFile.module.scss";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
+// C: 오시는 길 편집 - 약도 첨부
 const LocationSettingFile = () => {
   const { selectLocationFile, setSelectLocationFile } = useContext(InfoContext);
   const fileAddHandler = async (e) => {

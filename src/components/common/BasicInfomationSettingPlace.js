@@ -1,7 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/BasicInfomationSettingPlace.module.scss";
 
-// C: 기본 정보 셋팅 - 예식장 명, 층과 홀 (BasicInfomationSetting)
+// C: 기본 정보 편집 - 예식장 명, 층과 홀 (BasicInfomationSetting)
 const BasicInfomationSettingPlace = ({ inputType, onChange, placeInfo }) => {
   return (
     <div className={styles.option__input}>

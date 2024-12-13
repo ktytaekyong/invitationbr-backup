@@ -1,7 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/CommonItemContent.module.scss";
 
-// C: 셋팅 - 타이틀/컨텐츠 구분 (CommonItemWrapper)
+// C: 편집 - 타이틀/컨텐츠 구분 (CommonItemWrapper)
 const CommonItemContent = ({ title, multi, essential, children, wrap }) => {
   return (
     <div 

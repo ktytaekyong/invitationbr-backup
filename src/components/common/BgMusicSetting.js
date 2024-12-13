@@ -9,7 +9,7 @@ import CheckItem from "./CheckItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 
-// C: 배경 음악 셋팅
+// C: 배경 음악 편집
 // 클릭 시 데이터 변경만 퍼블리싱
 const BgMusicSetting = () => {
   return (

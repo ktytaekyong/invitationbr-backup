@@ -14,7 +14,7 @@ import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
-// C: 기본 정보 셋팅
+// C: 기본 정보 편집
 const BasicInfomationSetting = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   return (

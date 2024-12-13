@@ -10,7 +10,7 @@ const dateMinuteList = [
   {itemKey: 0, itemName: "정각"}, {itemKey: 10, itemName: "10분"}, {itemKey: 20, itemName: "20분"}, {itemKey: 30, itemName: "30분"}, {itemKey: 40, itemName: "40분"}, {itemKey: 50, itemName: "50분"}
 ];
 
-// C: 기본 정보 셋팅 - 예식일, 예식 시간 (BasicInfomationSetting)
+// C: 기본 정보 편집 - 예식일, 예식 시간 (BasicInfomationSetting)
 const BasicInfomationSettingDate = ({ inputType, onChange, dateInfo, timeInfo }) => {
   return (
     <div className={styles.option__input}>

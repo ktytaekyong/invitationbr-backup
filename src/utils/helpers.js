@@ -37,6 +37,15 @@ export const DataChanger_Object = (e, changer) => { // FUNC: 객체 데이터 �
     [name]: value
   }))
 }
+export const DataChanger_ObjectArray = (e, selectedIndex, changer) => { // FUNC: 인덱스가 있는 객체의 배열 데이터 입력 제어(onChange), 이벤트 대상의 name(e), 이벤트 대상의 idx(selectedIndex), 바꿀 상태 함수(changer)
+  const { name, value } = e.target;
+  changer(prev => (
+    prev.map((item, idx) => 
+      idx === selectedIndex ? { ...item, [name]: value } : item 
+    )
+  ))
+}
+// export const DataChanger_Array
 
 
 // ********** PHOTO(INTRO) ********** //

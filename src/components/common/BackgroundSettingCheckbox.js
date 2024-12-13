@@ -2,7 +2,7 @@
 import CheckList from "./CheckList.js";
 import CheckItem from "./CheckItem.js";
 
-// C: 배경 셋팅 - 옵션 (BackgroundSetting)
+// C: 배경 편집 - 옵션 (BackgroundSetting)
 const BackgroundSettingCheckbox = () => {
   return (
     <CheckList>

@@ -13,7 +13,7 @@ import iconSettingItemCloseImg from "../../img/icon/icon_close_modal.png"
 import { SetContext } from "../../store/option-set-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 
-// C: 셋팅 하나씩 포장 (모바일에서 외형이 바뀜)
+// C: 편집 하나씩 포장 (모바일에서 외형이 바뀜)
 const SettingItem = ({ id, option, itemTitle, itemContent, checkboxID, checked, onChange, style }) => {
   const { isMobile, openSettingTab, setOpenSettingTab, basicSettingList, selectSettingList } = useContext(SetContext);
   const { introRef, outroRef, letterRef, dateRef, locationRef, galleryRef, videoRef, giftRef, noticeTRef, noticeDRef, guestbookRef, attendRef } = useContext(RefContext);

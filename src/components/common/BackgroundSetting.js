@@ -84,7 +84,7 @@ const fontSizeList = [
   }
 ]
 
-// C: 배경 셋팅
+// C: 배경 편집
 const BackgroundSetting = () => {
   const { selectOptionList, isMobile } = useContext(SetContext);
   useEffect(() => { // 이하 useEffect: 옵션값에 따라 항목 스타일 수정

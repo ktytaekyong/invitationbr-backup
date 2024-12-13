@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import { DataChanger_NestedObject } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -12,18 +13,9 @@ import TrafficSetting from "./TrafficSetting.js";
 /* Context */
 import { InfoContext } from "../../store/option-info-context.js";
 
+// C: 오시는 길 편집
 const LocationSetting = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const locationDataChangeHandler = (e, infoType) => {
-    const { name, value } = e.target;
-    setBasicInfoList(prev => ({
-      ...prev,
-      [infoType]: {
-        ...prev[infoType],
-        [name]: value
-      }
-    }))
-  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -32,22 +24,21 @@ const LocationSetting = () => {
             <LocationSettingName 
               name="placeName" 
               locationValue={basicInfoList.placeInfo.placeName} 
-              onChange={(e) => locationDataChangeHandler(e, "placeInfo")}
+              onChange={(e) => DataChanger_NestedObject(e, "placeInfo", setBasicInfoList)}
             />
           </CommonItemContent>
-
           <CommonItemContent title="층과 홀">
             <LocationSettingName 
               name="placeDetail" 
               locationValue={basicInfoList.placeInfo.placeDetail} 
-              onChange={(e) => locationDataChangeHandler(e, "placeInfo")}
+              onChange={(e) => DataChanger_NestedObject(e, "placeInfo", setBasicInfoList)}
             />
           </CommonItemContent>
-
           <CommonItemContent title="주소" multi={true}>
-            <LocationSettingAddress />
+            <LocationSettingAddress
+              onChange={(e) => DataChanger_NestedObject(e, "placeInfo", setBasicInfoList)}
+            />
           </CommonItemContent>
-
           <CommonItemContent title="약도 첨부">
             <LocationSettingFile />
           </CommonItemContent>

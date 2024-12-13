@@ -1,5 +1,6 @@
 /* Import */
 import { useEffect, useContext } from "react";
+import { DataChanger_Object } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -15,18 +16,9 @@ import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-// C: 참석 의사 모달 셋팅
+// C: 참석 의사 모달 편집
 const AttendSetting = () => {
   const { attendList, setAttendList } = useContext(SetContext);
-  const attendContentChangeHandler = (e) => { // Func: 참석 의사 항목 수정(input onChange)
-    const { name, value } = e.target;
-    setAttendList((prev) => {
-      return {
-        ...prev,
-        [name]: value
-      }
-    })
-  }
   useEffect(() => { // 체크박스 옵션 선택에 따른 모달 내용 결정
     if(attendList.optionAttendMeal === false) {
       setAttendList((prev) => {
@@ -58,7 +50,7 @@ const AttendSetting = () => {
               type="text" 
               name="attendTitle" 
               value={attendList.attendTitle} 
-              onChange={(e) => attendContentChangeHandler(e)} 
+              onChange={(e) => DataChanger_Object(e, setAttendList)} 
               placeholder="참석 의사 전달" 
             />
           </CommonItemContent>
@@ -70,7 +62,7 @@ const AttendSetting = () => {
               name="attendContent" 
               id="attendContent" 
               value={attendList.attendContent} 
-              onChange={(e) => attendContentChangeHandler(e)} 
+              onChange={(e) => DataChanger_Object(e, setAttendList)} 
               placeholder="내용을 입력해주세요." 
               maxLength={100} 
             />
@@ -83,7 +75,7 @@ const AttendSetting = () => {
               type="text" 
               name="attendButtonTitle" 
               value={attendList.attendButtonTitle} 
-              onChange={(e) => attendContentChangeHandler(e)} 
+              onChange={(e) => DataChanger_Object(e, setAttendList)} 
               placeholder="참석 의사 전달하기" 
             />
           </CommonItemContent>
@@ -102,14 +94,14 @@ const AttendSetting = () => {
                     content="식사함 항목 안내문구" 
                     id="attendMealNotice" 
                     value={attendList.attendMealNotice} 
-                    onChange={(e) => attendContentChangeHandler(e)} 
+                    onChange={(e) => DataChanger_Object(e, setAttendList)} 
                     placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 스테이크와 한정식이 준비되어 있습니다." 
                   />
                   <TextareaWapperAttend 
                     content="식사안함 항목 안내문구" 
                     id="attendNoMealNotice" 
                     value={attendList.attendNoMealNotice} 
-                    onChange={(e) => attendContentChangeHandler(e)} 
+                    onChange={(e) => DataChanger_Object(e, setAttendList)} 
                     placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 식사 못하시는 분들을 위한 선물을 준비했으니 꼭 받아가세요." 
                   />
                 </CommonItemWrapper> : null
@@ -123,7 +115,7 @@ const AttendSetting = () => {
                       content="탑승함 항목 안내문구" 
                       id="attendBusNoticeM" 
                       value={attendList.attendBusNoticeM} 
-                      onChange={(e) => attendContentChangeHandler(e)} 
+                      onChange={(e) => DataChanger_Object(e, setAttendList)} 
                       gender="M" 
                       division="(신랑측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞" 
@@ -132,7 +124,7 @@ const AttendSetting = () => {
                       content="탑승안함 항목 안내문구" 
                       id="attendNoBusNoticeM" 
                       value={attendList.attendNoBusNoticeM} 
-                      onChange={(e) => attendContentChangeHandler(e)} 
+                      onChange={(e) => DataChanger_Object(e, setAttendList)} 
                       gender="M" 
                       division="(신랑측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요." 
@@ -141,7 +133,7 @@ const AttendSetting = () => {
                       content="탑승함 항목 안내문구" 
                       id="attendBusNoticeF" 
                       value={attendList.attendBusNoticeF} 
-                      onChange={(e) => attendContentChangeHandler(e)} 
+                      onChange={(e) => DataChanger_Object(e, setAttendList)} 
                       gender="F" 
                       division="(신부측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞" 
@@ -150,7 +142,7 @@ const AttendSetting = () => {
                       content="탑승안함 항목 안내문구" 
                       id="attendNoBusNoticeF" 
                       value={attendList.attendNoBusNoticeF} 
-                      onChange={(e) => attendContentChangeHandler(e)} 
+                      onChange={(e) => DataChanger_Object(e, setAttendList)} 
                       gender="F" 
                       division="(신부측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요." 

@@ -1,6 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/LocationSettingName.module.scss";
 
+// C: 오시는 길 편집 - 예식장 명, 층과 홀 입력
 const LocationSettingName = ({ name, locationValue, onChange }) => {
   return (
     <div className={styles.option__input}>

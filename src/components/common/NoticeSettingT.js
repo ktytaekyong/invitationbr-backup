@@ -124,7 +124,7 @@ const NoticeSettingT = () => {
 
                 <CommonItemContent title="내용" multi={true}>
                   <TextEditor 
-                    name="content" 
+                    dataName="content" 
                     textValue={item.content} 
                     onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}} 
                   />

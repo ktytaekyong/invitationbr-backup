@@ -1,11 +1,11 @@
 /* CSS Module */
 import styles from "../../css/module/common/LetterSettingTitle.module.scss";
 
-const LetterSettingTitle = ({ value, onChange, dataName }) => {
+const LetterSettingTitle = ({ value, onChange }) => {
   return (
     <input type="text" 
       id="letterSettingTitle" 
-      name={dataName}
+      name="title"
       value={value}
       className={styles.input__letter_title} 
       onChange={onChange}
