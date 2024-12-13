@@ -129,8 +129,6 @@
     background: transparent;
     margin: 0 auto;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     pointer-events: all;
     transition: unset;
     @include device__query(tablet) {
@@ -138,6 +136,8 @@
       z-index: 10001;
       pointer-events: none;
       overscroll-behavior: contain;
+      left: 50%;
+      transform: translateX(-50%);
     }
     * {
       @include device__query(tablet) {
