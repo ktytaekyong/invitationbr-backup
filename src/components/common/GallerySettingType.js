@@ -16,6 +16,7 @@ const typeList = [
   }
 ]
 
+// C: 갤러리 - 타입
 const GallerySettingType = () => {
   return (
     <TabSelector 

@@ -12,6 +12,7 @@ import RadioItem from "./RadioItem.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 하단 글귀 설정
 const OutroSetting = () => {
   const { outroList, setOutroList } = useContext(SetContext);
   const fileAddHandler = (e) => {

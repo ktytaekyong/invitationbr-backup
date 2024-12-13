@@ -13,6 +13,7 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 헤더 - 미리보기
 const HeaderPreview = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);

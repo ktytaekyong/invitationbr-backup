@@ -5,6 +5,7 @@ import { useDrag, useDrop } from "react-dnd";
 const ItemTypes = {
   ORDER: "order",
 }
+// C: 메뉴 순서 변경 - 위치 고정되지 않은 아이템
 const OrderSettingStateItem = ({ children, id, index, moveItemHandler, className }) => {
   const orderItemRef = useRef(null);
   const [{ handlerId }, drop] = useDrop({

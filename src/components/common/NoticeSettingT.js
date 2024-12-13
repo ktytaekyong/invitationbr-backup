@@ -21,6 +21,7 @@ import styles from "../../css/module/common/NoticeSettingT.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 안내사항 설정
 const NoticeSettingT = () => {
   const { noticeTList, setNoticeTList, selectNoticeT, setSelectNoticeT } = useContext(SetContext);
   const [addTitle, setAddTitle] = useState("");

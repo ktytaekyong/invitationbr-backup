@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 오픈그래프 설정
 const MetaTag = () => {
   const { selectOptionList, kakaoInfoList } = useContext(SetContext);
   return (

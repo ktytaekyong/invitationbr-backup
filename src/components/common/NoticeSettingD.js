@@ -12,6 +12,7 @@ import RadioItem from "./RadioItem.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 공지사항 설정
 const NoticeSettingD = () => {
   const { noticeDList, setNoticeDList } = useContext(SetContext);
   const fileAddHandler = (e, index) => {

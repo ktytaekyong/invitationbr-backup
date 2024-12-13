@@ -1,6 +1,7 @@
 // CSS
 import styles from "../../css/module/common/CoupleInfomationSettingMobileTab.module.scss";
 
+// C: 신랑/신부 정보 - 모바일 버전의 전환 탭
 const CoupleInfomation = ({ mobileTabActive, onClick }) => {
   return (
     <div className={styles.mobile__tab}>

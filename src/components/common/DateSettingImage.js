@@ -29,6 +29,8 @@ const imageList = [
     id: "calendarType4"
   }
 ]
+
+// C: 예식 일시 - 캘린더 템플릿 선택
 const DateSettingImage = () => {
   const { selectOptionList, setSelectOptionList } = useContext(SetContext);
   const calendarChangeHandler = (e) => {

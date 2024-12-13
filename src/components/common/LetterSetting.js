@@ -11,6 +11,7 @@ import TextEditor from "./TextEditor.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 모시는 글 설정
 const LetterSetting = () => {
   const { letterList, setLetterList } = useContext(SetContext);
   return (

@@ -6,6 +6,7 @@ import CommonOptionContent from "./CommonOptionContent.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 
+// C: 메뉴 순서 변경 - 외부
 const OrderSetting = () => {
   return (
     <CommonOptionWrapper>

@@ -89,6 +89,8 @@ const FRelList = [
     itemKey: "동생"
   },
 ];
+
+// C: 신랑/신부 정보 - 이름, 전화번호, 관계
 const CoupleInfomationSettingBasic = ({ coupleKey, value, onChange }) => {
   const [relList, setRelList] = useState([]);
   useEffect(() => {

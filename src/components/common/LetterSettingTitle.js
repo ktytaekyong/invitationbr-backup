@@ -1,6 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/LetterSettingTitle.module.scss";
 
+// C: 모시는 글 설정 - 제목
 const LetterSettingTitle = ({ value, onChange }) => {
   return (
     <input type="text" 

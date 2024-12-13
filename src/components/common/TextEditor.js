@@ -14,6 +14,7 @@ import {ReactComponent as IconImgLeft} from "../../img/icon/icon_editor_tool_lef
 import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_right.svg"
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
+// C: TEXTAREA
 const TextEditor = ({ type, dataName, textValue, onChange, setLetterList }) => {
   const textareaRef = useRef(null);
   const [isActiveTab, setIsActiveTab] = useState(0);

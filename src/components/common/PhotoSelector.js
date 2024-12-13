@@ -9,6 +9,7 @@ import photoAddImg from "../../img/photoSelector/photo_selector_add.png"
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 이미지 업로더
 const PhotoSelector = (props) => {
   const { videoList, setVideoList } = useContext(SetContext);
   const videoDeleteHandler = () => {

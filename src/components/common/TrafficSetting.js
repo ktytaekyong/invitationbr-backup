@@ -11,6 +11,7 @@ import TextEditor from "./TextEditor.js";
 /* Context */
 import { LocationContext } from "../../store/option-location-context.js";
 
+// C: 오시는 길 - 교통수단 아이템
 const TrafficSetting = () => {
   const { trafficList, setTrafficList } = useContext(LocationContext);
   const trafficAddHandler = () => {

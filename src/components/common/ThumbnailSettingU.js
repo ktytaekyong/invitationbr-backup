@@ -12,6 +12,7 @@ import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: URL 공유 썸네일
 const ThumbnailSettingU = () => {
   const { urlInfoList, setUrlInfoList } = useContext(SetContext);
     const fileAddHandler = (e) => {

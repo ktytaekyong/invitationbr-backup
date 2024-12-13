@@ -6,6 +6,7 @@ import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 import FixedTabSettingList from "./FixedTabSettingList";
 
+// C: 고정 메뉴 설정
 const FixedTabSetting = () => {
   return (
     <CommonOptionWrapper>

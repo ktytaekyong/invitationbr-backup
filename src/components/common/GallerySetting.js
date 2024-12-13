@@ -18,6 +18,7 @@ import BasicModalGalleryAllRemove from "../layout/modal/BasicModalGalleryAllRemo
 import { SetContext } from "../../store/option-set-context.js";
 import { GalleryContext } from "../../store/option-gallery-context.js";
 
+// C: 갤러리
 const GallerySetting = () => {
   const { selectOptionList } = useContext(SetContext);
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
@@ -29,7 +30,6 @@ const GallerySetting = () => {
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
-
         <CommonItemWrapper>
           <CommonItemContent title="타입">
             <GallerySettingType />

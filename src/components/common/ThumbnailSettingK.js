@@ -12,22 +12,22 @@ import SettingNoticeContent from "../layout/SettingNoticeContent.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 카카오톡 공유 썸네일
 const ThumbnailSettingK = () => {
   const { kakaoInfoList, setKakaoInfoList } = useContext(SetContext);
-   // 파일 추가 핸들러 (단일 파일만 처리)
    const fileAddHandler = (e) => {
-    const file = e.target.files[0]; // 첫 번째 파일만 처리
+    const file = e.target.files[0]; 
     if (file) {
       const fileList = new FileReader();
       fileList.onload = (e) => {
         setKakaoInfoList((prev) => (
           [{
-            ...prev[0], // 기존 데이터를 유지하면서 src만 업데이트
+            ...prev[0],
             src: e.target.result,
           }]
         ));
       };
-      fileList.readAsDataURL(file); // 파일을 data URL로 읽기
+      fileList.readAsDataURL(file);
     }
   };
 

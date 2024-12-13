@@ -10,6 +10,7 @@ import SettingNoticeContent from "../layout/SettingNoticeContent";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 방명록 - 마스터 비밀번호 설정
 const GuestbookSetting = () => {
   const { guestbookAdminPassword, setGuestbookAdminPassword } = useContext(SetContext);
   const passwordChangeHandler = (e) => {

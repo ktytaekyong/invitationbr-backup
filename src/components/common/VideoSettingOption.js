@@ -9,6 +9,7 @@ import styles from "../../css/module/common/VideoSettingOption.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 동영상 설정 - 유튜브 등록, 직접 등록
 const VideoSettingOption = () => {
   const { videoList, setVideoList, selectOptionList } = useContext(SetContext);
   const fileAddHandler = (e) => {

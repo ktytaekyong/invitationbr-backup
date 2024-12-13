@@ -5,6 +5,7 @@ import styles from "../../css/module/common/RadioItem.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 라디오 버튼
 const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
   const { selectOptionList, setSelectOptionList, setNoticeTList, setNoticeDList, setOutroList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);

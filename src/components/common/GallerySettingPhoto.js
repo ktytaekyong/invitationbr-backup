@@ -10,6 +10,7 @@ import styles from "../../css/module/common/GallerySettingPhoto.module.scss";
 /* Context */
 import { GalleryContext } from "../../store/option-gallery-context.js";
 
+// C: 갤러리 - 사진 등록
 const GallerySettingPhoto = () => {
   const { selectGalleryPhotoList, setSelectGalleryPhotoList } = useContext(GalleryContext);
   const [open, setOpen] = useState(false);
@@ -66,7 +67,7 @@ const GallerySettingPhoto = () => {
         <div className={styles.photo__input}>
           <div className={styles.photo__input_wrap}>
             <input type="file" name="galleryFile" id="galleryFile" multiple onChange={fileAddHandler} /> 
-            <label htmlFor="galleryFile">재전송</label>
+            <label htmlFor="galleryFile">사진 등록</label>
             <p>(사진을 끌어오셔도 됩니다.)</p>
           </div>
           <div className={styles.photo__input_total}>

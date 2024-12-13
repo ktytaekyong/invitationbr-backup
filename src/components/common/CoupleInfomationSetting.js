@@ -26,7 +26,7 @@ const parents = [
     itemKey: "Mom"
   }
 ];
-// C: 
+// C: 신랑/신부 정보
 const CoupleInfomation = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);

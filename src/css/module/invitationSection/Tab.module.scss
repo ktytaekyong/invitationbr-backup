@@ -19,7 +19,7 @@
     width: 100%;
   }
   &__wrap {
-    @include position(st, 0, 0);
+    @include position(st, 20px, 0);
     z-index: 9999;
     width: calc(100% - 40px);
     margin: 20px 20px 0;

@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import { DataChanger_NestedObject } from '../../utils/helpers';
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -19,19 +20,10 @@ const dateMinuteList = [
   {itemKey: 0, itemName: "정각"}, {itemKey: 10, itemName: "10분"}, {itemKey: 20, itemName: "20분"}, {itemKey: 30, itemName: "30분"}, {itemKey: 40, itemName: "40분"}, {itemKey: 50, itemName: "50분"}
 ];
 
+// C: 예식 일시
 const DateSetting = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const DataChanger_NestedObject = (e, infoType) => {
-    const { name, value } = e.target;
-    setBasicInfoList(prev => ({
-      ...prev,
-      [infoType]: {
-        ...prev[infoType],
-        [name]: value
-      }
-    }))
-  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -41,7 +33,7 @@ const DateSetting = () => {
               type="date" 
               id="DateInfoDate" 
               name="date" 
-              onChange={(e) => DataChanger_NestedObject(e, "dateInfo")} 
+              onChange={(e) => DataChanger_NestedObject(e, "dateInfo", setBasicInfoList)} 
               value={basicInfoList.dateInfo.date} 
             />
           </CommonItemContent>
@@ -52,14 +44,14 @@ const DateSetting = () => {
               selectName="hour"
               listName={dateHourList} 
               value={basicInfoList.timeInfo.hour} 
-              onChange={(e) => DataChanger_NestedObject(e, "timeInfo")} 
+              onChange={(e) => DataChanger_NestedObject(e, "timeInfo", setBasicInfoList)} 
             />
             <OptionSelector 
               selectID="DateInfoMin" 
               selectName="min" 
               listName={dateMinuteList} 
               value={basicInfoList.timeInfo.min} 
-              onChange={(e) => DataChanger_NestedObject(e, "timeInfo")} 
+              onChange={(e) => DataChanger_NestedObject(e, "timeInfo", setBasicInfoList)} 
               styleType={"minute__selector"} 
             />
           </CommonItemContent>

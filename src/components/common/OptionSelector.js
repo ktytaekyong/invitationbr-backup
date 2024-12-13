@@ -5,6 +5,7 @@ import styles from "../../css/module/common/OptionSelector.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 셀렉트 박스
 const OptionSelector = ({ selectID, selectName, listName, styleType, onChange, value }) => {
   const { isMobile, selectOptionList, setSelectOptionList } = useContext(SetContext);
   const dataChangeHandler = (e) => {

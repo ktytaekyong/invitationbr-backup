@@ -29,6 +29,7 @@ import styles from "../../css/module/common/SettingList.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 import zIndex from "@mui/material/styles/zIndex.js";
 
+// C: 설정 리스트
 const SettingList = () => {
   const { isMobile, selectSettingList, setSelectSettingList, settingList, selectOptionList } = useContext(SetContext);
   const changeSettingHandler = (clickedIdx) => {

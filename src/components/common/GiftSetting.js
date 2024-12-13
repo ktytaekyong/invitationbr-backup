@@ -1,5 +1,6 @@
 /* Import */
 import { useContext, useState } from "react";
+import { DataChanger_Object } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import ListOptionContent from "./ListOptionContent.js";
@@ -12,6 +13,7 @@ import CoupleInfomationSettingMobileTab from "./CoupleInfomationSettingMobileTab
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 마음 전하기
 const GiftSetting = () => {
   const { isMobile, accountInfoList, setAccountInfoList } = useContext(SetContext);
   const [ mobileTabActive, setMobileTabActive ] = useState("M");
@@ -47,7 +49,6 @@ const GiftSetting = () => {
       }
     })
   }
-
   const groomAccountRemoveHandler = (removeidx) => {
     setAccountInfoList((prev) => {
       return {
@@ -64,13 +65,6 @@ const GiftSetting = () => {
       };
     })
   }
-  const titleDataChangeHandler = (e) => {
-    const { name, value } = e.target;
-    setAccountInfoList(prev => ({
-      ...prev,
-      [name]: value
-    }))
-  }
   const accountDataChangeHandler = (e, infoType, index) => {
     const { name, value } = e.target;
     setAccountInfoList(prev => ({
@@ -79,10 +73,10 @@ const GiftSetting = () => {
         if (i === index) {
           return {
             ...item,
-            [name]: value  
+            [name]: value
           };
         }
-        return item; 
+        return item;
       })
     }));
   };
@@ -97,7 +91,7 @@ const GiftSetting = () => {
           <ListOptionContent list={true}>
             <CommonItemWrapper>
               <CommonItemContent title="그룹명">
-                <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신랑측 계좌번호" />
+                <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {DataChanger_Object(e, setAccountInfoList)}} placeholder="신랑측 계좌번호" />
               </CommonItemContent>
               <CommonItemContent title="펼쳐두기">
                 <CheckItem name="groomAccountView" id="groomAccountView" content="신랑측 계좌정보를 펼쳐둡니다." />
@@ -118,7 +112,7 @@ const GiftSetting = () => {
           <ListOptionContent list={true}>
             <CommonItemWrapper>
               <CommonItemContent title="그룹명">
-                <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {titleDataChangeHandler(e)}} placeholder="신부측 계좌번호" />
+                <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {DataChanger_Object(e, setAccountInfoList)}} placeholder="신부측 계좌번호" />
               </CommonItemContent>
               <CommonItemContent title="펼쳐두기">
                 <CheckItem name="brideAccountView" id="brideAccountView" content="신부측 계좌정보를 펼쳐둡니다." />

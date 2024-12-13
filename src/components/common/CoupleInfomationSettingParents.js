@@ -5,10 +5,8 @@ import CheckItem from "./CheckItem";
 /* CSS Module */
 import styles from "../../css/module/common/CoupleInfomationSettingParents.module.scss";
 
+// C: 신랑/신부 정보 - 부모님 정보 편집
 const CoupleInfomationSettingParents = ({ pName, itemKey, coupleKey, data, onChange }) => {
-  // useEffect(() => {
-  //   console.log(basicInfoList);
-  // }, [basicInfoList])
   return (
     <div className={styles.couple__info}>
       <input 

@@ -16,6 +16,7 @@ const typeList = [
     title: "직접 등록",
   }
 ];
+// C: 동영상 설정
 const VideoSetting = () => {
   return (
     <CommonOptionWrapper>

@@ -1,6 +1,7 @@
 /* CSS Module */
 import styles from "../../css/module/common/TextareaWrapperAttend.module.scss";
 
+// C: 참석 의사 - 식사 여부, 탑승 여부 신랑측/신부측, 글자 수
 const TextareaWapperAttend = ({ id, content, division, gender, placeholder, value, onChange }) => {
   return (
     <div className={styles.textarea__wrap}>

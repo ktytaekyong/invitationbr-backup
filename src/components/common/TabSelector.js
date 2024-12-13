@@ -7,6 +7,7 @@ import styles from "../../css/module/common/TabSelector.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
+// C: 선택 요소 - 탭 형식
 const TabSelector = ({ listName, name, onClick, type, activeTab, onClickDel }) => {
   const { selectOptionList, setSelectOptionList, selectNoticeT, setSelectNoticeT } = useContext(SetContext);
   const tabChangeHandler = (e, tabidx) => {

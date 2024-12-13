@@ -103,12 +103,30 @@ export const DayConverterENG = (date) => { // FUNC: 숫자 데이터 월 -> 영�
   }
   return monthEng(month);
 }
+export const DayConverterSlash = (date) => { // FUNC: 숫자 데이터 날짜 -> MM / DD 변환
+  const selectedDate = date; 
+  const formattedDate = selectedDate.split('-').join(' / ');
+  return formattedDate;
+};
 export const DateConverter = (date) => { // FUNC: 숫자 데이터 날짜 -> 연월일 변환
   const selectedDate = date;
   const [year, month, day] = selectedDate.split('-');
   const formattedDate = `${year}년 ${month}월 ${day}일`;
   return formattedDate;
 }
+export const DateConverterDot = (date) => { // FUNC: 숫자 데이터 날짜 -> YYYY. MM. DD. 변환
+  const selectedDate = date; 
+  const formattedDate = selectedDate.split('-').join('.');
+  return formattedDate;
+}
+export const DateConverterMonth = (date) => {
+  const selectedDate = date; 
+  return selectedDate.substring(5, 7);
+};
+export const DateConverterDay = (date) => {
+  const selectedDate = date; 
+  return selectedDate.substring(8, 10);
+};
 export const DDayCalculator = (date) => { // FUNC: 디 데이 계산기
   const today = new Date();
   const selectedDate = new Date(date);

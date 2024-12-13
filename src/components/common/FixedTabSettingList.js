@@ -9,6 +9,7 @@ import styles from "../../css/module/common/FixedTabSettingList.module.scss";
 /* Context */
 import { TabContext } from "../../store/option-tab-context.js";
 
+// C: 고정 메뉴 설정 - 리스트
 const FixedTabSettingList = () => {
   const { basicTabList, selectTabList, setSelectTabList } = useContext(TabContext);
   const [open, setOpen] = useState(false);

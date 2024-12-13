@@ -32,6 +32,8 @@ const bankList = [
     itemKey: "농협은행"
   },
 ]
+
+// C: 마음 전하기 - 계좌정보
 const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onChange }) => {
   return (
     <>
