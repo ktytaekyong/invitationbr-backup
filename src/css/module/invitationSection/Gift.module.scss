@@ -81,6 +81,9 @@
             font-family: $font-family--default !important;
             color: $text-color--disable;
           }
+          p {
+            text-align: left;
+          }
         }
       }
     }
