@@ -147,7 +147,7 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
         selectTabList.length === 0 ?
         null
         :
-        <div ref={tabRef} className={`${styles.tab__wrap} ${isTargetPage ? styles.preview : ""} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : ""]}`}>
+        <div ref={tabRef} className={`${styles.tab__wrap} ${isTargetPage ? styles.preview : ""} ${styles[selectOptionList.theme === "themeModernBasic" ? selectOptionList.introFillType : selectOptionList.theme]}`}>
           <div className={`${styles.backdrop} ${isTabActive ? styles["active"] : ""}`} onClick={setActiveTabHandler}></div>
           <div ref={tabBtnRef} className={styles.button__wrapper}>
             <Button onClick={setActiveTabHandler} className={`${isTabActive ? styles["active"] : ""}`} styleType="tab2" />

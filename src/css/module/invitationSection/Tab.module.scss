@@ -206,6 +206,7 @@
     }
     &.active {
       @include flex__column;
+      max-width: 180px;
       // @include position(f, 60px, null, 0, 0);
       // height: calc(100vh - 60px);
     }
