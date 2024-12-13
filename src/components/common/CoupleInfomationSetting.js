@@ -29,7 +29,7 @@ const CoupleInfomation = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [ mobileTabActive, setMobileTabActive ] = useState("M");
-  const basicDataChangeHandler = (e, infoType) => {
+  const DataChanger = (e, infoType) => {
     const { name, value } = e.target;
     setBasicInfoList(prev => ({
       ...prev,
@@ -52,7 +52,7 @@ const CoupleInfomation = () => {
                 couple="신랑" 
                 coupleKey="M" 
                 value={basicInfoList.groomInfo} 
-                onChange={(e) => basicDataChangeHandler(e, "groomInfo")}
+                onChange={(e) => DataChanger(e, "groomInfo")}
               />
             </CommonItemContent>
             {parents.map((parent, idx) => (
@@ -62,7 +62,7 @@ const CoupleInfomation = () => {
                   pName={parent.itemName} 
                   coupleKey="M"
                   data={basicInfoList.groomParentInfo}
-                  onChange={(e) => basicDataChangeHandler(e, "groomParentInfo")}
+                  onChange={(e) => DataChanger(e, "groomParentInfo")}
                 />
               </CommonItemContent>
             ))}
@@ -79,7 +79,7 @@ const CoupleInfomation = () => {
                 couple="신부" 
                 coupleKey="F" 
                 value={basicInfoList.brideInfo} 
-                onChange={(e) => basicDataChangeHandler(e, "brideInfo")}
+                onChange={(e) => DataChanger(e, "brideInfo")}
               />
             </CommonItemContent>
             {parents.map((parent, idx) => (
@@ -89,7 +89,7 @@ const CoupleInfomation = () => {
                   pName={parent.itemName} 
                   coupleKey="F"
                   data={basicInfoList.brideParentInfo}
-                  onChange={(e) => basicDataChangeHandler(e, "brideParentInfo")}
+                  onChange={(e) => DataChanger(e, "brideParentInfo")}
                 />
               </CommonItemContent>
             ))}

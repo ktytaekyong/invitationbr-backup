@@ -19,6 +19,19 @@ export const nameHandler = (data) => ( // FUNC: 이름에 숫자 입력 차단
 )
 
 
+// ********** DATA CHANGER ********** //
+export const DataChanger = (e, infoType, changer) => { // FUNC: 데이터 입력 제어(onChange) - 이벤트 대상의 name(e), 데이터 name(InfoType), 바꿀 상태 함수(changer) 
+  const { name, value } = e.target;
+  changer(prev => ({
+    ...prev,
+    [infoType]: {
+      ...prev[infoType],
+      [name]: value
+    }
+  }))
+}
+
+
 // ********** PHOTO(INTRO) ********** //
 export const IntroImgSeparator = (introIdx, type) => { // FUNC: 인트로 사진 - 업로드 이미지 구분 로직
   const { selectIntroPhoto } = useContext(IntroContext);
@@ -40,7 +53,6 @@ export const DayConverter = (date) => { // FUNC: 숫자 데이터 날짜 -> 요�
   const dayOfWeek = daysOfWeek[dateObj.getDay()]; 
   return dayOfWeek;
 }
-
 export const DayConverterENG = (date) => { // FUNC: 숫자 데이터 월 -> 영어 요일 변환
   const [, month] = date.split('-');
   const monthEng = (month) => {
@@ -75,14 +87,12 @@ export const DayConverterENG = (date) => { // FUNC: 숫자 데이터 월 -> 영�
   }
   return monthEng(month);
 }
-
 export const DateConverter = (date) => { // FUNC: 숫자 데이터 날짜 -> 연월일 변환
   const selectedDate = date;
   const [year, month, day] = selectedDate.split('-');
   const formattedDate = `${year}년 ${month}월 ${day}일`;
   return formattedDate;
 }
-
 export const DDayCalculator = (date) => { // FUNC: 디 데이 계산기
   const today = new Date();
   const selectedDate = new Date(date);
@@ -90,3 +100,4 @@ export const DDayCalculator = (date) => { // FUNC: 디 데이 계산기
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
 }
+
