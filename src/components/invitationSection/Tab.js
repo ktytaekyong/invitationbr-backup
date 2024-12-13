@@ -30,7 +30,7 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
   const setActiveHandler = (idx) => {
     setIsActive(idx);
   }            
-  const dayCalculator = (date) => {
+  const DDayCalculator = (date) => {
     const today = new Date();
     const selectedDate = new Date(date);
     const diffTime = selectedDate - today;
@@ -199,7 +199,7 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
               )
             })}
             <li className={styles.tab__day}>
-              <p>보람<span>♥</span>신우의 결혼식<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+              <p>보람<span>♥</span>신우의 결혼식<br /><span>{DDayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
             </li>
           </ul>
         </div>

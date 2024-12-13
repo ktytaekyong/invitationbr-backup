@@ -78,20 +78,20 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
       ))
     )
   }
-  const handleDateChange = (date) => {
+  const DateConverter = (date) => {
     const selectedDate = date; 
     const formattedDate = selectedDate.split('-').join('.');
     return formattedDate;
   };
-  const handleDateChangeTheme2M = (date) => {
+  const DateConverterTheme2M = (date) => {
     const selectedDate = date; 
     return selectedDate.substring(5, 7);
   };
-  const handleDateChangeTheme2D = (date) => {
+  const DateConverterTheme2D = (date) => {
     const selectedDate = date; 
     return selectedDate.substring(8, 10);
   };
-  const handleDateChangeTheme4 = (date) => {
+  const DateConverterTheme4 = (date) => {
     const selectedDate = date; 
     const formattedDate = selectedDate.split('-').join(' / ');
     return formattedDate;
@@ -109,30 +109,30 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
           const listB1 = [
             "저희 결혼합니다", 
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listB1[idx];
         case "basicTemplate2":
           const listB2 = [
-            `${handleDateChangeTheme2M(basicInfoList.dateInfo.date)} / ${handleDateChangeTheme2D(basicInfoList.dateInfo.date)}`,
+            `${DateConverterTheme2M(basicInfoList.dateInfo.date)} / ${DateConverterTheme2D(basicInfoList.dateInfo.date)}`,
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listB2[idx];
         case "basicTemplate3":
           const listB3 = [
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listB3[idx];
         case "basicTemplate4":
           const listB4 = [
-            `${handleDateChangeTheme4(basicInfoList.dateInfo.date)}`,
+            `${DateConverterTheme4(basicInfoList.dateInfo.date)}`,
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listB4[idx];
@@ -140,28 +140,28 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
           const listF1 = [
             "결혼합니다", 
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listF1[idx];
         case "fillTemplate2":
           const listF2 = [
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listF2[idx];
         case "fillTemplate3":
           const listF3 = [
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listF3[idx];
         case "fillTemplate4":
           const listF4 = [
             `${basicInfoList.groomInfo.lastname || basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.lastname + basicInfoList.groomInfo.firstname : "이보람"} ${basicInfoList.brideInfo.lastname || basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.lastname + basicInfoList.brideInfo.firstname : "김신우"}`,
-            basicInfoList.dateInfo.date ? `${handleDateChange(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
+            basicInfoList.dateInfo.date ? `${DateConverter(basicInfoList.dateInfo.date)} ${handleDaysChange(basicInfoList.dateInfo.date)}요일 ${basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} ${basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 ${basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}` : "2024.11.30 토요일 오후 2시",
             basicInfoList.placeInfo.placeName ? `${basicInfoList.placeInfo.placeName} ${basicInfoList.placeInfo.placeDetail}` : "보람컨벤션 카리나홀(4층)"
           ];
           return listF4[idx];

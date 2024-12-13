@@ -1,6 +1,6 @@
 /* Import */
 import { useContext } from "react";
-import { useLocation } from "react-router-dom";
+import { DayConverter, DateConverter, DDayCalculator, DayConverterENG } from "../../utils/helpers.js";
 // Component
 import BasicCalendarTheme1 from "./BasicCalendarTheme1.js";
 import BasicCalendarTheme2 from "./BasicCalendarTheme2.js";
@@ -18,66 +18,10 @@ import { InfoContext } from "../../store/option-info-context.js";
 import { RefContext } from "../../store/option-ref-context.js";
 
 const Calendar = () => {
-  const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
-
-  const { isMobile, selectOptionList } = useContext(SetContext);
+  const { selectOptionList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);
   const { dateRef } = useContext(RefContext);
-
-  const handleDaysChange = (date) => {
-    const dateObj = new Date(date);
-    const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토']; 
-    const dayOfWeek = daysOfWeek[dateObj.getDay()]; 
-    return dayOfWeek;
-  }
-  const handleDateChange = (date) => {
-    const selectedDate = date;
-    const [year, month, day] = selectedDate.split('-');
-    const formattedDate = `${year}년 ${month}월 ${day}일`;
-    return formattedDate;
-  };
-  const dayCalculator = (date) => {
-    const today = new Date();
-    const selectedDate = new Date(date);
-    const diffTime = selectedDate - today;
-    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-    return diffDays;
-  }
-  const monthRenderer = (date) => {
-    const [, month] = date.split('-');
-    const monthEng = (month) => {
-      switch(month) {
-        case "01":
-          return "January";
-        case "02":
-          return "February";
-        case "03":
-          return "March";
-        case "04":
-          return "April";
-        case "05":
-          return "May";
-        case "06":
-          return "June";
-        case "07":
-          return "July";
-        case "08":
-          return "August";
-        case "09":
-          return "September";
-        case "10":
-          return "October";
-        case "11":
-          return "November";
-        case "12":
-          return "December";
-        default:
-          return;
-      }
-    }
-    return monthEng(month);
-  }
+ 
   const renderCalandarHandler = (id) => {
     switch(id) {
       case "calendarType1":
@@ -86,8 +30,8 @@ const Calendar = () => {
             <HeadLine title="예식 일시" content="D-day"></HeadLine>
             <div className={styles.date__content}>
               <div className={styles.date}>
-                <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
-                <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+                <p>{DateConverter(basicInfoList.dateInfo.date)}</p>
+                <p>{DayConverter(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
               </div>
               <div className={styles.calendar}>
                 <BasicCalendarTheme4 />
@@ -97,7 +41,7 @@ const Calendar = () => {
                   <p>
                     {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                     {/* <span>♥</span> */}, {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                    의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                    의 결혼식이 <span>{DDayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
                 </div>
                 : null
               }
@@ -115,7 +59,7 @@ const Calendar = () => {
                   <p>
                     {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                     , {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                    의 결혼식이 <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                    의 결혼식이 <span>{DDayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
                 </div>
                 : null
               }
@@ -123,8 +67,8 @@ const Calendar = () => {
                 <BasicCalendarTheme2 />
               </div>
               <div className={styles.date}>
-                <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
-                <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+                <p>{DateConverter(basicInfoList.dateInfo.date)}</p>
+                <p>{DayConverter(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
               </div>
             </div>
           </div>
@@ -141,14 +85,14 @@ const Calendar = () => {
                       {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                       , {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
                       의 결혼식이<br />
-                      <span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.
+                      <span>{DDayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.
                     </p>
                     <p className={styles.divide}></p>
                   </div>
                   : null
                 }
                 <p className={styles.month}>
-                  {monthRenderer(basicInfoList.dateInfo.date)}
+                  {DayConverterENG(basicInfoList.dateInfo.date)}
                 </p>
                 <div className={styles.calendar}>
                   <BasicCalendarTheme1 />
@@ -156,8 +100,8 @@ const Calendar = () => {
               </div>
             </div>
             <div className={styles.date}>
-              <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
-              <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+              <p>{DateConverter(basicInfoList.dateInfo.date)}</p>
+              <p>{DayConverter(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
             </div>
           </div>
         );
@@ -167,8 +111,8 @@ const Calendar = () => {
             <HeadLine title="예식 일시" content="D-day"></HeadLine>
             <div className={styles.date__content}>
               <div className={styles.date}>
-                <p>{handleDateChange(basicInfoList.dateInfo.date)}</p>
-                <p>{handleDaysChange(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
+                <p>{DateConverter(basicInfoList.dateInfo.date)}</p>
+                <p>{DayConverter(basicInfoList.dateInfo.date) + "요일"} {basicInfoList.timeInfo.hour > 12 ? "오후" : "오전"} {basicInfoList.timeInfo.hour > 12 ? basicInfoList.timeInfo.hour - 12 : basicInfoList.timeInfo.hour}시 {basicInfoList.timeInfo.min !== "0" ? basicInfoList.timeInfo.min + "분" : ""}</p>
               </div>
               <div className={styles.calendar}>
                 <BasicCalendarTheme3 />
@@ -178,7 +122,7 @@ const Calendar = () => {
                   <p>
                     {basicInfoList.groomInfo.firstname ? basicInfoList.groomInfo.firstname : "보람"}
                     {/* <span>♥</span> */}, {basicInfoList.brideInfo.firstname ? basicInfoList.brideInfo.firstname : "신우"}
-                    의 결혼식이<br /><span>{dayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
+                    의 결혼식이<br /><span>{DDayCalculator(basicInfoList.dateInfo.date)}</span>일 남았습니다.</p>
                 </div>
                 : null
               }
@@ -189,9 +133,6 @@ const Calendar = () => {
         return null;
     }
   }
-  // useEffect(() => {
-  //   monthRenderer(basicInfoList.dateInfo.date);
-  // }, [basicInfoList.dateInfo.date])
   return (
     <div 
       ref={dateRef}
@@ -199,7 +140,6 @@ const Calendar = () => {
       key={selectOptionList.dateCalendarType}
       className={`${styles.date} ${styles[selectOptionList.dateCalendarType]}`}
     >
-      {/* {!isTargetPage && isMobile ? <MobileSettingButtonWrapper id="settingDate" position="absolute" top="30px" /> : null} */}
       {renderCalandarHandler(selectOptionList.dateCalendarType)}
     </div>
   )
