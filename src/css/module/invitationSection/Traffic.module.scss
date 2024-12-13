@@ -32,6 +32,7 @@
     }
     p {
       white-space: pre-line;
+      word-break: break-all;
       &:first-of-type {
         font-size: $font-size--default;
       }

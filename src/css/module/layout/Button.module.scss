@@ -40,7 +40,9 @@
     border-radius: $radius--default;
     background-color: $point-color--default;
     color: #FFF;
-  
+    @include device__query(tablet) {
+      font-size: $font-size--setting-xxsm;
+    }
   }
   &.cancel {
     border-radius: $radius--default;

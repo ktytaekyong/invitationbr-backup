@@ -23,7 +23,7 @@ import styles from "../../css/module/common/OrderSettingState.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
-const fixedList = ["고정 메뉴 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "카톡 공유", "URL 공유"];
+const fixedList = ["고정 메뉴 설정", "기본 정보", "배경", "인트로 화면", "인트로 사진", "신랑/신부 정보", "하단 글귀", "배경 음악", "카톡 공유", "URL 공유"];
 const fixedItems = ["settingOutro", "settingThumbK", "settingThumbU", "settingOrder"];
 
 // C: 메뉴 순서 변경 - 내부
@@ -126,7 +126,7 @@ const OrderSettingState = () => {
         {
           selectSettingList
           .filter((item) => (
-            item !== "settingOutro" && item !== "settingThumbK" && item !== "settingThumbU" && item !== "settingOrder"
+            item !== "settingOutro" && item !== "settingBgMusic" && item !== "settingThumbK" && item !== "settingThumbU" && item !== "settingOrder"
           ))
           .map((orderItem, j) => renderItemHandler(orderItem, j))
         }
