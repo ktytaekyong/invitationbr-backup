@@ -23,7 +23,6 @@
     z-index: 9999;
     width: calc(100% - 40px);
     margin: 20px 20px 0;
-    transition: 0.3s linear transform;
     @include device__query(tablet) {
       @include position(f, 0, 0);
       top: 60px;
@@ -47,7 +46,7 @@
       backdrop-filter: blur(5px);
       background: rgba(255, 255, 255, 0.857);
       z-index: -1;
-      transition: $transition--fast;
+      transition: 0.3s linear opacity;
       opacity: 0;
       pointer-events: none;
       content: "";
@@ -123,16 +122,19 @@
   &.tab__wrap {
     width: 100%;
     height: fit-content;
+    max-width: $width--min;
     display: flex;
     justify-content: flex-end;
     align-items: flex-start;
     background: transparent;
     margin: 0 auto;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     pointer-events: all;
     transition: unset;
     @include device__query(tablet) {
-      top: 0;
+      top: 60px;
       z-index: 10001;
       pointer-events: none;
       overscroll-behavior: contain;
@@ -145,9 +147,12 @@
     &.preview {
       position: fixed;
       left: 50%;
-      top: 0;
+      top: 52px;
       transform: translate(-50%, 0) !important;
       max-width: $width--min;
+      @include device__query(tablet) {
+        top: 52px;
+      }
     }
     &.active {
       &:after {
@@ -157,7 +162,7 @@
     }
     .button__wrapper {
       @include device__query(tablet) {
-        @include position(f, 60px, null, null, calc((100% - $width--min) / 2));
+        // @include position(f, 0, null, null, calc((100% - $width--min) / 2));
         z-index: 1000;
         max-width: $width--min;
       }
