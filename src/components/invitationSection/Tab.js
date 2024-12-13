@@ -87,10 +87,10 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
   }, [selectOptionList.introFillType, setIsTabActive]);
 
   const firstMenuPositionHandler = () => {
-    if(selectOptionList.theme === "themeModernBasic" && (selectOptionList.introFillType === "fillTemplate1" || selectOptionList.introFillType === "fillTemplate2" || selectOptionList.introFillType === "fillTemplate3" || selectOptionList.introFillType === "fillTemplate4")) {
+    if(selectOptionList.theme === "themeModernBasic" && (selectOptionList.introFillType === "fillTemplate1" || selectOptionList.introFillType === "fillTemplate2" || selectOptionList.introFillType === "fillTemplate3" || selectOptionList.introFillType === "fillTemplate4" || selectOptionList.introFillType === "basicTemplate2" || selectOptionList.introFillType === "basicTemplate4")) {
       return 8;
     } else {
-      return -8;
+      return 42;
     }
   }
 

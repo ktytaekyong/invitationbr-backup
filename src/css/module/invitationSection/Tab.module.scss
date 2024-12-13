@@ -26,7 +26,7 @@
     transition: 0.3s linear transform;
     @include device__query(tablet) {
       @include position(f, 0, 0);
-      top: 72px;
+      top: 60px;
       z-index: 10001;
     }
     &.preview {
@@ -53,10 +53,14 @@
       content: "";
     }
     &.active {
-      top: 52px;
+      top: 60px;
       margin: 20px 20px;
+      z-index: 10055;
       &::after {
         opacity: 1;
+      }
+      &.preview {
+        top: 52px;
       }
     }
     .button__wrapper {

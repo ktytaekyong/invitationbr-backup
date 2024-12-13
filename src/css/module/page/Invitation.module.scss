@@ -55,7 +55,7 @@
 
   &.basicTemplate1 {
     @include device__query(tablet) {
-      margin-top: 52px;
+      // margin-top: 52px;
     }
   }
   &.fillTemplate4 {
