@@ -117,9 +117,10 @@ const NoticeSettingT = () => {
                     type="text" 
                     id={`${item.id}Title`} 
                     name="title" 
-                    value={item.title} 
-                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}} 
-                    placeholder="탭 제목을 작성해 주세요." 
+                    value={item.title}
+                    maxLength={10}
+                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}}
+                    placeholder="탭 제목을 작성해 주세요."
                   />
                 </CommonItemContent>
 
@@ -127,20 +128,20 @@ const NoticeSettingT = () => {
                   <TextEditor 
                     dataName="content" 
                     textValue={item.content} 
-                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}} 
+                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}}
                   />
                 </CommonItemContent>
 
                 <CommonItemContent title="사진" multi={true}>
-                  <PhotoSelector 
-                    id={`NoticeTPhotoList${idx}`} 
+                  <PhotoSelector
+                    id={`NoticeTPhotoList${idx}`}
                     limit={1}
-                    listName={[noticeTList[idx]]} 
-                    onChange={(e) => fileAddHandler(e, idx)} 
+                    listName={[noticeTList[idx]]}
+                    onChange={(e) => fileAddHandler(e, idx)}
                     deleteFunction={() => photoDeleteHandler(idx)}
                   />
                   <RadioList title="사진 위치">
-                    <RadioItem 
+                    <RadioItem
                       name={`position${idx}`} 
                       id={`top${idx}`} 
                       content="본문 위쪽" 

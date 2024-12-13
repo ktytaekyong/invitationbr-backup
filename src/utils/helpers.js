@@ -1,6 +1,6 @@
 /* Import */
 import { useContext } from "react";
-import { PHONE_NUMBER_REGEX, PHONE_NUMBER_AUTO_HYPHEN_REGEX, NAME_REGEX } from "../constants/regex";
+import { PHONE_NUMBER_REGEX, PHONE_NUMBER_AUTO_HYPHEN_REGEX, NAME_REGEX, NUMBER_LIMIT_ACCOUNT, NO_SPECIAL_CHAR } from "../constants/regex";
 /* Context */
 import { IntroContext } from "../store/option-intro-context.js";
 
@@ -16,6 +16,12 @@ export const autoHyphenHandler = (number) => ( // FUNC: 전화번호 자동 하�
 )
 export const nameHandler = (data) => ( // FUNC: 이름에 숫자 입력 차단
   data.replace(NAME_REGEX, "")
+)
+export const AccountHandler = (data) => ( // FUNC: 숫자 인풋 최대 글자 입력 차단
+  NUMBER_LIMIT_ACCOUNT.test(data) ? data : data.slice(0, 16)
+)
+export const AccountNameHandler = (data) => ( // FUNC: 예금주 특문 및 숫자 금지
+  data.replace(NO_SPECIAL_CHAR, "")
 )
 
 

@@ -1,3 +1,5 @@
+// Import
+import { AccountHandler, AccountNameHandler } from "../../utils/helpers.js";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
 import CommonItemContent from "./CommonItemContent.js";
@@ -55,7 +57,7 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                 />
                 <input type="number" 
                   name="account" 
-                  value={item.account}
+                  value={AccountHandler(item.account)}
                   className={styles.input__account}
                   onChange={
                     gender === "M" ?
@@ -68,7 +70,7 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
               <input 
                 type="text" 
                 name="name" 
-                value={item.name} 
+                value={AccountNameHandler(item.name)} 
                 onChange={
                   gender === "M" ?
                   (e) => onChange(e, "groomGroupList", idx)

@@ -56,7 +56,8 @@ const NoticeSettingD = () => {
                   type="text" 
                   id={`${item.id}Title`} 
                   name="title" 
-                  value={item.title} 
+                  value={item.title}
+                  maxLength={20}
                   onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
                   placeholder="공지사항 제목을 작성해 주세요." 
                 />

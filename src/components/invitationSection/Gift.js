@@ -1,6 +1,7 @@
 /* Import */
 import { useState, useContext } from "react";
 import ReactDOM from 'react-dom';
+import { AccountHandler, AccountNameHandler } from "../../utils/helpers.js";
 /* Component */
 import Button from "../layout/Button.js";
 import HeadLine from "../layout/HeadLine.js";
@@ -59,7 +60,7 @@ const Gift = () => {
                       <div className={styles.name}>
                         <p>
                           {/* 신랑  */}
-                          <span>{item.name ? item.name : "예금주"}</span>
+                          <span>{item.name ? AccountNameHandler(item.name) : "예금주"}</span>
                         </p>
                         {
                           item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
@@ -67,8 +68,8 @@ const Gift = () => {
                       </div>
                       <div className={styles.account}>
                         <p>
-                          {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span></p>
-                          <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")} />
+                          {item.bankType ? item.bankType : "은행"} | <span>{item.account ? AccountHandler(item.account) : "계좌번호"}</span></p>
+                          <Button content="복사" styleType="invitation__copy" onClick={() => copyAccountHandler(item.account ? `${item.bankType} ${AccountHandler(item.account)}` : "계좌번호 없음")} />
                       </div>
                     </div>
                   ))
@@ -91,7 +92,7 @@ const Gift = () => {
                       <div className={styles.name}>
                         <p>
                           {/* 신부 */}
-                          <span>{item.name ? item.name : "예금주"}</span>
+                          <span>{item.name ? AccountNameHandler(item.name) : "예금주"}</span>
                         </p>
                         {
                           item.kakaopayUse ?<Button styleType="invitation__kakao" /> : null
@@ -99,13 +100,13 @@ const Gift = () => {
                       </div>
                       <div className={styles.account}>
                         <p>
-                          {item.bankType ? item.bankType : "은행"} | <span>{item.account ? item.account : "계좌번호"}</span>
+                          {item.bankType ? item.bankType : "은행"} | <span>{AccountHandler(item.account) ? item.account : "계좌번호"}</span>
                         </p>
                         <Button 
                           content="복사" 
                           styleType="invitation__copy" 
                           onClick={() => (
-                            copyAccountHandler(item.account ? `${item.bankType} ${item.account}` : "계좌번호 없음")
+                            copyAccountHandler(item.account ? `${item.bankType} ${AccountHandler(item.account)}` : "계좌번호 없음")
                           )}
                         />
                       </div>

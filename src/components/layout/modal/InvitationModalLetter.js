@@ -224,48 +224,42 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                 </div>
               </div>
     
-              {basicInfoList.groomParentInfo.dadName && basicInfoList.groomParentInfo.dadDeceased === false ?
+              {(basicInfoList.groomParentInfo.dadName && basicInfoList.groomParentInfo.dadNumber) && basicInfoList.groomParentInfo.dadDeceased === false ?
                 <div className={`${styles.input__item} ${styles.groom}`}>
                   <p className={styles.input__title}>신랑 아버지</p>
                   <div className={styles.input__data}>
                     <div className={`${styles.data__wrap}`}>
                       <div className={styles.data__item}>
                         <p>{basicInfoList.groomParentInfo.dadName}</p>
-                        {
-                          basicInfoList.groomParentInfo.dadNumber ? 
-                          <div className={styles.contact}>
-                            <Link to={`tel:${basicInfoList.groomParentInfo.dadNumber}`}>
-                              <img src={iconCallGroom} alt="" />
-                            </Link>
-                            <Link to={`sms:${basicInfoList.groomParentInfo.dadNumber}`}>
-                              <img src={iconMsgGroom} alt="" />
-                            </Link>
-                          </div> : null
-                        }
+                        <div className={styles.contact}>
+                          <Link to={`tel:${basicInfoList.groomParentInfo.dadNumber}`}>
+                            <img src={iconCallGroom} alt="" />
+                          </Link>
+                          <Link to={`sms:${basicInfoList.groomParentInfo.dadNumber}`}>
+                            <img src={iconMsgGroom} alt="" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div> : null
               }
     
-            {basicInfoList.groomParentInfo.momName && basicInfoList.groomParentInfo.momDeceased === false ?
+            {(basicInfoList.groomParentInfo.momName && basicInfoList.groomParentInfo.momNumber) && basicInfoList.groomParentInfo.momDeceased === false ?
               <div className={`${styles.input__item} ${styles.groom}`}>
                 <p className={styles.input__title}>신랑 어머니</p>
                 <div className={styles.input__data}>
                   <div className={`${styles.data__wrap}`}>
                     <div className={styles.data__item}>
                       <p>{basicInfoList.groomParentInfo.momName}</p>
-                      {
-                        basicInfoList.groomParentInfo.momNumber ?
-                        <div className={styles.contact}>
-                          <Link to={`tel:${basicInfoList.groomParentInfo.momNumber}`}>
-                            <img src={iconCallGroom} alt="" />
-                          </Link>
-                          <Link to={`sms:${basicInfoList.groomParentInfo.momNumber}`}>
-                            <img src={iconMsgGroom} alt="" />
-                          </Link>
-                        </div> : null
-                      }
+                      <div className={styles.contact}>
+                        <Link to={`tel:${basicInfoList.groomParentInfo.momNumber}`}>
+                          <img src={iconCallGroom} alt="" />
+                        </Link>
+                        <Link to={`sms:${basicInfoList.groomParentInfo.momNumber}`}>
+                          <img src={iconMsgGroom} alt="" />
+                        </Link>
+                      </div> 
                     </div>
                   </div>
                 </div>
@@ -301,48 +295,42 @@ const InvitationModalLetter = ({ openvar, onClose }) => {
                 </div>
               </div>
     
-              {basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.dadDeceased === false ?
+              {(basicInfoList.brideParentInfo.dadName && basicInfoList.brideParentInfo.dadNumber) && basicInfoList.brideParentInfo.dadDeceased === false ?
                 <div className={`${styles.input__item} ${styles.bride}`}>
                   <p className={styles.input__title}>신부 아버지</p>
                   <div className={styles.input__data}>
                     <div className={`${styles.data__wrap}`}>
                       <div className={styles.data__item}>
                         <p>{basicInfoList.brideParentInfo.dadName}</p>
-                        {
-                          basicInfoList.brideParentInfo.dadNumber ? 
-                          <div className={styles.contact}>
-                            <Link to={`tel:${basicInfoList.brideParentInfo.dadNumber}`}>
-                              <img src={iconCallBride} alt="" />
-                            </Link>
-                            <Link to={`sms:${basicInfoList.brideParentInfo.dadNumber}`}>
-                              <img src={iconMsgBride} alt="" />
-                            </Link>
-                          </div> : null
-                        }
+                        <div className={styles.contact}>
+                          <Link to={`tel:${basicInfoList.brideParentInfo.dadNumber}`}>
+                            <img src={iconCallBride} alt="" />
+                          </Link>
+                          <Link to={`sms:${basicInfoList.brideParentInfo.dadNumber}`}>
+                            <img src={iconMsgBride} alt="" />
+                          </Link>
+                        </div> 
                       </div>
                     </div>
                   </div>
                 </div> : null
               }
     
-              {basicInfoList.brideParentInfo.momName && basicInfoList.brideParentInfo.momDeceased === false ?
+              {(basicInfoList.brideParentInfo.momName && basicInfoList.brideParentInfo.momNumber) && basicInfoList.brideParentInfo.momDeceased === false ?
                 <div className={`${styles.input__item} ${styles.bride}`}>
                   <p className={styles.input__title}>신부 어머니</p>
                   <div className={styles.input__data}>
                     <div className={`${styles.data__wrap}`}>
                       <div className={styles.data__item}>
                         <p>{basicInfoList.brideParentInfo.momName}</p>
-                          {
-                            basicInfoList.brideParentInfo.momNumber ?
-                            <div className={styles.contact}>
-                              <Link to={`tel:${basicInfoList.brideParentInfo.momNumber}`}>
-                                <img src={iconCallBride} alt="" />
-                              </Link>
-                              <Link to={`sms:${basicInfoList.brideParentInfo.momNumber}`}>
-                                <img src={iconMsgBride} alt="" />
-                              </Link>
-                            </div> : null
-                          }
+                        <div className={styles.contact}>
+                          <Link to={`tel:${basicInfoList.brideParentInfo.momNumber}`}>
+                            <img src={iconCallBride} alt="" />
+                          </Link>
+                          <Link to={`sms:${basicInfoList.brideParentInfo.momNumber}`}>
+                            <img src={iconMsgBride} alt="" />
+                          </Link>
+                        </div>
                       </div>
                     </div>
                   </div>
