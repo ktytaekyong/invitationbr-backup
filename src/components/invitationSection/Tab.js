@@ -103,64 +103,62 @@ const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
     }
   }
 
-  const lastPos = useRef(0);
-  useEffect(() => {
-    const handleScroll = () => {
-      const tab = tabRef.current;
-      const tabBtn = tabBtnRef.current;
-      if(isTargetPage || isMobile) {
-        const currentPos = window.scrollY || 0;
-        if (!tab) return;
-        if (currentPos > 0) {
-          tab.classList.add(styles["active"]);
-          tabBtn.style.top = "0";
-          // tab.style.transform = "translateY(20px)";
-        } else {
-          tab.classList.remove(styles["active"]);
-          tabBtn.style.top = "60px";
-        }
-        if (lastPos.current > currentPos) {
-          // tab.style.transform = "translateY(52px)";
-          if(currentPos <= 20) {
-            tab.style.transform = "translateY(0)";
-          }
-        } else if (lastPos.current < currentPos) {
-          tab.style.transform = "translateY(0)";
-          tab.classList.remove("active");
-        }
-        lastPos.current = currentPos;
-      } else {
-        const currentPos = invitationRef.current?.scrollTop || 0;
-        if (!tab) return;
-        if (currentPos > 0) {
-          tab.classList.add(styles["active"]);
-          // tab.style.transform = "translateY(20px)";
-        } else {
-          tab.classList.remove(styles["active"]);
-        }
-      }
-    };
-    if(isTargetPage || isMobile) {
-      if (window) {
-        window.addEventListener("scroll", handleScroll);
-      }
-      return () => {
-        if (window) {
-          window.removeEventListener("scroll", handleScroll);
-        }
-      };
-    } else {
-      const invitationEl = invitationRef.current;
-      if (invitationEl) {
-        invitationEl.addEventListener("scroll", handleScroll);
-      }
-      return () => {
-        if (invitationEl) {
-          invitationEl.removeEventListener("scroll", handleScroll);
-        }
-      };
-    }
-  }, [isMobile, isTargetPage]);
+  // const lastPos = useRef(0);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const tab = tabRef.current;
+  //     const tabBtn = tabBtnRef.current;
+  //     if(isTargetPage || isMobile) {
+  //       const currentPos = window.scrollY || 0;
+  //       if (!tab) return;
+  //       if (currentPos > 0) {
+  //         tab.classList.add(styles["active"]);
+  //         tabBtn.style.top = "0";
+  //       } else {
+  //         tab.classList.remove(styles["active"]);
+  //         tabBtn.style.top = "60px";
+  //       }
+  //       if (lastPos.current > currentPos) {
+  //         if(currentPos <= 20) {
+  //           tab.style.transform = "translateY(0)";
+  //         }
+  //       } else if (lastPos.current < currentPos) {
+  //         tab.style.transform = "translateY(0)";
+  //         tab.classList.remove("active");
+  //       }
+  //       lastPos.current = currentPos;
+  //     } else {
+  //       const currentPos = invitationRef.current?.scrollTop || 0;
+  //       if (!tab) return;
+  //       if (currentPos > 0) {
+  //         tab.classList.add(styles["active"]);
+  //         // tab.style.transform = "translateY(20px)";
+  //       } else {
+  //         tab.classList.remove(styles["active"]);
+  //       }
+  //     }
+  //   };
+  //   if(isTargetPage || isMobile) {
+  //     if (window) {
+  //       window.addEventListener("scroll", handleScroll);
+  //     }
+  //     return () => {
+  //       if (window) {
+  //         window.removeEventListener("scroll", handleScroll);
+  //       }
+  //     };
+  //   } else {
+  //     const invitationEl = invitationRef.current;
+  //     if (invitationEl) {
+  //       invitationEl.addEventListener("scroll", handleScroll);
+  //     }
+  //     return () => {
+  //       if (invitationEl) {
+  //         invitationEl.removeEventListener("scroll", handleScroll);
+  //       }
+  //     };
+  //   }
+  // }, [isMobile, isTargetPage]);
 
   return (
     <>

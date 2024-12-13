@@ -285,7 +285,6 @@
   &.fillTemplate3,
   &.fillTemplate4 {
     &.intro {
-      padding-top: 8px;
     }
     .intro__wrap {
       padding: 0;
@@ -380,6 +379,12 @@
     margin-top: -22px;
     @include device__query(tablet) {
       margin-top: 0px;
+    }
+    > div {
+      margin-top: -60px !important;
+      @include device__query(tablet) {
+        margin-top: -0 !important;
+      }
     }
     .intro__photo {
       background: url(../../../img/intro/intro_photo_test8.png) no-repeat top / cover;

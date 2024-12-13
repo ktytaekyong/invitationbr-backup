@@ -48,33 +48,33 @@ const Header = () => {
   const headerRef = useRef(null); 
   const [lastPos, setLastPos] = useState(0);
 
-  useEffect(() => {
-    if(isMobile) {
-      const handleScroll = () => {
-        const currentPos = window.scrollY; 
-        const header = headerRef.current;
-        if (!header) return;
-        if(isTargetPage || isMobile) {
-          if (currentPos > 0) {
-            header.classList.add(styles["active"]);
-          } else {
-            header.classList.remove(styles["active"]);
-          }
-          if (lastPos > currentPos) {
-            header.style.transform = "translateY(0)"; 
-          } else if (lastPos < currentPos) {
-            header.style.transform = "translateY(-100%)"; 
-            header.classList.remove(styles["active"]);
-          }
-          setLastPos(currentPos);
-        }
-      };
-      window.addEventListener("scroll", handleScroll);
-      return () => {
-        window.removeEventListener("scroll", handleScroll); 
-      };
-    }
-  }, [lastPos, isMobile]);
+  // useEffect(() => {
+  //   if(isMobile) {
+  //     const handleScroll = () => {
+  //       const currentPos = window.scrollY; 
+  //       const header = headerRef.current;
+  //       if (!header) return;
+  //       if(isTargetPage || isMobile) {
+  //         if (currentPos > 0) {
+  //           header.classList.add(styles["active"]);
+  //         } else {
+  //           header.classList.remove(styles["active"]);
+  //         }
+  //         if (lastPos > currentPos) {
+  //           header.style.transform = "translateY(0)"; 
+  //         } else if (lastPos < currentPos) {
+  //           header.style.transform = "translateY(-100%)"; 
+  //           header.classList.remove(styles["active"]);
+  //         }
+  //         setLastPos(currentPos);
+  //       }
+  //     };
+  //     window.addEventListener("scroll", handleScroll);
+  //     return () => {
+  //       window.removeEventListener("scroll", handleScroll); 
+  //     };
+  //   }
+  // }, [lastPos, isMobile]);
 
   return (
     <>

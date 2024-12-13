@@ -15,7 +15,7 @@
     height: unset;
     max-width: $width--min;
     border: none;
-    margin-top: 52px;
+    margin-top: 60px;
     border-radius: 0;
     overflow: unset;
   }
@@ -25,11 +25,14 @@
     height: unset;
     overflow-y: unset;
     border-radius: 0;
+    border: none;
     padding-top: 50px;
+    margin-top: 52px;
     @include device__query(tablet) {
       height: unset;
       padding-top: 0;
-      margin-top: 42px;
+    }
+    &.fillTemplate4 {
     }
   }
   * {
@@ -48,6 +51,15 @@
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+
+  &.basicTemplate1 {
+    @include device__query(tablet) {
+      margin-top: 52px;
+    }
+  }
+  &.fillTemplate4 {
+    margin-top: 52px;
   }
 }
 

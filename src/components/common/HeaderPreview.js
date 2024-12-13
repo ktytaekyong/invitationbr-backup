@@ -26,29 +26,29 @@ const HeaderPreview = () => {
   const headerRef = useRef(null); 
   const [lastPos, setLastPos] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentPos = window.scrollY; 
-      const header = headerRef.current;
-      if (!header) return;
-      if (currentPos > 0) {
-        header.classList.add("active");
-      } else {
-        header.classList.remove("active");
-      }
-      if (lastPos > currentPos) {
-        header.style.transform = "translateY(0)"; 
-      } else if (lastPos < currentPos) {
-        header.style.transform = "translateY(-100%)"; 
-        header.classList.remove("active");
-      }
-      setLastPos(currentPos);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll); 
-    };
-  }, [lastPos, isMobile]);
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentPos = window.scrollY; 
+  //     const header = headerRef.current;
+  //     if (!header) return;
+  //     if (currentPos > 0) {
+  //       header.classList.add("active");
+  //     } else {
+  //       header.classList.remove("active");
+  //     }
+  //     if (lastPos > currentPos) {
+  //       header.style.transform = "translateY(0)"; 
+  //     } else if (lastPos < currentPos) {
+  //       header.style.transform = "translateY(-100%)"; 
+  //       header.classList.remove("active");
+  //     }
+  //     setLastPos(currentPos);
+  //   };
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll); 
+  //   };
+  // }, [lastPos, isMobile]);
 
   return (
     <>

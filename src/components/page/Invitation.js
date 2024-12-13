@@ -83,7 +83,6 @@ const Invitation = () => {
   const [isDomReady, setIsDomReady] = useState(false);
 
   useEffect(() => {
-    // DOM 요소가 모두 렌더링되었는지 확인
     const checkDomReady = () => {
       const allReady = selectSettingList.every((itemId) => refs.current[itemId]);
       if (allReady) setIsDomReady(true);
@@ -147,10 +146,6 @@ const Invitation = () => {
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
 
-  // useEffect(() => {
-  //   setPopupOpened(false); 
-  // }, [selectOptionList.optionAttendPopup]);
-
   const [sortedSettingList, setSortedSettingList] = useState([]); 
   
   useEffect(() => {
@@ -175,7 +170,7 @@ const Invitation = () => {
       ref={invitationRef}
       className={`${styles.invitation} ${
         isTargetPage ? styles.preview : ""
-      }`}
+      } ${selectOptionList.theme === "themeModernBasic" ? styles[selectOptionList.introFillType] : ""}`}
     >
       <Container>
         <>
