@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import { DataChanger_Object } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -12,23 +13,24 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const LetterSetting = () => {
   const { letterList, setLetterList } = useContext(SetContext);
-  const letterDataChangeHandler = (e) => {
-    const { name, value } = e.target;
-    setLetterList((prev) => ({
-      ...prev,
-      [name]: value
-    }))
-  }
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="제목">
-            <LetterSettingTitle value={letterList.title} onChange={letterDataChangeHandler} />
+            <LetterSettingTitle 
+              dataName="title"
+               value={letterList.title} 
+              onChange={(e) => DataChanger_Object(e, setLetterList)} 
+            />
           </CommonItemContent>
-          
           <CommonItemContent title="내용" multi={true}>
-            <TextEditor type="letter" name="content" textValue={letterList.content} onChange={(e) => letterDataChangeHandler(e)} setLetterList={setLetterList} />
+            <TextEditor 
+              type="letter" 
+              dataName="content" 
+              textValue={letterList.content} 
+              onChange={(e) => DataChanger_Object(e, setLetterList)} 
+            />
           </CommonItemContent>
         </CommonItemWrapper>
       </CommonOptionContent>

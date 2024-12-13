@@ -22,7 +22,7 @@ const dateMinuteList = [
 const DateSetting = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-  const DataChanger = (e, infoType) => {
+  const DataChanger_NestedObject = (e, infoType) => {
     const { name, value } = e.target;
     setBasicInfoList(prev => ({
       ...prev,
@@ -41,7 +41,7 @@ const DateSetting = () => {
               type="date" 
               id="DateInfoDate" 
               name="date" 
-              onChange={(e) => DataChanger(e, "dateInfo")} 
+              onChange={(e) => DataChanger_NestedObject(e, "dateInfo")} 
               value={basicInfoList.dateInfo.date} 
             />
           </CommonItemContent>
@@ -52,14 +52,14 @@ const DateSetting = () => {
               selectName="hour"
               listName={dateHourList} 
               value={basicInfoList.timeInfo.hour} 
-              onChange={(e) => DataChanger(e, "timeInfo")} 
+              onChange={(e) => DataChanger_NestedObject(e, "timeInfo")} 
             />
             <OptionSelector 
               selectID="DateInfoMin" 
               selectName="min" 
               listName={dateMinuteList} 
               value={basicInfoList.timeInfo.min} 
-              onChange={(e) => DataChanger(e, "timeInfo")} 
+              onChange={(e) => DataChanger_NestedObject(e, "timeInfo")} 
               styleType={"minute__selector"} 
             />
           </CommonItemContent>

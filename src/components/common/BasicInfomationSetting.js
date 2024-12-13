@@ -1,6 +1,6 @@
 /* Import */
 import { useContext } from "react";
-import { DataChanger } from "../../utils/helpers.js";
+import { DataChanger_NestedObject } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -17,7 +17,6 @@ import { InfoContext } from "../../store/option-info-context.js";
 // C: 기본 정보 셋팅
 const BasicInfomationSetting = () => {
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
-
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -26,14 +25,14 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingName 
               genderCode="M"
               nameInfo={basicInfoList.groomInfo}
-              onChange={(e) => DataChanger(e, "groomInfo", setBasicInfoList)}
+              onChange={(e) => DataChanger_NestedObject(e, "groomInfo", setBasicInfoList)}
             />
           </CommonItemContent>
           <CommonItemContent title="신부" essential={true}>
             <BasicInfomationSettingName 
               genderCode="F" 
               nameInfo={basicInfoList.brideInfo} 
-              onChange={(e) => DataChanger(e, "brideInfo", setBasicInfoList)} 
+              onChange={(e) => DataChanger_NestedObject(e, "brideInfo", setBasicInfoList)} 
             />
           </CommonItemContent>
         </CommonItemWrapper>
@@ -45,7 +44,7 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingDate 
               inputType="date"
               dateInfo={basicInfoList.dateInfo} 
-              onChange={(e) => DataChanger(e, "dateInfo", setBasicInfoList)}
+              onChange={(e) => DataChanger_NestedObject(e, "dateInfo", setBasicInfoList)}
             />
           </CommonItemContent>
 
@@ -53,7 +52,7 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingDate 
               inputType="time" 
               timeInfo={basicInfoList.timeInfo}
-              onChange={(e) => DataChanger(e, "timeInfo", setBasicInfoList)}
+              onChange={(e) => DataChanger_NestedObject(e, "timeInfo", setBasicInfoList)}
             />
           </CommonItemContent>
         </CommonItemWrapper>
@@ -65,14 +64,14 @@ const BasicInfomationSetting = () => {
             <BasicInfomationSettingPlace
               inputType="placeName"
               placeInfo={basicInfoList.placeInfo}
-              onChange={(e) => DataChanger(e, "placeInfo", setBasicInfoList)}
+              onChange={(e) => DataChanger_NestedObject(e, "placeInfo", setBasicInfoList)}
             />
           </CommonItemContent>
           
           <CommonItemContent title="층과 홀">
             <BasicInfomationSettingPlace 
               placeInfo={basicInfoList.placeInfo}
-              onChange={(e) => DataChanger(e, "placeInfo", setBasicInfoList)}
+              onChange={(e) => DataChanger_NestedObject(e, "placeInfo", setBasicInfoList)}
             />
           </CommonItemContent>
         </CommonItemWrapper>

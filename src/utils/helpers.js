@@ -20,7 +20,7 @@ export const nameHandler = (data) => ( // FUNC: 이름에 숫자 입력 차단
 
 
 // ********** DATA CHANGER ********** //
-export const DataChanger = (e, infoType, changer) => { // FUNC: 데이터 입력 제어(onChange) - 이벤트 대상의 name(e), 데이터 name(InfoType), 바꿀 상태 함수(changer) 
+export const DataChanger_NestedObject = (e, infoType, changer) => { // FUNC: 이중 객체 데이터 입력 제어(onChange) - 이벤트 대상의 name(e), 데이터 name(InfoType), 바꿀 상태 함수(changer) 
   const { name, value } = e.target;
   changer(prev => ({
     ...prev,
@@ -28,6 +28,13 @@ export const DataChanger = (e, infoType, changer) => { // FUNC: 데이터 입력
       ...prev[infoType],
       [name]: value
     }
+  }))
+}
+export const DataChanger_Object = (e, changer) => { // FUNC: 객체 데이터 입력 제어(onChange) - 이벤트 대상의 name(e), 데이터 name(InfoType), 바꿀 상태 함수(changer) 
+  const { name, value } = e.target;
+  changer((prev) => ({
+    ...prev,
+    [name]: value
   }))
 }
 
