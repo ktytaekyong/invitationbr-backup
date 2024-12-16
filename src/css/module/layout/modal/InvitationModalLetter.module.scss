@@ -60,7 +60,7 @@
         @include flex__row;
         justify-content: space-between;
         align-items: center;
-        column-gap: 21px;
+        column-gap: 15px;
         padding-right: 5px;
         width: 100%;
         p {
@@ -81,6 +81,14 @@
               width: 100%;
             }
           }
+          &.disable {
+            a {
+              pointer-events: none;
+              img {
+                filter: grayscale(1);
+              }
+            }
+          } 
         }
       }
     }
