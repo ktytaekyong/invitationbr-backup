@@ -20,7 +20,7 @@ const SettingOther = () => {
   return (
     <div className={styles.other}>
       <div className={styles.other__wrap}>
-        {
+        {/* {
           <div className={styles.other__item_wrap}>
             {!isTargetPage && isMobile ?
               <MobileSettingButtonWrapper id="settingBgMusic" position="absolute" top={10} /> 
@@ -37,7 +37,7 @@ const SettingOther = () => {
               : null
             }
           </div>
-        }
+        } */}
         {
           <div className={styles.other__item_wrap}>
             {!isTargetPage && isMobile ?
