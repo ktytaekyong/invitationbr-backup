@@ -177,12 +177,23 @@
         margin-top: 14px;
         margin-right: 14px;
         padding: 0;
-        background: transparent url(../../../img/icon/icon_header_menu.png) no-repeat center / 24px;
+        // background: transparent url(../../../img/icon/icon_header_menu.png) no-repeat center / 24px;
+        background: transparent;
         cursor: pointer;
         z-index: 999;
+        svg {
+          width: 24px;
+          background-blend-mode: multiply;
+          * {
+            background-blend-mode: multiply;
+          }
+        }
         &.active {
-          background-image: url(../../../img/icon/icon_header_menu_close.png);
+          background: url(../../../img/icon/icon_header_menu_close.svg) no-repeat center / 24px;
           z-index: 1000;
+          svg {
+            display: none;
+          }
         }
       }
     }

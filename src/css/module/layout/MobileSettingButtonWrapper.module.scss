@@ -8,7 +8,7 @@
   }
   &.absolute {
     @include position(a, -25px, 0);
-    z-index: 10054;
+    z-index: 10000;
   }
   &.static {
     @include position(s);

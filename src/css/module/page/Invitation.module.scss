@@ -30,11 +30,10 @@
     @include device__query(tablet) {
       height: unset;
       margin-top: 52px;
-      // padding-top: 0;
+      padding-top: 0;
     }
-    &.fillTemplate4 {
-      margin-top: 0;
-    }
+    // &.fillTemplate4 {
+    // }
   }
   * {
     font-family: var(--font-family--theme);
