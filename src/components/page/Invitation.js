@@ -98,8 +98,6 @@ const Invitation = () => {
 
   useEffect(() => {
     if (!isDomReady) return;
-  
-    // 옵저버 설정
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -147,12 +145,19 @@ const Invitation = () => {
     }
   }, [visibleStates, popupOpened, selectOptionList.optionAttendPopup, selectSettingList]);
 
-  const [sortedSettingList, setSortedSettingList] = useState([]); 
+  const [sortedSettingList, setSortedSettingList] = useState([]);
   
   useEffect(() => {
     const sortedList = [...settingList].sort((a, b) => {
-      return selectSettingList.indexOf(a.itemId) - selectSettingList.indexOf(b.itemId);
+      const indexA = selectSettingList.indexOf(a.itemId);
+      const indexB = selectSettingList.indexOf(b.itemId);
+  
+      const adjustedIndexA = indexA === -1 ? Infinity : indexA;
+      const adjustedIndexB = indexB === -1 ? Infinity : indexB;
+  
+      return adjustedIndexA - adjustedIndexB;
     });
+  
     setSortedSettingList(sortedList);
   }, [selectSettingList, settingList]);
   
@@ -184,6 +189,7 @@ const Invitation = () => {
         <MobileSettingNotice />
         <Intro />
         <Effect />
+
         {sortedSettingList
         .filter(
           (setting) =>
@@ -214,6 +220,7 @@ const Invitation = () => {
             </div>
           );
         })}
+        
         <Banner />
         {settingList.map((item, index) => (
           item.itemEssential === false && item.itemId === "settingOutro" ?
