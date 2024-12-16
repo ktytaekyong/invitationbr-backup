@@ -1,10 +1,19 @@
 @import "../../../_module";
+@keyframes modalOpen {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .modal {
   &__invite {
     @include flex__row;
     justify-content: center;
     align-items: flex-start;
     margin-top: 70px;
+    animation: 0.3s linear modalOpen;
     * {
       font-weight: $font-weight--Medium;
     }
