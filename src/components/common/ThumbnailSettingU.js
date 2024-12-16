@@ -53,7 +53,7 @@ const ThumbnailSettingU = () => {
             <PhotoSelector id="ThumbUPhoto" limit={1} listName={urlInfoList} onChange={fileAddHandler} deleteFunction={photoDeleteHandler} />
           </CommonItemContent>
           <CommonItemContent title='제목'>
-            <input type="text" name="title" value={urlInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />
+            <input type="text" name="title" value={urlInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' maxLength={10} />
           </CommonItemContent>
           <CommonItemContent title='내용' multi={true}>
             <TextAreaWrapperCount name="description" value={urlInfoList[0].description} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder="내용을 입력하세요." maxLength={100} />

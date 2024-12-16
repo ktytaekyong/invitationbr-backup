@@ -11,6 +11,7 @@ const LetterSettingTitle = ({ value, onChange }) => {
       className={styles.input__letter_title} 
       onChange={onChange}
       placeholder="제목을 입력하세요."
+      maxLength={10}
     />
   )
 }

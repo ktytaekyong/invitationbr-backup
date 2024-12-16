@@ -15,7 +15,7 @@ import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_ri
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
 // C: TEXTAREA
-const TextEditor = ({ type, dataName, textValue, onChange, setLetterList }) => {
+const TextEditor = ({ type, dataName, textValue, onChange, setLetterList, maxLength }) => {
   const textareaRef = useRef(null);
   const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
@@ -62,6 +62,7 @@ const TextEditor = ({ type, dataName, textValue, onChange, setLetterList }) => {
           value={textValue} 
           placeholder="내용을 입력하세요."
           onChange={onChange}
+          maxLength={maxLength}
         />
         {
           type === "letter" ?

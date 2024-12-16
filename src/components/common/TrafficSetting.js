@@ -41,11 +41,13 @@ const TrafficSetting = () => {
               value={item.traffic} 
               placeholder="교통수단명을 입력하세요. (ex : 지하철/버스/자가용)"
               onChange={(e) => DataChanger_ObjectArray(e, idx, setTrafficList)} 
+              maxLength={15}
             />
             <TextEditor 
               dataName="content" 
               textValue={item.content} 
               onChange={(e) => DataChanger_ObjectArray(e, idx, setTrafficList)} 
+              maxLength={100}
             />
             <Button type="button" content="교통수단 삭제" styleType="remove" onClick={() => trafficRemoveHandler(idx)} />
           </CommonItemContent>

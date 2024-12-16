@@ -91,7 +91,7 @@ const GiftSetting = () => {
           <ListOptionContent list={true}>
             <CommonItemWrapper>
               <CommonItemContent title="그룹명">
-                <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {DataChanger_Object(e, setAccountInfoList)}} placeholder="신랑측 계좌번호" />
+                <input type="text" name="groomTitle" value={accountInfoList.groomTitle} onChange={(e) => {DataChanger_Object(e, setAccountInfoList)}} placeholder="신랑측 계좌번호" maxLength={10} />
               </CommonItemContent>
               <CommonItemContent title="펼쳐두기">
                 <CheckItem name="groomAccountView" id="groomAccountView" content="신랑측 계좌정보를 펼쳐둡니다." />
@@ -112,7 +112,7 @@ const GiftSetting = () => {
           <ListOptionContent list={true}>
             <CommonItemWrapper>
               <CommonItemContent title="그룹명">
-                <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {DataChanger_Object(e, setAccountInfoList)}} placeholder="신부측 계좌번호" />
+                <input type="text" name="brideTitle" value={accountInfoList.brideTitle} onChange={(e) => {DataChanger_Object(e, setAccountInfoList)}} placeholder="신부측 계좌번호" maxLength={10} />
               </CommonItemContent>
               <CommonItemContent title="펼쳐두기">
                 <CheckItem name="brideAccountView" id="brideAccountView" content="신부측 계좌정보를 펼쳐둡니다." />

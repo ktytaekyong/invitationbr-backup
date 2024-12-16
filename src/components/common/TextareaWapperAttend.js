@@ -15,7 +15,7 @@ const TextareaWapperAttend = ({ id, content, division, gender, placeholder, valu
         :
         null
       }
-      <textarea name={id} id={id} value={value} onChange={onChange} placeholder={placeholder} maxLength={50} />
+      <textarea name={id} id={id} value={value} onChange={onChange} placeholder={placeholder} maxLength={30} />
       <span>{value.length}/50</span>
     </div>
   )

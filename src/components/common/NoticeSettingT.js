@@ -129,6 +129,7 @@ const NoticeSettingT = () => {
                     dataName="content" 
                     textValue={item.content} 
                     onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}}
+                    maxLength={100}
                   />
                 </CommonItemContent>
 

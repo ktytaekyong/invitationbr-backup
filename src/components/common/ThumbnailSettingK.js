@@ -56,7 +56,7 @@ const ThumbnailSettingK = () => {
           </CommonItemContent>
 
           <CommonItemContent title='제목'>
-            <input type="text" name="title" value={kakaoInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' />
+            <input type="text" name="title" value={kakaoInfoList[0].title} onChange={(e) => infoDataChangeHandler(e, 0)} placeholder='제목 입력' maxLength={10} />
           </CommonItemContent>
 
           <CommonItemContent title='내용' multi={true}>

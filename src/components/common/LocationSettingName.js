@@ -7,9 +7,23 @@ const LocationSettingName = ({ name, locationValue, onChange }) => {
     <div className={styles.option__input}>
       {
         name === "placeName" ?
-        <input name="placeName" type="text" value={locationValue} onChange={onChange} placeholder="예식장 명 입력"/>
+        <input 
+          name="placeName" 
+          type="text" 
+          value={locationValue} 
+          onChange={onChange}
+          placeholder="예식장 명 입력"
+          maxLength={25}
+        />
         :
-        <input name="placeDetail" type="text" value={locationValue} onChange={onChange} placeholder="층과 홀 입력"/>
+        <input 
+          name="placeDetail" 
+          type="text" 
+          value={locationValue} 
+          onChange={onChange} 
+          placeholder="층과 홀 입력"
+          maxLength={20}
+        />
       }
     </div>
   )

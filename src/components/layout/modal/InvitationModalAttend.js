@@ -117,7 +117,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
                 <p className={styles.input__title}>성함</p>
                 <div className={styles.input__data}>
                   <div className={styles.data__wrap}>
-                    <input type="text" id="attendName" onChange={(e) => {setAttendName(e.target.value)}} placeholder="작성자 성함 입력" />
+                    <input type="text" id="attendName" onChange={(e) => {setAttendName(e.target.value)}} placeholder="작성자 성함 입력" maxLength={7} />
                   </div>
                 </div>
               </div> : null
@@ -128,7 +128,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
                 <p className={styles.input__title}>참석인원</p>
                 <div className={styles.input__data}>
                   <div className={styles.data__wrap}>
-                    <input type="text" id="attendCount" onChange={(e) => {setAttendCount(e.target.value)}} placeholder="본인 외 참석 인원" />
+                    <input type="text" id="attendCount" onChange={(e) => {setAttendCount(e.target.value)}} placeholder="본인 외 참석 인원" maxLength={20} />
                   </div>
                 </div>
               </div> : null

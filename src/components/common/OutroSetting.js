@@ -51,6 +51,7 @@ const OutroSetting = () => {
               dataName="content" 
               textValue={outroList.content} 
               onChange={(e)=>{outroDataChangeHandler(e)}}
+              maxLength={50}
             />
           </CommonItemContent>
 

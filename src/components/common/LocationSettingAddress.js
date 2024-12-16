@@ -20,6 +20,7 @@ const LocationSettingAddress = ({ onChange }) => {
           name="placeAddress" 
           placeholder="주소 입력" 
           onChange={onChange} 
+          maxLength={30}
         />
         <Button content="검색" styleType="point" />
       </div>

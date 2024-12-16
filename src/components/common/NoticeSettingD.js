@@ -57,7 +57,7 @@ const NoticeSettingD = () => {
                   id={`${item.id}Title`} 
                   name="title" 
                   value={item.title}
-                  maxLength={20}
+                  maxLength={10}
                   onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
                   placeholder="공지사항 제목을 작성해 주세요." 
                 />
@@ -68,6 +68,7 @@ const NoticeSettingD = () => {
                   dataName="content"
                   textValue={item.content} 
                   onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
+                  maxLength={100}
                 />
               </CommonItemContent>
     

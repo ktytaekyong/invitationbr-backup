@@ -66,9 +66,9 @@ const Guestbook = () => {
         <HeadLine title="방명록" content="message" />
         <div className={styles.guestbook__content}>
           <div className={styles.input__wrap}>
-            <input type="text" name="guestName" value={tempBookList.guestName} onChange={tempGuestbookHandler} placeholder="이름" />
-            <input type="password" name="guestPassword" value={tempBookList.guestPassword} onChange={tempGuestbookHandler} placeholder="비밀번호" />
-            <TextareaWapperCount name="guestMessage" id="" value={tempBookList.guestMessage} onChange={tempGuestbookHandler} placeholder="축하메시지(100자 이내)" maxLength={100}></TextareaWapperCount>
+            <input type="text" name="guestName" value={tempBookList.guestName} onChange={tempGuestbookHandler} placeholder="이름" maxLength={7} />
+            <input type="password" name="guestPassword" value={tempBookList.guestPassword} onChange={tempGuestbookHandler} placeholder="비밀번호" maxLength={10} />
+            <TextareaWapperCount name="guestMessage" id="" value={tempBookList.guestMessage} onChange={tempGuestbookHandler} placeholder="축하메시지(100자 이내)" maxLength={100} />
           </div>
           <ButtonWrapper styleType="center">
             <Button content="등록하기" styleType="invitation__reg" onClick={regGuestbookHandler} />

@@ -77,6 +77,7 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                   : (e) => onChange(e, "brideGroupList", idx)
                 } 
                 placeholder="예금주 입력" 
+                maxLength={20}
               />
             </CommonItemContent>
             

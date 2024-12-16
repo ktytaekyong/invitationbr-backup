@@ -29,7 +29,8 @@ const LetterSetting = () => {
               type="letter" 
               dataName="content" 
               textValue={letterList.content} 
-              onChange={(e) => DataChanger_Object(e, setLetterList)} 
+              onChange={(e) => DataChanger_Object(e, setLetterList)}
+              maxLength={100}
             />
           </CommonItemContent>
         </CommonItemWrapper>

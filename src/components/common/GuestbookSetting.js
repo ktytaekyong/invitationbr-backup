@@ -26,7 +26,8 @@ const GuestbookSetting = () => {
               type='password' 
               value={guestbookAdminPassword}
               onChange={(e) => passwordChangeHandler(e)}
-              placeholder="비밀번호를 설정해 주세요." 
+              placeholder="비밀번호를 설정해 주세요."
+              maxLength={20}
             />
             <SettingNotice>
               <SettingNoticeContent>비밀번호는 자유롭게 설정하시면 됩니다.</SettingNoticeContent>

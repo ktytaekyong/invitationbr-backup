@@ -266,6 +266,7 @@ const IntroPhotoSettingTextColor = ({ isActive }) => {
                     onChange={(e) => changeSampleText(e, coloridx)} 
                     placeholder={placeholderRenderer(coloridx)}
                     style={{color: selectIntroColor[coloridx]}} 
+                    maxLength={20}
                   />
                 </div>
               </li>
