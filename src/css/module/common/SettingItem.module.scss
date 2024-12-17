@@ -16,6 +16,7 @@
     border: 1px solid $border-color--default;
     background-color: $bg-color--setting;
     z-index: 1;
+    cursor: pointer;
     @include device__query(tablet) {
       max-width: unset;
       display: none;
