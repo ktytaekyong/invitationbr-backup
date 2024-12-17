@@ -23,7 +23,6 @@ const LocationSettingFile = () => {
     if (file) {
       try {
         const compressedFile = await imageCompression(file, option); 
-  
         const fileList = new FileReader();
         fileList.onload = (event) => {
           setSelectLocationFile([ 

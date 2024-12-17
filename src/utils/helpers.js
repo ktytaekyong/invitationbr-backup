@@ -1,6 +1,7 @@
 /* Import */
 import { useContext } from "react";
 import { PHONE_NUMBER_REGEX, PHONE_NUMBER_AUTO_HYPHEN_REGEX, NAME_REGEX, NUMBER_LIMIT_ACCOUNT, NO_SPECIAL_CHAR } from "../constants/regex";
+import imageCompression from "browser-image-compression"; 
 /* Context */
 import { IntroContext } from "../store/option-intro-context.js";
 
@@ -88,18 +89,37 @@ export const photoDeleter_ObjectArray = (deleteIdx, deleter) => { // FUNC: Photo
     return newList;
   });
 }
-export const fileAddHandler_ObjectArray = (e, index, handler) => { // FUNC: PhotoSelector - 사진 추가 로직 (갤러리, 인트로 제외)
+export const fileAddHandler_ObjectArray = async (e, index, handler) => { // FUNC: PhotoSelector - 사진 추가 로직 (갤러리, 인트로 제외)
   const file = e.target.files[index];
-  if(file) {
-    const fileList = new FileReader();
-    fileList.onload = (e) => {
-      handler((prev) => {
-        const newList = [...prev];
-        newList[index] = { ...newList[index], src: e.target.result };
-        return newList;
-      })
-    };
-    fileList.readAsDataURL(file);
+  if (file) {
+    try {
+      // 이미지 압축 옵션
+      const options = { maxSizeMB: 1, maxWidthOrHeight: 800, useWebWorker: true };
+  
+      // 파일 압축
+      const compressedFile = await imageCompression(file, options);
+  
+      // 파일 읽기
+      const fileReader = new FileReader();
+      fileReader.onload = (event) => {
+        handler((prev) => {
+          // 기존 배열 복사 및 업데이트
+          const newList = [...prev];
+          newList[index] = { 
+            ...newList[index],
+            fileName: file.name,   // 파일명 추가
+            src: event.target.result, 
+            alt: event.target.result,
+          };
+          return newList;
+        });
+      };
+      fileReader.readAsDataURL(compressedFile);
+    } catch (error) {
+      console.error("파일 처리 중 오류 발생:", error);
+    } finally {
+      e.target.value = null; // input 초기화
+    }
   }
 }
 

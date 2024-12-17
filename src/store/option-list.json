@@ -385,12 +385,10 @@
 
   ],
 
-  "videoList": [
-    {
-      "url": "",
-      "src": ""
-    }
-  ],
+  "videoList": {
+    "videoUrl": "",
+    "videoSrc": ""
+  },
   "attendList": {
     "attendTitle": "",
     "attendContent": "",

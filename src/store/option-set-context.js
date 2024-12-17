@@ -16,7 +16,7 @@ export const SetContext = createContext({
   setSelectSettingList: () => {}, 
   accountInfoList: {},
   setAccountInfoList: () => {}, 
-  videoList: [],
+  videoList: {},
   setVideoList: () => {}, 
   noticeTList: [],
   setNoticeTList: () => {}, 
