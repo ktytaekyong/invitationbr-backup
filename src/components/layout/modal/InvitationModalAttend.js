@@ -15,7 +15,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
   const [ guestType, setGuestType ] = useState("attendTypeGroom");
   const [ attendWhether, setAttendWhether ] = useState("attendWhetherYes");
   const [ attendName, setAttendName ] = useState("");
-  const [ attendCount, setAttendCount ] = useState("");
+  const [ attendCount, setAttendCount ] = useState(0);
   const [ attendMeal, setAttendMeal ] = useState("attendMealYes");
   const [ attendBus, setAttendBus ] = useState("attendBusYes");
   const attendCheckHandler = () => {
@@ -48,6 +48,14 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
       return attendList.attendNoBusNoticeF;
     }
   }
+  const handleAttendCountChange = (e) => {
+    const inputValue = e.target.value;
+    if (inputValue === "" || (Number(inputValue) >= 0 && Number(inputValue) <= 99)) {
+      setAttendCount(inputValue);
+    } else {
+      setAttendCount(99);
+    }
+  };
   useEffect(() => {
     if(attendList.optionAttendName === false) {
       setAttendName("");
@@ -128,7 +136,7 @@ const InvitationModalAttend = ({ openvar, onClose }) => {
                 <p className={styles.input__title}>참석인원</p>
                 <div className={styles.input__data}>
                   <div className={styles.data__wrap}>
-                    <input type="text" id="attendCount" onChange={(e) => {setAttendCount(e.target.value)}} placeholder="본인 외 참석 인원" maxLength={20} />
+                    <input type="number" id="attendCount" value={attendCount} onChange={handleAttendCountChange} placeholder="본인 외 참석 인원" />
                   </div>
                 </div>
               </div> : null

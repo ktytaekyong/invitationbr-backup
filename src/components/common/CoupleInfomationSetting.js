@@ -1,6 +1,5 @@
 /* Import */
 import { useState, useContext } from "react";
-import { DataChanger_NestedObject } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -26,11 +25,20 @@ const parents = [
     itemKey: "Mom"
   }
 ];
-// C: 신랑/신부 정보
 const CoupleInfomation = () => {
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, setBasicInfoList } = useContext(InfoContext);
   const [ mobileTabActive, setMobileTabActive ] = useState("M");
+  const basicDataChangeHandler = (e, key) => {
+    const { name, value } = e.target;
+    setBasicInfoList((prev) => ({
+      ...prev,
+      [key]: {
+        ...prev[key],
+        [name]: value, 
+      },
+    }));
+  };
   return (
     <CommonOptionWrapper>
       {isMobile ? <CoupleInfomationSettingMobileTab mobileTabActive={mobileTabActive} onClick={setMobileTabActive} /> : null}
@@ -44,7 +52,7 @@ const CoupleInfomation = () => {
                 couple="신랑" 
                 coupleKey="M" 
                 value={basicInfoList.groomInfo} 
-                onChange={(e) => DataChanger_NestedObject(e, "groomInfo", setBasicInfoList)}
+                onChange={(e) => basicDataChangeHandler(e, "groomInfo")}
               />
             </CommonItemContent>
             {parents.map((parent, idx) => (
@@ -54,7 +62,7 @@ const CoupleInfomation = () => {
                   pName={parent.itemName} 
                   coupleKey="M"
                   data={basicInfoList.groomParentInfo}
-                  onChange={(e) => DataChanger_NestedObject(e, "groomParentInfo", setBasicInfoList)}
+                  onChange={(e) => basicDataChangeHandler(e, "groomParentInfo")}
                 />
               </CommonItemContent>
             ))}
@@ -71,7 +79,7 @@ const CoupleInfomation = () => {
                 couple="신부" 
                 coupleKey="F" 
                 value={basicInfoList.brideInfo} 
-                onChange={(e) => DataChanger_NestedObject(e, "brideInfo", setBasicInfoList)}
+                onChange={(e) => basicDataChangeHandler(e, "brideInfo")}
               />
             </CommonItemContent>
             {parents.map((parent, idx) => (
@@ -81,7 +89,7 @@ const CoupleInfomation = () => {
                   pName={parent.itemName} 
                   coupleKey="F"
                   data={basicInfoList.brideParentInfo}
-                  onChange={(e) => DataChanger_NestedObject(e, "brideParentInfo", setBasicInfoList)}
+                  onChange={(e) => basicDataChangeHandler(e, "brideParentInfo")}
                 />
               </CommonItemContent>
             ))}
