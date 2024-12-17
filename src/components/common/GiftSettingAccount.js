@@ -1,4 +1,4 @@
-// Import
+/* Import */
 import { AccountHandler, AccountNameHandler } from "../../utils/helpers.js";
 /* Component */
 import CommonItemWrapper from "./CommonItemWrapper.js";
@@ -34,8 +34,14 @@ const bankList = [
     itemKey: "농협은행"
   },
 ]
-
-// C: 마음 전하기 - 계좌정보
+const handleAccountNameBlur = (value, groupType, idx, onChange) => {
+  const filteredValue = value.replace(/[^가-힣a-zA-Z\s]/g, "").slice(0, 15);
+  onChange({ target: { name: "name", value: filteredValue } }, groupType, idx);
+};
+const handleAccountNumberBlur = (value, groupType, idx, onChange) => {
+  const filteredValue = value.replace(/[^0-9]/g, "").slice(0, 16);
+  onChange({ target: { name: "account", value: filteredValue } }, groupType, idx);
+};
 const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onChange }) => {
   return (
     <>
@@ -57,27 +63,36 @@ const GiftSettingAccount = ({ listName, gender, addFunction, deleteFunction, onC
                 />
                 <input type="number" 
                   name="account" 
-                  value={AccountHandler(item.account)}
-                  className={styles.input__account}
+                  value={item.account} 
+                  className={styles.input__account} 
                   onChange={
                     gender === "M" ?
                     (e) => onChange(e, "groomGroupList", idx)
                     : (e) => onChange(e, "brideGroupList", idx)
                   } 
                   placeholder="계좌번호 입력" 
+                  onBlur={() =>
+                    gender === "M"
+                      ? handleAccountNumberBlur(item.account, "groomGroupList", idx, onChange)
+                      : handleAccountNumberBlur(item.account, "brideGroupList", idx, onChange)
+                  }
                 />
               </div>
               <input 
                 type="text" 
                 name="name" 
-                value={AccountNameHandler(item.name)} 
+                value={item.name}
                 onChange={
                   gender === "M" ?
                   (e) => onChange(e, "groomGroupList", idx)
                   : (e) => onChange(e, "brideGroupList", idx)
-                } 
+                }
+                onBlur={() =>
+                  gender === "M"
+                    ? handleAccountNameBlur(item.name, "groomGroupList", idx, onChange)
+                    : handleAccountNameBlur(item.name, "brideGroupList", idx, onChange)
+                }
                 placeholder="예금주 입력" 
-                maxLength={20}
               />
             </CommonItemContent>
             
