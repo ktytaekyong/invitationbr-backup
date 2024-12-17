@@ -16,7 +16,6 @@
     border: 1px solid $border-color--default;
     background-color: $bg-color--setting;
     z-index: 1;
-    cursor: pointer;
     @include device__query(tablet) {
       max-width: unset;
       display: none;
@@ -33,6 +32,7 @@
         border-radius: 8px 8px 0px 0px;
         border-bottom: 1px solid $border-color--default;
         touch-action: none;
+        cursor: pointer;
       }
       .setting__arrow_img {
         transform: rotateX(0);
