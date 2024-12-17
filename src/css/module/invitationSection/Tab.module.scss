@@ -1,4 +1,22 @@
 @import "../../_module";
+@keyframes tabSlide {
+  0% {
+    opacity: 0;
+    width: 0;
+  }  
+  100% {
+    opacity: 1;
+    width: 180px;
+  }
+}
+@keyframes tabOpacity {
+  0% {
+    opacity: 0;
+  }  
+  100% {
+    opacity: 1;
+  }
+}
 .tab {
   @include flex__row;
   justify-content: flex-start;
@@ -110,6 +128,8 @@
   }
   .tab__day {
     display: none;
+    animation: 0.5s ease tabOpacity;
+    white-space: nowrap;
   }
 }
 .basicTemplate2,
@@ -207,6 +227,7 @@
     background-color: #fff;
     border-radius: 0;
     display: none;
+    animation: 0.3s ease tabSlide;
     @include device__query(tablet) {
       max-width: 180px;
       right: calc((100% - $width--min) / 2); 
