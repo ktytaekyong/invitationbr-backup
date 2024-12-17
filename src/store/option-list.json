@@ -385,10 +385,12 @@
 
   ],
 
-  "videoList": {
-    "videoUrl": "",
-    "videoSrc": ""
-  },
+  "videoList": [
+    {
+      "url": "",
+      "src": ""
+    }
+  ],
   "attendList": {
     "attendTitle": "",
     "attendContent": "",
@@ -466,12 +468,14 @@
     "title": "",
     "content": ""
   },
-  "outroList": {
-    "content": "",
-    "id": "outroLetter",
-    "src": "/img/outro/outro_photo_test1.png",
-    "position": "top"
-  },
+  "outroList": [
+    {
+      "content": "",
+      "id": "outroLetter",
+      "src": "/img/outro/outro_photo_test1.png",
+      "position": "top"
+    }
+  ],
   "guestbookList": [
     {
       "guestName": "강하늘",

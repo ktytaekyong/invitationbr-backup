@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import { DataChanger_ObjectArray, fileAddHandler_ObjectArray, photoDeleter_ObjectArray } from "../../utils/helpers.js";
 /* Component */
 import PhotoSelector from "./PhotoSelector.js";
 import SettingNotice from "../layout/SettingNotice.js";
@@ -18,8 +19,8 @@ const VideoSettingOption = () => {
       const fileList = new FileReader();
       fileList.onload = (e) => {
         setVideoList(() => ({
-          videoUrl: "",
-          videoSrc: e.target.result, 
+          url: "",
+          src: e.target.result, 
         }));
       };
       fileList.readAsDataURL(file);
@@ -29,14 +30,15 @@ const VideoSettingOption = () => {
   // 유튜브 URL 핸들러
   const youtubeUrlHandler = (e) => {
     setVideoList(() => ({
-      videoUrl: e.target.value,
-      videoSrc: "",
+      url: e.target.value,
+      src: "",
     }));
   };
   
   return (
     <div className={styles.video__wrap}>
-        {
+      {
+        videoList.map((item, idx) => (
           selectOptionList.videoType === "videoYoutubeOption" ?
           <div className={styles.video__youtube}>
             <div className={styles.input__wrap}>
@@ -50,18 +52,26 @@ const VideoSettingOption = () => {
             </SettingNotice>
           </div>
           : null
-        }
-        {
+        ))
+      }
+      {
+        videoList.map((item, idx) => (
           selectOptionList.videoType === "videoRegOption" ?
           <div className={styles.video__reg}>
-            <PhotoSelector type="video" listName={videoList} onChange={fileAddHandler} deleteFunction={() => setVideoList({ videoUrl: "", videoSrc: "" })} />
+            <PhotoSelector 
+              id={`VideoRegList${idx}`}
+              type="video" 
+              limit={1}
+              listName={[videoList[idx]]}
+              onChange={(e) => fileAddHandler_ObjectArray(e, idx, setVideoList)} 
+              deleteFunction={() => photoDeleter_ObjectArray(idx, setVideoList)} />
             <SettingNotice>
               <SettingNoticeContent>파일확장자명은 mp3, mov, avi, mkv, 용량 10mb 이하로 1개만 등록하실 수 있습니다.</SettingNoticeContent>
             </SettingNotice>
           </div>
           : null
-        }
-        
+        ))
+      }
     </div>
   )
 }

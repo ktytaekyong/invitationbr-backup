@@ -43,6 +43,13 @@ export const DataChanger_Object = (e, changer) => { // FUNC: 객체 데이터 �
     [name]: value
   }))
 }
+export const DataDeleter_Object = (e, changer) => { // FUNC: 객체 데이터 값 삭제 제어(onChange)
+  const { name } = e.target;
+  changer((prev) => ({
+    ...prev,
+    [name]: ""
+  }))
+}
 export const DataChanger_ObjectArray = (e, selectedIndex, changer) => { // FUNC: 인덱스가 있는 객체의 배열 데이터 입력 제어(onChange), 이벤트 대상의 name(e), 이벤트 대상의 idx(selectedIndex), 바꿀 상태 함수(changer)
   const { name, value } = e.target;
   changer(prev => (
@@ -66,7 +73,28 @@ export const IntroImgSeparator = (introIdx, type) => { // FUNC: 인트로 사진
     ? <img src={selectedPhoto.src} alt={selectedPhoto.alt} /> 
     : selectedPhoto.src;
 }
-
+// ********** PHOTO(SELECTOR) ********** //
+export const photoDeleter_ObjectArray = (deleteIdx, deleter) => { // FUNC: PhotoSelector - 사진 삭제 로직
+  deleter((prev) => {
+    const newList = [...prev];
+    newList[deleteIdx].src = ""; 
+    return newList;
+  });
+}
+export const fileAddHandler_ObjectArray = (e, index, handler) => { // FUNC: PhotoSelector - 사진 추가 로직 (갤러리, 인트로 제외)
+  const file = e.target.files[index];
+  if(file) {
+    const fileList = new FileReader();
+    fileList.onload = (e) => {
+      handler((prev) => {
+        const newList = [...prev];
+        newList[index] = { ...newList[index], src: e.target.result };
+        return newList;
+      })
+    };
+    fileList.readAsDataURL(file);
+  }
+}
 
 // ********** DATE ********** //
 export const DayConverter = (date) => { // FUNC: 숫자 데이터 날짜 -> 요일 변환

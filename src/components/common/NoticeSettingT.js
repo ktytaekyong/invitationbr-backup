@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useContext } from "react";
+import { DataChanger_ObjectArray, fileAddHandler_ObjectArray, photoDeleter_ObjectArray } from "../../utils/helpers.js";
 import ReactDOM from 'react-dom';
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
@@ -32,24 +33,11 @@ const NoticeSettingT = () => {
   const handleCloseAdd = () => setOpenAdd(false);
   const handleOpenDel = () => setOpenDel(true);
   const handleCloseDel = () => setOpenDel(false);
-  const fileAddHandler = (e, index) => {
-    const file = e.target.files[0];
-    if(file) {
-      const fileList = new FileReader();
-      fileList.onload = (e) => {
-        setNoticeTList((prev) => {
-          const newList = [...prev];
-          newList[index] = { ...newList[index], src: e.target.result };
-          return newList;
-        })
-      };
-      fileList.readAsDataURL(file);
-    }
-  }
-  const addTabTitle = (e) => {
+  
+  const addTabTitle = (e) => { // FUNC: 탭 추가
     setAddTitle(e.target.value);
   }
-  const noticeAddHandler = () => {
+  const noticeAddHandler = () => { // FUNC: 내용 추가
     setNoticeTList((prev) => (
       [
         ...prev,
@@ -62,11 +50,11 @@ const NoticeSettingT = () => {
         }
       ]
     ))
-    setSelectNoticeT(noticeTList.length);
+    setSelectNoticeT(noticeTList.length); // FUNC: 추가 후 선택할 탭
   }
-  const noticeRemoveHandler = (removeidx) => {
+  const noticeRemoveHandler = (removeidx) => { // FUNC: 탭 삭제
     console.log(removeidx);
-    if(noticeTList.length === 1) {
+    if(noticeTList.length === 1) { // 최소 한 개 남기기
       setNoticeTList((prev) => {
         setOpenToast(true);
         return prev;
@@ -77,21 +65,7 @@ const NoticeSettingT = () => {
       })
     }
   }
-  const noticeTabDataChangeHandler = (e, index) => {
-    const { name, value } = e.target;
-    setNoticeTList(prev => {
-      const newList = [...prev];
-      newList[index] = { ...newList[index], [name]: value };
-      return newList;
-    });
-  };
-  const photoDeleteHandler = (index) => {
-    setNoticeTList((prev) => {
-      const newList = [...prev];
-      newList[index] = { ...newList[index], src: "" };
-      return newList; 
-    });
-  };
+
   return (
     <>
       <CommonOptionWrapper>
@@ -119,7 +93,7 @@ const NoticeSettingT = () => {
                     name="title" 
                     value={item.title}
                     maxLength={10}
-                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}}
+                    onChange={(e)=>{DataChanger_ObjectArray(e, idx, setNoticeTList)}}
                     placeholder="탭 제목을 작성해 주세요."
                   />
                 </CommonItemContent>
@@ -128,7 +102,7 @@ const NoticeSettingT = () => {
                   <TextEditor 
                     dataName="content" 
                     textValue={item.content} 
-                    onChange={(e)=>{noticeTabDataChangeHandler(e, idx)}}
+                    onChange={(e)=>{DataChanger_ObjectArray(e, idx, setNoticeTList)}}
                     maxLength={100}
                   />
                 </CommonItemContent>
@@ -138,8 +112,8 @@ const NoticeSettingT = () => {
                     id={`NoticeTPhotoList${idx}`}
                     limit={1}
                     listName={[noticeTList[idx]]}
-                    onChange={(e) => fileAddHandler(e, idx)}
-                    deleteFunction={() => photoDeleteHandler(idx)}
+                    onChange={(e) => fileAddHandler_ObjectArray(e, idx, setNoticeTList)}
+                    deleteFunction={() => photoDeleter_ObjectArray(idx, setNoticeTList)}
                   />
                   <RadioList title="사진 위치">
                     <RadioItem

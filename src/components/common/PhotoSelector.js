@@ -57,7 +57,7 @@ const PhotoSelector = (props) => {
           : null
         }
         {
-          props.type === "video" && videoList.videoSrc !== "" ?
+          props.type === "video" && videoList.src !== "" ?
           <li className={styles.option__item} key={videoList.videoSrc}>
             <video src={videoList.videoSrc} type="video/mp4" preload="auto"></video>
             <Button type="button" styleType="close" onClick={() => {videoDeleteHandler(videoList.videoSrc)}} />

@@ -6,7 +6,7 @@ const CommonItemContent = ({ title, multi, essential, children, wrap }) => {
   return (
     <div 
       className={`${styles.item__content} ${multi ? styles.multiLine : null} 
-      ${multi === "check" ? styles.multiCheck : null}`} // 항목 내용이 두 줄 이상일 경우
+      ${multi === "check" ? styles.multiCheck : null}`} // 항목 내용이 두 줄 이상일 경우 (디자인 요소)
     >
       <p className={styles.option__title}>
         {title}

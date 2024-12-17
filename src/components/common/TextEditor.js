@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 /* Component */
 import Button from "../layout/Button.js"
 import BasicModalLetter from "../layout/modal/BasicModalLetter.js"
+import InputBasicDeleteButton from "../layout/InputBasicDeleteButton";
 /* CSS Module */
 import styles from "../../css/module/common/TextEditor.module.scss";
 /* Image */
@@ -15,7 +16,7 @@ import {ReactComponent as IconImgRight} from "../../img/icon/icon_editor_tool_ri
 import {ReactComponent as IconImgCenter} from "../../img/icon/icon_editor_tool_center.svg"
 
 // C: TEXTAREA
-const TextEditor = ({ type, dataName, textValue, onChange, setLetterList, maxLength }) => {
+const TextEditor = ({ type, dataName, textValue, onChange, setLetterList, maxLength, onClear }) => {
   const textareaRef = useRef(null);
   const [isActiveTab, setIsActiveTab] = useState(0);
   const [open, setOpen] = useState(false);
@@ -64,6 +65,13 @@ const TextEditor = ({ type, dataName, textValue, onChange, setLetterList, maxLen
           onChange={onChange}
           maxLength={maxLength}
         />
+        {/* {
+          textValue !== "" ? 
+          <InputBasicDeleteButton
+            inputName={dataName}
+            onClear={onClear}
+          /> : null
+        } */}
         {
           type === "letter" ?
           <div className={styles.button__wrapper}>

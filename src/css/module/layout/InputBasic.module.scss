@@ -1,0 +1,8 @@
+@import "../../_module";
+.input__wrap_basic {
+  @include position;
+  width: 100%;
+  .input__style_basic {
+    width: 100%;
+  }
+}

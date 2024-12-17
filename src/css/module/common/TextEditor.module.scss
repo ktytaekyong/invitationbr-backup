@@ -1,6 +1,7 @@
 @import "../../_module";
 .editor__content {
   @include flex__column;
+  @include position;
   width: 100%;
   border-radius: $radius--default;
   border: 1px solid $border-color--default;

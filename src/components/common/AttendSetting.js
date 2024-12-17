@@ -13,6 +13,7 @@ import TextareaWapperCount from "./TextareaWapperCount.js";
 import RadioItem from "./RadioItem.js";
 import SettingNotice from "../layout/SettingNotice.js";
 import SettingNoticeContent from "../layout/SettingNoticeContent.js";
+import InputBasic from "../layout/InputBasic.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 
@@ -46,24 +47,27 @@ const AttendSetting = () => {
       <CommonOptionContent>
         <CommonItemWrapper>
           <CommonItemContent title="제목">
-            <input 
-              type="text" 
-              name="attendTitle" 
-              value={attendList.attendTitle} 
+            <InputBasic 
+              inputType="text"
+              inputName="attendTitle" 
+              inputValue={attendList.attendTitle} 
               maxLength={10}
-              onChange={(e) => DataChanger_Object(e, setAttendList)} 
-              placeholder="참석 의사 전달" 
+              onChange={(e) => DataChanger_Object(e, setAttendList)}
+              onClear={setAttendList}
+              placeholder="참석 의사 전달"
+              inputStyle=""
             />
           </CommonItemContent>
         </CommonItemWrapper>
 
         <CommonItemWrapper>
           <CommonItemContent title="내용" multi={true}>
-            <TextareaWapperCount 
+            <TextareaWapperCount
               name="attendContent" 
               id="attendContent" 
               value={attendList.attendContent} 
-              onChange={(e) => DataChanger_Object(e, setAttendList)} 
+              onChange={(e) => DataChanger_Object(e, setAttendList)}
+              onClear={setAttendList}
               placeholder="내용을 입력해주세요." 
               maxLength={100} 
             />
@@ -72,12 +76,13 @@ const AttendSetting = () => {
 
         <CommonItemWrapper>
           <CommonItemContent title="버튼명">
-            <input 
-              type="text" 
-              name="attendButtonTitle" 
-              value={attendList.attendButtonTitle}
+            <InputBasic 
+              inputType="text"
+              inputName="attendButtonTitle" 
+              inputValue={attendList.attendButtonTitle} 
               maxLength={10}
-              onChange={(e) => DataChanger_Object(e, setAttendList)} 
+              onChange={(e) => DataChanger_Object(e, setAttendList)}
+              onClear={setAttendList}
               placeholder="참석 의사 전달하기" 
             />
           </CommonItemContent>
@@ -96,7 +101,8 @@ const AttendSetting = () => {
                     content="식사함 항목 안내문구" 
                     id="attendMealNotice" 
                     value={attendList.attendMealNotice} 
-                    onChange={(e) => DataChanger_Object(e, setAttendList)} 
+                    onChange={(e) => DataChanger_Object(e, setAttendList)}
+                    onClear={setAttendList}
                     placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 스테이크와 한정식이 준비되어 있습니다." 
                   />
                   <TextareaWapperAttend 
@@ -104,6 +110,7 @@ const AttendSetting = () => {
                     id="attendNoMealNotice" 
                     value={attendList.attendNoMealNotice} 
                     onChange={(e) => DataChanger_Object(e, setAttendList)} 
+                    onClear={setAttendList}
                     placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 식사 못하시는 분들을 위한 선물을 준비했으니 꼭 받아가세요." 
                   />
                 </CommonItemWrapper> : null
@@ -118,6 +125,7 @@ const AttendSetting = () => {
                       id="attendBusNoticeM" 
                       value={attendList.attendBusNoticeM} 
                       onChange={(e) => DataChanger_Object(e, setAttendList)} 
+                      onClear={setAttendList}
                       gender="M" 
                       division="(신랑측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞" 
@@ -127,6 +135,7 @@ const AttendSetting = () => {
                       id="attendNoBusNoticeM" 
                       value={attendList.attendNoBusNoticeM} 
                       onChange={(e) => DataChanger_Object(e, setAttendList)} 
+                      onClear={setAttendList}
                       gender="M" 
                       division="(신랑측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요." 
@@ -136,6 +145,7 @@ const AttendSetting = () => {
                       id="attendBusNoticeF" 
                       value={attendList.attendBusNoticeF} 
                       onChange={(e) => DataChanger_Object(e, setAttendList)} 
+                      onClear={setAttendList}
                       gender="F" 
                       division="(신부측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 당일 오전 11시 강남역 1번 출구 맥도날드 앞" 
@@ -145,6 +155,7 @@ const AttendSetting = () => {
                       id="attendNoBusNoticeF" 
                       value={attendList.attendNoBusNoticeF} 
                       onChange={(e) => DataChanger_Object(e, setAttendList)} 
+                      onClear={setAttendList}
                       gender="F" 
                       division="(신부측)" 
                       placeholder="미 입력 시 문구는 노출되지 않습니다.&#10;예시) 차량을 지원해드리고 있으니 원하시면 연락주세요." 

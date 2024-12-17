@@ -1,5 +1,6 @@
 /* Import */
 import { useContext } from "react";
+import { DataChanger_ObjectArray, fileAddHandler_ObjectArray, photoDeleter_ObjectArray } from "../../utils/helpers.js";
 /* Component */
 import CommonOptionWrapper from "./CommonOptionWrapper.js";
 import CommonOptionContent from "./CommonOptionContent.js";
@@ -15,36 +16,6 @@ import { SetContext } from "../../store/option-set-context.js";
 // C: 공지사항 설정
 const NoticeSettingD = () => {
   const { noticeDList, setNoticeDList } = useContext(SetContext);
-  const fileAddHandler = (e, index) => {
-    const file = e.target.files[0];
-    if(file) {
-      const fileList = new FileReader();
-      fileList.onload = (e) => {
-        setNoticeDList((prev) => {
-          const newList = [...prev];
-          newList[index] = { ...newList[index], src: e.target.result };
-          console.log(newList);
-          return newList;
-        })
-      };
-      fileList.readAsDataURL(file);
-    }
-  }
-  const noticeDivDataChangeHandler = (e, index) => {
-    const { name, value } = e.target;
-    setNoticeDList(prev => {
-      const newList = [...prev];
-      newList[index] = { ...newList[index], [name]: value };
-      return newList;
-    });
-  };
-  const photoDeleteHandler = (index) => {
-    setNoticeDList((prev) => {
-      const newList = [...prev];
-      newList[index] = { ...newList[index], src: "" };
-      return newList; 
-    });
-  };
   return (
     <CommonOptionWrapper>
       <CommonOptionContent>
@@ -58,7 +29,7 @@ const NoticeSettingD = () => {
                   name="title" 
                   value={item.title}
                   maxLength={10}
-                  onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
+                  onChange={(e)=>{DataChanger_ObjectArray(e, idx, setNoticeDList)}} 
                   placeholder="공지사항 제목을 작성해 주세요." 
                 />
               </CommonItemContent>
@@ -67,18 +38,18 @@ const NoticeSettingD = () => {
                 <TextEditor 
                   dataName="content"
                   textValue={item.content} 
-                  onChange={(e)=>{noticeDivDataChangeHandler(e, idx)}} 
+                  onChange={(e)=>{DataChanger_ObjectArray(e, idx, setNoticeDList)}} 
                   maxLength={100}
                 />
               </CommonItemContent>
-    
+
               <CommonItemContent title='사진' multi={true}>
                 <PhotoSelector 
                   id={`NoticeDPhotoList${idx}`}
                   limit={1}
                   listName={[noticeDList[idx]]} 
-                  onChange={(e) => fileAddHandler(e, idx)} 
-                  deleteFunction={() => photoDeleteHandler(idx)}
+                  onChange={(e) => fileAddHandler_ObjectArray(e, idx, setNoticeDList)} 
+                  deleteFunction={() => photoDeleter_ObjectArray(idx, setNoticeDList)}
                 />
                 <RadioList title="사진 위치">
                   <RadioItem 

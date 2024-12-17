@@ -1,8 +1,16 @@
 @import "../../_module";
 .textarea {
   &__wrap {
-    @include position;
     width: 100%;
+    .textarea__container {
+      @include position;
+      > span {
+        @include position(a, null, null, 10px, 12px);
+        font-size: $font-size--xxsm;
+        color: $text-color--disable-input;
+        font-weight: $font-weight--Regular;
+      }
+    }
     label {
       display: block;
       padding-left: 4px;
@@ -20,11 +28,6 @@
       }
 
     }
-    > span {
-      @include position(a, null, null, 10px, 12px);
-      font-size: $font-size--xxsm;
-      color: $text-color--disable-input;
-      font-weight: $font-weight--Regular;
-    }
+
   }
 }

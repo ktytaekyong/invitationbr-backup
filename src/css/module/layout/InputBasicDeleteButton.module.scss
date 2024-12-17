@@ -1,0 +1,12 @@
+@import "../../_module";
+.basic__input_delete {
+  @include position(a, 12px, null, null, 10px);
+  width: 16px;
+  border: none;
+  outline: none;
+  background: transparent;
+  img {
+    width: 100%;
+    pointer-events: none;
+  }
+}

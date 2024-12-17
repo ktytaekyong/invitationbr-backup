@@ -7,7 +7,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 // C: 라디오 버튼
 const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
-  const { selectOptionList, setSelectOptionList, setNoticeTList, setNoticeDList, setOutroList } = useContext(SetContext);
+  const { selectOptionList, setSelectOptionList, setNoticeTList, setNoticeDList, setOutroList, outroList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);
   const checkedChangeHandler = (e) => {
     const { name, id } = e.target;
@@ -16,17 +16,9 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
       [name]: id
     }));
   };
-  const outroChangeHandler = (e) => {
-    const { id } = e.target;
-    setOutroList((prev) => ({
-      ...prev,
-      "position": id.includes("top") ? "top" : "bottom"
-    }));
-    // console.log(outroList);
-  };
-  const photoPositionChangeHandler = (e, idx) => {
+  const photoPositionChangeHandler = (e, idx, changer) => {
     const { name, id } = e.target;
-    setNoticeTList((prev) => (
+    changer((prev) => (
       prev.map((item, previdx) => {
         if(idx === previdx) {
           if(name.includes("position")) {
@@ -42,34 +34,13 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
         }
       })
     ));
-    // console.log(noticeTList);
   };
-  const photoPositionDChangeHandler = (e) => {
-    const { name, id } = e.target;
-    setNoticeDList((prev) => (
-      prev.map((item) => {
-        if(name.includes("Position")) {
-          return {
-            ...item,
-            "position": id.includes("top") ? "top" : "bottom"
-          }
-        } else {
-          return item;
-        }
-      })
-    ));
-    // console.log(noticeDList);
-  };
+
   const functionChangeHandler = (e, name, idx) => {
     if(name === "effectRange" || name === "optionAttendPopup") {
       checkedChangeHandler(e);
-      // console.log(selectOptionList);
-    } else if(name.includes("DPosition")) {
-      photoPositionDChangeHandler(e);
-    } else if(name === "outroPosition") {
-      outroChangeHandler(e);
     } else {
-      photoPositionChangeHandler(e, idx)
+      photoPositionChangeHandler(e, idx, setNoticeTList)
     }
   }
   useEffect(() => {
