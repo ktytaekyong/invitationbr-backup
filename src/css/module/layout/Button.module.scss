@@ -173,7 +173,7 @@
       font-size: $font-size--ssm;
     }
     &__close {
-      @include position(a, 20px, null, null, 30px);
+      @include position(a, 15px, null, null, 15px);
       @include flex__row;
       justify-content: center;
       align-items: center;
