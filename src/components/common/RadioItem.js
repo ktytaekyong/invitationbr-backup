@@ -1,5 +1,6 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
+import { checkedChanger_Object } from "../../utils/helpers.js";
 /* CSS Module */
 import styles from "../../css/module/common/RadioItem.module.scss";
 /* Context */
@@ -9,13 +10,7 @@ import { SetContext } from "../../store/option-set-context.js";
 const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
   const { selectOptionList, setSelectOptionList, setNoticeTList, setNoticeDList, setOutroList, outroList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);
-  const checkedChangeHandler = (e) => {
-    const { name, id } = e.target;
-    setSelectOptionList((prev) => ({
-      ...prev,
-      [name]: id
-    }));
-  };
+
   const photoPositionChangeHandler = (e, idx, changer) => {
     const { name, id } = e.target;
     changer((prev) => (
@@ -38,7 +33,7 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
 
   const functionChangeHandler = (e, name, idx) => {
     if(name === "effectRange" || name === "optionAttendPopup") {
-      checkedChangeHandler(e);
+      checkedChanger_Object(e, setSelectOptionList);
     } else {
       photoPositionChangeHandler(e, idx, setNoticeTList)
     }

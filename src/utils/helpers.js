@@ -23,7 +23,14 @@ export const AccountHandler = (data) => ( // FUNC: 숫자 인풋 최대 글자 �
 export const AccountNameHandler = (data) => ( // FUNC: 예금주 특문 및 숫자 금지
   data.replace(NO_SPECIAL_CHAR, "")
 )
-
+// ********** RADIO ********** //
+export const checkedChanger_Object = (e, changer) => {
+  const { name, id } = e.target;
+  changer((prev) => ({
+    ...prev,
+    [name]: id
+  }));
+};
 
 // ********** DATA CHANGER ********** //
 export const DataChanger_NestedObject = (e, infoType, changer) => { // FUNC: 이중 객체 데이터 입력 제어(onChange) - 이벤트 대상의 name(e), 데이터 name(InfoType), 바꿀 상태 함수(changer) 
@@ -95,6 +102,7 @@ export const fileAddHandler_ObjectArray = (e, index, handler) => { // FUNC: Phot
     fileList.readAsDataURL(file);
   }
 }
+
 
 // ********** DATE ********** //
 export const DayConverter = (date) => { // FUNC: 숫자 데이터 날짜 -> 요일 변환
