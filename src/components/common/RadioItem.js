@@ -1,6 +1,5 @@
 /* Import */
 import { useState, useEffect, useContext } from "react";
-import { checkedChanger_Object } from "../../utils/helpers.js";
 /* CSS Module */
 import styles from "../../css/module/common/RadioItem.module.scss";
 /* Context */
@@ -10,7 +9,14 @@ import { SetContext } from "../../store/option-set-context.js";
 const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
   const { selectOptionList, setSelectOptionList, setNoticeTList, setNoticeDList, setOutroList, outroList } = useContext(SetContext);
   const [isChecked, setIsChecked] = useState(selectOptionList[name] === id);
-
+  const checkedChangeHandler = (e) => {
+    const { name, id } = e.target;
+    setSelectOptionList((prev) => ({
+      ...prev,
+      [name]: id
+    }));
+  };
+  
   const photoPositionChangeHandler = (e, idx, changer) => {
     const { name, id } = e.target;
     changer((prev) => (
@@ -31,11 +37,42 @@ const RadioItem = ({ id, name, content, radioidx, radioChecked }) => {
     ));
   };
 
+  const photoPositionDChangeHandler = (e) => {
+    const { name, id } = e.target;
+    setNoticeDList((prev) => (
+      prev.map((item) => {
+        if(name.includes("Position")) {
+          return {
+            ...item,
+            "position": id.includes("top") ? "top" : "bottom"
+          }
+        } else {
+          return item;
+        }
+      })
+    ));
+    // console.log(noticeDList);
+  };
+
+  const outroChangeHandler = (e) => {
+    const { id } = e.target;
+    setOutroList((prev) => ({
+      ...prev,
+      "position": id.includes("top") ? "top" : "bottom"
+    }));
+    // console.log(outroList);
+  };
+
   const functionChangeHandler = (e, name, idx) => {
     if(name === "effectRange" || name === "optionAttendPopup") {
-      checkedChanger_Object(e, setSelectOptionList);
+      checkedChangeHandler(e);
+      // console.log(selectOptionList);
+    } else if(name.includes("DPosition")) {
+      photoPositionDChangeHandler(e);
+    } else if(name === "outroPosition") {
+      outroChangeHandler(e);
     } else {
-      photoPositionChangeHandler(e, idx, setNoticeTList)
+      photoPositionChangeHandler(e, idx)
     }
   }
   useEffect(() => {
