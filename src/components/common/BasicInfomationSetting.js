@@ -26,6 +26,7 @@ const BasicInfomationSetting = () => {
               genderCode="M"
               nameInfo={basicInfoList.groomInfo}
               onChange={(e) => DataChanger_NestedObject(e, "groomInfo", setBasicInfoList)}
+              onChange2={(e) => DataChanger_NestedObject(e, "groomInfo", setBasicInfoList)}
             />
           </CommonItemContent>
           <CommonItemContent title="신부" essential={true}>
@@ -33,6 +34,7 @@ const BasicInfomationSetting = () => {
               genderCode="F" 
               nameInfo={basicInfoList.brideInfo} 
               onChange={(e) => DataChanger_NestedObject(e, "brideInfo", setBasicInfoList)} 
+              onChange2={(e) => DataChanger_NestedObject(e, "brideInfo", setBasicInfoList)} 
             />
           </CommonItemContent>
         </CommonItemWrapper>

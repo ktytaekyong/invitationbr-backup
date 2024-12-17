@@ -4,7 +4,7 @@ import { nameHandler } from '../../utils/helpers';
 import styles from "../../css/module/common/BasicInfomationSettingName.module.scss";
 
 // C: 기본 정보 편집 - 이름 (BasicInfomationSetting)
-const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
+const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange, onChange2 }) => {
   return (
     <div className={styles.option__input}>
       <input type="text" 
@@ -21,7 +21,7 @@ const BasicInfomationSettingName = ({ genderCode, nameInfo, onChange }) => {
         name="firstname"
         value={nameHandler(nameInfo.firstname)}
         placeholder="이름" 
-        onChange={onChange}
+        onChange={onChange2}
         required={true} 
         maxLength={3}
       />
