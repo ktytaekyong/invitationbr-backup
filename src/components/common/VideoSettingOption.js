@@ -40,10 +40,10 @@ const VideoSettingOption = () => {
       {
         videoList.map((item, idx) => (
           selectOptionList.videoType === "videoYoutubeOption" ?
-          <div className={styles.video__youtube}>
+          <div className={styles.video__youtube} key={"videoYoutubeOption" + item + idx}>
             <div className={styles.input__wrap}>
               <label htmlFor="videoYoutubeUrl">유튜브 URL</label>
-              <input type="text" id="videoUrl" name="videoUrl" value={videoList.videoUrl} onChange={youtubeUrlHandler} className={styles.youtube__input} />
+              <input type="text" id="url" name="url" value={item.url} onChange={youtubeUrlHandler} className={styles.youtube__input} />
             </div>
             <SettingNotice>
               <SettingNoticeContent>업로드한 영상의 URL 주소를 입력하세요.</SettingNoticeContent>
@@ -57,14 +57,14 @@ const VideoSettingOption = () => {
       {
         videoList.map((item, idx) => (
           selectOptionList.videoType === "videoRegOption" ?
-          <div className={styles.video__reg}>
+          <div className={styles.video__reg} key={"videoRegOption" + item + idx}>
             <PhotoSelector 
               id={`VideoRegList${idx}`}
               type="video" 
               limit={1}
-              listName={[videoList[idx]]}
+              listName={videoList}
               onChange={(e) => fileAddHandler_ObjectArray(e, idx, setVideoList)} 
-              deleteFunction={() => photoDeleter_ObjectArray(idx, setVideoList)} />
+            />
             <SettingNotice>
               <SettingNoticeContent>파일확장자명은 mp3, mov, avi, mkv, 용량 10mb 이하로 1개만 등록하실 수 있습니다.</SettingNoticeContent>
             </SettingNotice>

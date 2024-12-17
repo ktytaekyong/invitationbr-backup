@@ -15,10 +15,12 @@ const PhotoSelector = (props) => {
   const { videoList, setVideoList } = useContext(SetContext);
   const videoDeleteHandler = () => {
     setVideoList(() => (
-      {
-        videoUrl: "",
-        videoSrc: "",
-      }
+      [
+        {
+          url: "",
+          src: "",
+        }
+      ]
     ))
   }
   return (
@@ -57,10 +59,10 @@ const PhotoSelector = (props) => {
           : null
         }
         {
-          props.type === "video" && videoList.src !== "" ?
-          <li className={styles.option__item} key={videoList.videoSrc}>
-            <video src={videoList.videoSrc} type="video/mp4" preload="auto"></video>
-            <Button type="button" styleType="close" onClick={() => {videoDeleteHandler(videoList.videoSrc)}} />
+          props.type === "video" && videoList[0].src !== "" ?
+          <li className={styles.option__item} key={videoList[0].src}>
+            <video src={videoList[0].src} type="video/mp4" preload="auto"></video>
+            <Button type="button" styleType="close" onClick={videoDeleteHandler} />
           </li>
           : null
         }
