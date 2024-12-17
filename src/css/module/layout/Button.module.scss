@@ -173,17 +173,17 @@
       font-size: $font-size--ssm;
     }
     &__close {
-      @include position(a, 16px, null, null, 16px);
+      @include position(a, 20px, null, null, 30px);
       @include flex__row;
       justify-content: center;
       align-items: center;
-      width: 15px;
-      height: 15px;
+      width: 24px;
+      height: 24px;
       padding: 0;
       line-height: 1em;
       border-radius: 999px;
       z-index: 999;
-      background: transparent url(../../../img/icon/icon_close_modal.png) no-repeat center / 15px;
+      background: transparent url(../../../img/icon/icon_close.png) no-repeat center / 24px;
     }
     &__call {
       padding: 15px 32px 15px 56px;
