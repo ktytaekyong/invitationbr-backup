@@ -20,7 +20,6 @@ const Routers = () => {
         path="/Produce"
         element={
           <>
-            {/* Header Conditional Rendering */}
             {location.pathname === "/Produce/Preview" ? (
               <HeaderPreview />
             ) : (
@@ -30,8 +29,14 @@ const Routers = () => {
           </>
         }
       >
-        {/* Preview Sub-Route */}
-        <Route path="Preview" element={<></>} />
+        <Route 
+          path="Preview" 
+          element={
+            <>
+              <View />
+            </>
+          } 
+        />
       </Route>
     </Routes>
   );
