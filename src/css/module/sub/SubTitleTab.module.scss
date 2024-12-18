@@ -1,0 +1,39 @@
+@import "../../_module";
+.sub__title_tap {
+  width: 100%;
+  padding-top: 24px;
+  max-width: $max-width--mng;
+  margin: 0 auto;
+  &_wrap {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    ul {
+      @include flex__row;
+      justify-content: center;
+      align-items: center;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 6px;
+      li {
+        a {
+          padding: 12.5px 28px;
+          border-radius: 8px;
+          background-color: #fff;
+          span {
+            font-size: $font-size--setting-sl;
+            font-weight: 600;
+            color: #9E9E9E;
+          }
+          &.active {
+            background: $text-color--essntial;
+            span {
+              color: #FFF;
+            }
+          }
+        }
+      }
+    }
+  }
+}

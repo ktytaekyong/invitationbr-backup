@@ -1,0 +1,18 @@
+@import "../../_module";
+.sub__title {
+  width: 100%;
+  padding-top: 100px;
+  &_wrap {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: $max-width--mng;
+    padding: 0 20px;
+    margin: 0 auto;
+    h2 {
+      font-size: 48px;
+      font-family: "SeoulHangang";
+    }
+  }
+}

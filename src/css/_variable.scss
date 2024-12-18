@@ -16,6 +16,8 @@ $point-color--second: #EDEDED;
 $point-color--third: #FF9283;
 $point-color--fourth: #83ACE8;
 
+$theme-color--default: #FF543C;
+
 $bg-color--default: #F6F7F8;
 
 $bg-color--second: #F0F1F1;
@@ -69,6 +71,8 @@ $font-size--couple-name: 1.6875rem; // 27px;
 // WIDTH
 $width--min: 450px;
 $width--max: 1320px;
+$max-width--mngheader: 1600px;
+$max-width--mng: 1000px;
 
 $width-pc: 1800;
 $width-notebook: 1799;
@@ -83,6 +87,7 @@ $padding--default: 0 20px;
 $padding--mobile: 24px;
 
 // TRANSITION
+$transition--morefast: 0.1s linear all;
 $transition--fast: 0.3s linear all;
 $transition--default: 0.5s linear all;
 $transition--template: .42s ease all;

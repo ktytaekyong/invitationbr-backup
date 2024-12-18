@@ -1,0 +1,23 @@
+@import "../../_module";
+.sub__title_notice {
+  width: 100%;
+  margin-top: 40px;
+  &_wrap {
+    ul {
+      @include flex__column;
+      justify-content: center;
+      align-items: center;
+      li {
+        @include flex__row;
+        justify-content: center;
+        align-items: center;
+        column-gap: 5px;
+        span {
+          line-height: 1.5em;
+          font-weight: 400;
+          color: #525252;
+        }
+      }
+    }
+  }
+}
