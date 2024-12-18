@@ -20,7 +20,7 @@ import { RefContext } from "../../store/option-ref-context.js";
 
 const Letter = ({ aos }) => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
 
   const { basicInfoList } = useContext(InfoContext);
   const { isMobile, letterList, selectOptionList } = useContext(SetContext);

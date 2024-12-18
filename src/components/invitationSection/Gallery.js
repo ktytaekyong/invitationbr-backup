@@ -15,7 +15,7 @@ import { RefContext } from "../../store/option-ref-context.js";
 
 const Gallery = () => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
 
   const { selectOptionList } = useContext(SetContext);
   const { galleryRef } = useContext(RefContext);

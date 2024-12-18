@@ -21,7 +21,7 @@ const HeaderPreview = () => {
   
   const headerNav = useNavigate();
   const homeHandler = () => {
-    headerNav('/');  
+    headerNav('/Produce');
   };
 
   const headerRef = useRef(null); 

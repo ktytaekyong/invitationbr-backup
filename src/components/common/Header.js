@@ -33,7 +33,7 @@ const Header = () => {
   const warnOpen = () => setOpen(true);
   const headerNav = useNavigate();
   const previewHandler = () => {
-    headerNav('/Preview');  
+    headerNav('/Produce/Preview');
   };
   const saveHandler = () => {
     // Feat: 저장 필수 요소 분기 함수 (주석, 241115)

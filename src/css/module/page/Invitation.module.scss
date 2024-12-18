@@ -29,7 +29,6 @@
     padding-top: 47px;
     @include device__query(tablet) {
       height: unset;
-      margin-top: 52px;
       padding-top: 0;
     }
     // &.fillTemplate4 {
@@ -53,14 +52,42 @@
     }
   }
 
-  &.basicTemplate1 {
-    @include device__query(tablet) {
-      // margin-top: 52px;
+  &.basicTemplate1,
+  &.basicTemplate3 {
+    &.preview {
+      @include device__query(tablet) {
+        // margin-top: 52px;
+        padding-top: 0;
+        margin-top: 20px;
+      }
+    }
+  }
+  &.basicTemplate2,
+  &.basicTemplate4 {
+    &.preview {
+      @include device__query(tablet) {
+        margin-top: 52px;
+        padding-top: 47px;
+      }
+    }
+  }
+  &.fillTemplate1,
+  &.fillTemplate2,
+  &.fillTemplate3 {
+    &.preview {
+      @include device__query(tablet) {
+        margin-top: 52px;
+      }
     }
   }
   &.fillTemplate4 {
     @include device__query(tablet) {
       margin-top: 52px;
+    }
+    &.preview {
+      @include device__query(tablet) {
+        margin-top: -27px;
+      }
     }
   }
 }

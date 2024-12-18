@@ -15,7 +15,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const SettingOther = () => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
   const { isMobile, selectSettingList } = useContext(SetContext);
   return (
     <div className={styles.other}>

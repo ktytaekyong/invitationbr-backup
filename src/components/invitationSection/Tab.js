@@ -16,7 +16,7 @@ import { RefContext } from "../../store/option-ref-context.js";
 
 const Tab = ({ setActiveTabHandler, isTabActive, setIsTabActive }) => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
   const { basicTabList, selectTabList } = useContext(TabContext); 
   const { isMobile, selectOptionList, basicSettingList, selectSettingList } = useContext(SetContext);
   const { basicInfoList } = useContext(InfoContext);

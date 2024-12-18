@@ -52,6 +52,12 @@
       > ul {
         max-width: $width--min;
         max-width: calc($width--min - 40px);
+        @include device__query(tablet) {
+          margin-bottom: 20px;
+        }
+      }
+      @include device__query(tablet) {
+        position: sticky;
       }
     }
     &::after {
@@ -70,16 +76,22 @@
       content: "";
     }
     &.active {
+      margin: 20px 20px;
+      z-index: 10055;
       @include device__query(tablet) {
         top: 60px;
       }
-      margin: 20px 20px;
-      z-index: 10055;
+      > ul {
+        margin-bottom: 0;
+      }
       &::after {
         opacity: 1;
       }
       &.preview {
         top: 52px;
+        @include device__query(tablet) {
+          position: fixed;
+        }
       }
     }
     .button__wrapper {
@@ -318,6 +330,13 @@
       &.active {
         filter: unset;
       }
+    }
+  }
+}
+.fillTemplate4 {
+  &.preview {
+    @include device__query(tablet) {
+      top: 100px;
     }
   }
 }

@@ -13,7 +13,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const View = () => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === '/Preview';
+  const isTargetPage = previewLocation.pathname === '/Produce/Preview';
   const { selectOptionList } = useContext(SetContext);
   useEffect(() => {
     document.documentElement.style.setProperty('--touch-option', selectOptionList.zoomOption ? "pan-y" : "auto");

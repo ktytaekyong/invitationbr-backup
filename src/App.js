@@ -1,11 +1,7 @@
 /* Import */
-import { useEffect } from "react";
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 /* Component */
-import Header from "./components/common/Header";
-import HeaderPreview from "./components/common/HeaderPreview";
-import View from "./components/page/View";
-import Main from "./components/main/Main";
+import Routers from "./Routers";
 /* Css */
 import "./css/App.scss";
 /* Context */
@@ -13,39 +9,13 @@ import ContextWrap from "./store/option-context-wrap";
 
 function App() {
   return (
-    <ContextWrap>
-      <BrowserRouter>
+    <BrowserRouter>
+      <ContextWrap>
         <div className="App">
-          <Routes>
-            <Route 
-              path="/" 
-              element={
-                <>
-                  <Header />
-                </>
-              } 
-            />
-            <Route 
-              path="/Preview" 
-              element={
-                <>
-                  <HeaderPreview />
-                </>
-              } 
-            />
-            <Route 
-              path="/Main" 
-              element={
-                <>
-                  <Main />
-                </>
-              } 
-            />
-          </Routes>
-          <View />
+          <Routers></Routers>
         </div>
-      </BrowserRouter>
-    </ContextWrap>
+      </ContextWrap>
+    </BrowserRouter>
   );
 }
 

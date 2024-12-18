@@ -8,7 +8,7 @@ import { SetContext } from "../../store/option-set-context.js";
 
 const MobileSettingNotice = () => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
   const { isMobile, selectOptionList } = useContext(SetContext);
   const noticeRenderer = () => {
     if(selectOptionList.theme === "themeModernBasic" 
@@ -18,7 +18,7 @@ const MobileSettingNotice = () => {
       || selectOptionList.introFillType === "basicTemplate4")
     ) {
       return <p className={`${styles.mobile__setting_notice}`}>텍스트, 이미지를 추가하고 편집할 수 있습니다. <br />선택 항목은 체크박스 표시가 있습니다.</p>;
-    } else if (selectOptionList.theme === "themeModernBasic" 
+    } else if (selectOptionList.theme === "themeModernBasic"
       && (selectOptionList.introFillType === "fillTemplate1" 
       || selectOptionList.introFillType === "fillTemplate2"
       || selectOptionList.introFillType === "fillTemplate3"

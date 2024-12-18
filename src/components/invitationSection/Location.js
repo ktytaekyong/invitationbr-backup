@@ -24,7 +24,7 @@ import { RefContext } from "../../store/option-ref-context.js";
 
 const Location = () => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
 
   const { isMobile } = useContext(SetContext);
   const { basicInfoList, selectLocationFile } = useContext(InfoContext);

@@ -34,7 +34,7 @@ import { RefContext } from "../../store/option-ref-context.js";
 // C: 청첩장 섹션 컴포넌트
 const Invitation = () => {
   const previewLocation = useLocation();
-  const isTargetPage = previewLocation.pathname === "/Preview";
+  const isTargetPage = previewLocation.pathname === "/Produce/Preview";
 
   const { isMobile, settingList, selectSettingList, selectOptionList } = useContext(SetContext);
   const { isTabActive, setIsTabActive } = useContext(TabContext);
