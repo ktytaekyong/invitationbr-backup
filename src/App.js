@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from "./components/common/Header";
 import HeaderPreview from "./components/common/HeaderPreview";
 import View from "./components/page/View";
+import Main from "./components/main/Main";
 /* Css */
 import "./css/App.scss";
 /* Context */
@@ -29,6 +30,14 @@ function App() {
               element={
                 <>
                   <HeaderPreview />
+                </>
+              } 
+            />
+            <Route 
+              path="/Main" 
+              element={
+                <>
+                  <Main />
                 </>
               } 
             />

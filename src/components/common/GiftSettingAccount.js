@@ -6,9 +6,9 @@ import CommonItemContent from "./CommonItemContent.js";
 import OptionSelector from "./OptionSelector.js";
 import Button from "../layout/Button.js";
 import CheckItem from "./CheckItem.js";
+import ButtonWrapper from "../layout/ButtonWrapper.js";
 /* CSS Module */
 import styles from "../../css/module/common/GiftSettingAccount.module.scss";
-import ButtonWrapper from "../layout/ButtonWrapper.js";
 /* Image */
 import iconKakaoImg from "../../img/icon/icon_kakao.png"
 
