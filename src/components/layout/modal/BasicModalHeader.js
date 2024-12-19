@@ -23,7 +23,7 @@ export default function BasicModalHeader({ openvar, onClose }) {
         btnContent2="청첩장 보기"
         onClick={previewHandler}
       >
-        <p>저장한 내용은 <Link to="#" onClick={(e => e.preventDefault())}>제작 관리</Link>에서<br />확인할 수 있습니다.</p>
+        <p>저장한 내용은 <Link to="/Manager">제작 관리</Link>에서<br />확인할 수 있습니다.</p>
       </BasicModal>
     </>
   );

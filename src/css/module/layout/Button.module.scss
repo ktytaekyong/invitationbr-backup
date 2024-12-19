@@ -250,4 +250,45 @@
   .tab2 {
     display: block;
   }
+  &.manage {
+    padding: 9.5px 18px;
+    background-color: $button-color--default;
+    color: #FFF;
+    font-size: $font-size--setting-xsm;
+    font-weight: 400;
+    border-radius: 999px;
+    &__cancel {
+      border-radius: $radius--default;
+      background-color: $button-color--cancel;
+      color: $text-color--gray;
+      width: 100%;
+      max-width: 96px;
+      flex-shrink: 1;
+      margin-top: 18px;
+    }
+    &__point {
+      font-size: $font-size--setting-sm;
+      font-weight: $font-weight--Medium;
+      border-radius: $radius--default;
+      background-color: $point-color--default;
+      color: #FFF;
+      width: 100% !important;
+      flex-shrink: 1;
+      margin-top: 18px;
+      @include device__query(tablet) {
+        font-size: $font-size--setting-xxsm;
+      }
+    }
+    &__kakao {
+      max-width: 130px;
+      height: 24px;
+      padding: 0;
+      padding-left: 32px;
+      margin: 0 auto;
+      font-size: $font-size--setting-sm;
+      font-weight: 400;
+      background: url(../../../img/icon/icon_kakao_copy.png) no-repeat left / 24px;
+    }
+  }
+
 }

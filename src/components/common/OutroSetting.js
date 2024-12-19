@@ -21,7 +21,7 @@ const OutroSetting = () => {
       <CommonOptionContent>
         {
           outroList.map((item, idx) => (
-            <CommonItemWrapper>
+            <CommonItemWrapper key={item.content + idx}>
               <CommonItemContent title='내용' multi={true}>
                 <TextEditor 
                   dataName="content"

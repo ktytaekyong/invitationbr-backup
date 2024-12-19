@@ -1,0 +1,133 @@
+@import "../../_module";
+.manage__item {
+  @include flex__column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  &_wrap {
+    width: 100%;
+    background-color: #FFF;
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 20px;
+  }
+  &__use {
+
+  }
+  &_title {
+    font-size: $font-size--setting-lg;
+    font-weight: 600;
+    margin-top: 23px;
+    margin-bottom: 8px;
+  }
+  &_date {
+    @include flex__row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    &_wrap {
+      @include flex__row;
+      justify-content: flex-start;
+      column-gap: 20px;
+      font-size: $font-size--setting-ssm;
+    }
+    &_delete {
+      color: $text-color--essntial;
+      font-weight: 600;
+    }
+    &_day {
+
+    }
+    a {
+      @include flex__row;
+      justify-content: flex-end;
+      align-items: center;
+      span {
+        font-size: $font-size--setting-ssm;
+        color: #777;
+      }
+      img {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+  &_content {
+    @include flex__row_inline;
+    width: 100%;
+    padding: 24px 0;
+    margin-bottom: 6px;
+    border-top: 1px solid $border-color--default;
+    border-bottom: 1px solid $border-color--default;
+    &_photo {
+      max-width: 160px;
+      max-height: 160px;
+      border-radius: 8px;
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+    &_info {
+      padding: 12px 24px;
+      p {
+        font-size: $font-size--setting-sm;
+        font-weight: 400;
+        color: #929292;
+        margin-bottom: 6px;
+        line-height: 1em;
+        span {
+          display: inline-block;
+          margin-left: 16px;
+          font-weight: 400;
+          color: #777;
+        }
+      }
+      button {
+        margin-top: 14px;
+      }
+    }
+  }
+  :global {
+    .MuiFormControlLabel-root {
+      margin-left: 0 !important;
+      span {
+        font-size: $font-size--setting-ssm !important;
+        font-weight: 400 !important;
+        letter-spacing: 0 !important;
+        padding: 0 !important;
+      }
+    }
+    .MuiFormControlLabel-root {
+      pointer-events: all !important;
+    }
+    .MuiSwitch-root {
+      width: 40px !important;
+      height: 20px;
+      margin-left: 6px;
+      border-radius: 999px;
+      background: #DCDCDC !important;
+      padding: 0;
+    }
+    .MuiSwitch-switchBase {
+      top: 2px !important;
+      left: 2px;
+    }
+    .MuiSwitch-switchBase .MuiSwitch-input {
+      left: -100% !important;
+      width: 100% !important;
+    }
+    .MuiSwitch-thumb {
+      width: 16px !important;
+      height: 16px !important;
+      background-color: #FFF !important;
+    }
+    .MuiSwitch-track {
+      background: $text-color--essntial !important;
+      opacity: 1 !important;
+    }
+  }
+}

@@ -16,6 +16,10 @@
           line-height: 1.5em;
           font-weight: 400;
           color: #525252;
+          b {
+            color: $text-color--essntial;
+            font-weight: 700;
+          }
         }
       }
     }

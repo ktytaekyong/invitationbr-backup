@@ -15,7 +15,7 @@ const SubTitleNotice = ({ noticeList }) => {
         <ul>
           {
             noticeList.map((item, idx) => (
-              <li key={item + idx}><span>·</span><span>{item}</span></li>
+              <li key={item + idx}><span>·</span><span dangerouslySetInnerHTML={{ __html: item }} /></li>
             ))
           }
         </ul>

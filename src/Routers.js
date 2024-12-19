@@ -7,6 +7,7 @@ import View from "./components/page/View";
 import Main from "./components/main/Main";
 import Management from "./components/page/Management";
 import SubHeader from "./components/sub/SubHeader";
+import SubFooter from "./components/sub/SubFooter";
 
 const Routers = () => {
   const location = useLocation();
@@ -45,6 +46,7 @@ const Routers = () => {
           <>
             <SubHeader />
             <Management />
+            <SubFooter />
           </>
         }
       ></Route>

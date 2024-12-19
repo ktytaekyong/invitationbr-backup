@@ -196,4 +196,9 @@ export const DDayCalculator = (date) => { // FUNC: 디 데이 계산기
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
   return diffDays;
 }
+export const AddDaysToDate = (dateString, daysToAdd) => { // FUNC: 날짜에 30일 추가
+  const date = new Date(dateString); 
+  date.setDate(date.getDate() + daysToAdd);
+  return date.toISOString().split("T")[0];
+}
 
