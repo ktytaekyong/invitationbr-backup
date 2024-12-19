@@ -2,10 +2,12 @@
 .sub__title {
   width: 100%;
   padding-top: 100px;
+  padding-bottom: 200vh;
   &_wrap {
-    @include flex__row;
+    @include flex__column;
     justify-content: center;
     align-items: center;
+    row-gap: 24px;
     width: 100%;
     max-width: $max-width--mng;
     padding: 0 20px;
@@ -23,5 +25,21 @@
         padding-left: 4px;
       }
     }
+  }
+  &_photo {
+    width: 100%;
+    max-height: 80vh;
+    min-height: 380px;
+    max-width: 800px;
+    margin: 60px auto 100px;
+    transition: 0.5s linear all;
+    background-image: url("");
+    background-position: top;
+    background-repeat: no-repeat;
+    background-size: 1920px;
+    // img {
+    //   width: 100%;
+    //   border-radius: 36px;
+    // }
   }
 }

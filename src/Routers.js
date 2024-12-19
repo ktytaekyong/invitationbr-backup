@@ -6,6 +6,7 @@ import HeaderPreview from "./components/common/HeaderPreview";
 import View from "./components/page/View";
 import Main from "./components/main/Main";
 import Management from "./components/page/Management";
+import SubNotice from "./components/page/SubNotice";
 import SubHeader from "./components/sub/SubHeader";
 import SubFooter from "./components/sub/SubFooter";
 
@@ -46,6 +47,16 @@ const Routers = () => {
           <>
             <SubHeader />
             <Management />
+            <SubFooter />
+          </>
+        }
+      ></Route>
+      <Route
+        path="/Notice"
+        element={
+          <>
+            <SubHeader />
+            <SubNotice />
             <SubFooter />
           </>
         }

@@ -26,7 +26,7 @@ const SubHeader = () => {
             {/* <li><Link to="/">감사장 만들기</Link></li> */}
             <li><Link to="/Manager" className={styles.active}>제작 관리</Link></li>
             <li><Link to="/Produce">예식순서</Link></li>
-            <li><Link to="/Produce">공지사항</Link></li>
+            <li><Link to="/Notice">공지사항</Link></li>
             <li><Link to="/Produce">자주하는 질문</Link></li>
           </ul>
           <ul className={styles.sub__tool}>
