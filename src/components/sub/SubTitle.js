@@ -14,7 +14,7 @@ const SubTitle = ({ subTitle, subContent, subPhoto }) => {
   const photoRef = useRef(null);
   const dragHandler = () => {
     const currentPos = window.scrollY;
-    if(currentPos > 0 && currentPos < 700) {
+    if(currentPos > 10 && currentPos < 700) {
       photoRef.current.style.maxWidth = `calc(${58.75 + currentPos / 5}%)`;
       if(photoRef.current.style.maxWidth === "100%" ) {
         return;
