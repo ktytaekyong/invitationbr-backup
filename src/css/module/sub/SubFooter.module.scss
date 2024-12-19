@@ -1,93 +1,67 @@
 @import "../../_module";
-.footer {
+.sub__footer {
   width: 100%;
-  background-color: #fff;
-  padding: 70px 0;
+  padding: 60px 0;
+  border-top: 1px solid $border-color--default;
   * {
     font-size: var(--font-size--ssm);
   }
-}
-
-.footer__wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer__wrapper .logo {
-  max-width: 172px;
-  margin-bottom: 20px;
-}
-
-.footer__wrapper .logo img {
-  width: 100%;
-}
-
-.footer__wrapper .info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.footer__wrapper .info * {
-  font-weight: 300;
-}
-
-.footer__wrapper .info p {
-  margin-top: 3px;
-}
-
-.footer__wrapper ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.footer__wrapper ul li:not(:first-child) {
-  position: relative;
-  margin-left: 30px;
-}
-
-.footer__wrapper ul li:not(:first-child)::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -15px;
-  transform: translateY(-50%);
-  width: 1px;
-  height: 9px;
-  background-color: var(--text-color--default);
-}
-
-.footer__wrapper .menu {
-  font-weight: 600;
-} 
-
-.footer__wrapper ul.menu li:not(:first-child)::after {
-  width: 2px;
-}
-
-.footer__wrapper .copy {
-  margin-top: 30px;
-  font-size: var(--font-size--xsm);
-  font-weight: 300;
-  opacity: 0.85;
-  text-align: center;
-}
-
-.footer.invite {
-  background-color: var(--bg-color--second);
-  border-top: 1px solid var(--border-color--second);
-}
-
-.footer.invite .logo {
-  margin-bottom: 0;
-}
-
-.footer.invite .copy {
-  font-size: var(--font-size--xxsm);
-  color: var(--text-color--disable);
+  &_wrapper {
+    @include flex__column;
+    justify-content: center;
+    align-items: center;
+    .logo {
+      max-width: 172px;
+      margin-bottom: 20px;
+      img {
+        width: 100%;
+      }
+    }
+    .info {
+      @include flex__column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 12px;
+      * {
+        font-weight: 300;
+      }
+      p {
+        margin-top: 3px;
+      }
+    }
+    ul {
+      @include flex__row;
+      justify-content: center;
+      align-items: center;
+      li {
+        &:not(:first-child) {
+          @include position;
+          margin-left: 30px;
+          &::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: -15px;
+            transform: translateY(-50%);
+            width: 1px;
+            height: 9px;
+            background-color: $text-color--default;
+          }
+        }
+      }
+    }
+    .menu {
+      font-weight: 600;
+      li:not(:first-child)::after {
+        width: 2px;
+      }
+    }
+    .copy {
+      margin-top: 30px;
+      font-size: $font-size--xsm;
+      font-weight: 300;
+      opacity: 0.85;
+      text-align: center;
+    }
+  }
 }

@@ -1,1 +1,11 @@
 @import "../../_module";
+.management {
+  overflow-x: hidden;
+  :global {
+    body {
+      @include device__query(tablet) {
+        overflow-x: unset !important;
+      }
+    }
+  }
+}

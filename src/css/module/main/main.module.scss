@@ -1017,12 +1017,6 @@ article.faq {
   }
 }
 
-body {
-  font-size: var(--font-size--default);
-  position: relative;
-  overflow-x: hidden;
-}
-
 .view__container {
   width: 100%;
 }
@@ -1301,26 +1295,6 @@ body {
   background-color: #D6D6D6;
 }
 
-/* @mixin disable-scroll {
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-} */
-
-/* @mixin words-skip($line: 1) {
-  display: -webkit-box;
-  -webkit-line-clamp: $line;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-} */
-
-/* @function ratio($px, $width) {
-  @return calc($px / $width * 100vw);
-} */
-
 /* device == "pc" */
 @media screen and (min-width: 1800px) {
   /* @content; */
@@ -1486,16 +1460,6 @@ body {
   }
 }
 
-
-
-
-
-
-body {
-  font-size: var(--font-size--default);
-  position: relative;
-  overflow-x: hidden;
-}
 
 .view__container {
   width: 100%;
@@ -1772,27 +1736,6 @@ body {
 .button.template:not(.on):hover {
   background-color: #D6D6D6;
 }
-
-/* @mixin disable-scroll {
-  overflow-x: scroll;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-} */
-
-/* @mixin words-skip($line: 1) {
-  display: -webkit-box;
-  -webkit-line-clamp: $line;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-} */
-
-/* @function ratio($px, $width) {
-  @return calc($px / $width * 100vw);
-} */
-
 /* device == "pc" */
 @media screen and (min-width: 1800px) {
   /* @content; */

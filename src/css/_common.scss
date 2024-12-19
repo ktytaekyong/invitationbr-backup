@@ -31,7 +31,7 @@ html, body {
 body {
   background-color: #F6F7F8;
   @include device__query(tablet) {
-    overflow-x: hidden;
+    // overflow-x: hidden;
   }
 }
 .container {
@@ -43,6 +43,7 @@ body {
   @include device__query(tablet) {
     @include position;
     height: unset;
+    max-width: 100%;
   }
 }
 /* STYLE */

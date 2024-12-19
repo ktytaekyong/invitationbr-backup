@@ -10,10 +10,18 @@
     max-width: $max-width--mng;
     padding: 0 20px;
     margin: 0 auto;
+    @include device__query(tablet) {
+      margin: unset;
+      justify-content: flex-start;
+    }
     h2 {
       line-height: 1em;
       font-size: 48px;
       font-family: "SeoulHangang";
+      @include device__query(tablet) {
+        font-size: 26px;
+        padding-left: 4px;
+      }
     }
   }
 }

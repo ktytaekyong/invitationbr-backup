@@ -31,7 +31,7 @@ const noticeList = [
 const Management = () => {
   const { isMobile } = useContext(SetContext);
   return (
-    <div>
+    <div className={styles.management}>
       <SubTitle 
         type="mng"
         subTitle="제작 관리" 

@@ -2,11 +2,19 @@
 .sub__title_notice {
   width: 100%;
   margin-top: 40px;
+  @include device__query(tablet) {
+    margin-top: 20px;
+  }
   &_wrap {
     ul {
       @include flex__column;
       justify-content: center;
       align-items: center;
+      @include device__query(tablet) {
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 24px;
+      }
       li {
         @include flex__row;
         justify-content: center;
@@ -16,6 +24,9 @@
           line-height: 1.5em;
           font-weight: 400;
           color: #525252;
+          @include device__query(tablet) {
+            font-size: $font-size--setting-sm;
+          }
           b {
             color: $text-color--essntial;
             font-weight: 700;
