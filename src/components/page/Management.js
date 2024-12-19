@@ -37,9 +37,9 @@ const Management = () => {
         subTitle="제작 관리" 
         subContent=""
       />
-      <SubTitleTab 
+      {/* <SubTitleTab 
         tabList={tabList}
-      />
+      /> */}
       <SubTitleNotice 
         noticeList={noticeList}
       />

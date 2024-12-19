@@ -11,9 +11,6 @@
     padding: 30px;
     margin-bottom: 20px;
   }
-  &__use {
-
-  }
   &_title {
     font-size: $font-size--setting-lg;
     font-weight: 600;
@@ -29,14 +26,14 @@
       @include flex__row;
       justify-content: flex-start;
       column-gap: 20px;
-      font-size: $font-size--setting-ssm;
+      p {
+        font-size: $font-size--setting-ssm;
+        font-weight: 300;
+      }
     }
     &_delete {
       color: $text-color--essntial;
-      font-weight: 600;
-    }
-    &_day {
-
+      font-weight: 300;
     }
     a {
       @include flex__row;
@@ -44,6 +41,7 @@
       align-items: center;
       span {
         font-size: $font-size--setting-ssm;
+        font-weight: 500;
         color: #777;
       }
       img {
@@ -75,7 +73,7 @@
       padding: 12px 24px;
       p {
         font-size: $font-size--setting-sm;
-        font-weight: 400;
+        font-weight: 300;
         color: #929292;
         margin-bottom: 6px;
         line-height: 1em;

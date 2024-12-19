@@ -12,6 +12,10 @@
     @media screen and (max-width: 950px) {
       @content;
     }
+  } @else if ($device == "notablet") {
+    @media screen and (min-width: 951px) {
+      @content;
+    }
   } @else if ($device == "mobile") {
     @media screen and (max-width: $width--min) {
       @content;

@@ -19,8 +19,8 @@ const ManageItem = ({ inviteIdx, inviteItem }) => {
   const { isMobile } = useContext(SetContext);
   const navigate = useNavigate();
   return (
-    <li className={styles.manage__item}>
-      <div className={styles.manage__item_wrap} style={inviteItem.use ? null : {filter: "grayscale(1)", pointerEvents: "none"}}>
+    <li className={styles.manage__item} style={inviteItem.use ? null : {filter: "grayscale(1)", pointerEvents: "none"}}>
+      <div className={styles.manage__item_wrap}>
         <div className={styles.manage__use}>
           <>
             <FormControlLabel

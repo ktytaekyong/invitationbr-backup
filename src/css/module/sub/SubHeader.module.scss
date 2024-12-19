@@ -3,6 +3,52 @@
   height: 88px;
   background: #FFF;
   border-bottom: 1px solid $border-color--default;
+  @include device__query(tablet) {
+    @include position(f, 0, 0, null, 0);
+    z-index: 999;
+    height: 60px;
+  }
+  &.active {
+    .sub__header_wrapper {
+      @include device__query(tablet) {
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.03);
+      }
+      > div {
+        @include device__query(tablet) {
+          @include position(a, 60px, 0, 0, 0);
+          z-index: 998;
+          background-color: #fff;
+          min-height: 100dvh;
+        }
+      }
+    }
+    .sub__menu {
+      @include device__query(tablet) {
+        @include position(a, 60px, 0, 0, 0);
+        display: block;
+        width: 100%;
+        transform: unset;
+        padding: 24px 20px;
+      }
+      li {
+        @include device__query(tablet) {
+          height: unset;
+        }
+        a {
+          @include device__query(tablet) {
+          }
+        }
+      }
+    }
+    .sub__tool {
+      @include device__query(tablet) {
+        @include flex__row;
+        justify-content: flex-start;
+        padding: 20px 24px;
+        border-bottom: 1px solid $border-color--default;
+      }
+    }
+  }
   &_wrapper {
     @include position;
     @include flex__row;
@@ -15,6 +61,10 @@
     .logo {
       width: 151px;
       height: 29px;
+      @include device__query(tablet) {
+        width: 112px;
+        height: 18px;
+      }
       img {
         width: 100%;
       }
@@ -28,8 +78,22 @@
   transform: translateX(-50%);
   justify-content: center;
   align-items: center;
-  column-gap: 72px;
+  column-gap: ratio(72, 1920);
   height: 100%;
+  @include device__query(tablet) {
+    display: none;
+  }
+  &_mo {
+    background: transparent;
+    width: 24px;
+    height: 24px;
+    border: none;
+    outline: none;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
   > li {
     height: 100%;
     a {
@@ -43,16 +107,20 @@
       white-space: nowrap;
       transition: $transition--morefast;
       &::after {
-        @include position(a, null, 0, 0);
-        width: 100%;
-        height: 3px;
-        background-color: $theme-color--default;
-        display: none;
-        content: "";
+        @include device__query(notablet) {
+          @include position(a, null, 0, 0);
+          width: 100%;
+          height: 3px;
+          background-color: $theme-color--default;
+          display: none;
+          content: "";
+        }
       }
       &.active,
       &:hover {
-        color: $theme-color--default;
+        @include device__query(notablet) {
+          color: $theme-color--default;
+        }
         &::after {
           @include flex__row;
           justify-content: center;
@@ -68,6 +136,9 @@
   justify-content: center;
   align-items: center;
   column-gap: 20px;
+  @include device__query(tablet) {
+    display: none;
+  }
   > li {
     &:first-child a {
       @include position;
