@@ -2,7 +2,4 @@
 .SubNotice {
   background: #FFF;
   width: 100%;
-  @include device__query(notablet) {
-    padding-top: 87px;
-  }
 }

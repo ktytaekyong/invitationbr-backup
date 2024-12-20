@@ -14,20 +14,20 @@ const SubTitle = ({ subTitle, subContent, subPhoto, type }) => {
   const photoRef = useRef(null);
   const dragHandler = () => {
     const currentPos = window.scrollY;
-    if(currentPos > 10 && currentPos < 600) {
+    if(currentPos > 10 && currentPos < 500) {
       photoRef.current.style.maxWidth = `calc(${41.66 + currentPos / 5}%)`;
-    }
-    if(currentPos > 10 && currentPos < 600) {
-      photoRef.current.style.height = `calc(${32.75 + currentPos * 5}px)`;
+      photoRef.current.style.height = `calc(${32.75 + currentPos * 2}px)`;
+      photoRef.current.style.borderRadius = `calc(${36 - currentPos / 9.5}px)`;
     }
   }
   useEffect(() => {
     if(type !== "mng") {
       photoRef.current.style.backgroundImage = `url(${subPhoto})`;
       photoRef.current.style.height = `340px`;
+      photoRef.current.style.borderRadius = `36px`;
       window.addEventListener("scroll", dragHandler);
       return () => {
-        window.removeEventListener("scroll", dragHandler); 
+        window.removeEventListener("scroll", dragHandler);
       };
     } else {
       return;

@@ -2,6 +2,9 @@
 .sub__title {
   width: 100%;
   padding-top: 100px;
+  @include device__query(notablet) {
+    margin-top: 87px;
+  }
   &_wrap {
     @include flex__column;
     justify-content: center;
@@ -32,6 +35,7 @@
     max-width: 800px;
     margin: 60px auto 100px;
     transition: 0.5s linear all;
+    background-color: #FFF;
     background-image: url("");
     background-position: top;
     background-repeat: no-repeat;
