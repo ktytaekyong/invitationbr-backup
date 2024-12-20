@@ -1,8 +1,10 @@
 @import "../../_module";
 .sub__header {
+  @include position(f, 0, 0, null, 0);
   height: 88px;
   background: #FFF;
   border-bottom: 1px solid $border-color--default;
+  z-index: 10000;
   @include device__query(tablet) {
     @include position(f, 0, 0, null, 0);
     z-index: 999;

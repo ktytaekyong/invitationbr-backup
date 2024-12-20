@@ -4,8 +4,42 @@
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  &.active {
+    filter: unset;
+    pointer-events: all;
+    :global {
+      .MuiSwitch-root {
+        opacity: 1;
+      }
+      .MuiTypography-root {
+        color: $text-color--default;
+      }
+    }
+    button {
+      opacity: 1;
+    }
+  }
+  &.disabled {
+    filter: grayscale(1);
+    pointer-events: none;
+    :global {
+      .MuiSwitch-root {
+        opacity: 0.35;
+      }
+      .MuiTypography-root {
+        color: #9E9E9E;
+      }
+    }
+    button {
+      opacity: 0.8;
+      &:nth-of-type(2) {
+        opacity: 0.3;
+      }
+    }
+  }
   &_wrap {
     width: 100%;
+    min-height: 455px;
     background-color: #FFF;
     border-radius: 12px;
     padding: 30px;
@@ -34,6 +68,17 @@
         font-weight: 300;
         @include device__query(tablet) {
           font-size: $font-size--setting-sm;
+        }
+        &:nth-of-type(2) {
+          @include position;
+          &::after {
+            @include position(a, 50%, -11px);
+            transform: translateY(-50%);
+            width: 2px;
+            height: 14px;
+            background-color: $border-color--default;
+            content: "";
+          }
         }
       }
     }

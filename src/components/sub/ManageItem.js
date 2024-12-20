@@ -15,17 +15,29 @@ import { SetContext } from "../../store/option-set-context.js";
 import rightArrowImg from "../../img/icon/icon_arrow_right.png";
 
 const label = { inputProps: { 'aria-label': 'Switch use' } };
-const ManageItem = ({ inviteIdx, inviteItem }) => {
+const ManageItem = ({ inviteIdx, inviteItem, onChange }) => {
   const { isMobile } = useContext(SetContext);
   const navigate = useNavigate();
   return (
-    <li className={styles.manage__item} style={inviteItem.use ? null : {filter: "grayscale(1)", pointerEvents: "none"}}>
+    <li className={`${styles.manage__item} ${inviteItem.use ? styles.active : styles.disabled}`}>
       <div className={styles.manage__item_wrap}>
         <div className={styles.manage__use}>
           <>
             <FormControlLabel
               value={inviteItem.use}
-              control={<Switch defaultChecked={inviteItem.use} />}
+              control={
+                <Switch 
+                  defaultChecked={inviteItem.use} 
+                  checked={inviteItem.use} 
+                  onChange={() => (
+                    onChange((prev) => (
+                      prev.map((item, idx) => (
+                        inviteIdx === idx ? {...item, use: !item.use} : item
+                      ))
+                    ))
+                  )} 
+                />
+              }
               label={inviteItem.use ? "청첩장 사용중" : "청첩장 미사용"}
               labelPlacement="start"
             />

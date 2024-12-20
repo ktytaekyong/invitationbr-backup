@@ -1,6 +1,6 @@
 /* import */
 import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 /* CSS Module */
 import styles from "../../css/module/sub/SubHeader.module.scss";
 /* Context */
@@ -14,6 +14,7 @@ import myInfo from "../../img/icon/icon_info.png";
 const SubHeader = () => {
   const { isMobile } = useContext(SetContext);
   const [ activeMenu, setActiveMenu ] = useState(false);
+  const location = useLocation();
   return (
     <div className={`${styles.sub__header} ${activeMenu && isMobile ? styles["active"] : ""}`}>
       <div className={`${styles.sub__header_wrapper}`}>
@@ -24,9 +25,9 @@ const SubHeader = () => {
           <ul className={`${styles.sub__menu}`}>
             <li><Link to="/Produce">청첩장 만들기</Link></li>
             {/* <li><Link to="/">감사장 만들기</Link></li> */}
-            <li><Link to="/Manager" className={styles.active}>제작 관리</Link></li>
+            <li><Link to="/Manager" className={location.pathname === "/Manager" ? styles.active : ""}>제작 관리</Link></li>
             <li><Link to="/Produce">예식순서</Link></li>
-            <li><Link to="/Notice">공지사항</Link></li>
+            <li><Link to="/Notice" className={location.pathname === "/Notice" ? styles.active : ""}>공지사항</Link></li>
             <li><Link to="/Produce">자주하는 질문</Link></li>
           </ul>
           <ul className={styles.sub__tool}>
