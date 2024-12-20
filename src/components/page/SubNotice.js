@@ -6,13 +6,25 @@ import ReactDOM from "react-dom";
 import styles from "../../css/module/page/SubNotice.module.scss";
 /* Component */
 import SubTitle from "../sub/SubTitle.js";
-import SubTitleNotice from "../sub/SubTitleNotice.js";
-import ManageList from "../sub/ManageList.js";
+import SubWrapper from "../sub/SubWrapper.js";
+import SubSideMenu from "../sub/SubSideMenu.js";
+import SubList from "../sub/SubList.js";
 // Context
 import { SetContext } from "../../store/option-set-context.js";
 
-const noticeList = [
-  "서비스에 대한 주요 공지사항을 확인하세요."
+const menuList = [
+  {
+    src: "/",
+    title: "전체"
+  },
+  {
+    src: "/",
+    title: "공지사항"
+  },
+  {
+    src: "/",
+    title: "안내사항"
+  },
 ]
 
 const SubNotice = () => {
@@ -24,6 +36,10 @@ const SubNotice = () => {
         subContent="서비스에 대한 주요 공지사항을 확인하세요."
         subPhoto={"/img/sub/sub_notice.png"}
       />
+      <SubWrapper>
+        <SubSideMenu menuList={menuList}></SubSideMenu>
+        <SubList></SubList>
+      </SubWrapper>
     </div>
   )
 }

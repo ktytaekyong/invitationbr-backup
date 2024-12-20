@@ -1,18 +1,26 @@
 /* import */
 import { useContext, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 /* CSS Module */
-import styles from "../../css/module/sub/SubTitle.module.scss";
+import styles from "../../css/module/sub/SubSideMenu.module.scss";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 /* Image */
-import logoImg from "../../img/main/logo.svg";
-import myInfo from "../../img/icon/icon_info.png";
 
-const SubSideMenu = () => {
+const SubSideMenu = ({ menuList }) => {
+  const location = useLocation();
   return (
-    <div>SubSideMenu</div>
+    <div className={styles.sub__side_menu}>
+      <div className={styles.sub__side_menu_wrapper}>
+        <ul>
+          {menuList.map((item, idx) => (
+            <li><Link to={item.src} className={location.pathname === "/Notice/" ? styles.active : ""}>{item.title}</Link></li>
+            // 주소 마지막 슬래시 제거
+          ))}
+        </ul>
+      </div>
+    </div>
   )
 }
 
-export default SubSideMenu
+export default SubSideMenu;

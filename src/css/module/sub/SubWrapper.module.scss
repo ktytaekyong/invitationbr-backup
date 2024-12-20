@@ -1,0 +1,13 @@
+@import "../../_module";
+.sub__wrapper {
+  @include position;
+  @include flex__row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  column-gap: 20px;
+  width: 100%;
+  max-width: $width--max;
+  margin: 0 auto;
+  padding: 0 20px;
+  padding-bottom: 150px;
+}
