@@ -6,17 +6,32 @@
   width: 100%;
   padding-bottom: 28px;
   border-bottom: 2px solid #2D2D2D;
+  @include device__query(tablet) {
+    @include flex__column;
+    align-items: flex-end;
+    row-gap: 40px;
+    margin-top: 32px;
+    padding-bottom: 16px;
+  }
   &_total {
     font-size: $font-size--setting-default;
     font-weight: 500;
     span {
-      color:  $text-color--essntial;
+      color:  $text-color--essential;
+    }
+    @include device__query(tablet) {
+      order: 1;
+      padding-right: 4px;
+      font-size: $font-size--setting-xsm;
     }
   }
   &_wrapper {
     @include position;
     width: 100%;
     max-width: 400px;
+    @include device__query(tablet) {
+      max-width: unset;
+    }
     input {
       width: 100% !important;
       border-radius: 999px !important;
@@ -26,6 +41,10 @@
       padding-left: 30px !important;
       &::placeholder {
         color: #9E9E9E;
+      }
+      @include device__query(tablet) {
+        order: 0;
+        height: 48px !important;
       }
     }
     button {

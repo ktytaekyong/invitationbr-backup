@@ -27,6 +27,65 @@ const menuList = [
   },
 ]
 
+const noticeList = [
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "모바일 청첩장 서비스 시작",
+    file: "",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "모바일 청첩장 서비스 이용방법",
+    file: "",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "축하 화환 상품 추가",
+    file: "",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "안내",
+    title: "운영 시간 조기 마감 안내",
+    file: "",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "12월 고객센터 휴무 안내(12/29. 12/30. 12/31)",
+    file: "",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "답례 상품 추가",
+    file: "fileSrc",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "축하 화환 주문 방법",
+    file: "",
+    date: "2024-12-03"
+  },
+  {
+    src: "/Notice/Detail",
+    type: "공지",
+    title: "고객 신뢰도 1위 프리미엄 브랜드상 수상",
+    file: "fileSrc",
+    date: "2024-12-03"
+  },
+]
+
 const SubNotice = () => {
   const { isMobile } = useContext(SetContext);
   return (
@@ -38,7 +97,8 @@ const SubNotice = () => {
       />
       <SubWrapper>
         <SubSideMenu menuList={menuList}></SubSideMenu>
-        <SubList></SubList>
+        <SubList list={noticeList}></SubList>
+
       </SubWrapper>
     </div>
   )

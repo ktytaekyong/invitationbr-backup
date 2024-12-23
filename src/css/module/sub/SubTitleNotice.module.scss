@@ -18,17 +18,18 @@
       li {
         @include flex__row;
         justify-content: center;
-        align-items: center;
+        align-items: flex-start;
         column-gap: 5px;
         span {
           line-height: 1.5em;
           font-weight: 400;
           color: #525252;
+          word-break: keep-all;
           @include device__query(tablet) {
             font-size: $font-size--setting-sm;
           }
           b {
-            color: $text-color--essntial;
+            color: $text-color--essential;
             font-weight: 700;
           }
         }

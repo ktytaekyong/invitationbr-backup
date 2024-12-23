@@ -6,6 +6,7 @@ import styles from "../../css/module/sub/SubList.module.scss";
 /* Component */
 import SubListSearch from "./SubListSearch.js";
 import SubListItem from "./SubListItem.js";
+import SubPaging from "./SubPaging.js";
 /* Context */
 import { SetContext } from "../../store/option-set-context.js";
 /* Image */
@@ -15,10 +16,13 @@ const SubList = ({ list }) => {
   return (
     <div className={styles.sub__list}>
       <div className={styles.sub__list_wrapper}>
-        <SubListSearch></SubListSearch>
+        <SubListSearch length={list.length}></SubListSearch>
         <ul>
-          <SubListItem></SubListItem>          
+          {list.map((item, idx) => (
+            <SubListItem item={item} idx={idx}></SubListItem>
+          ))}
         </ul>
+        <SubPaging></SubPaging>
       </div>
     </div>
   )

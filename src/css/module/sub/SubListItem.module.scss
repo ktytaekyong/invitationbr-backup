@@ -3,8 +3,22 @@ li.sub__list_ltem {
   @include flex__row;
   justify-content: space-between;
   align-items: center;
-  padding: 28px 32px;
   border-bottom: 1px solid $border-color--default;
+  width: 100%;
+  > a {
+    @include flex__row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 28px 32px;
+    @include device__query(tablet) {
+      @include flex__column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 26px 0;
+      row-gap: 8px;
+    }
+  }
   .info {
     @include flex__row;
     justify-content: flex-start;
@@ -20,9 +34,17 @@ li.sub__list_ltem {
       padding: 10px 18px;
       border-radius: 8px;
       background: #F6F7F8;
+      flex-shrink: 0;
+      @include device__query(tablet) {
+        padding: 7px 7px;
+      }
       p {
         font-size: $font-size--setting-sm;
         font-weight: 600;
+        color: #777;
+        @include device__query(tablet) {
+          font-size: $font-size--setting-xxsm;
+        }
       }
     }
     .title {
@@ -33,13 +55,18 @@ li.sub__list_ltem {
       p {
         font-size: $font-size--setting-lg;
         font-weight: 600;
+        @include device__query(tablet) {
+          font-size: $font-size--setting-default;
+        }
       }
-      a {
+      img {
         width: 22px;
         height: 22px;
         margin-left: 8px;
-        img {
-          width: 100%;
+        @include device__query(tablet) {
+          width: 16px;
+          height: 16px;
+          margin-left: 3px;
         }
       }
     }
@@ -49,6 +76,9 @@ li.sub__list_ltem {
       font-size: $font-size--setting-sm;
       color: #9E9E9E;
       font-weight: 400;
+      @include device__query(tablet) {
+        padding-left: 50px;
+      }
     }
   }
 }

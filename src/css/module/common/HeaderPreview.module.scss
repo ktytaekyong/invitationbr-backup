@@ -4,7 +4,7 @@
   width: 100%;
   max-width: $width--min;
   margin: 0 auto;
-  background-color: $text-color--essntial;
+  background-color: $text-color--essential;
   z-index: 99999;
   transition: $transition--fast;
   @include device__query(tablet) {
