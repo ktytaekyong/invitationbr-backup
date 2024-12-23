@@ -59,7 +59,7 @@ const ManageItem = ({ inviteIdx, inviteItem, onChange }) => {
             <p>최초 작성일<span>{inviteItem.createDate}</span></p>
             <p>최종 수정일<span>{inviteItem.modifyDate}</span></p>
             <p>삭제 예정일<span>{(AddDaysToDate(inviteItem.weddingDate, 30))}</span></p>
-            <Button content="참석 여부 확인" styleType="manage"></Button>
+            <Button content="참석 여부 확인" styleType="manage" onClick={() => navigate("/Manager/Detail")}></Button>
           </div>
         </div>
         <ButtonWrapper>

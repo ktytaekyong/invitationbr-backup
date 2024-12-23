@@ -33,7 +33,7 @@ const SubTitle = ({ subTitle, subContent, subPhoto, type }) => {
       return () => {
         window.removeEventListener("scroll", dragHandler);
       };
-    } else if(isMobile) {
+    } else if(type !== "mng" && isMobile) {
       photoRef.current.style.backgroundImage = `url(${subPhoto})`;
       photoRef.current.style.height = `90px`;
       photoRef.current.style.borderRadius = `8px`;

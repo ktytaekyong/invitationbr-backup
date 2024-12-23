@@ -8,6 +8,7 @@ import Main from "./components/main/Main";
 import Management from "./components/page/Management";
 import SubNotice from "./components/page/SubNotice";
 import SubNoticeDetail from "./components/page/SubNoticeDetail";
+import ManagementDetail from "./components/page/ManagementDetail";
 import SubHeader from "./components/sub/SubHeader";
 import SubFooter from "./components/sub/SubFooter";
 
@@ -47,11 +48,25 @@ const Routers = () => {
         element={
           <>
             <SubHeader />
-            <Management />
+            {location.pathname === "/Manager/Detail" ? (
+              <ManagementDetail />
+            ) : (
+              <Management />
+            )}
             <SubFooter />
           </>
         }
-      ></Route>
+      >
+        <Route 
+          path="Detail" 
+          element={
+            <>
+              <SubHeader />
+              <SubFooter />
+            </>
+          } 
+        />
+      </Route>
       <Route
         path="/Notice"
         element={
