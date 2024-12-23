@@ -41,11 +41,14 @@ const SubNotice = () => {
   const { isMobile } = useContext(SetContext);
   return (
     <div className={styles.sub__notice}>
-      <SubTitle 
-        subTitle="공지사항" 
-        subContent="서비스에 대한 주요 공지사항을 확인하세요."
-        subPhoto={"/img/sub/sub_notice.png"}
-      />
+      {
+        isMobile ? null :
+        <SubTitle 
+          subTitle="공지사항" 
+          subContent="서비스에 대한 주요 공지사항을 확인하세요."
+          subPhoto={"/img/sub/sub_notice.png"}
+        />
+      }
       <SubWrapper>
         <SubSideMenu menuList={menuList}></SubSideMenu>
         <SubContent item={noticeList[0]}></SubContent>

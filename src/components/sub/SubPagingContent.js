@@ -19,7 +19,6 @@ const SubPagingContent = ({}) => {
   return (
     <>
       <div className={`${styles.paging} ${styles.content}`}>
-      {isMobile ? <button>더 보기(0/0)</button> : 
         <div className={styles.paging__wrapper}>
           <div className={styles.paging__item}>
             <Link to="/Notice" className={``}>
@@ -29,7 +28,7 @@ const SubPagingContent = ({}) => {
           </div>
           <div className={`${styles.paging__item} ${styles.menu__button}`}>
             <Link to="/Notice" className={`${styles.active}`}>
-              <img src={iconPagingMenu} alt="" />
+              {isMobile ? <span>목록으로</span> : <img src={iconPagingMenu} alt="" />}
             </Link>
           </div>
           <div className={styles.paging__item}>
@@ -39,7 +38,6 @@ const SubPagingContent = ({}) => {
             </Link>
           </div>
         </div>
-      }
       </div>
     </>
   )

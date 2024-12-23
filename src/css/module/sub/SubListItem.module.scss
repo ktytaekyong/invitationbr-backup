@@ -35,15 +35,37 @@
     padding-bottom: 32px;
     .badge {
       margin-bottom: 30px;
+      @include device__query(tablet) {
+        margin-top: 40px;
+        padding: 10px 18px;
+      }
+      p {
+        @include device__query(tablet) {
+          font-size: $font-size--setting-sm !important;
+        }
+      }
     }
     .title {
+      @include device__query(tablet) {
+        margin-left: 0;
+        width: 60%;
+      }
       p {
         font-size: 32px;
+        @include device__query(tablet) {
+          font-size: $font-size--setting-xl;
+          text-align: center;
+          word-break: keep-all;
+          line-height: 1.4em;
+        }
       }
     }
     .date {
       p {
         margin-top: 12px;
+        @include device__query(tablet) {
+          padding-left: 0;
+        }
       }
     }
   }
@@ -111,10 +133,14 @@
   .content {
     border-bottom: 1px solid $border-color--default;
     padding: 40px;
+    @include device__query(tablet) {
+      padding: 32px 24px;
+    }
     > p {
       word-break: break-all;
       line-height: 1.6em;
-      font-weight: 400;
+      font-size: $font-size--setting-ssm;
+      font-weight: 500;
       > img {
         width: 100%;
         margin: 32px 0;
@@ -125,9 +151,16 @@
         align-items: center;
         margin-top: 32px;
         column-gap: 8px;
+        @include device__query(tablet) {
+          column-gap: 6px;
+        }
         img {
           width: 16px;
           height: 16px;
+          @include device__query(tablet) {
+            width: 18px;
+            height: 18px;
+          }
         }
         span {
           font-size: $font-size--setting-sm;
