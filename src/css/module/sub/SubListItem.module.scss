@@ -1,5 +1,5 @@
 @import "../../_module";
-li.sub__list_ltem {
+.sub__list_ltem {
   @include flex__row;
   justify-content: space-between;
   align-items: center;
@@ -19,65 +19,120 @@ li.sub__list_ltem {
       row-gap: 8px;
     }
   }
-  .info {
-    @include flex__row;
-    justify-content: flex-start;
+}
+
+.info {
+  @include flex__row;
+  justify-content: flex-start;
+  align-items: center;
+  column-gap: 32px;
+  &.detail {
+    @include flex__column;
+    justify-content: center;
     align-items: center;
-    column-gap: 32px;
-    .index {
-      p {
-        font-size: $font-size--setting-ssm;
-        color: #9E9E9E;
-      }
-    }
+    border-bottom: 1px solid $border-color--default;
+    padding-top: 32px;
+    padding-bottom: 32px;
     .badge {
-      padding: 10px 18px;
-      border-radius: 8px;
-      background: #F6F7F8;
-      flex-shrink: 0;
-      @include device__query(tablet) {
-        padding: 7px 7px;
-      }
-      p {
-        font-size: $font-size--setting-sm;
-        font-weight: 600;
-        color: #777;
-        @include device__query(tablet) {
-          font-size: $font-size--setting-xxsm;
-        }
-      }
+      margin-bottom: 30px;
     }
     .title {
-      @include flex__row;
-      justify-content: flex-start;
-      align-items: center;
-      margin-left: -16px;
       p {
-        font-size: $font-size--setting-lg;
-        font-weight: 600;
-        @include device__query(tablet) {
-          font-size: $font-size--setting-default;
-        }
+        font-size: 32px;
       }
-      img {
-        width: 22px;
-        height: 22px;
-        margin-left: 8px;
-        @include device__query(tablet) {
-          width: 16px;
-          height: 16px;
-          margin-left: 3px;
-        }
+    }
+    .date {
+      p {
+        margin-top: 12px;
       }
     }
   }
-  .date {
+  .index {
+    p {
+      font-size: $font-size--setting-ssm;
+      color: #9E9E9E;
+    }
+  }
+  .badge {
+    padding: 10px 18px;
+    border-radius: 8px;
+    background: #F6F7F8;
+    flex-shrink: 0;
+    @include device__query(tablet) {
+      padding: 7px 7px;
+    }
     p {
       font-size: $font-size--setting-sm;
-      color: #9E9E9E;
-      font-weight: 400;
+      font-weight: 600;
+      color: #777;
       @include device__query(tablet) {
-        padding-left: 50px;
+        font-size: $font-size--setting-xxsm;
+      }
+    }
+  }
+  .title {
+    @include flex__row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-left: -16px;
+    p {
+      font-size: $font-size--setting-sl;
+      font-weight: 600;
+      @include device__query(tablet) {
+        font-size: $font-size--setting-default;
+      }
+    }
+    img {
+      width: 22px;
+      height: 22px;
+      margin-left: 8px;
+      @include device__query(tablet) {
+        width: 16px;
+        height: 16px;
+        margin-left: 3px;
+      }
+    }
+  }
+}
+.date {
+  p {
+    font-size: $font-size--setting-sm;
+    color: #9E9E9E;
+    font-weight: 400;
+    @include device__query(tablet) {
+      padding-left: 50px;
+    }
+  }
+}
+
+.sub__content {
+  width: 100%;
+  border-top: 2px solid #2D2D2D;
+  .content {
+    border-bottom: 1px solid $border-color--default;
+    padding: 40px;
+    > p {
+      word-break: break-all;
+      line-height: 1.6em;
+      font-weight: 400;
+      > img {
+        width: 100%;
+        margin: 32px 0;
+      }
+      a {
+        @include flex__row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 32px;
+        column-gap: 8px;
+        img {
+          width: 16px;
+          height: 16px;
+        }
+        span {
+          font-size: $font-size--setting-sm;
+          color: #777;
+        }
       }
     }
   }
