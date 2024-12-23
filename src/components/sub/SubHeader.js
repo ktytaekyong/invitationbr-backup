@@ -25,10 +25,10 @@ const SubHeader = () => {
           <ul className={`${styles.sub__menu}`}>
             <li><Link to="/Produce">청첩장 만들기</Link></li>
             {/* <li><Link to="/">감사장 만들기</Link></li> */}
-            <li><Link to="/Manager" className={location.pathname === "/Manager" ? styles.active : ""}>제작 관리</Link></li>
-            <li><Link to="/Produce">예식순서</Link></li>
-            <li><Link to="/Notice" className={location.pathname === "/Notice" ? styles.active : ""}>공지사항</Link></li>
-            <li><Link to="/Produce">자주하는 질문</Link></li>
+            <li><Link to="/Manager" className={location.pathname.includes("/Manager") ? styles.active : ""}>제작 관리</Link></li>
+            <li><Link to="/Wedding" className={location.pathname.includes("/Wedding") ? styles.active : ""}>예식순서</Link></li>
+            <li><Link to="/Notice" className={location.pathname.includes("/Notice") ? styles.active : ""}>공지사항</Link></li>
+            <li><Link to="/Qna" className={location.pathname.includes("/Qna") ? styles.active : ""}>자주하는 질문</Link></li>
           </ul>
           <ul className={styles.sub__tool}>
             <li><Link tp="/"><img src={myInfo} alt="" /><span>정보수정</span></Link></li>

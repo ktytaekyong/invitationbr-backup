@@ -8,6 +8,7 @@ import Main from "./components/main/Main";
 import Management from "./components/page/Management";
 import SubNotice from "./components/page/SubNotice";
 import SubNoticeDetail from "./components/page/SubNoticeDetail";
+import SubWedding from "./components/page/SubWedding";
 import ManagementDetail from "./components/page/ManagementDetail";
 import SubHeader from "./components/sub/SubHeader";
 import SubFooter from "./components/sub/SubFooter";
@@ -53,6 +54,26 @@ const Routers = () => {
             ) : (
               <Management />
             )}
+            <SubFooter />
+          </>
+        }
+      >
+        <Route 
+          path="Detail" 
+          element={
+            <>
+              <SubHeader />
+              <SubFooter />
+            </>
+          } 
+        />
+      </Route>
+      <Route
+        path="/Wedding"
+        element={
+          <>
+            <SubHeader />
+            <SubWedding />
             <SubFooter />
           </>
         }
