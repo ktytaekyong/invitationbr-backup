@@ -1,0 +1,81 @@
+@import "../../_module";
+.sub__mng_ltem {
+  @include flex__column;
+  justify-content: center;
+  align-items: center;
+  width: calc(100% / 3);
+  background: #FFF;
+  border-radius: 8px;
+  padding: 26px 20px;
+  .img__wrap {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 12px;
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+  .total {
+    font-size: $font-size--setting-default;
+    font-weight: $font-weight--SemiBold;
+    text-align: center;
+    line-height: 1.3em;
+  }
+  .detail {
+    @include flex__column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 18px;
+    width: 100%;
+    margin-top: 22px;
+    background: $bg-color--default;
+    padding: 16px 24px;
+    border-radius: 8px;
+    @include device__query(tablet) {
+      margin-top: 16px;
+      padding: 16px;
+    }
+    > div {
+      @include flex__row;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      @include device__query(tablet) {
+        @include flex__column;
+        border-bottom: 1px solid $border-color--default;
+        padding-bottom: 12px;
+      }
+      &:nth-of-type(2) {
+        @include device__query(tablet) {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+      }
+      p {
+        &:first-child {
+          font-size: 14px;
+          color: #9E9E9E;
+          @include device__query(tablet) {
+            line-height: 1.4em;
+            font-size: 13px;
+          }
+        }
+        &:nth-child(2) {
+          @include device__query(tablet) {
+            line-height: 1.4em;
+            font-size: 14px;
+          }
+          span {
+            @include device__query(tablet) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+  span {
+    color: $text-color--essential;
+  }
+}

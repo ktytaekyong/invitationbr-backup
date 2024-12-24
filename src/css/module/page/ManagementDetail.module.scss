@@ -1,0 +1,30 @@
+@import "../../_module";
+.mng__detail {
+  &_title {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 60px;
+    font-size: $font-size--setting-lg;
+    font-weight: $font-weight--SemiBold;
+    line-height: 1.5em;
+    @include device__query(tablet) {
+      margin-top: 92px;
+      font-size: $font-size--setting-default;
+    }
+  }
+  &_total {
+    @include flex__row;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px;
+    width: 100%;
+    max-width: 580px;
+    margin-top: 24px;
+    margin-bottom: 80px;
+    @include device__query(tablet) {
+      padding: 0 20px;
+      margin: 16px auto 40px;
+    }
+  }
+}

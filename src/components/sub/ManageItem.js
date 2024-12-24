@@ -1,5 +1,5 @@
 /* import */
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { Link, useNavigate  } from "react-router-dom";
 import Switch from '@mui/material/Switch';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -15,9 +15,10 @@ import { SetContext } from "../../store/option-set-context.js";
 import rightArrowImg from "../../img/icon/icon_arrow_right.png";
 
 const label = { inputProps: { 'aria-label': 'Switch use' } };
-const ManageItem = ({ inviteIdx, inviteItem, onChange }) => {
+const ManageItem = ({ inviteIdx, inviteItem, onChange, children }) => {
   const { isMobile } = useContext(SetContext);
   const navigate = useNavigate();
+
   return (
     <li className={`${styles.manage__item} ${inviteItem.use ? styles.active : styles.disabled}`}>
       <div className={styles.manage__item_wrap}>
@@ -41,6 +42,7 @@ const ManageItem = ({ inviteIdx, inviteItem, onChange }) => {
               label={inviteItem.use ? "청첩장 사용중" : "청첩장 미사용"}
               labelPlacement="start"
             />
+            {children}
           </>
         </div>
         <p className={styles.manage__item_title}>{inviteItem.title}</p>

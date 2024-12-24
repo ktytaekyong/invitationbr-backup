@@ -13,4 +13,9 @@
   @include device__query(tablet) {
     @include flex__column;
   }
+  &.column {
+    @include flex__column;
+    justify-content: center;
+    align-items: center;
+  }
 }

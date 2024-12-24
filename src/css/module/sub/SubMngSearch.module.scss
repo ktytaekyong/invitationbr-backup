@@ -1,0 +1,67 @@
+@import "../../_module";
+.sub__mng_search {
+  @include flex__row;
+  justify-content: center;
+  align-items: center;
+  column-gap: 16px;
+  width: 100%;
+  max-width: 624px;
+  margin-bottom: 32px;
+  @include device__query(tablet) {
+    background: #FFF;
+    margin-bottom: 0;
+    padding: 32px 20px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    max-width: unset;
+  }
+  &_wrapper {
+    @include position;
+    width: 100%;
+    &:first-child {
+      width: 132px;
+      @include device__query(tablet) {
+        width: calc(40% - 8px);
+      }
+    }
+    &:nth-child(2) {
+      width: 180px;
+      @include device__query(tablet) {
+        width: calc(60% - 8px);
+      }
+    }
+    &:last-child {
+      width: 280px;
+      @include device__query(tablet) {
+        width: 100%;
+      }
+    }
+    select {
+      background: url(../../../img/icon/icon_selector_arrow2.png) no-repeat center right 24px / 24px;
+      color: #777;
+    }
+    select, input {
+      border: none !important;
+      border-radius: 999px !important;
+      background-color: #FFF;
+      padding-left: 24px !important;
+      font-size: $font-size--setting-sm;
+      @include device__query(tablet) {
+        background-color: $bg-color--default;
+        height: 48px !important;
+      }
+    }
+    button {
+      @include position(a, 50%, null, 0, 24px);
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      border: none;
+      outline: none;
+      background: transparent;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

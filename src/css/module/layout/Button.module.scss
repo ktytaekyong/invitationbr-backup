@@ -265,6 +265,10 @@
       max-width: 96px;
       flex-shrink: 1;
       margin-top: 18px;
+      @include device__query(tablet) {
+        padding: 12px 24px;
+        font-size: $font-size--setting-sm !important;
+      }
     }
     &__point {
       font-size: $font-size--setting-sm;
@@ -276,7 +280,7 @@
       flex-shrink: 1;
       margin-top: 18px;
       @include device__query(tablet) {
-        font-size: $font-size--setting-xxsm;
+        padding: 12px 24px;
       }
     }
     &__kakao {

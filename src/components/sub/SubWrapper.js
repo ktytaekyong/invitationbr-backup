@@ -7,9 +7,9 @@ import styles from "../../css/module/sub/SubWrapper.module.scss";
 import { SetContext } from "../../store/option-set-context.js";
 /* Image */
 
-const SubWrapper = ({ children }) => {
+const SubWrapper = ({ children, column }) => {
   return (
-    <div className={styles.sub__wrapper}>{children}</div>
+    <div className={`${styles.sub__wrapper} ${column ? styles.column : ""}`}>{children}</div>
   )
 }
 

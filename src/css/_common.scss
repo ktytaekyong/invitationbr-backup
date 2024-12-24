@@ -256,3 +256,23 @@ textarea {
 .MuiTypography-root {
   font-family: "Pretendard" !important;
 }
+
+.MuiTooltip-tooltip {
+  width: 100%;
+  max-width: 180px !important;
+  font-family: "Pretendard" !important;
+  padding: 12px 13px !important;
+  border: 1px solid #2D2D2D;
+  background: #2D2D2D !important;
+  border-radius: 6px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  font-size: $font-size--setting-xsm !important;
+  font-weight: 400 !important;
+  text-align: center !important;
+  line-height: 1.4em !important;
+  word-break: keep-all;
+}
+.MuiTooltip-arrow {
+  filter: drop-shadow(0 4px 8px 0 rgba(0, 0, 0, 0.2));
+  color: #2D2D2D !important;
+}
