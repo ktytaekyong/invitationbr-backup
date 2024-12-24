@@ -57,11 +57,6 @@ const SubMngList = ({ item, idx }) => {
           <SubMngListItem></SubMngListItem>
           <SubMngListItem></SubMngListItem>
           <SubMngListItem></SubMngListItem>
-          <SubMngListItem></SubMngListItem>
-          <SubMngListItem></SubMngListItem>
-          <SubMngListItem></SubMngListItem>
-          <SubMngListItem></SubMngListItem>
-          <SubMngListItem></SubMngListItem>
         </div>
         <div className={styles.tool2}>
           <Button content="선택항목 삭제" styleType="default"></Button>
