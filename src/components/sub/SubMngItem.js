@@ -21,7 +21,7 @@ const SubMngItem = ({ img, type, listType }) => {
     };
     const incrementCounts = (condition, type, count) => {
       if (condition) {
-        total.totalCount = total.totalCount + count + 1; 
+        total.totalCount = total.totalCount + count + 1;
         if (type === "attendTypeGroom") {
           total.groomCount = total.groomCount + count + 1;
         } else {

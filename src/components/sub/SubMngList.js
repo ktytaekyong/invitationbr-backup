@@ -1,5 +1,5 @@
 /* import */
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { DateConverterDot } from "../../utils/helpers.js";
 /* CSS Module */
@@ -18,14 +18,30 @@ import iconClipImg from "../../img/icon/icon_clip.png";
 
 const SubMngList = () => {
   const { isMobile, attendGuestList, setAttendGuestList } = useContext(SetContext);
+  const [ checkGuestID, setCheckGuestID] = useState([]);
+  const [ allChk, setAllChk ] = useState(false);
+  // useEffect(() => {
+  //   console.log(allChk);
+  //   if(allChk) {
+  //     setCheckGuestID(prev => {
+  //       prev.map((item) => item)
+  //     })
+  //   }
+  // }, [allChk, checkGuestID])
   return (
     <div className={styles.sub__mng_list}>
       <div className={styles.sub__mng_list_wrapper}>
         <div className={styles.tool}>
           {isMobile ? 
             <div className={styles.mng__container_header_chkbox}>
-              <input type="checkbox" name="" id="" />
-              <label>전체 선택</label>
+              <input 
+                type="checkbox"
+                name="attendGuest" 
+                id="attendGuestAllMo"
+                checked={allChk}
+                onChange={() => setAllChk(!allChk)}
+              />
+              <label htmlFor="attendGuestAllMo">전체 선택</label>
             </div>
           : null}
           <p>총 <span>{attendGuestList.length}</span>건</p>
@@ -36,8 +52,14 @@ const SubMngList = () => {
             isMobile ? null :
             <div className={`${styles.mng__container_header} ${styles.mng__container_wrapper}`}>
               <div className={styles.mng__container_header_chkbox}>
-                <input type="checkbox" name="" id="" />
-                <label>전체 선택</label>
+                <input 
+                  type="checkbox" 
+                  name="attendGuest" 
+                  id="attendGuestAll"
+                  checked={allChk}
+                  onChange={() => setAllChk(!allChk)}
+                />
+                <label htmlFor="attendGuestAll">전체 선택</label>
               </div>
               <div>
                 <p>작성자 및 동행인 수</p>
