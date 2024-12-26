@@ -18,8 +18,8 @@ import iconClipImg from "../../img/icon/icon_clip.png";
 
 const SubMngList = () => {
   const { isMobile, attendGuestList, setAttendGuestList } = useContext(SetContext);
-  const [ checkGuestID, setCheckGuestID] = useState([]);
-  const [ allChk, setAllChk ] = useState(false);
+  const [checkGuestID, setCheckGuestID] = useState([]);
+  const [allChk, setAllChk] = useState(false);
   // useEffect(() => {
   //   console.log(allChk);
   //   if(allChk) {
@@ -32,29 +32,30 @@ const SubMngList = () => {
     <div className={styles.sub__mng_list}>
       <div className={styles.sub__mng_list_wrapper}>
         <div className={styles.tool}>
-          {isMobile ? 
+          {isMobile ? (
             <div className={styles.mng__container_header_chkbox}>
-              <input 
+              <input
                 type="checkbox"
-                name="attendGuest" 
+                name="attendGuest"
                 id="attendGuestAllMo"
                 checked={allChk}
                 onChange={() => setAllChk(!allChk)}
               />
-              <label htmlFor="attendGuestAllMo">전체 선택</label>
+              <label htmlFor="attendGuestAllMo">전체 ss선택</label>
             </div>
-          : null}
-          <p>총 <span>{attendGuestList.length}</span>건</p>
+          ) : null}
+          <p>
+            총 <span>{attendGuestList.length}</span>건
+          </p>
           {isMobile ? null : <Button content="액셀 다운로드" styleType="primary"></Button>}
         </div>
         <div className={styles.mng__container}>
-          {
-            isMobile ? null :
+          {isMobile ? null : (
             <div className={`${styles.mng__container_header} ${styles.mng__container_wrapper}`}>
               <div className={styles.mng__container_header_chkbox}>
-                <input 
-                  type="checkbox" 
-                  name="attendGuest" 
+                <input
+                  type="checkbox"
+                  name="attendGuest"
                   id="attendGuestAll"
                   checked={allChk}
                   onChange={() => setAllChk(!allChk)}
@@ -77,15 +78,14 @@ const SubMngList = () => {
                 <p>답변일</p>
               </div>
             </div>
-          }
-          {
-            attendGuestList.map((item, idx) => (
-              isMobile ?
+          )}
+          {attendGuestList.map((item, idx) =>
+            isMobile ? (
               <SubMngListItemMo key={item.attendName + idx} guest={item} />
-              :
+            ) : (
               <SubMngListItem key={item.attendName + idx} guest={item} />
-            ))
-          }
+            )
+          )}
         </div>
         <div className={styles.tool2}>
           <ButtonWrapper styleType={isMobile ? "centerfill" : ""}>
@@ -93,11 +93,11 @@ const SubMngList = () => {
             {isMobile ? <Button content="액셀 다운로드" styleType="primary"></Button> : null}
           </ButtonWrapper>
           {isMobile ? <Button content="확인" styleType="manage__point"></Button> : null}
-          {isMobile ? null: <SubPaging></SubPaging>}
+          {isMobile ? null : <SubPaging></SubPaging>}
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default SubMngList;
