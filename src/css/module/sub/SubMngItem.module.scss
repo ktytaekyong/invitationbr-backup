@@ -34,7 +34,7 @@
     border-radius: 8px;
     @include device__query(tablet) {
       margin-top: 16px;
-      padding: 16px;
+      padding: 16px 13px;
     }
     > div {
       @include flex__row;
