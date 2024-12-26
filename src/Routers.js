@@ -26,22 +26,18 @@ const Routers = () => {
         path="/Produce"
         element={
           <>
-            {location.pathname === "/Produce/Preview" ? (
-              <HeaderPreview />
-            ) : (
-              <Header />
-            )}
+            {location.pathname === "/Produce/Preview" ? <HeaderPreview /> : <Header />}
             <View />
           </>
         }
       >
-        <Route 
-          path="Preview" 
+        <Route
+          path="Preview"
           element={
             <>
               <View />
             </>
-          } 
+          }
         />
       </Route>
       <Route
@@ -49,23 +45,19 @@ const Routers = () => {
         element={
           <>
             <SubHeader />
-            {location.pathname === "/Manager/Detail" ? (
-              <ManagementDetail />
-            ) : (
-              <Management />
-            )}
+            {location.pathname === "/Manager/Detail" ? <ManagementDetail /> : <Management />}
             <SubFooter />
           </>
         }
       >
-        <Route 
-          path="Detail" 
+        <Route
+          path="Detail"
           element={
             <>
               <SubHeader />
               <SubFooter />
             </>
-          } 
+          }
         />
       </Route>
       <Route
@@ -78,14 +70,14 @@ const Routers = () => {
           </>
         }
       >
-        <Route 
-          path="Detail" 
+        <Route
+          path="Detail"
           element={
             <>
               <SubHeader />
               <SubFooter />
             </>
-          } 
+          }
         />
       </Route>
       <Route
@@ -93,23 +85,19 @@ const Routers = () => {
         element={
           <>
             <SubHeader />
-            {location.pathname === "/Notice/Detail" ? (
-              <SubNoticeDetail />
-            ) : (
-              <SubNotice />
-            )}
+            {location.pathname === "/Notice/Detail" ? <SubNoticeDetail /> : <SubNotice />}
             <SubFooter />
           </>
         }
       >
-        <Route 
-          path="Detail" 
+        <Route
+          path="Detail"
           element={
             <>
               <SubHeader />
               <SubFooter />
             </>
-          } 
+          }
         />
       </Route>
     </Routes>
