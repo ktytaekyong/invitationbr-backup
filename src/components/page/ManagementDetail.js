@@ -31,14 +31,15 @@ const tabList = [
   // }, 
 ]
 const ManagementDetail = () => {
-  const { isMobile } = useContext(SetContext);
+  const { isMobile, attendGuestList } = useContext(SetContext);
+
   return (
     <div className={styles.mng__detail}>
       {isMobile ?
         null :
         <SubTitle 
           type="mng"
-          subTitle="제작 관리" 
+          subTitle="제작 관리"
           subContent=""
         />
       }
@@ -47,14 +48,17 @@ const ManagementDetail = () => {
         <SubMngItem
           img={iconMngImg1}
           type="참석 가능"
+          listType={"whether"}
         ></SubMngItem>
         <SubMngItem
           img={iconMngImg2}
           type="식사 가능"
+          listType={"meal"}
         ></SubMngItem>
         <SubMngItem
           img={iconMngImg3}
           type="버스 탑승"
+          listType={"bus"}
         ></SubMngItem>
       </ul>
       <SubMngSearch></SubMngSearch>

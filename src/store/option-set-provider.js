@@ -35,6 +35,7 @@ const SetProvider = ({ children }) => {
   const [attendList, setAttendList] = useState(initList.attendList);
   const [attendGuest, setAttendGuest] = useState(initList.attendList);
   const [openSettingTab, setOpenSettingTab] = useState("");
+  const [attendGuestList, setAttendGuestList] = useState(initList.attendGuestList);
   const settingList = initList.settingList;
   return (
     <SetContext.Provider
@@ -80,7 +81,9 @@ const SetProvider = ({ children }) => {
         attendGuest,
         setAttendGuest,
         openSettingTab,
-        setOpenSettingTab
+        setOpenSettingTab,
+        attendGuestList,
+        setAttendGuestList
       }}
     >
       {children}

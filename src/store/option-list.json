@@ -412,7 +412,116 @@
     "attendMealYes": "",
     "attendBusYes": ""
   },
-  "attendGuestList": [],
+  "attendGuestList": [
+    {
+      "attendType": "attendTypeGroom",
+      "attendWhether": true,
+      "attendName": "최보윤",
+      "attendCount": 3,
+      "attendMealYes": true,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeGroom",
+      "attendWhether": true,
+      "attendName": "임시화",
+      "attendCount": 0,
+      "attendMealYes": false,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeBride",
+      "attendWhether": true,
+      "attendName": "이정이",
+      "attendCount": 198,
+      "attendMealYes": true,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeBride",
+      "attendWhether": true,
+      "attendName": "안석진",
+      "attendCount": 2,
+      "attendMealYes": true,
+      "attendBusYes": true,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeGroom",
+      "attendWhether": true,
+      "attendName": "박민혁",
+      "attendCount": 45,
+      "attendMealYes": false,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeGroom",
+      "attendWhether": true,
+      "attendName": "오현자",
+      "attendCount": 6,
+      "attendMealYes": true,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeBride",
+      "attendWhether": true,
+      "attendName": "이시우",
+      "attendCount": 2,
+      "attendMealYes": true,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeGroom",
+      "attendWhether": false,
+      "attendName": "유강일",
+      "attendCount": 0,
+      "attendMealYes": false,
+      "attendBusYes": false,
+      "attendDate": "2024-12-03"
+    },
+    {
+      "attendType": "attendTypeBride",
+      "attendWhether": true,
+      "attendName": "황보명",
+      "attendCount": 1,
+      "attendMealYes": true,
+      "attendBusYes": true,
+      "attendDate": "2024-12-07"
+    },
+    {
+      "attendType": "attendTypeBride",
+      "attendWhether": false,
+      "attendName": "박찬솔",
+      "attendCount": 0,
+      "attendMealYes": false,
+      "attendBusYes": false,
+      "attendDate": "2024-12-08"
+    },
+    {
+      "attendType": "attendTypeBride",
+      "attendWhether": true,
+      "attendName": "오태경 ",
+      "attendCount": 3,
+      "attendMealYes": false,
+      "attendBusYes": false,
+      "attendDate": "2024-12-09"
+    },
+    {
+      "attendType": "attendTypeGroom",
+      "attendWhether": false,
+      "attendName": "류승하",
+      "attendCount": 0,
+      "attendMealYes": false,
+      "attendBusYes": false,
+      "attendDate": "2024-12-21"
+    }
+  ],
 
   "selectIntroColor": [],
   "prevIntroColor": [],

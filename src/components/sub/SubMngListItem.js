@@ -11,30 +11,33 @@ import { SetContext } from "../../store/option-set-context.js";
 import SubListSearch from "./SubListSearch.js";
 import iconClipImg from "../../img/icon/icon_clip.png";
 
-const SubMngListItem = ({ item, idx }) => {
+const SubMngListItem = ({ guest }) => {
   const { isMobile } = useContext(SetContext);
   return (
     <div className={`${styles.sub__mng_list_item} ${styles.mng__container_wrapper}`}>
       <div>
-        <input type="checkbox" />
+        <input type="checkbox" id={"guest" + Math.random() * 10} />
       </div>
       <div className={styles.sub__mng_no__center}>
-        <div className={`${styles.badge} ${styles.typeF}`}>
-          <p>신부측</p>
+        <div className={`${styles.badge} ${guest.attendType === "attendTypeGroom" ? styles.typeM : styles.typeF}`}>
+          {guest.attendType === "attendTypeGroom" ? <p>신랑측</p> : <p>신부측</p>}
         </div>
-        <p><span>{"최보윤"}</span> 외 <span>{0}명</span></p>
+        {guest.attendCount === 0 ? 
+          <p><span>{guest.attendName}</span></p> : 
+          <p><span>{guest.attendName}</span> 외 <span>{guest.attendCount}명</span></p>
+        }
       </div>
       <div>
-        <span>O</span>
+        {guest.attendWhether ? <span>O</span> : <span>X</span>}
       </div>
       <div>
-        <span>X</span>
+        {guest.attendMealYes ? <span>O</span> : <span>X</span>}
       </div>
       <div>
-        <span>X</span>
+        {guest.attendBusYes ? <span>O</span> : <span>X</span>}
       </div>
       <div>
-        <p className={styles.date}>2024.12.03</p>
+        <p className={styles.date}>{guest.attendDate}</p>
       </div>
     </div>
   )

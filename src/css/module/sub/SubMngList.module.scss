@@ -23,7 +23,7 @@
       width: 100%;
       margin-bottom: 24px;
       @include device__query(tablet) {
-        margin-bottom: 21px;
+        margin-bottom: 18px;
       }
       p {
         @include device__query(tablet) {
@@ -47,6 +47,24 @@
           margin-top: 0;
         }
       }
+      @include device__query(tablet) {
+        @include flex__column;
+        row-gap: 12px;
+        padding-bottom: 80px;
+        width: 100%;
+        button {
+          font-size: $font-size--setting-sm !important;
+          padding: 13px 0;
+          flex-shrink: 1;
+          margin-top: 0;
+        }
+        > div {
+          > div {
+            @include position(s);
+            transform: unset;
+          }
+        }
+      }
     }
     .mng__container {
       @include device__query(tablet) {
@@ -58,7 +76,7 @@
         grid-template-columns: 1fr 2.2fr 1fr 1fr 1fr 1fr;
         width: 100%;
         @include device__query(tablet) {
-          grid-template-columns: 1fr 2.2fr 5fr;
+          grid-template-columns: 1.2fr 3.2fr 5fr;
         }
       }
       &_header {
@@ -73,7 +91,7 @@
           align-items: center;
           @include device__query(tablet) {
             label {
-              margin-left: 8px;
+              margin-left: 4px;
               font-size: $font-size--setting-sm;
             }
           }
@@ -102,22 +120,63 @@
     > div > span {
       font-family: "GmarketSansBold";
     }
-    .date {
+    p.date {
       color: #9E9E9E;
       font-weight: $font-weight--Medium;
       font-size: $font-size--setting-ssm;
+      @include device__query(tablet) {
+        font-size: $font-size--setting-xsm !important;
+        margin-bottom: 0;
+      }
+    }
+    &_total {
+      @include device__query(tablet) {
+        @include flex__row;
+        justify-content: center;
+        align-items: flex-end;
+        column-gap: 8px;
+        > div {
+          @include flex__column;
+          justify-content: center;
+          align-items: center;
+          padding: 8px;
+          background: $bg-color--default;
+          border-radius: 8px;
+          > span {
+            &:first-of-type {
+              border-bottom: 1px solid $border-color--default;
+              padding-bottom: 8px;
+              margin-bottom: 8px;
+              color: #9E9E9E;
+            }
+            &:nth-of-type(2) {
+              font-family: "GmarketSansBold";
+            }
+          }
+        }
+      }
     }
   }
   .sub__mng_no__center {
     @include flex__row;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     column-gap: 16px;
     width: 100%;
     place-items: center start;
+    padding-left: 30px;
+    @include device__query(tablet) {
+      @include flex__column;
+      align-items: flex-start;
+      padding-left: 10px;
+    }
     > p {
       color: #9E9E9E;
       font-size: $font-size--setting-lg;
+      @include device__query(tablet) {
+        font-size: $font-size--setting-default;
+        margin-bottom: 8px;
+      }
       span:nth-child(2) {
         color: $text-color--essential;
       }
@@ -126,6 +185,10 @@
   .badge {
     padding: 10px 18px;
     border-radius: 8px;
+    @include device__query(tablet) {
+      margin-bottom: 8px;
+      padding: 7px 6px;
+    }
     &.typeF {
       background: #FFF3F1;
       p {
@@ -140,6 +203,9 @@
     }
     p {
       font-size: $font-size--setting-ssm;
+      @include device__query(tablet) {
+        font-size: $font-size--setting-xxsm;
+      }
     }
   }
   input {

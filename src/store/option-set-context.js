@@ -42,6 +42,8 @@ export const SetContext = createContext({
   setAttendList: () => {},
   attendGuest: {},
   setAttendGuest: () => {},
+  attendGuestList: [],
+  setAttendGuestList: () => {},
 
   openSettingTab: {},
   setOpenSettingTab: () => {}
