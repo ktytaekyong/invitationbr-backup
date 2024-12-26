@@ -41,7 +41,7 @@ const SubMngList = () => {
                 checked={allChk}
                 onChange={() => setAllChk(!allChk)}
               />
-              <label htmlFor="attendGuestAllMo">전체 ss선택</label>
+              <label htmlFor="attendGuestAllMo">전체 선택</label>
             </div>
           ) : null}
           <p>
