@@ -3,6 +3,7 @@
   "name": "invitationbr_private_save",
   "version": "0.1.0",
   "private": true,
+  "deploy": "gh-pages -d build",
   "dependencies": {
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
