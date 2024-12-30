@@ -83,37 +83,37 @@
       "itemId": "settingFixedTab",
       "itemTitle": "고정 메뉴 설정",
       "itemContent": "FixedTabSetting"
-    }, 
+    },
     {
       "itemId": "settingBasicInfomation",
       "itemTitle": "기본 정보",
       "itemContent": "BasicInfomationSetting"
-    }, 
+    },
     {
       "itemId": "settingBackground",
       "itemTitle": "배경",
       "itemContent": "BackgroundSetting"
-    }, 
+    },
     {
       "itemId": "settingIntro",
       "itemTitle": "인트로 화면",
       "itemContent": "IntroSetting"
-    }, 
+    },
     {
       "itemId": "settingIntroPhoto",
       "itemTitle": "인트로 사진",
       "itemContent": "IntroPhotoSetting"
-    }, 
+    },
     {
       "itemId": "settingCoupleInfomation",
       "itemTitle": "신랑/신부 정보",
       "itemContent": "CoupleInfomationSetting"
-    }, 
+    },
     {
       "itemId": "settingLetter",
       "itemTitle": "모시는 글",
       "itemContent": "LetterSetting"
-    }, 
+    },
     {
       "itemId": "settingDate",
       "itemTitle": "예식 일시",
@@ -123,84 +123,84 @@
       "itemId": "settingLocation",
       "itemTitle": "오시는 길",
       "itemContent": "LocationSetting"
-    }, 
+    },
     {
       "itemId": "settingGallery",
       "itemEssential": false,
       "itemCheckbox": "settingGalleryUse",
       "itemTitle": "갤러리",
       "itemContent": "GallerySetting"
-    }, 
+    },
     {
       "itemId": "settingVideo",
       "itemEssential": false,
       "itemCheckbox": "settingVideoUse",
       "itemTitle": "동영상",
       "itemContent": "VideoSetting"
-    }, 
+    },
     {
       "itemId": "settingGift",
       "itemEssential": false,
       "itemCheckbox": "settingGiftUse",
       "itemTitle": "마음 전하기",
       "itemContent": "GiftSetting"
-    }, 
+    },
     {
       "itemId": "settingNoticeT",
       "itemEssential": false,
       "itemCheckbox": "settingNoticeTUse",
       "itemTitle": "안내사항",
       "itemContent": "NoticeSettingT"
-    }, 
+    },
     {
       "itemId": "settingNoticeD",
       "itemEssential": false,
       "itemCheckbox": "settingNoticeDUse",
       "itemTitle": "공지사항",
       "itemContent": "NoticeSettingD"
-    }, 
+    },
     {
       "itemId": "settingBgMusic",
       "itemEssential": false,
       "itemCheckbox": "settingBgMusicUse",
       "itemTitle": "배경음악",
       "itemContent": "BgMusicSetting"
-    }, 
+    },
     {
       "itemId": "settingGuestbook",
       "itemEssential": false,
       "itemCheckbox": "settingGuestbookUse",
       "itemTitle": "방명록",
       "itemContent": "GuestbookSetting"
-    }, 
+    },
     {
       "itemId": "settingAttend",
       "itemEssential": false,
       "itemCheckbox": "settingAttendUse",
       "itemTitle": "참석의사 (RSVP)",
       "itemContent": "AttendSetting"
-    }, 
+    },
     {
       "itemId": "settingOutro",
       "itemEssential": false,
       "itemCheckbox": "settingOutroUse",
       "itemTitle": "하단 글귀",
       "itemContent": "OutroSetting"
-    }, 
+    },
     {
       "itemId": "settingThumbK",
       "itemEssential": false,
       "itemCheckbox": "settingThumbKUse",
       "itemTitle": "카카오톡 공유 썸네일",
       "itemContent": "ThumbnailSettingK"
-    }, 
+    },
     {
       "itemId": "settingThumbU",
       "itemEssential": false,
       "itemCheckbox": "settingThumbUUse",
       "itemTitle": "URL 공유 썸네일",
       "itemContent": "ThumbnailSettingU"
-    }, 
+    },
     {
       "itemId": "settingOrder",
       "itemEssential": false,
@@ -296,10 +296,32 @@
 
   "selectBGM": "bgid0",
   "basicSettingList": [
-    "settingFixedTab", "settingBasicInfomation", "settingBackground", "settingIntro", "settingIntroPhoto", "settingCoupleInfomation", "settingLetter", "settingDate", "settingLocation"
+    "settingFixedTab",
+    "settingBasicInfomation",
+    "settingBackground",
+    "settingIntro",
+    "settingIntroPhoto",
+    "settingCoupleInfomation",
+    "settingLetter",
+    "settingDate",
+    "settingLocation"
   ],
   "selectSettingList": [
-    "settingLetter", "settingDate", "settingLocation", "settingGallery", "settingVideo", "settingGift", "settingNoticeT", "settingNoticeD", "settingBgMusic", "settingGuestbook", "settingAttend", "settingOutro", "settingThumbK", "settingThumbU", "settingOrder"
+    "settingLetter",
+    "settingDate",
+    "settingLocation",
+    "settingGallery",
+    "settingVideo",
+    "settingGift",
+    "settingNoticeT",
+    "settingNoticeD",
+    "settingBgMusic",
+    "settingGuestbook",
+    "settingAttend",
+    "settingOutro",
+    "settingThumbK",
+    "settingThumbU",
+    "settingOrder"
   ],
   "selectTabList": ["tabLetter", "tabDate", "tabGallery", "tabLocation"],
   "selectIntroPhoto": [
@@ -308,36 +330,35 @@
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo2.png",
+      "src": "./img/intro/intro_photo2.png",
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo3.png",
+      "src": "./img/intro/intro_photo3.png",
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo4.png",
+      "src": "./img/intro/intro_photo4.png",
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo5.png",
+      "src": "./img/intro/intro_photo5.png",
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo6.png",
+      "src": "./img/intro/intro_photo6.png",
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo7.png",
+      "src": "./img/intro/intro_photo7.png",
       "alt": ""
     },
     {
-      "src": "/img/intro/intro_photo8.png",
+      "src": "./img/intro/intro_photo8.png",
       "alt": ""
     }
   ],
-  "selectLocationFile": [
-  ],
+  "selectLocationFile": [],
   "selectGalleryView": false,
   "selectGalleryPhotoList": [
     {
@@ -381,9 +402,7 @@
     "optionAttendKakao": false
   },
 
-  "introSample": [
-
-  ],
+  "introSample": [],
 
   "videoList": {
     "videoUrl": "",
@@ -526,9 +545,7 @@
   "selectIntroColor": [],
   "prevIntroColor": [],
   "presetColors": ["#cd9323", "#1a53d8", "#9a2151", "#0d6416", "#53426d"],
-  "selectIntroWord": [
-
-  ],
+  "selectIntroWord": [],
   "trafficList": [
     {
       "traffic": "",
@@ -613,4 +630,3 @@
     }
   ]
 }
-
