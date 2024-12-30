@@ -1,12 +1,20 @@
 {
   "files": {
-    "main.css": "/invitationbr_private_save/static/css/main.b921455e.css",
-    "main.js": "/invitationbr_private_save/static/js/main.6d58f431.js",
+    "main.css": "/invitationbr_private_save/static/css/main.61fc08b9.css",
+    "main.js": "/invitationbr_private_save/static/js/main.30d28e06.js",
     "static/media/NanumMyeongjoYetHangul.ttf": "/invitationbr_private_save/static/media/NanumMyeongjoYetHangul.c5d3875f997173bba4a9.ttf",
     "static/media/SeoulHangangM.ttf": "/invitationbr_private_save/static/media/SeoulHangangM.39f5472180c87ee602e0.ttf",
     "static/media/effect_snow1.gif": "/invitationbr_private_save/static/media/effect_snow1.8e4152cc3150a8963627.gif",
     "static/media/main1.png": "/invitationbr_private_save/static/media/main1.a680d8951d48dcaa2068.png",
     "static/media/effect_flower1.gif": "/invitationbr_private_save/static/media/effect_flower1.2cc599e7a6a2beb62a53.gif",
+    "static/media/Pretendard-ExtraBold.woff2": "/invitationbr_private_save/static/media/Pretendard-ExtraBold.26df84c2b3b8cb8a4b0c.woff2",
+    "static/media/Pretendard-Bold.woff2": "/invitationbr_private_save/static/media/Pretendard-Bold.0c6f5e225ff28f456183.woff2",
+    "static/media/Pretendard-SemiBold.woff2": "/invitationbr_private_save/static/media/Pretendard-SemiBold.d5ded8ad2884e7855bb1.woff2",
+    "static/media/Pretendard-Medium.woff2": "/invitationbr_private_save/static/media/Pretendard-Medium.a9645bebe1a0010e66dc.woff2",
+    "static/media/Pretendard-Regular.woff2": "/invitationbr_private_save/static/media/Pretendard-Regular.38bed7de46e7b9049ced.woff2",
+    "static/media/Pretendard-Light.woff2": "/invitationbr_private_save/static/media/Pretendard-Light.1fc5521353ec20635e8e.woff2",
+    "static/media/Pretendard-ExtraLight.woff2": "/invitationbr_private_save/static/media/Pretendard-ExtraLight.6a3dddfd84c05761ef44.woff2",
+    "static/media/Pretendard-Thin.woff2": "/invitationbr_private_save/static/media/Pretendard-Thin.bb7cedf4446fa24dda9d.woff2",
     "static/media/intro_photo_test7.png": "/invitationbr_private_save/static/media/intro_photo_test7.a47030b19c073fb5baf4.png",
     "static/media/intro_photo_test8.png": "/invitationbr_private_save/static/media/intro_photo_test8.59908aff3d20fcca2d18.png",
     "static/media/intro_photo_test6.png": "/invitationbr_private_save/static/media/intro_photo_test6.68bbd8ce5ae4180abbb3.png",
@@ -52,7 +60,7 @@
     "static/media/icon_header_home.svg": "/invitationbr_private_save/static/media/icon_header_home.346c978b867f76a6f4f0b45d87ed14cd.svg",
     "static/media/checkbox_selected.svg": "/invitationbr_private_save/static/media/checkbox_selected.8bef5114f29a112f3f2f.svg",
     "static/media/icon_header_home_arrow.svg": "/invitationbr_private_save/static/media/icon_header_home_arrow.ebec443afb44268c6e504fd014b1dfd4.svg",
-    "static/media/icon_settingItem_arrow.svg": "/invitationbr_private_save/static/media/icon_settingItem_arrow.92a7d0e503dd4a64d8277331c76d311f.svg",
+    "static/media/icon_settingItem_arrow.svg": "/invitationbr_private_save/static/media/icon_settingItem_arrow.b95b75a4de19a2df4c353bb0929d1b9a.svg",
     "static/media/icon_editor_tool_underline.svg": "/invitationbr_private_save/static/media/icon_editor_tool_underline.f4f329f9381569193a34aedccf6dc076.svg",
     "static/media/icon_editor_tool_italic.svg": "/invitationbr_private_save/static/media/icon_editor_tool_italic.3e02ded0f6808b8c0c7f889efe9549d7.svg",
     "static/media/icon_editor_tool_bold.svg": "/invitationbr_private_save/static/media/icon_editor_tool_bold.c88013b59125edce312720694d75c0f1.svg",
@@ -61,11 +69,11 @@
     "static/media/icon_editor_tool_left.svg": "/invitationbr_private_save/static/media/icon_editor_tool_left.6b0e76acfeeed19d21787701954e48a2.svg",
     "static/media/radiobox_selected.svg": "/invitationbr_private_save/static/media/radiobox_selected.92bdfa68de1360256951.svg",
     "static/media/radiobox_disabled.svg": "/invitationbr_private_save/static/media/radiobox_disabled.1204bcce70e76e000287.svg",
-    "main.b921455e.css.map": "/invitationbr_private_save/static/css/main.b921455e.css.map",
-    "main.6d58f431.js.map": "/invitationbr_private_save/static/js/main.6d58f431.js.map"
+    "main.61fc08b9.css.map": "/invitationbr_private_save/static/css/main.61fc08b9.css.map",
+    "main.30d28e06.js.map": "/invitationbr_private_save/static/js/main.30d28e06.js.map"
   },
   "entrypoints": [
-    "static/css/main.b921455e.css",
-    "static/js/main.6d58f431.js"
+    "static/css/main.61fc08b9.css",
+    "static/js/main.30d28e06.js"
   ]
 }
