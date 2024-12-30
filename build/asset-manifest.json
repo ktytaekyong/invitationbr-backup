@@ -64,5 +64,8 @@
     "main.b921455e.css.map": "/invitationbr_private_save/static/css/main.b921455e.css.map",
     "main.cb5bf0c6.js.map": "/invitationbr_private_save/static/js/main.cb5bf0c6.js.map"
   },
-  "entrypoints": ["static/css/main.b921455e.css", "static/js/main.cb5bf0c6.js"]
+  "entrypoints": [
+    "static/css/main.b921455e.css",
+    "static/js/main.cb5bf0c6.js"
+  ]
 }
