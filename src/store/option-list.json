@@ -326,7 +326,7 @@
   "selectTabList": ["tabLetter", "tabDate", "tabGallery", "tabLocation"],
   "selectIntroPhoto": [
     {
-      "src": "/img/intro/intro_photo1.png",
+      "src": "./img/intro/intro_photo1.png",
       "alt": ""
     },
     {
