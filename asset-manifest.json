@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.68128cb1.css",
-    "main.js": "/static/js/main.f3615257.js",
+    "main.js": "/static/js/main.50d64533.js",
     "static/media/NanumMyeongjoYetHangul.ttf": "/static/media/NanumMyeongjoYetHangul.c5d3875f997173bba4a9.ttf",
     "static/media/SeoulHangangM.ttf": "/static/media/SeoulHangangM.39f5472180c87ee602e0.ttf",
     "static/media/effect_snow1.gif": "/static/media/effect_snow1.8e4152cc3150a8963627.gif",
@@ -62,10 +62,10 @@
     "static/media/radiobox_selected.svg": "/static/media/radiobox_selected.92bdfa68de1360256951.svg",
     "static/media/radiobox_disabled.svg": "/static/media/radiobox_disabled.1204bcce70e76e000287.svg",
     "main.68128cb1.css.map": "/static/css/main.68128cb1.css.map",
-    "main.f3615257.js.map": "/static/js/main.f3615257.js.map"
+    "main.50d64533.js.map": "/static/js/main.50d64533.js.map"
   },
   "entrypoints": [
     "static/css/main.68128cb1.css",
-    "static/js/main.f3615257.js"
+    "static/js/main.50d64533.js"
   ]
 }
