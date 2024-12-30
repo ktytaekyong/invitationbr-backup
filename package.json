@@ -1,5 +1,5 @@
 {
-  "homepage": "https://ktytaekyong.github.io/invitationbr_private_save",
+  "homepage": "http://invitationbr_private_save.com",
   "name": "invitationbr_private_save",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +16,7 @@
     "browser-image-compression": "^2.0.2",
     "dayjs": "^1.11.13",
     "dnd-multi-backend": "^8.0.3",
+    "gsap": "^3.12.5",
     "immutability-helper": "^3.1.1",
     "npm": "^10.8.3",
     "rdndmb-html5-to-touch": "^8.0.3",
@@ -38,9 +39,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -61,7 +60,6 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0",
     "gulp": "^5.0.0",
     "gulp-rename": "^2.0.0",
     "gulp-replace": "^1.1.4",

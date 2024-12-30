@@ -9,6 +9,7 @@ import Management from "./components/page/Management";
 import SubNotice from "./components/page/SubNotice";
 import SubNoticeDetail from "./components/page/SubNoticeDetail";
 import SubWedding from "./components/page/SubWedding";
+import SubQna from "./components/page/SubQna";
 import ManagementDetail from "./components/page/ManagementDetail";
 import SubHeader from "./components/sub/SubHeader";
 import SubFooter from "./components/sub/SubFooter";
@@ -26,18 +27,22 @@ const Routers = () => {
         path="/Produce"
         element={
           <>
-            {location.pathname === "/Produce/Preview" ? <HeaderPreview /> : <Header />}
+            {location.pathname === "/Produce/Preview" ? (
+              <HeaderPreview />
+            ) : (
+              <Header />
+            )}
             <View />
           </>
         }
       >
-        <Route
-          path="Preview"
+        <Route 
+          path="Preview" 
           element={
             <>
               <View />
             </>
-          }
+          } 
         />
       </Route>
       <Route
@@ -45,19 +50,23 @@ const Routers = () => {
         element={
           <>
             <SubHeader />
-            {location.pathname === "/Manager/Detail" ? <ManagementDetail /> : <Management />}
+            {location.pathname === "/Manager/Detail" ? (
+              <ManagementDetail />
+            ) : (
+              <Management />
+            )}
             <SubFooter />
           </>
         }
       >
-        <Route
-          path="Detail"
+        <Route 
+          path="Detail" 
           element={
             <>
               <SubHeader />
               <SubFooter />
             </>
-          }
+          } 
         />
       </Route>
       <Route
@@ -70,14 +79,14 @@ const Routers = () => {
           </>
         }
       >
-        <Route
-          path="Detail"
+        <Route 
+          path="Detail" 
           element={
             <>
               <SubHeader />
               <SubFooter />
             </>
-          }
+          } 
         />
       </Route>
       <Route
@@ -85,20 +94,35 @@ const Routers = () => {
         element={
           <>
             <SubHeader />
-            {location.pathname === "/Notice/Detail" ? <SubNoticeDetail /> : <SubNotice />}
+            {location.pathname === "/Notice/Detail" ? (
+              <SubNoticeDetail />
+            ) : (
+              <SubNotice />
+            )}
             <SubFooter />
           </>
         }
       >
-        <Route
-          path="Detail"
+        <Route 
+          path="Detail" 
           element={
             <>
               <SubHeader />
               <SubFooter />
             </>
-          }
+          } 
         />
+      </Route>
+      <Route
+        path="/Qna"
+        element={
+          <>
+            <SubHeader />
+              <SubQna />
+            <SubFooter />
+          </>
+        }
+      >
       </Route>
     </Routes>
   );

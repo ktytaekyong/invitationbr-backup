@@ -1,17 +1,12 @@
 /* import */
-import { useContext, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 /* CSS Module */
 import styles from "../../css/module/sub/ManageList.module.scss";
 /* Component */
 import ManageItem from "../sub/ManageItem.js";
 import BasicTooltip from "../layout/BasicTooltip.js";
-/* Context */
-import { SetContext } from "../../store/option-set-context.js";
-/* Image */
 
-const ManageList = ({ noticeList }) => {
-  const { isMobile } = useContext(SetContext);
+const ManageList = () => {
   const [open, setOpen] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => setOpen(false), 6000);
@@ -50,9 +45,8 @@ const ManageList = ({ noticeList }) => {
       <div className={styles.manage__list_wrap}>
         <ul>
           {inviteList.map((item, idx) => (
-            <>
+            <div key={idx + item.id}>
               <ManageItem 
-                key={item.id}
                 inviteIdx={idx}
                 inviteItem={item}
                 onChange={setInviteList}
@@ -65,10 +59,10 @@ const ManageList = ({ noticeList }) => {
                     open={open}
                     onClose={() => setOpen(false)}
                     onOpen={() => setOpen(true)}
-                  /> : null
+                  ><span style={{ opacity: "0" }}></span></BasicTooltip> : null
                 }
               </ManageItem>
-            </>
+            </div>
           ))}
         </ul>
       </div>

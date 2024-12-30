@@ -9,7 +9,7 @@ import ContextWrap from "./store/option-context-wrap";
 
 function App() {
   return (
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <BrowserRouter>
       <ContextWrap>
         <div className="App">
           <Routers></Routers>
